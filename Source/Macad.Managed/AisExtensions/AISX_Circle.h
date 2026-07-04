@@ -15,20 +15,20 @@ public:
     void SetKnobPosition(double theParam);
 
     void Compute(const Handle(PrsMgr_PresentationManager)& thePrsMgr,
-                 const Handle(Prs3d_Presentation)& thePrs, const Standard_Integer theMode) override;
+                 const Handle(Prs3d_Presentation)& thePrs, const int theMode) override;
     void HilightOwnerWithColor(const Handle(PrsMgr_PresentationManager)& thePrsMgr, const Handle(Prs3d_Drawer)& theStyle, 
                                const Handle(SelectMgr_EntityOwner)& theOwner) override;
     void HilightSelected(const Handle(PrsMgr_PresentationManager)& thePrsMgr, const SelectMgr_SequenceOfOwner& theSeq) override;
-    void ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const Standard_Integer theMode) override;
+    void ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const int theMode) override;
 
     //--------------------------------------------------------------------------------------------------
 
-    Standard_Boolean AcceptDisplayMode(const Standard_Integer theMode) const override
+    bool AcceptDisplayMode(const int theMode) const override
     {
         return theMode<=1;
     }
 
-    Standard_Integer Signature() const override
+    int Signature() const override
     {
         return 6; /* Circle */
     }

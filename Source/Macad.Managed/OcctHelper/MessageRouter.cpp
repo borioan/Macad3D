@@ -124,7 +124,7 @@ namespace Macad
 				{
 				    if(MessageArrived != nullptr)
 				    {
-	                    const Standard_ExtString extString = theString.ToExtString();
+	                    const char16_t* extString = theString.ToExtString();
 				        MessageArrived(gcnew System::String((const wchar_t *)extString), (Message_Gravity)theGravity);
 				    }
 				}

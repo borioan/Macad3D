@@ -7,7 +7,7 @@ using namespace System;
 // macro to compare two types of shapes
 // always True if the first one is SHAPE
 #define SAMETYPE(x,y) ((x) == (y))
-#define AVOID(x,y) (((x) == TopAbs_SHAPE) ? Standard_False : (x) == (y))
+#define AVOID(x,y) (((x) == TopAbs_SHAPE) ? false : (x) == (y))
 #define LESSCOMPLEX(x,y) ((x) > (y))
 
 

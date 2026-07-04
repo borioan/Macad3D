@@ -14,7 +14,7 @@ void AISX_InstanceFilter::Add(Handle(AIS_InteractiveObject) hInstance)
 
 //--------------------------------------------------------------------------------------------------
 
-Standard_Boolean AISX_InstanceFilter::IsOk (const Handle(SelectMgr_EntityOwner)& anObj) const
+bool AISX_InstanceFilter::IsOk (const Handle(SelectMgr_EntityOwner)& anObj) const
 {
     Handle(AIS_InteractiveObject) anInstance = Handle(AIS_InteractiveObject)::DownCast(anObj->Selectable());
     if(anInstance.IsNull())

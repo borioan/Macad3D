@@ -12,28 +12,28 @@ public:
     void SetColor(const Quantity_Color& theColor, bool theIncludeHilight);
     void SetSize(double theSizeX, double theSizeY);
     void SetTexture(const Handle(Image_PixMap)& thePixMap);
-    void SetTransparency(const Standard_Real theValue) override;
+    void SetTransparency(const double theValue) override;
 
     void Compute(const Handle(PrsMgr_PresentationManager)& thePrsMgr,
-                 const Handle(Prs3d_Presentation)& thePrs, const Standard_Integer theMode) override;
-    void ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const Standard_Integer theMode) override;
+                 const Handle(Prs3d_Presentation)& thePrs, const int theMode) override;
+    void ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const int theMode) override;
     void HilightOwnerWithColor(const Handle(PrsMgr_PresentationManager)& thePrsMgr, const Handle(Prs3d_Drawer)& theStyle,
                                const Handle(SelectMgr_EntityOwner)& theOwner) override;
     void HilightSelected(const Handle(PrsMgr_PresentationManager)& thePrsMgr, const SelectMgr_SequenceOfOwner& theSeq) override;
 
     //--------------------------------------------------------------------------------------------------
 
-    virtual Standard_Boolean IsAutoHilight() const override
+    virtual bool IsAutoHilight() const override
     {
         return myHilightDrawer.IsNull();
     }
 
-    Standard_Boolean AcceptDisplayMode(const Standard_Integer theMode) const override
+    bool AcceptDisplayMode(const int theMode) const override
     {
         return theMode>=0 && theMode<=1;
     }
 
-    Standard_Integer Signature() const override
+    int Signature() const override
     {
         return 7; /* Plane */
     }

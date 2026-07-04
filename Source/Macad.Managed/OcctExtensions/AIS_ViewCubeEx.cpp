@@ -7,7 +7,7 @@ IMPLEMENT_STANDARD_RTTIEXT(AIS_ViewCubeEx, AIS_ViewCube)
 //--------------------------------------------------------------------------------------------------
 
 void AIS_ViewCubeEx::Compute(const opencascade::handle<PrsMgr_PresentationManager>& thePrsMgr,
-	const opencascade::handle<Prs3d_Presentation>& thePrs, const Standard_Integer theMode)
+	const opencascade::handle<Prs3d_Presentation>& thePrs, const int theMode)
 {
 	thePrs->SetInfiniteState(true);
 	if (theMode != 0)
@@ -19,8 +19,8 @@ void AIS_ViewCubeEx::Compute(const opencascade::handle<PrsMgr_PresentationManage
 
 	// Display box sides
 	{
-		Standard_Integer aNbNodes = 0, aNbTris = 0;
-		for (Standard_Integer aPartIter = V3d_Xpos; aPartIter <= Standard_Integer(V3d_Zneg); ++aPartIter)
+		int aNbNodes = 0, aNbTris = 0;
+		for (int aPartIter = V3d_Xpos; aPartIter <= int(V3d_Zneg); ++aPartIter)
 		{
 			createBoxPartTriangles(Handle(Graphic3d_ArrayOfTriangles)(), aNbNodes, aNbTris,
 			                       (V3d_TypeOfOrientation)aPartIter);
@@ -35,10 +35,10 @@ void AIS_ViewCubeEx::Compute(const opencascade::handle<PrsMgr_PresentationManage
 				aSegs = new Graphic3d_ArrayOfSegments(aNbNodes, aNbNodes * 2, Graphic3d_ArrayFlags_None);
 			}
 			aNbNodes = aNbTris = 0;
-			for (Standard_Integer aPartIter = V3d_Xpos; aPartIter <= Standard_Integer(V3d_Zneg); ++aPartIter)
+			for (int aPartIter = V3d_Xpos; aPartIter <= int(V3d_Zneg); ++aPartIter)
 			{
-				Standard_Integer aTriNodesFrom = aTris->VertexNumber();
-				const Standard_Integer aTriFrom = aNbTris;
+				int aTriNodesFrom = aTris->VertexNumber();
+				const int aTriFrom = aNbTris;
 				createBoxPartTriangles(aTris, aNbNodes, aNbTris, (V3d_TypeOfOrientation)aPartIter);
 				
 				if (aSegs.IsNull())
@@ -46,8 +46,8 @@ void AIS_ViewCubeEx::Compute(const opencascade::handle<PrsMgr_PresentationManage
 					continue;
 				}
 
-				const Standard_Integer aFirstNode = aSegs->VertexNumber();
-				for (Standard_Integer aVertIter = (aNbTris - aTriFrom) > 2 ? aTriNodesFrom + 2 : aTriNodesFrom + 1;
+				const int aFirstNode = aSegs->VertexNumber();
+				for (int aVertIter = (aNbTris - aTriFrom) > 2 ? aTriNodesFrom + 2 : aTriNodesFrom + 1;
 					     // skip triangle fan center
 				     aVertIter <= aTris->VertexNumber(); ++aVertIter)
 				{
@@ -74,8 +74,8 @@ void AIS_ViewCubeEx::Compute(const opencascade::handle<PrsMgr_PresentationManage
 
 	// Display box edges
 	{
-		Standard_Integer aNbNodes = 0, aNbTris = 0;
-		for (Standard_Integer aPartIter = V3d_XposYpos; aPartIter <= Standard_Integer(V3d_YposZneg); ++aPartIter)
+		int aNbNodes = 0, aNbTris = 0;
+		for (int aPartIter = V3d_XposYpos; aPartIter <= int(V3d_YposZneg); ++aPartIter)
 		{
 			createBoxPartTriangles(Handle(Graphic3d_ArrayOfTriangles)(), aNbNodes, aNbTris,
 			                       (V3d_TypeOfOrientation)aPartIter);
@@ -85,7 +85,7 @@ void AIS_ViewCubeEx::Compute(const opencascade::handle<PrsMgr_PresentationManage
 			Handle(Graphic3d_ArrayOfTriangles) aTris = new Graphic3d_ArrayOfTriangles(
 					aNbNodes, aNbTris * 3, Graphic3d_ArrayFlags_VertexNormal);
 			aNbNodes = aNbTris = 0;
-			for (Standard_Integer aPartIter = V3d_XposYpos; aPartIter <= Standard_Integer(V3d_YposZneg); ++aPartIter)
+			for (int aPartIter = V3d_XposYpos; aPartIter <= int(V3d_YposZneg); ++aPartIter)
 			{
 				const V3d_TypeOfOrientation anOrient = (V3d_TypeOfOrientation)aPartIter;
 				createBoxPartTriangles(aTris, aNbNodes, aNbTris, anOrient);
@@ -100,8 +100,8 @@ void AIS_ViewCubeEx::Compute(const opencascade::handle<PrsMgr_PresentationManage
 
 	// Display box corners
 	{
-		Standard_Integer aNbNodes = 0, aNbTris = 0;
-		for (Standard_Integer aPartIter = V3d_XposYposZpos; aPartIter <= Standard_Integer(V3d_XnegYnegZneg); ++aPartIter
+		int aNbNodes = 0, aNbTris = 0;
+		for (int aPartIter = V3d_XposYposZpos; aPartIter <= int(V3d_XnegYnegZneg); ++aPartIter
 		)
 		{
 			createBoxPartTriangles(Handle(Graphic3d_ArrayOfTriangles)(), aNbNodes, aNbTris,
@@ -112,7 +112,7 @@ void AIS_ViewCubeEx::Compute(const opencascade::handle<PrsMgr_PresentationManage
 			Handle(Graphic3d_ArrayOfTriangles) aTris = new Graphic3d_ArrayOfTriangles(
 					aNbNodes, aNbTris * 3, Graphic3d_ArrayFlags_VertexNormal);
 			aNbNodes = aNbTris = 0;
-			for (Standard_Integer aPartIter = V3d_XposYposZpos; aPartIter <= Standard_Integer(V3d_XnegYnegZneg); ++
+			for (int aPartIter = V3d_XposYposZpos; aPartIter <= int(V3d_XnegYnegZneg); ++
 			     aPartIter)
 			{
 				const V3d_TypeOfOrientation anOrient = (V3d_TypeOfOrientation)aPartIter;
@@ -154,7 +154,7 @@ void AIS_ViewCubeEx::HilightOwnerWithColor(const Handle(PrsMgr_PresentationManag
 	{
 		Handle(Graphic3d_Group) aGroup = aHiPrs->NewGroup();
 		aGroup->SetGroupPrimitivesAspect(theStyle->ShadingAspect()->Aspect());
-		Standard_Integer aNbNodes = 0, aNbTris = 0;
+		int aNbNodes = 0, aNbTris = 0;
 		createBoxPartTriangles(Handle(Graphic3d_ArrayOfTriangles)(), aNbNodes, aNbTris, aCubeOwner->MainOrientation());
 		if (aNbNodes > 0)
 		{
@@ -175,7 +175,7 @@ void AIS_ViewCubeEx::HilightOwnerWithColor(const Handle(PrsMgr_PresentationManag
 //--------------------------------------------------------------------------------------------------
 
 void AIS_ViewCubeEx::createBoxSideTriangles(const opencascade::handle<Graphic3d_ArrayOfTriangles>& theTris,
-	Standard_Integer& theNbNodes, Standard_Integer& theNbTris, V3d_TypeOfOrientation theDirection) const
+	int& theNbNodes, int& theNbTris, V3d_TypeOfOrientation theDirection) const
 {
 	const gp_Dir aDir = V3d::GetProjAxis(theDirection);
 	const gp_Pnt aPos = aDir.XYZ() * (mySize * 0.5 + myBoxFacetExtension);
@@ -185,10 +185,10 @@ void AIS_ViewCubeEx::createBoxSideTriangles(const opencascade::handle<Graphic3d_
 	gp_Trsf aTrsf;
 	aTrsf.SetTransformation(aSystem, gp_Ax3());
 
-	const Standard_Real aHSize = mySize / 2.0f;
-	const Standard_Real aTexU0 = ((float)theDirection) / 6.0f;
-	const Standard_Real aTexU1 = 1.0f / 6.0f + aTexU0;
-	const Standard_Integer aVertFirst = !theTris.IsNull() ? theTris->VertexNumber() : 0;
+	const double aHSize = mySize / 2.0f;
+	const double aTexU0 = ((float)theDirection) / 6.0f;
+	const double aTexU1 = 1.0f / 6.0f + aTexU0;
+	const int aVertFirst = !theTris.IsNull() ? theTris->VertexNumber() : 0;
 
 	theNbNodes += 4;
 	theNbTris += 2;
@@ -204,7 +204,7 @@ void AIS_ViewCubeEx::createBoxSideTriangles(const opencascade::handle<Graphic3d_
 	theTris->AddQuadTriangleEdges(aVertFirst + 1, aVertFirst + 2, aVertFirst + 3, aVertFirst + 4);
 
 	const gp_Dir aNorm = gp::DZ().Transformed(aTrsf);
-	for (Standard_Integer aVertIter = aVertFirst + 1; aVertIter <= theTris->VertexNumber(); ++aVertIter)
+	for (int aVertIter = aVertFirst + 1; aVertIter <= theTris->VertexNumber(); ++aVertIter)
 	{
 		theTris->SetVertexNormal(aVertIter, -aNorm);
 	}

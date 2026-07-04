@@ -46,7 +46,7 @@ void AISX_Plane::SetColor(const Quantity_Color& theColor, bool theIncludeHilight
         {
             _InitHighlightDrawerAttributes();
         }
-        Graphic3d_Vec3 hlsColor = Quantity_Color::Convert_LinearRGB_To_HLS(Graphic3d_Vec3((float)theColor.Red(), (float)theColor.Green(), (float)theColor.Blue()));
+        NCollection_Vec3<float> hlsColor = Quantity_Color::Convert_LinearRGB_To_HLS(NCollection_Vec3<float>((float)theColor.Red(), (float)theColor.Green(), (float)theColor.Blue()));
         hlsColor.y() = __min(hlsColor.y() + 0.2f, 1.0f);
         myHilightDrawer->SetColor(Quantity_Color(hlsColor.x(), hlsColor.y(), hlsColor.z(), Quantity_TOC_HLS));
     }
@@ -56,7 +56,7 @@ void AISX_Plane::SetColor(const Quantity_Color& theColor, bool theIncludeHilight
 
 //--------------------------------------------------------------------------------------------------
 
-void AISX_Plane::SetTransparency(const Standard_Real theValue)
+void AISX_Plane::SetTransparency(const double theValue)
 {
     __super::SetTransparency(theValue);
     myDrawer->ShadingAspect()->SetTransparency(theValue);
@@ -92,7 +92,7 @@ void AISX_Plane::SetTexture(const Handle(Image_PixMap)& thePixMap)
 //--------------------------------------------------------------------------------------------------
 
 void AISX_Plane::Compute(const Handle(PrsMgr_PresentationManager)& thePrsMgr,
-                         const Handle(Prs3d_Presentation)& thePrs, const Standard_Integer theMode)
+                         const Handle(Prs3d_Presentation)& thePrs, const int theMode)
 {
     Handle(Graphic3d_ArrayOfTriangles) aTriArray;
     Handle(Graphic3d_ArrayOfSegments) aSegArray;
@@ -119,8 +119,8 @@ void AISX_Plane::Compute(const Handle(PrsMgr_PresentationManager)& thePrsMgr,
 
 void AISX_Plane::_CreateQuad(Handle(Graphic3d_ArrayOfTriangles)& theTris, Handle(Graphic3d_ArrayOfSegments)& theSegs)
 {
-    const Standard_Real halfX = 0.5*_SizeX;
-    const Standard_Real halfY = 0.5*_SizeY;
+    const double halfX = 0.5*_SizeX;
+    const double halfY = 0.5*_SizeY;
 
     gp_Pnt p1, p2, p3, p4;
     ElSLib::PlaneD0(-halfX,  halfY, _Plane.Position(), p1);
@@ -155,21 +155,21 @@ void AISX_Plane::_CreateQuad(Handle(Graphic3d_ArrayOfTriangles)& theTris, Handle
 
 //--------------------------------------------------------------------------------------------------
 
-void AISX_Plane::ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const Standard_Integer theMode)
+void AISX_Plane::ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const int theMode)
 {
     theSelection->Clear();
 
     Handle(Poly_Triangulation) sensitivePoly;
-    const Standard_Real halfX = 0.5*_SizeX;
-    const Standard_Real halfY = 0.5*_SizeY;
+    const double halfX = 0.5*_SizeX;
+    const double halfY = 0.5*_SizeY;
 
-    TColgp_Array1OfPnt rectanglePoints(1, 4);
+    NCollection_Array1<gp_Pnt> rectanglePoints(1, 4);
     ElSLib::PlaneD0( halfX,  halfY, _Plane.Position(), rectanglePoints.ChangeValue(1));
     ElSLib::PlaneD0( halfX, -halfY, _Plane.Position(), rectanglePoints.ChangeValue(2));
     ElSLib::PlaneD0(-halfX, -halfY, _Plane.Position(), rectanglePoints.ChangeValue(3));
     ElSLib::PlaneD0(-halfX,  halfY, _Plane.Position(), rectanglePoints.ChangeValue(4));
 
-    Poly_Array1OfTriangle triangles(1, 2);
+    NCollection_Array1<Poly_Triangle> triangles(1, 2);
     triangles.ChangeValue(1) = Poly_Triangle(1, 2, 3);
     triangles.ChangeValue(2) = Poly_Triangle(1, 3, 4);
 

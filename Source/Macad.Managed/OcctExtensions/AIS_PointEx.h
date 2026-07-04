@@ -10,7 +10,7 @@ public:
     void EnableBackground(double theTransparency);
 	void SetBackgroundColor(const Quantity_Color& theColor);
     void Compute(const opencascade::handle<PrsMgr_PresentationManager>&,
-                 const opencascade::handle<Prs3d_Presentation>& thePresentation, Standard_Integer theMode) override;
+                 const opencascade::handle<Prs3d_Presentation>& thePresentation, int theMode) override;
 
 private:
     Handle(Prs3d_Drawer) myBackgroundDrawer;

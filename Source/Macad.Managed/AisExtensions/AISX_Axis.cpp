@@ -15,7 +15,7 @@ AISX_Axis::AISX_Axis()
 {
     myOwnWidth = 3.0f;
     _InitDrawerAttributes();
-    SetAutoHilight(Standard_False);
+    SetAutoHilight(false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ void AISX_Axis::SetColor(const Quantity_Color& theColor)
     myDrawer->ShadingAspect()->SetColor(theColor);
     myDrawer->ShadingAspect()->Aspect()->SetEdgeColor(theColor);
 
-    Graphic3d_Vec3 hlsColor = Quantity_Color::Convert_LinearRGB_To_HLS(Graphic3d_Vec3((float)theColor.Red(), (float)theColor.Green(), (float)theColor.Blue()));
+    NCollection_Vec3<float> hlsColor = Quantity_Color::Convert_LinearRGB_To_HLS(NCollection_Vec3<float>((float)theColor.Red(), (float)theColor.Green(), (float)theColor.Blue()));
     hlsColor.y() = __min(hlsColor.y() + 0.2f, 1.0f);
     myHilightDrawer->SetColor(Quantity_Color(hlsColor.x(), hlsColor.y(), hlsColor.z(), Quantity_TOC_HLS));
 
@@ -113,7 +113,7 @@ void AISX_Axis::_ComputeKnob(const Handle(Graphic3d_Group)& theGroup)
 //--------------------------------------------------------------------------------------------------
 
 void AISX_Axis::Compute(const Handle(PrsMgr_PresentationManager)& thePrsMgr,
-    const Handle(Prs3d_Presentation)& thePrs, const Standard_Integer theMode)
+    const Handle(Prs3d_Presentation)& thePrs, const int theMode)
 {
     thePrs->Clear();
 
@@ -153,7 +153,7 @@ void AISX_Axis::HilightSelected(const Handle(PrsMgr_PresentationManager)& thePrs
 
 //--------------------------------------------------------------------------------------------------
 
-void AISX_Axis::ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const Standard_Integer theMode)
+void AISX_Axis::ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const int theMode)
 {
     theSelection->Clear();
 

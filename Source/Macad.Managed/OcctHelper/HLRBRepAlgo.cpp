@@ -221,7 +221,7 @@ namespace Helper
 			for each (Macad::Occt::TopoDS_Shape^ shape in shapes)
 			{
 				// Ensure that all shapes have a mesh
-				if (::BRepTools::Triangulation(*shape->NativeInstance, Precision::Infinite()) == Standard_False)
+				if (::BRepTools::Triangulation(*shape->NativeInstance, Precision::Infinite()) == false)
 				{
 					::BRepMesh_IncrementalMesh aMesher(*shape->NativeInstance, 0.1);
 				}

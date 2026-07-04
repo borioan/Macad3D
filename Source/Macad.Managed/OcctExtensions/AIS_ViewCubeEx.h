@@ -10,7 +10,7 @@ class AIS_ViewCubeEx : public ::AIS_ViewCube
 public:
 	void Compute(const opencascade::handle<PrsMgr_PresentationManager>& thePrsMgr,
 	             const opencascade::handle<Prs3d_Presentation>& thePrs,
-	             const Standard_Integer theMode) override;
+	             const int theMode) override;
 
 	void HilightOwnerWithColor(const Handle(PrsMgr_PresentationManager)& thePrsMgr,
 	                           const Handle(Prs3d_Drawer)& theStyle,
@@ -20,7 +20,7 @@ public:
 	
 protected:
 	void createBoxSideTriangles(const Handle(Graphic3d_ArrayOfTriangles)& theTris,
-	                            Standard_Integer& theNbNodes, Standard_Integer& theNbTris,
+	                            int& theNbNodes, int& theNbTris,
 	                            V3d_TypeOfOrientation theDirection) const override;
 };
 

@@ -48,7 +48,7 @@ namespace Helper {
                                    List<Macad::Occt::AIS_InteractiveObject^>^ interactives,
                                    List<Macad::Occt::TopoDS_Shape^>^ shapes)
 	    {
-		    ::TColgp_Array1OfPnt2d points(1,pointList->Count);
+		    NCollection_Array1<gp_Pnt2d> points(1,pointList->Count);
 		    for(int pointIndex=0; pointIndex < pointList->Count; pointIndex++)
 		    {
 			    auto tuple = pointList[pointIndex];
@@ -66,8 +66,8 @@ namespace Helper {
 	    
     public:
 	    static int PickFromContext(Macad::Occt::AIS_InteractiveContext^ aisContext,
-                                   const Standard_Integer theXPMin, const Standard_Integer theYPMin, 
-                                   const Standard_Integer theXPMax,const Standard_Integer  theYPMax,
+                                   const int theXPMin, const int theYPMin, 
+                                   const int theXPMax,const int  theYPMax,
                                    bool bAllowOverlapDetection,
                                    Macad::Occt::V3d_View^ theView,
                                    List<Macad::Occt::AIS_InteractiveObject^>^ interactives,
@@ -83,7 +83,7 @@ namespace Helper {
 	    //--------------------------------------------------------------------------------------------------
 		  
 	    static int PickFromContext(Macad::Occt::AIS_InteractiveContext^ aisContext,
-                                   const Standard_Integer theScreenX, const Standard_Integer theScreenY, 
+                                   const int theScreenX, const int theScreenY, 
                                    Macad::Occt::V3d_View^ theView,
                                    List<Macad::Occt::AIS_InteractiveObject^>^ interactives,
                                    List<Macad::Occt::TopoDS_Shape^>^ shapes)
@@ -97,7 +97,7 @@ namespace Helper {
 	    //--------------------------------------------------------------------------------------------------
 		  
 	    static bool PickFromContext(Macad::Occt::AIS_InteractiveContext^ aisContext,
-                                   const Standard_Integer theScreenX, const Standard_Integer theScreenY, 
+                                   const int theScreenX, const int theScreenY, 
                                    Macad::Occt::V3d_View^ theView,
                                    [Out] Macad::Occt::AIS_InteractiveObject^% interactive,
                                    [Out] Macad::Occt::TopoDS_Shape^% shape)
@@ -133,7 +133,7 @@ namespace Helper {
 			interactives->Clear();
 			shapes->Clear();
 
-		    for (Standard_Integer aPickIter = 1; aPickIter <= selector.NbPicked(); ++aPickIter)
+		    for (int aPickIter = 1; aPickIter <= selector.NbPicked(); ++aPickIter)
 		    {
 			    auto owner = selector.Picked (aPickIter);
 			    if (owner.IsNull() || !owner->HasSelectable()) // || !filters.IsOk (owner))
@@ -202,13 +202,13 @@ namespace Helper {
 	    //--------------------------------------------------------------------------------------------------
 
     public:
-	    static void SetRubberbandPoints(Macad::Occt::AIS_RubberBand^ aisRubberband, List<ValueTuple<int,int>>^ pointList, Standard_Integer viewportHeight)
+	    static void SetRubberbandPoints(Macad::Occt::AIS_RubberBand^ aisRubberband, List<ValueTuple<int,int>>^ pointList, int viewportHeight)
 	    {
 		    auto rubberband = aisRubberband->NativeInstance;
 		    rubberband->ClearPoints();
 		    for each (auto point in pointList)
 		    {
-			    ::Graphic3d_Vec2i vec2i(point.Item1, viewportHeight - point.Item2);
+			    NCollection_Vec2<int> vec2i(point.Item1, viewportHeight - point.Item2);
 			    rubberband->AddPoint(vec2i);
 		    }
 	    }

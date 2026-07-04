@@ -117,7 +117,7 @@ namespace Macad
 				// Ensure that all shapes have a mesh
 				static bool EnsureTriangulation(::TopoDS_Shape& shape)
 				{
-					if (::BRepTools::Triangulation(shape, Precision::Infinite()) == Standard_False)
+					if (::BRepTools::Triangulation(shape, Precision::Infinite()) == false)
 					{
 						::BRepMesh_IncrementalMesh aMesher(shape, 0.1);
 						if (!aMesher.IsDone())

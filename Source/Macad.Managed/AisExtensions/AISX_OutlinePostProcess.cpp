@@ -48,7 +48,7 @@ void AISX_OutlinePostProcess::Release()
 //--------------------------------------------------------------------------------------------------
 
 void AISX_OutlinePostProcess::Compute(const Handle(PrsMgr_PresentationManager)& thePrsMgr, 
-    const Handle(Prs3d_Presentation)& thePrs, const Standard_Integer theMode)
+    const Handle(Prs3d_Presentation)& thePrs, const int theMode)
 {
     thePrs->SetInfiniteState(true);
 
@@ -60,7 +60,7 @@ void AISX_OutlinePostProcess::Compute(const Handle(PrsMgr_PresentationManager)& 
 
 //--------------------------------------------------------------------------------------------------
 
-void AISX_OutlinePostProcess::ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const Standard_Integer theMode)
+void AISX_OutlinePostProcess::ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const int theMode)
 {
     // Left empty intentionally
 }
@@ -114,7 +114,7 @@ void AISX_OutlinePostProcess::_Render(const opencascade::handle<OpenGl_Workspace
     _ShaderProgram->ClearVariables();
     _ShaderProgram->PushVariableInt("hilightColorTexture", 0);
     _ShaderProgram->PushVariableInt("hilightDepthTexture", 1);
-    _ShaderProgram->PushVariableVec2("canvasSize", Graphic3d_Vec2(static_cast<float>(_HighlightFramebufferWidth), static_cast<float>(_HighlightFramebufferHeight)));
+    _ShaderProgram->PushVariableVec2("canvasSize", NCollection_Vec2<float>(static_cast<float>(_HighlightFramebufferWidth), static_cast<float>(_HighlightFramebufferHeight)));
     _ShaderProgram->PushVariableFloat("outlineSize", myOwnWidth);
     _ShaderProgram->PushVariableVec4("outlineColor", aCtx->Vec4FromQuantityColor(Quantity_ColorRGBA(myDrawer->Color(), 1.0)));
 
@@ -125,7 +125,7 @@ void AISX_OutlinePostProcess::_Render(const opencascade::handle<OpenGl_Workspace
     {
         roughCheckLevel++;
     }
-    _ShaderProgram->PushVariableVec3i("roughCheckParams", Graphic3d_Vec3i(_HighlightFramebufferWidth >> roughCheckLevel, _HighlightFramebufferHeight >> roughCheckLevel, roughCheckLevel));
+    _ShaderProgram->PushVariableVec3i("roughCheckParams", NCollection_Vec3<int>(_HighlightFramebufferWidth >> roughCheckLevel, _HighlightFramebufferHeight >> roughCheckLevel, roughCheckLevel));
 
     // Create and bind shader program
     opencascade::handle<OpenGl_ShaderProgram> aProg;

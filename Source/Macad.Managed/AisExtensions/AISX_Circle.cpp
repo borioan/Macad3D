@@ -17,7 +17,7 @@ AISX_Circle::AISX_Circle()
 {
     myOwnWidth = 3.0f;
     _InitDrawerAttributes();
-    SetAutoHilight(Standard_False);
+    SetAutoHilight(false);
 }
 
 //--------------------------------------------------------------------------------------------------
@@ -81,7 +81,7 @@ void AISX_Circle::SetColor(const Quantity_Color& theColor)
     myDrawer->ShadingAspect()->SetColor(theColor);
     _SectorAspect->SetColor(theColor);
 
-    Graphic3d_Vec3 hlsColor = Quantity_Color::Convert_LinearRGB_To_HLS(Graphic3d_Vec3((float)theColor.Red(), (float)theColor.Green(), (float)theColor.Blue()));
+    NCollection_Vec3<float> hlsColor = Quantity_Color::Convert_LinearRGB_To_HLS(NCollection_Vec3<float>((float)theColor.Red(), (float)theColor.Green(), (float)theColor.Blue()));
     hlsColor.y() = __min(hlsColor.y() + 0.2f, 1.0f);
     myHilightDrawer->SetColor(Quantity_Color(hlsColor.x(), hlsColor.y(), hlsColor.z(), Quantity_TOC_HLS));
 
@@ -139,7 +139,7 @@ void AISX_Circle::_ComputeSector(const Handle(Prs3d_Presentation)& thePrs, const
 void AISX_Circle::_ComputeCircle(const Handle(Prs3d_Presentation)& thePrs, const Handle(Prs3d_Drawer)& theDrawer)
 {
     Handle(Geom_Circle) curv = new Geom_Circle(_Circle);
-    Standard_Real prevdev = theDrawer->DeviationCoefficient();
+    double prevdev = theDrawer->DeviationCoefficient();
     theDrawer->SetDeviationCoefficient(1.e-5);
 
     if(_LimitStartParam != _LimitEndParam)
@@ -148,8 +148,8 @@ void AISX_Circle::_ComputeCircle(const Handle(Prs3d_Presentation)& thePrs, const
         double endParam = _LimitEndParam;
         if(_SectorStartParam != _SectorEndParam)
         {
-            startParam = Min(startParam, _SectorStartParam);
-            endParam = Max(endParam, _SectorEndParam);
+            startParam = std::min(startParam, _SectorStartParam);
+            endParam = std::max(endParam, _SectorEndParam);
         }
 	    StdPrs_DeflectionCurve::Add(thePrs, GeomAdaptor_Curve(curv, startParam, endParam), theDrawer);
     }
@@ -184,7 +184,7 @@ void AISX_Circle::_ComputeKnob(const Handle(Prs3d_Presentation)& thePrs, const H
 //--------------------------------------------------------------------------------------------------
 
 void AISX_Circle::Compute(const Handle(PrsMgr_PresentationManager)& thePrsMgr, const Handle(Prs3d_Presentation)& thePrs, 
-                          const Standard_Integer theMode)
+                          const int theMode)
 {
     thePrs->Clear();
 
@@ -214,7 +214,7 @@ void AISX_Circle::HilightSelected(const Handle(PrsMgr_PresentationManager)& theP
 
 //--------------------------------------------------------------------------------------------------
 
-void AISX_Circle::ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const Standard_Integer theMode)
+void AISX_Circle::ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const int theMode)
 {
     theSelection->Clear();
 

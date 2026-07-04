@@ -43,7 +43,7 @@ void AISX_Grid::SetDivisions(double linearStep, int angularCount)
 //--------------------------------------------------------------------------------------------------
 
 void AISX_Grid::Compute(const Handle(PrsMgr_PresentationManager)& thePrsMgr,
-    const Handle(Prs3d_Presentation)& thePrs, const Standard_Integer theMode)
+    const Handle(Prs3d_Presentation)& thePrs, const int theMode)
 {
     thePrs->Clear();
     if (theMode == 0)
@@ -213,7 +213,7 @@ void AISX_Grid::_ComputeCircular(const Handle(Graphic3d_Group)& theGroup)
 
 //--------------------------------------------------------------------------------------------------
 
-void AISX_Grid::ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const Standard_Integer theMode)
+void AISX_Grid::ComputeSelection(const Handle(SelectMgr_Selection)& theSelection, const int theMode)
 {
     // Grid is not selectable
 }

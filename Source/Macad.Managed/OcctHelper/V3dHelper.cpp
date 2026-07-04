@@ -23,8 +23,8 @@ namespace Macad
 				static void SetSubviewMetrics(Macad::Occt::V3d_View^ view, Macad::Occt::Graphic3d_Vec2d^ theSize, Macad::Occt::Graphic3d_Vec2d^ theOffset)
 			    {
 					const Handle(::Graphic3d_CView)& gview = view->NativeInstance->View();
-                    gview->SetSubviewSize(*(::Graphic3d_Vec2d*)theSize->NativeInstance);
-					gview->SetSubviewOffset(*(::Graphic3d_Vec2d*)theOffset->NativeInstance);
+                    gview->SetSubviewSize(*(NCollection_Vec2<double>*)theSize->NativeInstance);
+					gview->SetSubviewOffset(*(NCollection_Vec2<double>*)theOffset->NativeInstance);
 					gview->Resized();
 				}
 			};

@@ -68,7 +68,7 @@ namespace Macad {
 						auto occtException = dynamic_cast<::Standard_Failure*>(reinterpret_cast<std::exception*>(object));
 						if (occtException != nullptr)
 						{
-							const char* message = occtException->GetMessageString();
+							const char* message = occtException->what();
 							if (message == nullptr || strlen(message) == 0)
 							{
 							   message = occtException->ExceptionType();
