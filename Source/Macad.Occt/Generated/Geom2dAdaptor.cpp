@@ -74,6 +74,12 @@ void Macad::Occt::Geom2dAdaptor_Curve::Load(Macad::Occt::Geom2d_Curve^ theCurve,
     ((::Geom2dAdaptor_Curve*)_NativeInstance)->Load(Handle(::Geom2d_Curve)(theCurve->NativeInstance), theUFirst, theULast);
 }
 
+bool Macad::Occt::Geom2dAdaptor_Curve::IsInitialized()
+{
+    bool _result = ((::Geom2dAdaptor_Curve*)_NativeInstance)->IsInitialized();
+    return _result;
+}
+
 Macad::Occt::Geom2d_Curve^ Macad::Occt::Geom2dAdaptor_Curve::Curve()
 {
     Handle(::Geom2d_Curve) _result = ((::Geom2dAdaptor_Curve*)_NativeInstance)->Curve();
@@ -262,6 +268,18 @@ Macad::Occt::Geom2d_BSplineCurve^ Macad::Occt::Geom2dAdaptor_Curve::BSpline()
 {
     Handle(::Geom2d_BSplineCurve) _result = ((::Geom2dAdaptor_Curve*)_NativeInstance)->BSpline();
     return _result.IsNull() ? nullptr : Macad::Occt::Geom2d_BSplineCurve::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Pnt2d Macad::Occt::Geom2dAdaptor_Curve::EvalD0(double theU)
+{
+    ::gp_Pnt2d _nativeResult = ((::Geom2dAdaptor_Curve*)_NativeInstance)->EvalD0(theU);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::Geom2dAdaptor_Curve::EvalDN(double theU, int theN)
+{
+    ::gp_Vec2d _nativeResult = ((::Geom2dAdaptor_Curve*)_NativeInstance)->EvalDN(theU, theN);
+    return Macad::Occt::Vec2d(_nativeResult);
 }
 
 Macad::Occt::Geom2dAdaptor_Curve^ Macad::Occt::Geom2dAdaptor_Curve::CreateDowncasted(::Geom2dAdaptor_Curve* instance)

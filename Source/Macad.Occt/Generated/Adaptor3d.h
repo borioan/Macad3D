@@ -66,21 +66,21 @@ public:
     double LastParameter();
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// Returns  the number  of  intervals for  continuity
+    /// Returns the number of intervals for continuity
     /// <S>. May be one if Continuity(me) >= <S>
     /// </summary>
     int NbIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
+    /// Stores in <T> the parameters bounding the intervals
     /// of continuity <S>.
     /// 
-    /// The array must provide  enough room to  accommodate
+    /// The array must provide enough room to accommodate
     /// for the parameters. i.e. T.Length() > NbIntervals()
     /// </summary>
     void Intervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  curve equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a curve equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -91,32 +91,32 @@ public:
     /// <summary>
     /// Computes the point of parameter U on the curve.
     /// </summary>
-    Macad::Occt::Pnt Value(double U);
+    Macad::Occt::Pnt Value(double theU);
     /// <summary>
     /// Computes the point of parameter U on the curve.
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
+    void D0(double theU, Macad::Occt::Pnt% theP);
     /// <summary>
     /// Computes the point of parameter U on the curve with its
     /// first derivative.
     /// Raised if the continuity of the current interval
     /// is not C1.
     /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V);
+    void D1(double theU, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theV);
     /// <summary>
     /// Returns the point P of parameter U, the first and second
     /// derivatives V1 and V2.
     /// Raised if the continuity of the current interval
     /// is not C2.
     /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
+    void D2(double theU, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theV1, Macad::Occt::Vec% theV2);
     /// <summary>
     /// Returns the point P of parameter U, the first, the second
     /// and the third derivative.
     /// Raised if the continuity of the current interval
     /// is not C3.
     /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
+    void D3(double theU, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theV1, Macad::Occt::Vec% theV2, Macad::Occt::Vec% theV3);
     /// <summary>
     /// The returned vector gives the value of the derivative for the
     /// order of derivation N.
@@ -124,15 +124,15 @@ public:
     /// is not CN.
     /// Raised if N < 1.
     /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
+    Macad::Occt::Vec DN(double theU, int theN);
     /// <summary>
-    /// Returns the parametric  resolution corresponding
+    /// Returns the parametric resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double Resolution(double R3d);
     /// <summary>
-    /// Returns  the  type of the   curve  in the  current
-    /// interval :   Line,   Circle,   Ellipse, Hyperbola,
+    /// Returns the type of the curve in the current
+    /// interval: Line, Circle, Ellipse, Hyperbola,
     /// Parabola, BezierCurve, BSplineCurve, OtherCurve.
     /// </summary>
     Macad::Occt::GeomAbs_CurveType GetCurveType();
@@ -148,6 +148,19 @@ public:
     Macad::Occt::Geom_BezierCurve^ Bezier();
     Macad::Occt::Geom_BSplineCurve^ BSpline();
     Macad::Occt::Geom_OffsetCurve^ OffsetCurve();
+    /// <summary>
+    /// Computes the point of parameter U on the curve.
+    /// Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Pnt EvalD0(double theU);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double theU, ) */
+    /// <summary>
+    /// Computes the Nth derivative at parameter U.
+    /// Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Vec EvalDN(double theU, int theN);
     static Macad::Occt::Adaptor3d_Curve^ CreateDowncasted(::Adaptor3d_Curve* instance);
 }; // class Adaptor3d_Curve
 
@@ -161,10 +174,10 @@ public:
 /// the surface by algorithms which use it.
 /// A derived concrete class is provided:
 /// GeomAdaptor_Surface for a surface from the Geom package.
-/// The  Surface class describes  the standard behaviour
+/// The Surface class describes the standard behaviour
 /// of a surface for generic algorithms.
 /// 
-/// The Surface can  be decomposed in intervals of any
+/// The Surface can be decomposed in intervals of any
 /// continuity in U and V using the method NbIntervals.
 /// A current interval can be set.
 /// Most of the methods apply to the current interval.
@@ -219,36 +232,36 @@ public:
     Macad::Occt::GeomAbs_Shape UContinuity();
     Macad::Occt::GeomAbs_Shape VContinuity();
     /// <summary>
-    /// Returns the number of U intervals for  continuity
+    /// Returns the number of U intervals for continuity
     /// <S>. May be one if UContinuity(me) >= <S>
     /// </summary>
     int NbUIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the number of V intervals for  continuity
+    /// Returns the number of V intervals for continuity
     /// <S>. May be one if VContinuity(me) >= <S>
     /// </summary>
     int NbVIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the  intervals with the requested continuity
+    /// Returns the intervals with the requested continuity
     /// in the U direction.
     /// </summary>
     void UIntervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the  intervals with the requested continuity
+    /// Returns the intervals with the requested continuity
     /// in the V direction.
     /// </summary>
     void VIntervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  surface trimmed in the U direction
-    /// equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a surface trimmed in the U direction
+    /// equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
     Macad::Occt::Adaptor3d_Surface^ UTrim(double First, double Last, double Tol);
     /// <summary>
-    /// Returns    a  surface trimmed in the V direction  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a surface trimmed in the V direction between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -263,54 +276,54 @@ public:
     /// Computes the point of parameters U,V on the surface.
     /// Tip: use GeomLib::NormEstim() to calculate surface normal at specified (U, V) point.
     /// </summary>
-    Macad::Occt::Pnt Value(double U, double V);
+    Macad::Occt::Pnt Value(double theU, double theV);
     /// <summary>
     /// Computes the point of parameters U,V on the surface.
     /// </summary>
-    void D0(double U, double V, Macad::Occt::Pnt% P);
+    void D0(double theU, double theV, Macad::Occt::Pnt% theP);
     /// <summary>
-    /// Computes the point  and the first derivatives on the surface.
+    /// Computes the point and the first derivatives on the surface.
     /// Raised if the continuity of the current intervals is not C1.
     /// 
     /// Tip: use GeomLib::NormEstim() to calculate surface normal at specified (U, V) point.
     /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
+    void D1(double theU, double theV, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theD1U, Macad::Occt::Vec% theD1V);
     /// <summary>
-    /// Computes   the point,  the  first  and  second
+    /// Computes the point, the first and second
     /// derivatives on the surface.
-    /// Raised  if   the   continuity   of the current
+    /// Raised if the continuity of the current
     /// intervals is not C2.
     /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
+    void D2(double theU, double theV, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theD1U, Macad::Occt::Vec% theD1V, Macad::Occt::Vec% theD2U, Macad::Occt::Vec% theD2V, Macad::Occt::Vec% theD2UV);
     /// <summary>
-    /// Computes the point,  the first, second and third
+    /// Computes the point, the first, second and third
     /// derivatives on the surface.
-    /// Raised  if   the   continuity   of the current
+    /// Raised if the continuity of the current
     /// intervals is not C3.
     /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
+    void D3(double theU, double theV, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theD1U, Macad::Occt::Vec% theD1V, Macad::Occt::Vec% theD2U, Macad::Occt::Vec% theD2V, Macad::Occt::Vec% theD2UV, Macad::Occt::Vec% theD3U, Macad::Occt::Vec% theD3V, Macad::Occt::Vec% theD3UUV, Macad::Occt::Vec% theD3UVV);
     /// <summary>
     /// Computes the derivative of order Nu in the direction U and Nv
     /// in the direction V at the point P(U, V).
-    /// Raised if the current U  interval is not not CNu
+    /// Raised if the current U interval is not not CNu
     /// and the current V interval is not CNv.
     /// Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec DN(double theU, double theV, int theNu, int theNv);
     /// <summary>
-    /// Returns the parametric U  resolution corresponding
+    /// Returns the parametric U resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double UResolution(double R3d);
     /// <summary>
-    /// Returns the parametric V  resolution corresponding
+    /// Returns the parametric V resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double VResolution(double R3d);
     /// <summary>
-    /// Returns the type of the surface : Plane, Cylinder,
-    /// Cone,      Sphere,        Torus,    BezierSurface,
-    /// BSplineSurface,               SurfaceOfRevolution,
+    /// Returns the type of the surface: Plane, Cylinder,
+    /// Cone, Sphere, Torus, BezierSurface,
+    /// BSplineSurface, SurfaceOfRevolution,
     /// SurfaceOfExtrusion, OtherSurface
     /// </summary>
     Macad::Occt::GeomAbs_SurfaceType GetSurfaceType();
@@ -334,6 +347,19 @@ public:
     Macad::Occt::Adaptor3d_Curve^ BasisCurve();
     Macad::Occt::Adaptor3d_Surface^ BasisSurface();
     double OffsetValue();
+    /// <summary>
+    /// Computes the point of parameters (U, V) on the surface.
+    /// Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Pnt EvalD0(double theU, double theV);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double theU, double theV, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double theU, double theV, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double theU, double theV, ) */
+    /// <summary>
+    /// Computes the derivative of order Nu in U and Nv in V at (U, V).
+    /// Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Vec EvalDN(double theU, double theV, int theNu, int theNv);
     static Macad::Occt::Adaptor3d_Surface^ CreateDowncasted(::Adaptor3d_Surface* instance);
 }; // class Adaptor3d_Surface
 
@@ -405,21 +431,21 @@ public:
     double LastParameter();
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// Returns  the number  of  intervals for  continuity
+    /// Returns the number of intervals for continuity
     /// <S>. May be one if Continuity(me) >= <S>
     /// </summary>
     int NbIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
+    /// Stores in <T> the parameters bounding the intervals
     /// of continuity <S>.
     /// 
-    /// The array must provide  enough room to  accommodate
+    /// The array must provide enough room to accommodate
     /// for the parameters. i.e. T.Length() > NbIntervals()
     /// </summary>
     void Intervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  curve equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a curve equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -428,50 +454,24 @@ public:
     bool IsPeriodic();
     double Period();
     /// <summary>
-    /// Computes the point of parameter U on the curve.
+    /// Point evaluation. Raises an exception on failure.
     /// </summary>
-    Macad::Occt::Pnt Value(double U);
+    Macad::Occt::Pnt EvalD0(double theU);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double theU, ) */
     /// <summary>
-    /// Computes the point of parameter U on the curve.
+    /// DN evaluation. Raises an exception on failure.
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
+    Macad::Occt::Vec EvalDN(double theU, int theN);
     /// <summary>
-    /// Computes the point of parameter U on the curve with its
-    /// first derivative.
-    /// Raised if the continuity of the current interval
-    /// is not C1.
-    /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V);
-    /// <summary>
-    /// Returns the point P of parameter U, the first and second
-    /// derivatives V1 and V2.
-    /// Raised if the continuity of the current interval
-    /// is not C2.
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// Returns the point P of parameter U, the first, the second
-    /// and the third derivative.
-    /// Raised if the continuity of the current interval
-    /// is not C3.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
-    /// <summary>
-    /// The returned vector gives the value of the derivative for the
-    /// order of derivation N.
-    /// Raised if the continuity of the current interval
-    /// is not CN.
-    /// Raised if N < 1.
-    /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
-    /// <summary>
-    /// Returns the parametric  resolution corresponding
+    /// Returns the parametric resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double Resolution(double R3d);
     /// <summary>
-    /// Returns  the  type of the   curve  in the  current
-    /// interval :   Line,   Circle,   Ellipse, Hyperbola,
+    /// Returns the type of the curve in the current
+    /// interval: Line, Circle, Ellipse, Hyperbola,
     /// Parabola, BezierCurve, BSplineCurve, OtherCurve.
     /// </summary>
     Macad::Occt::GeomAbs_CurveType GetCurveType();
@@ -618,9 +618,9 @@ public:
 //  Class  Adaptor3d_IsoCurve
 //---------------------------------------------------------------------
 /// <summary>
-/// Defines an isoparametric curve on  a surface.  The
-/// type  of isoparametric curve  (U  or V) is defined
-/// with the   enumeration  IsoType from   GeomAbs  if
+/// Defines an isoparametric curve on a surface. The
+/// type of isoparametric curve (U or V) is defined
+/// with the enumeration IsoType from GeomAbs if
 /// NoneIso is given an error is raised.
 /// </summary>
 public ref class Adaptor3d_IsoCurve sealed
@@ -659,15 +659,15 @@ public:
     /// </summary>
     Adaptor3d_IsoCurve(Macad::Occt::Adaptor3d_Surface^ S);
     /// <summary>
-    /// Creates  an  IsoCurve curve.   Iso  defines the
-    /// type (isoU or  isoU) Param defines the value of
-    /// the iso. The bounds  of  the iso are the bounds
-    /// of the surface.
+    /// Creates an IsoCurve curve. Iso defines the type
+    /// (isoU or isoU) Param defines the value of the
+    /// iso. The bounds of the iso are the bounds of
+    /// the surface.
     /// </summary>
     Adaptor3d_IsoCurve(Macad::Occt::Adaptor3d_Surface^ S, Macad::Occt::GeomAbs_IsoType Iso, double Param);
     /// <summary>
-    /// Create an IsoCurve curve.  Iso defines the type
-    /// (isoU or isov).  Param defines the value of the
+    /// Create an IsoCurve curve. Iso defines the type
+    /// (isoU or isov). Param defines the value of the
     /// iso. WFirst,WLast define the bounds of the iso.
     /// </summary>
     Adaptor3d_IsoCurve(Macad::Occt::Adaptor3d_Surface^ S, Macad::Occt::GeomAbs_IsoType Iso, double Param, double WFirst, double WLast);
@@ -676,8 +676,7 @@ public:
     /// </summary>
     Macad::Occt::Adaptor3d_Curve^ ShallowCopy();
     /// <summary>
-    /// Changes  the surface.  The  iso  is  reset  to
-    /// NoneIso.
+    /// Changes the surface. The iso is reset to NoneIso.
     /// </summary>
     void Load(Macad::Occt::Adaptor3d_Surface^ S);
     /// <summary>
@@ -695,21 +694,21 @@ public:
     double LastParameter();
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// Returns  the number  of  intervals for  continuity
+    /// Returns the number of intervals for continuity
     /// <S>. May be one if Continuity(me) >= <S>
     /// </summary>
     int NbIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
+    /// Stores in <T> the parameters bounding the intervals
     /// of continuity <S>.
     /// 
-    /// The array must provide  enough room to  accommodate
+    /// The array must provide enough room to accommodate
     /// for the parameters. i.e. T.Length() > NbIntervals()
     /// </summary>
     void Intervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  curve equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a curve equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -718,50 +717,26 @@ public:
     bool IsPeriodic();
     double Period();
     /// <summary>
-    /// Computes the point of parameter U on the curve.
+    /// Computes the point of parameter theU on the curve.
     /// </summary>
-    Macad::Occt::Pnt Value(double U);
+    Macad::Occt::Pnt EvalD0(double theU);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double theU, ) */
     /// <summary>
-    /// Computes the point of parameter U on the curve.
+    /// Returns the derivative of order theN at parameter theU.
+    /// Raised if the continuity of the current interval is not CN.
+    /// Raised if theN < 1.
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
+    Macad::Occt::Vec EvalDN(double theU, int theN);
     /// <summary>
-    /// Computes the point of parameter U on the curve with its
-    /// first derivative.
-    /// Raised if the continuity of the current interval
-    /// is not C1.
-    /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V);
-    /// <summary>
-    /// Returns the point P of parameter U, the first and second
-    /// derivatives V1 and V2.
-    /// Raised if the continuity of the current interval
-    /// is not C2.
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// Returns the point P of parameter U, the first, the second
-    /// and the third derivative.
-    /// Raised if the continuity of the current interval
-    /// is not C3.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
-    /// <summary>
-    /// The returned vector gives the value of the derivative for the
-    /// order of derivation N.
-    /// Raised if the continuity of the current interval
-    /// is not CN.
-    /// Raised if N < 1.
-    /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
-    /// <summary>
-    /// Returns the parametric  resolution corresponding
+    /// Returns the parametric resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double Resolution(double R3d);
     /// <summary>
-    /// Returns  the  type of the   curve  in the  current
-    /// interval :   Line,   Circle,   Ellipse, Hyperbola,
+    /// Returns the type of the curve in the current
+    /// interval: Line, Circle, Ellipse, Hyperbola,
     /// Parabola, BezierCurve, BSplineCurve, OtherCurve.
     /// </summary>
     Macad::Occt::GeomAbs_CurveType GetCurveType();

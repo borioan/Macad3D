@@ -14,7 +14,7 @@ namespace Occt
 /// Indicates the outcome of the
 /// construction of an edge, i.e. whether it has been successful or
 /// not, as explained below:
-/// -      BRepBuilderAPI_EdgeDone No    error occurred; The edge is
+/// -      BRepBuilderAPI_EdgeDone No error occurred; The edge is
 /// correctly built.
 /// -      BRepBuilderAPI_PointProjectionFailed No parameters were given but
 /// the projection of the 3D points on the curve failed. This
@@ -28,13 +28,13 @@ namespace Occt
 /// curve but have different locations.
 /// -      BRepBuilderAPI_PointWithInfiniteParameter
 /// A finite coordinate point was associated with an infinite
-/// parameter (see the Precision package for a definition of    infinite values).
+/// parameter (see the Precision package for a definition of infinite values).
 /// -      BRepBuilderAPI_DifferentsPointAndParameter
 /// The distance between the 3D point and the point evaluated
 /// on the curve with the parameter is greater than the precision.
 /// -      BRepBuilderAPI_LineThroughIdenticPoints
 /// Two identical points were given to define a line (construction
-/// of an edge without curve); gp::Resolution is used for the    confusion test.
+/// of an edge without curve); gp::Resolution is used for the confusion test.
 /// </summary>
 public enum class BRepBuilderAPI_EdgeError
 {
@@ -63,7 +63,7 @@ public enum class BRepBuilderAPI_EdgeError
 /// -      BRepBuilderAPI_CurveProjectionFailed
 /// Not used so far.
 /// -      BRepBuilderAPI_ParametersOutOfRange
-/// The parameters given to limit the surface are out of its    bounds.
+/// The parameters given to limit the surface are out of its bounds.
 /// </summary>
 public enum class BRepBuilderAPI_FaceError
 {
@@ -159,7 +159,7 @@ public enum class BRepBuilderAPI_ShapeModification
 //  Enum  BRepBuilderAPI_TransitionMode
 //---------------------------------------------------------------------
 /// <summary>
-/// Option to manage  discontinuities in  Sweep
+/// Option to manage discontinuities in Sweep
 /// </summary>
 public enum class BRepBuilderAPI_TransitionMode
 {
@@ -169,66 +169,25 @@ public enum class BRepBuilderAPI_TransitionMode
 }; // enum  class BRepBuilderAPI_TransitionMode
 
 //---------------------------------------------------------------------
-//  Class  BRepBuilderAPI_BndBoxTree
-//---------------------------------------------------------------------
-public ref class BRepBuilderAPI_BndBoxTree sealed
-    : public Macad::Occt::BaseClass<::BRepBuilderAPI_BndBoxTree>
-{
-
-#ifdef Include_BRepBuilderAPI_BndBoxTree_h
-public:
-    Include_BRepBuilderAPI_BndBoxTree_h
-#endif
-
-public:
-    BRepBuilderAPI_BndBoxTree(::BRepBuilderAPI_BndBoxTree* nativeInstance)
-        : Macad::Occt::BaseClass<::BRepBuilderAPI_BndBoxTree>( nativeInstance, true )
-    {}
-
-    BRepBuilderAPI_BndBoxTree(::BRepBuilderAPI_BndBoxTree& nativeInstance)
-        : Macad::Occt::BaseClass<::BRepBuilderAPI_BndBoxTree>( &nativeInstance, false )
-    {}
-
-    property ::BRepBuilderAPI_BndBoxTree* NativeInstance
-    {
-        ::BRepBuilderAPI_BndBoxTree* get()
-        {
-            return static_cast<::BRepBuilderAPI_BndBoxTree*>(_NativeInstance);
-        }
-    }
-
-public:
-    BRepBuilderAPI_BndBoxTree();
-    BRepBuilderAPI_BndBoxTree(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    bool Add(int theObj, Macad::Occt::Bnd_Box^ theBnd);
-    /* Method skipped due to unknown mapping: int Select(Selector theSelector, ) */
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ aNewAlloc);
-    void Clear();
-    bool IsEmpty();
-    /* Method skipped due to unknown mapping: TreeNode Root() */
-    Macad::Occt::NCollection_BaseAllocator^ Allocator();
-}; // class BRepBuilderAPI_BndBoxTree
-
-//---------------------------------------------------------------------
 //  Class  BRepBuilderAPI
 //---------------------------------------------------------------------
 /// <summary>
-/// The  BRepBuilderAPI  package   provides  an   Application
-/// Programming Interface  for the BRep  topology data
+/// The BRepBuilderAPI package provides an Application
+/// Programming Interface for the BRep topology data
 /// structure.
 /// 
-/// The API is a set of classes aiming to provide :
+/// The API is a set of classes aiming to provide:
 /// 
-/// * High level and simple calls  for the most common
+/// * High level and simple calls for the most common
 /// operations.
 /// 
-/// *    Keeping   an   access  on    the    low-level
+/// * Keeping an access on the low-level
 /// implementation of high-level calls.
 /// 
-/// * Examples  of programming of high-level operations
+/// * Examples of programming of high-level operations
 /// from low-level operations.
 /// 
-/// * A complete coverage of modelling :
+/// * A complete coverage of modelling:
 /// 
 /// - Creating vertices ,edges, faces, solids.
 /// 
@@ -238,20 +197,20 @@ public:
 /// 
 /// - Global properties computation.
 /// 
-/// The API provides  classes to  build  objects:
+/// The API provides classes to build objects:
 /// 
-/// * The  constructors  of the classes  provides  the
+/// * The constructors of the classes provides the
 /// different constructions methods.
 /// 
-/// * The  class keeps as fields the   different tools
+/// * The class keeps as fields the different tools
 /// used to build the object.
 /// 
-/// *   The class  provides  a  casting  method to get
-/// automatically the  result  with  a   function-like
+/// * The class provides a casting method to get
+/// automatically the result with a function-like
 /// call.
 /// 
-/// For example to make a  vertex <V> from a point <P>
-/// one can writes :
+/// For example to make a vertex <V> from a point <P>
+/// one can write:
 /// 
 /// V = BRepBuilderAPI_MakeVertex(P);
 /// 
@@ -260,8 +219,8 @@ public:
 /// BRepBuilderAPI_MakeVertex MV(P);
 /// V = MV.Vertex();
 /// 
-/// For tolerances  a default precision is  used which
-/// can    be   changed    by    the   packahe  method
+/// For tolerances a default precision is used which
+/// can be changed by the packahe method
 /// BRepBuilderAPI::Precision.
 /// 
 /// For error handling the BRepBuilderAPI commands raise only
@@ -301,7 +260,7 @@ public:
 public:
     BRepBuilderAPI();
     /// <summary>
-    /// Sets    the current plane.
+    /// Sets the current plane.
     /// </summary>
     static void Plane(Macad::Occt::Geom_Plane^ P);
     /// <summary>
@@ -309,7 +268,7 @@ public:
     /// </summary>
     static Macad::Occt::Geom_Plane^ Plane();
     /// <summary>
-    /// Sets the default precision.  The current Precision
+    /// Sets the default precision. The current Precision
     /// is returned.
     /// </summary>
     static void Precision(double P);
@@ -323,10 +282,7 @@ public:
 //  Class  BRepBuilderAPI_VertexInspector
 //---------------------------------------------------------------------
 /// <summary>
-/// Class BRepBuilderAPI_VertexInspector
-/// derived from NCollection_CellFilter_InspectorXYZ
-/// This class define the Inspector interface for CellFilter algorithm,
-/// working with gp_XYZ points in 3d space.
+/// Inspector for CellFilter algorithm working with gp_XYZ points in 3d space.
 /// Used in search of coincidence points with a certain tolerance.
 /// </summary>
 public ref class BRepBuilderAPI_VertexInspector sealed
@@ -360,6 +316,8 @@ public:
     /// Constructor; remembers the tolerance
     /// </summary>
     BRepBuilderAPI_VertexInspector(double theTol);
+    static double Coord(int i, Macad::Occt::XYZ thePnt);
+    static Macad::Occt::XYZ Shift(Macad::Occt::XYZ thePnt, double theTol);
     /// <summary>
     /// Keep the points used for comparison
     /// </summary>
@@ -478,10 +436,10 @@ public:
 //  Class  BRepBuilderAPI_MakeShape
 //---------------------------------------------------------------------
 /// <summary>
-/// This    is  the  root     class for     all  shape
-/// constructions.  It stores the result.
+/// This is the root class for all shape
+/// constructions. It stores the result.
 /// 
-/// It  provides deferred methods to trace the history
+/// It provides deferred methods to trace the history
 /// of sub-shapes.
 /// </summary>
 public ref class BRepBuilderAPI_MakeShape
@@ -517,12 +475,12 @@ public:
 
 public:
     /// <summary>
-    /// This is  called by  Shape().  It does  nothing but
+    /// This is called by Shape(). It does nothing but
     /// may be redefined.
     /// </summary>
     void Build(Macad::Occt::Message_ProgressRange^ theRange);
     /// <summary>
-    /// This is  called by  Shape().  It does  nothing but
+    /// This is called by Shape(). It does nothing but
     /// may be redefined.
     /// </summary>
     void Build();
@@ -532,12 +490,12 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Shape();
     /// <summary>
-    /// Returns the  list   of shapes generated   from the
+    /// Returns the list of shapes generated from the
     /// shape <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Generated(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Returns the list  of shapes modified from the shape
+    /// Returns the list of shapes modified from the shape
     /// <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ S);
@@ -551,11 +509,11 @@ public:
 //  Class  BRepBuilderAPI_ModifyShape
 //---------------------------------------------------------------------
 /// <summary>
-/// Implements   the  methods   of MakeShape for   the
-/// constant  topology modifications.  The methods are
-/// implemented  when the modification uses a Modifier
-/// from BRepTools. Some of  them have to be redefined
-/// if  the  modification is  implemented with another
+/// Implements the methods of MakeShape for the
+/// constant topology modifications. The methods are
+/// implemented when the modification uses a Modifier
+/// from BRepTools. Some of them have to be redefined
+/// if the modification is implemented with another
 /// tool (see Transform from BRepBuilderAPI for example).
 /// The BRepBuilderAPI package provides the following
 /// frameworks to perform modifications of this sort:
@@ -600,7 +558,7 @@ public:
 
 public:
     /// <summary>
-    /// Returns the list  of shapes modified from the shape
+    /// Returns the list of shapes modified from the shape
     /// <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ S);
@@ -1051,7 +1009,7 @@ public:
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Returns the list  of shapes modified from the shape
+    /// Returns the list of shapes modified from the shape
     /// <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ S);
@@ -1067,34 +1025,34 @@ public:
 /// <summary>
 /// Provides methods to build edges.
 /// 
-/// The   methods have  the  following   syntax, where
+/// The methods have the following syntax, where
 /// TheCurve is one of Lin, Circ, ...
 /// 
 /// Create(C : TheCurve)
 /// 
-/// Makes an edge on  the whole curve.  Add vertices
+/// Makes an edge on the whole curve. Add vertices
 /// on finite curves.
 /// 
 /// Create(C : TheCurve; p1,p2 : Real)
 /// 
-/// Make an edge  on the curve between parameters p1
+/// Make an edge on the curve between parameters p1
 /// and p2. if p2 < p1 the edge will be REVERSED. If
-/// p1  or p2 is infinite the  curve will be open in
-/// that  direction. Vertices are created for finite
+/// p1 or p2 is infinite the curve will be open in
+/// that direction. Vertices are created for finite
 /// values of p1 and p2.
 /// 
 /// Create(C : TheCurve; P1, P2 : Pnt from gp)
 /// 
-/// Make an edge on the curve  between the points P1
-/// and P2. The  points are projected on   the curve
-/// and the   previous method is  used. An  error is
+/// Make an edge on the curve between the points P1
+/// and P2. The points are projected on the curve
+/// and the previous method is used. An error is
 /// raised if the points are not on the curve.
 /// 
 /// Create(C : TheCurve; V1, V2 : Vertex from TopoDS)
 /// 
-/// Make an edge  on the curve  between the vertices
-/// V1 and V2. Same as the  previous but no vertices
-/// are created. If a vertex is  Null the curve will
+/// Make an edge on the curve between the vertices
+/// V1 and V2. Same as the previous but no vertices
+/// are created. If a vertex is Null the curve will
 /// be open in this direction.
 /// </summary>
 public ref class BRepBuilderAPI_MakeEdge sealed
@@ -1282,34 +1240,34 @@ public:
 /// <summary>
 /// Provides methods to build edges.
 /// 
-/// The   methods have  the  following   syntax, where
+/// The methods have the following syntax, where
 /// TheCurve is one of Lin2d, Circ2d, ...
 /// 
 /// Create(C : TheCurve)
 /// 
-/// Makes an edge on  the whole curve.  Add vertices
+/// Makes an edge on the whole curve. Add vertices
 /// on finite curves.
 /// 
 /// Create(C : TheCurve; p1,p2 : Real)
 /// 
-/// Make an edge  on the curve between parameters p1
+/// Make an edge on the curve between parameters p1
 /// and p2. if p2 < p1 the edge will be REVERSED. If
-/// p1  or p2 is infinite the  curve will be open in
-/// that  direction. Vertices are created for finite
+/// p1 or p2 is infinite the curve will be open in
+/// that direction. Vertices are created for finite
 /// values of p1 and p2.
 /// 
 /// Create(C : TheCurve; P1, P2 : Pnt2d from gp)
 /// 
-/// Make an edge on the curve  between the points P1
-/// and P2. The  points are projected on   the curve
-/// and the   previous method is  used. An  error is
+/// Make an edge on the curve between the points P1
+/// and P2. The points are projected on the curve
+/// and the previous method is used. An error is
 /// raised if the points are not on the curve.
 /// 
 /// Create(C : TheCurve; V1, V2 : Vertex from TopoDS)
 /// 
-/// Make an edge  on the curve  between the vertices
-/// V1 and V2. Same as the  previous but no vertices
-/// are created. If a vertex is  Null the curve will
+/// Make an edge on the curve between the vertices
+/// V1 and V2. Same as the previous but no vertices
+/// are created. If a vertex is Null the curve will
 /// be open in this direction.
 /// </summary>
 public ref class BRepBuilderAPI_MakeEdge2d sealed
@@ -1395,7 +1353,7 @@ public:
 /// <summary>
 /// Provides methods to build faces.
 /// 
-/// A face may be built :
+/// A face may be built:
 /// 
 /// * From a surface.
 /// 
@@ -1412,7 +1370,7 @@ public:
 /// * From a surface and a wire.
 /// 
 /// - A flag Inside is given, when this flag is True
-/// the  wire is  oriented to bound a finite area on
+/// the wire is oriented to bound a finite area on
 /// the surface.
 /// 
 /// * From a face and a wire.
@@ -1696,8 +1654,8 @@ public:
 /// polygonal wire can be built from any number of points
 /// or vertices, and consists of a sequence of connected
 /// rectilinear edges.
-/// When a point or vertex is added to the  polygon if
-/// it is identic  to the previous  point no  edge  is
+/// When a point or vertex is added to the polygon if
+/// it is identic to the previous point no edge is
 /// built. The method added can be used to test it.
 /// Construction of a Polygonal Wire
 /// You can construct:
@@ -1794,7 +1752,7 @@ public:
     /// construction can be consulted at any time by using the Wire function.
     /// Example
     /// //a closed triangle from three vertices
-    /// TopoDS_Wire W = BRepBuilderAPI_MakePolygon(V1,V2,V3,Standard_True);
+    /// TopoDS_Wire W = BRepBuilderAPI_MakePolygon(V1,V2,V3,true);
     /// Warning
     /// The process is equivalent to:
     /// -      initializing an empty polygonal wire,
@@ -1813,7 +1771,7 @@ public:
     /// construction can be consulted at any time by using the Wire function.
     /// Example
     /// //a closed triangle from three vertices
-    /// TopoDS_Wire W = BRepBuilderAPI_MakePolygon(V1,V2,V3,Standard_True);
+    /// TopoDS_Wire W = BRepBuilderAPI_MakePolygon(V1,V2,V3,true);
     /// Warning
     /// The process is equivalent to:
     /// -      initializing an empty polygonal wire,
@@ -2388,13 +2346,13 @@ public:
     /// </summary>
     void Add(Macad::Occt::TopoDS_Wire^ W);
     /// <summary>
-    /// Adds  the edges of <L>   to the current  wire.  The
-    /// edges are not to be consecutive.   But they are to
-    /// be  all  connected geometrically or topologically.
-    /// If some of them are  not connected the Status give
+    /// Adds the edges of <L> to the current wire. The
+    /// edges are not to be consecutive. But they are to
+    /// be all connected geometrically or topologically.
+    /// If some of them are not connected the Status give
     /// DisconnectedWire but the "Maker" is Done() and you
-    /// can get the  partial result. (ie connected to  the
-    /// first edgeof the list <L>)
+    /// can get the partial result.
+    /// (i.e. connected to the first edgeof the list <L>)
     /// </summary>
     void Add(Macad::Occt::TopTools_ListOfShape^ L);
     /// <summary>
@@ -2529,7 +2487,7 @@ public:
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Returns the list  of shapes modified from the shape
+    /// Returns the list of shapes modified from the shape
     /// <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ S);
@@ -2743,7 +2701,7 @@ public:
     bool IsSectionBound(Macad::Occt::TopoDS_Edge^ section);
     /// <summary>
     /// Gives the original edge (free boundary) which becomes the
-    /// the section. Remember that sections constitute  common edges.
+    /// the section. Remember that sections constitute common edges.
     /// This information is important for control because with
     /// original edge we can find the surface to which the section
     /// is attached.
@@ -2923,10 +2881,10 @@ public:
     /// <summary>
     /// Creates a transformation from the gp_Trsf <theTrsf>, and
     /// applies it to the shape <theShape>. If the transformation
-    /// is  direct   and isometric (determinant  =  1) and
-    /// <theCopyGeom> =  Standard_False,  the resulting shape  is
-    /// <theShape> on   which  a  new  location has    been  set.
-    /// Otherwise,  the   transformation is applied   on a
+    /// is direct and isometric (determinant = 1) and
+    /// <theCopyGeom> = false, the resulting shape is
+    /// <theShape> on which a new location has been set.
+    /// Otherwise, the transformation is applied on a
     /// duplication of <theShape>.
     /// If <theCopyMesh> is true, the triangulation will be copied,
     /// and the copy will be assigned to the result shape.
@@ -2935,10 +2893,10 @@ public:
     /// <summary>
     /// Creates a transformation from the gp_Trsf <theTrsf>, and
     /// applies it to the shape <theShape>. If the transformation
-    /// is  direct   and isometric (determinant  =  1) and
-    /// <theCopyGeom> =  Standard_False,  the resulting shape  is
-    /// <theShape> on   which  a  new  location has    been  set.
-    /// Otherwise,  the   transformation is applied   on a
+    /// is direct and isometric (determinant = 1) and
+    /// <theCopyGeom> = false, the resulting shape is
+    /// <theShape> on which a new location has been set.
+    /// Otherwise, the transformation is applied on a
     /// duplication of <theShape>.
     /// If <theCopyMesh> is true, the triangulation will be copied,
     /// and the copy will be assigned to the result shape.
@@ -2947,10 +2905,10 @@ public:
     /// <summary>
     /// Creates a transformation from the gp_Trsf <theTrsf>, and
     /// applies it to the shape <theShape>. If the transformation
-    /// is  direct   and isometric (determinant  =  1) and
-    /// <theCopyGeom> =  Standard_False,  the resulting shape  is
-    /// <theShape> on   which  a  new  location has    been  set.
-    /// Otherwise,  the   transformation is applied   on a
+    /// is direct and isometric (determinant = 1) and
+    /// <theCopyGeom> = false, the resulting shape is
+    /// <theShape> on which a new location has been set.
+    /// Otherwise, the transformation is applied on a
     /// duplication of <theShape>.
     /// If <theCopyMesh> is true, the triangulation will be copied,
     /// and the copy will be assigned to the result shape.
@@ -3012,7 +2970,7 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Shape^ ModifiedShape(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Returns the list  of shapes modified from the shape
+    /// Returns the list of shapes modified from the shape
     /// <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ S);

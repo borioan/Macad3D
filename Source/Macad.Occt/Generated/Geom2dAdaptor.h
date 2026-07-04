@@ -12,8 +12,8 @@ namespace Occt
 //  Class  Geom2dAdaptor
 //---------------------------------------------------------------------
 /// <summary>
-/// this package  contains the geometric definition of
-/// 2d  curves compatible  with  the  Adaptor  package
+/// this package contains the geometric definition of
+/// 2d curves compatible with the Adaptor package
 /// templates.
 /// </summary>
 public ref class Geom2dAdaptor sealed
@@ -45,9 +45,9 @@ public:
 public:
     Geom2dAdaptor();
     /// <summary>
-    /// Inherited  from    GHCurve.   Provides a  curve
+    /// Inherited from GHCurve. Provides a curve
     /// handled by reference.
-    /// Creates  a 2d  curve  from  a  HCurve2d.  This
+    /// Creates a 2d curve from a HCurve2d. This
     /// cannot process the OtherCurves.
     /// </summary>
     static Macad::Occt::Geom2d_Curve^ MakeCurve(Macad::Occt::Adaptor2d_Curve2d^ HC);
@@ -113,30 +113,34 @@ public:
     void Reset();
     void Load(Macad::Occt::Geom2d_Curve^ theCurve);
     /// <summary>
-    /// Standard_ConstructionError is raised if theUFirst>theULast
+    /// Standard_ConstructionError is raised if theUFirst > theULast + Precision::PConfusion()
     /// </summary>
     void Load(Macad::Occt::Geom2d_Curve^ theCurve, double theUFirst, double theULast);
+    /// <summary>
+    /// Returns true if the adaptor has been loaded with a curve.
+    /// </summary>
+    bool IsInitialized();
     Macad::Occt::Geom2d_Curve^ Curve();
     double FirstParameter();
     double LastParameter();
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// If necessary,  breaks the  curve in  intervals  of
-    /// continuity  <S>.    And  returns   the number   of
+    /// If necessary, breaks the curve in intervals of
+    /// continuity <S>. And returns the number of
     /// intervals.
     /// </summary>
     int NbIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
+    /// Stores in <T> the parameters bounding the intervals
     /// of continuity <S>.
     /// 
-    /// The array must provide  enough room to  accommodate
+    /// The array must provide enough room to accommodate
     /// for the parameters. i.e. T.Length() > NbIntervals()
     /// </summary>
     void Intervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  curve equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a curve equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -198,6 +202,17 @@ public:
     int NbSamples();
     Macad::Occt::Geom2d_BezierCurve^ Bezier();
     Macad::Occt::Geom2d_BSplineCurve^ BSpline();
+    /// <summary>
+    /// Point evaluation. Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Pnt2d EvalD0(double theU);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double theU, ) */
+    /// <summary>
+    /// DN evaluation. Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Vec2d EvalDN(double theU, int theN);
     static Macad::Occt::Geom2dAdaptor_Curve^ CreateDowncasted(::Geom2dAdaptor_Curve* instance);
 }; // class Geom2dAdaptor_Curve
 

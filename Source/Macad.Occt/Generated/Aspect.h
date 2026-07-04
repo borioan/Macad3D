@@ -303,7 +303,7 @@ public enum class Aspect_TypeOfColorScalePosition
 //---------------------------------------------------------------------
 /// <summary>
 /// Defines if the maximal chordial deflection used when
-/// drawing an object is absolute  or relative to the size
+/// drawing an object is absolute or relative to the size
 /// of the object.
 /// </summary>
 public enum class Aspect_TypeOfDeflection
@@ -402,10 +402,12 @@ public enum class Aspect_TypeOfMarker
 /// <summary>
 /// Define the style of the text.
 /// 
-/// TOST_NORMAL         Default text. The text is displayed like any other graphic object.
+/// TOST_NORMAL
+/// Default text. The text is displayed like any other graphic object.
 /// This text can be hidden by another object that is nearest from the
 /// point of view.
-/// TOST_ANNOTATION     The text is always visible. The texte is displayed
+/// TOST_ANNOTATION
+/// The text is always visible. The text is displayed
 /// over the other object according to the priority.
 /// </summary>
 public enum class Aspect_TypeOfStyleText
@@ -610,270 +612,6 @@ public enum class Aspect_WidthOfLine
 }; // enum  class Aspect_WidthOfLine
 
 //---------------------------------------------------------------------
-//  Class  Aspect_XRActionMap
-//---------------------------------------------------------------------
-/// <summary>
-/// Map of actions with action Id as a key.
-/// </summary>
-public ref class Aspect_XRActionMap sealed
-    : public Macad::Occt::BaseClass<::Aspect_XRActionMap>
-{
-
-#ifdef Include_Aspect_XRActionMap_h
-public:
-    Include_Aspect_XRActionMap_h
-#endif
-
-public:
-    Aspect_XRActionMap(::Aspect_XRActionMap* nativeInstance)
-        : Macad::Occt::BaseClass<::Aspect_XRActionMap>( nativeInstance, true )
-    {}
-
-    Aspect_XRActionMap(::Aspect_XRActionMap& nativeInstance)
-        : Macad::Occt::BaseClass<::Aspect_XRActionMap>( &nativeInstance, false )
-    {}
-
-    property ::Aspect_XRActionMap* NativeInstance
-    {
-        ::Aspect_XRActionMap* get()
-        {
-            return static_cast<::Aspect_XRActionMap*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Aspect_XRActionMap::Iterator>
-    {
-
-#ifdef Include_Aspect_XRActionMap_Iterator_h
-    public:
-        Include_Aspect_XRActionMap_Iterator_h
-#endif
-
-    public:
-        Iterator(::Aspect_XRActionMap::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Aspect_XRActionMap::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Aspect_XRActionMap::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Aspect_XRActionMap::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Aspect_XRActionMap::Iterator* NativeInstance
-        {
-            ::Aspect_XRActionMap::Iterator* get()
-            {
-                return static_cast<::Aspect_XRActionMap::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    Aspect_XRActionMap();
-    Aspect_XRActionMap(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    Aspect_XRActionMap(int theNbBuckets);
-    void Exchange(Macad::Occt::Aspect_XRActionMap^ theOther);
-    Macad::Occt::Aspect_XRActionMap^ Assign(Macad::Occt::Aspect_XRActionMap^ theOther);
-    void ReSize(int N);
-    int Add(Macad::Occt::TCollection_AsciiString^ theKey1, Macad::Occt::Aspect_XRAction^ theItem);
-    bool Contains(Macad::Occt::TCollection_AsciiString^ theKey1);
-    void Substitute(int theIndex, Macad::Occt::TCollection_AsciiString^ theKey1, Macad::Occt::Aspect_XRAction^ theItem);
-    void Swap(int theIndex1, int theIndex2);
-    void RemoveLast();
-    void RemoveFromIndex(int theIndex);
-    void RemoveKey(Macad::Occt::TCollection_AsciiString^ theKey1);
-    Macad::Occt::TCollection_AsciiString^ FindKey(int theIndex);
-    Macad::Occt::Aspect_XRAction^ FindFromIndex(int theIndex);
-    Macad::Occt::Aspect_XRAction^ ChangeFromIndex(int theIndex);
-    int FindIndex(Macad::Occt::TCollection_AsciiString^ theKey1);
-    Macad::Occt::Aspect_XRAction^ FindFromKey(Macad::Occt::TCollection_AsciiString^ theKey1);
-    Macad::Occt::Aspect_XRAction^ ChangeFromKey(Macad::Occt::TCollection_AsciiString^ theKey1);
-    Macad::Occt::Aspect_XRAction^ Seek(Macad::Occt::TCollection_AsciiString^ theKey1);
-    Macad::Occt::Aspect_XRAction^ ChangeSeek(Macad::Occt::TCollection_AsciiString^ theKey1);
-    void Clear(bool doReleaseMemory);
-    void Clear();
-    int Size();
-}; // class Aspect_XRActionMap
-
-//---------------------------------------------------------------------
-//  Class  Aspect_XRActionSetMap
-//---------------------------------------------------------------------
-public ref class Aspect_XRActionSetMap sealed
-    : public Macad::Occt::BaseClass<::Aspect_XRActionSetMap>
-{
-
-#ifdef Include_Aspect_XRActionSetMap_h
-public:
-    Include_Aspect_XRActionSetMap_h
-#endif
-
-public:
-    Aspect_XRActionSetMap(::Aspect_XRActionSetMap* nativeInstance)
-        : Macad::Occt::BaseClass<::Aspect_XRActionSetMap>( nativeInstance, true )
-    {}
-
-    Aspect_XRActionSetMap(::Aspect_XRActionSetMap& nativeInstance)
-        : Macad::Occt::BaseClass<::Aspect_XRActionSetMap>( &nativeInstance, false )
-    {}
-
-    property ::Aspect_XRActionSetMap* NativeInstance
-    {
-        ::Aspect_XRActionSetMap* get()
-        {
-            return static_cast<::Aspect_XRActionSetMap*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Aspect_XRActionSetMap::Iterator>
-    {
-
-#ifdef Include_Aspect_XRActionSetMap_Iterator_h
-    public:
-        Include_Aspect_XRActionSetMap_Iterator_h
-#endif
-
-    public:
-        Iterator(::Aspect_XRActionSetMap::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Aspect_XRActionSetMap::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Aspect_XRActionSetMap::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Aspect_XRActionSetMap::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Aspect_XRActionSetMap::Iterator* NativeInstance
-        {
-            ::Aspect_XRActionSetMap::Iterator* get()
-            {
-                return static_cast<::Aspect_XRActionSetMap::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    Aspect_XRActionSetMap();
-    Aspect_XRActionSetMap(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    Aspect_XRActionSetMap(int theNbBuckets);
-    void Exchange(Macad::Occt::Aspect_XRActionSetMap^ theOther);
-    Macad::Occt::Aspect_XRActionSetMap^ Assign(Macad::Occt::Aspect_XRActionSetMap^ theOther);
-    void ReSize(int N);
-    int Add(Macad::Occt::TCollection_AsciiString^ theKey1, Macad::Occt::Aspect_XRActionSet^ theItem);
-    bool Contains(Macad::Occt::TCollection_AsciiString^ theKey1);
-    void Substitute(int theIndex, Macad::Occt::TCollection_AsciiString^ theKey1, Macad::Occt::Aspect_XRActionSet^ theItem);
-    void Swap(int theIndex1, int theIndex2);
-    void RemoveLast();
-    void RemoveFromIndex(int theIndex);
-    void RemoveKey(Macad::Occt::TCollection_AsciiString^ theKey1);
-    Macad::Occt::TCollection_AsciiString^ FindKey(int theIndex);
-    Macad::Occt::Aspect_XRActionSet^ FindFromIndex(int theIndex);
-    Macad::Occt::Aspect_XRActionSet^ ChangeFromIndex(int theIndex);
-    int FindIndex(Macad::Occt::TCollection_AsciiString^ theKey1);
-    Macad::Occt::Aspect_XRActionSet^ FindFromKey(Macad::Occt::TCollection_AsciiString^ theKey1);
-    Macad::Occt::Aspect_XRActionSet^ ChangeFromKey(Macad::Occt::TCollection_AsciiString^ theKey1);
-    Macad::Occt::Aspect_XRActionSet^ Seek(Macad::Occt::TCollection_AsciiString^ theKey1);
-    Macad::Occt::Aspect_XRActionSet^ ChangeSeek(Macad::Occt::TCollection_AsciiString^ theKey1);
-    void Clear(bool doReleaseMemory);
-    void Clear();
-    int Size();
-}; // class Aspect_XRActionSetMap
-
-//---------------------------------------------------------------------
-//  Class  Aspect_TrackedDevicePoseArray
-//---------------------------------------------------------------------
-/// <summary>
-/// Array of tracked poses.
-/// </summary>
-public ref class Aspect_TrackedDevicePoseArray sealed
-    : public Macad::Occt::BaseClass<::Aspect_TrackedDevicePoseArray>
-    , public IIndexEnumerable<Macad::Occt::Aspect_TrackedDevicePose^>
-{
-
-#ifdef Include_Aspect_TrackedDevicePoseArray_h
-public:
-    Include_Aspect_TrackedDevicePoseArray_h
-#endif
-
-public:
-    Aspect_TrackedDevicePoseArray(::Aspect_TrackedDevicePoseArray* nativeInstance)
-        : Macad::Occt::BaseClass<::Aspect_TrackedDevicePoseArray>( nativeInstance, true )
-    {}
-
-    Aspect_TrackedDevicePoseArray(::Aspect_TrackedDevicePoseArray& nativeInstance)
-        : Macad::Occt::BaseClass<::Aspect_TrackedDevicePoseArray>( &nativeInstance, false )
-    {}
-
-    property ::Aspect_TrackedDevicePoseArray* NativeInstance
-    {
-        ::Aspect_TrackedDevicePoseArray* get()
-        {
-            return static_cast<::Aspect_TrackedDevicePoseArray*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Aspect_TrackedDevicePoseArray::Iterator>
-    {
-
-#ifdef Include_Aspect_TrackedDevicePoseArray_Iterator_h
-    public:
-        Include_Aspect_TrackedDevicePoseArray_Iterator_h
-#endif
-
-    public:
-        Iterator(::Aspect_TrackedDevicePoseArray::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Aspect_TrackedDevicePoseArray::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Aspect_TrackedDevicePoseArray::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Aspect_TrackedDevicePoseArray::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Aspect_TrackedDevicePoseArray::Iterator* NativeInstance
-        {
-            ::Aspect_TrackedDevicePoseArray::Iterator* get()
-            {
-                return static_cast<::Aspect_TrackedDevicePoseArray::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    Aspect_TrackedDevicePoseArray();
-    Aspect_TrackedDevicePoseArray(int theLower, int theUpper);
-    /* Method skipped due to unknown mapping: void Aspect_TrackedDevicePoseArray(allocator_type theAlloc, int theLower, int theUpper, ) */
-    Aspect_TrackedDevicePoseArray(Macad::Occt::Aspect_TrackedDevicePose^ theBegin, int theLower, int theUpper, bool theUseBuffer);
-    Aspect_TrackedDevicePoseArray(Macad::Occt::Aspect_TrackedDevicePose^ theBegin, int theLower, int theUpper);
-    void Init(Macad::Occt::Aspect_TrackedDevicePose^ theValue);
-    int Size();
-    int Length();
-    bool IsEmpty();
-    int Lower();
-    int Upper();
-    Macad::Occt::Aspect_TrackedDevicePoseArray^ Assign(Macad::Occt::Aspect_TrackedDevicePoseArray^ theOther);
-    Macad::Occt::Aspect_TrackedDevicePoseArray^ Move(Macad::Occt::Aspect_TrackedDevicePoseArray^ theOther);
-    Macad::Occt::Aspect_TrackedDevicePose^ First();
-    Macad::Occt::Aspect_TrackedDevicePose^ ChangeFirst();
-    Macad::Occt::Aspect_TrackedDevicePose^ Last();
-    Macad::Occt::Aspect_TrackedDevicePose^ ChangeLast();
-    virtual Macad::Occt::Aspect_TrackedDevicePose^ Value(int theIndex);
-    Macad::Occt::Aspect_TrackedDevicePose^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::Aspect_TrackedDevicePose^ theItem);
-    void UpdateLowerBound(int theLower);
-    void UpdateUpperBound(int theUpper);
-    void Resize(int theLower, int theUpper, bool theToCopyData);
-    bool IsDeletable();
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::Aspect_TrackedDevicePose^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class Aspect_TrackedDevicePoseArray
-
-//---------------------------------------------------------------------
 //  Class  Aspect_SequenceOfColor
 //---------------------------------------------------------------------
 public ref class Aspect_SequenceOfColor sealed
@@ -932,6 +670,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::Aspect_SequenceOfColor^ theSeq, bool isStart);
+        Iterator(Macad::Occt::Aspect_SequenceOfColor^ theSeq);
         bool More();
         void Next();
         Macad::Occt::Quantity_Color^ Value();
@@ -940,32 +680,53 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     Aspect_SequenceOfColor();
     Aspect_SequenceOfColor(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::Aspect_SequenceOfColor^ Assign(Macad::Occt::Aspect_SequenceOfColor^ theOther);
     void Remove(Macad::Occt::Aspect_SequenceOfColor::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::Quantity_Color^ theItem);
+    void Append(Macad::Occt::Aspect_SequenceOfColor^ theSeq);
     void Prepend(Macad::Occt::Quantity_Color^ theItem);
+    void Prepend(Macad::Occt::Aspect_SequenceOfColor^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Quantity_Color^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::Quantity_Color^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Aspect_SequenceOfColor^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::Aspect_SequenceOfColor^ theSeq);
     void InsertAfter(Macad::Occt::Aspect_SequenceOfColor::Iterator^ thePosition, Macad::Occt::Quantity_Color^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Aspect_SequenceOfColor^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::Aspect_SequenceOfColor^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Quantity_Color^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::Quantity_Color^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::Aspect_SequenceOfColor^ theSeq);
     void Split(int theIndex, Macad::Occt::Aspect_SequenceOfColor^ theSeq);
     Macad::Occt::Quantity_Color^ First();
     Macad::Occt::Quantity_Color^ ChangeFirst();
     Macad::Occt::Quantity_Color^ Last();
     Macad::Occt::Quantity_Color^ ChangeLast();
+    Macad::Occt::Quantity_Color^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::Quantity_Color^ Value(int theIndex);
+    Macad::Occt::Quantity_Color^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::Quantity_Color^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::Quantity_Color^ theItem);
     void SetValue(int theIndex, Macad::Occt::Quantity_Color^ theItem);
+    Macad::Occt::Quantity_Color^ At(long long unsigned int theIndex);
+    Macad::Occt::Quantity_Color^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::Quantity_Color^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class Aspect_SequenceOfColor
@@ -1029,30 +790,59 @@ public:
     public:
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     Aspect_TouchMap();
+    Aspect_TouchMap(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    Aspect_TouchMap(long long unsigned int theNbBuckets);
     Aspect_TouchMap(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     Aspect_TouchMap(int theNbBuckets);
+    /* Method skipped due to unknown mapping: void Aspect_TouchMap(NCollection_DefaultHasher<unsigned long long> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void Aspect_TouchMap(NCollection_DefaultHasher<unsigned long long> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void Aspect_TouchMap(NCollection_DefaultHasher<unsigned long long> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void Aspect_TouchMap(NCollection_DefaultHasher<unsigned long long> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void Aspect_TouchMap(NCollection_DefaultHasher<unsigned long long> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: ItemsView Items() */
+    /* Method skipped due to unknown mapping: IndexedItemsView IndexedItems() */
     void Exchange(Macad::Occt::Aspect_TouchMap^ theOther);
+    /* Method skipped due to unknown mapping: NCollection_DefaultHasher<unsigned long long> GetHasher() */
     Macad::Occt::Aspect_TouchMap^ Assign(Macad::Occt::Aspect_TouchMap^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     int Add(long long unsigned int theKey1, Macad::Occt::Aspect_Touch^ theItem);
+    Macad::Occt::Aspect_Touch^ TryBound(long long unsigned int theKey1, Macad::Occt::Aspect_Touch^ theItem);
+    bool TryBind(long long unsigned int theKey1, Macad::Occt::Aspect_Touch^ theItem);
+    bool Bind(long long unsigned int theKey1, Macad::Occt::Aspect_Touch^ theItem);
+    Macad::Occt::Aspect_Touch^ Bound(long long unsigned int theKey1, Macad::Occt::Aspect_Touch^ theItem);
     bool Contains(long long unsigned int theKey1);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const unsigned long long>, std::reference_wrapper<const Aspect_Touch>>> Contained(long long unsigned int theKey1, ) */
+    void Substitute(long long unsigned int theIndex, long long unsigned int theKey1, Macad::Occt::Aspect_Touch^ theItem);
     void Substitute(int theIndex, long long unsigned int theKey1, Macad::Occt::Aspect_Touch^ theItem);
+    void Swap(long long unsigned int theIndex1, long long unsigned int theIndex2);
     void Swap(int theIndex1, int theIndex2);
     void RemoveLast();
+    void RemoveFromIndex(long long unsigned int theIndex);
     void RemoveFromIndex(int theIndex);
     void RemoveKey(long long unsigned int theKey1);
+    long long unsigned int FindKey(long long unsigned int theIndex);
     long long unsigned int FindKey(int theIndex);
+    Macad::Occt::Aspect_Touch^ FindFromIndex(long long unsigned int theIndex);
     Macad::Occt::Aspect_Touch^ FindFromIndex(int theIndex);
+    Macad::Occt::Aspect_Touch^ ChangeFromIndex(long long unsigned int theIndex);
     Macad::Occt::Aspect_Touch^ ChangeFromIndex(int theIndex);
     int FindIndex(long long unsigned int theKey1);
     Macad::Occt::Aspect_Touch^ FindFromKey(long long unsigned int theKey1);
     Macad::Occt::Aspect_Touch^ ChangeFromKey(long long unsigned int theKey1);
     Macad::Occt::Aspect_Touch^ Seek(long long unsigned int theKey1);
     Macad::Occt::Aspect_Touch^ ChangeSeek(long long unsigned int theKey1);
+    bool FindFromKey(long long unsigned int theKey1, Macad::Occt::Aspect_Touch^ theValue);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class Aspect_TouchMap
 
 //---------------------------------------------------------------------
@@ -1567,16 +1357,10 @@ public:
     }
 
 public:
-    Aspect_AspectFillAreaDefinitionError();
     Aspect_AspectFillAreaDefinitionError(System::String^ theMessage);
+    Aspect_AspectFillAreaDefinitionError();
     Aspect_AspectFillAreaDefinitionError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Aspect_AspectFillAreaDefinitionError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Aspect_AspectFillAreaDefinitionError^ NewInstance();
-    static Macad::Occt::Aspect_AspectFillAreaDefinitionError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Aspect_AspectFillAreaDefinitionError^ CreateDowncasted(::Aspect_AspectFillAreaDefinitionError* instance);
+    System::String^ ExceptionType();
 }; // class Aspect_AspectFillAreaDefinitionError
 
 //---------------------------------------------------------------------
@@ -1609,16 +1393,10 @@ public:
     }
 
 public:
-    Aspect_AspectLineDefinitionError();
     Aspect_AspectLineDefinitionError(System::String^ theMessage);
+    Aspect_AspectLineDefinitionError();
     Aspect_AspectLineDefinitionError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Aspect_AspectLineDefinitionError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Aspect_AspectLineDefinitionError^ NewInstance();
-    static Macad::Occt::Aspect_AspectLineDefinitionError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Aspect_AspectLineDefinitionError^ CreateDowncasted(::Aspect_AspectLineDefinitionError* instance);
+    System::String^ ExceptionType();
 }; // class Aspect_AspectLineDefinitionError
 
 //---------------------------------------------------------------------
@@ -1651,16 +1429,10 @@ public:
     }
 
 public:
-    Aspect_AspectMarkerDefinitionError();
     Aspect_AspectMarkerDefinitionError(System::String^ theMessage);
+    Aspect_AspectMarkerDefinitionError();
     Aspect_AspectMarkerDefinitionError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Aspect_AspectMarkerDefinitionError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Aspect_AspectMarkerDefinitionError^ NewInstance();
-    static Macad::Occt::Aspect_AspectMarkerDefinitionError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Aspect_AspectMarkerDefinitionError^ CreateDowncasted(::Aspect_AspectMarkerDefinitionError* instance);
+    System::String^ ExceptionType();
 }; // class Aspect_AspectMarkerDefinitionError
 
 //---------------------------------------------------------------------
@@ -1937,6 +1709,44 @@ public:
     /// returns the x step of the grid.
     /// </summary>
     int DivisionNumber();
+    /// <summary>
+    /// Set the circular grid radius (plane-local units). 0.0 (default) means
+    /// unbounded - the shader draws the grid to the horizon.
+    /// </summary>
+    void SetRadius(double theRadius);
+    /// <summary>
+    /// Return the bounded radius. 0.0 means unbounded.
+    /// </summary>
+    double Radius();
+    /// <summary>
+    /// Set signed offset along the plane normal for display only; snap math
+    /// stays on the plane. Use a small negative value to avoid z-fighting with
+    /// coplanar geometry.
+    /// </summary>
+    void SetZOffset(double theOffset);
+    /// <summary>
+    /// Return the display-time Z-offset along the plane normal.
+    /// </summary>
+    double ZOffset();
+    /// <summary>
+    /// Restrict the grid to an angular wedge, walking counter-clockwise from
+    /// </summary>
+    /// @p theStart to @p theEnd (radians, measured from the rotated plane X
+    /// axis). Setting both values equal (e.g. both 0.0) returns to full-circle
+    /// rendering - the sentinel used for unbounded.
+    void SetArcRange(double theStart, double theEnd);
+    /// <summary>
+    /// Return the arc start angle (radians). Meaningful only when IsArc() is true.
+    /// </summary>
+    double AngleStart();
+    /// <summary>
+    /// Return the arc end angle (radians). Meaningful only when IsArc() is true.
+    /// </summary>
+    double AngleEnd();
+    /// <summary>
+    /// Return TRUE when the grid is restricted to an angular wedge.
+    /// </summary>
+    bool IsArc();
     void Init();
     /// <summary>
     /// Dumps the content of me into the stream
@@ -1979,16 +1789,10 @@ public:
     }
 
 public:
-    Aspect_DisplayConnectionDefinitionError();
     Aspect_DisplayConnectionDefinitionError(System::String^ theMessage);
+    Aspect_DisplayConnectionDefinitionError();
     Aspect_DisplayConnectionDefinitionError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Aspect_DisplayConnectionDefinitionError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Aspect_DisplayConnectionDefinitionError^ NewInstance();
-    static Macad::Occt::Aspect_DisplayConnectionDefinitionError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Aspect_DisplayConnectionDefinitionError^ CreateDowncasted(::Aspect_DisplayConnectionDefinitionError* instance);
+    System::String^ ExceptionType();
 }; // class Aspect_DisplayConnectionDefinitionError
 
 //---------------------------------------------------------------------
@@ -2186,17 +1990,248 @@ public:
     }
 
 public:
-    Aspect_GraphicDeviceDefinitionError();
     Aspect_GraphicDeviceDefinitionError(System::String^ theMessage);
+    Aspect_GraphicDeviceDefinitionError();
     Aspect_GraphicDeviceDefinitionError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Aspect_GraphicDeviceDefinitionError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Aspect_GraphicDeviceDefinitionError^ NewInstance();
-    static Macad::Occt::Aspect_GraphicDeviceDefinitionError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Aspect_GraphicDeviceDefinitionError^ CreateDowncasted(::Aspect_GraphicDeviceDefinitionError* instance);
+    System::String^ ExceptionType();
 }; // class Aspect_GraphicDeviceDefinitionError
+
+//---------------------------------------------------------------------
+//  Class  Aspect_GridParams
+//---------------------------------------------------------------------
+/// <summary>
+/// Shader grid appearance (color, scale, bounds, arc, draw mode, background / adaptive flags).
+/// Consumed only by the GPU path: V3d_View::GridDisplay -> OpenGl_View::renderGrid.
+/// No effect on the CPU path (V3d_Viewer::ActivateGrid). Snap math is independent and
+/// lives on Aspect_RectangularGrid / Aspect_CircularGrid.
+/// </summary>
+public ref class Aspect_GridParams sealed
+    : public Macad::Occt::BaseClass<::Aspect_GridParams>
+{
+
+#ifdef Include_Aspect_GridParams_h
+public:
+    Include_Aspect_GridParams_h
+#endif
+
+public:
+    Aspect_GridParams(::Aspect_GridParams* nativeInstance)
+        : Macad::Occt::BaseClass<::Aspect_GridParams>( nativeInstance, true )
+    {}
+
+    Aspect_GridParams(::Aspect_GridParams& nativeInstance)
+        : Macad::Occt::BaseClass<::Aspect_GridParams>( &nativeInstance, false )
+    {}
+
+    property ::Aspect_GridParams* NativeInstance
+    {
+        ::Aspect_GridParams* get()
+        {
+            return static_cast<::Aspect_GridParams*>(_NativeInstance);
+        }
+    }
+
+public:
+    /// <summary>
+    /// Construct with sensible defaults: grey lines on the plane origin with
+    /// axis coloring enabled, 1/100 plane-unit spacing, overlay mode,
+    /// unbounded in extent and radius.
+    /// </summary>
+    Aspect_GridParams();
+    /// <summary>
+    /// Return grid line color.
+    /// </summary>
+    Macad::Occt::Quantity_Color^ Color();
+    /// <summary>
+    /// Set grid line color.
+    /// </summary>
+    void SetColor(Macad::Occt::Quantity_Color^ theColor);
+    /// <summary>
+    /// Return local offset of the grid origin within the plane.
+    /// </summary>
+    Macad::Occt::Pnt Origin();
+    /// <summary>
+    /// Set local offset of the grid origin within the plane.
+    /// </summary>
+    void SetOrigin(Macad::Occt::Pnt theOrigin);
+    /// <summary>
+    /// Return every-tenth-line / accent colour rendered by the shader.
+    /// </summary>
+    Macad::Occt::Quantity_Color^ AccentColor();
+    /// <summary>
+    /// Set every-tenth-line / accent colour rendered by the shader.
+    /// </summary>
+    void SetAccentColor(Macad::Occt::Quantity_Color^ theColor);
+    /// <summary>
+    /// Return accent overlay scale along the plane X/radial direction.
+    /// Zero disables the accent layer on that axis.
+    /// </summary>
+    double AccentScaleX();
+    /// <summary>
+    /// Set accent overlay scale along the plane X/radial direction.
+    /// </summary>
+    void SetAccentScaleX(double theScale);
+    /// <summary>
+    /// Return accent overlay scale along the plane Y direction.
+    /// Zero disables the accent layer on that axis.
+    /// </summary>
+    double AccentScaleY();
+    /// <summary>
+    /// Set accent overlay scale along the plane Y direction.
+    /// </summary>
+    void SetAccentScaleY(double theScale);
+    /// <summary>
+    /// Return accent overlay angular scale for circular-grid spokes.
+    /// Zero disables the angular accent layer.
+    /// </summary>
+    double AccentAngularScale();
+    /// <summary>
+    /// Set accent overlay angular scale for circular-grid spokes.
+    /// </summary>
+    void SetAccentAngularScale(double theScale);
+    /// <summary>
+    /// Return major-grid scale factor along the plane X direction (cells per plane unit).
+    /// </summary>
+    double Scale();
+    /// <summary>
+    /// Set major-grid scale factor along the plane X direction (cells per plane unit).
+    /// Must be non-negative; zero is a valid "unused" sentinel.
+    /// </summary>
+    void SetScale(double theScale);
+    /// <summary>
+    /// Return explicit Y-direction scale. When 0.0, renderer falls back to Scale() (isotropic).
+    /// </summary>
+    double ScaleY();
+    /// <summary>
+    /// Set explicit Y-direction scale. Pass 0.0 to mirror Scale() (isotropic, default).
+    /// </summary>
+    void SetScaleY(double theScaleY);
+    /// <summary>
+    /// Effective Y-direction scale actually consumed by the renderer.
+    /// </summary>
+    double EffectiveScaleY();
+    /// <summary>
+    /// Return line thickness in plane units (minimum pixel-space line width is derived from fwidth).
+    /// </summary>
+    double LineThickness();
+    /// <summary>
+    /// Set line thickness in plane units.
+    /// </summary>
+    void SetLineThickness(double theThickness);
+    /// <summary>
+    /// Return in-plane rotation angle (radians) applied to the grid axes around the plane normal.
+    /// </summary>
+    double RotationAngle();
+    /// <summary>
+    /// Set in-plane rotation angle (radians) applied to the grid axes around the plane normal.
+    /// </summary>
+    void SetRotationAngle(double theAngle);
+    /// <summary>
+    /// Return the angular subdivision count of the half-circle for circular grids.
+    /// Zero means rectangular grid (default); any positive value switches the
+    /// renderer to polar rings (Scale -> radial step) and spokes at pi/N rad.
+    /// </summary>
+    int AngularDivisions();
+    /// <summary>
+    /// Set angular subdivision count (0 = rectangular grid, N>0 = circular with N spokes per 180
+    /// deg).
+    /// </summary>
+    void SetAngularDivisions(int theDivisions);
+    /// <summary>
+    /// Return TRUE when the parameters describe a circular (polar) grid.
+    /// </summary>
+    bool IsCircular();
+    /// <summary>
+    /// Return rectangular bounded extent along plane X; 0.0 means unbounded.
+    /// </summary>
+    double SizeX();
+    /// <summary>
+    /// Set rectangular bounded extent along plane X; 0.0 means unbounded.
+    /// </summary>
+    void SetSizeX(double theSize);
+    /// <summary>
+    /// Return rectangular bounded extent along plane Y; 0.0 means unbounded.
+    /// </summary>
+    double SizeY();
+    /// <summary>
+    /// Set rectangular bounded extent along plane Y; 0.0 means unbounded.
+    /// </summary>
+    void SetSizeY(double theSize);
+    /// <summary>
+    /// Return circular bounded radius; 0.0 means unbounded.
+    /// </summary>
+    double Radius();
+    /// <summary>
+    /// Set circular bounded radius; 0.0 means unbounded.
+    /// </summary>
+    void SetRadius(double theRadius);
+    /// <summary>
+    /// Return signed plane-normal offset applied at render time.
+    /// </summary>
+    double ZOffset();
+    /// <summary>
+    /// Set signed plane-normal offset applied at render time (display only;
+    /// snap math stays on the unshifted plane).
+    /// </summary>
+    void SetZOffset(double theOffset);
+    /// <summary>
+    /// Return arc start angle (radians). Meaningful only when IsArc() is true.
+    /// </summary>
+    double AngleStart();
+    /// <summary>
+    /// Return arc end angle (radians). Meaningful only when IsArc() is true.
+    /// </summary>
+    double AngleEnd();
+    /// <summary>
+    /// Restrict the circular grid to an angular wedge [start, end], walking CCW.
+    /// Equal start and end (e.g. 0.0 and 0.0) returns to full-circle rendering.
+    /// </summary>
+    void SetArcRange(double theStart, double theEnd);
+    /// <summary>
+    /// Return TRUE when the parameters describe a bounded rectangle or disc.
+    /// </summary>
+    bool IsBounded();
+    /// <summary>
+    /// Return TRUE when the circular grid is restricted to a sub-arc.
+    /// </summary>
+    bool IsArc();
+    /// <summary>
+    /// Return draw mode: lines, points at grid intersections, or none.
+    /// </summary>
+    Macad::Occt::Aspect_GridDrawMode DrawMode();
+    /// <summary>
+    /// Set draw mode. Aspect_GDM_None suppresses rendering entirely; Points draws
+    /// dots at grid-line intersections, Lines (default) draws the full grid.
+    /// </summary>
+    void SetDrawMode(Macad::Occt::Aspect_GridDrawMode theMode);
+    /// <summary>
+    /// Return TRUE if grid is drawn as a view-space background (behind all geometry).
+    /// </summary>
+    bool IsBackground();
+    /// <summary>
+    /// Set background-mode rendering on/off.
+    /// </summary>
+    void SetIsBackground(bool theIsBackground);
+    /// <summary>
+    /// Return TRUE if axis lines on the grid plane are drawn in red/green/blue.
+    /// </summary>
+    bool IsDrawAxis();
+    /// <summary>
+    /// Set axis coloring on/off.
+    /// </summary>
+    void SetIsDrawAxis(bool theIsDrawAxis);
+    /// <summary>
+    /// Return TRUE if grid spacing and visible extents adapt to the camera view.
+    /// </summary>
+    bool IsViewAdaptive();
+    /// <summary>
+    /// Set view-adaptive grid on/off. When enabled, renderer derives temporary
+    /// cell spacing and bounds from the current camera. The inverse of ScaleY()
+    /// (or Scale() when ScaleY() is zero) is used as the target number of cells
+    /// across the view height.
+    /// </summary>
+    void SetIsViewAdaptive(bool theIsViewAdaptive);
+}; // class Aspect_GridParams
 
 //---------------------------------------------------------------------
 //  Class  Aspect_IdentDefinitionError
@@ -2228,16 +2263,10 @@ public:
     }
 
 public:
-    Aspect_IdentDefinitionError();
     Aspect_IdentDefinitionError(System::String^ theMessage);
+    Aspect_IdentDefinitionError();
     Aspect_IdentDefinitionError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Aspect_IdentDefinitionError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Aspect_IdentDefinitionError^ NewInstance();
-    static Macad::Occt::Aspect_IdentDefinitionError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Aspect_IdentDefinitionError^ CreateDowncasted(::Aspect_IdentDefinitionError* instance);
+    System::String^ ExceptionType();
 }; // class Aspect_IdentDefinitionError
 
 //---------------------------------------------------------------------
@@ -2508,10 +2537,7 @@ public:
     /// Add action.
     /// </summary>
     void AddAction(Macad::Occt::Aspect_XRAction^ theAction);
-    /// <summary>
-    /// Return map of actions.
-    /// </summary>
-    Macad::Occt::Aspect_XRActionMap^ Actions();
+    /* Method skipped due to unknown mapping: NCollection_IndexedDataMap<TCollection_AsciiString, opencascade::handle<Aspect_XRAction>> Actions() */
     static Macad::Occt::Aspect_XRActionSet^ CreateDowncasted(::Aspect_XRActionSet* instance);
 }; // class Aspect_XRActionSet
 
@@ -2600,18 +2626,9 @@ public:
     /// Return recommended viewport Width x Height for rendering into VR.
     /// </summary>
     Macad::Occt::Graphic3d_Vec2i^ RecommendedViewport();
-    /// <summary>
-    /// Return transformation from eye to head.
-    /// </summary>
-    Macad::Occt::Graphic3d_Mat4d^ EyeToHeadTransform(Macad::Occt::Aspect_Eye theEye);
-    /// <summary>
-    /// Return transformation from head to eye.
-    /// </summary>
-    Macad::Occt::Graphic3d_Mat4d^ HeadToEyeTransform(Macad::Occt::Aspect_Eye theEye);
-    /// <summary>
-    /// Return projection matrix.
-    /// </summary>
-    Macad::Occt::Graphic3d_Mat4d^ ProjectionMatrix(Macad::Occt::Aspect_Eye theEye, double theZNear, double theZFar);
+    /* Method skipped due to unknown mapping: Graphic3d_Mat4d EyeToHeadTransform(Aspect_Eye theEye, ) */
+    /* Method skipped due to unknown mapping: Graphic3d_Mat4d HeadToEyeTransform(Aspect_Eye theEye, ) */
+    /* Method skipped due to unknown mapping: Graphic3d_Mat4d ProjectionMatrix(Aspect_Eye theEye, double theZNear, double theZFar, ) */
     /// <summary>
     /// Return FALSE if projection frustums are unsupported and general 4x4 projection matrix should
     /// be fetched instead
@@ -2684,10 +2701,7 @@ public:
     /// Return right hand orientation.
     /// </summary>
     Macad::Occt::Trsf RightHandPose();
-    /// <summary>
-    /// Return number of tracked poses array.
-    /// </summary>
-    Macad::Occt::Aspect_TrackedDevicePoseArray^ TrackedPoses();
+    /* Method skipped due to unknown mapping: NCollection_Array1<Aspect_TrackedDevicePose> TrackedPoses() */
     /// <summary>
     /// Return TRUE if device orientation is defined.
     /// </summary>
@@ -2836,15 +2850,8 @@ public:
     /// Return recommended viewport Width x Height for rendering into VR.
     /// </summary>
     Macad::Occt::Graphic3d_Vec2i^ RecommendedViewport();
-    /// <summary>
-    /// Return transformation from eye to head.
-    /// vr::GetEyeToHeadTransform() wrapper.
-    /// </summary>
-    Macad::Occt::Graphic3d_Mat4d^ EyeToHeadTransform(Macad::Occt::Aspect_Eye theEye);
-    /// <summary>
-    /// Return projection matrix.
-    /// </summary>
-    Macad::Occt::Graphic3d_Mat4d^ ProjectionMatrix(Macad::Occt::Aspect_Eye theEye, double theZNear, double theZFar);
+    /* Method skipped due to unknown mapping: Graphic3d_Mat4d EyeToHeadTransform(Aspect_Eye theEye, ) */
+    /* Method skipped due to unknown mapping: Graphic3d_Mat4d ProjectionMatrix(Aspect_Eye theEye, double theZNear, double theZFar, ) */
     /// <summary>
     /// Return TRUE.
     /// </summary>
@@ -3013,6 +3020,34 @@ public:
     /// returns the y Angle of the grid, relatively to the vertical.
     /// </summary>
     double SecondAngle();
+    /// <summary>
+    /// Set full extent of the bounded grid along the plane X direction (plane-local units).
+    /// 0.0 (default) means unbounded - the shader draws the grid to the horizon.
+    /// </summary>
+    void SetSizeX(double theSize);
+    /// <summary>
+    /// Return the bounded-region extent along plane X. 0.0 means unbounded.
+    /// </summary>
+    double SizeX();
+    /// <summary>
+    /// Set full extent of the bounded grid along the plane Y direction (plane-local units).
+    /// 0.0 (default) means unbounded.
+    /// </summary>
+    void SetSizeY(double theSize);
+    /// <summary>
+    /// Return the bounded-region extent along plane Y. 0.0 means unbounded.
+    /// </summary>
+    double SizeY();
+    /// <summary>
+    /// Set signed offset (plane-local units) applied along the plane normal for
+    /// display only - snap math stays on the plane. Use a small negative value
+    /// to push the grid slightly below coplanar geometry and avoid z-fighting.
+    /// </summary>
+    void SetZOffset(double theOffset);
+    /// <summary>
+    /// Return the display-time Z-offset along the plane normal.
+    /// </summary>
+    double ZOffset();
     void Init();
     /// <summary>
     /// Dumps the content of me into the stream
@@ -3237,16 +3272,10 @@ public:
     }
 
 public:
-    Aspect_WindowDefinitionError();
     Aspect_WindowDefinitionError(System::String^ theMessage);
+    Aspect_WindowDefinitionError();
     Aspect_WindowDefinitionError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Aspect_WindowDefinitionError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Aspect_WindowDefinitionError^ NewInstance();
-    static Macad::Occt::Aspect_WindowDefinitionError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Aspect_WindowDefinitionError^ CreateDowncasted(::Aspect_WindowDefinitionError* instance);
+    System::String^ ExceptionType();
 }; // class Aspect_WindowDefinitionError
 
 //---------------------------------------------------------------------
@@ -3279,16 +3308,10 @@ public:
     }
 
 public:
-    Aspect_WindowError();
     Aspect_WindowError(System::String^ theMessage);
+    Aspect_WindowError();
     Aspect_WindowError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Aspect_WindowError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Aspect_WindowError^ NewInstance();
-    static Macad::Occt::Aspect_WindowError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Aspect_WindowError^ CreateDowncasted(::Aspect_WindowError* instance);
+    System::String^ ExceptionType();
 }; // class Aspect_WindowError
 
 //---------------------------------------------------------------------

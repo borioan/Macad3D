@@ -12,6 +12,7 @@ public partial class Configuration
         new MarkIgnoredPass(),
         new DowncastMethodPass(),
         new ResolveTypesPass(),
+        new DedupeWrappedSignaturesPass(),
         new MethodToPropertyPass(),
         new FieldToPropertyPass(),
         new EqualityMethodPass(),

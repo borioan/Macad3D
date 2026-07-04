@@ -26,16 +26,6 @@ public enum class Standard_JsonKey
 }; // enum  class Standard_JsonKey
 
 //---------------------------------------------------------------------
-//  Enum  Standard_HandlerStatus
-//---------------------------------------------------------------------
-public enum class Standard_HandlerStatus
-{
-    HandlerVoid = 0,
-    HandlerJumped = 1,
-    HandlerProcessed = 2
-}; // enum  class Standard_HandlerStatus
-
-//---------------------------------------------------------------------
 //  Class  Standard_DumpValue
 //---------------------------------------------------------------------
 /// <summary>
@@ -346,9 +336,10 @@ public:
 //---------------------------------------------------------------------
 /// <summary>
 /// Forms the root of the entire exception hierarchy.
+/// Inherits from std::exception and implements what() interface.
 /// </summary>
 public ref class Standard_Failure
-    : public Macad::Occt::Standard_Transient
+    : public Macad::Occt::BaseClass<::Standard_Failure>
 {
 
 #ifdef Include_Standard_Failure_h
@@ -358,16 +349,16 @@ public:
 
 protected:
     Standard_Failure(InitMode init)
-        : Macad::Occt::Standard_Transient( init )
+        : Macad::Occt::BaseClass<::Standard_Failure>( init )
     {}
 
 public:
     Standard_Failure(::Standard_Failure* nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
+        : Macad::Occt::BaseClass<::Standard_Failure>( nativeInstance, true )
     {}
 
     Standard_Failure(::Standard_Failure& nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
+        : Macad::Occt::BaseClass<::Standard_Failure>( &nativeInstance, false )
     {}
 
     property ::Standard_Failure* NativeInstance
@@ -384,70 +375,47 @@ public:
     /// </summary>
     Standard_Failure();
     /// <summary>
-    /// Creates a status object of type "Failure".
+    /// Creates a status object of type "Failure" with message.
     /// </summary>
     /// <param name="in]">
-    /// theDesc  exception description
+    /// theMessage exception description
     /// </param>
-    Standard_Failure(System::String^ theDesc);
+    Standard_Failure(System::String^ theMessage);
     /// <summary>
-    /// Creates a status object of type "Failure" with stack trace.
+    /// Creates a status object of type "Failure" with message and stack trace.
     /// </summary>
     /// <param name="in]">
-    /// theDesc  exception description
+    /// theMessage    exception description
     /// </param>
     /// <param name="in]">
-    /// theStackTrace  associated stack trace
+    /// theStackTrace stack trace string
     /// </param>
-    Standard_Failure(System::String^ theDesc, System::String^ theStackTrace);
+    Standard_Failure(System::String^ theMessage, System::String^ theStackTrace);
     /// <summary>
-    /// Prints on the stream @p theStream the exception name followed by the error message.
-    /// 
-    /// Note: there is a short-cut @c operator<< (Standard_OStream&, Handle(Standard_Failure)&)
+    /// Returns error message (implements std::exception interface).
+    /// Returns empty string "" if no message was set.
     /// </summary>
-    void Print(System::IO::TextWriter^ theStream);
+    System::String^ what();
     /// <summary>
     /// Returns error message
     /// </summary>
     System::String^ GetMessageString();
     /// <summary>
-    /// Sets error message
+    /// Returns the exception type name.
+    /// Default implementation returns "Standard_Failure".
+    /// Derived classes override this to return their own type name.
     /// </summary>
-    void SetMessageString(System::String^ theMessage);
+    System::String^ ExceptionType();
     /// <summary>
-    /// Returns the stack trace string
+    /// Returns the stack trace string (empty string if not available).
     /// </summary>
     System::String^ GetStackString();
     /// <summary>
-    /// Sets the stack trace string
+    /// Prints on the stream @p theStream the exception name followed by the error message.
+    /// 
+    /// Note: there is a short-cut @c operator<< (Standard_OStream&, const Standard_Failure&)
     /// </summary>
-    void SetStackString(System::String^ theStack);
-    void Reraise();
-    void Reraise(System::String^ aMessage);
-    /* Method skipped due to unknown mapping: void Reraise(stringstream aReason, ) */
-    /// <summary>
-    /// Raises an exception of type "Failure" and associates
-    /// an error message to it. The message can be printed
-    /// in an exception handler.
-    /// </summary>
-    static void Raise(System::String^ aMessage);
-    /// <summary>
-    /// Raises an exception of type "Failure" and associates
-    /// an error message to it. The message can be printed
-    /// in an exception handler.
-    /// </summary>
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream aReason, ) */
-    /// <summary>
-    /// Used to construct an instance of the exception object as a handle.
-    /// Shall be used to protect against possible construction of exception object in C stack,
-    /// which is dangerous since some of methods require that object was allocated dynamically.
-    /// </summary>
-    static Macad::Occt::Standard_Failure^ NewInstance(System::String^ theMessage);
-    /// <summary>
-    /// Used to construct an instance of the exception object as a handle.
-    /// </summary>
-    static Macad::Occt::Standard_Failure^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
+    void Print(System::IO::TextWriter^ theStream);
     /// <summary>
     /// Returns the default length of stack trace to be captured by Standard_Failure constructor;
     /// 0 by default meaning no stack trace.
@@ -457,15 +425,6 @@ public:
     /// Sets default length of stack trace to be captured by Standard_Failure constructor.
     /// </summary>
     static void SetDefaultStackTraceLength(int theNbStackTraces);
-    /// <summary>
-    /// Used to throw CASCADE exception from C signal handler.
-    /// On platforms that do not allow throwing C++ exceptions
-    /// from this handler (e.g. Linux), uses longjump to get to
-    /// the current active signal handler, and only then is
-    /// converted to C++ exception.
-    /// </summary>
-    void Jump();
-    static Macad::Occt::Standard_Failure^ CreateDowncasted(::Standard_Failure* instance);
 }; // class Standard_Failure
 
 //---------------------------------------------------------------------
@@ -503,16 +462,10 @@ public:
     }
 
 public:
-    Standard_DomainError();
     Standard_DomainError(System::String^ theMessage);
+    Standard_DomainError();
     Standard_DomainError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_DomainError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_DomainError^ NewInstance();
-    static Macad::Occt::Standard_DomainError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_DomainError^ CreateDowncasted(::Standard_DomainError* instance);
+    System::String^ ExceptionType();
 }; // class Standard_DomainError
 
 //---------------------------------------------------------------------
@@ -545,16 +498,10 @@ public:
     }
 
 public:
-    Standard_ConstructionError();
     Standard_ConstructionError(System::String^ theMessage);
+    Standard_ConstructionError();
     Standard_ConstructionError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_ConstructionError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_ConstructionError^ NewInstance();
-    static Macad::Occt::Standard_ConstructionError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_ConstructionError^ CreateDowncasted(::Standard_ConstructionError* instance);
+    System::String^ ExceptionType();
 }; // class Standard_ConstructionError
 
 //---------------------------------------------------------------------
@@ -592,16 +539,10 @@ public:
     }
 
 public:
-    Standard_RangeError();
     Standard_RangeError(System::String^ theMessage);
+    Standard_RangeError();
     Standard_RangeError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_RangeError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_RangeError^ NewInstance();
-    static Macad::Occt::Standard_RangeError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_RangeError^ CreateDowncasted(::Standard_RangeError* instance);
+    System::String^ ExceptionType();
 }; // class Standard_RangeError
 
 //---------------------------------------------------------------------
@@ -639,16 +580,10 @@ public:
     }
 
 public:
-    Standard_OutOfRange();
     Standard_OutOfRange(System::String^ theMessage);
+    Standard_OutOfRange();
     Standard_OutOfRange(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_OutOfRange^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_OutOfRange^ NewInstance();
-    static Macad::Occt::Standard_OutOfRange^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_OutOfRange^ CreateDowncasted(::Standard_OutOfRange* instance);
+    System::String^ ExceptionType();
 }; // class Standard_OutOfRange
 
 //---------------------------------------------------------------------
@@ -686,16 +621,10 @@ public:
     }
 
 public:
-    Standard_DimensionError();
     Standard_DimensionError(System::String^ theMessage);
+    Standard_DimensionError();
     Standard_DimensionError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_DimensionError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_DimensionError^ NewInstance();
-    static Macad::Occt::Standard_DimensionError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_DimensionError^ CreateDowncasted(::Standard_DimensionError* instance);
+    System::String^ ExceptionType();
 }; // class Standard_DimensionError
 
 //---------------------------------------------------------------------
@@ -728,16 +657,10 @@ public:
     }
 
 public:
-    Standard_DimensionMismatch();
     Standard_DimensionMismatch(System::String^ theMessage);
+    Standard_DimensionMismatch();
     Standard_DimensionMismatch(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_DimensionMismatch^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_DimensionMismatch^ NewInstance();
-    static Macad::Occt::Standard_DimensionMismatch^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_DimensionMismatch^ CreateDowncasted(::Standard_DimensionMismatch* instance);
+    System::String^ ExceptionType();
 }; // class Standard_DimensionMismatch
 
 //---------------------------------------------------------------------
@@ -775,16 +698,10 @@ public:
     }
 
 public:
-    Standard_ProgramError();
     Standard_ProgramError(System::String^ theMessage);
+    Standard_ProgramError();
     Standard_ProgramError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_ProgramError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_ProgramError^ NewInstance();
-    static Macad::Occt::Standard_ProgramError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_ProgramError^ CreateDowncasted(::Standard_ProgramError* instance);
+    System::String^ ExceptionType();
 }; // class Standard_ProgramError
 
 //---------------------------------------------------------------------
@@ -795,9 +712,6 @@ public:
 /// macro DEFINE_STANDARD_EXCEPTION, to avoid necessity of dynamic
 /// memory allocations during throwing and stack unwinding:
 /// 
-/// - method NewInstance() returns static instance (singleton)
-/// - method Raise() raises copy of that singleton, resetting
-/// its message string
 /// - message string is stored as field, not allocated dynamically
 /// (storable message length is limited by buffer size)
 /// 
@@ -833,43 +747,34 @@ public:
 
 public:
     /// <summary>
-    /// Constructor is kept public for backward compatibility
+    /// Constructor is kept public for backward compatibility.
     /// </summary>
+    /// <param name="theMessage">
+    /// optional error message
+    /// </param>
     Standard_OutOfMemory(System::String^ theMessage);
     /// <summary>
-    /// Constructor is kept public for backward compatibility
+    /// Constructor is kept public for backward compatibility.
     /// </summary>
+    /// <param name="theMessage">
+    /// optional error message
+    /// </param>
     Standard_OutOfMemory();
     /// <summary>
-    /// Returns error message
+    /// Returns error message (implements std::exception interface).
     /// </summary>
-    System::String^ GetMessageString();
+    System::String^ what();
     /// <summary>
-    /// Sets error message
+    /// Returns the exception type name.
     /// </summary>
-    void SetMessageString(System::String^ aMessage);
+    System::String^ ExceptionType();
     /// <summary>
-    /// Raises exception with specified message string
+    /// Sets error message.
     /// </summary>
-    static void Raise(System::String^ theMessage);
-    /// <summary>
-    /// Raises exception with specified message string
-    /// </summary>
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    /// <summary>
-    /// Returns global instance of exception
-    /// </summary>
-    static Macad::Occt::Standard_OutOfMemory^ NewInstance(System::String^ theMessage);
-    /// <summary>
-    /// Returns global instance of exception
-    /// </summary>
-    static Macad::Occt::Standard_OutOfMemory^ NewInstance();
-    /// <summary>
-    /// Returns global instance of exception
-    /// </summary>
-    static Macad::Occt::Standard_OutOfMemory^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_OutOfMemory^ CreateDowncasted(::Standard_OutOfMemory* instance);
+    /// <param name="theMessage">
+    /// error message (can be nullptr)
+    /// </param>
+    void SetMessageString(System::String^ theMessage);
 }; // class Standard_OutOfMemory
 
 //---------------------------------------------------------------------
@@ -902,16 +807,10 @@ public:
     }
 
 public:
-    Standard_NotImplemented();
     Standard_NotImplemented(System::String^ theMessage);
+    Standard_NotImplemented();
     Standard_NotImplemented(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_NotImplemented^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_NotImplemented^ NewInstance();
-    static Macad::Occt::Standard_NotImplemented^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_NotImplemented^ CreateDowncasted(::Standard_NotImplemented* instance);
+    System::String^ ExceptionType();
 }; // class Standard_NotImplemented
 
 //---------------------------------------------------------------------
@@ -991,16 +890,10 @@ public:
     }
 
 public:
-    Standard_NoSuchObject();
     Standard_NoSuchObject(System::String^ theMessage);
+    Standard_NoSuchObject();
     Standard_NoSuchObject(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_NoSuchObject^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_NoSuchObject^ NewInstance();
-    static Macad::Occt::Standard_NoSuchObject^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_NoSuchObject^ CreateDowncasted(::Standard_NoSuchObject* instance);
+    System::String^ ExceptionType();
 }; // class Standard_NoSuchObject
 
 //---------------------------------------------------------------------
@@ -1033,16 +926,10 @@ public:
     }
 
 public:
-    Standard_TypeMismatch();
     Standard_TypeMismatch(System::String^ theMessage);
+    Standard_TypeMismatch();
     Standard_TypeMismatch(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_TypeMismatch^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_TypeMismatch^ NewInstance();
-    static Macad::Occt::Standard_TypeMismatch^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_TypeMismatch^ CreateDowncasted(::Standard_TypeMismatch* instance);
+    System::String^ ExceptionType();
 }; // class Standard_TypeMismatch
 
 //---------------------------------------------------------------------
@@ -1288,16 +1175,10 @@ public:
     }
 
 public:
-    Standard_AbortiveTransaction();
     Standard_AbortiveTransaction(System::String^ theMessage);
+    Standard_AbortiveTransaction();
     Standard_AbortiveTransaction(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_AbortiveTransaction^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_AbortiveTransaction^ NewInstance();
-    static Macad::Occt::Standard_AbortiveTransaction^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_AbortiveTransaction^ CreateDowncasted(::Standard_AbortiveTransaction* instance);
+    System::String^ ExceptionType();
 }; // class Standard_AbortiveTransaction
 
 //---------------------------------------------------------------------
@@ -1345,6 +1226,13 @@ public:
     /// </param>
     Standard_Condition(bool theIsSet);
     /// <summary>
+    /// Default constructor.
+    /// </summary>
+    /// <param name="theIsSet">
+    /// Initial flag state
+    /// </param>
+    Standard_Condition();
+    /// <summary>
     /// Set event into signaling state.
     /// </summary>
     void Set();
@@ -1381,10 +1269,6 @@ public:
     /// true if event object was in signaling state.
     /// </returns>
     bool CheckReset();
-    /// <summary>
-    /// Access native HANDLE to Event object.
-    /// </summary>
-    System::IntPtr getHandle();
 }; // class Standard_Condition
 
 //---------------------------------------------------------------------
@@ -1455,16 +1339,10 @@ public:
     }
 
 public:
-    Standard_NumericError();
     Standard_NumericError(System::String^ theMessage);
+    Standard_NumericError();
     Standard_NumericError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_NumericError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_NumericError^ NewInstance();
-    static Macad::Occt::Standard_NumericError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_NumericError^ CreateDowncasted(::Standard_NumericError* instance);
+    System::String^ ExceptionType();
 }; // class Standard_NumericError
 
 //---------------------------------------------------------------------
@@ -1497,17 +1375,83 @@ public:
     }
 
 public:
-    Standard_DivideByZero();
     Standard_DivideByZero(System::String^ theMessage);
+    Standard_DivideByZero();
     Standard_DivideByZero(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_DivideByZero^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_DivideByZero^ NewInstance();
-    static Macad::Occt::Standard_DivideByZero^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_DivideByZero^ CreateDowncasted(::Standard_DivideByZero* instance);
+    System::String^ ExceptionType();
 }; // class Standard_DivideByZero
+
+//---------------------------------------------------------------------
+//  Class  Standard_Overflow
+//---------------------------------------------------------------------
+public ref class Standard_Overflow sealed
+    : public Macad::Occt::Standard_NumericError
+{
+
+#ifdef Include_Standard_Overflow_h
+public:
+    Include_Standard_Overflow_h
+#endif
+
+public:
+    Standard_Overflow(::Standard_Overflow* nativeInstance)
+        : Macad::Occt::Standard_NumericError( nativeInstance )
+    {}
+
+    Standard_Overflow(::Standard_Overflow& nativeInstance)
+        : Macad::Occt::Standard_NumericError( nativeInstance )
+    {}
+
+    property ::Standard_Overflow* NativeInstance
+    {
+        ::Standard_Overflow* get()
+        {
+            return static_cast<::Standard_Overflow*>(_NativeInstance);
+        }
+    }
+
+public:
+    Standard_Overflow(System::String^ theMessage);
+    Standard_Overflow();
+    Standard_Overflow(System::String^ theMessage, System::String^ theStackTrace);
+    System::String^ ExceptionType();
+}; // class Standard_Overflow
+
+//---------------------------------------------------------------------
+//  Class  Standard_Underflow
+//---------------------------------------------------------------------
+public ref class Standard_Underflow sealed
+    : public Macad::Occt::Standard_NumericError
+{
+
+#ifdef Include_Standard_Underflow_h
+public:
+    Include_Standard_Underflow_h
+#endif
+
+public:
+    Standard_Underflow(::Standard_Underflow* nativeInstance)
+        : Macad::Occt::Standard_NumericError( nativeInstance )
+    {}
+
+    Standard_Underflow(::Standard_Underflow& nativeInstance)
+        : Macad::Occt::Standard_NumericError( nativeInstance )
+    {}
+
+    property ::Standard_Underflow* NativeInstance
+    {
+        ::Standard_Underflow* get()
+        {
+            return static_cast<::Standard_Underflow*>(_NativeInstance);
+        }
+    }
+
+public:
+    Standard_Underflow(System::String^ theMessage);
+    Standard_Underflow();
+    Standard_Underflow(System::String^ theMessage, System::String^ theStackTrace);
+    System::String^ ExceptionType();
+}; // class Standard_Underflow
 
 //---------------------------------------------------------------------
 //  Class  Standard_ErrorHandler
@@ -1515,7 +1459,7 @@ public:
 /// <summary>
 /// Class implementing mechanics of conversion of signals to exceptions.
 /// 
-/// Each instance of it stores data for jump placement, thread id,
+/// Each instance of it stores data for jump placement,
 /// and callbacks to be called during jump (for proper resource release).
 /// 
 /// The active handlers are stored in the global stack, which is used
@@ -1614,18 +1558,11 @@ public:
     /// </summary>
     void Destroy();
     /// <summary>
-    /// Removes handler from the handlers list
+    /// Throws C++ exception if exception object set,
+    /// otherwise prints error and terminates program.
     /// </summary>
-    void Unlink();
-    /* Method skipped due to unknown mapping: bool Catches(Standard_Type aType, ) */
-    /// <summary>
-    /// Returns the current Error.
-    /// </summary>
-    Macad::Occt::Standard_Failure^ Error();
-    /// <summary>
-    /// Returns the caught exception.
-    /// </summary>
-    static Macad::Occt::Standard_Failure^ LastCaughtError();
+    void Raise();
+    /* Method skipped due to unknown mapping: SignalException Error() */
     /// <summary>
     /// Test if the code is currently running in a try block
     /// </summary>
@@ -1662,6 +1599,9 @@ public:
     }
 
 public:
+    /// <summary>
+    /// Creates a GUID with all zeros.
+    /// </summary>
     Standard_GUID();
     /// <summary>
     /// build a GUID from an unicode string with the
@@ -1671,8 +1611,10 @@ public:
     /// </summary>
     Standard_GUID(System::String^ aGuid);
     /* Method skipped due to unknown mapping: void Standard_GUID(int a32b, char16_t a16b1, char16_t a16b2, char16_t a16b3, unsigned char a8b1, unsigned char a8b2, unsigned char a8b3, unsigned char a8b4, unsigned char a8b5, unsigned char a8b6, ) */
-    Standard_GUID(Macad::Occt::Standard_UUID^ aGuid);
-    Macad::Occt::Standard_UUID^ ToUUID();
+    /// <summary>
+    /// Creates a GUID from a Standard_UUID.
+    /// </summary>
+    Standard_GUID(Macad::Occt::Standard_UUID^ theUUID);
     /// <summary>
     /// translate the GUID into ascii string
     /// the aStrGuid is allocated by user.
@@ -1682,9 +1624,25 @@ public:
     /// </summary>
     void ToCString(char aStrGuid);
     /* Method skipped due to unknown mapping: void ToExtString(char16_t aStrGuid, ) */
+    /// <summary>
+    /// Converts to Standard_UUID.
+    /// </summary>
+    Macad::Occt::Standard_UUID^ ToUUID();
+    /// <summary>
+    /// Returns true if this GUID is equal to uid.
+    /// </summary>
     bool IsSame(Macad::Occt::Standard_GUID^ uid);
+    /// <summary>
+    /// Returns true if this GUID is not equal to uid.
+    /// </summary>
     bool IsNotSame(Macad::Occt::Standard_GUID^ uid);
+    /// <summary>
+    /// Assigns uid to this GUID.
+    /// </summary>
     void Assign(Macad::Occt::Standard_GUID^ uid);
+    /// <summary>
+    /// Assigns uid to this GUID.
+    /// </summary>
     void Assign(Macad::Occt::Standard_UUID^ uid);
     /// <summary>
     /// Display the GUID with the following format:
@@ -1730,16 +1688,10 @@ public:
     }
 
 public:
-    Standard_ImmutableObject();
     Standard_ImmutableObject(System::String^ theMessage);
+    Standard_ImmutableObject();
     Standard_ImmutableObject(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_ImmutableObject^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_ImmutableObject^ NewInstance();
-    static Macad::Occt::Standard_ImmutableObject^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_ImmutableObject^ CreateDowncasted(::Standard_ImmutableObject* instance);
+    System::String^ ExceptionType();
 }; // class Standard_ImmutableObject
 
 //---------------------------------------------------------------------
@@ -1777,16 +1729,10 @@ public:
     }
 
 public:
-    Standard_LicenseError();
     Standard_LicenseError(System::String^ theMessage);
+    Standard_LicenseError();
     Standard_LicenseError(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_LicenseError^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_LicenseError^ NewInstance();
-    static Macad::Occt::Standard_LicenseError^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_LicenseError^ CreateDowncasted(::Standard_LicenseError* instance);
+    System::String^ ExceptionType();
 }; // class Standard_LicenseError
 
 //---------------------------------------------------------------------
@@ -1819,16 +1765,10 @@ public:
     }
 
 public:
-    Standard_LicenseNotFound();
     Standard_LicenseNotFound(System::String^ theMessage);
+    Standard_LicenseNotFound();
     Standard_LicenseNotFound(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_LicenseNotFound^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_LicenseNotFound^ NewInstance();
-    static Macad::Occt::Standard_LicenseNotFound^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_LicenseNotFound^ CreateDowncasted(::Standard_LicenseNotFound* instance);
+    System::String^ ExceptionType();
 }; // class Standard_LicenseNotFound
 
 //---------------------------------------------------------------------
@@ -1950,16 +1890,10 @@ public:
     }
 
 public:
-    Standard_MultiplyDefined();
     Standard_MultiplyDefined(System::String^ theMessage);
+    Standard_MultiplyDefined();
     Standard_MultiplyDefined(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_MultiplyDefined^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_MultiplyDefined^ NewInstance();
-    static Macad::Occt::Standard_MultiplyDefined^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_MultiplyDefined^ CreateDowncasted(::Standard_MultiplyDefined* instance);
+    System::String^ ExceptionType();
 }; // class Standard_MultiplyDefined
 
 //---------------------------------------------------------------------
@@ -1992,16 +1926,10 @@ public:
     }
 
 public:
-    Standard_NegativeValue();
     Standard_NegativeValue(System::String^ theMessage);
+    Standard_NegativeValue();
     Standard_NegativeValue(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_NegativeValue^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_NegativeValue^ NewInstance();
-    static Macad::Occt::Standard_NegativeValue^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_NegativeValue^ CreateDowncasted(::Standard_NegativeValue* instance);
+    System::String^ ExceptionType();
 }; // class Standard_NegativeValue
 
 //---------------------------------------------------------------------
@@ -2034,16 +1962,10 @@ public:
     }
 
 public:
-    Standard_NoMoreObject();
     Standard_NoMoreObject(System::String^ theMessage);
+    Standard_NoMoreObject();
     Standard_NoMoreObject(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_NoMoreObject^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_NoMoreObject^ NewInstance();
-    static Macad::Occt::Standard_NoMoreObject^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_NoMoreObject^ CreateDowncasted(::Standard_NoMoreObject* instance);
+    System::String^ ExceptionType();
 }; // class Standard_NoMoreObject
 
 //---------------------------------------------------------------------
@@ -2076,16 +1998,10 @@ public:
     }
 
 public:
-    Standard_NullObject();
     Standard_NullObject(System::String^ theMessage);
+    Standard_NullObject();
     Standard_NullObject(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_NullObject^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_NullObject^ NewInstance();
-    static Macad::Occt::Standard_NullObject^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_NullObject^ CreateDowncasted(::Standard_NullObject* instance);
+    System::String^ ExceptionType();
 }; // class Standard_NullObject
 
 //---------------------------------------------------------------------
@@ -2118,59 +2034,11 @@ public:
     }
 
 public:
-    Standard_NullValue();
     Standard_NullValue(System::String^ theMessage);
+    Standard_NullValue();
     Standard_NullValue(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_NullValue^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_NullValue^ NewInstance();
-    static Macad::Occt::Standard_NullValue^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_NullValue^ CreateDowncasted(::Standard_NullValue* instance);
+    System::String^ ExceptionType();
 }; // class Standard_NullValue
-
-//---------------------------------------------------------------------
-//  Class  Standard_Overflow
-//---------------------------------------------------------------------
-public ref class Standard_Overflow sealed
-    : public Macad::Occt::Standard_NumericError
-{
-
-#ifdef Include_Standard_Overflow_h
-public:
-    Include_Standard_Overflow_h
-#endif
-
-public:
-    Standard_Overflow(::Standard_Overflow* nativeInstance)
-        : Macad::Occt::Standard_NumericError( nativeInstance )
-    {}
-
-    Standard_Overflow(::Standard_Overflow& nativeInstance)
-        : Macad::Occt::Standard_NumericError( nativeInstance )
-    {}
-
-    property ::Standard_Overflow* NativeInstance
-    {
-        ::Standard_Overflow* get()
-        {
-            return static_cast<::Standard_Overflow*>(_NativeInstance);
-        }
-    }
-
-public:
-    Standard_Overflow();
-    Standard_Overflow(System::String^ theMessage);
-    Standard_Overflow(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_Overflow^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_Overflow^ NewInstance();
-    static Macad::Occt::Standard_Overflow^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_Overflow^ CreateDowncasted(::Standard_Overflow* instance);
-}; // class Standard_Overflow
 
 //---------------------------------------------------------------------
 //  Class  Standard_ReadBuffer
@@ -2337,48 +2205,6 @@ public:
     /// </param>
     void SetMultilineMode(bool theMultilineMode);
 }; // class Standard_ReadLineBuffer
-
-//---------------------------------------------------------------------
-//  Class  Standard_Underflow
-//---------------------------------------------------------------------
-public ref class Standard_Underflow sealed
-    : public Macad::Occt::Standard_NumericError
-{
-
-#ifdef Include_Standard_Underflow_h
-public:
-    Include_Standard_Underflow_h
-#endif
-
-public:
-    Standard_Underflow(::Standard_Underflow* nativeInstance)
-        : Macad::Occt::Standard_NumericError( nativeInstance )
-    {}
-
-    Standard_Underflow(::Standard_Underflow& nativeInstance)
-        : Macad::Occt::Standard_NumericError( nativeInstance )
-    {}
-
-    property ::Standard_Underflow* NativeInstance
-    {
-        ::Standard_Underflow* get()
-        {
-            return static_cast<::Standard_Underflow*>(_NativeInstance);
-        }
-    }
-
-public:
-    Standard_Underflow();
-    Standard_Underflow(System::String^ theMessage);
-    Standard_Underflow(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Standard_Underflow^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Standard_Underflow^ NewInstance();
-    static Macad::Occt::Standard_Underflow^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Standard_Underflow^ CreateDowncasted(::Standard_Underflow* instance);
-}; // class Standard_Underflow
 
 }; // namespace Occt
 }; // namespace Macad

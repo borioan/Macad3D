@@ -5,155 +5,9 @@
 
 using namespace System::Runtime::InteropServices; // for class Marshal
 
-#include "NCollection.h"
 #include "TopLoc.h"
 #include "TopAbs.h"
 #include "BRep.h"
-
-
-//---------------------------------------------------------------------
-//  Class  TopoDS_ListOfShape
-//---------------------------------------------------------------------
-
-Macad::Occt::TopoDS_ListOfShape::TopoDS_ListOfShape()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TopoDS_ListOfShape();
-}
-
-Macad::Occt::TopoDS_ListOfShape::TopoDS_ListOfShape(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TopoDS_ListOfShape(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::TopoDS_ListOfShape::Size()
-{
-    int _result = ((::TopoDS_ListOfShape*)_NativeInstance)->Size();
-    return _result;
-}
-
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::TopoDS_ListOfShape::Assign(Macad::Occt::TopoDS_ListOfShape^ theOther)
-{
-    ::TopoDS_ListOfShape* _result = new ::TopoDS_ListOfShape();
-    *_result = ((::TopoDS_ListOfShape*)_NativeInstance)->Assign(*(::TopoDS_ListOfShape*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
-}
-
-void Macad::Occt::TopoDS_ListOfShape::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::TopoDS_ListOfShape*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::TopoDS_ListOfShape::Clear()
-{
-    ((::TopoDS_ListOfShape*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TopoDS_Shape^ Macad::Occt::TopoDS_ListOfShape::First()
-{
-    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
-    *_result = (::TopoDS_Shape)((::TopoDS_ListOfShape*)_NativeInstance)->First();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
-}
-
-Macad::Occt::TopoDS_Shape^ Macad::Occt::TopoDS_ListOfShape::Last()
-{
-    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
-    *_result = (::TopoDS_Shape)((::TopoDS_ListOfShape*)_NativeInstance)->Last();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
-}
-
-Macad::Occt::TopoDS_Shape^ Macad::Occt::TopoDS_ListOfShape::Append(Macad::Occt::TopoDS_Shape^ theItem)
-{
-    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
-    *_result = ((::TopoDS_ListOfShape*)_NativeInstance)->Append(*(::TopoDS_Shape*)theItem->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
-}
-
-Macad::Occt::TopoDS_Shape^ Macad::Occt::TopoDS_ListOfShape::Prepend(Macad::Occt::TopoDS_Shape^ theItem)
-{
-    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
-    *_result = ((::TopoDS_ListOfShape*)_NativeInstance)->Prepend(*(::TopoDS_Shape*)theItem->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
-}
-
-void Macad::Occt::TopoDS_ListOfShape::RemoveFirst()
-{
-    ((::TopoDS_ListOfShape*)_NativeInstance)->RemoveFirst();
-}
-
-void Macad::Occt::TopoDS_ListOfShape::Remove(Macad::Occt::TopoDS_ListOfShape::Iterator^ theIter)
-{
-    ((::TopoDS_ListOfShape*)_NativeInstance)->Remove(*(::TopoDS_ListOfShape::Iterator*)theIter->NativeInstance);
-}
-
-Macad::Occt::TopoDS_Shape^ Macad::Occt::TopoDS_ListOfShape::InsertBefore(Macad::Occt::TopoDS_Shape^ theItem, Macad::Occt::TopoDS_ListOfShape::Iterator^ theIter)
-{
-    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
-    *_result = ((::TopoDS_ListOfShape*)_NativeInstance)->InsertBefore(*(::TopoDS_Shape*)theItem->NativeInstance, *(::TopoDS_ListOfShape::Iterator*)theIter->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
-}
-
-Macad::Occt::TopoDS_Shape^ Macad::Occt::TopoDS_ListOfShape::InsertAfter(Macad::Occt::TopoDS_Shape^ theItem, Macad::Occt::TopoDS_ListOfShape::Iterator^ theIter)
-{
-    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
-    *_result = ((::TopoDS_ListOfShape*)_NativeInstance)->InsertAfter(*(::TopoDS_Shape*)theItem->NativeInstance, *(::TopoDS_ListOfShape::Iterator*)theIter->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
-}
-
-void Macad::Occt::TopoDS_ListOfShape::Reverse()
-{
-    ((::TopoDS_ListOfShape*)_NativeInstance)->Reverse();
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::TopoDS_Shape^>^ Macad::Occt::TopoDS_ListOfShape::GetEnumerator()
-{
-    return gcnew Macad::Occt::TopoDS_ListOfShape::Iterator(new ::TopoDS_ListOfShape::Iterator(*NativeInstance));
-}
-
-System::Collections::IEnumerator^ Macad::Occt::TopoDS_ListOfShape::GetEnumerator2()
-{
-    return gcnew Macad::Occt::TopoDS_ListOfShape::Iterator(new ::TopoDS_ListOfShape::Iterator(*NativeInstance));
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TopoDS_ListOfShape::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::TopoDS_ListOfShape::Iterator::Iterator()
-    : Macad::Occt::IteratorEnumerator<Macad::Occt::TopoDS_Shape^, ::TopoDS_ListOfShape::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TopoDS_ListOfShape::Iterator();
-}
-
-bool Macad::Occt::TopoDS_ListOfShape::Iterator::More()
-{
-    bool _result = ((::TopoDS_ListOfShape::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::TopoDS_ListOfShape::Iterator::Next()
-{
-    ((::TopoDS_ListOfShape::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::TopoDS_Shape^ Macad::Occt::TopoDS_ListOfShape::Iterator::Value()
-{
-    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
-    *_result = (::TopoDS_Shape)((::TopoDS_ListOfShape::Iterator*)_NativeInstance)->Value();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
-}
-
-Macad::Occt::TopoDS_Shape^ Macad::Occt::TopoDS_ListOfShape::Iterator::ChangeValue()
-{
-    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
-    *_result = ((::TopoDS_ListOfShape::Iterator*)_NativeInstance)->ChangeValue();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
-}
-
 
 
 //---------------------------------------------------------------------
@@ -806,12 +660,6 @@ Macad::Occt::TopoDS_HShape^ Macad::Occt::TopoDS_HShape::CreateDowncasted(::TopoD
 //  Class  TopoDS_TVertex
 //---------------------------------------------------------------------
 
-Macad::Occt::TopAbs_ShapeEnum Macad::Occt::TopoDS_TVertex::ShapeType()
-{
-    ::TopAbs_ShapeEnum _result = ((::TopoDS_TVertex*)_NativeInstance)->ShapeType();
-    return (Macad::Occt::TopAbs_ShapeEnum)_result;
-}
-
 Macad::Occt::TopoDS_TVertex^ Macad::Occt::TopoDS_TVertex::CreateDowncasted(::TopoDS_TVertex* instance)
 {
     if( instance == nullptr )
@@ -829,10 +677,10 @@ Macad::Occt::TopoDS_TVertex^ Macad::Occt::TopoDS_TVertex::CreateDowncasted(::Top
 //  Class  TopoDS_TEdge
 //---------------------------------------------------------------------
 
-Macad::Occt::TopAbs_ShapeEnum Macad::Occt::TopoDS_TEdge::ShapeType()
+Macad::Occt::TopoDS_TShape^ Macad::Occt::TopoDS_TEdge::EmptyCopy()
 {
-    ::TopAbs_ShapeEnum _result = ((::TopoDS_TEdge*)_NativeInstance)->ShapeType();
-    return (Macad::Occt::TopAbs_ShapeEnum)_result;
+    Handle(::TopoDS_TShape) _result = ((::TopoDS_TEdge*)_NativeInstance)->EmptyCopy();
+    return _result.IsNull() ? nullptr : Macad::Occt::TopoDS_TShape::CreateDowncasted(_result.get());
 }
 
 Macad::Occt::TopoDS_TEdge^ Macad::Occt::TopoDS_TEdge::CreateDowncasted(::TopoDS_TEdge* instance)
@@ -858,12 +706,6 @@ Macad::Occt::TopoDS_TWire::TopoDS_TWire()
     NativeInstance = new ::TopoDS_TWire();
 }
 
-Macad::Occt::TopAbs_ShapeEnum Macad::Occt::TopoDS_TWire::ShapeType()
-{
-    ::TopAbs_ShapeEnum _result = ((::TopoDS_TWire*)_NativeInstance)->ShapeType();
-    return (Macad::Occt::TopAbs_ShapeEnum)_result;
-}
-
 Macad::Occt::TopoDS_TShape^ Macad::Occt::TopoDS_TWire::EmptyCopy()
 {
     Handle(::TopoDS_TShape) _result = ((::TopoDS_TWire*)_NativeInstance)->EmptyCopy();
@@ -885,12 +727,6 @@ Macad::Occt::TopoDS_TFace::TopoDS_TFace()
     : Macad::Occt::TopoDS_TShape(BaseClass::InitMode::Uninitialized)
 {
     NativeInstance = new ::TopoDS_TFace();
-}
-
-Macad::Occt::TopAbs_ShapeEnum Macad::Occt::TopoDS_TFace::ShapeType()
-{
-    ::TopAbs_ShapeEnum _result = ((::TopoDS_TFace*)_NativeInstance)->ShapeType();
-    return (Macad::Occt::TopAbs_ShapeEnum)_result;
 }
 
 Macad::Occt::TopoDS_TShape^ Macad::Occt::TopoDS_TFace::EmptyCopy()
@@ -922,12 +758,6 @@ Macad::Occt::TopoDS_TShell::TopoDS_TShell()
     NativeInstance = new ::TopoDS_TShell();
 }
 
-Macad::Occt::TopAbs_ShapeEnum Macad::Occt::TopoDS_TShell::ShapeType()
-{
-    ::TopAbs_ShapeEnum _result = ((::TopoDS_TShell*)_NativeInstance)->ShapeType();
-    return (Macad::Occt::TopAbs_ShapeEnum)_result;
-}
-
 Macad::Occt::TopoDS_TShape^ Macad::Occt::TopoDS_TShell::EmptyCopy()
 {
     Handle(::TopoDS_TShape) _result = ((::TopoDS_TShell*)_NativeInstance)->EmptyCopy();
@@ -949,12 +779,6 @@ Macad::Occt::TopoDS_TSolid::TopoDS_TSolid()
     : Macad::Occt::TopoDS_TShape(BaseClass::InitMode::Uninitialized)
 {
     NativeInstance = new ::TopoDS_TSolid();
-}
-
-Macad::Occt::TopAbs_ShapeEnum Macad::Occt::TopoDS_TSolid::ShapeType()
-{
-    ::TopAbs_ShapeEnum _result = ((::TopoDS_TSolid*)_NativeInstance)->ShapeType();
-    return (Macad::Occt::TopAbs_ShapeEnum)_result;
 }
 
 Macad::Occt::TopoDS_TShape^ Macad::Occt::TopoDS_TSolid::EmptyCopy()
@@ -980,12 +804,6 @@ Macad::Occt::TopoDS_TCompSolid::TopoDS_TCompSolid()
     NativeInstance = new ::TopoDS_TCompSolid();
 }
 
-Macad::Occt::TopAbs_ShapeEnum Macad::Occt::TopoDS_TCompSolid::ShapeType()
-{
-    ::TopAbs_ShapeEnum _result = ((::TopoDS_TCompSolid*)_NativeInstance)->ShapeType();
-    return (Macad::Occt::TopAbs_ShapeEnum)_result;
-}
-
 Macad::Occt::TopoDS_TShape^ Macad::Occt::TopoDS_TCompSolid::EmptyCopy()
 {
     Handle(::TopoDS_TShape) _result = ((::TopoDS_TCompSolid*)_NativeInstance)->EmptyCopy();
@@ -1007,12 +825,6 @@ Macad::Occt::TopoDS_TCompound::TopoDS_TCompound()
     : Macad::Occt::TopoDS_TShape(BaseClass::InitMode::Uninitialized)
 {
     NativeInstance = new ::TopoDS_TCompound();
-}
-
-Macad::Occt::TopAbs_ShapeEnum Macad::Occt::TopoDS_TCompound::ShapeType()
-{
-    ::TopAbs_ShapeEnum _result = ((::TopoDS_TCompound*)_NativeInstance)->ShapeType();
-    return (Macad::Occt::TopAbs_ShapeEnum)_result;
 }
 
 Macad::Occt::TopoDS_TShape^ Macad::Occt::TopoDS_TCompound::EmptyCopy()
@@ -1142,18 +954,18 @@ Macad::Occt::TopoDS_Shape^ Macad::Occt::TopoDS_Iterator::Value()
 //  Class  TopoDS_FrozenShape
 //---------------------------------------------------------------------
 
-Macad::Occt::TopoDS_FrozenShape::TopoDS_FrozenShape()
-    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TopoDS_FrozenShape();
-}
-
 Macad::Occt::TopoDS_FrozenShape::TopoDS_FrozenShape(System::String^ theMessage)
     : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    NativeInstance = new ::TopoDS_FrozenShape(sz_theMessage);
+    _NativeInstance = new ::TopoDS_FrozenShape(sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+}
+
+Macad::Occt::TopoDS_FrozenShape::TopoDS_FrozenShape()
+    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TopoDS_FrozenShape("");
 }
 
 Macad::Occt::TopoDS_FrozenShape::TopoDS_FrozenShape(System::String^ theMessage, System::String^ theStackTrace)
@@ -1161,50 +973,15 @@ Macad::Occt::TopoDS_FrozenShape::TopoDS_FrozenShape(System::String^ theMessage, 
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
     const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    NativeInstance = new ::TopoDS_FrozenShape(sz_theMessage, sz_theStackTrace);
+    _NativeInstance = new ::TopoDS_FrozenShape(sz_theMessage, sz_theStackTrace);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
 }
 
-void Macad::Occt::TopoDS_FrozenShape::Raise(System::String^ theMessage)
+System::String^ Macad::Occt::TopoDS_FrozenShape::ExceptionType()
 {
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    ::TopoDS_FrozenShape::Raise(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-void Macad::Occt::TopoDS_FrozenShape::Raise()
-{
-    ::TopoDS_FrozenShape::Raise("");
-}
-
-Macad::Occt::TopoDS_FrozenShape^ Macad::Occt::TopoDS_FrozenShape::NewInstance(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    Handle(::TopoDS_FrozenShape) _result = ::TopoDS_FrozenShape::NewInstance(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    return _result.IsNull() ? nullptr : Macad::Occt::TopoDS_FrozenShape::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TopoDS_FrozenShape^ Macad::Occt::TopoDS_FrozenShape::NewInstance()
-{
-    Handle(::TopoDS_FrozenShape) _result = ::TopoDS_FrozenShape::NewInstance("");
-    return _result.IsNull() ? nullptr : Macad::Occt::TopoDS_FrozenShape::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TopoDS_FrozenShape^ Macad::Occt::TopoDS_FrozenShape::NewInstance(System::String^ theMessage, System::String^ theStackTrace)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    Handle(::TopoDS_FrozenShape) _result = ::TopoDS_FrozenShape::NewInstance(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-    return _result.IsNull() ? nullptr : Macad::Occt::TopoDS_FrozenShape::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TopoDS_FrozenShape^ Macad::Occt::TopoDS_FrozenShape::CreateDowncasted(::TopoDS_FrozenShape* instance)
-{
-    return gcnew Macad::Occt::TopoDS_FrozenShape( instance );
+    Standard_CString _result = ((::TopoDS_FrozenShape*)_NativeInstance)->ExceptionType();
+    return gcnew System::String(_result);
 }
 
 
@@ -1213,18 +990,18 @@ Macad::Occt::TopoDS_FrozenShape^ Macad::Occt::TopoDS_FrozenShape::CreateDowncast
 //  Class  TopoDS_LockedShape
 //---------------------------------------------------------------------
 
-Macad::Occt::TopoDS_LockedShape::TopoDS_LockedShape()
-    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TopoDS_LockedShape();
-}
-
 Macad::Occt::TopoDS_LockedShape::TopoDS_LockedShape(System::String^ theMessage)
     : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    NativeInstance = new ::TopoDS_LockedShape(sz_theMessage);
+    _NativeInstance = new ::TopoDS_LockedShape(sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+}
+
+Macad::Occt::TopoDS_LockedShape::TopoDS_LockedShape()
+    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TopoDS_LockedShape("");
 }
 
 Macad::Occt::TopoDS_LockedShape::TopoDS_LockedShape(System::String^ theMessage, System::String^ theStackTrace)
@@ -1232,50 +1009,15 @@ Macad::Occt::TopoDS_LockedShape::TopoDS_LockedShape(System::String^ theMessage, 
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
     const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    NativeInstance = new ::TopoDS_LockedShape(sz_theMessage, sz_theStackTrace);
+    _NativeInstance = new ::TopoDS_LockedShape(sz_theMessage, sz_theStackTrace);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
 }
 
-void Macad::Occt::TopoDS_LockedShape::Raise(System::String^ theMessage)
+System::String^ Macad::Occt::TopoDS_LockedShape::ExceptionType()
 {
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    ::TopoDS_LockedShape::Raise(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-void Macad::Occt::TopoDS_LockedShape::Raise()
-{
-    ::TopoDS_LockedShape::Raise("");
-}
-
-Macad::Occt::TopoDS_LockedShape^ Macad::Occt::TopoDS_LockedShape::NewInstance(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    Handle(::TopoDS_LockedShape) _result = ::TopoDS_LockedShape::NewInstance(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    return _result.IsNull() ? nullptr : Macad::Occt::TopoDS_LockedShape::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TopoDS_LockedShape^ Macad::Occt::TopoDS_LockedShape::NewInstance()
-{
-    Handle(::TopoDS_LockedShape) _result = ::TopoDS_LockedShape::NewInstance("");
-    return _result.IsNull() ? nullptr : Macad::Occt::TopoDS_LockedShape::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TopoDS_LockedShape^ Macad::Occt::TopoDS_LockedShape::NewInstance(System::String^ theMessage, System::String^ theStackTrace)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    Handle(::TopoDS_LockedShape) _result = ::TopoDS_LockedShape::NewInstance(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-    return _result.IsNull() ? nullptr : Macad::Occt::TopoDS_LockedShape::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TopoDS_LockedShape^ Macad::Occt::TopoDS_LockedShape::CreateDowncasted(::TopoDS_LockedShape* instance)
-{
-    return gcnew Macad::Occt::TopoDS_LockedShape( instance );
+    Standard_CString _result = ((::TopoDS_LockedShape*)_NativeInstance)->ExceptionType();
+    return gcnew System::String(_result);
 }
 
 
@@ -1284,18 +1026,18 @@ Macad::Occt::TopoDS_LockedShape^ Macad::Occt::TopoDS_LockedShape::CreateDowncast
 //  Class  TopoDS_UnCompatibleShapes
 //---------------------------------------------------------------------
 
-Macad::Occt::TopoDS_UnCompatibleShapes::TopoDS_UnCompatibleShapes()
-    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TopoDS_UnCompatibleShapes();
-}
-
 Macad::Occt::TopoDS_UnCompatibleShapes::TopoDS_UnCompatibleShapes(System::String^ theMessage)
     : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    NativeInstance = new ::TopoDS_UnCompatibleShapes(sz_theMessage);
+    _NativeInstance = new ::TopoDS_UnCompatibleShapes(sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+}
+
+Macad::Occt::TopoDS_UnCompatibleShapes::TopoDS_UnCompatibleShapes()
+    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TopoDS_UnCompatibleShapes("");
 }
 
 Macad::Occt::TopoDS_UnCompatibleShapes::TopoDS_UnCompatibleShapes(System::String^ theMessage, System::String^ theStackTrace)
@@ -1303,50 +1045,15 @@ Macad::Occt::TopoDS_UnCompatibleShapes::TopoDS_UnCompatibleShapes(System::String
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
     const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    NativeInstance = new ::TopoDS_UnCompatibleShapes(sz_theMessage, sz_theStackTrace);
+    _NativeInstance = new ::TopoDS_UnCompatibleShapes(sz_theMessage, sz_theStackTrace);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
 }
 
-void Macad::Occt::TopoDS_UnCompatibleShapes::Raise(System::String^ theMessage)
+System::String^ Macad::Occt::TopoDS_UnCompatibleShapes::ExceptionType()
 {
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    ::TopoDS_UnCompatibleShapes::Raise(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-void Macad::Occt::TopoDS_UnCompatibleShapes::Raise()
-{
-    ::TopoDS_UnCompatibleShapes::Raise("");
-}
-
-Macad::Occt::TopoDS_UnCompatibleShapes^ Macad::Occt::TopoDS_UnCompatibleShapes::NewInstance(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    Handle(::TopoDS_UnCompatibleShapes) _result = ::TopoDS_UnCompatibleShapes::NewInstance(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    return _result.IsNull() ? nullptr : Macad::Occt::TopoDS_UnCompatibleShapes::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TopoDS_UnCompatibleShapes^ Macad::Occt::TopoDS_UnCompatibleShapes::NewInstance()
-{
-    Handle(::TopoDS_UnCompatibleShapes) _result = ::TopoDS_UnCompatibleShapes::NewInstance("");
-    return _result.IsNull() ? nullptr : Macad::Occt::TopoDS_UnCompatibleShapes::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TopoDS_UnCompatibleShapes^ Macad::Occt::TopoDS_UnCompatibleShapes::NewInstance(System::String^ theMessage, System::String^ theStackTrace)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    Handle(::TopoDS_UnCompatibleShapes) _result = ::TopoDS_UnCompatibleShapes::NewInstance(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-    return _result.IsNull() ? nullptr : Macad::Occt::TopoDS_UnCompatibleShapes::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TopoDS_UnCompatibleShapes^ Macad::Occt::TopoDS_UnCompatibleShapes::CreateDowncasted(::TopoDS_UnCompatibleShapes* instance)
-{
-    return gcnew Macad::Occt::TopoDS_UnCompatibleShapes( instance );
+    Standard_CString _result = ((::TopoDS_UnCompatibleShapes*)_NativeInstance)->ExceptionType();
+    return gcnew System::String(_result);
 }
 
 

@@ -23,31 +23,31 @@ Macad::Occt::WNT_WClass::WNT_WClass(Macad::Occt::TCollection_AsciiString^ theCla
 Macad::Occt::WNT_WClass::WNT_WClass(Macad::Occt::TCollection_AsciiString^ theClassName, System::IntPtr theWndProc, unsigned int theStyle, int theClassExtra, int theWindowExtra, System::IntPtr theCursor, System::IntPtr theIcon)
     : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
-    NativeInstance = new ::WNT_WClass(*(::TCollection_AsciiString*)theClassName->NativeInstance, theWndProc.ToPointer(), theStyle, theClassExtra, theWindowExtra, theCursor.ToPointer(), theIcon.ToPointer(), ::TCollection_AsciiString());
+    NativeInstance = new ::WNT_WClass(*(::TCollection_AsciiString*)theClassName->NativeInstance, theWndProc.ToPointer(), theStyle, theClassExtra, theWindowExtra, theCursor.ToPointer(), theIcon.ToPointer(), ::TCollection_AsciiString::EmptyString());
 }
 
 Macad::Occt::WNT_WClass::WNT_WClass(Macad::Occt::TCollection_AsciiString^ theClassName, System::IntPtr theWndProc, unsigned int theStyle, int theClassExtra, int theWindowExtra, System::IntPtr theCursor)
     : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
-    NativeInstance = new ::WNT_WClass(*(::TCollection_AsciiString*)theClassName->NativeInstance, theWndProc.ToPointer(), theStyle, theClassExtra, theWindowExtra, theCursor.ToPointer(), nullptr, ::TCollection_AsciiString());
+    NativeInstance = new ::WNT_WClass(*(::TCollection_AsciiString*)theClassName->NativeInstance, theWndProc.ToPointer(), theStyle, theClassExtra, theWindowExtra, theCursor.ToPointer(), nullptr, ::TCollection_AsciiString::EmptyString());
 }
 
 Macad::Occt::WNT_WClass::WNT_WClass(Macad::Occt::TCollection_AsciiString^ theClassName, System::IntPtr theWndProc, unsigned int theStyle, int theClassExtra, int theWindowExtra)
     : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
-    NativeInstance = new ::WNT_WClass(*(::TCollection_AsciiString*)theClassName->NativeInstance, theWndProc.ToPointer(), theStyle, theClassExtra, theWindowExtra, nullptr, nullptr, ::TCollection_AsciiString());
+    NativeInstance = new ::WNT_WClass(*(::TCollection_AsciiString*)theClassName->NativeInstance, theWndProc.ToPointer(), theStyle, theClassExtra, theWindowExtra, nullptr, nullptr, ::TCollection_AsciiString::EmptyString());
 }
 
 Macad::Occt::WNT_WClass::WNT_WClass(Macad::Occt::TCollection_AsciiString^ theClassName, System::IntPtr theWndProc, unsigned int theStyle, int theClassExtra)
     : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
-    NativeInstance = new ::WNT_WClass(*(::TCollection_AsciiString*)theClassName->NativeInstance, theWndProc.ToPointer(), theStyle, theClassExtra, 0, nullptr, nullptr, ::TCollection_AsciiString());
+    NativeInstance = new ::WNT_WClass(*(::TCollection_AsciiString*)theClassName->NativeInstance, theWndProc.ToPointer(), theStyle, theClassExtra, 0, nullptr, nullptr, ::TCollection_AsciiString::EmptyString());
 }
 
 Macad::Occt::WNT_WClass::WNT_WClass(Macad::Occt::TCollection_AsciiString^ theClassName, System::IntPtr theWndProc, unsigned int theStyle)
     : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
-    NativeInstance = new ::WNT_WClass(*(::TCollection_AsciiString*)theClassName->NativeInstance, theWndProc.ToPointer(), theStyle, 0, 0, nullptr, nullptr, ::TCollection_AsciiString());
+    NativeInstance = new ::WNT_WClass(*(::TCollection_AsciiString*)theClassName->NativeInstance, theWndProc.ToPointer(), theStyle, 0, 0, nullptr, nullptr, ::TCollection_AsciiString::EmptyString());
 }
 
 System::IntPtr Macad::Occt::WNT_WClass::WndProc()
@@ -251,7 +251,7 @@ void Macad::Occt::WNT_Window::SetTitle(Macad::Occt::TCollection_AsciiString^ the
 
 void Macad::Occt::WNT_Window::InvalidateContent()
 {
-    ((::WNT_Window*)_NativeInstance)->InvalidateContent(::opencascade::handle<::Aspect_DisplayConnection>());
+    ((::WNT_Window*)_NativeInstance)->InvalidateContent(::occ::handle<::Aspect_DisplayConnection>());
 }
 
 System::IntPtr Macad::Occt::WNT_Window::HWindow()

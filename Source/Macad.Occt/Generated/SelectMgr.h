@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "NCollection.h"
 #include "SelectBasics.h"
 #include "PrsMgr.h"
 
@@ -118,10 +117,124 @@ public enum class SelectMgr_TypeOfDepthTolerance
 }; // enum  class SelectMgr_TypeOfDepthTolerance
 
 //---------------------------------------------------------------------
+//  Class  SelectMgr_IndexedDataMapOfOwnerCriterion
+//---------------------------------------------------------------------
+public ref class SelectMgr_IndexedDataMapOfOwnerCriterion sealed
+    : public Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>
+{
+
+#ifdef Include_SelectMgr_IndexedDataMapOfOwnerCriterion_h
+public:
+    Include_SelectMgr_IndexedDataMapOfOwnerCriterion_h
+#endif
+
+public:
+    SelectMgr_IndexedDataMapOfOwnerCriterion(::SelectMgr_IndexedDataMapOfOwnerCriterion* nativeInstance)
+        : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>( nativeInstance, true )
+    {}
+
+    SelectMgr_IndexedDataMapOfOwnerCriterion(::SelectMgr_IndexedDataMapOfOwnerCriterion& nativeInstance)
+        : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>( &nativeInstance, false )
+    {}
+
+    property ::SelectMgr_IndexedDataMapOfOwnerCriterion* NativeInstance
+    {
+        ::SelectMgr_IndexedDataMapOfOwnerCriterion* get()
+        {
+            return static_cast<::SelectMgr_IndexedDataMapOfOwnerCriterion*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator>
+    {
+
+#ifdef Include_SelectMgr_IndexedDataMapOfOwnerCriterion_Iterator_h
+    public:
+        Include_SelectMgr_IndexedDataMapOfOwnerCriterion_Iterator_h
+#endif
+
+    public:
+        Iterator(::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator* NativeInstance
+        {
+            ::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator* get()
+            {
+                return static_cast<::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+    }; // class Iterator
+
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
+    SelectMgr_IndexedDataMapOfOwnerCriterion();
+    SelectMgr_IndexedDataMapOfOwnerCriterion(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    SelectMgr_IndexedDataMapOfOwnerCriterion(long long unsigned int theNbBuckets);
+    SelectMgr_IndexedDataMapOfOwnerCriterion(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    SelectMgr_IndexedDataMapOfOwnerCriterion(int theNbBuckets);
+    /* Method skipped due to unknown mapping: void SelectMgr_IndexedDataMapOfOwnerCriterion(NCollection_DefaultHasher<opencascade::handle<SelectMgr_EntityOwner>> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void SelectMgr_IndexedDataMapOfOwnerCriterion(NCollection_DefaultHasher<opencascade::handle<SelectMgr_EntityOwner>> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void SelectMgr_IndexedDataMapOfOwnerCriterion(NCollection_DefaultHasher<opencascade::handle<SelectMgr_EntityOwner>> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void SelectMgr_IndexedDataMapOfOwnerCriterion(NCollection_DefaultHasher<opencascade::handle<SelectMgr_EntityOwner>> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void SelectMgr_IndexedDataMapOfOwnerCriterion(NCollection_DefaultHasher<opencascade::handle<SelectMgr_EntityOwner>> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: ItemsView Items() */
+    /* Method skipped due to unknown mapping: IndexedItemsView IndexedItems() */
+    void Exchange(Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ theOther);
+    /* Method skipped due to unknown mapping: NCollection_DefaultHasher<opencascade::handle<SelectMgr_EntityOwner>> GetHasher() */
+    Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ Assign(Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ theOther);
+    void ReSize(long long unsigned int N);
+    void ReSize(int N);
+    int Add(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem);
+    Macad::Occt::SelectMgr_SortCriterion^ TryBound(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem);
+    bool TryBind(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem);
+    bool Bind(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem);
+    Macad::Occt::SelectMgr_SortCriterion^ Bound(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem);
+    bool Contains(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const opencascade::handle<SelectMgr_EntityOwner>>, std::reference_wrapper<const SelectMgr_SortCriterion>>> Contained(SelectMgr_EntityOwner theKey1, ) */
+    void Substitute(long long unsigned int theIndex, Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem);
+    void Substitute(int theIndex, Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem);
+    void Swap(long long unsigned int theIndex1, long long unsigned int theIndex2);
+    void Swap(int theIndex1, int theIndex2);
+    void RemoveLast();
+    void RemoveFromIndex(long long unsigned int theIndex);
+    void RemoveFromIndex(int theIndex);
+    void RemoveKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
+    Macad::Occt::SelectMgr_EntityOwner^ FindKey(long long unsigned int theIndex);
+    Macad::Occt::SelectMgr_EntityOwner^ FindKey(int theIndex);
+    Macad::Occt::SelectMgr_SortCriterion^ FindFromIndex(long long unsigned int theIndex);
+    Macad::Occt::SelectMgr_SortCriterion^ FindFromIndex(int theIndex);
+    Macad::Occt::SelectMgr_SortCriterion^ ChangeFromIndex(long long unsigned int theIndex);
+    Macad::Occt::SelectMgr_SortCriterion^ ChangeFromIndex(int theIndex);
+    int FindIndex(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
+    Macad::Occt::SelectMgr_SortCriterion^ FindFromKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
+    Macad::Occt::SelectMgr_SortCriterion^ ChangeFromKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
+    Macad::Occt::SelectMgr_SortCriterion^ Seek(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
+    Macad::Occt::SelectMgr_SortCriterion^ ChangeSeek(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
+    bool FindFromKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theValue);
+    void Clear(bool doReleaseMemory);
+    void Clear();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+}; // class SelectMgr_IndexedDataMapOfOwnerCriterion
+
+//---------------------------------------------------------------------
 //  Class  SelectMgr_ListOfFilter
 //---------------------------------------------------------------------
 public ref class SelectMgr_ListOfFilter sealed
-    : public Macad::Occt::NCollection_BaseList
+    : public Macad::Occt::BaseClass<::SelectMgr_ListOfFilter>
 {
 
 #ifdef Include_SelectMgr_ListOfFilter_h
@@ -131,11 +244,11 @@ public:
 
 public:
     SelectMgr_ListOfFilter(::SelectMgr_ListOfFilter* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::SelectMgr_ListOfFilter>( nativeInstance, true )
     {}
 
     SelectMgr_ListOfFilter(::SelectMgr_ListOfFilter& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::SelectMgr_ListOfFilter>( &nativeInstance, false )
     {}
 
     property ::SelectMgr_ListOfFilter* NativeInstance
@@ -175,284 +288,41 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::NCollection_BaseList^ theList);
         bool More();
         void Next();
         Macad::Occt::SelectMgr_Filter^ Value();
         Macad::Occt::SelectMgr_Filter^ ChangeValue();
     }; // class Iterator
 
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     SelectMgr_ListOfFilter();
     SelectMgr_ListOfFilter(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
+    /* Method skipped due to unknown mapping: void SelectMgr_ListOfFilter(initializer_list<opencascade::handle<SelectMgr_Filter>> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void SelectMgr_ListOfFilter(initializer_list<opencascade::handle<SelectMgr_Filter>> theInitList, NCollection_BaseAllocator theAllocator, ) */
     Macad::Occt::SelectMgr_ListOfFilter^ Assign(Macad::Occt::SelectMgr_ListOfFilter^ theOther);
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::SelectMgr_Filter^ First();
     Macad::Occt::SelectMgr_Filter^ Last();
     Macad::Occt::SelectMgr_Filter^ Append(Macad::Occt::SelectMgr_Filter^ theItem);
+    void Append(Macad::Occt::SelectMgr_Filter^ theItem, Macad::Occt::SelectMgr_ListOfFilter::Iterator^ theIter);
+    void Append(Macad::Occt::SelectMgr_ListOfFilter^ theOther);
     Macad::Occt::SelectMgr_Filter^ Prepend(Macad::Occt::SelectMgr_Filter^ theItem);
+    void Prepend(Macad::Occt::SelectMgr_ListOfFilter^ theOther);
     void RemoveFirst();
     void Remove(Macad::Occt::SelectMgr_ListOfFilter::Iterator^ theIter);
     Macad::Occt::SelectMgr_Filter^ InsertBefore(Macad::Occt::SelectMgr_Filter^ theItem, Macad::Occt::SelectMgr_ListOfFilter::Iterator^ theIter);
+    void InsertBefore(Macad::Occt::SelectMgr_ListOfFilter^ theOther, Macad::Occt::SelectMgr_ListOfFilter::Iterator^ theIter);
     Macad::Occt::SelectMgr_Filter^ InsertAfter(Macad::Occt::SelectMgr_Filter^ theItem, Macad::Occt::SelectMgr_ListOfFilter::Iterator^ theIter);
+    void InsertAfter(Macad::Occt::SelectMgr_ListOfFilter^ theOther, Macad::Occt::SelectMgr_ListOfFilter::Iterator^ theIter);
     void Reverse();
+    void Exchange(Macad::Occt::SelectMgr_ListOfFilter^ theOther);
 }; // class SelectMgr_ListOfFilter
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_Vec3
-//---------------------------------------------------------------------
-public ref class SelectMgr_Vec3 sealed
-    : public Macad::Occt::BaseClass<::SelectMgr_Vec3>
-{
-
-#ifdef Include_SelectMgr_Vec3_h
-public:
-    Include_SelectMgr_Vec3_h
-#endif
-
-public:
-    SelectMgr_Vec3(::SelectMgr_Vec3* nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_Vec3>( nativeInstance, true )
-    {}
-
-    SelectMgr_Vec3(::SelectMgr_Vec3& nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_Vec3>( &nativeInstance, false )
-    {}
-
-    property ::SelectMgr_Vec3* NativeInstance
-    {
-        ::SelectMgr_Vec3* get()
-        {
-            return static_cast<::SelectMgr_Vec3*>(_NativeInstance);
-        }
-    }
-
-public:
-    SelectMgr_Vec3();
-    SelectMgr_Vec3(double theValue);
-    SelectMgr_Vec3(double theX, double theY, double theZ);
-    SelectMgr_Vec3(Macad::Occt::Graphic3d_Vec2d^ theVec2, double theZ);
-    SelectMgr_Vec3(Macad::Occt::Graphic3d_Vec2d^ theVec2);
-    static int Length();
-    void SetValues(double theX, double theY, double theZ);
-    double x();
-    double r();
-    double y();
-    double g();
-    double z();
-    double b();
-    Macad::Occt::Graphic3d_Vec2d^ xy();
-    Macad::Occt::Graphic3d_Vec2d^ yx();
-    Macad::Occt::Graphic3d_Vec2d^ xz();
-    Macad::Occt::Graphic3d_Vec2d^ zx();
-    Macad::Occt::Graphic3d_Vec2d^ yz();
-    Macad::Occt::Graphic3d_Vec2d^ zy();
-    Macad::Occt::SelectMgr_Vec3^ xyz();
-    Macad::Occt::SelectMgr_Vec3^ xzy();
-    Macad::Occt::SelectMgr_Vec3^ yxz();
-    Macad::Occt::SelectMgr_Vec3^ yzx();
-    Macad::Occt::SelectMgr_Vec3^ zyx();
-    Macad::Occt::SelectMgr_Vec3^ zxy();
-    bool IsEqual(Macad::Occt::SelectMgr_Vec3^ theOther);
-    double GetData();
-    double ChangeData();
-    void Multiply(double theFactor);
-    Macad::Occt::SelectMgr_Vec3^ Multiplied(double theFactor);
-    Macad::Occt::SelectMgr_Vec3^ cwiseMin(Macad::Occt::SelectMgr_Vec3^ theVec);
-    Macad::Occt::SelectMgr_Vec3^ cwiseMax(Macad::Occt::SelectMgr_Vec3^ theVec);
-    Macad::Occt::SelectMgr_Vec3^ cwiseAbs();
-    double maxComp();
-    double minComp();
-    double Dot(Macad::Occt::SelectMgr_Vec3^ theOther);
-    double Modulus();
-    double SquareModulus();
-    void Normalize();
-    Macad::Occt::SelectMgr_Vec3^ Normalized();
-    static Macad::Occt::SelectMgr_Vec3^ Cross(Macad::Occt::SelectMgr_Vec3^ theVec1, Macad::Occt::SelectMgr_Vec3^ theVec2);
-    static Macad::Occt::SelectMgr_Vec3^ GetLERP(Macad::Occt::SelectMgr_Vec3^ theFrom, Macad::Occt::SelectMgr_Vec3^ theTo, double theT);
-    static Macad::Occt::SelectMgr_Vec3^ DX();
-    static Macad::Occt::SelectMgr_Vec3^ DY();
-    static Macad::Occt::SelectMgr_Vec3^ DZ();
-    /* Method skipped due to unknown mapping: void DumpJson(ostream theOStream, int theDepth, ) */
-    /* Method skipped due to unknown mapping: void DumpJson(ostream theOStream, int theDepth, ) */
-    bool Equals(System::Object^ obj) override;
-}; // class SelectMgr_Vec3
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_Vec4
-//---------------------------------------------------------------------
-public ref class SelectMgr_Vec4 sealed
-    : public Macad::Occt::BaseClass<::SelectMgr_Vec4>
-{
-
-#ifdef Include_SelectMgr_Vec4_h
-public:
-    Include_SelectMgr_Vec4_h
-#endif
-
-public:
-    SelectMgr_Vec4(::SelectMgr_Vec4* nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_Vec4>( nativeInstance, true )
-    {}
-
-    SelectMgr_Vec4(::SelectMgr_Vec4& nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_Vec4>( &nativeInstance, false )
-    {}
-
-    property ::SelectMgr_Vec4* NativeInstance
-    {
-        ::SelectMgr_Vec4* get()
-        {
-            return static_cast<::SelectMgr_Vec4*>(_NativeInstance);
-        }
-    }
-
-public:
-    SelectMgr_Vec4();
-    SelectMgr_Vec4(double theValue);
-    SelectMgr_Vec4(double theX, double theY, double theZ, double theW);
-    SelectMgr_Vec4(Macad::Occt::Graphic3d_Vec2d^ theVec2);
-    SelectMgr_Vec4(Macad::Occt::Graphic3d_Vec3d^ theVec3, double theW);
-    SelectMgr_Vec4(Macad::Occt::Graphic3d_Vec3d^ theVec3);
-    static int Length();
-    void SetValues(double theX, double theY, double theZ, double theW);
-    double x();
-    double r();
-    double y();
-    double g();
-    double z();
-    double b();
-    double w();
-    double a();
-    Macad::Occt::Graphic3d_Vec2d^ xy();
-    Macad::Occt::Graphic3d_Vec2d^ yx();
-    Macad::Occt::Graphic3d_Vec2d^ xz();
-    Macad::Occt::Graphic3d_Vec2d^ zx();
-    Macad::Occt::Graphic3d_Vec2d^ xw();
-    Macad::Occt::Graphic3d_Vec2d^ wx();
-    Macad::Occt::Graphic3d_Vec2d^ yz();
-    Macad::Occt::Graphic3d_Vec2d^ zy();
-    Macad::Occt::Graphic3d_Vec2d^ yw();
-    Macad::Occt::Graphic3d_Vec2d^ wy();
-    Macad::Occt::Graphic3d_Vec2d^ zw();
-    Macad::Occt::Graphic3d_Vec2d^ wz();
-    Macad::Occt::Graphic3d_Vec3d^ xyz();
-    Macad::Occt::Graphic3d_Vec3d^ xzy();
-    Macad::Occt::Graphic3d_Vec3d^ yxz();
-    Macad::Occt::Graphic3d_Vec3d^ yzx();
-    Macad::Occt::Graphic3d_Vec3d^ zyx();
-    Macad::Occt::Graphic3d_Vec3d^ zxy();
-    Macad::Occt::Graphic3d_Vec3d^ xyw();
-    Macad::Occt::Graphic3d_Vec3d^ xwy();
-    Macad::Occt::Graphic3d_Vec3d^ yxw();
-    Macad::Occt::Graphic3d_Vec3d^ ywx();
-    Macad::Occt::Graphic3d_Vec3d^ wyx();
-    Macad::Occt::Graphic3d_Vec3d^ wxy();
-    Macad::Occt::Graphic3d_Vec3d^ xzw();
-    Macad::Occt::Graphic3d_Vec3d^ xwz();
-    Macad::Occt::Graphic3d_Vec3d^ zxw();
-    Macad::Occt::Graphic3d_Vec3d^ zwx();
-    Macad::Occt::Graphic3d_Vec3d^ wzx();
-    Macad::Occt::Graphic3d_Vec3d^ wxz();
-    Macad::Occt::Graphic3d_Vec3d^ yzw();
-    Macad::Occt::Graphic3d_Vec3d^ ywz();
-    Macad::Occt::Graphic3d_Vec3d^ zyw();
-    Macad::Occt::Graphic3d_Vec3d^ zwy();
-    Macad::Occt::Graphic3d_Vec3d^ wzy();
-    Macad::Occt::Graphic3d_Vec3d^ wyz();
-    Macad::Occt::Graphic3d_Vec3d^ rgb();
-    Macad::Occt::Graphic3d_Vec3d^ rbg();
-    Macad::Occt::Graphic3d_Vec3d^ grb();
-    Macad::Occt::Graphic3d_Vec3d^ gbr();
-    Macad::Occt::Graphic3d_Vec3d^ bgr();
-    Macad::Occt::Graphic3d_Vec3d^ brg();
-    bool IsEqual(Macad::Occt::SelectMgr_Vec4^ theOther);
-    double GetData();
-    double ChangeData();
-    void Multiply(double theFactor);
-    Macad::Occt::SelectMgr_Vec4^ Multiplied(double theFactor);
-    Macad::Occt::SelectMgr_Vec4^ cwiseMin(Macad::Occt::SelectMgr_Vec4^ theVec);
-    Macad::Occt::SelectMgr_Vec4^ cwiseMax(Macad::Occt::SelectMgr_Vec4^ theVec);
-    Macad::Occt::SelectMgr_Vec4^ cwiseAbs();
-    double maxComp();
-    double minComp();
-    double Dot(Macad::Occt::SelectMgr_Vec4^ theOther);
-    /* Method skipped due to unknown mapping: void DumpJson(ostream theOStream, int theDepth, ) */
-    /* Method skipped due to unknown mapping: void DumpJson(ostream theOStream, int theDepth, ) */
-    bool Equals(System::Object^ obj) override;
-}; // class SelectMgr_Vec4
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_Mat4
-//---------------------------------------------------------------------
-public ref class SelectMgr_Mat4 sealed
-    : public Macad::Occt::BaseClass<::SelectMgr_Mat4>
-{
-
-#ifdef Include_SelectMgr_Mat4_h
-public:
-    Include_SelectMgr_Mat4_h
-#endif
-
-public:
-    SelectMgr_Mat4(::SelectMgr_Mat4* nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_Mat4>( nativeInstance, true )
-    {}
-
-    SelectMgr_Mat4(::SelectMgr_Mat4& nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_Mat4>( &nativeInstance, false )
-    {}
-
-    property ::SelectMgr_Mat4* NativeInstance
-    {
-        ::SelectMgr_Mat4* get()
-        {
-            return static_cast<::SelectMgr_Mat4*>(_NativeInstance);
-        }
-    }
-
-public:
-    SelectMgr_Mat4();
-    static long long unsigned int Rows();
-    static long long unsigned int Cols();
-    static Macad::Occt::SelectMgr_Mat4^ Identity();
-    static Macad::Occt::SelectMgr_Mat4^ Zero();
-    double GetValue(long long unsigned int theRow, long long unsigned int theCol);
-    double ChangeValue(long long unsigned int theRow, long long unsigned int theCol);
-    void SetValue(long long unsigned int theRow, long long unsigned int theCol, double theValue);
-    Macad::Occt::Graphic3d_Vec4d^ GetRow(long long unsigned int theRow);
-    void SetRow(long long unsigned int theRow, Macad::Occt::Graphic3d_Vec3d^ theVec);
-    Macad::Occt::Graphic3d_Vec4d^ GetColumn(long long unsigned int theCol);
-    void SetColumn(long long unsigned int theCol, Macad::Occt::Graphic3d_Vec3d^ theVec);
-    Macad::Occt::Graphic3d_Vec4d^ GetDiagonal();
-    void SetDiagonal(Macad::Occt::Graphic3d_Vec3d^ theVec);
-    /* Method skipped due to unknown mapping: NCollection_Mat3<double> GetMat3() */
-    void InitZero();
-    bool IsZero();
-    void InitIdentity();
-    bool IsIdentity();
-    bool IsEqual(Macad::Occt::SelectMgr_Mat4^ theOther);
-    double GetData();
-    double ChangeData();
-    static Macad::Occt::SelectMgr_Mat4^ Multiply(Macad::Occt::SelectMgr_Mat4^ theMatA, Macad::Occt::SelectMgr_Mat4^ theMatB);
-    Macad::Occt::SelectMgr_Mat4^ Multiplied(Macad::Occt::SelectMgr_Mat4^ theMat);
-    void Divide(double theFactor);
-    Macad::Occt::SelectMgr_Mat4^ Divided(double theScalar);
-    void Add(Macad::Occt::SelectMgr_Mat4^ theMat);
-    void Subtract(Macad::Occt::SelectMgr_Mat4^ theMat);
-    Macad::Occt::SelectMgr_Mat4^ Added(Macad::Occt::SelectMgr_Mat4^ theMat);
-    Macad::Occt::SelectMgr_Mat4^ Subtracted(Macad::Occt::SelectMgr_Mat4^ theMat);
-    Macad::Occt::SelectMgr_Mat4^ Negated();
-    void Translate(Macad::Occt::Graphic3d_Vec3d^ theVec);
-    Macad::Occt::SelectMgr_Mat4^ Transposed();
-    void Transpose();
-    bool Inverted(Macad::Occt::SelectMgr_Mat4^ theOutMx, double% theDet);
-    double DeterminantMat3();
-    Macad::Occt::SelectMgr_Mat4^ Adjoint();
-    static Macad::Occt::SelectMgr_Mat4^ Map(double% theData);
-    /* Method skipped due to unknown mapping: void DumpJson(ostream theOStream, int parameter1, ) */
-    bool Equals(System::Object^ obj) override;
-}; // class SelectMgr_Mat4
 
 //---------------------------------------------------------------------
 //  Class  SelectMgr_SequenceOfSelection
@@ -513,6 +383,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq, bool isStart);
+        Iterator(Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq);
         bool More();
         void Next();
         Macad::Occt::SelectMgr_Selection^ Value();
@@ -521,553 +393,56 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     SelectMgr_SequenceOfSelection();
     SelectMgr_SequenceOfSelection(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::SelectMgr_SequenceOfSelection^ Assign(Macad::Occt::SelectMgr_SequenceOfSelection^ theOther);
     void Remove(Macad::Occt::SelectMgr_SequenceOfSelection::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::SelectMgr_Selection^ theItem);
+    void Append(Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq);
     void Prepend(Macad::Occt::SelectMgr_Selection^ theItem);
+    void Prepend(Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::SelectMgr_Selection^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::SelectMgr_Selection^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq);
     void InsertAfter(Macad::Occt::SelectMgr_SequenceOfSelection::Iterator^ thePosition, Macad::Occt::SelectMgr_Selection^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::SelectMgr_Selection^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::SelectMgr_Selection^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq);
     void Split(int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq);
     Macad::Occt::SelectMgr_Selection^ First();
     Macad::Occt::SelectMgr_Selection^ ChangeFirst();
     Macad::Occt::SelectMgr_Selection^ Last();
     Macad::Occt::SelectMgr_Selection^ ChangeLast();
+    Macad::Occt::SelectMgr_Selection^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::SelectMgr_Selection^ Value(int theIndex);
+    Macad::Occt::SelectMgr_Selection^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::SelectMgr_Selection^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::SelectMgr_Selection^ theItem);
     void SetValue(int theIndex, Macad::Occt::SelectMgr_Selection^ theItem);
+    Macad::Occt::SelectMgr_Selection^ At(long long unsigned int theIndex);
+    Macad::Occt::SelectMgr_Selection^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::SelectMgr_Selection^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class SelectMgr_SequenceOfSelection
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_SequenceOfOwner
-//---------------------------------------------------------------------
-public ref class SelectMgr_SequenceOfOwner sealed
-    : public Macad::Occt::BaseClass<::SelectMgr_SequenceOfOwner>
-    , public IIndexEnumerable<Macad::Occt::SelectMgr_EntityOwner^>
-{
-
-#ifdef Include_SelectMgr_SequenceOfOwner_h
-public:
-    Include_SelectMgr_SequenceOfOwner_h
-#endif
-
-public:
-    SelectMgr_SequenceOfOwner(::SelectMgr_SequenceOfOwner* nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_SequenceOfOwner>( nativeInstance, true )
-    {}
-
-    SelectMgr_SequenceOfOwner(::SelectMgr_SequenceOfOwner& nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_SequenceOfOwner>( &nativeInstance, false )
-    {}
-
-    property ::SelectMgr_SequenceOfOwner* NativeInstance
-    {
-        ::SelectMgr_SequenceOfOwner* get()
-        {
-            return static_cast<::SelectMgr_SequenceOfOwner*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::SelectMgr_SequenceOfOwner::Iterator>
-    {
-
-#ifdef Include_SelectMgr_SequenceOfOwner_Iterator_h
-    public:
-        Include_SelectMgr_SequenceOfOwner_Iterator_h
-#endif
-
-    public:
-        Iterator(::SelectMgr_SequenceOfOwner::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_SequenceOfOwner::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::SelectMgr_SequenceOfOwner::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_SequenceOfOwner::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::SelectMgr_SequenceOfOwner::Iterator* NativeInstance
-        {
-            ::SelectMgr_SequenceOfOwner::Iterator* get()
-            {
-                return static_cast<::SelectMgr_SequenceOfOwner::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::SelectMgr_EntityOwner^ Value();
-        Macad::Occt::SelectMgr_EntityOwner^ ChangeValue();
-        bool IsEqual(Macad::Occt::SelectMgr_SequenceOfOwner::Iterator^ theOther);
-        bool Equals(System::Object^ obj) override;
-    }; // class Iterator
-
-    SelectMgr_SequenceOfOwner();
-    SelectMgr_SequenceOfOwner(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
-    int Upper();
-    bool IsEmpty();
-    void Reverse();
-    void Exchange(int I, int J);
-    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::SelectMgr_SequenceOfOwner^ Assign(Macad::Occt::SelectMgr_SequenceOfOwner^ theOther);
-    void Remove(Macad::Occt::SelectMgr_SequenceOfOwner::Iterator^ thePosition);
-    void Append(Macad::Occt::SelectMgr_EntityOwner^ theItem);
-    void Prepend(Macad::Occt::SelectMgr_EntityOwner^ theItem);
-    void InsertBefore(int theIndex, Macad::Occt::SelectMgr_EntityOwner^ theItem);
-    void InsertAfter(Macad::Occt::SelectMgr_SequenceOfOwner::Iterator^ thePosition, Macad::Occt::SelectMgr_EntityOwner^ theItem);
-    void Split(int theIndex, Macad::Occt::SelectMgr_SequenceOfOwner^ theSeq);
-    Macad::Occt::SelectMgr_EntityOwner^ First();
-    Macad::Occt::SelectMgr_EntityOwner^ ChangeFirst();
-    Macad::Occt::SelectMgr_EntityOwner^ Last();
-    Macad::Occt::SelectMgr_EntityOwner^ ChangeLast();
-    virtual Macad::Occt::SelectMgr_EntityOwner^ Value(int theIndex);
-    Macad::Occt::SelectMgr_EntityOwner^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::SelectMgr_EntityOwner^ theItem);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::SelectMgr_EntityOwner^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class SelectMgr_SequenceOfOwner
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_IndexedDataMapOfOwnerCriterion
-//---------------------------------------------------------------------
-public ref class SelectMgr_IndexedDataMapOfOwnerCriterion sealed
-    : public Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>
-{
-
-#ifdef Include_SelectMgr_IndexedDataMapOfOwnerCriterion_h
-public:
-    Include_SelectMgr_IndexedDataMapOfOwnerCriterion_h
-#endif
-
-public:
-    SelectMgr_IndexedDataMapOfOwnerCriterion(::SelectMgr_IndexedDataMapOfOwnerCriterion* nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>( nativeInstance, true )
-    {}
-
-    SelectMgr_IndexedDataMapOfOwnerCriterion(::SelectMgr_IndexedDataMapOfOwnerCriterion& nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>( &nativeInstance, false )
-    {}
-
-    property ::SelectMgr_IndexedDataMapOfOwnerCriterion* NativeInstance
-    {
-        ::SelectMgr_IndexedDataMapOfOwnerCriterion* get()
-        {
-            return static_cast<::SelectMgr_IndexedDataMapOfOwnerCriterion*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator>
-    {
-
-#ifdef Include_SelectMgr_IndexedDataMapOfOwnerCriterion_Iterator_h
-    public:
-        Include_SelectMgr_IndexedDataMapOfOwnerCriterion_Iterator_h
-#endif
-
-    public:
-        Iterator(::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator* NativeInstance
-        {
-            ::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator* get()
-            {
-                return static_cast<::SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    SelectMgr_IndexedDataMapOfOwnerCriterion();
-    SelectMgr_IndexedDataMapOfOwnerCriterion(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    SelectMgr_IndexedDataMapOfOwnerCriterion(int theNbBuckets);
-    void Exchange(Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ theOther);
-    Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ Assign(Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ theOther);
-    void ReSize(int N);
-    int Add(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem);
-    bool Contains(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
-    void Substitute(int theIndex, Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem);
-    void Swap(int theIndex1, int theIndex2);
-    void RemoveLast();
-    void RemoveFromIndex(int theIndex);
-    void RemoveKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
-    Macad::Occt::SelectMgr_EntityOwner^ FindKey(int theIndex);
-    Macad::Occt::SelectMgr_SortCriterion^ FindFromIndex(int theIndex);
-    Macad::Occt::SelectMgr_SortCriterion^ ChangeFromIndex(int theIndex);
-    int FindIndex(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
-    Macad::Occt::SelectMgr_SortCriterion^ FindFromKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
-    Macad::Occt::SelectMgr_SortCriterion^ ChangeFromKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
-    Macad::Occt::SelectMgr_SortCriterion^ Seek(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
-    Macad::Occt::SelectMgr_SortCriterion^ ChangeSeek(Macad::Occt::SelectMgr_EntityOwner^ theKey1);
-    void Clear(bool doReleaseMemory);
-    void Clear();
-    int Size();
-}; // class SelectMgr_IndexedDataMapOfOwnerCriterion
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_MapOfObjectSensitives
-//---------------------------------------------------------------------
-public ref class SelectMgr_MapOfObjectSensitives sealed
-    : public Macad::Occt::BaseClass<::SelectMgr_MapOfObjectSensitives>
-{
-
-#ifdef Include_SelectMgr_MapOfObjectSensitives_h
-public:
-    Include_SelectMgr_MapOfObjectSensitives_h
-#endif
-
-public:
-    SelectMgr_MapOfObjectSensitives(::SelectMgr_MapOfObjectSensitives* nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_MapOfObjectSensitives>( nativeInstance, true )
-    {}
-
-    SelectMgr_MapOfObjectSensitives(::SelectMgr_MapOfObjectSensitives& nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_MapOfObjectSensitives>( &nativeInstance, false )
-    {}
-
-    property ::SelectMgr_MapOfObjectSensitives* NativeInstance
-    {
-        ::SelectMgr_MapOfObjectSensitives* get()
-        {
-            return static_cast<::SelectMgr_MapOfObjectSensitives*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::SelectMgr_MapOfObjectSensitives::Iterator>
-    {
-
-#ifdef Include_SelectMgr_MapOfObjectSensitives_Iterator_h
-    public:
-        Include_SelectMgr_MapOfObjectSensitives_Iterator_h
-#endif
-
-    public:
-        Iterator(::SelectMgr_MapOfObjectSensitives::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_MapOfObjectSensitives::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::SelectMgr_MapOfObjectSensitives::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_MapOfObjectSensitives::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::SelectMgr_MapOfObjectSensitives::Iterator* NativeInstance
-        {
-            ::SelectMgr_MapOfObjectSensitives::Iterator* get()
-            {
-                return static_cast<::SelectMgr_MapOfObjectSensitives::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        /* Method skipped due to unknown mapping: SelectMgr_SensitiveEntitySet Value() */
-        /* Method skipped due to unknown mapping: SelectMgr_SensitiveEntitySet ChangeValue() */
-        Macad::Occt::SelectMgr_SelectableObject^ Key();
-    }; // class Iterator
-
-    SelectMgr_MapOfObjectSensitives();
-    SelectMgr_MapOfObjectSensitives(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    SelectMgr_MapOfObjectSensitives(int theNbBuckets);
-    void Exchange(Macad::Occt::SelectMgr_MapOfObjectSensitives^ theOther);
-    Macad::Occt::SelectMgr_MapOfObjectSensitives^ Assign(Macad::Occt::SelectMgr_MapOfObjectSensitives^ theOther);
-    void ReSize(int N);
-    /* Method skipped due to unknown mapping: bool Bind(SelectMgr_SelectableObject theKey, SelectMgr_SensitiveEntitySet theItem, ) */
-    /* Method skipped due to unknown mapping: SelectMgr_SensitiveEntitySet Bound(SelectMgr_SelectableObject theKey, SelectMgr_SensitiveEntitySet theItem, ) */
-    bool IsBound(Macad::Occt::SelectMgr_SelectableObject^ theKey);
-    bool UnBind(Macad::Occt::SelectMgr_SelectableObject^ theKey);
-    /* Method skipped due to unknown mapping: SelectMgr_SensitiveEntitySet Seek(SelectMgr_SelectableObject theKey, ) */
-    /* Method skipped due to unknown mapping: SelectMgr_SensitiveEntitySet Find(SelectMgr_SelectableObject theKey, ) */
-    /* Method skipped due to unknown mapping: SelectMgr_SensitiveEntitySet ChangeSeek(SelectMgr_SelectableObject theKey, ) */
-    /* Method skipped due to unknown mapping: SelectMgr_SensitiveEntitySet ChangeFind(SelectMgr_SelectableObject theKey, ) */
-    void Clear(bool doReleaseMemory);
-    void Clear();
-    int Size();
-}; // class SelectMgr_MapOfObjectSensitives
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_IndexedMapOfHSensitive
-//---------------------------------------------------------------------
-public ref class SelectMgr_IndexedMapOfHSensitive sealed
-    : public Macad::Occt::BaseClass<::SelectMgr_IndexedMapOfHSensitive>
-{
-
-#ifdef Include_SelectMgr_IndexedMapOfHSensitive_h
-public:
-    Include_SelectMgr_IndexedMapOfHSensitive_h
-#endif
-
-public:
-    SelectMgr_IndexedMapOfHSensitive(::SelectMgr_IndexedMapOfHSensitive* nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_IndexedMapOfHSensitive>( nativeInstance, true )
-    {}
-
-    SelectMgr_IndexedMapOfHSensitive(::SelectMgr_IndexedMapOfHSensitive& nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_IndexedMapOfHSensitive>( &nativeInstance, false )
-    {}
-
-    property ::SelectMgr_IndexedMapOfHSensitive* NativeInstance
-    {
-        ::SelectMgr_IndexedMapOfHSensitive* get()
-        {
-            return static_cast<::SelectMgr_IndexedMapOfHSensitive*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::SelectMgr_IndexedMapOfHSensitive::Iterator>
-    {
-
-#ifdef Include_SelectMgr_IndexedMapOfHSensitive_Iterator_h
-    public:
-        Include_SelectMgr_IndexedMapOfHSensitive_Iterator_h
-#endif
-
-    public:
-        Iterator(::SelectMgr_IndexedMapOfHSensitive::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_IndexedMapOfHSensitive::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::SelectMgr_IndexedMapOfHSensitive::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_IndexedMapOfHSensitive::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::SelectMgr_IndexedMapOfHSensitive::Iterator* NativeInstance
-        {
-            ::SelectMgr_IndexedMapOfHSensitive::Iterator* get()
-            {
-                return static_cast<::SelectMgr_IndexedMapOfHSensitive::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    SelectMgr_IndexedMapOfHSensitive();
-    SelectMgr_IndexedMapOfHSensitive(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    SelectMgr_IndexedMapOfHSensitive(int theNbBuckets);
-    void Exchange(Macad::Occt::SelectMgr_IndexedMapOfHSensitive^ theOther);
-    Macad::Occt::SelectMgr_IndexedMapOfHSensitive^ Assign(Macad::Occt::SelectMgr_IndexedMapOfHSensitive^ theOther);
-    void ReSize(int theExtent);
-    int Add(Macad::Occt::SelectMgr_SensitiveEntity^ theKey1);
-    bool Contains(Macad::Occt::SelectMgr_SensitiveEntity^ theKey1);
-    void Substitute(int theIndex, Macad::Occt::SelectMgr_SensitiveEntity^ theKey1);
-    void Swap(int theIndex1, int theIndex2);
-    void RemoveLast();
-    void RemoveFromIndex(int theIndex);
-    bool RemoveKey(Macad::Occt::SelectMgr_SensitiveEntity^ theKey1);
-    Macad::Occt::SelectMgr_SensitiveEntity^ FindKey(int theIndex);
-    int FindIndex(Macad::Occt::SelectMgr_SensitiveEntity^ theKey1);
-    void Clear(bool doReleaseMemory);
-    void Clear();
-    int Size();
-}; // class SelectMgr_IndexedMapOfHSensitive
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_MapOfOwners
-//---------------------------------------------------------------------
-public ref class SelectMgr_MapOfOwners sealed
-    : public Macad::Occt::BaseClass<::SelectMgr_MapOfOwners>
-{
-
-#ifdef Include_SelectMgr_MapOfOwners_h
-public:
-    Include_SelectMgr_MapOfOwners_h
-#endif
-
-public:
-    SelectMgr_MapOfOwners(::SelectMgr_MapOfOwners* nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_MapOfOwners>( nativeInstance, true )
-    {}
-
-    SelectMgr_MapOfOwners(::SelectMgr_MapOfOwners& nativeInstance)
-        : Macad::Occt::BaseClass<::SelectMgr_MapOfOwners>( &nativeInstance, false )
-    {}
-
-    property ::SelectMgr_MapOfOwners* NativeInstance
-    {
-        ::SelectMgr_MapOfOwners* get()
-        {
-            return static_cast<::SelectMgr_MapOfOwners*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::SelectMgr_MapOfOwners::Iterator>
-    {
-
-#ifdef Include_SelectMgr_MapOfOwners_Iterator_h
-    public:
-        Include_SelectMgr_MapOfOwners_Iterator_h
-#endif
-
-    public:
-        Iterator(::SelectMgr_MapOfOwners::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_MapOfOwners::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::SelectMgr_MapOfOwners::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_MapOfOwners::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::SelectMgr_MapOfOwners::Iterator* NativeInstance
-        {
-            ::SelectMgr_MapOfOwners::Iterator* get()
-            {
-                return static_cast<::SelectMgr_MapOfOwners::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        property int ChangeValue {
-            int get() {
-                return ((::SelectMgr_MapOfOwners::Iterator*)_NativeInstance)->ChangeValue();
-            }
-            void set(int value) {
-                ((::SelectMgr_MapOfOwners::Iterator*)_NativeInstance)->ChangeValue() = value;
-            }
-        }
-
-        Iterator();
-        bool More();
-        void Next();
-        int Value();
-        Macad::Occt::SelectMgr_EntityOwner^ Key();
-    }; // class Iterator
-
-    SelectMgr_MapOfOwners();
-    SelectMgr_MapOfOwners(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    SelectMgr_MapOfOwners(int theNbBuckets);
-    void Exchange(Macad::Occt::SelectMgr_MapOfOwners^ theOther);
-    Macad::Occt::SelectMgr_MapOfOwners^ Assign(Macad::Occt::SelectMgr_MapOfOwners^ theOther);
-    void ReSize(int N);
-    bool Bind(Macad::Occt::SelectMgr_EntityOwner^ theKey, int theItem);
-    int Bound(Macad::Occt::SelectMgr_EntityOwner^ theKey, int theItem);
-    bool IsBound(Macad::Occt::SelectMgr_EntityOwner^ theKey);
-    bool UnBind(Macad::Occt::SelectMgr_EntityOwner^ theKey);
-    int Seek(Macad::Occt::SelectMgr_EntityOwner^ theKey);
-    int Find(Macad::Occt::SelectMgr_EntityOwner^ theKey);
-    int ChangeSeek(Macad::Occt::SelectMgr_EntityOwner^ theKey);
-    int ChangeFind(Macad::Occt::SelectMgr_EntityOwner^ theKey);
-    void Clear(bool doReleaseMemory);
-    void Clear();
-    int Size();
-}; // class SelectMgr_MapOfOwners
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_TriangFrustums
-//---------------------------------------------------------------------
-public ref class SelectMgr_TriangFrustums sealed
-    : public Macad::Occt::NCollection_BaseList
-{
-
-#ifdef Include_SelectMgr_TriangFrustums_h
-public:
-    Include_SelectMgr_TriangFrustums_h
-#endif
-
-public:
-    SelectMgr_TriangFrustums(::SelectMgr_TriangFrustums* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
-    {}
-
-    SelectMgr_TriangFrustums(::SelectMgr_TriangFrustums& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
-    {}
-
-    property ::SelectMgr_TriangFrustums* NativeInstance
-    {
-        ::SelectMgr_TriangFrustums* get()
-        {
-            return static_cast<::SelectMgr_TriangFrustums*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::SelectMgr_TriangFrustums::Iterator>
-    {
-
-#ifdef Include_SelectMgr_TriangFrustums_Iterator_h
-    public:
-        Include_SelectMgr_TriangFrustums_Iterator_h
-#endif
-
-    public:
-        Iterator(::SelectMgr_TriangFrustums::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_TriangFrustums::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::SelectMgr_TriangFrustums::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::SelectMgr_TriangFrustums::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::SelectMgr_TriangFrustums::Iterator* NativeInstance
-        {
-            ::SelectMgr_TriangFrustums::Iterator* get()
-            {
-                return static_cast<::SelectMgr_TriangFrustums::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::SelectMgr_TriangularFrustum^ Value();
-        Macad::Occt::SelectMgr_TriangularFrustum^ ChangeValue();
-    }; // class Iterator
-
-    SelectMgr_TriangFrustums();
-    SelectMgr_TriangFrustums(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    Macad::Occt::SelectMgr_TriangFrustums^ Assign(Macad::Occt::SelectMgr_TriangFrustums^ theOther);
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::SelectMgr_TriangularFrustum^ First();
-    Macad::Occt::SelectMgr_TriangularFrustum^ Last();
-    Macad::Occt::SelectMgr_TriangularFrustum^ Append(Macad::Occt::SelectMgr_TriangularFrustum^ theItem);
-    Macad::Occt::SelectMgr_TriangularFrustum^ Prepend(Macad::Occt::SelectMgr_TriangularFrustum^ theItem);
-    void RemoveFirst();
-    void Remove(Macad::Occt::SelectMgr_TriangFrustums::Iterator^ theIter);
-    Macad::Occt::SelectMgr_TriangularFrustum^ InsertBefore(Macad::Occt::SelectMgr_TriangularFrustum^ theItem, Macad::Occt::SelectMgr_TriangFrustums::Iterator^ theIter);
-    Macad::Occt::SelectMgr_TriangularFrustum^ InsertAfter(Macad::Occt::SelectMgr_TriangularFrustum^ theItem, Macad::Occt::SelectMgr_TriangFrustums::Iterator^ theIter);
-    void Reverse();
-}; // class SelectMgr_TriangFrustums
 
 //---------------------------------------------------------------------
 //  Class  SelectMgr_Selection
@@ -1107,7 +482,7 @@ public:
 /// -   mode 3 : selection of the wires
 /// -   mode 4 : selection of the faces
 /// -   mode 5 : selection of the shells
-/// -   mode 6 :   selection of the constituent solids.
+/// -   mode 6 : selection of the constituent solids.
 /// </summary>
 public ref class SelectMgr_Selection sealed
     : public Macad::Occt::Standard_Transient
@@ -1349,6 +724,8 @@ public:
     /// </param>
     /// <returns>
     /// TRUE if object handled click
+    /// For all selection schemes, allowing to select an object,
+    /// it's available
     /// </returns>
     bool HandleMouseClick(Macad::Occt::Graphic3d_Vec2i^ thePoint, unsigned int theButton, unsigned int theModifiers, bool theIsDoubleClick);
     /// <summary>
@@ -1422,7 +799,7 @@ public:
     /// <summary>
     /// </summary>
     /// <returns>
-    /// Standard_True if the owner is selected.
+    /// true if the owner is selected.
     /// </returns>
     bool IsSelected();
     /// <summary>
@@ -1557,7 +934,7 @@ public:
     /// When an object is detected by the mouse - in AIS,
     /// this is done through a context selector - its owner
     /// is passed to the filter as an argument.
-    /// If the object returns Standard_True, it is kept; if
+    /// If the object returns true, it is kept; if
     /// not, it is rejected.
     /// If you are creating a filter class inheriting this
     /// framework, and the daughter class is to be used in
@@ -1730,7 +1107,7 @@ public:
     /// Indicates that the selected Interactive Object passes the filter.
     /// </summary>
     bool IsOk(Macad::Occt::SelectMgr_EntityOwner^ theObj);
-    /* Method skipped due to unknown mapping: void SetDisabledObjects(NCollection_Shared<NCollection_Map<const Standard_Transient * theObjects, ) */
+    /* Method skipped due to unknown mapping: void SetDisabledObjects(Graphic3d_NMapOfTransient theObjects, ) */
     /// <summary>
     /// </summary>
     /// <returns>
@@ -1805,11 +1182,7 @@ public:
     void SetViewport(double theX, double theY, double theWidth, double theHeight);
     void InvalidateViewport();
     void WindowSize(int% theWidth, int% theHeight);
-    /// <summary>
-    /// Calculates signed distance between plane with equation
-    /// theEq and point thePnt
-    /// </summary>
-    double SignedPlanePntDist(Macad::Occt::SelectMgr_Vec3^ theEq, Macad::Occt::SelectMgr_Vec3^ thePnt);
+    /* Method skipped due to unknown mapping: double SignedPlanePntDist(Graphic3d_Vec3d theEq, Graphic3d_Vec3d thePnt, ) */
     /// <summary>
     /// Projects 2d screen point onto view frustum plane:
     /// theZ = 0 - near plane,
@@ -2034,20 +1407,9 @@ public:
     /// </summary>
     Macad::Occt::Pnt2d GetMousePosition();
     /* Method skipped due to unknown mapping: void GetPlanes(NCollection_DynamicArray<NCollection_Vec4<double>> thePlaneEquations, ) */
-    /// <summary>
-    /// SAT intersection test between defined volume and given axis-aligned box
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult);
-    /// <summary>
-    /// Returns true if selecting volume is overlapped by axis-aligned bounding box
-    /// with minimum corner at point theMinPt and maximum at point theMaxPt
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, bool% theInside);
-    /// <summary>
-    /// Returns true if selecting volume is overlapped by axis-aligned bounding box
-    /// with minimum corner at point theMinPt and maximum at point theMaxPt
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax);
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, SelectMgr_ViewClipRange theClipRange, SelectBasics_PickResult thePickResult, ) */
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, bool theInside, ) */
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, bool theInside, ) */
     /// <summary>
     /// Intersection test between defined volume and given point
     /// </summary>
@@ -2263,15 +1625,8 @@ public:
     /// frustum from scratch. In this class, builder is not used and theBuilder parameter is ignored.
     /// </summary>
     Macad::Occt::SelectMgr_BaseIntersector^ CopyWithBuilder(Macad::Occt::SelectMgr_FrustumBuilder^ theBuilder);
-    /// <summary>
-    /// Intersection test between defined axis and given axis-aligned box
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult);
-    /// <summary>
-    /// Returns true if selecting axis intersects axis-aligned bounding box
-    /// with minimum corner at point theMinPt and maximum at point theMaxPt
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, bool% theInside);
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, SelectMgr_ViewClipRange theClipRange, SelectBasics_PickResult thePickResult, ) */
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, bool theInside, ) */
     /// <summary>
     /// Intersection test between defined axis and given point
     /// </summary>
@@ -2387,11 +1742,6 @@ public ref class SelectMgr_BaseFrustum
 public:
     Include_SelectMgr_BaseFrustum_h
 #endif
-
-protected:
-    SelectMgr_BaseFrustum(InitMode init)
-        : Macad::Occt::SelectMgr_BaseIntersector( init )
-    {}
 
 public:
     SelectMgr_BaseFrustum(::SelectMgr_BaseFrustum* nativeInstance)
@@ -2574,20 +1924,9 @@ public:
     /// else exception will be thrown
     /// </summary>
     void SetWindowSize(int theWidth, int theHeight);
-    /// <summary>
-    /// SAT intersection test between defined volume and given axis-aligned box
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, Macad::Occt::SelectBasics_PickResult^ thePickResult);
-    /// <summary>
-    /// Returns true if selecting volume is overlapped by axis-aligned bounding box
-    /// with minimum corner at point theMinPt and maximum at point theMaxPt
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, bool% theInside);
-    /// <summary>
-    /// Returns true if selecting volume is overlapped by axis-aligned bounding box
-    /// with minimum corner at point theMinPt and maximum at point theMaxPt
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax);
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, SelectBasics_PickResult thePickResult, ) */
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, bool theInside, ) */
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, bool theInside, ) */
     /// <summary>
     /// Intersection test between defined volume and given point
     /// </summary>
@@ -3005,10 +2344,7 @@ public:
     /// and in corresponding entity owners.
     /// </summary>
     void UpdateTransformations(Macad::Occt::SelectMgr_Selection^ aSelection);
-    /// <summary>
-    /// Method which draws selected owners ( for fast presentation draw )
-    /// </summary>
-    void HilightSelected(Macad::Occt::PrsMgr_PresentationManager^ thePrsMgr, Macad::Occt::SelectMgr_SequenceOfOwner^ theSeq);
+    /* Method skipped due to unknown mapping: void HilightSelected(PrsMgr_PresentationManager thePrsMgr, NCollection_Sequence<opencascade::handle<SelectMgr_EntityOwner>> theSeq, ) */
     /// <summary>
     /// Method which clear all selected owners belonging
     /// to this selectable object ( for fast presentation draw )
@@ -3024,7 +2360,7 @@ public:
     void ClearDynamicHighlight(Macad::Occt::PrsMgr_PresentationManager^ theMgr);
     /// <summary>
     /// Method which hilight an owner belonging to
-    /// this selectable object  ( for fast presentation draw )
+    /// this selectable object (for fast presentation draw)
     /// </summary>
     void HilightOwnerWithColor(Macad::Occt::PrsMgr_PresentationManager^ thePM, Macad::Occt::Prs3d_Drawer^ theStyle, Macad::Occt::SelectMgr_EntityOwner^ theOwner);
     /// <summary>
@@ -3085,7 +2421,7 @@ public:
     /// Sets common entity owner for assembly sensitive object entities
     /// </summary>
     void SetAssemblyOwner(Macad::Occt::SelectMgr_EntityOwner^ theOwner);
-    /* Method skipped due to unknown mapping: Bnd_Box BndBoxOfSelected(NCollection_Shared<NCollection_IndexedMap<opencascade::SelectMgr_EntityOwner theOwners, ) */
+    /* Method skipped due to unknown mapping: Bnd_Box BndBoxOfSelected(NCollection_Shared<NCollection_IndexedMap<opencascade::handle<SelectMgr_EntityOwner>>> theOwners, ) */
     /// <summary>
     /// Returns the mode for selection of object as a whole; 0 by default.
     /// </summary>
@@ -3313,7 +2649,7 @@ public:
 /// theorem (SAT).
 /// </summary>
 public ref class SelectMgr_RectangularFrustum sealed
-    : public Macad::Occt::SelectMgr_BaseFrustum
+    : public Macad::Occt::Standard_Transient
 {
 
 #ifdef Include_SelectMgr_RectangularFrustum_h
@@ -3323,11 +2659,11 @@ public:
 
 public:
     SelectMgr_RectangularFrustum(::SelectMgr_RectangularFrustum* nativeInstance)
-        : Macad::Occt::SelectMgr_BaseFrustum( nativeInstance )
+        : Macad::Occt::Standard_Transient( nativeInstance )
     {}
 
     SelectMgr_RectangularFrustum(::SelectMgr_RectangularFrustum& nativeInstance)
-        : Macad::Occt::SelectMgr_BaseFrustum( nativeInstance )
+        : Macad::Occt::Standard_Transient( nativeInstance )
     {}
 
     property ::SelectMgr_RectangularFrustum* NativeInstance
@@ -3351,14 +2687,6 @@ public:
     /// Initializes volume according to the selected rectangle
     /// </summary>
     void Init(Macad::Occt::Pnt2d theMinPnt, Macad::Occt::Pnt2d theMaxPnt);
-    /// <summary>
-    /// Returns True if Frustum (theVertices) intersects the circle.
-    /// </summary>
-    bool isIntersectCircle(double theRadius, Macad::Occt::Pnt theCenter, Macad::Occt::Trsf theTrsf, Macad::Occt::TColgp_Array1OfPnt^ theVertices);
-    /// <summary>
-    /// Returns True if Seg1 (thePnt1Seg1, thePnt2Seg1) and Seg2 (thePnt1Seg2, thePnt2Seg2) intersect.
-    /// </summary>
-    bool isSegmentsIntersect(Macad::Occt::Pnt thePnt1Seg1, Macad::Occt::Pnt thePnt2Seg1, Macad::Occt::Pnt thePnt1Seg2, Macad::Occt::Pnt thePnt2Seg2);
     /// <summary>
     /// Builds volume according to internal parameters.
     /// NOTE: it should be called after Init() method
@@ -3394,15 +2722,8 @@ public:
     /// a copy of the frustum with the input builder assigned
     /// </returns>
     Macad::Occt::SelectMgr_BaseIntersector^ CopyWithBuilder(Macad::Occt::SelectMgr_FrustumBuilder^ theBuilder);
-    /// <summary>
-    /// SAT intersection test between defined volume and given axis-aligned box
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult);
-    /// <summary>
-    /// Returns true if selecting volume is overlapped by axis-aligned bounding box
-    /// with minimum corner at point theMinPt and maximum at point theMaxPt
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, bool% theInside);
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, SelectMgr_ViewClipRange theClipRange, SelectBasics_PickResult thePickResult, ) */
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, bool theInside, ) */
     /// <summary>
     /// Intersection test between defined volume and given point
     /// </summary>
@@ -3497,14 +2818,20 @@ public:
     /// </summary>
     Macad::Occt::Pnt2d GetMousePosition();
     /* Method skipped due to unknown mapping: void GetPlanes(NCollection_DynamicArray<NCollection_Vec4<double>> thePlaneEquations, ) */
-    /// <summary>
-    /// Dumps the content of me into the stream
-    /// </summary>
-    void DumpJson(System::IO::TextWriter^ theOStream, int theDepth);
-    /// <summary>
-    /// Dumps the content of me into the stream
-    /// </summary>
-    void DumpJson(System::IO::TextWriter^ theOStream);
+    Macad::Occt::SelectMgr_SelectionType GetSelectionType();
+    Macad::Occt::Graphic3d_Camera^ Camera();
+    bool RaySphereIntersection(Macad::Occt::Pnt theCenter, double theRadius, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, double% theTimeEnter, double% theTimeLeave);
+    bool RayCylinderIntersection(double theBottomRadius, double theTopRadius, double theHeight, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, bool theIsHollow, double% theTimeEnter, double% theTimeLeave);
+    bool RayCircleIntersection(double theRadius, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, bool theIsFilled, double% theTime);
+    void SetBuilder(Macad::Occt::SelectMgr_FrustumBuilder^ theBuilder);
+    void SetCamera(Macad::Occt::Graphic3d_Camera^ theCamera);
+    void SetPixelTolerance(int theTol);
+    void SetWindowSize(int theWidth, int theHeight);
+    void WindowSize(int% theWidth, int% theHeight);
+    void SetViewport(double theX, double theY, double theWidth, double theHeight);
+    bool IsBoundaryIntersectSphere(Macad::Occt::Pnt theCenter, double theRadius, Macad::Occt::Dir thePlaneNormal, Macad::Occt::TColgp_Array1OfPnt^ theBoundaries, bool% theBoundaryInside);
+    /* Method skipped due to unknown mapping: void DumpJson(ostream theOStream, int theDepth, ) */
+    /* Method skipped due to unknown mapping: void DumpJson(ostream theOStream, int theDepth, ) */
     static Macad::Occt::SelectMgr_RectangularFrustum^ CreateDowncasted(::SelectMgr_RectangularFrustum* instance);
 }; // class SelectMgr_RectangularFrustum
 
@@ -3697,7 +3024,7 @@ public:
     /// object referred by the index of an element of the subset's BVH tree.
     /// </summary>
     Macad::Occt::SelectMgr_SelectableObject^ GetObjectById(Macad::Occt::SelectMgr_SelectableObjectSet::BVHSubset theSubset, int theIndex);
-    /* Method skipped due to unknown mapping: BVH_Tree<double, 3 BVH(BVHSubset theSubset, ) */
+    /* Method skipped due to unknown mapping: BVH_Tree<double, 3> BVH(BVHSubset theSubset, ) */
     /// <summary>
     /// Dumps the content of me into the stream
     /// </summary>
@@ -3719,7 +3046,7 @@ public:
 /// as priority of the primitive or its depth in the view
 /// relative to that of other primitives.
 /// Note that in 3D, the inheriting framework
-/// StdSelect_ViewerSelector3d   is only to be used
+/// StdSelect_ViewerSelector3d is only to be used
 /// if you do not want to use the services provided by
 /// AIS.
 /// Two tools are available to find and select objects
@@ -3802,7 +3129,7 @@ public:
     /// <summary>
     /// Return the flag determining precedence of picked depth (distance from eye to entity) over
     /// entity priority in sorted results; TRUE by default. When flag is TRUE, priority will be
-    /// considered only if entities have the same depth  within the tolerance. When flag is FALSE,
+    /// considered only if entities have the same depth within the tolerance. When flag is FALSE,
     /// entities with higher priority will be in front regardless of their depth (like x-ray).
     /// </summary>
     bool ToPickClosest();
@@ -3874,8 +3201,8 @@ public:
     /// </summary>
     bool RemovePicked(Macad::Occt::SelectMgr_SelectableObject^ theObject);
     bool Contains(Macad::Occt::SelectMgr_SelectableObject^ theObject);
-    /* Method skipped due to unknown mapping: BVH_Builder<double, 3 EntitySetBuilder() */
-    /* Method skipped due to unknown mapping: void SetEntitySetBuilder(BVH_Builder<double, 3 theBuilder, ) */
+    /* Method skipped due to unknown mapping: BVH_Builder<double, 3> EntitySetBuilder() */
+    /* Method skipped due to unknown mapping: void SetEntitySetBuilder(BVH_Builder<double, 3> theBuilder, ) */
     /// <summary>
     /// Returns the list of selection modes ModeList found in
     /// this selector for the selectable object aSelectableObject.
@@ -4252,12 +3579,12 @@ public:
     /// </summary>
     void ClearSelectionStructures(Macad::Occt::SelectMgr_SelectableObject^ theObj);
     /// <summary>
-    /// Re-adds newly calculated sensitive  entities of recomputed selection
+    /// Re-adds newly calculated sensitive entities of recomputed selection
     /// defined by mode theMode to all viewer selectors contained that selection.
     /// </summary>
     void RestoreSelectionStructures(Macad::Occt::SelectMgr_SelectableObject^ theObj, int theMode);
     /// <summary>
-    /// Re-adds newly calculated sensitive  entities of recomputed selection
+    /// Re-adds newly calculated sensitive entities of recomputed selection
     /// defined by mode theMode to all viewer selectors contained that selection.
     /// </summary>
     void RestoreSelectionStructures(Macad::Occt::SelectMgr_SelectableObject^ theObj);
@@ -4324,7 +3651,7 @@ public:
 /// SelectMgr_TriangularFrustumSet.
 /// </summary>
 public ref class SelectMgr_TriangularFrustum sealed
-    : public Macad::Occt::SelectMgr_BaseFrustum
+    : public Macad::Occt::Standard_Transient
 {
 
 #ifdef Include_SelectMgr_TriangularFrustum_h
@@ -4334,11 +3661,11 @@ public:
 
 public:
     SelectMgr_TriangularFrustum(::SelectMgr_TriangularFrustum* nativeInstance)
-        : Macad::Occt::SelectMgr_BaseFrustum( nativeInstance )
+        : Macad::Occt::Standard_Transient( nativeInstance )
     {}
 
     SelectMgr_TriangularFrustum(::SelectMgr_TriangularFrustum& nativeInstance)
-        : Macad::Occt::SelectMgr_BaseFrustum( nativeInstance )
+        : Macad::Occt::Standard_Transient( nativeInstance )
     {}
 
     property ::SelectMgr_TriangularFrustum* NativeInstance
@@ -4381,16 +3708,8 @@ public:
     /// a copy of the frustum with the input builder assigned
     /// </returns>
     Macad::Occt::SelectMgr_BaseIntersector^ CopyWithBuilder(Macad::Occt::SelectMgr_FrustumBuilder^ theBuilder);
-    /// <summary>
-    /// </summary>
-    /// @name SAT Tests for different objects
-    /// SAT intersection test between defined volume and given axis-aligned box
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theMinPnt, Macad::Occt::SelectMgr_Vec3^ theMaxPnt, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult);
-    /// <summary>
-    /// Returns true if selecting volume is overlapped by axis-aligned bounding box
-    /// with minimum corner at point theMinPt and maximum at point theMaxPt
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theMinPt, Macad::Occt::SelectMgr_Vec3^ theMaxPt, bool% theInside);
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theMinPnt, Graphic3d_Vec3d theMaxPnt, SelectMgr_ViewClipRange theClipRange, SelectBasics_PickResult thePickResult, ) */
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theMinPt, Graphic3d_Vec3d theMaxPt, bool theInside, ) */
     /// <summary>
     /// Intersection test between defined volume and given point
     /// </summary>
@@ -4461,14 +3780,26 @@ public:
     /// </summary>
     void Clear();
     /* Method skipped due to unknown mapping: void GetPlanes(NCollection_DynamicArray<NCollection_Vec4<double>> thePlaneEquations, ) */
-    /// <summary>
-    /// Dumps the content of me into the stream
-    /// </summary>
-    void DumpJson(System::IO::TextWriter^ theOStream, int theDepth);
-    /// <summary>
-    /// Dumps the content of me into the stream
-    /// </summary>
-    void DumpJson(System::IO::TextWriter^ theOStream);
+    Macad::Occt::SelectMgr_SelectionType GetSelectionType();
+    Macad::Occt::Graphic3d_Camera^ Camera();
+    Macad::Occt::Pnt GetNearPnt();
+    Macad::Occt::Pnt GetFarPnt();
+    Macad::Occt::Dir GetViewRayDirection();
+    Macad::Occt::Pnt2d GetMousePosition();
+    double DistToGeometryCenter(Macad::Occt::Pnt theCOG);
+    Macad::Occt::Pnt DetectedPoint(double theDepth);
+    bool RaySphereIntersection(Macad::Occt::Pnt theCenter, double theRadius, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, double% theTimeEnter, double% theTimeLeave);
+    bool RayCylinderIntersection(double theBottomRadius, double theTopRadius, double theHeight, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, bool theIsHollow, double% theTimeEnter, double% theTimeLeave);
+    bool RayCircleIntersection(double theRadius, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, bool theIsFilled, double% theTime);
+    void SetBuilder(Macad::Occt::SelectMgr_FrustumBuilder^ theBuilder);
+    void SetCamera(Macad::Occt::Graphic3d_Camera^ theCamera);
+    void SetPixelTolerance(int theTol);
+    void SetWindowSize(int theWidth, int theHeight);
+    void WindowSize(int% theWidth, int% theHeight);
+    void SetViewport(double theX, double theY, double theWidth, double theHeight);
+    bool IsBoundaryIntersectSphere(Macad::Occt::Pnt theCenter, double theRadius, Macad::Occt::Dir thePlaneNormal, Macad::Occt::TColgp_Array1OfPnt^ theBoundaries, bool% theBoundaryInside);
+    /* Method skipped due to unknown mapping: void DumpJson(ostream theOStream, int theDepth, ) */
+    /* Method skipped due to unknown mapping: void DumpJson(ostream theOStream, int theDepth, ) */
     static Macad::Occt::SelectMgr_TriangularFrustum^ CreateDowncasted(::SelectMgr_TriangularFrustum* instance);
 }; // class SelectMgr_TriangularFrustum
 

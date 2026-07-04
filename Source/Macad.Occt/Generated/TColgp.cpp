@@ -37,14 +37,20 @@ Macad::Occt::TColgp_Array1OfCirc2d::TColgp_Array1OfCirc2d(Macad::Occt::gp_Circ2d
     _NativeInstance = new ::TColgp_Array1OfCirc2d(*(::gp_Circ2d*)theBegin->NativeInstance, theLower, theUpper, true);
 }
 
+Macad::Occt::TColgp_Array1OfCirc2d::TColgp_Array1OfCirc2d(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::TColgp_Array1OfCirc2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array1OfCirc2d(theSize);
+}
+
 void Macad::Occt::TColgp_Array1OfCirc2d::Init(Macad::Occt::gp_Circ2d^ theValue)
 {
     ((::TColgp_Array1OfCirc2d*)_NativeInstance)->Init(*(::gp_Circ2d*)theValue->NativeInstance);
 }
 
-int Macad::Occt::TColgp_Array1OfCirc2d::Size()
+long long unsigned int Macad::Occt::TColgp_Array1OfCirc2d::Size()
 {
-    int _result = ((::TColgp_Array1OfCirc2d*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_Array1OfCirc2d*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -76,6 +82,13 @@ Macad::Occt::TColgp_Array1OfCirc2d^ Macad::Occt::TColgp_Array1OfCirc2d::Assign(M
 {
     ::TColgp_Array1OfCirc2d* _result = new ::TColgp_Array1OfCirc2d();
     *_result = ((::TColgp_Array1OfCirc2d*)_NativeInstance)->Assign(*(::TColgp_Array1OfCirc2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfCirc2d(_result);
+}
+
+Macad::Occt::TColgp_Array1OfCirc2d^ Macad::Occt::TColgp_Array1OfCirc2d::CopyValues(Macad::Occt::TColgp_Array1OfCirc2d^ theOther)
+{
+    ::TColgp_Array1OfCirc2d* _result = new ::TColgp_Array1OfCirc2d();
+    *_result = ((::TColgp_Array1OfCirc2d*)_NativeInstance)->CopyValues(*(::TColgp_Array1OfCirc2d*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfCirc2d(_result);
 }
 
@@ -128,6 +141,20 @@ Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array1OfCirc2d::ChangeValue(int theI
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
 }
 
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array1OfCirc2d::At(long long unsigned int theIndex)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = (::gp_Circ2d)((::TColgp_Array1OfCirc2d*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array1OfCirc2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = ((::TColgp_Array1OfCirc2d*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
 void Macad::Occt::TColgp_Array1OfCirc2d::SetValue(int theIndex, Macad::Occt::gp_Circ2d^ theItem)
 {
     ((::TColgp_Array1OfCirc2d*)_NativeInstance)->SetValue(theIndex, *(::gp_Circ2d*)theItem->NativeInstance);
@@ -146,6 +173,11 @@ void Macad::Occt::TColgp_Array1OfCirc2d::UpdateUpperBound(int theUpper)
 void Macad::Occt::TColgp_Array1OfCirc2d::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::TColgp_Array1OfCirc2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array1OfCirc2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_Array1OfCirc2d*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::TColgp_Array1OfCirc2d::IsDeletable()
@@ -169,6 +201,41 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_Array1OfCirc2d::GetEnumera
 //---------------------------------------------------------------------
 //  Class  TColgp_Array1OfCirc2d::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::TColgp_Array1OfCirc2d::Iterator::Init(Macad::Occt::TColgp_Array1OfCirc2d^ theList)
+{
+    ((::TColgp_Array1OfCirc2d::Iterator*)_NativeInstance)->Init(*(::TColgp_Array1OfCirc2d*)theList->NativeInstance);
+}
+
+bool Macad::Occt::TColgp_Array1OfCirc2d::Iterator::More()
+{
+    bool _result = ((::TColgp_Array1OfCirc2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array1OfCirc2d::Iterator::Initialize(Macad::Occt::TColgp_Array1OfCirc2d^ theList)
+{
+    ((::TColgp_Array1OfCirc2d::Iterator*)_NativeInstance)->Initialize(*(::TColgp_Array1OfCirc2d*)theList->NativeInstance);
+}
+
+void Macad::Occt::TColgp_Array1OfCirc2d::Iterator::Next()
+{
+    ((::TColgp_Array1OfCirc2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array1OfCirc2d::Iterator::Value()
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = (::gp_Circ2d)((::TColgp_Array1OfCirc2d::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array1OfCirc2d::Iterator::ChangeValue()
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = ((::TColgp_Array1OfCirc2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
 
 
 
@@ -202,15 +269,21 @@ Macad::Occt::TColgp_Array1OfDir::TColgp_Array1OfDir(Macad::Occt::Dir theBegin, i
     _NativeInstance = new ::TColgp_Array1OfDir(*(gp_Dir*)pp_theBegin, theLower, theUpper, true);
 }
 
+Macad::Occt::TColgp_Array1OfDir::TColgp_Array1OfDir(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::TColgp_Array1OfDir>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array1OfDir(theSize);
+}
+
 void Macad::Occt::TColgp_Array1OfDir::Init(Macad::Occt::Dir theValue)
 {
     pin_ptr<Macad::Occt::Dir> pp_theValue = &theValue;
     ((::TColgp_Array1OfDir*)_NativeInstance)->Init(*(gp_Dir*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_Array1OfDir::Size()
+long long unsigned int Macad::Occt::TColgp_Array1OfDir::Size()
 {
-    int _result = ((::TColgp_Array1OfDir*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_Array1OfDir*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -242,6 +315,13 @@ Macad::Occt::TColgp_Array1OfDir^ Macad::Occt::TColgp_Array1OfDir::Assign(Macad::
 {
     ::TColgp_Array1OfDir* _result = new ::TColgp_Array1OfDir();
     *_result = ((::TColgp_Array1OfDir*)_NativeInstance)->Assign(*(::TColgp_Array1OfDir*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfDir(_result);
+}
+
+Macad::Occt::TColgp_Array1OfDir^ Macad::Occt::TColgp_Array1OfDir::CopyValues(Macad::Occt::TColgp_Array1OfDir^ theOther)
+{
+    ::TColgp_Array1OfDir* _result = new ::TColgp_Array1OfDir();
+    *_result = ((::TColgp_Array1OfDir*)_NativeInstance)->CopyValues(*(::TColgp_Array1OfDir*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfDir(_result);
 }
 
@@ -288,6 +368,18 @@ Macad::Occt::Dir Macad::Occt::TColgp_Array1OfDir::ChangeValue(int theIndex)
     return Macad::Occt::Dir(_nativeResult);
 }
 
+Macad::Occt::Dir Macad::Occt::TColgp_Array1OfDir::At(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_Array1OfDir*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_Array1OfDir::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_Array1OfDir*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
 void Macad::Occt::TColgp_Array1OfDir::SetValue(int theIndex, Macad::Occt::Dir theItem)
 {
     pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
@@ -307,6 +399,11 @@ void Macad::Occt::TColgp_Array1OfDir::UpdateUpperBound(int theUpper)
 void Macad::Occt::TColgp_Array1OfDir::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::TColgp_Array1OfDir*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array1OfDir::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_Array1OfDir*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::TColgp_Array1OfDir::IsDeletable()
@@ -330,6 +427,39 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_Array1OfDir::GetEnumerator
 //---------------------------------------------------------------------
 //  Class  TColgp_Array1OfDir::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::TColgp_Array1OfDir::Iterator::Init(Macad::Occt::TColgp_Array1OfDir^ theList)
+{
+    ((::TColgp_Array1OfDir::Iterator*)_NativeInstance)->Init(*(::TColgp_Array1OfDir*)theList->NativeInstance);
+}
+
+bool Macad::Occt::TColgp_Array1OfDir::Iterator::More()
+{
+    bool _result = ((::TColgp_Array1OfDir::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array1OfDir::Iterator::Initialize(Macad::Occt::TColgp_Array1OfDir^ theList)
+{
+    ((::TColgp_Array1OfDir::Iterator*)_NativeInstance)->Initialize(*(::TColgp_Array1OfDir*)theList->NativeInstance);
+}
+
+void Macad::Occt::TColgp_Array1OfDir::Iterator::Next()
+{
+    ((::TColgp_Array1OfDir::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_Array1OfDir::Iterator::Value()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_Array1OfDir::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_Array1OfDir::Iterator::ChangeValue()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_Array1OfDir::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Dir(_nativeResult);
+}
 
 
 
@@ -363,15 +493,21 @@ Macad::Occt::TColgp_Array1OfDir2d::TColgp_Array1OfDir2d(Macad::Occt::Dir2d theBe
     _NativeInstance = new ::TColgp_Array1OfDir2d(*(gp_Dir2d*)pp_theBegin, theLower, theUpper, true);
 }
 
+Macad::Occt::TColgp_Array1OfDir2d::TColgp_Array1OfDir2d(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::TColgp_Array1OfDir2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array1OfDir2d(theSize);
+}
+
 void Macad::Occt::TColgp_Array1OfDir2d::Init(Macad::Occt::Dir2d theValue)
 {
     pin_ptr<Macad::Occt::Dir2d> pp_theValue = &theValue;
     ((::TColgp_Array1OfDir2d*)_NativeInstance)->Init(*(gp_Dir2d*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_Array1OfDir2d::Size()
+long long unsigned int Macad::Occt::TColgp_Array1OfDir2d::Size()
 {
-    int _result = ((::TColgp_Array1OfDir2d*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_Array1OfDir2d*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -403,6 +539,13 @@ Macad::Occt::TColgp_Array1OfDir2d^ Macad::Occt::TColgp_Array1OfDir2d::Assign(Mac
 {
     ::TColgp_Array1OfDir2d* _result = new ::TColgp_Array1OfDir2d();
     *_result = ((::TColgp_Array1OfDir2d*)_NativeInstance)->Assign(*(::TColgp_Array1OfDir2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfDir2d(_result);
+}
+
+Macad::Occt::TColgp_Array1OfDir2d^ Macad::Occt::TColgp_Array1OfDir2d::CopyValues(Macad::Occt::TColgp_Array1OfDir2d^ theOther)
+{
+    ::TColgp_Array1OfDir2d* _result = new ::TColgp_Array1OfDir2d();
+    *_result = ((::TColgp_Array1OfDir2d*)_NativeInstance)->CopyValues(*(::TColgp_Array1OfDir2d*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfDir2d(_result);
 }
 
@@ -449,6 +592,18 @@ Macad::Occt::Dir2d Macad::Occt::TColgp_Array1OfDir2d::ChangeValue(int theIndex)
     return Macad::Occt::Dir2d(_nativeResult);
 }
 
+Macad::Occt::Dir2d Macad::Occt::TColgp_Array1OfDir2d::At(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_Array1OfDir2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_Array1OfDir2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_Array1OfDir2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
 void Macad::Occt::TColgp_Array1OfDir2d::SetValue(int theIndex, Macad::Occt::Dir2d theItem)
 {
     pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
@@ -468,6 +623,11 @@ void Macad::Occt::TColgp_Array1OfDir2d::UpdateUpperBound(int theUpper)
 void Macad::Occt::TColgp_Array1OfDir2d::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::TColgp_Array1OfDir2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array1OfDir2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_Array1OfDir2d*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::TColgp_Array1OfDir2d::IsDeletable()
@@ -491,6 +651,39 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_Array1OfDir2d::GetEnumerat
 //---------------------------------------------------------------------
 //  Class  TColgp_Array1OfDir2d::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::TColgp_Array1OfDir2d::Iterator::Init(Macad::Occt::TColgp_Array1OfDir2d^ theList)
+{
+    ((::TColgp_Array1OfDir2d::Iterator*)_NativeInstance)->Init(*(::TColgp_Array1OfDir2d*)theList->NativeInstance);
+}
+
+bool Macad::Occt::TColgp_Array1OfDir2d::Iterator::More()
+{
+    bool _result = ((::TColgp_Array1OfDir2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array1OfDir2d::Iterator::Initialize(Macad::Occt::TColgp_Array1OfDir2d^ theList)
+{
+    ((::TColgp_Array1OfDir2d::Iterator*)_NativeInstance)->Initialize(*(::TColgp_Array1OfDir2d*)theList->NativeInstance);
+}
+
+void Macad::Occt::TColgp_Array1OfDir2d::Iterator::Next()
+{
+    ((::TColgp_Array1OfDir2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_Array1OfDir2d::Iterator::Value()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_Array1OfDir2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_Array1OfDir2d::Iterator::ChangeValue()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_Array1OfDir2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
 
 
 
@@ -522,14 +715,20 @@ Macad::Occt::TColgp_Array1OfLin2d::TColgp_Array1OfLin2d(Macad::Occt::gp_Lin2d^ t
     _NativeInstance = new ::TColgp_Array1OfLin2d(*(::gp_Lin2d*)theBegin->NativeInstance, theLower, theUpper, true);
 }
 
+Macad::Occt::TColgp_Array1OfLin2d::TColgp_Array1OfLin2d(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::TColgp_Array1OfLin2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array1OfLin2d(theSize);
+}
+
 void Macad::Occt::TColgp_Array1OfLin2d::Init(Macad::Occt::gp_Lin2d^ theValue)
 {
     ((::TColgp_Array1OfLin2d*)_NativeInstance)->Init(*(::gp_Lin2d*)theValue->NativeInstance);
 }
 
-int Macad::Occt::TColgp_Array1OfLin2d::Size()
+long long unsigned int Macad::Occt::TColgp_Array1OfLin2d::Size()
 {
-    int _result = ((::TColgp_Array1OfLin2d*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_Array1OfLin2d*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -561,6 +760,13 @@ Macad::Occt::TColgp_Array1OfLin2d^ Macad::Occt::TColgp_Array1OfLin2d::Assign(Mac
 {
     ::TColgp_Array1OfLin2d* _result = new ::TColgp_Array1OfLin2d();
     *_result = ((::TColgp_Array1OfLin2d*)_NativeInstance)->Assign(*(::TColgp_Array1OfLin2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfLin2d(_result);
+}
+
+Macad::Occt::TColgp_Array1OfLin2d^ Macad::Occt::TColgp_Array1OfLin2d::CopyValues(Macad::Occt::TColgp_Array1OfLin2d^ theOther)
+{
+    ::TColgp_Array1OfLin2d* _result = new ::TColgp_Array1OfLin2d();
+    *_result = ((::TColgp_Array1OfLin2d*)_NativeInstance)->CopyValues(*(::TColgp_Array1OfLin2d*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfLin2d(_result);
 }
 
@@ -613,6 +819,20 @@ Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array1OfLin2d::ChangeValue(int theInd
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
 }
 
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array1OfLin2d::At(long long unsigned int theIndex)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = (::gp_Lin2d)((::TColgp_Array1OfLin2d*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array1OfLin2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = ((::TColgp_Array1OfLin2d*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
 void Macad::Occt::TColgp_Array1OfLin2d::SetValue(int theIndex, Macad::Occt::gp_Lin2d^ theItem)
 {
     ((::TColgp_Array1OfLin2d*)_NativeInstance)->SetValue(theIndex, *(::gp_Lin2d*)theItem->NativeInstance);
@@ -631,6 +851,11 @@ void Macad::Occt::TColgp_Array1OfLin2d::UpdateUpperBound(int theUpper)
 void Macad::Occt::TColgp_Array1OfLin2d::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::TColgp_Array1OfLin2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array1OfLin2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_Array1OfLin2d*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::TColgp_Array1OfLin2d::IsDeletable()
@@ -654,6 +879,41 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_Array1OfLin2d::GetEnumerat
 //---------------------------------------------------------------------
 //  Class  TColgp_Array1OfLin2d::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::TColgp_Array1OfLin2d::Iterator::Init(Macad::Occt::TColgp_Array1OfLin2d^ theList)
+{
+    ((::TColgp_Array1OfLin2d::Iterator*)_NativeInstance)->Init(*(::TColgp_Array1OfLin2d*)theList->NativeInstance);
+}
+
+bool Macad::Occt::TColgp_Array1OfLin2d::Iterator::More()
+{
+    bool _result = ((::TColgp_Array1OfLin2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array1OfLin2d::Iterator::Initialize(Macad::Occt::TColgp_Array1OfLin2d^ theList)
+{
+    ((::TColgp_Array1OfLin2d::Iterator*)_NativeInstance)->Initialize(*(::TColgp_Array1OfLin2d*)theList->NativeInstance);
+}
+
+void Macad::Occt::TColgp_Array1OfLin2d::Iterator::Next()
+{
+    ((::TColgp_Array1OfLin2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array1OfLin2d::Iterator::Value()
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = (::gp_Lin2d)((::TColgp_Array1OfLin2d::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array1OfLin2d::Iterator::ChangeValue()
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = ((::TColgp_Array1OfLin2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
 
 
 
@@ -687,15 +947,21 @@ Macad::Occt::TColgp_Array1OfPnt::TColgp_Array1OfPnt(Macad::Occt::Pnt theBegin, i
     _NativeInstance = new ::TColgp_Array1OfPnt(*(gp_Pnt*)pp_theBegin, theLower, theUpper, true);
 }
 
+Macad::Occt::TColgp_Array1OfPnt::TColgp_Array1OfPnt(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::TColgp_Array1OfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array1OfPnt(theSize);
+}
+
 void Macad::Occt::TColgp_Array1OfPnt::Init(Macad::Occt::Pnt theValue)
 {
     pin_ptr<Macad::Occt::Pnt> pp_theValue = &theValue;
     ((::TColgp_Array1OfPnt*)_NativeInstance)->Init(*(gp_Pnt*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_Array1OfPnt::Size()
+long long unsigned int Macad::Occt::TColgp_Array1OfPnt::Size()
 {
-    int _result = ((::TColgp_Array1OfPnt*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_Array1OfPnt*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -727,6 +993,13 @@ Macad::Occt::TColgp_Array1OfPnt^ Macad::Occt::TColgp_Array1OfPnt::Assign(Macad::
 {
     ::TColgp_Array1OfPnt* _result = new ::TColgp_Array1OfPnt();
     *_result = ((::TColgp_Array1OfPnt*)_NativeInstance)->Assign(*(::TColgp_Array1OfPnt*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfPnt(_result);
+}
+
+Macad::Occt::TColgp_Array1OfPnt^ Macad::Occt::TColgp_Array1OfPnt::CopyValues(Macad::Occt::TColgp_Array1OfPnt^ theOther)
+{
+    ::TColgp_Array1OfPnt* _result = new ::TColgp_Array1OfPnt();
+    *_result = ((::TColgp_Array1OfPnt*)_NativeInstance)->CopyValues(*(::TColgp_Array1OfPnt*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfPnt(_result);
 }
 
@@ -773,6 +1046,18 @@ Macad::Occt::Pnt Macad::Occt::TColgp_Array1OfPnt::ChangeValue(int theIndex)
     return Macad::Occt::Pnt(_nativeResult);
 }
 
+Macad::Occt::Pnt Macad::Occt::TColgp_Array1OfPnt::At(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_Array1OfPnt*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_Array1OfPnt::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_Array1OfPnt*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
 void Macad::Occt::TColgp_Array1OfPnt::SetValue(int theIndex, Macad::Occt::Pnt theItem)
 {
     pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
@@ -792,6 +1077,11 @@ void Macad::Occt::TColgp_Array1OfPnt::UpdateUpperBound(int theUpper)
 void Macad::Occt::TColgp_Array1OfPnt::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::TColgp_Array1OfPnt*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array1OfPnt::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_Array1OfPnt*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::TColgp_Array1OfPnt::IsDeletable()
@@ -815,6 +1105,39 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_Array1OfPnt::GetEnumerator
 //---------------------------------------------------------------------
 //  Class  TColgp_Array1OfPnt::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::TColgp_Array1OfPnt::Iterator::Init(Macad::Occt::TColgp_Array1OfPnt^ theList)
+{
+    ((::TColgp_Array1OfPnt::Iterator*)_NativeInstance)->Init(*(::TColgp_Array1OfPnt*)theList->NativeInstance);
+}
+
+bool Macad::Occt::TColgp_Array1OfPnt::Iterator::More()
+{
+    bool _result = ((::TColgp_Array1OfPnt::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array1OfPnt::Iterator::Initialize(Macad::Occt::TColgp_Array1OfPnt^ theList)
+{
+    ((::TColgp_Array1OfPnt::Iterator*)_NativeInstance)->Initialize(*(::TColgp_Array1OfPnt*)theList->NativeInstance);
+}
+
+void Macad::Occt::TColgp_Array1OfPnt::Iterator::Next()
+{
+    ((::TColgp_Array1OfPnt::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_Array1OfPnt::Iterator::Value()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_Array1OfPnt::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_Array1OfPnt::Iterator::ChangeValue()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_Array1OfPnt::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Pnt(_nativeResult);
+}
 
 
 
@@ -848,15 +1171,21 @@ Macad::Occt::TColgp_Array1OfPnt2d::TColgp_Array1OfPnt2d(Macad::Occt::Pnt2d theBe
     _NativeInstance = new ::TColgp_Array1OfPnt2d(*(gp_Pnt2d*)pp_theBegin, theLower, theUpper, true);
 }
 
+Macad::Occt::TColgp_Array1OfPnt2d::TColgp_Array1OfPnt2d(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::TColgp_Array1OfPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array1OfPnt2d(theSize);
+}
+
 void Macad::Occt::TColgp_Array1OfPnt2d::Init(Macad::Occt::Pnt2d theValue)
 {
     pin_ptr<Macad::Occt::Pnt2d> pp_theValue = &theValue;
     ((::TColgp_Array1OfPnt2d*)_NativeInstance)->Init(*(gp_Pnt2d*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_Array1OfPnt2d::Size()
+long long unsigned int Macad::Occt::TColgp_Array1OfPnt2d::Size()
 {
-    int _result = ((::TColgp_Array1OfPnt2d*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_Array1OfPnt2d*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -888,6 +1217,13 @@ Macad::Occt::TColgp_Array1OfPnt2d^ Macad::Occt::TColgp_Array1OfPnt2d::Assign(Mac
 {
     ::TColgp_Array1OfPnt2d* _result = new ::TColgp_Array1OfPnt2d();
     *_result = ((::TColgp_Array1OfPnt2d*)_NativeInstance)->Assign(*(::TColgp_Array1OfPnt2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfPnt2d(_result);
+}
+
+Macad::Occt::TColgp_Array1OfPnt2d^ Macad::Occt::TColgp_Array1OfPnt2d::CopyValues(Macad::Occt::TColgp_Array1OfPnt2d^ theOther)
+{
+    ::TColgp_Array1OfPnt2d* _result = new ::TColgp_Array1OfPnt2d();
+    *_result = ((::TColgp_Array1OfPnt2d*)_NativeInstance)->CopyValues(*(::TColgp_Array1OfPnt2d*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfPnt2d(_result);
 }
 
@@ -934,6 +1270,18 @@ Macad::Occt::Pnt2d Macad::Occt::TColgp_Array1OfPnt2d::ChangeValue(int theIndex)
     return Macad::Occt::Pnt2d(_nativeResult);
 }
 
+Macad::Occt::Pnt2d Macad::Occt::TColgp_Array1OfPnt2d::At(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_Array1OfPnt2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_Array1OfPnt2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_Array1OfPnt2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
 void Macad::Occt::TColgp_Array1OfPnt2d::SetValue(int theIndex, Macad::Occt::Pnt2d theItem)
 {
     pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
@@ -953,6 +1301,11 @@ void Macad::Occt::TColgp_Array1OfPnt2d::UpdateUpperBound(int theUpper)
 void Macad::Occt::TColgp_Array1OfPnt2d::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::TColgp_Array1OfPnt2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array1OfPnt2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_Array1OfPnt2d*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::TColgp_Array1OfPnt2d::IsDeletable()
@@ -976,6 +1329,39 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_Array1OfPnt2d::GetEnumerat
 //---------------------------------------------------------------------
 //  Class  TColgp_Array1OfPnt2d::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::TColgp_Array1OfPnt2d::Iterator::Init(Macad::Occt::TColgp_Array1OfPnt2d^ theList)
+{
+    ((::TColgp_Array1OfPnt2d::Iterator*)_NativeInstance)->Init(*(::TColgp_Array1OfPnt2d*)theList->NativeInstance);
+}
+
+bool Macad::Occt::TColgp_Array1OfPnt2d::Iterator::More()
+{
+    bool _result = ((::TColgp_Array1OfPnt2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array1OfPnt2d::Iterator::Initialize(Macad::Occt::TColgp_Array1OfPnt2d^ theList)
+{
+    ((::TColgp_Array1OfPnt2d::Iterator*)_NativeInstance)->Initialize(*(::TColgp_Array1OfPnt2d*)theList->NativeInstance);
+}
+
+void Macad::Occt::TColgp_Array1OfPnt2d::Iterator::Next()
+{
+    ((::TColgp_Array1OfPnt2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_Array1OfPnt2d::Iterator::Value()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_Array1OfPnt2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_Array1OfPnt2d::Iterator::ChangeValue()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_Array1OfPnt2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
 
 
 
@@ -1009,15 +1395,21 @@ Macad::Occt::TColgp_Array1OfVec::TColgp_Array1OfVec(Macad::Occt::Vec theBegin, i
     _NativeInstance = new ::TColgp_Array1OfVec(*(gp_Vec*)pp_theBegin, theLower, theUpper, true);
 }
 
+Macad::Occt::TColgp_Array1OfVec::TColgp_Array1OfVec(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::TColgp_Array1OfVec>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array1OfVec(theSize);
+}
+
 void Macad::Occt::TColgp_Array1OfVec::Init(Macad::Occt::Vec theValue)
 {
     pin_ptr<Macad::Occt::Vec> pp_theValue = &theValue;
     ((::TColgp_Array1OfVec*)_NativeInstance)->Init(*(gp_Vec*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_Array1OfVec::Size()
+long long unsigned int Macad::Occt::TColgp_Array1OfVec::Size()
 {
-    int _result = ((::TColgp_Array1OfVec*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_Array1OfVec*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -1049,6 +1441,13 @@ Macad::Occt::TColgp_Array1OfVec^ Macad::Occt::TColgp_Array1OfVec::Assign(Macad::
 {
     ::TColgp_Array1OfVec* _result = new ::TColgp_Array1OfVec();
     *_result = ((::TColgp_Array1OfVec*)_NativeInstance)->Assign(*(::TColgp_Array1OfVec*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfVec(_result);
+}
+
+Macad::Occt::TColgp_Array1OfVec^ Macad::Occt::TColgp_Array1OfVec::CopyValues(Macad::Occt::TColgp_Array1OfVec^ theOther)
+{
+    ::TColgp_Array1OfVec* _result = new ::TColgp_Array1OfVec();
+    *_result = ((::TColgp_Array1OfVec*)_NativeInstance)->CopyValues(*(::TColgp_Array1OfVec*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfVec(_result);
 }
 
@@ -1095,6 +1494,18 @@ Macad::Occt::Vec Macad::Occt::TColgp_Array1OfVec::ChangeValue(int theIndex)
     return Macad::Occt::Vec(_nativeResult);
 }
 
+Macad::Occt::Vec Macad::Occt::TColgp_Array1OfVec::At(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_Array1OfVec*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_Array1OfVec::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_Array1OfVec*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
 void Macad::Occt::TColgp_Array1OfVec::SetValue(int theIndex, Macad::Occt::Vec theItem)
 {
     pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
@@ -1114,6 +1525,11 @@ void Macad::Occt::TColgp_Array1OfVec::UpdateUpperBound(int theUpper)
 void Macad::Occt::TColgp_Array1OfVec::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::TColgp_Array1OfVec*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array1OfVec::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_Array1OfVec*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::TColgp_Array1OfVec::IsDeletable()
@@ -1137,6 +1553,39 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_Array1OfVec::GetEnumerator
 //---------------------------------------------------------------------
 //  Class  TColgp_Array1OfVec::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::TColgp_Array1OfVec::Iterator::Init(Macad::Occt::TColgp_Array1OfVec^ theList)
+{
+    ((::TColgp_Array1OfVec::Iterator*)_NativeInstance)->Init(*(::TColgp_Array1OfVec*)theList->NativeInstance);
+}
+
+bool Macad::Occt::TColgp_Array1OfVec::Iterator::More()
+{
+    bool _result = ((::TColgp_Array1OfVec::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array1OfVec::Iterator::Initialize(Macad::Occt::TColgp_Array1OfVec^ theList)
+{
+    ((::TColgp_Array1OfVec::Iterator*)_NativeInstance)->Initialize(*(::TColgp_Array1OfVec*)theList->NativeInstance);
+}
+
+void Macad::Occt::TColgp_Array1OfVec::Iterator::Next()
+{
+    ((::TColgp_Array1OfVec::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_Array1OfVec::Iterator::Value()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_Array1OfVec::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_Array1OfVec::Iterator::ChangeValue()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_Array1OfVec::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Vec(_nativeResult);
+}
 
 
 
@@ -1170,15 +1619,21 @@ Macad::Occt::TColgp_Array1OfVec2d::TColgp_Array1OfVec2d(Macad::Occt::Vec2d theBe
     _NativeInstance = new ::TColgp_Array1OfVec2d(*(gp_Vec2d*)pp_theBegin, theLower, theUpper, true);
 }
 
+Macad::Occt::TColgp_Array1OfVec2d::TColgp_Array1OfVec2d(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::TColgp_Array1OfVec2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array1OfVec2d(theSize);
+}
+
 void Macad::Occt::TColgp_Array1OfVec2d::Init(Macad::Occt::Vec2d theValue)
 {
     pin_ptr<Macad::Occt::Vec2d> pp_theValue = &theValue;
     ((::TColgp_Array1OfVec2d*)_NativeInstance)->Init(*(gp_Vec2d*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_Array1OfVec2d::Size()
+long long unsigned int Macad::Occt::TColgp_Array1OfVec2d::Size()
 {
-    int _result = ((::TColgp_Array1OfVec2d*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_Array1OfVec2d*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -1210,6 +1665,13 @@ Macad::Occt::TColgp_Array1OfVec2d^ Macad::Occt::TColgp_Array1OfVec2d::Assign(Mac
 {
     ::TColgp_Array1OfVec2d* _result = new ::TColgp_Array1OfVec2d();
     *_result = ((::TColgp_Array1OfVec2d*)_NativeInstance)->Assign(*(::TColgp_Array1OfVec2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfVec2d(_result);
+}
+
+Macad::Occt::TColgp_Array1OfVec2d^ Macad::Occt::TColgp_Array1OfVec2d::CopyValues(Macad::Occt::TColgp_Array1OfVec2d^ theOther)
+{
+    ::TColgp_Array1OfVec2d* _result = new ::TColgp_Array1OfVec2d();
+    *_result = ((::TColgp_Array1OfVec2d*)_NativeInstance)->CopyValues(*(::TColgp_Array1OfVec2d*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfVec2d(_result);
 }
 
@@ -1256,6 +1718,18 @@ Macad::Occt::Vec2d Macad::Occt::TColgp_Array1OfVec2d::ChangeValue(int theIndex)
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
+Macad::Occt::Vec2d Macad::Occt::TColgp_Array1OfVec2d::At(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_Array1OfVec2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_Array1OfVec2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_Array1OfVec2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
 void Macad::Occt::TColgp_Array1OfVec2d::SetValue(int theIndex, Macad::Occt::Vec2d theItem)
 {
     pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
@@ -1275,6 +1749,11 @@ void Macad::Occt::TColgp_Array1OfVec2d::UpdateUpperBound(int theUpper)
 void Macad::Occt::TColgp_Array1OfVec2d::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::TColgp_Array1OfVec2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array1OfVec2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_Array1OfVec2d*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::TColgp_Array1OfVec2d::IsDeletable()
@@ -1298,6 +1777,39 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_Array1OfVec2d::GetEnumerat
 //---------------------------------------------------------------------
 //  Class  TColgp_Array1OfVec2d::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::TColgp_Array1OfVec2d::Iterator::Init(Macad::Occt::TColgp_Array1OfVec2d^ theList)
+{
+    ((::TColgp_Array1OfVec2d::Iterator*)_NativeInstance)->Init(*(::TColgp_Array1OfVec2d*)theList->NativeInstance);
+}
+
+bool Macad::Occt::TColgp_Array1OfVec2d::Iterator::More()
+{
+    bool _result = ((::TColgp_Array1OfVec2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array1OfVec2d::Iterator::Initialize(Macad::Occt::TColgp_Array1OfVec2d^ theList)
+{
+    ((::TColgp_Array1OfVec2d::Iterator*)_NativeInstance)->Initialize(*(::TColgp_Array1OfVec2d*)theList->NativeInstance);
+}
+
+void Macad::Occt::TColgp_Array1OfVec2d::Iterator::Next()
+{
+    ((::TColgp_Array1OfVec2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_Array1OfVec2d::Iterator::Value()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_Array1OfVec2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_Array1OfVec2d::Iterator::ChangeValue()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_Array1OfVec2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
 
 
 
@@ -1331,15 +1843,21 @@ Macad::Occt::TColgp_Array1OfXY::TColgp_Array1OfXY(Macad::Occt::XY theBegin, int 
     _NativeInstance = new ::TColgp_Array1OfXY(*(gp_XY*)pp_theBegin, theLower, theUpper, true);
 }
 
+Macad::Occt::TColgp_Array1OfXY::TColgp_Array1OfXY(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::TColgp_Array1OfXY>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array1OfXY(theSize);
+}
+
 void Macad::Occt::TColgp_Array1OfXY::Init(Macad::Occt::XY theValue)
 {
     pin_ptr<Macad::Occt::XY> pp_theValue = &theValue;
     ((::TColgp_Array1OfXY*)_NativeInstance)->Init(*(gp_XY*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_Array1OfXY::Size()
+long long unsigned int Macad::Occt::TColgp_Array1OfXY::Size()
 {
-    int _result = ((::TColgp_Array1OfXY*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_Array1OfXY*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -1371,6 +1889,13 @@ Macad::Occt::TColgp_Array1OfXY^ Macad::Occt::TColgp_Array1OfXY::Assign(Macad::Oc
 {
     ::TColgp_Array1OfXY* _result = new ::TColgp_Array1OfXY();
     *_result = ((::TColgp_Array1OfXY*)_NativeInstance)->Assign(*(::TColgp_Array1OfXY*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfXY(_result);
+}
+
+Macad::Occt::TColgp_Array1OfXY^ Macad::Occt::TColgp_Array1OfXY::CopyValues(Macad::Occt::TColgp_Array1OfXY^ theOther)
+{
+    ::TColgp_Array1OfXY* _result = new ::TColgp_Array1OfXY();
+    *_result = ((::TColgp_Array1OfXY*)_NativeInstance)->CopyValues(*(::TColgp_Array1OfXY*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfXY(_result);
 }
 
@@ -1417,6 +1942,18 @@ Macad::Occt::XY Macad::Occt::TColgp_Array1OfXY::ChangeValue(int theIndex)
     return Macad::Occt::XY(_nativeResult);
 }
 
+Macad::Occt::XY Macad::Occt::TColgp_Array1OfXY::At(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_Array1OfXY*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_Array1OfXY::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_Array1OfXY*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
 void Macad::Occt::TColgp_Array1OfXY::SetValue(int theIndex, Macad::Occt::XY theItem)
 {
     pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
@@ -1436,6 +1973,11 @@ void Macad::Occt::TColgp_Array1OfXY::UpdateUpperBound(int theUpper)
 void Macad::Occt::TColgp_Array1OfXY::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::TColgp_Array1OfXY*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array1OfXY::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_Array1OfXY*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::TColgp_Array1OfXY::IsDeletable()
@@ -1459,6 +2001,39 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_Array1OfXY::GetEnumerator2
 //---------------------------------------------------------------------
 //  Class  TColgp_Array1OfXY::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::TColgp_Array1OfXY::Iterator::Init(Macad::Occt::TColgp_Array1OfXY^ theList)
+{
+    ((::TColgp_Array1OfXY::Iterator*)_NativeInstance)->Init(*(::TColgp_Array1OfXY*)theList->NativeInstance);
+}
+
+bool Macad::Occt::TColgp_Array1OfXY::Iterator::More()
+{
+    bool _result = ((::TColgp_Array1OfXY::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array1OfXY::Iterator::Initialize(Macad::Occt::TColgp_Array1OfXY^ theList)
+{
+    ((::TColgp_Array1OfXY::Iterator*)_NativeInstance)->Initialize(*(::TColgp_Array1OfXY*)theList->NativeInstance);
+}
+
+void Macad::Occt::TColgp_Array1OfXY::Iterator::Next()
+{
+    ((::TColgp_Array1OfXY::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_Array1OfXY::Iterator::Value()
+{
+    ::gp_XY _nativeResult = ((::TColgp_Array1OfXY::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_Array1OfXY::Iterator::ChangeValue()
+{
+    ::gp_XY _nativeResult = ((::TColgp_Array1OfXY::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::XY(_nativeResult);
+}
 
 
 
@@ -1492,15 +2067,21 @@ Macad::Occt::TColgp_Array1OfXYZ::TColgp_Array1OfXYZ(Macad::Occt::XYZ theBegin, i
     _NativeInstance = new ::TColgp_Array1OfXYZ(*(gp_XYZ*)pp_theBegin, theLower, theUpper, true);
 }
 
+Macad::Occt::TColgp_Array1OfXYZ::TColgp_Array1OfXYZ(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::TColgp_Array1OfXYZ>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array1OfXYZ(theSize);
+}
+
 void Macad::Occt::TColgp_Array1OfXYZ::Init(Macad::Occt::XYZ theValue)
 {
     pin_ptr<Macad::Occt::XYZ> pp_theValue = &theValue;
     ((::TColgp_Array1OfXYZ*)_NativeInstance)->Init(*(gp_XYZ*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_Array1OfXYZ::Size()
+long long unsigned int Macad::Occt::TColgp_Array1OfXYZ::Size()
 {
-    int _result = ((::TColgp_Array1OfXYZ*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_Array1OfXYZ*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -1532,6 +2113,13 @@ Macad::Occt::TColgp_Array1OfXYZ^ Macad::Occt::TColgp_Array1OfXYZ::Assign(Macad::
 {
     ::TColgp_Array1OfXYZ* _result = new ::TColgp_Array1OfXYZ();
     *_result = ((::TColgp_Array1OfXYZ*)_NativeInstance)->Assign(*(::TColgp_Array1OfXYZ*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfXYZ(_result);
+}
+
+Macad::Occt::TColgp_Array1OfXYZ^ Macad::Occt::TColgp_Array1OfXYZ::CopyValues(Macad::Occt::TColgp_Array1OfXYZ^ theOther)
+{
+    ::TColgp_Array1OfXYZ* _result = new ::TColgp_Array1OfXYZ();
+    *_result = ((::TColgp_Array1OfXYZ*)_NativeInstance)->CopyValues(*(::TColgp_Array1OfXYZ*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfXYZ(_result);
 }
 
@@ -1578,6 +2166,18 @@ Macad::Occt::XYZ Macad::Occt::TColgp_Array1OfXYZ::ChangeValue(int theIndex)
     return Macad::Occt::XYZ(_nativeResult);
 }
 
+Macad::Occt::XYZ Macad::Occt::TColgp_Array1OfXYZ::At(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_Array1OfXYZ*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_Array1OfXYZ::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_Array1OfXYZ*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
 void Macad::Occt::TColgp_Array1OfXYZ::SetValue(int theIndex, Macad::Occt::XYZ theItem)
 {
     pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
@@ -1597,6 +2197,11 @@ void Macad::Occt::TColgp_Array1OfXYZ::UpdateUpperBound(int theUpper)
 void Macad::Occt::TColgp_Array1OfXYZ::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::TColgp_Array1OfXYZ*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array1OfXYZ::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_Array1OfXYZ*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::TColgp_Array1OfXYZ::IsDeletable()
@@ -1621,139 +2226,44 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_Array1OfXYZ::GetEnumerator
 //  Class  TColgp_Array1OfXYZ::Iterator
 //---------------------------------------------------------------------
 
+void Macad::Occt::TColgp_Array1OfXYZ::Iterator::Init(Macad::Occt::TColgp_Array1OfXYZ^ theList)
+{
+    ((::TColgp_Array1OfXYZ::Iterator*)_NativeInstance)->Init(*(::TColgp_Array1OfXYZ*)theList->NativeInstance);
+}
+
+bool Macad::Occt::TColgp_Array1OfXYZ::Iterator::More()
+{
+    bool _result = ((::TColgp_Array1OfXYZ::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array1OfXYZ::Iterator::Initialize(Macad::Occt::TColgp_Array1OfXYZ^ theList)
+{
+    ((::TColgp_Array1OfXYZ::Iterator*)_NativeInstance)->Initialize(*(::TColgp_Array1OfXYZ*)theList->NativeInstance);
+}
+
+void Macad::Occt::TColgp_Array1OfXYZ::Iterator::Next()
+{
+    ((::TColgp_Array1OfXYZ::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_Array1OfXYZ::Iterator::Value()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_Array1OfXYZ::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_Array1OfXYZ::Iterator::ChangeValue()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_Array1OfXYZ::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfCirc2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_Array2OfCirc2d::TColgp_Array2OfCirc2d()
-    : Macad::Occt::BaseClass<::TColgp_Array2OfCirc2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfCirc2d();
-}
-
-Macad::Occt::TColgp_Array2OfCirc2d::TColgp_Array2OfCirc2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfCirc2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfCirc2d(theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-Macad::Occt::TColgp_Array2OfCirc2d::TColgp_Array2OfCirc2d(Macad::Occt::gp_Circ2d^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfCirc2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfCirc2d(*(::gp_Circ2d*)theBegin->NativeInstance, theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfCirc2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfCirc2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::Size()
-{
-    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::Length()
-{
-    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::NbRows()
-{
-    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::NbColumns()
-{
-    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::RowLength()
-{
-    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::ColLength()
-{
-    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::LowerRow()
-{
-    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::UpperRow()
-{
-    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::LowerCol()
-{
-    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfCirc2d::UpperCol()
-{
-    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_Array2OfCirc2d^ Macad::Occt::TColgp_Array2OfCirc2d::Assign(Macad::Occt::TColgp_Array2OfCirc2d^ theOther)
-{
-    ::TColgp_Array2OfCirc2d* _result = new ::TColgp_Array2OfCirc2d();
-    *_result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->Assign(*(::TColgp_Array2OfCirc2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfCirc2d(_result);
-}
-
-Macad::Occt::TColgp_Array2OfCirc2d^ Macad::Occt::TColgp_Array2OfCirc2d::Move(Macad::Occt::TColgp_Array2OfCirc2d^ theOther)
-{
-    ::TColgp_Array2OfCirc2d* _result = new ::TColgp_Array2OfCirc2d();
-    *_result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->Move(*(::TColgp_Array2OfCirc2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfCirc2d(_result);
-}
-
-Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array2OfCirc2d::Value(int theRow, int theCol)
-{
-    ::gp_Circ2d* _result = new ::gp_Circ2d();
-    *_result = (::gp_Circ2d)((::TColgp_Array2OfCirc2d*)_NativeInstance)->Value(theRow, theCol);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
-}
-
-Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array2OfCirc2d::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Circ2d* _result = new ::gp_Circ2d();
-    *_result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
-}
-
-void Macad::Occt::TColgp_Array2OfCirc2d::SetValue(int theRow, int theCol, Macad::Occt::gp_Circ2d^ theItem)
-{
-    ((::TColgp_Array2OfCirc2d*)_NativeInstance)->SetValue(theRow, theCol, *(::gp_Circ2d*)theItem->NativeInstance);
-}
-
-void Macad::Occt::TColgp_Array2OfCirc2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_Array2OfCirc2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_Array2OfCirc2d::Init(Macad::Occt::gp_Circ2d^ theValue)
 {
@@ -1822,145 +2332,232 @@ bool Macad::Occt::TColgp_Array2OfCirc2d::IsDeletable()
     return _result;
 }
 
+Macad::Occt::TColgp_Array2OfCirc2d::TColgp_Array2OfCirc2d()
+    : Macad::Occt::BaseClass<::TColgp_Array2OfCirc2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfCirc2d();
+}
+
+Macad::Occt::TColgp_Array2OfCirc2d::TColgp_Array2OfCirc2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfCirc2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfCirc2d(theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfCirc2d::TColgp_Array2OfCirc2d(Macad::Occt::gp_Circ2d^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfCirc2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfCirc2d(*(::gp_Circ2d*)theBegin->NativeInstance, theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfCirc2d::TColgp_Array2OfCirc2d(long long unsigned int theNbRows, long long unsigned int theNbCols)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfCirc2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfCirc2d(theNbRows, theNbCols);
+}
+
+int Macad::Occt::TColgp_Array2OfCirc2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfCirc2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfCirc2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfCirc2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_Array2OfCirc2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfCirc2d::Length()
+{
+    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfCirc2d::NbRows()
+{
+    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfCirc2d::NbColumns()
+{
+    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfCirc2d::RowLength()
+{
+    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfCirc2d::ColLength()
+{
+    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfCirc2d::LowerRow()
+{
+    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfCirc2d::UpperRow()
+{
+    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfCirc2d::LowerCol()
+{
+    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfCirc2d::UpperCol()
+{
+    int _result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfCirc2d::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_Array2OfCirc2d*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_Array2OfCirc2d::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_Array2OfCirc2d*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_Array2OfCirc2d::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_Array2OfCirc2d*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_Array2OfCirc2d::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_Array2OfCirc2d*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::TColgp_Array2OfCirc2d^ Macad::Occt::TColgp_Array2OfCirc2d::Assign(Macad::Occt::TColgp_Array2OfCirc2d^ theOther)
+{
+    ::TColgp_Array2OfCirc2d* _result = new ::TColgp_Array2OfCirc2d();
+    *_result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->Assign(*(::TColgp_Array2OfCirc2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfCirc2d(_result);
+}
+
+Macad::Occt::TColgp_Array2OfCirc2d^ Macad::Occt::TColgp_Array2OfCirc2d::CopyValues(Macad::Occt::TColgp_Array2OfCirc2d^ theOther)
+{
+    ::TColgp_Array2OfCirc2d* _result = new ::TColgp_Array2OfCirc2d();
+    *_result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->CopyValues(*(::TColgp_Array2OfCirc2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfCirc2d(_result);
+}
+
+Macad::Occt::TColgp_Array2OfCirc2d^ Macad::Occt::TColgp_Array2OfCirc2d::Move(Macad::Occt::TColgp_Array2OfCirc2d^ theOther)
+{
+    ::TColgp_Array2OfCirc2d* _result = new ::TColgp_Array2OfCirc2d();
+    *_result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->Move(*(::TColgp_Array2OfCirc2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfCirc2d(_result);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array2OfCirc2d::Value(int theRow, int theCol)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = (::gp_Circ2d)((::TColgp_Array2OfCirc2d*)_NativeInstance)->Value(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array2OfCirc2d::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+void Macad::Occt::TColgp_Array2OfCirc2d::SetValue(int theRow, int theCol, Macad::Occt::gp_Circ2d^ theItem)
+{
+    ((::TColgp_Array2OfCirc2d*)_NativeInstance)->SetValue(theRow, theCol, *(::gp_Circ2d*)theItem->NativeInstance);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array2OfCirc2d::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = (::gp_Circ2d)((::TColgp_Array2OfCirc2d*)_NativeInstance)->At(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array2OfCirc2d::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = ((::TColgp_Array2OfCirc2d*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+void Macad::Occt::TColgp_Array2OfCirc2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfCirc2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfCirc2d::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfCirc2d*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfCirc2d::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfCirc2d*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfCirc2d::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfCirc2d*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfCirc2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_Array2OfCirc2d::Iterator::More()
+{
+    bool _result = ((::TColgp_Array2OfCirc2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfCirc2d::Iterator::Next()
+{
+    ((::TColgp_Array2OfCirc2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array2OfCirc2d::Iterator::Value()
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = (::gp_Circ2d)((::TColgp_Array2OfCirc2d::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_Array2OfCirc2d::Iterator::ChangeValue()
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = ((::TColgp_Array2OfCirc2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfDir
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_Array2OfDir::TColgp_Array2OfDir()
-    : Macad::Occt::BaseClass<::TColgp_Array2OfDir>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfDir();
-}
-
-Macad::Occt::TColgp_Array2OfDir::TColgp_Array2OfDir(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfDir>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfDir(theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-Macad::Occt::TColgp_Array2OfDir::TColgp_Array2OfDir(Macad::Occt::Dir theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfDir>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theBegin = &theBegin;
-    _NativeInstance = new ::TColgp_Array2OfDir(*(gp_Dir*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-int Macad::Occt::TColgp_Array2OfDir::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfDir::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfDir::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir::Size()
-{
-    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir::Length()
-{
-    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir::NbRows()
-{
-    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir::NbColumns()
-{
-    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir::RowLength()
-{
-    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir::ColLength()
-{
-    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir::LowerRow()
-{
-    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir::UpperRow()
-{
-    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir::LowerCol()
-{
-    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir::UpperCol()
-{
-    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_Array2OfDir^ Macad::Occt::TColgp_Array2OfDir::Assign(Macad::Occt::TColgp_Array2OfDir^ theOther)
-{
-    ::TColgp_Array2OfDir* _result = new ::TColgp_Array2OfDir();
-    *_result = ((::TColgp_Array2OfDir*)_NativeInstance)->Assign(*(::TColgp_Array2OfDir*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir(_result);
-}
-
-Macad::Occt::TColgp_Array2OfDir^ Macad::Occt::TColgp_Array2OfDir::Move(Macad::Occt::TColgp_Array2OfDir^ theOther)
-{
-    ::TColgp_Array2OfDir* _result = new ::TColgp_Array2OfDir();
-    *_result = ((::TColgp_Array2OfDir*)_NativeInstance)->Move(*(::TColgp_Array2OfDir*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir(_result);
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_Array2OfDir::Value(int theRow, int theCol)
-{
-    ::gp_Dir _nativeResult = ((::TColgp_Array2OfDir*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_Array2OfDir::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Dir _nativeResult = ((::TColgp_Array2OfDir*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-void Macad::Occt::TColgp_Array2OfDir::SetValue(int theRow, int theCol, Macad::Occt::Dir theItem)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
-    ((::TColgp_Array2OfDir*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Dir*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_Array2OfDir::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_Array2OfDir*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_Array2OfDir::Init(Macad::Occt::Dir theValue)
 {
@@ -2026,145 +2623,228 @@ bool Macad::Occt::TColgp_Array2OfDir::IsDeletable()
     return _result;
 }
 
+Macad::Occt::TColgp_Array2OfDir::TColgp_Array2OfDir()
+    : Macad::Occt::BaseClass<::TColgp_Array2OfDir>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfDir();
+}
+
+Macad::Occt::TColgp_Array2OfDir::TColgp_Array2OfDir(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfDir>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfDir(theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfDir::TColgp_Array2OfDir(Macad::Occt::Dir theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfDir>(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theBegin = &theBegin;
+    _NativeInstance = new ::TColgp_Array2OfDir(*(gp_Dir*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfDir::TColgp_Array2OfDir(long long unsigned int theNbRows, long long unsigned int theNbCols)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfDir>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfDir(theNbRows, theNbCols);
+}
+
+int Macad::Occt::TColgp_Array2OfDir::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfDir::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfDir::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_Array2OfDir::Size()
+{
+    long long unsigned int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir::Length()
+{
+    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir::NbRows()
+{
+    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir::NbColumns()
+{
+    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir::RowLength()
+{
+    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir::ColLength()
+{
+    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir::LowerRow()
+{
+    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir::UpperRow()
+{
+    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir::LowerCol()
+{
+    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir::UpperCol()
+{
+    int _result = ((::TColgp_Array2OfDir*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfDir::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_Array2OfDir*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_Array2OfDir::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_Array2OfDir*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_Array2OfDir::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_Array2OfDir*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_Array2OfDir::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_Array2OfDir*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::TColgp_Array2OfDir^ Macad::Occt::TColgp_Array2OfDir::Assign(Macad::Occt::TColgp_Array2OfDir^ theOther)
+{
+    ::TColgp_Array2OfDir* _result = new ::TColgp_Array2OfDir();
+    *_result = ((::TColgp_Array2OfDir*)_NativeInstance)->Assign(*(::TColgp_Array2OfDir*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir(_result);
+}
+
+Macad::Occt::TColgp_Array2OfDir^ Macad::Occt::TColgp_Array2OfDir::CopyValues(Macad::Occt::TColgp_Array2OfDir^ theOther)
+{
+    ::TColgp_Array2OfDir* _result = new ::TColgp_Array2OfDir();
+    *_result = ((::TColgp_Array2OfDir*)_NativeInstance)->CopyValues(*(::TColgp_Array2OfDir*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir(_result);
+}
+
+Macad::Occt::TColgp_Array2OfDir^ Macad::Occt::TColgp_Array2OfDir::Move(Macad::Occt::TColgp_Array2OfDir^ theOther)
+{
+    ::TColgp_Array2OfDir* _result = new ::TColgp_Array2OfDir();
+    *_result = ((::TColgp_Array2OfDir*)_NativeInstance)->Move(*(::TColgp_Array2OfDir*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir(_result);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_Array2OfDir::Value(int theRow, int theCol)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_Array2OfDir*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_Array2OfDir::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_Array2OfDir*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfDir::SetValue(int theRow, int theCol, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_Array2OfDir*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Dir*)pp_theItem);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_Array2OfDir::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_Array2OfDir*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_Array2OfDir::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_Array2OfDir*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfDir::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfDir*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfDir::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfDir*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfDir::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfDir*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfDir::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfDir*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfDir::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_Array2OfDir::Iterator::More()
+{
+    bool _result = ((::TColgp_Array2OfDir::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfDir::Iterator::Next()
+{
+    ((::TColgp_Array2OfDir::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_Array2OfDir::Iterator::Value()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_Array2OfDir::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_Array2OfDir::Iterator::ChangeValue()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_Array2OfDir::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfDir2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_Array2OfDir2d::TColgp_Array2OfDir2d()
-    : Macad::Occt::BaseClass<::TColgp_Array2OfDir2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfDir2d();
-}
-
-Macad::Occt::TColgp_Array2OfDir2d::TColgp_Array2OfDir2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfDir2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfDir2d(theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-Macad::Occt::TColgp_Array2OfDir2d::TColgp_Array2OfDir2d(Macad::Occt::Dir2d theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfDir2d>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theBegin = &theBegin;
-    _NativeInstance = new ::TColgp_Array2OfDir2d(*(gp_Dir2d*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfDir2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfDir2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::Size()
-{
-    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::Length()
-{
-    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::NbRows()
-{
-    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::NbColumns()
-{
-    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::RowLength()
-{
-    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::ColLength()
-{
-    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::LowerRow()
-{
-    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::UpperRow()
-{
-    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::LowerCol()
-{
-    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfDir2d::UpperCol()
-{
-    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_Array2OfDir2d^ Macad::Occt::TColgp_Array2OfDir2d::Assign(Macad::Occt::TColgp_Array2OfDir2d^ theOther)
-{
-    ::TColgp_Array2OfDir2d* _result = new ::TColgp_Array2OfDir2d();
-    *_result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->Assign(*(::TColgp_Array2OfDir2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir2d(_result);
-}
-
-Macad::Occt::TColgp_Array2OfDir2d^ Macad::Occt::TColgp_Array2OfDir2d::Move(Macad::Occt::TColgp_Array2OfDir2d^ theOther)
-{
-    ::TColgp_Array2OfDir2d* _result = new ::TColgp_Array2OfDir2d();
-    *_result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->Move(*(::TColgp_Array2OfDir2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir2d(_result);
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_Array2OfDir2d::Value(int theRow, int theCol)
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_Array2OfDir2d*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_Array2OfDir2d::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_Array2OfDir2d*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-void Macad::Occt::TColgp_Array2OfDir2d::SetValue(int theRow, int theCol, Macad::Occt::Dir2d theItem)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
-    ((::TColgp_Array2OfDir2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Dir2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_Array2OfDir2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_Array2OfDir2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_Array2OfDir2d::Init(Macad::Occt::Dir2d theValue)
 {
@@ -2230,145 +2910,228 @@ bool Macad::Occt::TColgp_Array2OfDir2d::IsDeletable()
     return _result;
 }
 
+Macad::Occt::TColgp_Array2OfDir2d::TColgp_Array2OfDir2d()
+    : Macad::Occt::BaseClass<::TColgp_Array2OfDir2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfDir2d();
+}
+
+Macad::Occt::TColgp_Array2OfDir2d::TColgp_Array2OfDir2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfDir2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfDir2d(theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfDir2d::TColgp_Array2OfDir2d(Macad::Occt::Dir2d theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfDir2d>(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theBegin = &theBegin;
+    _NativeInstance = new ::TColgp_Array2OfDir2d(*(gp_Dir2d*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfDir2d::TColgp_Array2OfDir2d(long long unsigned int theNbRows, long long unsigned int theNbCols)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfDir2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfDir2d(theNbRows, theNbCols);
+}
+
+int Macad::Occt::TColgp_Array2OfDir2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfDir2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfDir2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_Array2OfDir2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir2d::Length()
+{
+    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir2d::NbRows()
+{
+    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir2d::NbColumns()
+{
+    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir2d::RowLength()
+{
+    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir2d::ColLength()
+{
+    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir2d::LowerRow()
+{
+    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir2d::UpperRow()
+{
+    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir2d::LowerCol()
+{
+    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfDir2d::UpperCol()
+{
+    int _result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfDir2d::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_Array2OfDir2d*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_Array2OfDir2d::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_Array2OfDir2d*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_Array2OfDir2d::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_Array2OfDir2d*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_Array2OfDir2d::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_Array2OfDir2d*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::TColgp_Array2OfDir2d^ Macad::Occt::TColgp_Array2OfDir2d::Assign(Macad::Occt::TColgp_Array2OfDir2d^ theOther)
+{
+    ::TColgp_Array2OfDir2d* _result = new ::TColgp_Array2OfDir2d();
+    *_result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->Assign(*(::TColgp_Array2OfDir2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir2d(_result);
+}
+
+Macad::Occt::TColgp_Array2OfDir2d^ Macad::Occt::TColgp_Array2OfDir2d::CopyValues(Macad::Occt::TColgp_Array2OfDir2d^ theOther)
+{
+    ::TColgp_Array2OfDir2d* _result = new ::TColgp_Array2OfDir2d();
+    *_result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->CopyValues(*(::TColgp_Array2OfDir2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir2d(_result);
+}
+
+Macad::Occt::TColgp_Array2OfDir2d^ Macad::Occt::TColgp_Array2OfDir2d::Move(Macad::Occt::TColgp_Array2OfDir2d^ theOther)
+{
+    ::TColgp_Array2OfDir2d* _result = new ::TColgp_Array2OfDir2d();
+    *_result = ((::TColgp_Array2OfDir2d*)_NativeInstance)->Move(*(::TColgp_Array2OfDir2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir2d(_result);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_Array2OfDir2d::Value(int theRow, int theCol)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_Array2OfDir2d*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_Array2OfDir2d::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_Array2OfDir2d*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfDir2d::SetValue(int theRow, int theCol, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_Array2OfDir2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Dir2d*)pp_theItem);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_Array2OfDir2d::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_Array2OfDir2d*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_Array2OfDir2d::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_Array2OfDir2d*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfDir2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfDir2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfDir2d::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfDir2d*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfDir2d::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfDir2d*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfDir2d::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfDir2d*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfDir2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_Array2OfDir2d::Iterator::More()
+{
+    bool _result = ((::TColgp_Array2OfDir2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfDir2d::Iterator::Next()
+{
+    ((::TColgp_Array2OfDir2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_Array2OfDir2d::Iterator::Value()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_Array2OfDir2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_Array2OfDir2d::Iterator::ChangeValue()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_Array2OfDir2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfLin2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_Array2OfLin2d::TColgp_Array2OfLin2d()
-    : Macad::Occt::BaseClass<::TColgp_Array2OfLin2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfLin2d();
-}
-
-Macad::Occt::TColgp_Array2OfLin2d::TColgp_Array2OfLin2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfLin2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfLin2d(theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-Macad::Occt::TColgp_Array2OfLin2d::TColgp_Array2OfLin2d(Macad::Occt::gp_Lin2d^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfLin2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfLin2d(*(::gp_Lin2d*)theBegin->NativeInstance, theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfLin2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfLin2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::Size()
-{
-    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::Length()
-{
-    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::NbRows()
-{
-    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::NbColumns()
-{
-    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::RowLength()
-{
-    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::ColLength()
-{
-    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::LowerRow()
-{
-    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::UpperRow()
-{
-    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::LowerCol()
-{
-    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfLin2d::UpperCol()
-{
-    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_Array2OfLin2d^ Macad::Occt::TColgp_Array2OfLin2d::Assign(Macad::Occt::TColgp_Array2OfLin2d^ theOther)
-{
-    ::TColgp_Array2OfLin2d* _result = new ::TColgp_Array2OfLin2d();
-    *_result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->Assign(*(::TColgp_Array2OfLin2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfLin2d(_result);
-}
-
-Macad::Occt::TColgp_Array2OfLin2d^ Macad::Occt::TColgp_Array2OfLin2d::Move(Macad::Occt::TColgp_Array2OfLin2d^ theOther)
-{
-    ::TColgp_Array2OfLin2d* _result = new ::TColgp_Array2OfLin2d();
-    *_result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->Move(*(::TColgp_Array2OfLin2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfLin2d(_result);
-}
-
-Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array2OfLin2d::Value(int theRow, int theCol)
-{
-    ::gp_Lin2d* _result = new ::gp_Lin2d();
-    *_result = (::gp_Lin2d)((::TColgp_Array2OfLin2d*)_NativeInstance)->Value(theRow, theCol);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
-}
-
-Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array2OfLin2d::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Lin2d* _result = new ::gp_Lin2d();
-    *_result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
-}
-
-void Macad::Occt::TColgp_Array2OfLin2d::SetValue(int theRow, int theCol, Macad::Occt::gp_Lin2d^ theItem)
-{
-    ((::TColgp_Array2OfLin2d*)_NativeInstance)->SetValue(theRow, theCol, *(::gp_Lin2d*)theItem->NativeInstance);
-}
-
-void Macad::Occt::TColgp_Array2OfLin2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_Array2OfLin2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_Array2OfLin2d::Init(Macad::Occt::gp_Lin2d^ theValue)
 {
@@ -2437,145 +3200,232 @@ bool Macad::Occt::TColgp_Array2OfLin2d::IsDeletable()
     return _result;
 }
 
+Macad::Occt::TColgp_Array2OfLin2d::TColgp_Array2OfLin2d()
+    : Macad::Occt::BaseClass<::TColgp_Array2OfLin2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfLin2d();
+}
+
+Macad::Occt::TColgp_Array2OfLin2d::TColgp_Array2OfLin2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfLin2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfLin2d(theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfLin2d::TColgp_Array2OfLin2d(Macad::Occt::gp_Lin2d^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfLin2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfLin2d(*(::gp_Lin2d*)theBegin->NativeInstance, theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfLin2d::TColgp_Array2OfLin2d(long long unsigned int theNbRows, long long unsigned int theNbCols)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfLin2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfLin2d(theNbRows, theNbCols);
+}
+
+int Macad::Occt::TColgp_Array2OfLin2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfLin2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfLin2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfLin2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_Array2OfLin2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfLin2d::Length()
+{
+    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfLin2d::NbRows()
+{
+    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfLin2d::NbColumns()
+{
+    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfLin2d::RowLength()
+{
+    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfLin2d::ColLength()
+{
+    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfLin2d::LowerRow()
+{
+    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfLin2d::UpperRow()
+{
+    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfLin2d::LowerCol()
+{
+    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfLin2d::UpperCol()
+{
+    int _result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfLin2d::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_Array2OfLin2d*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_Array2OfLin2d::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_Array2OfLin2d*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_Array2OfLin2d::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_Array2OfLin2d*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_Array2OfLin2d::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_Array2OfLin2d*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::TColgp_Array2OfLin2d^ Macad::Occt::TColgp_Array2OfLin2d::Assign(Macad::Occt::TColgp_Array2OfLin2d^ theOther)
+{
+    ::TColgp_Array2OfLin2d* _result = new ::TColgp_Array2OfLin2d();
+    *_result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->Assign(*(::TColgp_Array2OfLin2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfLin2d(_result);
+}
+
+Macad::Occt::TColgp_Array2OfLin2d^ Macad::Occt::TColgp_Array2OfLin2d::CopyValues(Macad::Occt::TColgp_Array2OfLin2d^ theOther)
+{
+    ::TColgp_Array2OfLin2d* _result = new ::TColgp_Array2OfLin2d();
+    *_result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->CopyValues(*(::TColgp_Array2OfLin2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfLin2d(_result);
+}
+
+Macad::Occt::TColgp_Array2OfLin2d^ Macad::Occt::TColgp_Array2OfLin2d::Move(Macad::Occt::TColgp_Array2OfLin2d^ theOther)
+{
+    ::TColgp_Array2OfLin2d* _result = new ::TColgp_Array2OfLin2d();
+    *_result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->Move(*(::TColgp_Array2OfLin2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfLin2d(_result);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array2OfLin2d::Value(int theRow, int theCol)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = (::gp_Lin2d)((::TColgp_Array2OfLin2d*)_NativeInstance)->Value(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array2OfLin2d::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+void Macad::Occt::TColgp_Array2OfLin2d::SetValue(int theRow, int theCol, Macad::Occt::gp_Lin2d^ theItem)
+{
+    ((::TColgp_Array2OfLin2d*)_NativeInstance)->SetValue(theRow, theCol, *(::gp_Lin2d*)theItem->NativeInstance);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array2OfLin2d::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = (::gp_Lin2d)((::TColgp_Array2OfLin2d*)_NativeInstance)->At(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array2OfLin2d::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = ((::TColgp_Array2OfLin2d*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+void Macad::Occt::TColgp_Array2OfLin2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfLin2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfLin2d::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfLin2d*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfLin2d::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfLin2d*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfLin2d::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfLin2d*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfLin2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_Array2OfLin2d::Iterator::More()
+{
+    bool _result = ((::TColgp_Array2OfLin2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfLin2d::Iterator::Next()
+{
+    ((::TColgp_Array2OfLin2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array2OfLin2d::Iterator::Value()
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = (::gp_Lin2d)((::TColgp_Array2OfLin2d::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_Array2OfLin2d::Iterator::ChangeValue()
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = ((::TColgp_Array2OfLin2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfPnt
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_Array2OfPnt::TColgp_Array2OfPnt()
-    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfPnt();
-}
-
-Macad::Occt::TColgp_Array2OfPnt::TColgp_Array2OfPnt(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfPnt(theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-Macad::Occt::TColgp_Array2OfPnt::TColgp_Array2OfPnt(Macad::Occt::Pnt theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theBegin = &theBegin;
-    _NativeInstance = new ::TColgp_Array2OfPnt(*(gp_Pnt*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfPnt::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfPnt::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::Size()
-{
-    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::Length()
-{
-    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::NbRows()
-{
-    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::NbColumns()
-{
-    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::RowLength()
-{
-    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::ColLength()
-{
-    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::LowerRow()
-{
-    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::UpperRow()
-{
-    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::LowerCol()
-{
-    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt::UpperCol()
-{
-    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_Array2OfPnt^ Macad::Occt::TColgp_Array2OfPnt::Assign(Macad::Occt::TColgp_Array2OfPnt^ theOther)
-{
-    ::TColgp_Array2OfPnt* _result = new ::TColgp_Array2OfPnt();
-    *_result = ((::TColgp_Array2OfPnt*)_NativeInstance)->Assign(*(::TColgp_Array2OfPnt*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt(_result);
-}
-
-Macad::Occt::TColgp_Array2OfPnt^ Macad::Occt::TColgp_Array2OfPnt::Move(Macad::Occt::TColgp_Array2OfPnt^ theOther)
-{
-    ::TColgp_Array2OfPnt* _result = new ::TColgp_Array2OfPnt();
-    *_result = ((::TColgp_Array2OfPnt*)_NativeInstance)->Move(*(::TColgp_Array2OfPnt*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt(_result);
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_Array2OfPnt::Value(int theRow, int theCol)
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_Array2OfPnt*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_Array2OfPnt::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_Array2OfPnt*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-void Macad::Occt::TColgp_Array2OfPnt::SetValue(int theRow, int theCol, Macad::Occt::Pnt theItem)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
-    ((::TColgp_Array2OfPnt*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Pnt*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_Array2OfPnt::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_Array2OfPnt*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_Array2OfPnt::Init(Macad::Occt::Pnt theValue)
 {
@@ -2641,145 +3491,228 @@ bool Macad::Occt::TColgp_Array2OfPnt::IsDeletable()
     return _result;
 }
 
+Macad::Occt::TColgp_Array2OfPnt::TColgp_Array2OfPnt()
+    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfPnt();
+}
+
+Macad::Occt::TColgp_Array2OfPnt::TColgp_Array2OfPnt(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfPnt(theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfPnt::TColgp_Array2OfPnt(Macad::Occt::Pnt theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theBegin = &theBegin;
+    _NativeInstance = new ::TColgp_Array2OfPnt(*(gp_Pnt*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfPnt::TColgp_Array2OfPnt(long long unsigned int theNbRows, long long unsigned int theNbCols)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfPnt(theNbRows, theNbCols);
+}
+
+int Macad::Occt::TColgp_Array2OfPnt::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfPnt::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfPnt::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_Array2OfPnt::Size()
+{
+    long long unsigned int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt::Length()
+{
+    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt::NbRows()
+{
+    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt::NbColumns()
+{
+    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt::RowLength()
+{
+    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt::ColLength()
+{
+    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt::LowerRow()
+{
+    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt::UpperRow()
+{
+    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt::LowerCol()
+{
+    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt::UpperCol()
+{
+    int _result = ((::TColgp_Array2OfPnt*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfPnt::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_Array2OfPnt*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_Array2OfPnt*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_Array2OfPnt*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_Array2OfPnt*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::TColgp_Array2OfPnt^ Macad::Occt::TColgp_Array2OfPnt::Assign(Macad::Occt::TColgp_Array2OfPnt^ theOther)
+{
+    ::TColgp_Array2OfPnt* _result = new ::TColgp_Array2OfPnt();
+    *_result = ((::TColgp_Array2OfPnt*)_NativeInstance)->Assign(*(::TColgp_Array2OfPnt*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt(_result);
+}
+
+Macad::Occt::TColgp_Array2OfPnt^ Macad::Occt::TColgp_Array2OfPnt::CopyValues(Macad::Occt::TColgp_Array2OfPnt^ theOther)
+{
+    ::TColgp_Array2OfPnt* _result = new ::TColgp_Array2OfPnt();
+    *_result = ((::TColgp_Array2OfPnt*)_NativeInstance)->CopyValues(*(::TColgp_Array2OfPnt*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt(_result);
+}
+
+Macad::Occt::TColgp_Array2OfPnt^ Macad::Occt::TColgp_Array2OfPnt::Move(Macad::Occt::TColgp_Array2OfPnt^ theOther)
+{
+    ::TColgp_Array2OfPnt* _result = new ::TColgp_Array2OfPnt();
+    *_result = ((::TColgp_Array2OfPnt*)_NativeInstance)->Move(*(::TColgp_Array2OfPnt*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt(_result);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_Array2OfPnt::Value(int theRow, int theCol)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_Array2OfPnt*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_Array2OfPnt::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_Array2OfPnt*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt::SetValue(int theRow, int theCol, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_Array2OfPnt*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Pnt*)pp_theItem);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_Array2OfPnt::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_Array2OfPnt*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_Array2OfPnt::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_Array2OfPnt*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfPnt*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfPnt*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfPnt*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfPnt*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfPnt::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_Array2OfPnt::Iterator::More()
+{
+    bool _result = ((::TColgp_Array2OfPnt::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfPnt::Iterator::Next()
+{
+    ((::TColgp_Array2OfPnt::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_Array2OfPnt::Iterator::Value()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_Array2OfPnt::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_Array2OfPnt::Iterator::ChangeValue()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_Array2OfPnt::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfPnt2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_Array2OfPnt2d::TColgp_Array2OfPnt2d()
-    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfPnt2d();
-}
-
-Macad::Occt::TColgp_Array2OfPnt2d::TColgp_Array2OfPnt2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfPnt2d(theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-Macad::Occt::TColgp_Array2OfPnt2d::TColgp_Array2OfPnt2d(Macad::Occt::Pnt2d theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt2d>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theBegin = &theBegin;
-    _NativeInstance = new ::TColgp_Array2OfPnt2d(*(gp_Pnt2d*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfPnt2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfPnt2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::Size()
-{
-    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::Length()
-{
-    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::NbRows()
-{
-    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::NbColumns()
-{
-    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::RowLength()
-{
-    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::ColLength()
-{
-    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::LowerRow()
-{
-    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::UpperRow()
-{
-    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::LowerCol()
-{
-    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfPnt2d::UpperCol()
-{
-    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_Array2OfPnt2d^ Macad::Occt::TColgp_Array2OfPnt2d::Assign(Macad::Occt::TColgp_Array2OfPnt2d^ theOther)
-{
-    ::TColgp_Array2OfPnt2d* _result = new ::TColgp_Array2OfPnt2d();
-    *_result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Assign(*(::TColgp_Array2OfPnt2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt2d(_result);
-}
-
-Macad::Occt::TColgp_Array2OfPnt2d^ Macad::Occt::TColgp_Array2OfPnt2d::Move(Macad::Occt::TColgp_Array2OfPnt2d^ theOther)
-{
-    ::TColgp_Array2OfPnt2d* _result = new ::TColgp_Array2OfPnt2d();
-    *_result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Move(*(::TColgp_Array2OfPnt2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt2d(_result);
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_Array2OfPnt2d::Value(int theRow, int theCol)
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_Array2OfPnt2d::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-void Macad::Occt::TColgp_Array2OfPnt2d::SetValue(int theRow, int theCol, Macad::Occt::Pnt2d theItem)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
-    ((::TColgp_Array2OfPnt2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Pnt2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_Array2OfPnt2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_Array2OfPnt2d::Init(Macad::Occt::Pnt2d theValue)
 {
@@ -2845,145 +3778,228 @@ bool Macad::Occt::TColgp_Array2OfPnt2d::IsDeletable()
     return _result;
 }
 
+Macad::Occt::TColgp_Array2OfPnt2d::TColgp_Array2OfPnt2d()
+    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfPnt2d();
+}
+
+Macad::Occt::TColgp_Array2OfPnt2d::TColgp_Array2OfPnt2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfPnt2d(theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfPnt2d::TColgp_Array2OfPnt2d(Macad::Occt::Pnt2d theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theBegin = &theBegin;
+    _NativeInstance = new ::TColgp_Array2OfPnt2d(*(gp_Pnt2d*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfPnt2d::TColgp_Array2OfPnt2d(long long unsigned int theNbRows, long long unsigned int theNbCols)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfPnt2d(theNbRows, theNbCols);
+}
+
+int Macad::Occt::TColgp_Array2OfPnt2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfPnt2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfPnt2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_Array2OfPnt2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt2d::Length()
+{
+    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt2d::NbRows()
+{
+    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt2d::NbColumns()
+{
+    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt2d::RowLength()
+{
+    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt2d::ColLength()
+{
+    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt2d::LowerRow()
+{
+    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt2d::UpperRow()
+{
+    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt2d::LowerCol()
+{
+    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfPnt2d::UpperCol()
+{
+    int _result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfPnt2d::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_Array2OfPnt2d*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt2d::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_Array2OfPnt2d*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt2d::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_Array2OfPnt2d*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt2d::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_Array2OfPnt2d*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::TColgp_Array2OfPnt2d^ Macad::Occt::TColgp_Array2OfPnt2d::Assign(Macad::Occt::TColgp_Array2OfPnt2d^ theOther)
+{
+    ::TColgp_Array2OfPnt2d* _result = new ::TColgp_Array2OfPnt2d();
+    *_result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Assign(*(::TColgp_Array2OfPnt2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt2d(_result);
+}
+
+Macad::Occt::TColgp_Array2OfPnt2d^ Macad::Occt::TColgp_Array2OfPnt2d::CopyValues(Macad::Occt::TColgp_Array2OfPnt2d^ theOther)
+{
+    ::TColgp_Array2OfPnt2d* _result = new ::TColgp_Array2OfPnt2d();
+    *_result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->CopyValues(*(::TColgp_Array2OfPnt2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt2d(_result);
+}
+
+Macad::Occt::TColgp_Array2OfPnt2d^ Macad::Occt::TColgp_Array2OfPnt2d::Move(Macad::Occt::TColgp_Array2OfPnt2d^ theOther)
+{
+    ::TColgp_Array2OfPnt2d* _result = new ::TColgp_Array2OfPnt2d();
+    *_result = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Move(*(::TColgp_Array2OfPnt2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt2d(_result);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_Array2OfPnt2d::Value(int theRow, int theCol)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_Array2OfPnt2d::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt2d::SetValue(int theRow, int theCol, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_Array2OfPnt2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Pnt2d*)pp_theItem);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_Array2OfPnt2d::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_Array2OfPnt2d::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_Array2OfPnt2d*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt2d::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfPnt2d*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt2d::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfPnt2d*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfPnt2d::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfPnt2d*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfPnt2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_Array2OfPnt2d::Iterator::More()
+{
+    bool _result = ((::TColgp_Array2OfPnt2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfPnt2d::Iterator::Next()
+{
+    ((::TColgp_Array2OfPnt2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_Array2OfPnt2d::Iterator::Value()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_Array2OfPnt2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_Array2OfPnt2d::Iterator::ChangeValue()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_Array2OfPnt2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfVec
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_Array2OfVec::TColgp_Array2OfVec()
-    : Macad::Occt::BaseClass<::TColgp_Array2OfVec>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfVec();
-}
-
-Macad::Occt::TColgp_Array2OfVec::TColgp_Array2OfVec(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfVec>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfVec(theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-Macad::Occt::TColgp_Array2OfVec::TColgp_Array2OfVec(Macad::Occt::Vec theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfVec>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theBegin = &theBegin;
-    _NativeInstance = new ::TColgp_Array2OfVec(*(gp_Vec*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-int Macad::Occt::TColgp_Array2OfVec::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfVec::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfVec::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec::Size()
-{
-    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec::Length()
-{
-    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec::NbRows()
-{
-    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec::NbColumns()
-{
-    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec::RowLength()
-{
-    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec::ColLength()
-{
-    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec::LowerRow()
-{
-    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec::UpperRow()
-{
-    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec::LowerCol()
-{
-    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec::UpperCol()
-{
-    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_Array2OfVec^ Macad::Occt::TColgp_Array2OfVec::Assign(Macad::Occt::TColgp_Array2OfVec^ theOther)
-{
-    ::TColgp_Array2OfVec* _result = new ::TColgp_Array2OfVec();
-    *_result = ((::TColgp_Array2OfVec*)_NativeInstance)->Assign(*(::TColgp_Array2OfVec*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec(_result);
-}
-
-Macad::Occt::TColgp_Array2OfVec^ Macad::Occt::TColgp_Array2OfVec::Move(Macad::Occt::TColgp_Array2OfVec^ theOther)
-{
-    ::TColgp_Array2OfVec* _result = new ::TColgp_Array2OfVec();
-    *_result = ((::TColgp_Array2OfVec*)_NativeInstance)->Move(*(::TColgp_Array2OfVec*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec(_result);
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_Array2OfVec::Value(int theRow, int theCol)
-{
-    ::gp_Vec _nativeResult = ((::TColgp_Array2OfVec*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_Array2OfVec::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Vec _nativeResult = ((::TColgp_Array2OfVec*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-void Macad::Occt::TColgp_Array2OfVec::SetValue(int theRow, int theCol, Macad::Occt::Vec theItem)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
-    ((::TColgp_Array2OfVec*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Vec*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_Array2OfVec::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_Array2OfVec*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_Array2OfVec::Init(Macad::Occt::Vec theValue)
 {
@@ -3049,145 +4065,228 @@ bool Macad::Occt::TColgp_Array2OfVec::IsDeletable()
     return _result;
 }
 
+Macad::Occt::TColgp_Array2OfVec::TColgp_Array2OfVec()
+    : Macad::Occt::BaseClass<::TColgp_Array2OfVec>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfVec();
+}
+
+Macad::Occt::TColgp_Array2OfVec::TColgp_Array2OfVec(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfVec>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfVec(theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfVec::TColgp_Array2OfVec(Macad::Occt::Vec theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfVec>(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theBegin = &theBegin;
+    _NativeInstance = new ::TColgp_Array2OfVec(*(gp_Vec*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfVec::TColgp_Array2OfVec(long long unsigned int theNbRows, long long unsigned int theNbCols)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfVec>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfVec(theNbRows, theNbCols);
+}
+
+int Macad::Occt::TColgp_Array2OfVec::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfVec::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfVec::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_Array2OfVec::Size()
+{
+    long long unsigned int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec::Length()
+{
+    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec::NbRows()
+{
+    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec::NbColumns()
+{
+    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec::RowLength()
+{
+    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec::ColLength()
+{
+    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec::LowerRow()
+{
+    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec::UpperRow()
+{
+    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec::LowerCol()
+{
+    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec::UpperCol()
+{
+    int _result = ((::TColgp_Array2OfVec*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfVec::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_Array2OfVec*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_Array2OfVec::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_Array2OfVec*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_Array2OfVec::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_Array2OfVec*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_Array2OfVec::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_Array2OfVec*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::TColgp_Array2OfVec^ Macad::Occt::TColgp_Array2OfVec::Assign(Macad::Occt::TColgp_Array2OfVec^ theOther)
+{
+    ::TColgp_Array2OfVec* _result = new ::TColgp_Array2OfVec();
+    *_result = ((::TColgp_Array2OfVec*)_NativeInstance)->Assign(*(::TColgp_Array2OfVec*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec(_result);
+}
+
+Macad::Occt::TColgp_Array2OfVec^ Macad::Occt::TColgp_Array2OfVec::CopyValues(Macad::Occt::TColgp_Array2OfVec^ theOther)
+{
+    ::TColgp_Array2OfVec* _result = new ::TColgp_Array2OfVec();
+    *_result = ((::TColgp_Array2OfVec*)_NativeInstance)->CopyValues(*(::TColgp_Array2OfVec*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec(_result);
+}
+
+Macad::Occt::TColgp_Array2OfVec^ Macad::Occt::TColgp_Array2OfVec::Move(Macad::Occt::TColgp_Array2OfVec^ theOther)
+{
+    ::TColgp_Array2OfVec* _result = new ::TColgp_Array2OfVec();
+    *_result = ((::TColgp_Array2OfVec*)_NativeInstance)->Move(*(::TColgp_Array2OfVec*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec(_result);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_Array2OfVec::Value(int theRow, int theCol)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_Array2OfVec*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_Array2OfVec::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_Array2OfVec*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfVec::SetValue(int theRow, int theCol, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_Array2OfVec*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Vec*)pp_theItem);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_Array2OfVec::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_Array2OfVec*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_Array2OfVec::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_Array2OfVec*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfVec::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfVec*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfVec::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfVec*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfVec::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfVec*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfVec::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfVec*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfVec::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_Array2OfVec::Iterator::More()
+{
+    bool _result = ((::TColgp_Array2OfVec::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfVec::Iterator::Next()
+{
+    ((::TColgp_Array2OfVec::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_Array2OfVec::Iterator::Value()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_Array2OfVec::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_Array2OfVec::Iterator::ChangeValue()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_Array2OfVec::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfVec2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_Array2OfVec2d::TColgp_Array2OfVec2d()
-    : Macad::Occt::BaseClass<::TColgp_Array2OfVec2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfVec2d();
-}
-
-Macad::Occt::TColgp_Array2OfVec2d::TColgp_Array2OfVec2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfVec2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfVec2d(theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-Macad::Occt::TColgp_Array2OfVec2d::TColgp_Array2OfVec2d(Macad::Occt::Vec2d theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfVec2d>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theBegin = &theBegin;
-    _NativeInstance = new ::TColgp_Array2OfVec2d(*(gp_Vec2d*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfVec2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfVec2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::Size()
-{
-    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::Length()
-{
-    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::NbRows()
-{
-    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::NbColumns()
-{
-    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::RowLength()
-{
-    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::ColLength()
-{
-    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::LowerRow()
-{
-    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::UpperRow()
-{
-    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::LowerCol()
-{
-    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfVec2d::UpperCol()
-{
-    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_Array2OfVec2d^ Macad::Occt::TColgp_Array2OfVec2d::Assign(Macad::Occt::TColgp_Array2OfVec2d^ theOther)
-{
-    ::TColgp_Array2OfVec2d* _result = new ::TColgp_Array2OfVec2d();
-    *_result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->Assign(*(::TColgp_Array2OfVec2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec2d(_result);
-}
-
-Macad::Occt::TColgp_Array2OfVec2d^ Macad::Occt::TColgp_Array2OfVec2d::Move(Macad::Occt::TColgp_Array2OfVec2d^ theOther)
-{
-    ::TColgp_Array2OfVec2d* _result = new ::TColgp_Array2OfVec2d();
-    *_result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->Move(*(::TColgp_Array2OfVec2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec2d(_result);
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_Array2OfVec2d::Value(int theRow, int theCol)
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_Array2OfVec2d*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_Array2OfVec2d::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_Array2OfVec2d*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-void Macad::Occt::TColgp_Array2OfVec2d::SetValue(int theRow, int theCol, Macad::Occt::Vec2d theItem)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
-    ((::TColgp_Array2OfVec2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Vec2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_Array2OfVec2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_Array2OfVec2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_Array2OfVec2d::Init(Macad::Occt::Vec2d theValue)
 {
@@ -3253,145 +4352,228 @@ bool Macad::Occt::TColgp_Array2OfVec2d::IsDeletable()
     return _result;
 }
 
+Macad::Occt::TColgp_Array2OfVec2d::TColgp_Array2OfVec2d()
+    : Macad::Occt::BaseClass<::TColgp_Array2OfVec2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfVec2d();
+}
+
+Macad::Occt::TColgp_Array2OfVec2d::TColgp_Array2OfVec2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfVec2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfVec2d(theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfVec2d::TColgp_Array2OfVec2d(Macad::Occt::Vec2d theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfVec2d>(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theBegin = &theBegin;
+    _NativeInstance = new ::TColgp_Array2OfVec2d(*(gp_Vec2d*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfVec2d::TColgp_Array2OfVec2d(long long unsigned int theNbRows, long long unsigned int theNbCols)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfVec2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfVec2d(theNbRows, theNbCols);
+}
+
+int Macad::Occt::TColgp_Array2OfVec2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfVec2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfVec2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_Array2OfVec2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec2d::Length()
+{
+    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec2d::NbRows()
+{
+    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec2d::NbColumns()
+{
+    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec2d::RowLength()
+{
+    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec2d::ColLength()
+{
+    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec2d::LowerRow()
+{
+    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec2d::UpperRow()
+{
+    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec2d::LowerCol()
+{
+    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfVec2d::UpperCol()
+{
+    int _result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfVec2d::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_Array2OfVec2d*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_Array2OfVec2d::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_Array2OfVec2d*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_Array2OfVec2d::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_Array2OfVec2d*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_Array2OfVec2d::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_Array2OfVec2d*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::TColgp_Array2OfVec2d^ Macad::Occt::TColgp_Array2OfVec2d::Assign(Macad::Occt::TColgp_Array2OfVec2d^ theOther)
+{
+    ::TColgp_Array2OfVec2d* _result = new ::TColgp_Array2OfVec2d();
+    *_result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->Assign(*(::TColgp_Array2OfVec2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec2d(_result);
+}
+
+Macad::Occt::TColgp_Array2OfVec2d^ Macad::Occt::TColgp_Array2OfVec2d::CopyValues(Macad::Occt::TColgp_Array2OfVec2d^ theOther)
+{
+    ::TColgp_Array2OfVec2d* _result = new ::TColgp_Array2OfVec2d();
+    *_result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->CopyValues(*(::TColgp_Array2OfVec2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec2d(_result);
+}
+
+Macad::Occt::TColgp_Array2OfVec2d^ Macad::Occt::TColgp_Array2OfVec2d::Move(Macad::Occt::TColgp_Array2OfVec2d^ theOther)
+{
+    ::TColgp_Array2OfVec2d* _result = new ::TColgp_Array2OfVec2d();
+    *_result = ((::TColgp_Array2OfVec2d*)_NativeInstance)->Move(*(::TColgp_Array2OfVec2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec2d(_result);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_Array2OfVec2d::Value(int theRow, int theCol)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_Array2OfVec2d*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_Array2OfVec2d::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_Array2OfVec2d*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfVec2d::SetValue(int theRow, int theCol, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_Array2OfVec2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Vec2d*)pp_theItem);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_Array2OfVec2d::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_Array2OfVec2d*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_Array2OfVec2d::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_Array2OfVec2d*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfVec2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfVec2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfVec2d::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfVec2d*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfVec2d::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfVec2d*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfVec2d::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfVec2d*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfVec2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_Array2OfVec2d::Iterator::More()
+{
+    bool _result = ((::TColgp_Array2OfVec2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfVec2d::Iterator::Next()
+{
+    ((::TColgp_Array2OfVec2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_Array2OfVec2d::Iterator::Value()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_Array2OfVec2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_Array2OfVec2d::Iterator::ChangeValue()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_Array2OfVec2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfXY
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_Array2OfXY::TColgp_Array2OfXY()
-    : Macad::Occt::BaseClass<::TColgp_Array2OfXY>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfXY();
-}
-
-Macad::Occt::TColgp_Array2OfXY::TColgp_Array2OfXY(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfXY>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfXY(theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-Macad::Occt::TColgp_Array2OfXY::TColgp_Array2OfXY(Macad::Occt::XY theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfXY>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XY> pp_theBegin = &theBegin;
-    _NativeInstance = new ::TColgp_Array2OfXY(*(gp_XY*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-int Macad::Occt::TColgp_Array2OfXY::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfXY::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXY::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfXY::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXY::Size()
-{
-    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXY::Length()
-{
-    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXY::NbRows()
-{
-    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXY::NbColumns()
-{
-    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXY::RowLength()
-{
-    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXY::ColLength()
-{
-    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXY::LowerRow()
-{
-    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXY::UpperRow()
-{
-    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXY::LowerCol()
-{
-    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXY::UpperCol()
-{
-    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_Array2OfXY^ Macad::Occt::TColgp_Array2OfXY::Assign(Macad::Occt::TColgp_Array2OfXY^ theOther)
-{
-    ::TColgp_Array2OfXY* _result = new ::TColgp_Array2OfXY();
-    *_result = ((::TColgp_Array2OfXY*)_NativeInstance)->Assign(*(::TColgp_Array2OfXY*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXY(_result);
-}
-
-Macad::Occt::TColgp_Array2OfXY^ Macad::Occt::TColgp_Array2OfXY::Move(Macad::Occt::TColgp_Array2OfXY^ theOther)
-{
-    ::TColgp_Array2OfXY* _result = new ::TColgp_Array2OfXY();
-    *_result = ((::TColgp_Array2OfXY*)_NativeInstance)->Move(*(::TColgp_Array2OfXY*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXY(_result);
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_Array2OfXY::Value(int theRow, int theCol)
-{
-    ::gp_XY _nativeResult = ((::TColgp_Array2OfXY*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::XY(_nativeResult);
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_Array2OfXY::ChangeValue(int theRow, int theCol)
-{
-    ::gp_XY _nativeResult = ((::TColgp_Array2OfXY*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::XY(_nativeResult);
-}
-
-void Macad::Occt::TColgp_Array2OfXY::SetValue(int theRow, int theCol, Macad::Occt::XY theItem)
-{
-    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
-    ((::TColgp_Array2OfXY*)_NativeInstance)->SetValue(theRow, theCol, *(gp_XY*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_Array2OfXY::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_Array2OfXY*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_Array2OfXY::Init(Macad::Occt::XY theValue)
 {
@@ -3457,145 +4639,228 @@ bool Macad::Occt::TColgp_Array2OfXY::IsDeletable()
     return _result;
 }
 
+Macad::Occt::TColgp_Array2OfXY::TColgp_Array2OfXY()
+    : Macad::Occt::BaseClass<::TColgp_Array2OfXY>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfXY();
+}
+
+Macad::Occt::TColgp_Array2OfXY::TColgp_Array2OfXY(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfXY>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfXY(theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfXY::TColgp_Array2OfXY(Macad::Occt::XY theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfXY>(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::XY> pp_theBegin = &theBegin;
+    _NativeInstance = new ::TColgp_Array2OfXY(*(gp_XY*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfXY::TColgp_Array2OfXY(long long unsigned int theNbRows, long long unsigned int theNbCols)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfXY>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfXY(theNbRows, theNbCols);
+}
+
+int Macad::Occt::TColgp_Array2OfXY::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfXY::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXY::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfXY::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_Array2OfXY::Size()
+{
+    long long unsigned int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXY::Length()
+{
+    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXY::NbRows()
+{
+    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXY::NbColumns()
+{
+    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXY::RowLength()
+{
+    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXY::ColLength()
+{
+    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXY::LowerRow()
+{
+    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXY::UpperRow()
+{
+    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXY::LowerCol()
+{
+    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXY::UpperCol()
+{
+    int _result = ((::TColgp_Array2OfXY*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfXY::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_Array2OfXY*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_Array2OfXY::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_Array2OfXY*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_Array2OfXY::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_Array2OfXY*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_Array2OfXY::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_Array2OfXY*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::TColgp_Array2OfXY^ Macad::Occt::TColgp_Array2OfXY::Assign(Macad::Occt::TColgp_Array2OfXY^ theOther)
+{
+    ::TColgp_Array2OfXY* _result = new ::TColgp_Array2OfXY();
+    *_result = ((::TColgp_Array2OfXY*)_NativeInstance)->Assign(*(::TColgp_Array2OfXY*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXY(_result);
+}
+
+Macad::Occt::TColgp_Array2OfXY^ Macad::Occt::TColgp_Array2OfXY::CopyValues(Macad::Occt::TColgp_Array2OfXY^ theOther)
+{
+    ::TColgp_Array2OfXY* _result = new ::TColgp_Array2OfXY();
+    *_result = ((::TColgp_Array2OfXY*)_NativeInstance)->CopyValues(*(::TColgp_Array2OfXY*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXY(_result);
+}
+
+Macad::Occt::TColgp_Array2OfXY^ Macad::Occt::TColgp_Array2OfXY::Move(Macad::Occt::TColgp_Array2OfXY^ theOther)
+{
+    ::TColgp_Array2OfXY* _result = new ::TColgp_Array2OfXY();
+    *_result = ((::TColgp_Array2OfXY*)_NativeInstance)->Move(*(::TColgp_Array2OfXY*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXY(_result);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_Array2OfXY::Value(int theRow, int theCol)
+{
+    ::gp_XY _nativeResult = ((::TColgp_Array2OfXY*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_Array2OfXY::ChangeValue(int theRow, int theCol)
+{
+    ::gp_XY _nativeResult = ((::TColgp_Array2OfXY*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfXY::SetValue(int theRow, int theCol, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_Array2OfXY*)_NativeInstance)->SetValue(theRow, theCol, *(gp_XY*)pp_theItem);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_Array2OfXY::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_XY _nativeResult = ((::TColgp_Array2OfXY*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_Array2OfXY::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_XY _nativeResult = ((::TColgp_Array2OfXY*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfXY::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfXY*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfXY::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfXY*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfXY::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfXY*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfXY::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfXY*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfXY::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_Array2OfXY::Iterator::More()
+{
+    bool _result = ((::TColgp_Array2OfXY::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfXY::Iterator::Next()
+{
+    ((::TColgp_Array2OfXY::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_Array2OfXY::Iterator::Value()
+{
+    ::gp_XY _nativeResult = ((::TColgp_Array2OfXY::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_Array2OfXY::Iterator::ChangeValue()
+{
+    ::gp_XY _nativeResult = ((::TColgp_Array2OfXY::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::XY(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfXYZ
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_Array2OfXYZ::TColgp_Array2OfXYZ()
-    : Macad::Occt::BaseClass<::TColgp_Array2OfXYZ>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfXYZ();
-}
-
-Macad::Occt::TColgp_Array2OfXYZ::TColgp_Array2OfXYZ(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfXYZ>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_Array2OfXYZ(theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-Macad::Occt::TColgp_Array2OfXYZ::TColgp_Array2OfXYZ(Macad::Occt::XYZ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-    : Macad::Occt::BaseClass<::TColgp_Array2OfXYZ>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theBegin = &theBegin;
-    _NativeInstance = new ::TColgp_Array2OfXYZ(*(gp_XYZ*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfXYZ::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_Array2OfXYZ::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::Size()
-{
-    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::Length()
-{
-    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::NbRows()
-{
-    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::NbColumns()
-{
-    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::RowLength()
-{
-    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::ColLength()
-{
-    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::LowerRow()
-{
-    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::UpperRow()
-{
-    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::LowerCol()
-{
-    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_Array2OfXYZ::UpperCol()
-{
-    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_Array2OfXYZ^ Macad::Occt::TColgp_Array2OfXYZ::Assign(Macad::Occt::TColgp_Array2OfXYZ^ theOther)
-{
-    ::TColgp_Array2OfXYZ* _result = new ::TColgp_Array2OfXYZ();
-    *_result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->Assign(*(::TColgp_Array2OfXYZ*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXYZ(_result);
-}
-
-Macad::Occt::TColgp_Array2OfXYZ^ Macad::Occt::TColgp_Array2OfXYZ::Move(Macad::Occt::TColgp_Array2OfXYZ^ theOther)
-{
-    ::TColgp_Array2OfXYZ* _result = new ::TColgp_Array2OfXYZ();
-    *_result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->Move(*(::TColgp_Array2OfXYZ*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXYZ(_result);
-}
-
-Macad::Occt::XYZ Macad::Occt::TColgp_Array2OfXYZ::Value(int theRow, int theCol)
-{
-    ::gp_XYZ _nativeResult = ((::TColgp_Array2OfXYZ*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-Macad::Occt::XYZ Macad::Occt::TColgp_Array2OfXYZ::ChangeValue(int theRow, int theCol)
-{
-    ::gp_XYZ _nativeResult = ((::TColgp_Array2OfXYZ*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-void Macad::Occt::TColgp_Array2OfXYZ::SetValue(int theRow, int theCol, Macad::Occt::XYZ theItem)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
-    ((::TColgp_Array2OfXYZ*)_NativeInstance)->SetValue(theRow, theCol, *(gp_XYZ*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_Array2OfXYZ::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_Array2OfXYZ*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_Array2OfXYZ::Init(Macad::Occt::XYZ theValue)
 {
@@ -3661,2215 +4926,221 @@ bool Macad::Occt::TColgp_Array2OfXYZ::IsDeletable()
     return _result;
 }
 
+Macad::Occt::TColgp_Array2OfXYZ::TColgp_Array2OfXYZ()
+    : Macad::Occt::BaseClass<::TColgp_Array2OfXYZ>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfXYZ();
+}
+
+Macad::Occt::TColgp_Array2OfXYZ::TColgp_Array2OfXYZ(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfXYZ>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfXYZ(theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfXYZ::TColgp_Array2OfXYZ(Macad::Occt::XYZ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfXYZ>(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theBegin = &theBegin;
+    _NativeInstance = new ::TColgp_Array2OfXYZ(*(gp_XYZ*)pp_theBegin, theRowLower, theRowUpper, theColLower, theColUpper);
+}
+
+Macad::Occt::TColgp_Array2OfXYZ::TColgp_Array2OfXYZ(long long unsigned int theNbRows, long long unsigned int theNbCols)
+    : Macad::Occt::BaseClass<::TColgp_Array2OfXYZ>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_Array2OfXYZ(theNbRows, theNbCols);
+}
+
+int Macad::Occt::TColgp_Array2OfXYZ::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfXYZ::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXYZ::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_Array2OfXYZ::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_Array2OfXYZ::Size()
+{
+    long long unsigned int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXYZ::Length()
+{
+    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXYZ::NbRows()
+{
+    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXYZ::NbColumns()
+{
+    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXYZ::RowLength()
+{
+    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXYZ::ColLength()
+{
+    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXYZ::LowerRow()
+{
+    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXYZ::UpperRow()
+{
+    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXYZ::LowerCol()
+{
+    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_Array2OfXYZ::UpperCol()
+{
+    int _result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_Array2OfXYZ::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_Array2OfXYZ*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_Array2OfXYZ::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_Array2OfXYZ*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_Array2OfXYZ::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_Array2OfXYZ*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_Array2OfXYZ::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_Array2OfXYZ*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::TColgp_Array2OfXYZ^ Macad::Occt::TColgp_Array2OfXYZ::Assign(Macad::Occt::TColgp_Array2OfXYZ^ theOther)
+{
+    ::TColgp_Array2OfXYZ* _result = new ::TColgp_Array2OfXYZ();
+    *_result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->Assign(*(::TColgp_Array2OfXYZ*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXYZ(_result);
+}
+
+Macad::Occt::TColgp_Array2OfXYZ^ Macad::Occt::TColgp_Array2OfXYZ::CopyValues(Macad::Occt::TColgp_Array2OfXYZ^ theOther)
+{
+    ::TColgp_Array2OfXYZ* _result = new ::TColgp_Array2OfXYZ();
+    *_result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->CopyValues(*(::TColgp_Array2OfXYZ*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXYZ(_result);
+}
+
+Macad::Occt::TColgp_Array2OfXYZ^ Macad::Occt::TColgp_Array2OfXYZ::Move(Macad::Occt::TColgp_Array2OfXYZ^ theOther)
+{
+    ::TColgp_Array2OfXYZ* _result = new ::TColgp_Array2OfXYZ();
+    *_result = ((::TColgp_Array2OfXYZ*)_NativeInstance)->Move(*(::TColgp_Array2OfXYZ*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXYZ(_result);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_Array2OfXYZ::Value(int theRow, int theCol)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_Array2OfXYZ*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_Array2OfXYZ::ChangeValue(int theRow, int theCol)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_Array2OfXYZ*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfXYZ::SetValue(int theRow, int theCol, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_Array2OfXYZ*)_NativeInstance)->SetValue(theRow, theCol, *(gp_XYZ*)pp_theItem);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_Array2OfXYZ::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_Array2OfXYZ*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_Array2OfXYZ::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_Array2OfXYZ*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+void Macad::Occt::TColgp_Array2OfXYZ::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfXYZ*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfXYZ::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_Array2OfXYZ*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfXYZ::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfXYZ*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_Array2OfXYZ::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_Array2OfXYZ*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_Array2OfXYZ::Iterator
 //---------------------------------------------------------------------
 
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfDir
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfDir::TColgp_SequenceOfDir()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir>(BaseClass::InitMode::Uninitialized)
+bool Macad::Occt::TColgp_Array2OfXYZ::Iterator::More()
 {
-    _NativeInstance = new ::TColgp_SequenceOfDir();
-}
-
-Macad::Occt::TColgp_SequenceOfDir::TColgp_SequenceOfDir(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfDir(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::TColgp_SequenceOfDir::Size()
-{
-    int _result = ((::TColgp_SequenceOfDir*)_NativeInstance)->Size();
+    bool _result = ((::TColgp_Array2OfXYZ::Iterator*)_NativeInstance)->More();
     return _result;
 }
 
-int Macad::Occt::TColgp_SequenceOfDir::Length()
+void Macad::Occt::TColgp_Array2OfXYZ::Iterator::Next()
 {
-    int _result = ((::TColgp_SequenceOfDir*)_NativeInstance)->Length();
-    return _result;
+    ((::TColgp_Array2OfXYZ::Iterator*)_NativeInstance)->Next();
 }
 
-int Macad::Occt::TColgp_SequenceOfDir::Lower()
+Macad::Occt::XYZ Macad::Occt::TColgp_Array2OfXYZ::Iterator::Value()
 {
-    int _result = ((::TColgp_SequenceOfDir*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfDir::Upper()
-{
-    int _result = ((::TColgp_SequenceOfDir*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfDir::IsEmpty()
-{
-    bool _result = ((::TColgp_SequenceOfDir*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::Reverse()
-{
-    ((::TColgp_SequenceOfDir*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::Exchange(int I, int J)
-{
-    ((::TColgp_SequenceOfDir*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::TColgp_SequenceOfDir*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::Clear()
-{
-    ((::TColgp_SequenceOfDir*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_SequenceOfDir^ Macad::Occt::TColgp_SequenceOfDir::Assign(Macad::Occt::TColgp_SequenceOfDir^ theOther)
-{
-    ::TColgp_SequenceOfDir* _result = new ::TColgp_SequenceOfDir();
-    *_result = ((::TColgp_SequenceOfDir*)_NativeInstance)->Assign(*(::TColgp_SequenceOfDir*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfDir(_result);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::Remove(Macad::Occt::TColgp_SequenceOfDir::Iterator^ thePosition)
-{
-    ((::TColgp_SequenceOfDir*)_NativeInstance)->Remove(*(::TColgp_SequenceOfDir::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::Append(Macad::Occt::Dir theItem)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfDir*)_NativeInstance)->Append(*(gp_Dir*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::Prepend(Macad::Occt::Dir theItem)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfDir*)_NativeInstance)->Prepend(*(gp_Dir*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::InsertBefore(int theIndex, Macad::Occt::Dir theItem)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfDir*)_NativeInstance)->InsertBefore(theIndex, *(gp_Dir*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::InsertAfter(Macad::Occt::TColgp_SequenceOfDir::Iterator^ thePosition, Macad::Occt::Dir theItem)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfDir*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfDir::Iterator*)thePosition->NativeInstance, *(gp_Dir*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::Split(int theIndex, Macad::Occt::TColgp_SequenceOfDir^ theSeq)
-{
-    ((::TColgp_SequenceOfDir*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfDir*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::First()
-{
-    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->First();
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::ChangeFirst()
-{
-    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->ChangeFirst();
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::Last()
-{
-    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->Last();
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::ChangeLast()
-{
-    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->ChangeLast();
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::Value(int theIndex)
-{
-    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->Value(theIndex);
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::ChangeValue(int theIndex)
-{
-    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->ChangeValue(theIndex);
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::SetValue(int theIndex, Macad::Occt::Dir theItem)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfDir*)_NativeInstance)->SetValue(theIndex, *(gp_Dir*)pp_theItem);
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Dir>^ Macad::Occt::TColgp_SequenceOfDir::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Dir>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfDir::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Dir>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfDir::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfDir::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfDir::Iterator();
-}
-
-bool Macad::Occt::TColgp_SequenceOfDir::Iterator::More()
-{
-    bool _result = ((::TColgp_SequenceOfDir::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfDir::Iterator::Next()
-{
-    ((::TColgp_SequenceOfDir::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::Iterator::Value()
-{
-    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir::Iterator*)_NativeInstance)->Value();
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::Iterator::ChangeValue()
-{
-    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir::Iterator*)_NativeInstance)->ChangeValue();
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-bool Macad::Occt::TColgp_SequenceOfDir::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfDir::Iterator^ theOther)
-{
-    bool _result = ((::TColgp_SequenceOfDir::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfDir::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfDir::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::TColgp_SequenceOfDir::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfDir2d
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfDir2d::TColgp_SequenceOfDir2d()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfDir2d();
-}
-
-Macad::Occt::TColgp_SequenceOfDir2d::TColgp_SequenceOfDir2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfDir2d(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::TColgp_SequenceOfDir2d::Size()
-{
-    int _result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfDir2d::Length()
-{
-    int _result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfDir2d::Lower()
-{
-    int _result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfDir2d::Upper()
-{
-    int _result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfDir2d::IsEmpty()
-{
-    bool _result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::Reverse()
-{
-    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::Exchange(int I, int J)
-{
-    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::Clear()
-{
-    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_SequenceOfDir2d^ Macad::Occt::TColgp_SequenceOfDir2d::Assign(Macad::Occt::TColgp_SequenceOfDir2d^ theOther)
-{
-    ::TColgp_SequenceOfDir2d* _result = new ::TColgp_SequenceOfDir2d();
-    *_result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Assign(*(::TColgp_SequenceOfDir2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfDir2d(_result);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::Remove(Macad::Occt::TColgp_SequenceOfDir2d::Iterator^ thePosition)
-{
-    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Remove(*(::TColgp_SequenceOfDir2d::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::Append(Macad::Occt::Dir2d theItem)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Append(*(gp_Dir2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::Prepend(Macad::Occt::Dir2d theItem)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Prepend(*(gp_Dir2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::InsertBefore(int theIndex, Macad::Occt::Dir2d theItem)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Dir2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::InsertAfter(Macad::Occt::TColgp_SequenceOfDir2d::Iterator^ thePosition, Macad::Occt::Dir2d theItem)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfDir2d::Iterator*)thePosition->NativeInstance, *(gp_Dir2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::Split(int theIndex, Macad::Occt::TColgp_SequenceOfDir2d^ theSeq)
-{
-    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfDir2d*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::First()
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->First();
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::ChangeFirst()
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->ChangeFirst();
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::Last()
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Last();
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::ChangeLast()
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->ChangeLast();
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::Value(int theIndex)
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Value(theIndex);
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::ChangeValue(int theIndex)
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->ChangeValue(theIndex);
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::SetValue(int theIndex, Macad::Occt::Dir2d theItem)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->SetValue(theIndex, *(gp_Dir2d*)pp_theItem);
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Dir2d>^ Macad::Occt::TColgp_SequenceOfDir2d::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Dir2d>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfDir2d::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Dir2d>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfDir2d::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfDir2d::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir2d::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfDir2d::Iterator();
-}
-
-bool Macad::Occt::TColgp_SequenceOfDir2d::Iterator::More()
-{
-    bool _result = ((::TColgp_SequenceOfDir2d::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfDir2d::Iterator::Next()
-{
-    ((::TColgp_SequenceOfDir2d::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::Iterator::Value()
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d::Iterator*)_NativeInstance)->Value();
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::Iterator::ChangeValue()
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d::Iterator*)_NativeInstance)->ChangeValue();
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-bool Macad::Occt::TColgp_SequenceOfDir2d::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfDir2d::Iterator^ theOther)
-{
-    bool _result = ((::TColgp_SequenceOfDir2d::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfDir2d::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfDir2d::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::TColgp_SequenceOfDir2d::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfPnt
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfPnt::TColgp_SequenceOfPnt()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfPnt();
-}
-
-Macad::Occt::TColgp_SequenceOfPnt::TColgp_SequenceOfPnt(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfPnt(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::TColgp_SequenceOfPnt::Size()
-{
-    int _result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfPnt::Length()
-{
-    int _result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfPnt::Lower()
-{
-    int _result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfPnt::Upper()
-{
-    int _result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfPnt::IsEmpty()
-{
-    bool _result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::Reverse()
-{
-    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::Exchange(int I, int J)
-{
-    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::Clear()
-{
-    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_SequenceOfPnt^ Macad::Occt::TColgp_SequenceOfPnt::Assign(Macad::Occt::TColgp_SequenceOfPnt^ theOther)
-{
-    ::TColgp_SequenceOfPnt* _result = new ::TColgp_SequenceOfPnt();
-    *_result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Assign(*(::TColgp_SequenceOfPnt*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt(_result);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::Remove(Macad::Occt::TColgp_SequenceOfPnt::Iterator^ thePosition)
-{
-    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Remove(*(::TColgp_SequenceOfPnt::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::Append(Macad::Occt::Pnt theItem)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Append(*(gp_Pnt*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::Prepend(Macad::Occt::Pnt theItem)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Prepend(*(gp_Pnt*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::InsertBefore(int theIndex, Macad::Occt::Pnt theItem)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, *(gp_Pnt*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::InsertAfter(Macad::Occt::TColgp_SequenceOfPnt::Iterator^ thePosition, Macad::Occt::Pnt theItem)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfPnt*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfPnt::Iterator*)thePosition->NativeInstance, *(gp_Pnt*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::Split(int theIndex, Macad::Occt::TColgp_SequenceOfPnt^ theSeq)
-{
-    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfPnt*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::First()
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->First();
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::ChangeFirst()
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->ChangeFirst();
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::Last()
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Last();
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::ChangeLast()
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->ChangeLast();
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::Value(int theIndex)
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Value(theIndex);
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::ChangeValue(int theIndex)
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->ChangeValue(theIndex);
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::SetValue(int theIndex, Macad::Occt::Pnt theItem)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfPnt*)_NativeInstance)->SetValue(theIndex, *(gp_Pnt*)pp_theItem);
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Pnt>^ Macad::Occt::TColgp_SequenceOfPnt::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Pnt>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfPnt::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Pnt>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfPnt::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfPnt::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfPnt::Iterator();
-}
-
-bool Macad::Occt::TColgp_SequenceOfPnt::Iterator::More()
-{
-    bool _result = ((::TColgp_SequenceOfPnt::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt::Iterator::Next()
-{
-    ((::TColgp_SequenceOfPnt::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::Iterator::Value()
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt::Iterator*)_NativeInstance)->Value();
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::Iterator::ChangeValue()
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt::Iterator*)_NativeInstance)->ChangeValue();
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-bool Macad::Occt::TColgp_SequenceOfPnt::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfPnt::Iterator^ theOther)
-{
-    bool _result = ((::TColgp_SequenceOfPnt::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfPnt::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfPnt::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::TColgp_SequenceOfPnt::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfPnt2d
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfPnt2d::TColgp_SequenceOfPnt2d()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfPnt2d();
-}
-
-Macad::Occt::TColgp_SequenceOfPnt2d::TColgp_SequenceOfPnt2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfPnt2d(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::TColgp_SequenceOfPnt2d::Size()
-{
-    int _result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfPnt2d::Length()
-{
-    int _result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfPnt2d::Lower()
-{
-    int _result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfPnt2d::Upper()
-{
-    int _result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfPnt2d::IsEmpty()
-{
-    bool _result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::Reverse()
-{
-    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::Exchange(int I, int J)
-{
-    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::Clear()
-{
-    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_SequenceOfPnt2d^ Macad::Occt::TColgp_SequenceOfPnt2d::Assign(Macad::Occt::TColgp_SequenceOfPnt2d^ theOther)
-{
-    ::TColgp_SequenceOfPnt2d* _result = new ::TColgp_SequenceOfPnt2d();
-    *_result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Assign(*(::TColgp_SequenceOfPnt2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt2d(_result);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::Remove(Macad::Occt::TColgp_SequenceOfPnt2d::Iterator^ thePosition)
-{
-    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Remove(*(::TColgp_SequenceOfPnt2d::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::Append(Macad::Occt::Pnt2d theItem)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Append(*(gp_Pnt2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::Prepend(Macad::Occt::Pnt2d theItem)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Prepend(*(gp_Pnt2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::InsertBefore(int theIndex, Macad::Occt::Pnt2d theItem)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Pnt2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::InsertAfter(Macad::Occt::TColgp_SequenceOfPnt2d::Iterator^ thePosition, Macad::Occt::Pnt2d theItem)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfPnt2d::Iterator*)thePosition->NativeInstance, *(gp_Pnt2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::Split(int theIndex, Macad::Occt::TColgp_SequenceOfPnt2d^ theSeq)
-{
-    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfPnt2d*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::First()
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->First();
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::ChangeFirst()
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->ChangeFirst();
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::Last()
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Last();
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::ChangeLast()
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->ChangeLast();
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::Value(int theIndex)
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Value(theIndex);
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::ChangeValue(int theIndex)
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->ChangeValue(theIndex);
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::SetValue(int theIndex, Macad::Occt::Pnt2d theItem)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->SetValue(theIndex, *(gp_Pnt2d*)pp_theItem);
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Pnt2d>^ Macad::Occt::TColgp_SequenceOfPnt2d::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Pnt2d>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfPnt2d::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Pnt2d>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfPnt2d::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt2d::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfPnt2d::Iterator();
-}
-
-bool Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::More()
-{
-    bool _result = ((::TColgp_SequenceOfPnt2d::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::Next()
-{
-    ((::TColgp_SequenceOfPnt2d::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::Value()
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d::Iterator*)_NativeInstance)->Value();
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::ChangeValue()
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d::Iterator*)_NativeInstance)->ChangeValue();
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-bool Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfPnt2d::Iterator^ theOther)
-{
-    bool _result = ((::TColgp_SequenceOfPnt2d::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfPnt2d::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfVec
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfVec::TColgp_SequenceOfVec()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfVec();
-}
-
-Macad::Occt::TColgp_SequenceOfVec::TColgp_SequenceOfVec(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfVec(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::TColgp_SequenceOfVec::Size()
-{
-    int _result = ((::TColgp_SequenceOfVec*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfVec::Length()
-{
-    int _result = ((::TColgp_SequenceOfVec*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfVec::Lower()
-{
-    int _result = ((::TColgp_SequenceOfVec*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfVec::Upper()
-{
-    int _result = ((::TColgp_SequenceOfVec*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfVec::IsEmpty()
-{
-    bool _result = ((::TColgp_SequenceOfVec*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::Reverse()
-{
-    ((::TColgp_SequenceOfVec*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::Exchange(int I, int J)
-{
-    ((::TColgp_SequenceOfVec*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::TColgp_SequenceOfVec*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::Clear()
-{
-    ((::TColgp_SequenceOfVec*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_SequenceOfVec^ Macad::Occt::TColgp_SequenceOfVec::Assign(Macad::Occt::TColgp_SequenceOfVec^ theOther)
-{
-    ::TColgp_SequenceOfVec* _result = new ::TColgp_SequenceOfVec();
-    *_result = ((::TColgp_SequenceOfVec*)_NativeInstance)->Assign(*(::TColgp_SequenceOfVec*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfVec(_result);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::Remove(Macad::Occt::TColgp_SequenceOfVec::Iterator^ thePosition)
-{
-    ((::TColgp_SequenceOfVec*)_NativeInstance)->Remove(*(::TColgp_SequenceOfVec::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::Append(Macad::Occt::Vec theItem)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfVec*)_NativeInstance)->Append(*(gp_Vec*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::Prepend(Macad::Occt::Vec theItem)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfVec*)_NativeInstance)->Prepend(*(gp_Vec*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::InsertBefore(int theIndex, Macad::Occt::Vec theItem)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfVec*)_NativeInstance)->InsertBefore(theIndex, *(gp_Vec*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::InsertAfter(Macad::Occt::TColgp_SequenceOfVec::Iterator^ thePosition, Macad::Occt::Vec theItem)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfVec*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfVec::Iterator*)thePosition->NativeInstance, *(gp_Vec*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::Split(int theIndex, Macad::Occt::TColgp_SequenceOfVec^ theSeq)
-{
-    ((::TColgp_SequenceOfVec*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfVec*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::First()
-{
-    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->First();
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::ChangeFirst()
-{
-    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->ChangeFirst();
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::Last()
-{
-    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->Last();
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::ChangeLast()
-{
-    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->ChangeLast();
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::Value(int theIndex)
-{
-    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->Value(theIndex);
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::ChangeValue(int theIndex)
-{
-    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->ChangeValue(theIndex);
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::SetValue(int theIndex, Macad::Occt::Vec theItem)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfVec*)_NativeInstance)->SetValue(theIndex, *(gp_Vec*)pp_theItem);
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Vec>^ Macad::Occt::TColgp_SequenceOfVec::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Vec>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfVec::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Vec>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfVec::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfVec::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfVec::Iterator();
-}
-
-bool Macad::Occt::TColgp_SequenceOfVec::Iterator::More()
-{
-    bool _result = ((::TColgp_SequenceOfVec::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfVec::Iterator::Next()
-{
-    ((::TColgp_SequenceOfVec::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::Iterator::Value()
-{
-    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec::Iterator*)_NativeInstance)->Value();
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::Iterator::ChangeValue()
-{
-    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec::Iterator*)_NativeInstance)->ChangeValue();
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-bool Macad::Occt::TColgp_SequenceOfVec::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfVec::Iterator^ theOther)
-{
-    bool _result = ((::TColgp_SequenceOfVec::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfVec::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfVec::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::TColgp_SequenceOfVec::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfVec2d
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfVec2d::TColgp_SequenceOfVec2d()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfVec2d();
-}
-
-Macad::Occt::TColgp_SequenceOfVec2d::TColgp_SequenceOfVec2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfVec2d(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::TColgp_SequenceOfVec2d::Size()
-{
-    int _result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfVec2d::Length()
-{
-    int _result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfVec2d::Lower()
-{
-    int _result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfVec2d::Upper()
-{
-    int _result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfVec2d::IsEmpty()
-{
-    bool _result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::Reverse()
-{
-    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::Exchange(int I, int J)
-{
-    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::Clear()
-{
-    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_SequenceOfVec2d^ Macad::Occt::TColgp_SequenceOfVec2d::Assign(Macad::Occt::TColgp_SequenceOfVec2d^ theOther)
-{
-    ::TColgp_SequenceOfVec2d* _result = new ::TColgp_SequenceOfVec2d();
-    *_result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Assign(*(::TColgp_SequenceOfVec2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfVec2d(_result);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::Remove(Macad::Occt::TColgp_SequenceOfVec2d::Iterator^ thePosition)
-{
-    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Remove(*(::TColgp_SequenceOfVec2d::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::Append(Macad::Occt::Vec2d theItem)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Append(*(gp_Vec2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::Prepend(Macad::Occt::Vec2d theItem)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Prepend(*(gp_Vec2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::InsertBefore(int theIndex, Macad::Occt::Vec2d theItem)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Vec2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::InsertAfter(Macad::Occt::TColgp_SequenceOfVec2d::Iterator^ thePosition, Macad::Occt::Vec2d theItem)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfVec2d::Iterator*)thePosition->NativeInstance, *(gp_Vec2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::Split(int theIndex, Macad::Occt::TColgp_SequenceOfVec2d^ theSeq)
-{
-    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfVec2d*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::First()
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->First();
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::ChangeFirst()
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->ChangeFirst();
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::Last()
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Last();
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::ChangeLast()
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->ChangeLast();
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::Value(int theIndex)
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Value(theIndex);
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::ChangeValue(int theIndex)
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->ChangeValue(theIndex);
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::SetValue(int theIndex, Macad::Occt::Vec2d theItem)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->SetValue(theIndex, *(gp_Vec2d*)pp_theItem);
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Vec2d>^ Macad::Occt::TColgp_SequenceOfVec2d::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Vec2d>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfVec2d::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Vec2d>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfVec2d::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfVec2d::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec2d::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfVec2d::Iterator();
-}
-
-bool Macad::Occt::TColgp_SequenceOfVec2d::Iterator::More()
-{
-    bool _result = ((::TColgp_SequenceOfVec2d::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfVec2d::Iterator::Next()
-{
-    ((::TColgp_SequenceOfVec2d::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::Iterator::Value()
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d::Iterator*)_NativeInstance)->Value();
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::Iterator::ChangeValue()
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d::Iterator*)_NativeInstance)->ChangeValue();
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-bool Macad::Occt::TColgp_SequenceOfVec2d::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfVec2d::Iterator^ theOther)
-{
-    bool _result = ((::TColgp_SequenceOfVec2d::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfVec2d::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfVec2d::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::TColgp_SequenceOfVec2d::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfXY
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfXY::TColgp_SequenceOfXY()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfXY>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfXY();
-}
-
-Macad::Occt::TColgp_SequenceOfXY::TColgp_SequenceOfXY(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfXY>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfXY(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::TColgp_SequenceOfXY::Size()
-{
-    int _result = ((::TColgp_SequenceOfXY*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfXY::Length()
-{
-    int _result = ((::TColgp_SequenceOfXY*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfXY::Lower()
-{
-    int _result = ((::TColgp_SequenceOfXY*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfXY::Upper()
-{
-    int _result = ((::TColgp_SequenceOfXY*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfXY::IsEmpty()
-{
-    bool _result = ((::TColgp_SequenceOfXY*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::Reverse()
-{
-    ((::TColgp_SequenceOfXY*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::Exchange(int I, int J)
-{
-    ((::TColgp_SequenceOfXY*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::TColgp_SequenceOfXY*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::Clear()
-{
-    ((::TColgp_SequenceOfXY*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_SequenceOfXY^ Macad::Occt::TColgp_SequenceOfXY::Assign(Macad::Occt::TColgp_SequenceOfXY^ theOther)
-{
-    ::TColgp_SequenceOfXY* _result = new ::TColgp_SequenceOfXY();
-    *_result = ((::TColgp_SequenceOfXY*)_NativeInstance)->Assign(*(::TColgp_SequenceOfXY*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfXY(_result);
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::Remove(Macad::Occt::TColgp_SequenceOfXY::Iterator^ thePosition)
-{
-    ((::TColgp_SequenceOfXY*)_NativeInstance)->Remove(*(::TColgp_SequenceOfXY::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::Append(Macad::Occt::XY theItem)
-{
-    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfXY*)_NativeInstance)->Append(*(gp_XY*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::Prepend(Macad::Occt::XY theItem)
-{
-    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfXY*)_NativeInstance)->Prepend(*(gp_XY*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::InsertBefore(int theIndex, Macad::Occt::XY theItem)
-{
-    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfXY*)_NativeInstance)->InsertBefore(theIndex, *(gp_XY*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::InsertAfter(Macad::Occt::TColgp_SequenceOfXY::Iterator^ thePosition, Macad::Occt::XY theItem)
-{
-    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfXY*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfXY::Iterator*)thePosition->NativeInstance, *(gp_XY*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::Split(int theIndex, Macad::Occt::TColgp_SequenceOfXY^ theSeq)
-{
-    ((::TColgp_SequenceOfXY*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfXY*)theSeq->NativeInstance);
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::First()
-{
-    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->First();
-    return Macad::Occt::XY(_nativeResult);
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::ChangeFirst()
-{
-    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->ChangeFirst();
-    return Macad::Occt::XY(_nativeResult);
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::Last()
-{
-    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->Last();
-    return Macad::Occt::XY(_nativeResult);
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::ChangeLast()
-{
-    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->ChangeLast();
-    return Macad::Occt::XY(_nativeResult);
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::Value(int theIndex)
-{
-    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->Value(theIndex);
-    return Macad::Occt::XY(_nativeResult);
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::ChangeValue(int theIndex)
-{
-    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->ChangeValue(theIndex);
-    return Macad::Occt::XY(_nativeResult);
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::SetValue(int theIndex, Macad::Occt::XY theItem)
-{
-    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfXY*)_NativeInstance)->SetValue(theIndex, *(gp_XY*)pp_theItem);
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::XY>^ Macad::Occt::TColgp_SequenceOfXY::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::XY>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfXY::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::XY>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfXY::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfXY::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfXY::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfXY::Iterator();
-}
-
-bool Macad::Occt::TColgp_SequenceOfXY::Iterator::More()
-{
-    bool _result = ((::TColgp_SequenceOfXY::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfXY::Iterator::Next()
-{
-    ((::TColgp_SequenceOfXY::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::Iterator::Value()
-{
-    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY::Iterator*)_NativeInstance)->Value();
-    return Macad::Occt::XY(_nativeResult);
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::Iterator::ChangeValue()
-{
-    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY::Iterator*)_NativeInstance)->ChangeValue();
-    return Macad::Occt::XY(_nativeResult);
-}
-
-bool Macad::Occt::TColgp_SequenceOfXY::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfXY::Iterator^ theOther)
-{
-    bool _result = ((::TColgp_SequenceOfXY::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfXY::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfXY::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::TColgp_SequenceOfXY::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfXYZ
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfXYZ::TColgp_SequenceOfXYZ()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfXYZ>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfXYZ();
-}
-
-Macad::Occt::TColgp_SequenceOfXYZ::TColgp_SequenceOfXYZ(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfXYZ>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfXYZ(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::TColgp_SequenceOfXYZ::Size()
-{
-    int _result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfXYZ::Length()
-{
-    int _result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfXYZ::Lower()
-{
-    int _result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfXYZ::Upper()
-{
-    int _result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfXYZ::IsEmpty()
-{
-    bool _result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::Reverse()
-{
-    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::Exchange(int I, int J)
-{
-    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::Clear()
-{
-    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_SequenceOfXYZ^ Macad::Occt::TColgp_SequenceOfXYZ::Assign(Macad::Occt::TColgp_SequenceOfXYZ^ theOther)
-{
-    ::TColgp_SequenceOfXYZ* _result = new ::TColgp_SequenceOfXYZ();
-    *_result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Assign(*(::TColgp_SequenceOfXYZ*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfXYZ(_result);
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::Remove(Macad::Occt::TColgp_SequenceOfXYZ::Iterator^ thePosition)
-{
-    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Remove(*(::TColgp_SequenceOfXYZ::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::Append(Macad::Occt::XYZ theItem)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Append(*(gp_XYZ*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::Prepend(Macad::Occt::XYZ theItem)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Prepend(*(gp_XYZ*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::InsertBefore(int theIndex, Macad::Occt::XYZ theItem)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->InsertBefore(theIndex, *(gp_XYZ*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::InsertAfter(Macad::Occt::TColgp_SequenceOfXYZ::Iterator^ thePosition, Macad::Occt::XYZ theItem)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfXYZ::Iterator*)thePosition->NativeInstance, *(gp_XYZ*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::Split(int theIndex, Macad::Occt::TColgp_SequenceOfXYZ^ theSeq)
-{
-    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfXYZ*)theSeq->NativeInstance);
-}
-
-Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::First()
-{
-    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->First();
+    ::gp_XYZ _nativeResult = ((::TColgp_Array2OfXYZ::Iterator*)_NativeInstance)->Value();
     return Macad::Occt::XYZ(_nativeResult);
 }
 
-Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::ChangeFirst()
+Macad::Occt::XYZ Macad::Occt::TColgp_Array2OfXYZ::Iterator::ChangeValue()
 {
-    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->ChangeFirst();
+    ::gp_XYZ _nativeResult = ((::TColgp_Array2OfXYZ::Iterator*)_NativeInstance)->ChangeValue();
     return Macad::Occt::XYZ(_nativeResult);
-}
-
-Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::Last()
-{
-    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Last();
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::ChangeLast()
-{
-    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->ChangeLast();
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::Value(int theIndex)
-{
-    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Value(theIndex);
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::ChangeValue(int theIndex)
-{
-    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->ChangeValue(theIndex);
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::SetValue(int theIndex, Macad::Occt::XYZ theItem)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->SetValue(theIndex, *(gp_XYZ*)pp_theItem);
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::XYZ>^ Macad::Occt::TColgp_SequenceOfXYZ::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::XYZ>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfXYZ::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::XYZ>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfXYZ::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfXYZ::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfXYZ::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfXYZ::Iterator();
-}
-
-bool Macad::Occt::TColgp_SequenceOfXYZ::Iterator::More()
-{
-    bool _result = ((::TColgp_SequenceOfXYZ::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfXYZ::Iterator::Next()
-{
-    ((::TColgp_SequenceOfXYZ::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::Iterator::Value()
-{
-    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ::Iterator*)_NativeInstance)->Value();
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::Iterator::ChangeValue()
-{
-    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ::Iterator*)_NativeInstance)->ChangeValue();
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-bool Macad::Occt::TColgp_SequenceOfXYZ::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfXYZ::Iterator^ theOther)
-{
-    bool _result = ((::TColgp_SequenceOfXYZ::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfXYZ::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfXYZ::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::TColgp_SequenceOfXYZ::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfArray1OfPnt2d
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::TColgp_SequenceOfArray1OfPnt2d()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfArray1OfPnt2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfArray1OfPnt2d();
-}
-
-Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::TColgp_SequenceOfArray1OfPnt2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfArray1OfPnt2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfArray1OfPnt2d(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Size()
-{
-    int _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Length()
-{
-    int _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Lower()
-{
-    int _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Upper()
-{
-    int _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::IsEmpty()
-{
-    bool _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Reverse()
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Exchange(int I, int J)
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Clear()
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Assign(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theOther)
-{
-    ::TColgp_SequenceOfArray1OfPnt2d* _result = new ::TColgp_SequenceOfArray1OfPnt2d();
-    *_result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Assign(*(::TColgp_SequenceOfArray1OfPnt2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfArray1OfPnt2d(_result);
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Remove(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator^ thePosition)
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Remove(*(::TColgp_SequenceOfArray1OfPnt2d::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Append(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Append(Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Prepend(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Prepend(Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::InsertBefore(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::InsertAfter(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator^ thePosition, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfArray1OfPnt2d::Iterator*)thePosition->NativeInstance, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Split(int theIndex, Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theSeq)
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfArray1OfPnt2d*)theSeq->NativeInstance);
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::First()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::ChangeFirst()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->ChangeFirst();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Last()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::ChangeLast()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->ChangeLast();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Value(int theIndex)
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Value(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::ChangeValue(int theIndex)
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->ChangeValue(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::SetValue(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfArray1OfPnt2d::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfArray1OfPnt2d::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfArray1OfPnt2d::Iterator();
-}
-
-bool Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::More()
-{
-    bool _result = ((::TColgp_SequenceOfArray1OfPnt2d::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::Next()
-{
-    ((::TColgp_SequenceOfArray1OfPnt2d::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::Value()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::ChangeValue()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator^ theOther)
-{
-    bool _result = ((::TColgp_SequenceOfArray1OfPnt2d::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfArray1OfPnt2d::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfAx1
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfAx1::TColgp_SequenceOfAx1()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfAx1>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfAx1();
-}
-
-Macad::Occt::TColgp_SequenceOfAx1::TColgp_SequenceOfAx1(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfAx1>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfAx1(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::TColgp_SequenceOfAx1::Size()
-{
-    int _result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfAx1::Length()
-{
-    int _result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfAx1::Lower()
-{
-    int _result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::TColgp_SequenceOfAx1::Upper()
-{
-    int _result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfAx1::IsEmpty()
-{
-    bool _result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::Reverse()
-{
-    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::Exchange(int I, int J)
-{
-    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::Clear()
-{
-    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_SequenceOfAx1^ Macad::Occt::TColgp_SequenceOfAx1::Assign(Macad::Occt::TColgp_SequenceOfAx1^ theOther)
-{
-    ::TColgp_SequenceOfAx1* _result = new ::TColgp_SequenceOfAx1();
-    *_result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Assign(*(::TColgp_SequenceOfAx1*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfAx1(_result);
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::Remove(Macad::Occt::TColgp_SequenceOfAx1::Iterator^ thePosition)
-{
-    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Remove(*(::TColgp_SequenceOfAx1::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::Append(Macad::Occt::Ax1 theItem)
-{
-    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Append(*(gp_Ax1*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::Prepend(Macad::Occt::Ax1 theItem)
-{
-    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Prepend(*(gp_Ax1*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::InsertBefore(int theIndex, Macad::Occt::Ax1 theItem)
-{
-    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfAx1*)_NativeInstance)->InsertBefore(theIndex, *(gp_Ax1*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::InsertAfter(Macad::Occt::TColgp_SequenceOfAx1::Iterator^ thePosition, Macad::Occt::Ax1 theItem)
-{
-    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfAx1*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfAx1::Iterator*)thePosition->NativeInstance, *(gp_Ax1*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::Split(int theIndex, Macad::Occt::TColgp_SequenceOfAx1^ theSeq)
-{
-    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfAx1*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::First()
-{
-    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->First();
-    return Macad::Occt::Ax1(_nativeResult);
-}
-
-Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::ChangeFirst()
-{
-    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->ChangeFirst();
-    return Macad::Occt::Ax1(_nativeResult);
-}
-
-Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::Last()
-{
-    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Last();
-    return Macad::Occt::Ax1(_nativeResult);
-}
-
-Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::ChangeLast()
-{
-    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->ChangeLast();
-    return Macad::Occt::Ax1(_nativeResult);
-}
-
-Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::Value(int theIndex)
-{
-    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Value(theIndex);
-    return Macad::Occt::Ax1(_nativeResult);
-}
-
-Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::ChangeValue(int theIndex)
-{
-    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->ChangeValue(theIndex);
-    return Macad::Occt::Ax1(_nativeResult);
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::SetValue(int theIndex, Macad::Occt::Ax1 theItem)
-{
-    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
-    ((::TColgp_SequenceOfAx1*)_NativeInstance)->SetValue(theIndex, *(gp_Ax1*)pp_theItem);
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Ax1>^ Macad::Occt::TColgp_SequenceOfAx1::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Ax1>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfAx1::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Ax1>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  TColgp_SequenceOfAx1::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::TColgp_SequenceOfAx1::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::TColgp_SequenceOfAx1::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::TColgp_SequenceOfAx1::Iterator();
-}
-
-bool Macad::Occt::TColgp_SequenceOfAx1::Iterator::More()
-{
-    bool _result = ((::TColgp_SequenceOfAx1::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::TColgp_SequenceOfAx1::Iterator::Next()
-{
-    ((::TColgp_SequenceOfAx1::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::Iterator::Value()
-{
-    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1::Iterator*)_NativeInstance)->Value();
-    return Macad::Occt::Ax1(_nativeResult);
-}
-
-Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::Iterator::ChangeValue()
-{
-    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1::Iterator*)_NativeInstance)->ChangeValue();
-    return Macad::Occt::Ax1(_nativeResult);
-}
-
-bool Macad::Occt::TColgp_SequenceOfAx1::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfAx1::Iterator^ theOther)
-{
-    bool _result = ((::TColgp_SequenceOfAx1::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfAx1::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::TColgp_SequenceOfAx1::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::TColgp_SequenceOfAx1::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
 }
 
 
@@ -5878,58 +5149,14 @@ bool Macad::Occt::TColgp_SequenceOfAx1::Iterator::Equals(System::Object^ obj)
 //  Class  TColgp_HArray1OfCirc2d
 //---------------------------------------------------------------------
 
-Macad::Occt::TColgp_HArray1OfCirc2d::TColgp_HArray1OfCirc2d()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfCirc2d();
-}
-
-Macad::Occt::TColgp_HArray1OfCirc2d::TColgp_HArray1OfCirc2d(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfCirc2d(theLower, theUpper);
-}
-
-Macad::Occt::TColgp_HArray1OfCirc2d::TColgp_HArray1OfCirc2d(int theLower, int theUpper, Macad::Occt::gp_Circ2d^ theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfCirc2d(theLower, theUpper, *(::gp_Circ2d*)theValue->NativeInstance);
-}
-
-Macad::Occt::TColgp_HArray1OfCirc2d::TColgp_HArray1OfCirc2d(Macad::Occt::gp_Circ2d^ theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfCirc2d(*(::gp_Circ2d*)theBegin->NativeInstance, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::TColgp_HArray1OfCirc2d::TColgp_HArray1OfCirc2d(Macad::Occt::TColgp_Array1OfCirc2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfCirc2d(*(::TColgp_Array1OfCirc2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array1OfCirc2d^ Macad::Occt::TColgp_HArray1OfCirc2d::Array1()
-{
-    ::TColgp_Array1OfCirc2d* _result = new ::TColgp_Array1OfCirc2d();
-    *_result = (::TColgp_Array1OfCirc2d)((::TColgp_HArray1OfCirc2d*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfCirc2d(_result);
-}
-
-Macad::Occt::TColgp_Array1OfCirc2d^ Macad::Occt::TColgp_HArray1OfCirc2d::ChangeArray1()
-{
-    ::TColgp_Array1OfCirc2d* _result = new ::TColgp_Array1OfCirc2d();
-    *_result = ((::TColgp_HArray1OfCirc2d*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfCirc2d(_result);
-}
-
 void Macad::Occt::TColgp_HArray1OfCirc2d::Init(Macad::Occt::gp_Circ2d^ theValue)
 {
     ((::TColgp_HArray1OfCirc2d*)_NativeInstance)->Init(*(::gp_Circ2d*)theValue->NativeInstance);
 }
 
-int Macad::Occt::TColgp_HArray1OfCirc2d::Size()
+long long unsigned int Macad::Occt::TColgp_HArray1OfCirc2d::Size()
 {
-    int _result = ((::TColgp_HArray1OfCirc2d*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_HArray1OfCirc2d*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -5955,16 +5182,6 @@ int Macad::Occt::TColgp_HArray1OfCirc2d::Upper()
 {
     int _result = ((::TColgp_HArray1OfCirc2d*)_NativeInstance)->Upper();
     return _result;
-}
-
-Macad::Occt::TColgp_HArray1OfCirc2d^ Macad::Occt::TColgp_HArray1OfCirc2d::Assign(Macad::Occt::TColgp_HArray1OfCirc2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray1OfCirc2d^ Macad::Occt::TColgp_HArray1OfCirc2d::Move(Macad::Occt::TColgp_HArray1OfCirc2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray1OfCirc2d::First()
@@ -6009,6 +5226,20 @@ Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray1OfCirc2d::ChangeValue(int the
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
 }
 
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray1OfCirc2d::At(long long unsigned int theIndex)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = (::gp_Circ2d)((::TColgp_HArray1OfCirc2d*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray1OfCirc2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = ((::TColgp_HArray1OfCirc2d*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
 void Macad::Occt::TColgp_HArray1OfCirc2d::SetValue(int theIndex, Macad::Occt::gp_Circ2d^ theItem)
 {
     ((::TColgp_HArray1OfCirc2d*)_NativeInstance)->SetValue(theIndex, *(::gp_Circ2d*)theItem->NativeInstance);
@@ -6029,10 +5260,39 @@ void Macad::Occt::TColgp_HArray1OfCirc2d::Resize(int theLower, int theUpper, boo
     ((::TColgp_HArray1OfCirc2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
 }
 
+void Macad::Occt::TColgp_HArray1OfCirc2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_HArray1OfCirc2d*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
 bool Macad::Occt::TColgp_HArray1OfCirc2d::IsDeletable()
 {
     bool _result = ((::TColgp_HArray1OfCirc2d*)_NativeInstance)->IsDeletable();
     return _result;
+}
+
+Macad::Occt::TColgp_HArray1OfCirc2d::TColgp_HArray1OfCirc2d()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfCirc2d();
+}
+
+Macad::Occt::TColgp_HArray1OfCirc2d::TColgp_HArray1OfCirc2d(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfCirc2d(theLower, theUpper);
+}
+
+Macad::Occt::TColgp_HArray1OfCirc2d::TColgp_HArray1OfCirc2d(int theLower, int theUpper, Macad::Occt::gp_Circ2d^ theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfCirc2d(theLower, theUpper, *(::gp_Circ2d*)theValue->NativeInstance);
+}
+
+Macad::Occt::TColgp_HArray1OfCirc2d::TColgp_HArray1OfCirc2d(Macad::Occt::gp_Circ2d^ theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfCirc2d(*(::gp_Circ2d*)theBegin->NativeInstance, theLower, theUpper, theUseBuffer);
 }
 
 Macad::Occt::TColgp_HArray1OfCirc2d^ Macad::Occt::TColgp_HArray1OfCirc2d::CreateDowncasted(::TColgp_HArray1OfCirc2d* instance)
@@ -6056,57 +5316,36 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_HArray1OfCirc2d::GetEnumer
 //  Class  TColgp_HArray1OfCirc2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray1OfCirc2d::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray1OfCirc2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray1OfCirc2d::Iterator::Next()
+{
+    ((::TColgp_HArray1OfCirc2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray1OfCirc2d::Iterator::Value()
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = (::gp_Circ2d)((::TColgp_HArray1OfCirc2d::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray1OfCirc2d::Iterator::ChangeValue()
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = ((::TColgp_HArray1OfCirc2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray1OfDir
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray1OfDir::TColgp_HArray1OfDir()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfDir();
-}
-
-Macad::Occt::TColgp_HArray1OfDir::TColgp_HArray1OfDir(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfDir(theLower, theUpper);
-}
-
-Macad::Occt::TColgp_HArray1OfDir::TColgp_HArray1OfDir(int theLower, int theUpper, Macad::Occt::Dir theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray1OfDir(theLower, theUpper, *(gp_Dir*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray1OfDir::TColgp_HArray1OfDir(Macad::Occt::Dir theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theBegin = &theBegin;
-    NativeInstance = new ::TColgp_HArray1OfDir(*(gp_Dir*)pp_theBegin, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::TColgp_HArray1OfDir::TColgp_HArray1OfDir(Macad::Occt::TColgp_Array1OfDir^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfDir(*(::TColgp_Array1OfDir*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array1OfDir^ Macad::Occt::TColgp_HArray1OfDir::Array1()
-{
-    ::TColgp_Array1OfDir* _result = new ::TColgp_Array1OfDir();
-    *_result = (::TColgp_Array1OfDir)((::TColgp_HArray1OfDir*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfDir(_result);
-}
-
-Macad::Occt::TColgp_Array1OfDir^ Macad::Occt::TColgp_HArray1OfDir::ChangeArray1()
-{
-    ::TColgp_Array1OfDir* _result = new ::TColgp_Array1OfDir();
-    *_result = ((::TColgp_HArray1OfDir*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfDir(_result);
-}
 
 void Macad::Occt::TColgp_HArray1OfDir::Init(Macad::Occt::Dir theValue)
 {
@@ -6114,9 +5353,9 @@ void Macad::Occt::TColgp_HArray1OfDir::Init(Macad::Occt::Dir theValue)
     ((::TColgp_HArray1OfDir*)_NativeInstance)->Init(*(gp_Dir*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_HArray1OfDir::Size()
+long long unsigned int Macad::Occt::TColgp_HArray1OfDir::Size()
 {
-    int _result = ((::TColgp_HArray1OfDir*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_HArray1OfDir*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -6142,16 +5381,6 @@ int Macad::Occt::TColgp_HArray1OfDir::Upper()
 {
     int _result = ((::TColgp_HArray1OfDir*)_NativeInstance)->Upper();
     return _result;
-}
-
-Macad::Occt::TColgp_HArray1OfDir^ Macad::Occt::TColgp_HArray1OfDir::Assign(Macad::Occt::TColgp_HArray1OfDir^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray1OfDir^ Macad::Occt::TColgp_HArray1OfDir::Move(Macad::Occt::TColgp_HArray1OfDir^ theOther)
-{
-    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Dir Macad::Occt::TColgp_HArray1OfDir::First()
@@ -6190,6 +5419,18 @@ Macad::Occt::Dir Macad::Occt::TColgp_HArray1OfDir::ChangeValue(int theIndex)
     return Macad::Occt::Dir(_nativeResult);
 }
 
+Macad::Occt::Dir Macad::Occt::TColgp_HArray1OfDir::At(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HArray1OfDir*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HArray1OfDir::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HArray1OfDir*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
 void Macad::Occt::TColgp_HArray1OfDir::SetValue(int theIndex, Macad::Occt::Dir theItem)
 {
     pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
@@ -6211,10 +5452,41 @@ void Macad::Occt::TColgp_HArray1OfDir::Resize(int theLower, int theUpper, bool t
     ((::TColgp_HArray1OfDir*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
 }
 
+void Macad::Occt::TColgp_HArray1OfDir::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_HArray1OfDir*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
 bool Macad::Occt::TColgp_HArray1OfDir::IsDeletable()
 {
     bool _result = ((::TColgp_HArray1OfDir*)_NativeInstance)->IsDeletable();
     return _result;
+}
+
+Macad::Occt::TColgp_HArray1OfDir::TColgp_HArray1OfDir()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfDir();
+}
+
+Macad::Occt::TColgp_HArray1OfDir::TColgp_HArray1OfDir(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfDir(theLower, theUpper);
+}
+
+Macad::Occt::TColgp_HArray1OfDir::TColgp_HArray1OfDir(int theLower, int theUpper, Macad::Occt::Dir theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray1OfDir(theLower, theUpper, *(gp_Dir*)pp_theValue);
+}
+
+Macad::Occt::TColgp_HArray1OfDir::TColgp_HArray1OfDir(Macad::Occt::Dir theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theBegin = &theBegin;
+    NativeInstance = new ::TColgp_HArray1OfDir(*(gp_Dir*)pp_theBegin, theLower, theUpper, theUseBuffer);
 }
 
 Macad::Occt::TColgp_HArray1OfDir^ Macad::Occt::TColgp_HArray1OfDir::CreateDowncasted(::TColgp_HArray1OfDir* instance)
@@ -6238,57 +5510,34 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_HArray1OfDir::GetEnumerato
 //  Class  TColgp_HArray1OfDir::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray1OfDir::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray1OfDir::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray1OfDir::Iterator::Next()
+{
+    ((::TColgp_HArray1OfDir::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HArray1OfDir::Iterator::Value()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HArray1OfDir::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HArray1OfDir::Iterator::ChangeValue()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HArray1OfDir::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray1OfDir2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray1OfDir2d::TColgp_HArray1OfDir2d()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfDir2d();
-}
-
-Macad::Occt::TColgp_HArray1OfDir2d::TColgp_HArray1OfDir2d(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfDir2d(theLower, theUpper);
-}
-
-Macad::Occt::TColgp_HArray1OfDir2d::TColgp_HArray1OfDir2d(int theLower, int theUpper, Macad::Occt::Dir2d theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray1OfDir2d(theLower, theUpper, *(gp_Dir2d*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray1OfDir2d::TColgp_HArray1OfDir2d(Macad::Occt::Dir2d theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theBegin = &theBegin;
-    NativeInstance = new ::TColgp_HArray1OfDir2d(*(gp_Dir2d*)pp_theBegin, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::TColgp_HArray1OfDir2d::TColgp_HArray1OfDir2d(Macad::Occt::TColgp_Array1OfDir2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfDir2d(*(::TColgp_Array1OfDir2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array1OfDir2d^ Macad::Occt::TColgp_HArray1OfDir2d::Array1()
-{
-    ::TColgp_Array1OfDir2d* _result = new ::TColgp_Array1OfDir2d();
-    *_result = (::TColgp_Array1OfDir2d)((::TColgp_HArray1OfDir2d*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfDir2d(_result);
-}
-
-Macad::Occt::TColgp_Array1OfDir2d^ Macad::Occt::TColgp_HArray1OfDir2d::ChangeArray1()
-{
-    ::TColgp_Array1OfDir2d* _result = new ::TColgp_Array1OfDir2d();
-    *_result = ((::TColgp_HArray1OfDir2d*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfDir2d(_result);
-}
 
 void Macad::Occt::TColgp_HArray1OfDir2d::Init(Macad::Occt::Dir2d theValue)
 {
@@ -6296,9 +5545,9 @@ void Macad::Occt::TColgp_HArray1OfDir2d::Init(Macad::Occt::Dir2d theValue)
     ((::TColgp_HArray1OfDir2d*)_NativeInstance)->Init(*(gp_Dir2d*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_HArray1OfDir2d::Size()
+long long unsigned int Macad::Occt::TColgp_HArray1OfDir2d::Size()
 {
-    int _result = ((::TColgp_HArray1OfDir2d*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_HArray1OfDir2d*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -6324,16 +5573,6 @@ int Macad::Occt::TColgp_HArray1OfDir2d::Upper()
 {
     int _result = ((::TColgp_HArray1OfDir2d*)_NativeInstance)->Upper();
     return _result;
-}
-
-Macad::Occt::TColgp_HArray1OfDir2d^ Macad::Occt::TColgp_HArray1OfDir2d::Assign(Macad::Occt::TColgp_HArray1OfDir2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray1OfDir2d^ Macad::Occt::TColgp_HArray1OfDir2d::Move(Macad::Occt::TColgp_HArray1OfDir2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Dir2d Macad::Occt::TColgp_HArray1OfDir2d::First()
@@ -6372,6 +5611,18 @@ Macad::Occt::Dir2d Macad::Occt::TColgp_HArray1OfDir2d::ChangeValue(int theIndex)
     return Macad::Occt::Dir2d(_nativeResult);
 }
 
+Macad::Occt::Dir2d Macad::Occt::TColgp_HArray1OfDir2d::At(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HArray1OfDir2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HArray1OfDir2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HArray1OfDir2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
 void Macad::Occt::TColgp_HArray1OfDir2d::SetValue(int theIndex, Macad::Occt::Dir2d theItem)
 {
     pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
@@ -6393,10 +5644,41 @@ void Macad::Occt::TColgp_HArray1OfDir2d::Resize(int theLower, int theUpper, bool
     ((::TColgp_HArray1OfDir2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
 }
 
+void Macad::Occt::TColgp_HArray1OfDir2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_HArray1OfDir2d*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
 bool Macad::Occt::TColgp_HArray1OfDir2d::IsDeletable()
 {
     bool _result = ((::TColgp_HArray1OfDir2d*)_NativeInstance)->IsDeletable();
     return _result;
+}
+
+Macad::Occt::TColgp_HArray1OfDir2d::TColgp_HArray1OfDir2d()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfDir2d();
+}
+
+Macad::Occt::TColgp_HArray1OfDir2d::TColgp_HArray1OfDir2d(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfDir2d(theLower, theUpper);
+}
+
+Macad::Occt::TColgp_HArray1OfDir2d::TColgp_HArray1OfDir2d(int theLower, int theUpper, Macad::Occt::Dir2d theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray1OfDir2d(theLower, theUpper, *(gp_Dir2d*)pp_theValue);
+}
+
+Macad::Occt::TColgp_HArray1OfDir2d::TColgp_HArray1OfDir2d(Macad::Occt::Dir2d theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theBegin = &theBegin;
+    NativeInstance = new ::TColgp_HArray1OfDir2d(*(gp_Dir2d*)pp_theBegin, theLower, theUpper, theUseBuffer);
 }
 
 Macad::Occt::TColgp_HArray1OfDir2d^ Macad::Occt::TColgp_HArray1OfDir2d::CreateDowncasted(::TColgp_HArray1OfDir2d* instance)
@@ -6420,64 +5702,43 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_HArray1OfDir2d::GetEnumera
 //  Class  TColgp_HArray1OfDir2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray1OfDir2d::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray1OfDir2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray1OfDir2d::Iterator::Next()
+{
+    ((::TColgp_HArray1OfDir2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HArray1OfDir2d::Iterator::Value()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HArray1OfDir2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HArray1OfDir2d::Iterator::ChangeValue()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HArray1OfDir2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray1OfLin2d
 //---------------------------------------------------------------------
 
-Macad::Occt::TColgp_HArray1OfLin2d::TColgp_HArray1OfLin2d()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfLin2d();
-}
-
-Macad::Occt::TColgp_HArray1OfLin2d::TColgp_HArray1OfLin2d(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfLin2d(theLower, theUpper);
-}
-
-Macad::Occt::TColgp_HArray1OfLin2d::TColgp_HArray1OfLin2d(int theLower, int theUpper, Macad::Occt::gp_Lin2d^ theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfLin2d(theLower, theUpper, *(::gp_Lin2d*)theValue->NativeInstance);
-}
-
-Macad::Occt::TColgp_HArray1OfLin2d::TColgp_HArray1OfLin2d(Macad::Occt::gp_Lin2d^ theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfLin2d(*(::gp_Lin2d*)theBegin->NativeInstance, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::TColgp_HArray1OfLin2d::TColgp_HArray1OfLin2d(Macad::Occt::TColgp_Array1OfLin2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfLin2d(*(::TColgp_Array1OfLin2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array1OfLin2d^ Macad::Occt::TColgp_HArray1OfLin2d::Array1()
-{
-    ::TColgp_Array1OfLin2d* _result = new ::TColgp_Array1OfLin2d();
-    *_result = (::TColgp_Array1OfLin2d)((::TColgp_HArray1OfLin2d*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfLin2d(_result);
-}
-
-Macad::Occt::TColgp_Array1OfLin2d^ Macad::Occt::TColgp_HArray1OfLin2d::ChangeArray1()
-{
-    ::TColgp_Array1OfLin2d* _result = new ::TColgp_Array1OfLin2d();
-    *_result = ((::TColgp_HArray1OfLin2d*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfLin2d(_result);
-}
-
 void Macad::Occt::TColgp_HArray1OfLin2d::Init(Macad::Occt::gp_Lin2d^ theValue)
 {
     ((::TColgp_HArray1OfLin2d*)_NativeInstance)->Init(*(::gp_Lin2d*)theValue->NativeInstance);
 }
 
-int Macad::Occt::TColgp_HArray1OfLin2d::Size()
+long long unsigned int Macad::Occt::TColgp_HArray1OfLin2d::Size()
 {
-    int _result = ((::TColgp_HArray1OfLin2d*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_HArray1OfLin2d*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -6503,16 +5764,6 @@ int Macad::Occt::TColgp_HArray1OfLin2d::Upper()
 {
     int _result = ((::TColgp_HArray1OfLin2d*)_NativeInstance)->Upper();
     return _result;
-}
-
-Macad::Occt::TColgp_HArray1OfLin2d^ Macad::Occt::TColgp_HArray1OfLin2d::Assign(Macad::Occt::TColgp_HArray1OfLin2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray1OfLin2d^ Macad::Occt::TColgp_HArray1OfLin2d::Move(Macad::Occt::TColgp_HArray1OfLin2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray1OfLin2d::First()
@@ -6557,6 +5808,20 @@ Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray1OfLin2d::ChangeValue(int theIn
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
 }
 
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray1OfLin2d::At(long long unsigned int theIndex)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = (::gp_Lin2d)((::TColgp_HArray1OfLin2d*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray1OfLin2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = ((::TColgp_HArray1OfLin2d*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
 void Macad::Occt::TColgp_HArray1OfLin2d::SetValue(int theIndex, Macad::Occt::gp_Lin2d^ theItem)
 {
     ((::TColgp_HArray1OfLin2d*)_NativeInstance)->SetValue(theIndex, *(::gp_Lin2d*)theItem->NativeInstance);
@@ -6577,10 +5842,39 @@ void Macad::Occt::TColgp_HArray1OfLin2d::Resize(int theLower, int theUpper, bool
     ((::TColgp_HArray1OfLin2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
 }
 
+void Macad::Occt::TColgp_HArray1OfLin2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_HArray1OfLin2d*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
 bool Macad::Occt::TColgp_HArray1OfLin2d::IsDeletable()
 {
     bool _result = ((::TColgp_HArray1OfLin2d*)_NativeInstance)->IsDeletable();
     return _result;
+}
+
+Macad::Occt::TColgp_HArray1OfLin2d::TColgp_HArray1OfLin2d()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfLin2d();
+}
+
+Macad::Occt::TColgp_HArray1OfLin2d::TColgp_HArray1OfLin2d(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfLin2d(theLower, theUpper);
+}
+
+Macad::Occt::TColgp_HArray1OfLin2d::TColgp_HArray1OfLin2d(int theLower, int theUpper, Macad::Occt::gp_Lin2d^ theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfLin2d(theLower, theUpper, *(::gp_Lin2d*)theValue->NativeInstance);
+}
+
+Macad::Occt::TColgp_HArray1OfLin2d::TColgp_HArray1OfLin2d(Macad::Occt::gp_Lin2d^ theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfLin2d(*(::gp_Lin2d*)theBegin->NativeInstance, theLower, theUpper, theUseBuffer);
 }
 
 Macad::Occt::TColgp_HArray1OfLin2d^ Macad::Occt::TColgp_HArray1OfLin2d::CreateDowncasted(::TColgp_HArray1OfLin2d* instance)
@@ -6604,57 +5898,36 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_HArray1OfLin2d::GetEnumera
 //  Class  TColgp_HArray1OfLin2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray1OfLin2d::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray1OfLin2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray1OfLin2d::Iterator::Next()
+{
+    ((::TColgp_HArray1OfLin2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray1OfLin2d::Iterator::Value()
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = (::gp_Lin2d)((::TColgp_HArray1OfLin2d::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray1OfLin2d::Iterator::ChangeValue()
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = ((::TColgp_HArray1OfLin2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray1OfPnt
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray1OfPnt::TColgp_HArray1OfPnt()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfPnt();
-}
-
-Macad::Occt::TColgp_HArray1OfPnt::TColgp_HArray1OfPnt(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfPnt(theLower, theUpper);
-}
-
-Macad::Occt::TColgp_HArray1OfPnt::TColgp_HArray1OfPnt(int theLower, int theUpper, Macad::Occt::Pnt theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray1OfPnt(theLower, theUpper, *(gp_Pnt*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray1OfPnt::TColgp_HArray1OfPnt(Macad::Occt::Pnt theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theBegin = &theBegin;
-    NativeInstance = new ::TColgp_HArray1OfPnt(*(gp_Pnt*)pp_theBegin, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::TColgp_HArray1OfPnt::TColgp_HArray1OfPnt(Macad::Occt::TColgp_Array1OfPnt^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfPnt(*(::TColgp_Array1OfPnt*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array1OfPnt^ Macad::Occt::TColgp_HArray1OfPnt::Array1()
-{
-    ::TColgp_Array1OfPnt* _result = new ::TColgp_Array1OfPnt();
-    *_result = (::TColgp_Array1OfPnt)((::TColgp_HArray1OfPnt*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfPnt(_result);
-}
-
-Macad::Occt::TColgp_Array1OfPnt^ Macad::Occt::TColgp_HArray1OfPnt::ChangeArray1()
-{
-    ::TColgp_Array1OfPnt* _result = new ::TColgp_Array1OfPnt();
-    *_result = ((::TColgp_HArray1OfPnt*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfPnt(_result);
-}
 
 void Macad::Occt::TColgp_HArray1OfPnt::Init(Macad::Occt::Pnt theValue)
 {
@@ -6662,9 +5935,9 @@ void Macad::Occt::TColgp_HArray1OfPnt::Init(Macad::Occt::Pnt theValue)
     ((::TColgp_HArray1OfPnt*)_NativeInstance)->Init(*(gp_Pnt*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_HArray1OfPnt::Size()
+long long unsigned int Macad::Occt::TColgp_HArray1OfPnt::Size()
 {
-    int _result = ((::TColgp_HArray1OfPnt*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_HArray1OfPnt*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -6690,16 +5963,6 @@ int Macad::Occt::TColgp_HArray1OfPnt::Upper()
 {
     int _result = ((::TColgp_HArray1OfPnt*)_NativeInstance)->Upper();
     return _result;
-}
-
-Macad::Occt::TColgp_HArray1OfPnt^ Macad::Occt::TColgp_HArray1OfPnt::Assign(Macad::Occt::TColgp_HArray1OfPnt^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray1OfPnt^ Macad::Occt::TColgp_HArray1OfPnt::Move(Macad::Occt::TColgp_HArray1OfPnt^ theOther)
-{
-    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Pnt Macad::Occt::TColgp_HArray1OfPnt::First()
@@ -6738,6 +6001,18 @@ Macad::Occt::Pnt Macad::Occt::TColgp_HArray1OfPnt::ChangeValue(int theIndex)
     return Macad::Occt::Pnt(_nativeResult);
 }
 
+Macad::Occt::Pnt Macad::Occt::TColgp_HArray1OfPnt::At(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HArray1OfPnt*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HArray1OfPnt::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HArray1OfPnt*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
 void Macad::Occt::TColgp_HArray1OfPnt::SetValue(int theIndex, Macad::Occt::Pnt theItem)
 {
     pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
@@ -6759,10 +6034,41 @@ void Macad::Occt::TColgp_HArray1OfPnt::Resize(int theLower, int theUpper, bool t
     ((::TColgp_HArray1OfPnt*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
 }
 
+void Macad::Occt::TColgp_HArray1OfPnt::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_HArray1OfPnt*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
 bool Macad::Occt::TColgp_HArray1OfPnt::IsDeletable()
 {
     bool _result = ((::TColgp_HArray1OfPnt*)_NativeInstance)->IsDeletable();
     return _result;
+}
+
+Macad::Occt::TColgp_HArray1OfPnt::TColgp_HArray1OfPnt()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfPnt();
+}
+
+Macad::Occt::TColgp_HArray1OfPnt::TColgp_HArray1OfPnt(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfPnt(theLower, theUpper);
+}
+
+Macad::Occt::TColgp_HArray1OfPnt::TColgp_HArray1OfPnt(int theLower, int theUpper, Macad::Occt::Pnt theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray1OfPnt(theLower, theUpper, *(gp_Pnt*)pp_theValue);
+}
+
+Macad::Occt::TColgp_HArray1OfPnt::TColgp_HArray1OfPnt(Macad::Occt::Pnt theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theBegin = &theBegin;
+    NativeInstance = new ::TColgp_HArray1OfPnt(*(gp_Pnt*)pp_theBegin, theLower, theUpper, theUseBuffer);
 }
 
 Macad::Occt::TColgp_HArray1OfPnt^ Macad::Occt::TColgp_HArray1OfPnt::CreateDowncasted(::TColgp_HArray1OfPnt* instance)
@@ -6786,57 +6092,34 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_HArray1OfPnt::GetEnumerato
 //  Class  TColgp_HArray1OfPnt::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray1OfPnt::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray1OfPnt::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray1OfPnt::Iterator::Next()
+{
+    ((::TColgp_HArray1OfPnt::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HArray1OfPnt::Iterator::Value()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HArray1OfPnt::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HArray1OfPnt::Iterator::ChangeValue()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HArray1OfPnt::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray1OfPnt2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray1OfPnt2d::TColgp_HArray1OfPnt2d()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfPnt2d();
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d::TColgp_HArray1OfPnt2d(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfPnt2d(theLower, theUpper);
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d::TColgp_HArray1OfPnt2d(int theLower, int theUpper, Macad::Occt::Pnt2d theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray1OfPnt2d(theLower, theUpper, *(gp_Pnt2d*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d::TColgp_HArray1OfPnt2d(Macad::Occt::Pnt2d theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theBegin = &theBegin;
-    NativeInstance = new ::TColgp_HArray1OfPnt2d(*(gp_Pnt2d*)pp_theBegin, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d::TColgp_HArray1OfPnt2d(Macad::Occt::TColgp_Array1OfPnt2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfPnt2d(*(::TColgp_Array1OfPnt2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array1OfPnt2d^ Macad::Occt::TColgp_HArray1OfPnt2d::Array1()
-{
-    ::TColgp_Array1OfPnt2d* _result = new ::TColgp_Array1OfPnt2d();
-    *_result = (::TColgp_Array1OfPnt2d)((::TColgp_HArray1OfPnt2d*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfPnt2d(_result);
-}
-
-Macad::Occt::TColgp_Array1OfPnt2d^ Macad::Occt::TColgp_HArray1OfPnt2d::ChangeArray1()
-{
-    ::TColgp_Array1OfPnt2d* _result = new ::TColgp_Array1OfPnt2d();
-    *_result = ((::TColgp_HArray1OfPnt2d*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfPnt2d(_result);
-}
 
 void Macad::Occt::TColgp_HArray1OfPnt2d::Init(Macad::Occt::Pnt2d theValue)
 {
@@ -6844,9 +6127,9 @@ void Macad::Occt::TColgp_HArray1OfPnt2d::Init(Macad::Occt::Pnt2d theValue)
     ((::TColgp_HArray1OfPnt2d*)_NativeInstance)->Init(*(gp_Pnt2d*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_HArray1OfPnt2d::Size()
+long long unsigned int Macad::Occt::TColgp_HArray1OfPnt2d::Size()
 {
-    int _result = ((::TColgp_HArray1OfPnt2d*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_HArray1OfPnt2d*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -6872,16 +6155,6 @@ int Macad::Occt::TColgp_HArray1OfPnt2d::Upper()
 {
     int _result = ((::TColgp_HArray1OfPnt2d*)_NativeInstance)->Upper();
     return _result;
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_HArray1OfPnt2d::Assign(Macad::Occt::TColgp_HArray1OfPnt2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_HArray1OfPnt2d::Move(Macad::Occt::TColgp_HArray1OfPnt2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray1OfPnt2d::First()
@@ -6920,6 +6193,18 @@ Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray1OfPnt2d::ChangeValue(int theIndex)
     return Macad::Occt::Pnt2d(_nativeResult);
 }
 
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray1OfPnt2d::At(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray1OfPnt2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray1OfPnt2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray1OfPnt2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
 void Macad::Occt::TColgp_HArray1OfPnt2d::SetValue(int theIndex, Macad::Occt::Pnt2d theItem)
 {
     pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
@@ -6941,10 +6226,41 @@ void Macad::Occt::TColgp_HArray1OfPnt2d::Resize(int theLower, int theUpper, bool
     ((::TColgp_HArray1OfPnt2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
 }
 
+void Macad::Occt::TColgp_HArray1OfPnt2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_HArray1OfPnt2d*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
 bool Macad::Occt::TColgp_HArray1OfPnt2d::IsDeletable()
 {
     bool _result = ((::TColgp_HArray1OfPnt2d*)_NativeInstance)->IsDeletable();
     return _result;
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d::TColgp_HArray1OfPnt2d()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfPnt2d();
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d::TColgp_HArray1OfPnt2d(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfPnt2d(theLower, theUpper);
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d::TColgp_HArray1OfPnt2d(int theLower, int theUpper, Macad::Occt::Pnt2d theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray1OfPnt2d(theLower, theUpper, *(gp_Pnt2d*)pp_theValue);
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d::TColgp_HArray1OfPnt2d(Macad::Occt::Pnt2d theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theBegin = &theBegin;
+    NativeInstance = new ::TColgp_HArray1OfPnt2d(*(gp_Pnt2d*)pp_theBegin, theLower, theUpper, theUseBuffer);
 }
 
 Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(::TColgp_HArray1OfPnt2d* instance)
@@ -6968,57 +6284,34 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_HArray1OfPnt2d::GetEnumera
 //  Class  TColgp_HArray1OfPnt2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray1OfPnt2d::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray1OfPnt2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray1OfPnt2d::Iterator::Next()
+{
+    ((::TColgp_HArray1OfPnt2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray1OfPnt2d::Iterator::Value()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray1OfPnt2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray1OfPnt2d::Iterator::ChangeValue()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray1OfPnt2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray1OfVec
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray1OfVec::TColgp_HArray1OfVec()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfVec();
-}
-
-Macad::Occt::TColgp_HArray1OfVec::TColgp_HArray1OfVec(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfVec(theLower, theUpper);
-}
-
-Macad::Occt::TColgp_HArray1OfVec::TColgp_HArray1OfVec(int theLower, int theUpper, Macad::Occt::Vec theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray1OfVec(theLower, theUpper, *(gp_Vec*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray1OfVec::TColgp_HArray1OfVec(Macad::Occt::Vec theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theBegin = &theBegin;
-    NativeInstance = new ::TColgp_HArray1OfVec(*(gp_Vec*)pp_theBegin, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::TColgp_HArray1OfVec::TColgp_HArray1OfVec(Macad::Occt::TColgp_Array1OfVec^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfVec(*(::TColgp_Array1OfVec*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array1OfVec^ Macad::Occt::TColgp_HArray1OfVec::Array1()
-{
-    ::TColgp_Array1OfVec* _result = new ::TColgp_Array1OfVec();
-    *_result = (::TColgp_Array1OfVec)((::TColgp_HArray1OfVec*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfVec(_result);
-}
-
-Macad::Occt::TColgp_Array1OfVec^ Macad::Occt::TColgp_HArray1OfVec::ChangeArray1()
-{
-    ::TColgp_Array1OfVec* _result = new ::TColgp_Array1OfVec();
-    *_result = ((::TColgp_HArray1OfVec*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfVec(_result);
-}
 
 void Macad::Occt::TColgp_HArray1OfVec::Init(Macad::Occt::Vec theValue)
 {
@@ -7026,9 +6319,9 @@ void Macad::Occt::TColgp_HArray1OfVec::Init(Macad::Occt::Vec theValue)
     ((::TColgp_HArray1OfVec*)_NativeInstance)->Init(*(gp_Vec*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_HArray1OfVec::Size()
+long long unsigned int Macad::Occt::TColgp_HArray1OfVec::Size()
 {
-    int _result = ((::TColgp_HArray1OfVec*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_HArray1OfVec*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -7054,16 +6347,6 @@ int Macad::Occt::TColgp_HArray1OfVec::Upper()
 {
     int _result = ((::TColgp_HArray1OfVec*)_NativeInstance)->Upper();
     return _result;
-}
-
-Macad::Occt::TColgp_HArray1OfVec^ Macad::Occt::TColgp_HArray1OfVec::Assign(Macad::Occt::TColgp_HArray1OfVec^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray1OfVec^ Macad::Occt::TColgp_HArray1OfVec::Move(Macad::Occt::TColgp_HArray1OfVec^ theOther)
-{
-    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Vec Macad::Occt::TColgp_HArray1OfVec::First()
@@ -7102,6 +6385,18 @@ Macad::Occt::Vec Macad::Occt::TColgp_HArray1OfVec::ChangeValue(int theIndex)
     return Macad::Occt::Vec(_nativeResult);
 }
 
+Macad::Occt::Vec Macad::Occt::TColgp_HArray1OfVec::At(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HArray1OfVec*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HArray1OfVec::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HArray1OfVec*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
 void Macad::Occt::TColgp_HArray1OfVec::SetValue(int theIndex, Macad::Occt::Vec theItem)
 {
     pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
@@ -7123,10 +6418,41 @@ void Macad::Occt::TColgp_HArray1OfVec::Resize(int theLower, int theUpper, bool t
     ((::TColgp_HArray1OfVec*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
 }
 
+void Macad::Occt::TColgp_HArray1OfVec::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_HArray1OfVec*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
 bool Macad::Occt::TColgp_HArray1OfVec::IsDeletable()
 {
     bool _result = ((::TColgp_HArray1OfVec*)_NativeInstance)->IsDeletable();
     return _result;
+}
+
+Macad::Occt::TColgp_HArray1OfVec::TColgp_HArray1OfVec()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfVec();
+}
+
+Macad::Occt::TColgp_HArray1OfVec::TColgp_HArray1OfVec(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfVec(theLower, theUpper);
+}
+
+Macad::Occt::TColgp_HArray1OfVec::TColgp_HArray1OfVec(int theLower, int theUpper, Macad::Occt::Vec theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray1OfVec(theLower, theUpper, *(gp_Vec*)pp_theValue);
+}
+
+Macad::Occt::TColgp_HArray1OfVec::TColgp_HArray1OfVec(Macad::Occt::Vec theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theBegin = &theBegin;
+    NativeInstance = new ::TColgp_HArray1OfVec(*(gp_Vec*)pp_theBegin, theLower, theUpper, theUseBuffer);
 }
 
 Macad::Occt::TColgp_HArray1OfVec^ Macad::Occt::TColgp_HArray1OfVec::CreateDowncasted(::TColgp_HArray1OfVec* instance)
@@ -7150,57 +6476,34 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_HArray1OfVec::GetEnumerato
 //  Class  TColgp_HArray1OfVec::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray1OfVec::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray1OfVec::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray1OfVec::Iterator::Next()
+{
+    ((::TColgp_HArray1OfVec::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HArray1OfVec::Iterator::Value()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HArray1OfVec::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HArray1OfVec::Iterator::ChangeValue()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HArray1OfVec::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray1OfVec2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray1OfVec2d::TColgp_HArray1OfVec2d()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfVec2d();
-}
-
-Macad::Occt::TColgp_HArray1OfVec2d::TColgp_HArray1OfVec2d(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfVec2d(theLower, theUpper);
-}
-
-Macad::Occt::TColgp_HArray1OfVec2d::TColgp_HArray1OfVec2d(int theLower, int theUpper, Macad::Occt::Vec2d theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray1OfVec2d(theLower, theUpper, *(gp_Vec2d*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray1OfVec2d::TColgp_HArray1OfVec2d(Macad::Occt::Vec2d theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theBegin = &theBegin;
-    NativeInstance = new ::TColgp_HArray1OfVec2d(*(gp_Vec2d*)pp_theBegin, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::TColgp_HArray1OfVec2d::TColgp_HArray1OfVec2d(Macad::Occt::TColgp_Array1OfVec2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfVec2d(*(::TColgp_Array1OfVec2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array1OfVec2d^ Macad::Occt::TColgp_HArray1OfVec2d::Array1()
-{
-    ::TColgp_Array1OfVec2d* _result = new ::TColgp_Array1OfVec2d();
-    *_result = (::TColgp_Array1OfVec2d)((::TColgp_HArray1OfVec2d*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfVec2d(_result);
-}
-
-Macad::Occt::TColgp_Array1OfVec2d^ Macad::Occt::TColgp_HArray1OfVec2d::ChangeArray1()
-{
-    ::TColgp_Array1OfVec2d* _result = new ::TColgp_Array1OfVec2d();
-    *_result = ((::TColgp_HArray1OfVec2d*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfVec2d(_result);
-}
 
 void Macad::Occt::TColgp_HArray1OfVec2d::Init(Macad::Occt::Vec2d theValue)
 {
@@ -7208,9 +6511,9 @@ void Macad::Occt::TColgp_HArray1OfVec2d::Init(Macad::Occt::Vec2d theValue)
     ((::TColgp_HArray1OfVec2d*)_NativeInstance)->Init(*(gp_Vec2d*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_HArray1OfVec2d::Size()
+long long unsigned int Macad::Occt::TColgp_HArray1OfVec2d::Size()
 {
-    int _result = ((::TColgp_HArray1OfVec2d*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_HArray1OfVec2d*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -7236,16 +6539,6 @@ int Macad::Occt::TColgp_HArray1OfVec2d::Upper()
 {
     int _result = ((::TColgp_HArray1OfVec2d*)_NativeInstance)->Upper();
     return _result;
-}
-
-Macad::Occt::TColgp_HArray1OfVec2d^ Macad::Occt::TColgp_HArray1OfVec2d::Assign(Macad::Occt::TColgp_HArray1OfVec2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray1OfVec2d^ Macad::Occt::TColgp_HArray1OfVec2d::Move(Macad::Occt::TColgp_HArray1OfVec2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Vec2d Macad::Occt::TColgp_HArray1OfVec2d::First()
@@ -7284,6 +6577,18 @@ Macad::Occt::Vec2d Macad::Occt::TColgp_HArray1OfVec2d::ChangeValue(int theIndex)
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
+Macad::Occt::Vec2d Macad::Occt::TColgp_HArray1OfVec2d::At(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HArray1OfVec2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HArray1OfVec2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HArray1OfVec2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
 void Macad::Occt::TColgp_HArray1OfVec2d::SetValue(int theIndex, Macad::Occt::Vec2d theItem)
 {
     pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
@@ -7305,10 +6610,41 @@ void Macad::Occt::TColgp_HArray1OfVec2d::Resize(int theLower, int theUpper, bool
     ((::TColgp_HArray1OfVec2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
 }
 
+void Macad::Occt::TColgp_HArray1OfVec2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_HArray1OfVec2d*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
 bool Macad::Occt::TColgp_HArray1OfVec2d::IsDeletable()
 {
     bool _result = ((::TColgp_HArray1OfVec2d*)_NativeInstance)->IsDeletable();
     return _result;
+}
+
+Macad::Occt::TColgp_HArray1OfVec2d::TColgp_HArray1OfVec2d()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfVec2d();
+}
+
+Macad::Occt::TColgp_HArray1OfVec2d::TColgp_HArray1OfVec2d(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfVec2d(theLower, theUpper);
+}
+
+Macad::Occt::TColgp_HArray1OfVec2d::TColgp_HArray1OfVec2d(int theLower, int theUpper, Macad::Occt::Vec2d theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray1OfVec2d(theLower, theUpper, *(gp_Vec2d*)pp_theValue);
+}
+
+Macad::Occt::TColgp_HArray1OfVec2d::TColgp_HArray1OfVec2d(Macad::Occt::Vec2d theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theBegin = &theBegin;
+    NativeInstance = new ::TColgp_HArray1OfVec2d(*(gp_Vec2d*)pp_theBegin, theLower, theUpper, theUseBuffer);
 }
 
 Macad::Occt::TColgp_HArray1OfVec2d^ Macad::Occt::TColgp_HArray1OfVec2d::CreateDowncasted(::TColgp_HArray1OfVec2d* instance)
@@ -7332,57 +6668,34 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_HArray1OfVec2d::GetEnumera
 //  Class  TColgp_HArray1OfVec2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray1OfVec2d::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray1OfVec2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray1OfVec2d::Iterator::Next()
+{
+    ((::TColgp_HArray1OfVec2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HArray1OfVec2d::Iterator::Value()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HArray1OfVec2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HArray1OfVec2d::Iterator::ChangeValue()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HArray1OfVec2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray1OfXY
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray1OfXY::TColgp_HArray1OfXY()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfXY();
-}
-
-Macad::Occt::TColgp_HArray1OfXY::TColgp_HArray1OfXY(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfXY(theLower, theUpper);
-}
-
-Macad::Occt::TColgp_HArray1OfXY::TColgp_HArray1OfXY(int theLower, int theUpper, Macad::Occt::XY theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XY> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray1OfXY(theLower, theUpper, *(gp_XY*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray1OfXY::TColgp_HArray1OfXY(Macad::Occt::XY theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XY> pp_theBegin = &theBegin;
-    NativeInstance = new ::TColgp_HArray1OfXY(*(gp_XY*)pp_theBegin, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::TColgp_HArray1OfXY::TColgp_HArray1OfXY(Macad::Occt::TColgp_Array1OfXY^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfXY(*(::TColgp_Array1OfXY*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array1OfXY^ Macad::Occt::TColgp_HArray1OfXY::Array1()
-{
-    ::TColgp_Array1OfXY* _result = new ::TColgp_Array1OfXY();
-    *_result = (::TColgp_Array1OfXY)((::TColgp_HArray1OfXY*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfXY(_result);
-}
-
-Macad::Occt::TColgp_Array1OfXY^ Macad::Occt::TColgp_HArray1OfXY::ChangeArray1()
-{
-    ::TColgp_Array1OfXY* _result = new ::TColgp_Array1OfXY();
-    *_result = ((::TColgp_HArray1OfXY*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfXY(_result);
-}
 
 void Macad::Occt::TColgp_HArray1OfXY::Init(Macad::Occt::XY theValue)
 {
@@ -7390,9 +6703,9 @@ void Macad::Occt::TColgp_HArray1OfXY::Init(Macad::Occt::XY theValue)
     ((::TColgp_HArray1OfXY*)_NativeInstance)->Init(*(gp_XY*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_HArray1OfXY::Size()
+long long unsigned int Macad::Occt::TColgp_HArray1OfXY::Size()
 {
-    int _result = ((::TColgp_HArray1OfXY*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_HArray1OfXY*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -7418,16 +6731,6 @@ int Macad::Occt::TColgp_HArray1OfXY::Upper()
 {
     int _result = ((::TColgp_HArray1OfXY*)_NativeInstance)->Upper();
     return _result;
-}
-
-Macad::Occt::TColgp_HArray1OfXY^ Macad::Occt::TColgp_HArray1OfXY::Assign(Macad::Occt::TColgp_HArray1OfXY^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray1OfXY^ Macad::Occt::TColgp_HArray1OfXY::Move(Macad::Occt::TColgp_HArray1OfXY^ theOther)
-{
-    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::XY Macad::Occt::TColgp_HArray1OfXY::First()
@@ -7466,6 +6769,18 @@ Macad::Occt::XY Macad::Occt::TColgp_HArray1OfXY::ChangeValue(int theIndex)
     return Macad::Occt::XY(_nativeResult);
 }
 
+Macad::Occt::XY Macad::Occt::TColgp_HArray1OfXY::At(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_HArray1OfXY*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HArray1OfXY::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_HArray1OfXY*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
 void Macad::Occt::TColgp_HArray1OfXY::SetValue(int theIndex, Macad::Occt::XY theItem)
 {
     pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
@@ -7487,10 +6802,41 @@ void Macad::Occt::TColgp_HArray1OfXY::Resize(int theLower, int theUpper, bool th
     ((::TColgp_HArray1OfXY*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
 }
 
+void Macad::Occt::TColgp_HArray1OfXY::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_HArray1OfXY*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
 bool Macad::Occt::TColgp_HArray1OfXY::IsDeletable()
 {
     bool _result = ((::TColgp_HArray1OfXY*)_NativeInstance)->IsDeletable();
     return _result;
+}
+
+Macad::Occt::TColgp_HArray1OfXY::TColgp_HArray1OfXY()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfXY();
+}
+
+Macad::Occt::TColgp_HArray1OfXY::TColgp_HArray1OfXY(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfXY(theLower, theUpper);
+}
+
+Macad::Occt::TColgp_HArray1OfXY::TColgp_HArray1OfXY(int theLower, int theUpper, Macad::Occt::XY theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::XY> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray1OfXY(theLower, theUpper, *(gp_XY*)pp_theValue);
+}
+
+Macad::Occt::TColgp_HArray1OfXY::TColgp_HArray1OfXY(Macad::Occt::XY theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::XY> pp_theBegin = &theBegin;
+    NativeInstance = new ::TColgp_HArray1OfXY(*(gp_XY*)pp_theBegin, theLower, theUpper, theUseBuffer);
 }
 
 Macad::Occt::TColgp_HArray1OfXY^ Macad::Occt::TColgp_HArray1OfXY::CreateDowncasted(::TColgp_HArray1OfXY* instance)
@@ -7514,57 +6860,34 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_HArray1OfXY::GetEnumerator
 //  Class  TColgp_HArray1OfXY::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray1OfXY::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray1OfXY::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray1OfXY::Iterator::Next()
+{
+    ((::TColgp_HArray1OfXY::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HArray1OfXY::Iterator::Value()
+{
+    ::gp_XY _nativeResult = ((::TColgp_HArray1OfXY::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HArray1OfXY::Iterator::ChangeValue()
+{
+    ::gp_XY _nativeResult = ((::TColgp_HArray1OfXY::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::XY(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray1OfXYZ
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray1OfXYZ::TColgp_HArray1OfXYZ()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfXYZ();
-}
-
-Macad::Occt::TColgp_HArray1OfXYZ::TColgp_HArray1OfXYZ(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfXYZ(theLower, theUpper);
-}
-
-Macad::Occt::TColgp_HArray1OfXYZ::TColgp_HArray1OfXYZ(int theLower, int theUpper, Macad::Occt::XYZ theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray1OfXYZ(theLower, theUpper, *(gp_XYZ*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray1OfXYZ::TColgp_HArray1OfXYZ(Macad::Occt::XYZ theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theBegin = &theBegin;
-    NativeInstance = new ::TColgp_HArray1OfXYZ(*(gp_XYZ*)pp_theBegin, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::TColgp_HArray1OfXYZ::TColgp_HArray1OfXYZ(Macad::Occt::TColgp_Array1OfXYZ^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray1OfXYZ(*(::TColgp_Array1OfXYZ*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array1OfXYZ^ Macad::Occt::TColgp_HArray1OfXYZ::Array1()
-{
-    ::TColgp_Array1OfXYZ* _result = new ::TColgp_Array1OfXYZ();
-    *_result = (::TColgp_Array1OfXYZ)((::TColgp_HArray1OfXYZ*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfXYZ(_result);
-}
-
-Macad::Occt::TColgp_Array1OfXYZ^ Macad::Occt::TColgp_HArray1OfXYZ::ChangeArray1()
-{
-    ::TColgp_Array1OfXYZ* _result = new ::TColgp_Array1OfXYZ();
-    *_result = ((::TColgp_HArray1OfXYZ*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfXYZ(_result);
-}
 
 void Macad::Occt::TColgp_HArray1OfXYZ::Init(Macad::Occt::XYZ theValue)
 {
@@ -7572,9 +6895,9 @@ void Macad::Occt::TColgp_HArray1OfXYZ::Init(Macad::Occt::XYZ theValue)
     ((::TColgp_HArray1OfXYZ*)_NativeInstance)->Init(*(gp_XYZ*)pp_theValue);
 }
 
-int Macad::Occt::TColgp_HArray1OfXYZ::Size()
+long long unsigned int Macad::Occt::TColgp_HArray1OfXYZ::Size()
 {
-    int _result = ((::TColgp_HArray1OfXYZ*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::TColgp_HArray1OfXYZ*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -7600,16 +6923,6 @@ int Macad::Occt::TColgp_HArray1OfXYZ::Upper()
 {
     int _result = ((::TColgp_HArray1OfXYZ*)_NativeInstance)->Upper();
     return _result;
-}
-
-Macad::Occt::TColgp_HArray1OfXYZ^ Macad::Occt::TColgp_HArray1OfXYZ::Assign(Macad::Occt::TColgp_HArray1OfXYZ^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray1OfXYZ^ Macad::Occt::TColgp_HArray1OfXYZ::Move(Macad::Occt::TColgp_HArray1OfXYZ^ theOther)
-{
-    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::XYZ Macad::Occt::TColgp_HArray1OfXYZ::First()
@@ -7648,6 +6961,18 @@ Macad::Occt::XYZ Macad::Occt::TColgp_HArray1OfXYZ::ChangeValue(int theIndex)
     return Macad::Occt::XYZ(_nativeResult);
 }
 
+Macad::Occt::XYZ Macad::Occt::TColgp_HArray1OfXYZ::At(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HArray1OfXYZ*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HArray1OfXYZ::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HArray1OfXYZ*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
 void Macad::Occt::TColgp_HArray1OfXYZ::SetValue(int theIndex, Macad::Occt::XYZ theItem)
 {
     pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
@@ -7669,10 +6994,41 @@ void Macad::Occt::TColgp_HArray1OfXYZ::Resize(int theLower, int theUpper, bool t
     ((::TColgp_HArray1OfXYZ*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
 }
 
+void Macad::Occt::TColgp_HArray1OfXYZ::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::TColgp_HArray1OfXYZ*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
 bool Macad::Occt::TColgp_HArray1OfXYZ::IsDeletable()
 {
     bool _result = ((::TColgp_HArray1OfXYZ*)_NativeInstance)->IsDeletable();
     return _result;
+}
+
+Macad::Occt::TColgp_HArray1OfXYZ::TColgp_HArray1OfXYZ()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfXYZ();
+}
+
+Macad::Occt::TColgp_HArray1OfXYZ::TColgp_HArray1OfXYZ(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray1OfXYZ(theLower, theUpper);
+}
+
+Macad::Occt::TColgp_HArray1OfXYZ::TColgp_HArray1OfXYZ(int theLower, int theUpper, Macad::Occt::XYZ theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray1OfXYZ(theLower, theUpper, *(gp_XYZ*)pp_theValue);
+}
+
+Macad::Occt::TColgp_HArray1OfXYZ::TColgp_HArray1OfXYZ(Macad::Occt::XYZ theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theBegin = &theBegin;
+    NativeInstance = new ::TColgp_HArray1OfXYZ(*(gp_XYZ*)pp_theBegin, theLower, theUpper, theUseBuffer);
 }
 
 Macad::Occt::TColgp_HArray1OfXYZ^ Macad::Occt::TColgp_HArray1OfXYZ::CreateDowncasted(::TColgp_HArray1OfXYZ* instance)
@@ -7696,149 +7052,34 @@ System::Collections::IEnumerator^ Macad::Occt::TColgp_HArray1OfXYZ::GetEnumerato
 //  Class  TColgp_HArray1OfXYZ::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray1OfXYZ::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray1OfXYZ::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray1OfXYZ::Iterator::Next()
+{
+    ((::TColgp_HArray1OfXYZ::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HArray1OfXYZ::Iterator::Value()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HArray1OfXYZ::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HArray1OfXYZ::Iterator::ChangeValue()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HArray1OfXYZ::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray2OfCirc2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray2OfCirc2d::TColgp_HArray2OfCirc2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfCirc2d(theRowLow, theRowUpp, theColLow, theColUpp);
-}
-
-Macad::Occt::TColgp_HArray2OfCirc2d::TColgp_HArray2OfCirc2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::gp_Circ2d^ theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfCirc2d(theRowLow, theRowUpp, theColLow, theColUpp, *(::gp_Circ2d*)theValue->NativeInstance);
-}
-
-Macad::Occt::TColgp_HArray2OfCirc2d::TColgp_HArray2OfCirc2d(Macad::Occt::TColgp_Array2OfCirc2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfCirc2d(*(::TColgp_Array2OfCirc2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array2OfCirc2d^ Macad::Occt::TColgp_HArray2OfCirc2d::Array2()
-{
-    ::TColgp_Array2OfCirc2d* _result = new ::TColgp_Array2OfCirc2d();
-    *_result = (::TColgp_Array2OfCirc2d)((::TColgp_HArray2OfCirc2d*)_NativeInstance)->Array2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfCirc2d(_result);
-}
-
-Macad::Occt::TColgp_Array2OfCirc2d^ Macad::Occt::TColgp_HArray2OfCirc2d::ChangeArray2()
-{
-    ::TColgp_Array2OfCirc2d* _result = new ::TColgp_Array2OfCirc2d();
-    *_result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->ChangeArray2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfCirc2d(_result);
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfCirc2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfCirc2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::Size()
-{
-    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::Length()
-{
-    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::NbRows()
-{
-    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::NbColumns()
-{
-    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::RowLength()
-{
-    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::ColLength()
-{
-    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::LowerRow()
-{
-    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::UpperRow()
-{
-    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::LowerCol()
-{
-    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfCirc2d::UpperCol()
-{
-    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_HArray2OfCirc2d^ Macad::Occt::TColgp_HArray2OfCirc2d::Assign(Macad::Occt::TColgp_HArray2OfCirc2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray2OfCirc2d^ Macad::Occt::TColgp_HArray2OfCirc2d::Move(Macad::Occt::TColgp_HArray2OfCirc2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray2OfCirc2d::Value(int theRow, int theCol)
-{
-    ::gp_Circ2d* _result = new ::gp_Circ2d();
-    *_result = (::gp_Circ2d)((::TColgp_HArray2OfCirc2d*)_NativeInstance)->Value(theRow, theCol);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
-}
-
-Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray2OfCirc2d::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Circ2d* _result = new ::gp_Circ2d();
-    *_result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
-}
-
-void Macad::Occt::TColgp_HArray2OfCirc2d::SetValue(int theRow, int theCol, Macad::Occt::gp_Circ2d^ theItem)
-{
-    ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->SetValue(theRow, theCol, *(::gp_Circ2d*)theItem->NativeInstance);
-}
-
-void Macad::Occt::TColgp_HArray2OfCirc2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_HArray2OfCirc2d::Init(Macad::Occt::gp_Circ2d^ theValue)
 {
@@ -7907,6 +7148,163 @@ bool Macad::Occt::TColgp_HArray2OfCirc2d::IsDeletable()
     return _result;
 }
 
+int Macad::Occt::TColgp_HArray2OfCirc2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfCirc2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfCirc2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfCirc2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_HArray2OfCirc2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfCirc2d::Length()
+{
+    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfCirc2d::NbRows()
+{
+    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfCirc2d::NbColumns()
+{
+    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfCirc2d::RowLength()
+{
+    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfCirc2d::ColLength()
+{
+    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfCirc2d::LowerRow()
+{
+    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfCirc2d::UpperRow()
+{
+    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfCirc2d::LowerCol()
+{
+    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfCirc2d::UpperCol()
+{
+    int _result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfCirc2d::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfCirc2d::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_HArray2OfCirc2d::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfCirc2d::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray2OfCirc2d::Value(int theRow, int theCol)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = (::gp_Circ2d)((::TColgp_HArray2OfCirc2d*)_NativeInstance)->Value(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray2OfCirc2d::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+void Macad::Occt::TColgp_HArray2OfCirc2d::SetValue(int theRow, int theCol, Macad::Occt::gp_Circ2d^ theItem)
+{
+    ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->SetValue(theRow, theCol, *(::gp_Circ2d*)theItem->NativeInstance);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray2OfCirc2d::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = (::gp_Circ2d)((::TColgp_HArray2OfCirc2d*)_NativeInstance)->At(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray2OfCirc2d::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+void Macad::Occt::TColgp_HArray2OfCirc2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfCirc2d::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfCirc2d::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfCirc2d::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfCirc2d*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
+Macad::Occt::TColgp_HArray2OfCirc2d::TColgp_HArray2OfCirc2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfCirc2d(theRowLow, theRowUpp, theColLow, theColUpp);
+}
+
+Macad::Occt::TColgp_HArray2OfCirc2d::TColgp_HArray2OfCirc2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::gp_Circ2d^ theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfCirc2d(theRowLow, theRowUpp, theColLow, theColUpp, *(::gp_Circ2d*)theValue->NativeInstance);
+}
+
 Macad::Occt::TColgp_HArray2OfCirc2d^ Macad::Occt::TColgp_HArray2OfCirc2d::CreateDowncasted(::TColgp_HArray2OfCirc2d* instance)
 {
     return gcnew Macad::Occt::TColgp_HArray2OfCirc2d( instance );
@@ -7918,149 +7316,36 @@ Macad::Occt::TColgp_HArray2OfCirc2d^ Macad::Occt::TColgp_HArray2OfCirc2d::Create
 //  Class  TColgp_HArray2OfCirc2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray2OfCirc2d::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray2OfCirc2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfCirc2d::Iterator::Next()
+{
+    ((::TColgp_HArray2OfCirc2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray2OfCirc2d::Iterator::Value()
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = (::gp_Circ2d)((::TColgp_HArray2OfCirc2d::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
+Macad::Occt::gp_Circ2d^ Macad::Occt::TColgp_HArray2OfCirc2d::Iterator::ChangeValue()
+{
+    ::gp_Circ2d* _result = new ::gp_Circ2d();
+    *_result = ((::TColgp_HArray2OfCirc2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray2OfDir
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray2OfDir::TColgp_HArray2OfDir(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfDir(theRowLow, theRowUpp, theColLow, theColUpp);
-}
-
-Macad::Occt::TColgp_HArray2OfDir::TColgp_HArray2OfDir(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Dir theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray2OfDir(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Dir*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray2OfDir::TColgp_HArray2OfDir(Macad::Occt::TColgp_Array2OfDir^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfDir(*(::TColgp_Array2OfDir*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array2OfDir^ Macad::Occt::TColgp_HArray2OfDir::Array2()
-{
-    ::TColgp_Array2OfDir* _result = new ::TColgp_Array2OfDir();
-    *_result = (::TColgp_Array2OfDir)((::TColgp_HArray2OfDir*)_NativeInstance)->Array2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir(_result);
-}
-
-Macad::Occt::TColgp_Array2OfDir^ Macad::Occt::TColgp_HArray2OfDir::ChangeArray2()
-{
-    ::TColgp_Array2OfDir* _result = new ::TColgp_Array2OfDir();
-    *_result = ((::TColgp_HArray2OfDir*)_NativeInstance)->ChangeArray2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir(_result);
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfDir::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfDir::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::Size()
-{
-    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::Length()
-{
-    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::NbRows()
-{
-    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::NbColumns()
-{
-    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::RowLength()
-{
-    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::ColLength()
-{
-    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::LowerRow()
-{
-    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::UpperRow()
-{
-    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::LowerCol()
-{
-    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir::UpperCol()
-{
-    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_HArray2OfDir^ Macad::Occt::TColgp_HArray2OfDir::Assign(Macad::Occt::TColgp_HArray2OfDir^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray2OfDir^ Macad::Occt::TColgp_HArray2OfDir::Move(Macad::Occt::TColgp_HArray2OfDir^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_HArray2OfDir::Value(int theRow, int theCol)
-{
-    ::gp_Dir _nativeResult = ((::TColgp_HArray2OfDir*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-Macad::Occt::Dir Macad::Occt::TColgp_HArray2OfDir::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Dir _nativeResult = ((::TColgp_HArray2OfDir*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Dir(_nativeResult);
-}
-
-void Macad::Occt::TColgp_HArray2OfDir::SetValue(int theRow, int theCol, Macad::Occt::Dir theItem)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
-    ((::TColgp_HArray2OfDir*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Dir*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HArray2OfDir::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_HArray2OfDir*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_HArray2OfDir::Init(Macad::Occt::Dir theValue)
 {
@@ -8126,6 +7411,161 @@ bool Macad::Occt::TColgp_HArray2OfDir::IsDeletable()
     return _result;
 }
 
+int Macad::Occt::TColgp_HArray2OfDir::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfDir::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfDir::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_HArray2OfDir::Size()
+{
+    long long unsigned int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir::Length()
+{
+    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir::NbRows()
+{
+    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir::NbColumns()
+{
+    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir::RowLength()
+{
+    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir::ColLength()
+{
+    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir::LowerRow()
+{
+    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir::UpperRow()
+{
+    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir::LowerCol()
+{
+    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir::UpperCol()
+{
+    int _result = ((::TColgp_HArray2OfDir*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfDir::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_HArray2OfDir*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_HArray2OfDir*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_HArray2OfDir*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_HArray2OfDir*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HArray2OfDir::Value(int theRow, int theCol)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HArray2OfDir*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HArray2OfDir::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HArray2OfDir*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir::SetValue(int theRow, int theCol, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_HArray2OfDir*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Dir*)pp_theItem);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HArray2OfDir::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HArray2OfDir*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HArray2OfDir::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HArray2OfDir*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfDir*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfDir*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfDir*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfDir*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
+Macad::Occt::TColgp_HArray2OfDir::TColgp_HArray2OfDir(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfDir(theRowLow, theRowUpp, theColLow, theColUpp);
+}
+
+Macad::Occt::TColgp_HArray2OfDir::TColgp_HArray2OfDir(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Dir theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray2OfDir(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Dir*)pp_theValue);
+}
+
 Macad::Occt::TColgp_HArray2OfDir^ Macad::Occt::TColgp_HArray2OfDir::CreateDowncasted(::TColgp_HArray2OfDir* instance)
 {
     return gcnew Macad::Occt::TColgp_HArray2OfDir( instance );
@@ -8137,149 +7577,34 @@ Macad::Occt::TColgp_HArray2OfDir^ Macad::Occt::TColgp_HArray2OfDir::CreateDownca
 //  Class  TColgp_HArray2OfDir::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray2OfDir::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray2OfDir::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfDir::Iterator::Next()
+{
+    ((::TColgp_HArray2OfDir::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HArray2OfDir::Iterator::Value()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HArray2OfDir::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HArray2OfDir::Iterator::ChangeValue()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HArray2OfDir::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray2OfDir2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray2OfDir2d::TColgp_HArray2OfDir2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfDir2d(theRowLow, theRowUpp, theColLow, theColUpp);
-}
-
-Macad::Occt::TColgp_HArray2OfDir2d::TColgp_HArray2OfDir2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Dir2d theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray2OfDir2d(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Dir2d*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray2OfDir2d::TColgp_HArray2OfDir2d(Macad::Occt::TColgp_Array2OfDir2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfDir2d(*(::TColgp_Array2OfDir2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array2OfDir2d^ Macad::Occt::TColgp_HArray2OfDir2d::Array2()
-{
-    ::TColgp_Array2OfDir2d* _result = new ::TColgp_Array2OfDir2d();
-    *_result = (::TColgp_Array2OfDir2d)((::TColgp_HArray2OfDir2d*)_NativeInstance)->Array2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir2d(_result);
-}
-
-Macad::Occt::TColgp_Array2OfDir2d^ Macad::Occt::TColgp_HArray2OfDir2d::ChangeArray2()
-{
-    ::TColgp_Array2OfDir2d* _result = new ::TColgp_Array2OfDir2d();
-    *_result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->ChangeArray2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfDir2d(_result);
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfDir2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfDir2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::Size()
-{
-    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::Length()
-{
-    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::NbRows()
-{
-    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::NbColumns()
-{
-    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::RowLength()
-{
-    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::ColLength()
-{
-    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::LowerRow()
-{
-    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::UpperRow()
-{
-    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::LowerCol()
-{
-    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfDir2d::UpperCol()
-{
-    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_HArray2OfDir2d^ Macad::Occt::TColgp_HArray2OfDir2d::Assign(Macad::Occt::TColgp_HArray2OfDir2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray2OfDir2d^ Macad::Occt::TColgp_HArray2OfDir2d::Move(Macad::Occt::TColgp_HArray2OfDir2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_HArray2OfDir2d::Value(int theRow, int theCol)
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-Macad::Occt::Dir2d Macad::Occt::TColgp_HArray2OfDir2d::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Dir2d _nativeResult = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Dir2d(_nativeResult);
-}
-
-void Macad::Occt::TColgp_HArray2OfDir2d::SetValue(int theRow, int theCol, Macad::Occt::Dir2d theItem)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
-    ((::TColgp_HArray2OfDir2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Dir2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HArray2OfDir2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_HArray2OfDir2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_HArray2OfDir2d::Init(Macad::Occt::Dir2d theValue)
 {
@@ -8345,6 +7670,161 @@ bool Macad::Occt::TColgp_HArray2OfDir2d::IsDeletable()
     return _result;
 }
 
+int Macad::Occt::TColgp_HArray2OfDir2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfDir2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfDir2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_HArray2OfDir2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir2d::Length()
+{
+    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir2d::NbRows()
+{
+    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir2d::NbColumns()
+{
+    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir2d::RowLength()
+{
+    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir2d::ColLength()
+{
+    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir2d::LowerRow()
+{
+    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir2d::UpperRow()
+{
+    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir2d::LowerCol()
+{
+    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfDir2d::UpperCol()
+{
+    int _result = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfDir2d::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_HArray2OfDir2d*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir2d::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_HArray2OfDir2d*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir2d::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_HArray2OfDir2d*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir2d::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_HArray2OfDir2d*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HArray2OfDir2d::Value(int theRow, int theCol)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HArray2OfDir2d::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir2d::SetValue(int theRow, int theCol, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_HArray2OfDir2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Dir2d*)pp_theItem);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HArray2OfDir2d::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HArray2OfDir2d::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HArray2OfDir2d*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfDir2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir2d::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfDir2d*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir2d::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfDir2d*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfDir2d::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfDir2d*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
+Macad::Occt::TColgp_HArray2OfDir2d::TColgp_HArray2OfDir2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfDir2d(theRowLow, theRowUpp, theColLow, theColUpp);
+}
+
+Macad::Occt::TColgp_HArray2OfDir2d::TColgp_HArray2OfDir2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Dir2d theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray2OfDir2d(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Dir2d*)pp_theValue);
+}
+
 Macad::Occt::TColgp_HArray2OfDir2d^ Macad::Occt::TColgp_HArray2OfDir2d::CreateDowncasted(::TColgp_HArray2OfDir2d* instance)
 {
     return gcnew Macad::Occt::TColgp_HArray2OfDir2d( instance );
@@ -8356,149 +7836,34 @@ Macad::Occt::TColgp_HArray2OfDir2d^ Macad::Occt::TColgp_HArray2OfDir2d::CreateDo
 //  Class  TColgp_HArray2OfDir2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray2OfDir2d::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray2OfDir2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfDir2d::Iterator::Next()
+{
+    ((::TColgp_HArray2OfDir2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HArray2OfDir2d::Iterator::Value()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HArray2OfDir2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HArray2OfDir2d::Iterator::ChangeValue()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HArray2OfDir2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray2OfLin2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray2OfLin2d::TColgp_HArray2OfLin2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfLin2d(theRowLow, theRowUpp, theColLow, theColUpp);
-}
-
-Macad::Occt::TColgp_HArray2OfLin2d::TColgp_HArray2OfLin2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::gp_Lin2d^ theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfLin2d(theRowLow, theRowUpp, theColLow, theColUpp, *(::gp_Lin2d*)theValue->NativeInstance);
-}
-
-Macad::Occt::TColgp_HArray2OfLin2d::TColgp_HArray2OfLin2d(Macad::Occt::TColgp_Array2OfLin2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfLin2d(*(::TColgp_Array2OfLin2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array2OfLin2d^ Macad::Occt::TColgp_HArray2OfLin2d::Array2()
-{
-    ::TColgp_Array2OfLin2d* _result = new ::TColgp_Array2OfLin2d();
-    *_result = (::TColgp_Array2OfLin2d)((::TColgp_HArray2OfLin2d*)_NativeInstance)->Array2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfLin2d(_result);
-}
-
-Macad::Occt::TColgp_Array2OfLin2d^ Macad::Occt::TColgp_HArray2OfLin2d::ChangeArray2()
-{
-    ::TColgp_Array2OfLin2d* _result = new ::TColgp_Array2OfLin2d();
-    *_result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->ChangeArray2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfLin2d(_result);
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfLin2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfLin2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::Size()
-{
-    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::Length()
-{
-    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::NbRows()
-{
-    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::NbColumns()
-{
-    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::RowLength()
-{
-    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::ColLength()
-{
-    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::LowerRow()
-{
-    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::UpperRow()
-{
-    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::LowerCol()
-{
-    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfLin2d::UpperCol()
-{
-    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_HArray2OfLin2d^ Macad::Occt::TColgp_HArray2OfLin2d::Assign(Macad::Occt::TColgp_HArray2OfLin2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray2OfLin2d^ Macad::Occt::TColgp_HArray2OfLin2d::Move(Macad::Occt::TColgp_HArray2OfLin2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray2OfLin2d::Value(int theRow, int theCol)
-{
-    ::gp_Lin2d* _result = new ::gp_Lin2d();
-    *_result = (::gp_Lin2d)((::TColgp_HArray2OfLin2d*)_NativeInstance)->Value(theRow, theCol);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
-}
-
-Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray2OfLin2d::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Lin2d* _result = new ::gp_Lin2d();
-    *_result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
-}
-
-void Macad::Occt::TColgp_HArray2OfLin2d::SetValue(int theRow, int theCol, Macad::Occt::gp_Lin2d^ theItem)
-{
-    ((::TColgp_HArray2OfLin2d*)_NativeInstance)->SetValue(theRow, theCol, *(::gp_Lin2d*)theItem->NativeInstance);
-}
-
-void Macad::Occt::TColgp_HArray2OfLin2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_HArray2OfLin2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_HArray2OfLin2d::Init(Macad::Occt::gp_Lin2d^ theValue)
 {
@@ -8567,6 +7932,163 @@ bool Macad::Occt::TColgp_HArray2OfLin2d::IsDeletable()
     return _result;
 }
 
+int Macad::Occt::TColgp_HArray2OfLin2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfLin2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfLin2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfLin2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_HArray2OfLin2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfLin2d::Length()
+{
+    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfLin2d::NbRows()
+{
+    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfLin2d::NbColumns()
+{
+    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfLin2d::RowLength()
+{
+    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfLin2d::ColLength()
+{
+    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfLin2d::LowerRow()
+{
+    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfLin2d::UpperRow()
+{
+    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfLin2d::LowerCol()
+{
+    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfLin2d::UpperCol()
+{
+    int _result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfLin2d::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_HArray2OfLin2d*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfLin2d::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_HArray2OfLin2d*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_HArray2OfLin2d::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_HArray2OfLin2d*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfLin2d::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_HArray2OfLin2d*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray2OfLin2d::Value(int theRow, int theCol)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = (::gp_Lin2d)((::TColgp_HArray2OfLin2d*)_NativeInstance)->Value(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray2OfLin2d::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+void Macad::Occt::TColgp_HArray2OfLin2d::SetValue(int theRow, int theCol, Macad::Occt::gp_Lin2d^ theItem)
+{
+    ((::TColgp_HArray2OfLin2d*)_NativeInstance)->SetValue(theRow, theCol, *(::gp_Lin2d*)theItem->NativeInstance);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray2OfLin2d::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = (::gp_Lin2d)((::TColgp_HArray2OfLin2d*)_NativeInstance)->At(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray2OfLin2d::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = ((::TColgp_HArray2OfLin2d*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+void Macad::Occt::TColgp_HArray2OfLin2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfLin2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfLin2d::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfLin2d*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfLin2d::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfLin2d*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfLin2d::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfLin2d*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
+Macad::Occt::TColgp_HArray2OfLin2d::TColgp_HArray2OfLin2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfLin2d(theRowLow, theRowUpp, theColLow, theColUpp);
+}
+
+Macad::Occt::TColgp_HArray2OfLin2d::TColgp_HArray2OfLin2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::gp_Lin2d^ theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfLin2d(theRowLow, theRowUpp, theColLow, theColUpp, *(::gp_Lin2d*)theValue->NativeInstance);
+}
+
 Macad::Occt::TColgp_HArray2OfLin2d^ Macad::Occt::TColgp_HArray2OfLin2d::CreateDowncasted(::TColgp_HArray2OfLin2d* instance)
 {
     return gcnew Macad::Occt::TColgp_HArray2OfLin2d( instance );
@@ -8578,149 +8100,36 @@ Macad::Occt::TColgp_HArray2OfLin2d^ Macad::Occt::TColgp_HArray2OfLin2d::CreateDo
 //  Class  TColgp_HArray2OfLin2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray2OfLin2d::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray2OfLin2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfLin2d::Iterator::Next()
+{
+    ((::TColgp_HArray2OfLin2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray2OfLin2d::Iterator::Value()
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = (::gp_Lin2d)((::TColgp_HArray2OfLin2d::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
+Macad::Occt::gp_Lin2d^ Macad::Occt::TColgp_HArray2OfLin2d::Iterator::ChangeValue()
+{
+    ::gp_Lin2d* _result = new ::gp_Lin2d();
+    *_result = ((::TColgp_HArray2OfLin2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray2OfPnt
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray2OfPnt::TColgp_HArray2OfPnt(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfPnt(theRowLow, theRowUpp, theColLow, theColUpp);
-}
-
-Macad::Occt::TColgp_HArray2OfPnt::TColgp_HArray2OfPnt(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Pnt theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray2OfPnt(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Pnt*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray2OfPnt::TColgp_HArray2OfPnt(Macad::Occt::TColgp_Array2OfPnt^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfPnt(*(::TColgp_Array2OfPnt*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array2OfPnt^ Macad::Occt::TColgp_HArray2OfPnt::Array2()
-{
-    ::TColgp_Array2OfPnt* _result = new ::TColgp_Array2OfPnt();
-    *_result = (::TColgp_Array2OfPnt)((::TColgp_HArray2OfPnt*)_NativeInstance)->Array2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt(_result);
-}
-
-Macad::Occt::TColgp_Array2OfPnt^ Macad::Occt::TColgp_HArray2OfPnt::ChangeArray2()
-{
-    ::TColgp_Array2OfPnt* _result = new ::TColgp_Array2OfPnt();
-    *_result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->ChangeArray2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt(_result);
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfPnt::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfPnt::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::Size()
-{
-    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::Length()
-{
-    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::NbRows()
-{
-    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::NbColumns()
-{
-    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::RowLength()
-{
-    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::ColLength()
-{
-    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::LowerRow()
-{
-    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::UpperRow()
-{
-    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::LowerCol()
-{
-    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt::UpperCol()
-{
-    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_HArray2OfPnt^ Macad::Occt::TColgp_HArray2OfPnt::Assign(Macad::Occt::TColgp_HArray2OfPnt^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray2OfPnt^ Macad::Occt::TColgp_HArray2OfPnt::Move(Macad::Occt::TColgp_HArray2OfPnt^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_HArray2OfPnt::Value(int theRow, int theCol)
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_HArray2OfPnt*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-Macad::Occt::Pnt Macad::Occt::TColgp_HArray2OfPnt::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Pnt _nativeResult = ((::TColgp_HArray2OfPnt*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Pnt(_nativeResult);
-}
-
-void Macad::Occt::TColgp_HArray2OfPnt::SetValue(int theRow, int theCol, Macad::Occt::Pnt theItem)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
-    ((::TColgp_HArray2OfPnt*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Pnt*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HArray2OfPnt::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_HArray2OfPnt*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_HArray2OfPnt::Init(Macad::Occt::Pnt theValue)
 {
@@ -8786,6 +8195,161 @@ bool Macad::Occt::TColgp_HArray2OfPnt::IsDeletable()
     return _result;
 }
 
+int Macad::Occt::TColgp_HArray2OfPnt::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfPnt::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfPnt::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_HArray2OfPnt::Size()
+{
+    long long unsigned int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt::Length()
+{
+    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt::NbRows()
+{
+    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt::NbColumns()
+{
+    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt::RowLength()
+{
+    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt::ColLength()
+{
+    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt::LowerRow()
+{
+    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt::UpperRow()
+{
+    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt::LowerCol()
+{
+    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt::UpperCol()
+{
+    int _result = ((::TColgp_HArray2OfPnt*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_HArray2OfPnt*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_HArray2OfPnt*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_HArray2OfPnt*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_HArray2OfPnt*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HArray2OfPnt::Value(int theRow, int theCol)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HArray2OfPnt*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HArray2OfPnt::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HArray2OfPnt*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt::SetValue(int theRow, int theCol, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_HArray2OfPnt*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Pnt*)pp_theItem);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HArray2OfPnt::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HArray2OfPnt*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HArray2OfPnt::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HArray2OfPnt*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfPnt*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfPnt*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfPnt*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfPnt*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
+Macad::Occt::TColgp_HArray2OfPnt::TColgp_HArray2OfPnt(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfPnt(theRowLow, theRowUpp, theColLow, theColUpp);
+}
+
+Macad::Occt::TColgp_HArray2OfPnt::TColgp_HArray2OfPnt(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Pnt theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray2OfPnt(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Pnt*)pp_theValue);
+}
+
 Macad::Occt::TColgp_HArray2OfPnt^ Macad::Occt::TColgp_HArray2OfPnt::CreateDowncasted(::TColgp_HArray2OfPnt* instance)
 {
     return gcnew Macad::Occt::TColgp_HArray2OfPnt( instance );
@@ -8797,149 +8361,34 @@ Macad::Occt::TColgp_HArray2OfPnt^ Macad::Occt::TColgp_HArray2OfPnt::CreateDownca
 //  Class  TColgp_HArray2OfPnt::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray2OfPnt::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray2OfPnt::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt::Iterator::Next()
+{
+    ((::TColgp_HArray2OfPnt::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HArray2OfPnt::Iterator::Value()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HArray2OfPnt::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HArray2OfPnt::Iterator::ChangeValue()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HArray2OfPnt::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray2OfPnt2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray2OfPnt2d::TColgp_HArray2OfPnt2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfPnt2d(theRowLow, theRowUpp, theColLow, theColUpp);
-}
-
-Macad::Occt::TColgp_HArray2OfPnt2d::TColgp_HArray2OfPnt2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Pnt2d theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray2OfPnt2d(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Pnt2d*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray2OfPnt2d::TColgp_HArray2OfPnt2d(Macad::Occt::TColgp_Array2OfPnt2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfPnt2d(*(::TColgp_Array2OfPnt2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array2OfPnt2d^ Macad::Occt::TColgp_HArray2OfPnt2d::Array2()
-{
-    ::TColgp_Array2OfPnt2d* _result = new ::TColgp_Array2OfPnt2d();
-    *_result = (::TColgp_Array2OfPnt2d)((::TColgp_HArray2OfPnt2d*)_NativeInstance)->Array2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt2d(_result);
-}
-
-Macad::Occt::TColgp_Array2OfPnt2d^ Macad::Occt::TColgp_HArray2OfPnt2d::ChangeArray2()
-{
-    ::TColgp_Array2OfPnt2d* _result = new ::TColgp_Array2OfPnt2d();
-    *_result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->ChangeArray2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt2d(_result);
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfPnt2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfPnt2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::Size()
-{
-    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::Length()
-{
-    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::NbRows()
-{
-    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::NbColumns()
-{
-    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::RowLength()
-{
-    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::ColLength()
-{
-    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::LowerRow()
-{
-    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::UpperRow()
-{
-    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::LowerCol()
-{
-    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfPnt2d::UpperCol()
-{
-    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_HArray2OfPnt2d^ Macad::Occt::TColgp_HArray2OfPnt2d::Assign(Macad::Occt::TColgp_HArray2OfPnt2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray2OfPnt2d^ Macad::Occt::TColgp_HArray2OfPnt2d::Move(Macad::Occt::TColgp_HArray2OfPnt2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray2OfPnt2d::Value(int theRow, int theCol)
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray2OfPnt2d::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-void Macad::Occt::TColgp_HArray2OfPnt2d::SetValue(int theRow, int theCol, Macad::Occt::Pnt2d theItem)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
-    ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Pnt2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HArray2OfPnt2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_HArray2OfPnt2d::Init(Macad::Occt::Pnt2d theValue)
 {
@@ -9005,6 +8454,161 @@ bool Macad::Occt::TColgp_HArray2OfPnt2d::IsDeletable()
     return _result;
 }
 
+int Macad::Occt::TColgp_HArray2OfPnt2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfPnt2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfPnt2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_HArray2OfPnt2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt2d::Length()
+{
+    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt2d::NbRows()
+{
+    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt2d::NbColumns()
+{
+    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt2d::RowLength()
+{
+    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt2d::ColLength()
+{
+    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt2d::LowerRow()
+{
+    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt2d::UpperRow()
+{
+    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt2d::LowerCol()
+{
+    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfPnt2d::UpperCol()
+{
+    int _result = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt2d::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt2d::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt2d::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt2d::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray2OfPnt2d::Value(int theRow, int theCol)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray2OfPnt2d::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt2d::SetValue(int theRow, int theCol, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Pnt2d*)pp_theItem);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray2OfPnt2d::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray2OfPnt2d::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt2d::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt2d::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt2d::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfPnt2d*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
+Macad::Occt::TColgp_HArray2OfPnt2d::TColgp_HArray2OfPnt2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfPnt2d(theRowLow, theRowUpp, theColLow, theColUpp);
+}
+
+Macad::Occt::TColgp_HArray2OfPnt2d::TColgp_HArray2OfPnt2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Pnt2d theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray2OfPnt2d(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Pnt2d*)pp_theValue);
+}
+
 Macad::Occt::TColgp_HArray2OfPnt2d^ Macad::Occt::TColgp_HArray2OfPnt2d::CreateDowncasted(::TColgp_HArray2OfPnt2d* instance)
 {
     return gcnew Macad::Occt::TColgp_HArray2OfPnt2d( instance );
@@ -9016,149 +8620,34 @@ Macad::Occt::TColgp_HArray2OfPnt2d^ Macad::Occt::TColgp_HArray2OfPnt2d::CreateDo
 //  Class  TColgp_HArray2OfPnt2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray2OfPnt2d::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray2OfPnt2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfPnt2d::Iterator::Next()
+{
+    ((::TColgp_HArray2OfPnt2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray2OfPnt2d::Iterator::Value()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray2OfPnt2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HArray2OfPnt2d::Iterator::ChangeValue()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HArray2OfPnt2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray2OfVec
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray2OfVec::TColgp_HArray2OfVec(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfVec(theRowLow, theRowUpp, theColLow, theColUpp);
-}
-
-Macad::Occt::TColgp_HArray2OfVec::TColgp_HArray2OfVec(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Vec theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray2OfVec(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Vec*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray2OfVec::TColgp_HArray2OfVec(Macad::Occt::TColgp_Array2OfVec^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfVec(*(::TColgp_Array2OfVec*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array2OfVec^ Macad::Occt::TColgp_HArray2OfVec::Array2()
-{
-    ::TColgp_Array2OfVec* _result = new ::TColgp_Array2OfVec();
-    *_result = (::TColgp_Array2OfVec)((::TColgp_HArray2OfVec*)_NativeInstance)->Array2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec(_result);
-}
-
-Macad::Occt::TColgp_Array2OfVec^ Macad::Occt::TColgp_HArray2OfVec::ChangeArray2()
-{
-    ::TColgp_Array2OfVec* _result = new ::TColgp_Array2OfVec();
-    *_result = ((::TColgp_HArray2OfVec*)_NativeInstance)->ChangeArray2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec(_result);
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfVec::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfVec::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::Size()
-{
-    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::Length()
-{
-    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::NbRows()
-{
-    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::NbColumns()
-{
-    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::RowLength()
-{
-    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::ColLength()
-{
-    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::LowerRow()
-{
-    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::UpperRow()
-{
-    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::LowerCol()
-{
-    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec::UpperCol()
-{
-    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_HArray2OfVec^ Macad::Occt::TColgp_HArray2OfVec::Assign(Macad::Occt::TColgp_HArray2OfVec^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray2OfVec^ Macad::Occt::TColgp_HArray2OfVec::Move(Macad::Occt::TColgp_HArray2OfVec^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_HArray2OfVec::Value(int theRow, int theCol)
-{
-    ::gp_Vec _nativeResult = ((::TColgp_HArray2OfVec*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-Macad::Occt::Vec Macad::Occt::TColgp_HArray2OfVec::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Vec _nativeResult = ((::TColgp_HArray2OfVec*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Vec(_nativeResult);
-}
-
-void Macad::Occt::TColgp_HArray2OfVec::SetValue(int theRow, int theCol, Macad::Occt::Vec theItem)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
-    ((::TColgp_HArray2OfVec*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Vec*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HArray2OfVec::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_HArray2OfVec*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_HArray2OfVec::Init(Macad::Occt::Vec theValue)
 {
@@ -9224,6 +8713,161 @@ bool Macad::Occt::TColgp_HArray2OfVec::IsDeletable()
     return _result;
 }
 
+int Macad::Occt::TColgp_HArray2OfVec::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfVec::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfVec::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_HArray2OfVec::Size()
+{
+    long long unsigned int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec::Length()
+{
+    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec::NbRows()
+{
+    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec::NbColumns()
+{
+    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec::RowLength()
+{
+    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec::ColLength()
+{
+    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec::LowerRow()
+{
+    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec::UpperRow()
+{
+    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec::LowerCol()
+{
+    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec::UpperCol()
+{
+    int _result = ((::TColgp_HArray2OfVec*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfVec::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_HArray2OfVec*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_HArray2OfVec*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_HArray2OfVec*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_HArray2OfVec*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HArray2OfVec::Value(int theRow, int theCol)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HArray2OfVec*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HArray2OfVec::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HArray2OfVec*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec::SetValue(int theRow, int theCol, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_HArray2OfVec*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Vec*)pp_theItem);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HArray2OfVec::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HArray2OfVec*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HArray2OfVec::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HArray2OfVec*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfVec*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfVec*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfVec*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfVec*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
+Macad::Occt::TColgp_HArray2OfVec::TColgp_HArray2OfVec(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfVec(theRowLow, theRowUpp, theColLow, theColUpp);
+}
+
+Macad::Occt::TColgp_HArray2OfVec::TColgp_HArray2OfVec(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Vec theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray2OfVec(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Vec*)pp_theValue);
+}
+
 Macad::Occt::TColgp_HArray2OfVec^ Macad::Occt::TColgp_HArray2OfVec::CreateDowncasted(::TColgp_HArray2OfVec* instance)
 {
     return gcnew Macad::Occt::TColgp_HArray2OfVec( instance );
@@ -9235,149 +8879,34 @@ Macad::Occt::TColgp_HArray2OfVec^ Macad::Occt::TColgp_HArray2OfVec::CreateDownca
 //  Class  TColgp_HArray2OfVec::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray2OfVec::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray2OfVec::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfVec::Iterator::Next()
+{
+    ((::TColgp_HArray2OfVec::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HArray2OfVec::Iterator::Value()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HArray2OfVec::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HArray2OfVec::Iterator::ChangeValue()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HArray2OfVec::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray2OfVec2d
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray2OfVec2d::TColgp_HArray2OfVec2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfVec2d(theRowLow, theRowUpp, theColLow, theColUpp);
-}
-
-Macad::Occt::TColgp_HArray2OfVec2d::TColgp_HArray2OfVec2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Vec2d theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray2OfVec2d(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Vec2d*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray2OfVec2d::TColgp_HArray2OfVec2d(Macad::Occt::TColgp_Array2OfVec2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfVec2d(*(::TColgp_Array2OfVec2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array2OfVec2d^ Macad::Occt::TColgp_HArray2OfVec2d::Array2()
-{
-    ::TColgp_Array2OfVec2d* _result = new ::TColgp_Array2OfVec2d();
-    *_result = (::TColgp_Array2OfVec2d)((::TColgp_HArray2OfVec2d*)_NativeInstance)->Array2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec2d(_result);
-}
-
-Macad::Occt::TColgp_Array2OfVec2d^ Macad::Occt::TColgp_HArray2OfVec2d::ChangeArray2()
-{
-    ::TColgp_Array2OfVec2d* _result = new ::TColgp_Array2OfVec2d();
-    *_result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->ChangeArray2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfVec2d(_result);
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfVec2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfVec2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::Size()
-{
-    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::Length()
-{
-    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::NbRows()
-{
-    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::NbColumns()
-{
-    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::RowLength()
-{
-    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::ColLength()
-{
-    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::LowerRow()
-{
-    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::UpperRow()
-{
-    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::LowerCol()
-{
-    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfVec2d::UpperCol()
-{
-    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_HArray2OfVec2d^ Macad::Occt::TColgp_HArray2OfVec2d::Assign(Macad::Occt::TColgp_HArray2OfVec2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray2OfVec2d^ Macad::Occt::TColgp_HArray2OfVec2d::Move(Macad::Occt::TColgp_HArray2OfVec2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_HArray2OfVec2d::Value(int theRow, int theCol)
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-Macad::Occt::Vec2d Macad::Occt::TColgp_HArray2OfVec2d::ChangeValue(int theRow, int theCol)
-{
-    ::gp_Vec2d _nativeResult = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::Vec2d(_nativeResult);
-}
-
-void Macad::Occt::TColgp_HArray2OfVec2d::SetValue(int theRow, int theCol, Macad::Occt::Vec2d theItem)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
-    ((::TColgp_HArray2OfVec2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Vec2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HArray2OfVec2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_HArray2OfVec2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_HArray2OfVec2d::Init(Macad::Occt::Vec2d theValue)
 {
@@ -9443,6 +8972,161 @@ bool Macad::Occt::TColgp_HArray2OfVec2d::IsDeletable()
     return _result;
 }
 
+int Macad::Occt::TColgp_HArray2OfVec2d::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfVec2d::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec2d::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfVec2d::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_HArray2OfVec2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec2d::Length()
+{
+    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec2d::NbRows()
+{
+    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec2d::NbColumns()
+{
+    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec2d::RowLength()
+{
+    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec2d::ColLength()
+{
+    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec2d::LowerRow()
+{
+    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec2d::UpperRow()
+{
+    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec2d::LowerCol()
+{
+    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfVec2d::UpperCol()
+{
+    int _result = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfVec2d::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_HArray2OfVec2d*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec2d::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_HArray2OfVec2d*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec2d::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_HArray2OfVec2d*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec2d::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_HArray2OfVec2d*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HArray2OfVec2d::Value(int theRow, int theCol)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HArray2OfVec2d::ChangeValue(int theRow, int theCol)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec2d::SetValue(int theRow, int theCol, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_HArray2OfVec2d*)_NativeInstance)->SetValue(theRow, theCol, *(gp_Vec2d*)pp_theItem);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HArray2OfVec2d::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HArray2OfVec2d::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HArray2OfVec2d*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec2d::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfVec2d*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec2d::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfVec2d*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec2d::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfVec2d*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfVec2d::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfVec2d*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
+Macad::Occt::TColgp_HArray2OfVec2d::TColgp_HArray2OfVec2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfVec2d(theRowLow, theRowUpp, theColLow, theColUpp);
+}
+
+Macad::Occt::TColgp_HArray2OfVec2d::TColgp_HArray2OfVec2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Vec2d theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray2OfVec2d(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_Vec2d*)pp_theValue);
+}
+
 Macad::Occt::TColgp_HArray2OfVec2d^ Macad::Occt::TColgp_HArray2OfVec2d::CreateDowncasted(::TColgp_HArray2OfVec2d* instance)
 {
     return gcnew Macad::Occt::TColgp_HArray2OfVec2d( instance );
@@ -9454,149 +9138,34 @@ Macad::Occt::TColgp_HArray2OfVec2d^ Macad::Occt::TColgp_HArray2OfVec2d::CreateDo
 //  Class  TColgp_HArray2OfVec2d::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray2OfVec2d::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray2OfVec2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfVec2d::Iterator::Next()
+{
+    ((::TColgp_HArray2OfVec2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HArray2OfVec2d::Iterator::Value()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HArray2OfVec2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HArray2OfVec2d::Iterator::ChangeValue()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HArray2OfVec2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray2OfXY
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray2OfXY::TColgp_HArray2OfXY(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfXY(theRowLow, theRowUpp, theColLow, theColUpp);
-}
-
-Macad::Occt::TColgp_HArray2OfXY::TColgp_HArray2OfXY(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::XY theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XY> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray2OfXY(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_XY*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray2OfXY::TColgp_HArray2OfXY(Macad::Occt::TColgp_Array2OfXY^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfXY(*(::TColgp_Array2OfXY*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array2OfXY^ Macad::Occt::TColgp_HArray2OfXY::Array2()
-{
-    ::TColgp_Array2OfXY* _result = new ::TColgp_Array2OfXY();
-    *_result = (::TColgp_Array2OfXY)((::TColgp_HArray2OfXY*)_NativeInstance)->Array2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXY(_result);
-}
-
-Macad::Occt::TColgp_Array2OfXY^ Macad::Occt::TColgp_HArray2OfXY::ChangeArray2()
-{
-    ::TColgp_Array2OfXY* _result = new ::TColgp_Array2OfXY();
-    *_result = ((::TColgp_HArray2OfXY*)_NativeInstance)->ChangeArray2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXY(_result);
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfXY::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfXY::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::Size()
-{
-    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::Length()
-{
-    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::NbRows()
-{
-    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::NbColumns()
-{
-    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::RowLength()
-{
-    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::ColLength()
-{
-    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::LowerRow()
-{
-    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::UpperRow()
-{
-    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::LowerCol()
-{
-    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXY::UpperCol()
-{
-    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_HArray2OfXY^ Macad::Occt::TColgp_HArray2OfXY::Assign(Macad::Occt::TColgp_HArray2OfXY^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray2OfXY^ Macad::Occt::TColgp_HArray2OfXY::Move(Macad::Occt::TColgp_HArray2OfXY^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_HArray2OfXY::Value(int theRow, int theCol)
-{
-    ::gp_XY _nativeResult = ((::TColgp_HArray2OfXY*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::XY(_nativeResult);
-}
-
-Macad::Occt::XY Macad::Occt::TColgp_HArray2OfXY::ChangeValue(int theRow, int theCol)
-{
-    ::gp_XY _nativeResult = ((::TColgp_HArray2OfXY*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::XY(_nativeResult);
-}
-
-void Macad::Occt::TColgp_HArray2OfXY::SetValue(int theRow, int theCol, Macad::Occt::XY theItem)
-{
-    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
-    ((::TColgp_HArray2OfXY*)_NativeInstance)->SetValue(theRow, theCol, *(gp_XY*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HArray2OfXY::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_HArray2OfXY*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_HArray2OfXY::Init(Macad::Occt::XY theValue)
 {
@@ -9662,6 +9231,161 @@ bool Macad::Occt::TColgp_HArray2OfXY::IsDeletable()
     return _result;
 }
 
+int Macad::Occt::TColgp_HArray2OfXY::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfXY::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXY::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfXY::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_HArray2OfXY::Size()
+{
+    long long unsigned int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXY::Length()
+{
+    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXY::NbRows()
+{
+    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXY::NbColumns()
+{
+    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXY::RowLength()
+{
+    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXY::ColLength()
+{
+    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXY::LowerRow()
+{
+    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXY::UpperRow()
+{
+    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXY::LowerCol()
+{
+    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXY::UpperCol()
+{
+    int _result = ((::TColgp_HArray2OfXY*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfXY::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_HArray2OfXY*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfXY::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_HArray2OfXY*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_HArray2OfXY::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_HArray2OfXY*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfXY::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_HArray2OfXY*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HArray2OfXY::Value(int theRow, int theCol)
+{
+    ::gp_XY _nativeResult = ((::TColgp_HArray2OfXY*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HArray2OfXY::ChangeValue(int theRow, int theCol)
+{
+    ::gp_XY _nativeResult = ((::TColgp_HArray2OfXY*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfXY::SetValue(int theRow, int theCol, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_HArray2OfXY*)_NativeInstance)->SetValue(theRow, theCol, *(gp_XY*)pp_theItem);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HArray2OfXY::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_XY _nativeResult = ((::TColgp_HArray2OfXY*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HArray2OfXY::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_XY _nativeResult = ((::TColgp_HArray2OfXY*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfXY::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfXY*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfXY::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfXY*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfXY::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfXY*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfXY::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfXY*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
+Macad::Occt::TColgp_HArray2OfXY::TColgp_HArray2OfXY(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfXY(theRowLow, theRowUpp, theColLow, theColUpp);
+}
+
+Macad::Occt::TColgp_HArray2OfXY::TColgp_HArray2OfXY(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::XY theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::XY> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray2OfXY(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_XY*)pp_theValue);
+}
+
 Macad::Occt::TColgp_HArray2OfXY^ Macad::Occt::TColgp_HArray2OfXY::CreateDowncasted(::TColgp_HArray2OfXY* instance)
 {
     return gcnew Macad::Occt::TColgp_HArray2OfXY( instance );
@@ -9673,149 +9397,34 @@ Macad::Occt::TColgp_HArray2OfXY^ Macad::Occt::TColgp_HArray2OfXY::CreateDowncast
 //  Class  TColgp_HArray2OfXY::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray2OfXY::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray2OfXY::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfXY::Iterator::Next()
+{
+    ((::TColgp_HArray2OfXY::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HArray2OfXY::Iterator::Value()
+{
+    ::gp_XY _nativeResult = ((::TColgp_HArray2OfXY::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HArray2OfXY::Iterator::ChangeValue()
+{
+    ::gp_XY _nativeResult = ((::TColgp_HArray2OfXY::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::XY(_nativeResult);
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HArray2OfXYZ
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HArray2OfXYZ::TColgp_HArray2OfXYZ(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfXYZ(theRowLow, theRowUpp, theColLow, theColUpp);
-}
-
-Macad::Occt::TColgp_HArray2OfXYZ::TColgp_HArray2OfXYZ(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::XYZ theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theValue = &theValue;
-    NativeInstance = new ::TColgp_HArray2OfXYZ(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_XYZ*)pp_theValue);
-}
-
-Macad::Occt::TColgp_HArray2OfXYZ::TColgp_HArray2OfXYZ(Macad::Occt::TColgp_Array2OfXYZ^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HArray2OfXYZ(*(::TColgp_Array2OfXYZ*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_Array2OfXYZ^ Macad::Occt::TColgp_HArray2OfXYZ::Array2()
-{
-    ::TColgp_Array2OfXYZ* _result = new ::TColgp_Array2OfXYZ();
-    *_result = (::TColgp_Array2OfXYZ)((::TColgp_HArray2OfXYZ*)_NativeInstance)->Array2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXYZ(_result);
-}
-
-Macad::Occt::TColgp_Array2OfXYZ^ Macad::Occt::TColgp_HArray2OfXYZ::ChangeArray2()
-{
-    ::TColgp_Array2OfXYZ* _result = new ::TColgp_Array2OfXYZ();
-    *_result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->ChangeArray2();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfXYZ(_result);
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfXYZ::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
-{
-    int _result = ::TColgp_HArray2OfXYZ::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::Size()
-{
-    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::Length()
-{
-    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::NbRows()
-{
-    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->NbRows();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::NbColumns()
-{
-    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->NbColumns();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::RowLength()
-{
-    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->RowLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::ColLength()
-{
-    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->ColLength();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::LowerRow()
-{
-    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->LowerRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::UpperRow()
-{
-    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->UpperRow();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::LowerCol()
-{
-    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->LowerCol();
-    return _result;
-}
-
-int Macad::Occt::TColgp_HArray2OfXYZ::UpperCol()
-{
-    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->UpperCol();
-    return _result;
-}
-
-Macad::Occt::TColgp_HArray2OfXYZ^ Macad::Occt::TColgp_HArray2OfXYZ::Assign(Macad::Occt::TColgp_HArray2OfXYZ^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::TColgp_HArray2OfXYZ^ Macad::Occt::TColgp_HArray2OfXYZ::Move(Macad::Occt::TColgp_HArray2OfXYZ^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::XYZ Macad::Occt::TColgp_HArray2OfXYZ::Value(int theRow, int theCol)
-{
-    ::gp_XYZ _nativeResult = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->Value(theRow, theCol);
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-Macad::Occt::XYZ Macad::Occt::TColgp_HArray2OfXYZ::ChangeValue(int theRow, int theCol)
-{
-    ::gp_XYZ _nativeResult = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-void Macad::Occt::TColgp_HArray2OfXYZ::SetValue(int theRow, int theCol, Macad::Occt::XYZ theItem)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
-    ((::TColgp_HArray2OfXYZ*)_NativeInstance)->SetValue(theRow, theCol, *(gp_XYZ*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HArray2OfXYZ::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
-{
-    ((::TColgp_HArray2OfXYZ*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
-}
 
 void Macad::Occt::TColgp_HArray2OfXYZ::Init(Macad::Occt::XYZ theValue)
 {
@@ -9881,6 +9490,161 @@ bool Macad::Occt::TColgp_HArray2OfXYZ::IsDeletable()
     return _result;
 }
 
+int Macad::Occt::TColgp_HArray2OfXYZ::BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfXYZ::BeginPosition(theRowLower, parameter1, theColLower, theColUpper);
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXYZ::LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper)
+{
+    int _result = ::TColgp_HArray2OfXYZ::LastPosition(theRowLower, theRowUpper, theColLower, theColUpper);
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_HArray2OfXYZ::Size()
+{
+    long long unsigned int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXYZ::Length()
+{
+    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->Length();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXYZ::NbRows()
+{
+    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->NbRows();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXYZ::NbColumns()
+{
+    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->NbColumns();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXYZ::RowLength()
+{
+    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->RowLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXYZ::ColLength()
+{
+    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->ColLength();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXYZ::LowerRow()
+{
+    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->LowerRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXYZ::UpperRow()
+{
+    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->UpperRow();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXYZ::LowerCol()
+{
+    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->LowerCol();
+    return _result;
+}
+
+int Macad::Occt::TColgp_HArray2OfXYZ::UpperCol()
+{
+    int _result = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->UpperCol();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfXYZ::UpdateLowerRow(int theLowerRow)
+{
+    ((::TColgp_HArray2OfXYZ*)_NativeInstance)->UpdateLowerRow(theLowerRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfXYZ::UpdateLowerCol(int theLowerCol)
+{
+    ((::TColgp_HArray2OfXYZ*)_NativeInstance)->UpdateLowerCol(theLowerCol);
+}
+
+void Macad::Occt::TColgp_HArray2OfXYZ::UpdateUpperRow(int theUpperRow)
+{
+    ((::TColgp_HArray2OfXYZ*)_NativeInstance)->UpdateUpperRow(theUpperRow);
+}
+
+void Macad::Occt::TColgp_HArray2OfXYZ::UpdateUpperCol(int theUpperCol)
+{
+    ((::TColgp_HArray2OfXYZ*)_NativeInstance)->UpdateUpperCol(theUpperCol);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HArray2OfXYZ::Value(int theRow, int theCol)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->Value(theRow, theCol);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HArray2OfXYZ::ChangeValue(int theRow, int theCol)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->ChangeValue(theRow, theCol);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfXYZ::SetValue(int theRow, int theCol, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_HArray2OfXYZ*)_NativeInstance)->SetValue(theRow, theCol, *(gp_XYZ*)pp_theItem);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HArray2OfXYZ::At(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->At(theRow, theCol);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HArray2OfXYZ::ChangeAt(long long unsigned int theRow, long long unsigned int theCol)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HArray2OfXYZ*)_NativeInstance)->ChangeAt(theRow, theCol);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+void Macad::Occt::TColgp_HArray2OfXYZ::Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfXYZ*)_NativeInstance)->Resize(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfXYZ::ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfXYZ*)_NativeInstance)->ResizeWithTrim(theRowLower, theRowUpper, theColLower, theColUpper, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfXYZ::Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfXYZ*)_NativeInstance)->Resize(theNbRows, theNbCols, theToCopyData);
+}
+
+void Macad::Occt::TColgp_HArray2OfXYZ::ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData)
+{
+    ((::TColgp_HArray2OfXYZ*)_NativeInstance)->ResizeWithTrim(theNbRows, theNbCols, theToCopyData);
+}
+
+Macad::Occt::TColgp_HArray2OfXYZ::TColgp_HArray2OfXYZ(int theRowLow, int theRowUpp, int theColLow, int theColUpp)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HArray2OfXYZ(theRowLow, theRowUpp, theColLow, theColUpp);
+}
+
+Macad::Occt::TColgp_HArray2OfXYZ::TColgp_HArray2OfXYZ(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::XYZ theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theValue = &theValue;
+    NativeInstance = new ::TColgp_HArray2OfXYZ(theRowLow, theRowUpp, theColLow, theColUpp, *(gp_XYZ*)pp_theValue);
+}
+
 Macad::Occt::TColgp_HArray2OfXYZ^ Macad::Occt::TColgp_HArray2OfXYZ::CreateDowncasted(::TColgp_HArray2OfXYZ* instance)
 {
     return gcnew Macad::Occt::TColgp_HArray2OfXYZ( instance );
@@ -9892,54 +9656,381 @@ Macad::Occt::TColgp_HArray2OfXYZ^ Macad::Occt::TColgp_HArray2OfXYZ::CreateDownca
 //  Class  TColgp_HArray2OfXYZ::Iterator
 //---------------------------------------------------------------------
 
+bool Macad::Occt::TColgp_HArray2OfXYZ::Iterator::More()
+{
+    bool _result = ((::TColgp_HArray2OfXYZ::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_HArray2OfXYZ::Iterator::Next()
+{
+    ((::TColgp_HArray2OfXYZ::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HArray2OfXYZ::Iterator::Value()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HArray2OfXYZ::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HArray2OfXYZ::Iterator::ChangeValue()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HArray2OfXYZ::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfDir
+//---------------------------------------------------------------------
+
+int Macad::Occt::TColgp_SequenceOfDir::Length()
+{
+    int _result = ((::TColgp_SequenceOfDir*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_SequenceOfDir::Size()
+{
+    long long unsigned int _result = ((::TColgp_SequenceOfDir*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_SequenceOfDir::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_SequenceOfDir*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_SequenceOfDir::TColgp_SequenceOfDir()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfDir();
+}
+
+Macad::Occt::TColgp_SequenceOfDir::TColgp_SequenceOfDir(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfDir(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::TColgp_SequenceOfDir::Lower()
+{
+    int _result = ::TColgp_SequenceOfDir::Lower();
+    return _result;
+}
+
+int Macad::Occt::TColgp_SequenceOfDir::Upper()
+{
+    int _result = ((::TColgp_SequenceOfDir*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfDir::IsEmpty()
+{
+    bool _result = ((::TColgp_SequenceOfDir*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Reverse()
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Exchange(int I, int J)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Clear()
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::TColgp_SequenceOfDir^ Macad::Occt::TColgp_SequenceOfDir::Assign(Macad::Occt::TColgp_SequenceOfDir^ theOther)
+{
+    ::TColgp_SequenceOfDir* _result = new ::TColgp_SequenceOfDir();
+    *_result = ((::TColgp_SequenceOfDir*)_NativeInstance)->Assign(*(::TColgp_SequenceOfDir*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfDir(_result);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Remove(Macad::Occt::TColgp_SequenceOfDir::Iterator^ thePosition)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Remove(*(::TColgp_SequenceOfDir::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Remove(int theIndex)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Append(Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Append(*(gp_Dir*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Append(Macad::Occt::TColgp_SequenceOfDir^ theSeq)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Append(*(::TColgp_SequenceOfDir*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Prepend(Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Prepend(*(gp_Dir*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Prepend(Macad::Occt::TColgp_SequenceOfDir^ theSeq)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Prepend(*(::TColgp_SequenceOfDir*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::InsertBefore(long long unsigned int theIndex, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->InsertBefore(theIndex, *(gp_Dir*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::InsertBefore(int theIndex, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->InsertBefore(theIndex, *(gp_Dir*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfDir^ theSeq)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfDir*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::InsertBefore(int theIndex, Macad::Occt::TColgp_SequenceOfDir^ theSeq)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfDir*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::InsertAfter(Macad::Occt::TColgp_SequenceOfDir::Iterator^ thePosition, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfDir::Iterator*)thePosition->NativeInstance, *(gp_Dir*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfDir^ theSeq)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfDir*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::InsertAfter(int theIndex, Macad::Occt::TColgp_SequenceOfDir^ theSeq)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfDir*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::InsertAfter(long long unsigned int theIndex, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->InsertAfter(theIndex, *(gp_Dir*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::InsertAfter(int theIndex, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->InsertAfter(theIndex, *(gp_Dir*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Split(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfDir^ theSeq)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfDir*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Split(int theIndex, Macad::Occt::TColgp_SequenceOfDir^ theSeq)
+{
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfDir*)theSeq->NativeInstance);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::First()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->First();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::ChangeFirst()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->ChangeFirst();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::Last()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->Last();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::ChangeLast()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->ChangeLast();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::Value(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::Value(int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::ChangeValue(int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::SetValue(long long unsigned int theIndex, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->SetValue(theIndex, *(gp_Dir*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::SetValue(int theIndex, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir*)_NativeInstance)->SetValue(theIndex, *(gp_Dir*)pp_theItem);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::At(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Dir>^ Macad::Occt::TColgp_SequenceOfDir::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Dir>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfDir::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Dir>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfDir::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::TColgp_SequenceOfDir::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfDir::Iterator();
+}
+
+Macad::Occt::TColgp_SequenceOfDir::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfDir^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfDir::Iterator(*(::TColgp_SequenceOfDir*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::TColgp_SequenceOfDir::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfDir^ theSeq)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfDir::Iterator(*(::TColgp_SequenceOfDir*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::TColgp_SequenceOfDir::Iterator::More()
+{
+    bool _result = ((::TColgp_SequenceOfDir::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfDir::Iterator::Next()
+{
+    ((::TColgp_SequenceOfDir::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::Iterator::Value()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_SequenceOfDir::Iterator::ChangeValue()
+{
+    ::gp_Dir _nativeResult = ((::TColgp_SequenceOfDir::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+bool Macad::Occt::TColgp_SequenceOfDir::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfDir::Iterator^ theOther)
+{
+    bool _result = ((::TColgp_SequenceOfDir::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfDir::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfDir::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::TColgp_SequenceOfDir::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
 
 
 //---------------------------------------------------------------------
 //  Class  TColgp_HSequenceOfDir
 //---------------------------------------------------------------------
-
-Macad::Occt::TColgp_HSequenceOfDir::TColgp_HSequenceOfDir()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HSequenceOfDir();
-}
-
-Macad::Occt::TColgp_HSequenceOfDir::TColgp_HSequenceOfDir(Macad::Occt::TColgp_SequenceOfDir^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HSequenceOfDir(*(::TColgp_SequenceOfDir*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfDir^ Macad::Occt::TColgp_HSequenceOfDir::Sequence()
-{
-    ::TColgp_SequenceOfDir* _result = new ::TColgp_SequenceOfDir();
-    *_result = (::TColgp_SequenceOfDir)((::TColgp_HSequenceOfDir*)_NativeInstance)->Sequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfDir(_result);
-}
-
-void Macad::Occt::TColgp_HSequenceOfDir::Append(Macad::Occt::Dir theItem)
-{
-    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
-    ((::TColgp_HSequenceOfDir*)_NativeInstance)->Append(*(gp_Dir*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HSequenceOfDir::Append(Macad::Occt::TColgp_SequenceOfDir^ theSequence)
-{
-    ((::TColgp_HSequenceOfDir*)_NativeInstance)->Append(*(::TColgp_SequenceOfDir*)theSequence->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfDir^ Macad::Occt::TColgp_HSequenceOfDir::ChangeSequence()
-{
-    ::TColgp_SequenceOfDir* _result = new ::TColgp_SequenceOfDir();
-    *_result = ((::TColgp_HSequenceOfDir*)_NativeInstance)->ChangeSequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfDir(_result);
-}
-
-int Macad::Occt::TColgp_HSequenceOfDir::Size()
-{
-    int _result = ((::TColgp_HSequenceOfDir*)_NativeInstance)->Size();
-    return _result;
-}
 
 int Macad::Occt::TColgp_HSequenceOfDir::Length()
 {
@@ -9947,9 +10038,21 @@ int Macad::Occt::TColgp_HSequenceOfDir::Length()
     return _result;
 }
 
+long long unsigned int Macad::Occt::TColgp_HSequenceOfDir::Size()
+{
+    long long unsigned int _result = ((::TColgp_HSequenceOfDir*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_HSequenceOfDir::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_HSequenceOfDir*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 int Macad::Occt::TColgp_HSequenceOfDir::Lower()
 {
-    int _result = ((::TColgp_HSequenceOfDir*)_NativeInstance)->Lower();
+    int _result = ::TColgp_HSequenceOfDir::Lower();
     return _result;
 }
 
@@ -9970,6 +10073,11 @@ void Macad::Occt::TColgp_HSequenceOfDir::Reverse()
     ((::TColgp_HSequenceOfDir*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::TColgp_HSequenceOfDir::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_HSequenceOfDir*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::TColgp_HSequenceOfDir::Exchange(int I, int J)
 {
     ((::TColgp_HSequenceOfDir*)_NativeInstance)->Exchange(I, J);
@@ -9982,12 +10090,7 @@ void Macad::Occt::TColgp_HSequenceOfDir::Clear(Macad::Occt::NCollection_BaseAllo
 
 void Macad::Occt::TColgp_HSequenceOfDir::Clear()
 {
-    ((::TColgp_HSequenceOfDir*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_HSequenceOfDir^ Macad::Occt::TColgp_HSequenceOfDir::Assign(Macad::Occt::TColgp_HSequenceOfDir^ theOther)
-{
-    throw gcnew System::NotImplementedException();
+    ((::TColgp_HSequenceOfDir*)_NativeInstance)->Clear(nullptr);
 }
 
 void Macad::Occt::TColgp_HSequenceOfDir::Remove(Macad::Occt::TColgp_HSequenceOfDir::Iterator^ thePosition)
@@ -9995,10 +10098,36 @@ void Macad::Occt::TColgp_HSequenceOfDir::Remove(Macad::Occt::TColgp_HSequenceOfD
     ((::TColgp_HSequenceOfDir*)_NativeInstance)->Remove(*(::TColgp_HSequenceOfDir::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::TColgp_HSequenceOfDir::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_HSequenceOfDir*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir::Remove(int theIndex)
+{
+    ((::TColgp_HSequenceOfDir*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_HSequenceOfDir*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_HSequenceOfDir*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::TColgp_HSequenceOfDir::Prepend(Macad::Occt::Dir theItem)
 {
     pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfDir*)_NativeInstance)->Prepend(*(gp_Dir*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir::InsertBefore(long long unsigned int theIndex, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfDir*)_NativeInstance)->InsertBefore(theIndex, *(gp_Dir*)pp_theItem);
 }
 
 void Macad::Occt::TColgp_HSequenceOfDir::InsertBefore(int theIndex, Macad::Occt::Dir theItem)
@@ -10013,9 +10142,16 @@ void Macad::Occt::TColgp_HSequenceOfDir::InsertAfter(Macad::Occt::TColgp_HSequen
     ((::TColgp_HSequenceOfDir*)_NativeInstance)->InsertAfter(*(::TColgp_HSequenceOfDir::Iterator*)thePosition->NativeInstance, *(gp_Dir*)pp_theItem);
 }
 
-void Macad::Occt::TColgp_HSequenceOfDir::Split(int theIndex, Macad::Occt::TColgp_HSequenceOfDir^ theSeq)
+void Macad::Occt::TColgp_HSequenceOfDir::InsertAfter(long long unsigned int theIndex, Macad::Occt::Dir theItem)
 {
-    ((::TColgp_HSequenceOfDir*)_NativeInstance)->Split(theIndex, *(::TColgp_HSequenceOfDir*)theSeq->NativeInstance);
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfDir*)_NativeInstance)->InsertAfter(theIndex, *(gp_Dir*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir::InsertAfter(int theIndex, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfDir*)_NativeInstance)->InsertAfter(theIndex, *(gp_Dir*)pp_theItem);
 }
 
 Macad::Occt::Dir Macad::Occt::TColgp_HSequenceOfDir::First()
@@ -10042,9 +10178,21 @@ Macad::Occt::Dir Macad::Occt::TColgp_HSequenceOfDir::ChangeLast()
     return Macad::Occt::Dir(_nativeResult);
 }
 
+Macad::Occt::Dir Macad::Occt::TColgp_HSequenceOfDir::Value(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HSequenceOfDir*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
 Macad::Occt::Dir Macad::Occt::TColgp_HSequenceOfDir::Value(int theIndex)
 {
     ::gp_Dir _nativeResult = ((::TColgp_HSequenceOfDir*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HSequenceOfDir::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HSequenceOfDir*)_NativeInstance)->ChangeValue(theIndex);
     return Macad::Occt::Dir(_nativeResult);
 }
 
@@ -10054,10 +10202,40 @@ Macad::Occt::Dir Macad::Occt::TColgp_HSequenceOfDir::ChangeValue(int theIndex)
     return Macad::Occt::Dir(_nativeResult);
 }
 
+void Macad::Occt::TColgp_HSequenceOfDir::SetValue(long long unsigned int theIndex, Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfDir*)_NativeInstance)->SetValue(theIndex, *(gp_Dir*)pp_theItem);
+}
+
 void Macad::Occt::TColgp_HSequenceOfDir::SetValue(int theIndex, Macad::Occt::Dir theItem)
 {
     pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfDir*)_NativeInstance)->SetValue(theIndex, *(gp_Dir*)pp_theItem);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HSequenceOfDir::At(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HSequenceOfDir*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::TColgp_HSequenceOfDir::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Dir _nativeResult = ((::TColgp_HSequenceOfDir*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::TColgp_HSequenceOfDir::TColgp_HSequenceOfDir()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HSequenceOfDir();
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir::Append(Macad::Occt::Dir theItem)
+{
+    pin_ptr<Macad::Occt::Dir> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfDir*)_NativeInstance)->Append(*(gp_Dir*)pp_theItem);
 }
 
 Macad::Occt::TColgp_HSequenceOfDir^ Macad::Occt::TColgp_HSequenceOfDir::CreateDowncasted(::TColgp_HSequenceOfDir* instance)
@@ -10138,51 +10316,355 @@ bool Macad::Occt::TColgp_HSequenceOfDir::Iterator::Equals(System::Object^ obj)
 
 
 //---------------------------------------------------------------------
-//  Class  TColgp_HSequenceOfDir2d
+//  Class  TColgp_SequenceOfDir2d
 //---------------------------------------------------------------------
 
-Macad::Occt::TColgp_HSequenceOfDir2d::TColgp_HSequenceOfDir2d()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+int Macad::Occt::TColgp_SequenceOfDir2d::Length()
 {
-    NativeInstance = new ::TColgp_HSequenceOfDir2d();
-}
-
-Macad::Occt::TColgp_HSequenceOfDir2d::TColgp_HSequenceOfDir2d(Macad::Occt::TColgp_SequenceOfDir2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HSequenceOfDir2d(*(::TColgp_SequenceOfDir2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfDir2d^ Macad::Occt::TColgp_HSequenceOfDir2d::Sequence()
-{
-    ::TColgp_SequenceOfDir2d* _result = new ::TColgp_SequenceOfDir2d();
-    *_result = (::TColgp_SequenceOfDir2d)((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Sequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfDir2d(_result);
-}
-
-void Macad::Occt::TColgp_HSequenceOfDir2d::Append(Macad::Occt::Dir2d theItem)
-{
-    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
-    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Append(*(gp_Dir2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HSequenceOfDir2d::Append(Macad::Occt::TColgp_SequenceOfDir2d^ theSequence)
-{
-    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Append(*(::TColgp_SequenceOfDir2d*)theSequence->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfDir2d^ Macad::Occt::TColgp_HSequenceOfDir2d::ChangeSequence()
-{
-    ::TColgp_SequenceOfDir2d* _result = new ::TColgp_SequenceOfDir2d();
-    *_result = ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->ChangeSequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfDir2d(_result);
-}
-
-int Macad::Occt::TColgp_HSequenceOfDir2d::Size()
-{
-    int _result = ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Size();
+    int _result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Length();
     return _result;
 }
+
+long long unsigned int Macad::Occt::TColgp_SequenceOfDir2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_SequenceOfDir2d::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_SequenceOfDir2d::TColgp_SequenceOfDir2d()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfDir2d();
+}
+
+Macad::Occt::TColgp_SequenceOfDir2d::TColgp_SequenceOfDir2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfDir2d(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::TColgp_SequenceOfDir2d::Lower()
+{
+    int _result = ::TColgp_SequenceOfDir2d::Lower();
+    return _result;
+}
+
+int Macad::Occt::TColgp_SequenceOfDir2d::Upper()
+{
+    int _result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfDir2d::IsEmpty()
+{
+    bool _result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Reverse()
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Exchange(int I, int J)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Clear()
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::TColgp_SequenceOfDir2d^ Macad::Occt::TColgp_SequenceOfDir2d::Assign(Macad::Occt::TColgp_SequenceOfDir2d^ theOther)
+{
+    ::TColgp_SequenceOfDir2d* _result = new ::TColgp_SequenceOfDir2d();
+    *_result = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Assign(*(::TColgp_SequenceOfDir2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfDir2d(_result);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Remove(Macad::Occt::TColgp_SequenceOfDir2d::Iterator^ thePosition)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Remove(*(::TColgp_SequenceOfDir2d::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Remove(int theIndex)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Append(Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Append(*(gp_Dir2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Append(Macad::Occt::TColgp_SequenceOfDir2d^ theSeq)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Append(*(::TColgp_SequenceOfDir2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Prepend(Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Prepend(*(gp_Dir2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Prepend(Macad::Occt::TColgp_SequenceOfDir2d^ theSeq)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Prepend(*(::TColgp_SequenceOfDir2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Dir2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::InsertBefore(int theIndex, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Dir2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfDir2d^ theSeq)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfDir2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::InsertBefore(int theIndex, Macad::Occt::TColgp_SequenceOfDir2d^ theSeq)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfDir2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::InsertAfter(Macad::Occt::TColgp_SequenceOfDir2d::Iterator^ thePosition, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfDir2d::Iterator*)thePosition->NativeInstance, *(gp_Dir2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfDir2d^ theSeq)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfDir2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::InsertAfter(int theIndex, Macad::Occt::TColgp_SequenceOfDir2d^ theSeq)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfDir2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Dir2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::InsertAfter(int theIndex, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Dir2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Split(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfDir2d^ theSeq)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfDir2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Split(int theIndex, Macad::Occt::TColgp_SequenceOfDir2d^ theSeq)
+{
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfDir2d*)theSeq->NativeInstance);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::First()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->First();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::ChangeFirst()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->ChangeFirst();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::Last()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Last();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::ChangeLast()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->ChangeLast();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::Value(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::Value(int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::ChangeValue(int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::SetValue(long long unsigned int theIndex, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->SetValue(theIndex, *(gp_Dir2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::SetValue(int theIndex, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfDir2d*)_NativeInstance)->SetValue(theIndex, *(gp_Dir2d*)pp_theItem);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::At(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Dir2d>^ Macad::Occt::TColgp_SequenceOfDir2d::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Dir2d>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfDir2d::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Dir2d>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfDir2d::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::TColgp_SequenceOfDir2d::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfDir2d::Iterator();
+}
+
+Macad::Occt::TColgp_SequenceOfDir2d::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfDir2d^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfDir2d::Iterator(*(::TColgp_SequenceOfDir2d*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::TColgp_SequenceOfDir2d::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfDir2d^ theSeq)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfDir2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfDir2d::Iterator(*(::TColgp_SequenceOfDir2d*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::TColgp_SequenceOfDir2d::Iterator::More()
+{
+    bool _result = ((::TColgp_SequenceOfDir2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfDir2d::Iterator::Next()
+{
+    ((::TColgp_SequenceOfDir2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::Iterator::Value()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_SequenceOfDir2d::Iterator::ChangeValue()
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_SequenceOfDir2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+bool Macad::Occt::TColgp_SequenceOfDir2d::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfDir2d::Iterator^ theOther)
+{
+    bool _result = ((::TColgp_SequenceOfDir2d::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfDir2d::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfDir2d::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::TColgp_SequenceOfDir2d::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_HSequenceOfDir2d
+//---------------------------------------------------------------------
 
 int Macad::Occt::TColgp_HSequenceOfDir2d::Length()
 {
@@ -10190,9 +10672,21 @@ int Macad::Occt::TColgp_HSequenceOfDir2d::Length()
     return _result;
 }
 
+long long unsigned int Macad::Occt::TColgp_HSequenceOfDir2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_HSequenceOfDir2d::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 int Macad::Occt::TColgp_HSequenceOfDir2d::Lower()
 {
-    int _result = ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Lower();
+    int _result = ::TColgp_HSequenceOfDir2d::Lower();
     return _result;
 }
 
@@ -10213,6 +10707,11 @@ void Macad::Occt::TColgp_HSequenceOfDir2d::Reverse()
     ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::TColgp_HSequenceOfDir2d::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::TColgp_HSequenceOfDir2d::Exchange(int I, int J)
 {
     ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Exchange(I, J);
@@ -10225,12 +10724,7 @@ void Macad::Occt::TColgp_HSequenceOfDir2d::Clear(Macad::Occt::NCollection_BaseAl
 
 void Macad::Occt::TColgp_HSequenceOfDir2d::Clear()
 {
-    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_HSequenceOfDir2d^ Macad::Occt::TColgp_HSequenceOfDir2d::Assign(Macad::Occt::TColgp_HSequenceOfDir2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
+    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Clear(nullptr);
 }
 
 void Macad::Occt::TColgp_HSequenceOfDir2d::Remove(Macad::Occt::TColgp_HSequenceOfDir2d::Iterator^ thePosition)
@@ -10238,10 +10732,36 @@ void Macad::Occt::TColgp_HSequenceOfDir2d::Remove(Macad::Occt::TColgp_HSequenceO
     ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Remove(*(::TColgp_HSequenceOfDir2d::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::TColgp_HSequenceOfDir2d::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir2d::Remove(int theIndex)
+{
+    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir2d::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir2d::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::TColgp_HSequenceOfDir2d::Prepend(Macad::Occt::Dir2d theItem)
 {
     pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Prepend(*(gp_Dir2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Dir2d*)pp_theItem);
 }
 
 void Macad::Occt::TColgp_HSequenceOfDir2d::InsertBefore(int theIndex, Macad::Occt::Dir2d theItem)
@@ -10256,9 +10776,16 @@ void Macad::Occt::TColgp_HSequenceOfDir2d::InsertAfter(Macad::Occt::TColgp_HSequ
     ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->InsertAfter(*(::TColgp_HSequenceOfDir2d::Iterator*)thePosition->NativeInstance, *(gp_Dir2d*)pp_theItem);
 }
 
-void Macad::Occt::TColgp_HSequenceOfDir2d::Split(int theIndex, Macad::Occt::TColgp_HSequenceOfDir2d^ theSeq)
+void Macad::Occt::TColgp_HSequenceOfDir2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::Dir2d theItem)
 {
-    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Split(theIndex, *(::TColgp_HSequenceOfDir2d*)theSeq->NativeInstance);
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Dir2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir2d::InsertAfter(int theIndex, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Dir2d*)pp_theItem);
 }
 
 Macad::Occt::Dir2d Macad::Occt::TColgp_HSequenceOfDir2d::First()
@@ -10285,9 +10812,21 @@ Macad::Occt::Dir2d Macad::Occt::TColgp_HSequenceOfDir2d::ChangeLast()
     return Macad::Occt::Dir2d(_nativeResult);
 }
 
+Macad::Occt::Dir2d Macad::Occt::TColgp_HSequenceOfDir2d::Value(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
 Macad::Occt::Dir2d Macad::Occt::TColgp_HSequenceOfDir2d::Value(int theIndex)
 {
     ::gp_Dir2d _nativeResult = ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HSequenceOfDir2d::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->ChangeValue(theIndex);
     return Macad::Occt::Dir2d(_nativeResult);
 }
 
@@ -10297,10 +10836,40 @@ Macad::Occt::Dir2d Macad::Occt::TColgp_HSequenceOfDir2d::ChangeValue(int theInde
     return Macad::Occt::Dir2d(_nativeResult);
 }
 
+void Macad::Occt::TColgp_HSequenceOfDir2d::SetValue(long long unsigned int theIndex, Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->SetValue(theIndex, *(gp_Dir2d*)pp_theItem);
+}
+
 void Macad::Occt::TColgp_HSequenceOfDir2d::SetValue(int theIndex, Macad::Occt::Dir2d theItem)
 {
     pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->SetValue(theIndex, *(gp_Dir2d*)pp_theItem);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HSequenceOfDir2d::At(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::Dir2d Macad::Occt::TColgp_HSequenceOfDir2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Dir2d _nativeResult = ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Dir2d(_nativeResult);
+}
+
+Macad::Occt::TColgp_HSequenceOfDir2d::TColgp_HSequenceOfDir2d()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HSequenceOfDir2d();
+}
+
+void Macad::Occt::TColgp_HSequenceOfDir2d::Append(Macad::Occt::Dir2d theItem)
+{
+    pin_ptr<Macad::Occt::Dir2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfDir2d*)_NativeInstance)->Append(*(gp_Dir2d*)pp_theItem);
 }
 
 Macad::Occt::TColgp_HSequenceOfDir2d^ Macad::Occt::TColgp_HSequenceOfDir2d::CreateDowncasted(::TColgp_HSequenceOfDir2d* instance)
@@ -10381,51 +10950,355 @@ bool Macad::Occt::TColgp_HSequenceOfDir2d::Iterator::Equals(System::Object^ obj)
 
 
 //---------------------------------------------------------------------
-//  Class  TColgp_HSequenceOfPnt
+//  Class  TColgp_SequenceOfPnt
 //---------------------------------------------------------------------
 
-Macad::Occt::TColgp_HSequenceOfPnt::TColgp_HSequenceOfPnt()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+int Macad::Occt::TColgp_SequenceOfPnt::Length()
 {
-    NativeInstance = new ::TColgp_HSequenceOfPnt();
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt::TColgp_HSequenceOfPnt(Macad::Occt::TColgp_SequenceOfPnt^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HSequenceOfPnt(*(::TColgp_SequenceOfPnt*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfPnt^ Macad::Occt::TColgp_HSequenceOfPnt::Sequence()
-{
-    ::TColgp_SequenceOfPnt* _result = new ::TColgp_SequenceOfPnt();
-    *_result = (::TColgp_SequenceOfPnt)((::TColgp_HSequenceOfPnt*)_NativeInstance)->Sequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt(_result);
-}
-
-void Macad::Occt::TColgp_HSequenceOfPnt::Append(Macad::Occt::Pnt theItem)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
-    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Append(*(gp_Pnt*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HSequenceOfPnt::Append(Macad::Occt::TColgp_SequenceOfPnt^ theSequence)
-{
-    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Append(*(::TColgp_SequenceOfPnt*)theSequence->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfPnt^ Macad::Occt::TColgp_HSequenceOfPnt::ChangeSequence()
-{
-    ::TColgp_SequenceOfPnt* _result = new ::TColgp_SequenceOfPnt();
-    *_result = ((::TColgp_HSequenceOfPnt*)_NativeInstance)->ChangeSequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt(_result);
-}
-
-int Macad::Occt::TColgp_HSequenceOfPnt::Size()
-{
-    int _result = ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Size();
+    int _result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Length();
     return _result;
 }
+
+long long unsigned int Macad::Occt::TColgp_SequenceOfPnt::Size()
+{
+    long long unsigned int _result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_SequenceOfPnt::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_SequenceOfPnt::TColgp_SequenceOfPnt()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfPnt();
+}
+
+Macad::Occt::TColgp_SequenceOfPnt::TColgp_SequenceOfPnt(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfPnt(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::TColgp_SequenceOfPnt::Lower()
+{
+    int _result = ::TColgp_SequenceOfPnt::Lower();
+    return _result;
+}
+
+int Macad::Occt::TColgp_SequenceOfPnt::Upper()
+{
+    int _result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfPnt::IsEmpty()
+{
+    bool _result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Reverse()
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Exchange(int I, int J)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Clear()
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::TColgp_SequenceOfPnt^ Macad::Occt::TColgp_SequenceOfPnt::Assign(Macad::Occt::TColgp_SequenceOfPnt^ theOther)
+{
+    ::TColgp_SequenceOfPnt* _result = new ::TColgp_SequenceOfPnt();
+    *_result = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Assign(*(::TColgp_SequenceOfPnt*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt(_result);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Remove(Macad::Occt::TColgp_SequenceOfPnt::Iterator^ thePosition)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Remove(*(::TColgp_SequenceOfPnt::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Remove(int theIndex)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Append(Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Append(*(gp_Pnt*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Append(Macad::Occt::TColgp_SequenceOfPnt^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Append(*(::TColgp_SequenceOfPnt*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Prepend(Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Prepend(*(gp_Pnt*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Prepend(Macad::Occt::TColgp_SequenceOfPnt^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Prepend(*(::TColgp_SequenceOfPnt*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::InsertBefore(long long unsigned int theIndex, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, *(gp_Pnt*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::InsertBefore(int theIndex, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, *(gp_Pnt*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfPnt^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfPnt*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::InsertBefore(int theIndex, Macad::Occt::TColgp_SequenceOfPnt^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfPnt*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::InsertAfter(Macad::Occt::TColgp_SequenceOfPnt::Iterator^ thePosition, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfPnt::Iterator*)thePosition->NativeInstance, *(gp_Pnt*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfPnt^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfPnt*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::InsertAfter(int theIndex, Macad::Occt::TColgp_SequenceOfPnt^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfPnt*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::InsertAfter(long long unsigned int theIndex, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, *(gp_Pnt*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::InsertAfter(int theIndex, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, *(gp_Pnt*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Split(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfPnt^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfPnt*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Split(int theIndex, Macad::Occt::TColgp_SequenceOfPnt^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfPnt*)theSeq->NativeInstance);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::First()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->First();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::ChangeFirst()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->ChangeFirst();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::Last()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Last();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::ChangeLast()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->ChangeLast();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::Value(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::Value(int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::ChangeValue(int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::SetValue(long long unsigned int theIndex, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->SetValue(theIndex, *(gp_Pnt*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::SetValue(int theIndex, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt*)_NativeInstance)->SetValue(theIndex, *(gp_Pnt*)pp_theItem);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::At(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Pnt>^ Macad::Occt::TColgp_SequenceOfPnt::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Pnt>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfPnt::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Pnt>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfPnt::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::TColgp_SequenceOfPnt::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfPnt::Iterator();
+}
+
+Macad::Occt::TColgp_SequenceOfPnt::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfPnt^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfPnt::Iterator(*(::TColgp_SequenceOfPnt*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::TColgp_SequenceOfPnt::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfPnt^ theSeq)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfPnt::Iterator(*(::TColgp_SequenceOfPnt*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::TColgp_SequenceOfPnt::Iterator::More()
+{
+    bool _result = ((::TColgp_SequenceOfPnt::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt::Iterator::Next()
+{
+    ((::TColgp_SequenceOfPnt::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::Iterator::Value()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_SequenceOfPnt::Iterator::ChangeValue()
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_SequenceOfPnt::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+bool Macad::Occt::TColgp_SequenceOfPnt::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfPnt::Iterator^ theOther)
+{
+    bool _result = ((::TColgp_SequenceOfPnt::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfPnt::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfPnt::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::TColgp_SequenceOfPnt::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_HSequenceOfPnt
+//---------------------------------------------------------------------
 
 int Macad::Occt::TColgp_HSequenceOfPnt::Length()
 {
@@ -10433,9 +11306,21 @@ int Macad::Occt::TColgp_HSequenceOfPnt::Length()
     return _result;
 }
 
+long long unsigned int Macad::Occt::TColgp_HSequenceOfPnt::Size()
+{
+    long long unsigned int _result = ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_HSequenceOfPnt::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 int Macad::Occt::TColgp_HSequenceOfPnt::Lower()
 {
-    int _result = ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Lower();
+    int _result = ::TColgp_HSequenceOfPnt::Lower();
     return _result;
 }
 
@@ -10456,6 +11341,11 @@ void Macad::Occt::TColgp_HSequenceOfPnt::Reverse()
     ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::TColgp_HSequenceOfPnt::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::TColgp_HSequenceOfPnt::Exchange(int I, int J)
 {
     ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Exchange(I, J);
@@ -10468,12 +11358,7 @@ void Macad::Occt::TColgp_HSequenceOfPnt::Clear(Macad::Occt::NCollection_BaseAllo
 
 void Macad::Occt::TColgp_HSequenceOfPnt::Clear()
 {
-    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::TColgp_HSequenceOfPnt::Assign(Macad::Occt::TColgp_HSequenceOfPnt^ theOther)
-{
-    throw gcnew System::NotImplementedException();
+    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Clear(nullptr);
 }
 
 void Macad::Occt::TColgp_HSequenceOfPnt::Remove(Macad::Occt::TColgp_HSequenceOfPnt::Iterator^ thePosition)
@@ -10481,10 +11366,36 @@ void Macad::Occt::TColgp_HSequenceOfPnt::Remove(Macad::Occt::TColgp_HSequenceOfP
     ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Remove(*(::TColgp_HSequenceOfPnt::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::TColgp_HSequenceOfPnt::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt::Remove(int theIndex)
+{
+    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::TColgp_HSequenceOfPnt::Prepend(Macad::Occt::Pnt theItem)
 {
     pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Prepend(*(gp_Pnt*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt::InsertBefore(long long unsigned int theIndex, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, *(gp_Pnt*)pp_theItem);
 }
 
 void Macad::Occt::TColgp_HSequenceOfPnt::InsertBefore(int theIndex, Macad::Occt::Pnt theItem)
@@ -10499,9 +11410,16 @@ void Macad::Occt::TColgp_HSequenceOfPnt::InsertAfter(Macad::Occt::TColgp_HSequen
     ((::TColgp_HSequenceOfPnt*)_NativeInstance)->InsertAfter(*(::TColgp_HSequenceOfPnt::Iterator*)thePosition->NativeInstance, *(gp_Pnt*)pp_theItem);
 }
 
-void Macad::Occt::TColgp_HSequenceOfPnt::Split(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theSeq)
+void Macad::Occt::TColgp_HSequenceOfPnt::InsertAfter(long long unsigned int theIndex, Macad::Occt::Pnt theItem)
 {
-    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Split(theIndex, *(::TColgp_HSequenceOfPnt*)theSeq->NativeInstance);
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, *(gp_Pnt*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt::InsertAfter(int theIndex, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, *(gp_Pnt*)pp_theItem);
 }
 
 Macad::Occt::Pnt Macad::Occt::TColgp_HSequenceOfPnt::First()
@@ -10528,9 +11446,21 @@ Macad::Occt::Pnt Macad::Occt::TColgp_HSequenceOfPnt::ChangeLast()
     return Macad::Occt::Pnt(_nativeResult);
 }
 
+Macad::Occt::Pnt Macad::Occt::TColgp_HSequenceOfPnt::Value(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
 Macad::Occt::Pnt Macad::Occt::TColgp_HSequenceOfPnt::Value(int theIndex)
 {
     ::gp_Pnt _nativeResult = ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HSequenceOfPnt::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HSequenceOfPnt*)_NativeInstance)->ChangeValue(theIndex);
     return Macad::Occt::Pnt(_nativeResult);
 }
 
@@ -10540,10 +11470,40 @@ Macad::Occt::Pnt Macad::Occt::TColgp_HSequenceOfPnt::ChangeValue(int theIndex)
     return Macad::Occt::Pnt(_nativeResult);
 }
 
+void Macad::Occt::TColgp_HSequenceOfPnt::SetValue(long long unsigned int theIndex, Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->SetValue(theIndex, *(gp_Pnt*)pp_theItem);
+}
+
 void Macad::Occt::TColgp_HSequenceOfPnt::SetValue(int theIndex, Macad::Occt::Pnt theItem)
 {
     pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfPnt*)_NativeInstance)->SetValue(theIndex, *(gp_Pnt*)pp_theItem);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HSequenceOfPnt::At(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HSequenceOfPnt*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::TColgp_HSequenceOfPnt::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Pnt _nativeResult = ((::TColgp_HSequenceOfPnt*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt::TColgp_HSequenceOfPnt()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HSequenceOfPnt();
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt::Append(Macad::Occt::Pnt theItem)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfPnt*)_NativeInstance)->Append(*(gp_Pnt*)pp_theItem);
 }
 
 Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(::TColgp_HSequenceOfPnt* instance)
@@ -10624,51 +11584,355 @@ bool Macad::Occt::TColgp_HSequenceOfPnt::Iterator::Equals(System::Object^ obj)
 
 
 //---------------------------------------------------------------------
-//  Class  TColgp_HSequenceOfPnt2d
+//  Class  TColgp_SequenceOfPnt2d
 //---------------------------------------------------------------------
 
-Macad::Occt::TColgp_HSequenceOfPnt2d::TColgp_HSequenceOfPnt2d()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+int Macad::Occt::TColgp_SequenceOfPnt2d::Length()
 {
-    NativeInstance = new ::TColgp_HSequenceOfPnt2d();
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt2d::TColgp_HSequenceOfPnt2d(Macad::Occt::TColgp_SequenceOfPnt2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HSequenceOfPnt2d(*(::TColgp_SequenceOfPnt2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfPnt2d^ Macad::Occt::TColgp_HSequenceOfPnt2d::Sequence()
-{
-    ::TColgp_SequenceOfPnt2d* _result = new ::TColgp_SequenceOfPnt2d();
-    *_result = (::TColgp_SequenceOfPnt2d)((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Sequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt2d(_result);
-}
-
-void Macad::Occt::TColgp_HSequenceOfPnt2d::Append(Macad::Occt::Pnt2d theItem)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
-    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Append(*(gp_Pnt2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HSequenceOfPnt2d::Append(Macad::Occt::TColgp_SequenceOfPnt2d^ theSequence)
-{
-    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Append(*(::TColgp_SequenceOfPnt2d*)theSequence->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfPnt2d^ Macad::Occt::TColgp_HSequenceOfPnt2d::ChangeSequence()
-{
-    ::TColgp_SequenceOfPnt2d* _result = new ::TColgp_SequenceOfPnt2d();
-    *_result = ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->ChangeSequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt2d(_result);
-}
-
-int Macad::Occt::TColgp_HSequenceOfPnt2d::Size()
-{
-    int _result = ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Size();
+    int _result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Length();
     return _result;
 }
+
+long long unsigned int Macad::Occt::TColgp_SequenceOfPnt2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_SequenceOfPnt2d::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_SequenceOfPnt2d::TColgp_SequenceOfPnt2d()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfPnt2d();
+}
+
+Macad::Occt::TColgp_SequenceOfPnt2d::TColgp_SequenceOfPnt2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfPnt2d(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::TColgp_SequenceOfPnt2d::Lower()
+{
+    int _result = ::TColgp_SequenceOfPnt2d::Lower();
+    return _result;
+}
+
+int Macad::Occt::TColgp_SequenceOfPnt2d::Upper()
+{
+    int _result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfPnt2d::IsEmpty()
+{
+    bool _result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Reverse()
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Exchange(int I, int J)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Clear()
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::TColgp_SequenceOfPnt2d^ Macad::Occt::TColgp_SequenceOfPnt2d::Assign(Macad::Occt::TColgp_SequenceOfPnt2d^ theOther)
+{
+    ::TColgp_SequenceOfPnt2d* _result = new ::TColgp_SequenceOfPnt2d();
+    *_result = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Assign(*(::TColgp_SequenceOfPnt2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt2d(_result);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Remove(Macad::Occt::TColgp_SequenceOfPnt2d::Iterator^ thePosition)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Remove(*(::TColgp_SequenceOfPnt2d::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Remove(int theIndex)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Append(Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Append(*(gp_Pnt2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Append(Macad::Occt::TColgp_SequenceOfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Append(*(::TColgp_SequenceOfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Prepend(Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Prepend(*(gp_Pnt2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Prepend(Macad::Occt::TColgp_SequenceOfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Prepend(*(::TColgp_SequenceOfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Pnt2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::InsertBefore(int theIndex, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Pnt2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::InsertBefore(int theIndex, Macad::Occt::TColgp_SequenceOfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::InsertAfter(Macad::Occt::TColgp_SequenceOfPnt2d::Iterator^ thePosition, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfPnt2d::Iterator*)thePosition->NativeInstance, *(gp_Pnt2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::InsertAfter(int theIndex, Macad::Occt::TColgp_SequenceOfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Pnt2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::InsertAfter(int theIndex, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Pnt2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Split(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Split(int theIndex, Macad::Occt::TColgp_SequenceOfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfPnt2d*)theSeq->NativeInstance);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::First()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->First();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::ChangeFirst()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->ChangeFirst();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::Last()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Last();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::ChangeLast()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->ChangeLast();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::Value(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::Value(int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::ChangeValue(int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::SetValue(long long unsigned int theIndex, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->SetValue(theIndex, *(gp_Pnt2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::SetValue(int theIndex, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->SetValue(theIndex, *(gp_Pnt2d*)pp_theItem);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::At(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Pnt2d>^ Macad::Occt::TColgp_SequenceOfPnt2d::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Pnt2d>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfPnt2d::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Pnt2d>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfPnt2d::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfPnt2d::Iterator();
+}
+
+Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfPnt2d^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfPnt2d::Iterator(*(::TColgp_SequenceOfPnt2d*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfPnt2d^ theSeq)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfPnt2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfPnt2d::Iterator(*(::TColgp_SequenceOfPnt2d*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::More()
+{
+    bool _result = ((::TColgp_SequenceOfPnt2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::Next()
+{
+    ((::TColgp_SequenceOfPnt2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::Value()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::ChangeValue()
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_SequenceOfPnt2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+bool Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfPnt2d::Iterator^ theOther)
+{
+    bool _result = ((::TColgp_SequenceOfPnt2d::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfPnt2d::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::TColgp_SequenceOfPnt2d::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_HSequenceOfPnt2d
+//---------------------------------------------------------------------
 
 int Macad::Occt::TColgp_HSequenceOfPnt2d::Length()
 {
@@ -10676,9 +11940,21 @@ int Macad::Occt::TColgp_HSequenceOfPnt2d::Length()
     return _result;
 }
 
+long long unsigned int Macad::Occt::TColgp_HSequenceOfPnt2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_HSequenceOfPnt2d::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 int Macad::Occt::TColgp_HSequenceOfPnt2d::Lower()
 {
-    int _result = ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Lower();
+    int _result = ::TColgp_HSequenceOfPnt2d::Lower();
     return _result;
 }
 
@@ -10699,6 +11975,11 @@ void Macad::Occt::TColgp_HSequenceOfPnt2d::Reverse()
     ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::TColgp_HSequenceOfPnt2d::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::TColgp_HSequenceOfPnt2d::Exchange(int I, int J)
 {
     ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Exchange(I, J);
@@ -10711,12 +11992,7 @@ void Macad::Occt::TColgp_HSequenceOfPnt2d::Clear(Macad::Occt::NCollection_BaseAl
 
 void Macad::Occt::TColgp_HSequenceOfPnt2d::Clear()
 {
-    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt2d^ Macad::Occt::TColgp_HSequenceOfPnt2d::Assign(Macad::Occt::TColgp_HSequenceOfPnt2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
+    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Clear(nullptr);
 }
 
 void Macad::Occt::TColgp_HSequenceOfPnt2d::Remove(Macad::Occt::TColgp_HSequenceOfPnt2d::Iterator^ thePosition)
@@ -10724,10 +12000,36 @@ void Macad::Occt::TColgp_HSequenceOfPnt2d::Remove(Macad::Occt::TColgp_HSequenceO
     ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Remove(*(::TColgp_HSequenceOfPnt2d::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::TColgp_HSequenceOfPnt2d::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt2d::Remove(int theIndex)
+{
+    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt2d::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt2d::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::TColgp_HSequenceOfPnt2d::Prepend(Macad::Occt::Pnt2d theItem)
 {
     pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Prepend(*(gp_Pnt2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Pnt2d*)pp_theItem);
 }
 
 void Macad::Occt::TColgp_HSequenceOfPnt2d::InsertBefore(int theIndex, Macad::Occt::Pnt2d theItem)
@@ -10742,9 +12044,16 @@ void Macad::Occt::TColgp_HSequenceOfPnt2d::InsertAfter(Macad::Occt::TColgp_HSequ
     ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->InsertAfter(*(::TColgp_HSequenceOfPnt2d::Iterator*)thePosition->NativeInstance, *(gp_Pnt2d*)pp_theItem);
 }
 
-void Macad::Occt::TColgp_HSequenceOfPnt2d::Split(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt2d^ theSeq)
+void Macad::Occt::TColgp_HSequenceOfPnt2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::Pnt2d theItem)
 {
-    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Split(theIndex, *(::TColgp_HSequenceOfPnt2d*)theSeq->NativeInstance);
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Pnt2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt2d::InsertAfter(int theIndex, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Pnt2d*)pp_theItem);
 }
 
 Macad::Occt::Pnt2d Macad::Occt::TColgp_HSequenceOfPnt2d::First()
@@ -10771,9 +12080,21 @@ Macad::Occt::Pnt2d Macad::Occt::TColgp_HSequenceOfPnt2d::ChangeLast()
     return Macad::Occt::Pnt2d(_nativeResult);
 }
 
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HSequenceOfPnt2d::Value(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
 Macad::Occt::Pnt2d Macad::Occt::TColgp_HSequenceOfPnt2d::Value(int theIndex)
 {
     ::gp_Pnt2d _nativeResult = ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HSequenceOfPnt2d::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->ChangeValue(theIndex);
     return Macad::Occt::Pnt2d(_nativeResult);
 }
 
@@ -10783,10 +12104,40 @@ Macad::Occt::Pnt2d Macad::Occt::TColgp_HSequenceOfPnt2d::ChangeValue(int theInde
     return Macad::Occt::Pnt2d(_nativeResult);
 }
 
+void Macad::Occt::TColgp_HSequenceOfPnt2d::SetValue(long long unsigned int theIndex, Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->SetValue(theIndex, *(gp_Pnt2d*)pp_theItem);
+}
+
 void Macad::Occt::TColgp_HSequenceOfPnt2d::SetValue(int theIndex, Macad::Occt::Pnt2d theItem)
 {
     pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->SetValue(theIndex, *(gp_Pnt2d*)pp_theItem);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HSequenceOfPnt2d::At(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::TColgp_HSequenceOfPnt2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Pnt2d _nativeResult = ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt2d::TColgp_HSequenceOfPnt2d()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HSequenceOfPnt2d();
+}
+
+void Macad::Occt::TColgp_HSequenceOfPnt2d::Append(Macad::Occt::Pnt2d theItem)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfPnt2d*)_NativeInstance)->Append(*(gp_Pnt2d*)pp_theItem);
 }
 
 Macad::Occt::TColgp_HSequenceOfPnt2d^ Macad::Occt::TColgp_HSequenceOfPnt2d::CreateDowncasted(::TColgp_HSequenceOfPnt2d* instance)
@@ -10867,51 +12218,355 @@ bool Macad::Occt::TColgp_HSequenceOfPnt2d::Iterator::Equals(System::Object^ obj)
 
 
 //---------------------------------------------------------------------
-//  Class  TColgp_HSequenceOfVec
+//  Class  TColgp_SequenceOfVec
 //---------------------------------------------------------------------
 
-Macad::Occt::TColgp_HSequenceOfVec::TColgp_HSequenceOfVec()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+int Macad::Occt::TColgp_SequenceOfVec::Length()
 {
-    NativeInstance = new ::TColgp_HSequenceOfVec();
-}
-
-Macad::Occt::TColgp_HSequenceOfVec::TColgp_HSequenceOfVec(Macad::Occt::TColgp_SequenceOfVec^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HSequenceOfVec(*(::TColgp_SequenceOfVec*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfVec^ Macad::Occt::TColgp_HSequenceOfVec::Sequence()
-{
-    ::TColgp_SequenceOfVec* _result = new ::TColgp_SequenceOfVec();
-    *_result = (::TColgp_SequenceOfVec)((::TColgp_HSequenceOfVec*)_NativeInstance)->Sequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfVec(_result);
-}
-
-void Macad::Occt::TColgp_HSequenceOfVec::Append(Macad::Occt::Vec theItem)
-{
-    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
-    ((::TColgp_HSequenceOfVec*)_NativeInstance)->Append(*(gp_Vec*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HSequenceOfVec::Append(Macad::Occt::TColgp_SequenceOfVec^ theSequence)
-{
-    ((::TColgp_HSequenceOfVec*)_NativeInstance)->Append(*(::TColgp_SequenceOfVec*)theSequence->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfVec^ Macad::Occt::TColgp_HSequenceOfVec::ChangeSequence()
-{
-    ::TColgp_SequenceOfVec* _result = new ::TColgp_SequenceOfVec();
-    *_result = ((::TColgp_HSequenceOfVec*)_NativeInstance)->ChangeSequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfVec(_result);
-}
-
-int Macad::Occt::TColgp_HSequenceOfVec::Size()
-{
-    int _result = ((::TColgp_HSequenceOfVec*)_NativeInstance)->Size();
+    int _result = ((::TColgp_SequenceOfVec*)_NativeInstance)->Length();
     return _result;
 }
+
+long long unsigned int Macad::Occt::TColgp_SequenceOfVec::Size()
+{
+    long long unsigned int _result = ((::TColgp_SequenceOfVec*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_SequenceOfVec::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_SequenceOfVec*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_SequenceOfVec::TColgp_SequenceOfVec()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfVec();
+}
+
+Macad::Occt::TColgp_SequenceOfVec::TColgp_SequenceOfVec(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfVec(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::TColgp_SequenceOfVec::Lower()
+{
+    int _result = ::TColgp_SequenceOfVec::Lower();
+    return _result;
+}
+
+int Macad::Occt::TColgp_SequenceOfVec::Upper()
+{
+    int _result = ((::TColgp_SequenceOfVec*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfVec::IsEmpty()
+{
+    bool _result = ((::TColgp_SequenceOfVec*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Reverse()
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Exchange(int I, int J)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Clear()
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::TColgp_SequenceOfVec^ Macad::Occt::TColgp_SequenceOfVec::Assign(Macad::Occt::TColgp_SequenceOfVec^ theOther)
+{
+    ::TColgp_SequenceOfVec* _result = new ::TColgp_SequenceOfVec();
+    *_result = ((::TColgp_SequenceOfVec*)_NativeInstance)->Assign(*(::TColgp_SequenceOfVec*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfVec(_result);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Remove(Macad::Occt::TColgp_SequenceOfVec::Iterator^ thePosition)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Remove(*(::TColgp_SequenceOfVec::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Remove(int theIndex)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Append(Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Append(*(gp_Vec*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Append(Macad::Occt::TColgp_SequenceOfVec^ theSeq)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Append(*(::TColgp_SequenceOfVec*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Prepend(Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Prepend(*(gp_Vec*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Prepend(Macad::Occt::TColgp_SequenceOfVec^ theSeq)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Prepend(*(::TColgp_SequenceOfVec*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::InsertBefore(long long unsigned int theIndex, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->InsertBefore(theIndex, *(gp_Vec*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::InsertBefore(int theIndex, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->InsertBefore(theIndex, *(gp_Vec*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfVec^ theSeq)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfVec*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::InsertBefore(int theIndex, Macad::Occt::TColgp_SequenceOfVec^ theSeq)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfVec*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::InsertAfter(Macad::Occt::TColgp_SequenceOfVec::Iterator^ thePosition, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfVec::Iterator*)thePosition->NativeInstance, *(gp_Vec*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfVec^ theSeq)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfVec*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::InsertAfter(int theIndex, Macad::Occt::TColgp_SequenceOfVec^ theSeq)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfVec*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::InsertAfter(long long unsigned int theIndex, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->InsertAfter(theIndex, *(gp_Vec*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::InsertAfter(int theIndex, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->InsertAfter(theIndex, *(gp_Vec*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Split(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfVec^ theSeq)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfVec*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Split(int theIndex, Macad::Occt::TColgp_SequenceOfVec^ theSeq)
+{
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfVec*)theSeq->NativeInstance);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::First()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->First();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::ChangeFirst()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->ChangeFirst();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::Last()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->Last();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::ChangeLast()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->ChangeLast();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::Value(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::Value(int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::ChangeValue(int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::SetValue(long long unsigned int theIndex, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->SetValue(theIndex, *(gp_Vec*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::SetValue(int theIndex, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec*)_NativeInstance)->SetValue(theIndex, *(gp_Vec*)pp_theItem);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::At(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Vec>^ Macad::Occt::TColgp_SequenceOfVec::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Vec>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfVec::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Vec>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfVec::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::TColgp_SequenceOfVec::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfVec::Iterator();
+}
+
+Macad::Occt::TColgp_SequenceOfVec::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfVec^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfVec::Iterator(*(::TColgp_SequenceOfVec*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::TColgp_SequenceOfVec::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfVec^ theSeq)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfVec::Iterator(*(::TColgp_SequenceOfVec*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::TColgp_SequenceOfVec::Iterator::More()
+{
+    bool _result = ((::TColgp_SequenceOfVec::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfVec::Iterator::Next()
+{
+    ((::TColgp_SequenceOfVec::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::Iterator::Value()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_SequenceOfVec::Iterator::ChangeValue()
+{
+    ::gp_Vec _nativeResult = ((::TColgp_SequenceOfVec::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+bool Macad::Occt::TColgp_SequenceOfVec::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfVec::Iterator^ theOther)
+{
+    bool _result = ((::TColgp_SequenceOfVec::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfVec::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfVec::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::TColgp_SequenceOfVec::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_HSequenceOfVec
+//---------------------------------------------------------------------
 
 int Macad::Occt::TColgp_HSequenceOfVec::Length()
 {
@@ -10919,9 +12574,21 @@ int Macad::Occt::TColgp_HSequenceOfVec::Length()
     return _result;
 }
 
+long long unsigned int Macad::Occt::TColgp_HSequenceOfVec::Size()
+{
+    long long unsigned int _result = ((::TColgp_HSequenceOfVec*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_HSequenceOfVec::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_HSequenceOfVec*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 int Macad::Occt::TColgp_HSequenceOfVec::Lower()
 {
-    int _result = ((::TColgp_HSequenceOfVec*)_NativeInstance)->Lower();
+    int _result = ::TColgp_HSequenceOfVec::Lower();
     return _result;
 }
 
@@ -10942,6 +12609,11 @@ void Macad::Occt::TColgp_HSequenceOfVec::Reverse()
     ((::TColgp_HSequenceOfVec*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::TColgp_HSequenceOfVec::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_HSequenceOfVec*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::TColgp_HSequenceOfVec::Exchange(int I, int J)
 {
     ((::TColgp_HSequenceOfVec*)_NativeInstance)->Exchange(I, J);
@@ -10954,12 +12626,7 @@ void Macad::Occt::TColgp_HSequenceOfVec::Clear(Macad::Occt::NCollection_BaseAllo
 
 void Macad::Occt::TColgp_HSequenceOfVec::Clear()
 {
-    ((::TColgp_HSequenceOfVec*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_HSequenceOfVec^ Macad::Occt::TColgp_HSequenceOfVec::Assign(Macad::Occt::TColgp_HSequenceOfVec^ theOther)
-{
-    throw gcnew System::NotImplementedException();
+    ((::TColgp_HSequenceOfVec*)_NativeInstance)->Clear(nullptr);
 }
 
 void Macad::Occt::TColgp_HSequenceOfVec::Remove(Macad::Occt::TColgp_HSequenceOfVec::Iterator^ thePosition)
@@ -10967,10 +12634,36 @@ void Macad::Occt::TColgp_HSequenceOfVec::Remove(Macad::Occt::TColgp_HSequenceOfV
     ((::TColgp_HSequenceOfVec*)_NativeInstance)->Remove(*(::TColgp_HSequenceOfVec::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::TColgp_HSequenceOfVec::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_HSequenceOfVec*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec::Remove(int theIndex)
+{
+    ((::TColgp_HSequenceOfVec*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_HSequenceOfVec*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_HSequenceOfVec*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::TColgp_HSequenceOfVec::Prepend(Macad::Occt::Vec theItem)
 {
     pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfVec*)_NativeInstance)->Prepend(*(gp_Vec*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec::InsertBefore(long long unsigned int theIndex, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfVec*)_NativeInstance)->InsertBefore(theIndex, *(gp_Vec*)pp_theItem);
 }
 
 void Macad::Occt::TColgp_HSequenceOfVec::InsertBefore(int theIndex, Macad::Occt::Vec theItem)
@@ -10985,9 +12678,16 @@ void Macad::Occt::TColgp_HSequenceOfVec::InsertAfter(Macad::Occt::TColgp_HSequen
     ((::TColgp_HSequenceOfVec*)_NativeInstance)->InsertAfter(*(::TColgp_HSequenceOfVec::Iterator*)thePosition->NativeInstance, *(gp_Vec*)pp_theItem);
 }
 
-void Macad::Occt::TColgp_HSequenceOfVec::Split(int theIndex, Macad::Occt::TColgp_HSequenceOfVec^ theSeq)
+void Macad::Occt::TColgp_HSequenceOfVec::InsertAfter(long long unsigned int theIndex, Macad::Occt::Vec theItem)
 {
-    ((::TColgp_HSequenceOfVec*)_NativeInstance)->Split(theIndex, *(::TColgp_HSequenceOfVec*)theSeq->NativeInstance);
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfVec*)_NativeInstance)->InsertAfter(theIndex, *(gp_Vec*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec::InsertAfter(int theIndex, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfVec*)_NativeInstance)->InsertAfter(theIndex, *(gp_Vec*)pp_theItem);
 }
 
 Macad::Occt::Vec Macad::Occt::TColgp_HSequenceOfVec::First()
@@ -11014,9 +12714,21 @@ Macad::Occt::Vec Macad::Occt::TColgp_HSequenceOfVec::ChangeLast()
     return Macad::Occt::Vec(_nativeResult);
 }
 
+Macad::Occt::Vec Macad::Occt::TColgp_HSequenceOfVec::Value(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HSequenceOfVec*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
 Macad::Occt::Vec Macad::Occt::TColgp_HSequenceOfVec::Value(int theIndex)
 {
     ::gp_Vec _nativeResult = ((::TColgp_HSequenceOfVec*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HSequenceOfVec::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HSequenceOfVec*)_NativeInstance)->ChangeValue(theIndex);
     return Macad::Occt::Vec(_nativeResult);
 }
 
@@ -11026,10 +12738,40 @@ Macad::Occt::Vec Macad::Occt::TColgp_HSequenceOfVec::ChangeValue(int theIndex)
     return Macad::Occt::Vec(_nativeResult);
 }
 
+void Macad::Occt::TColgp_HSequenceOfVec::SetValue(long long unsigned int theIndex, Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfVec*)_NativeInstance)->SetValue(theIndex, *(gp_Vec*)pp_theItem);
+}
+
 void Macad::Occt::TColgp_HSequenceOfVec::SetValue(int theIndex, Macad::Occt::Vec theItem)
 {
     pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfVec*)_NativeInstance)->SetValue(theIndex, *(gp_Vec*)pp_theItem);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HSequenceOfVec::At(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HSequenceOfVec*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::TColgp_HSequenceOfVec::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::TColgp_HSequenceOfVec*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+Macad::Occt::TColgp_HSequenceOfVec::TColgp_HSequenceOfVec()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HSequenceOfVec();
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec::Append(Macad::Occt::Vec theItem)
+{
+    pin_ptr<Macad::Occt::Vec> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfVec*)_NativeInstance)->Append(*(gp_Vec*)pp_theItem);
 }
 
 Macad::Occt::TColgp_HSequenceOfVec^ Macad::Occt::TColgp_HSequenceOfVec::CreateDowncasted(::TColgp_HSequenceOfVec* instance)
@@ -11110,51 +12852,355 @@ bool Macad::Occt::TColgp_HSequenceOfVec::Iterator::Equals(System::Object^ obj)
 
 
 //---------------------------------------------------------------------
-//  Class  TColgp_HSequenceOfVec2d
+//  Class  TColgp_SequenceOfVec2d
 //---------------------------------------------------------------------
 
-Macad::Occt::TColgp_HSequenceOfVec2d::TColgp_HSequenceOfVec2d()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+int Macad::Occt::TColgp_SequenceOfVec2d::Length()
 {
-    NativeInstance = new ::TColgp_HSequenceOfVec2d();
-}
-
-Macad::Occt::TColgp_HSequenceOfVec2d::TColgp_HSequenceOfVec2d(Macad::Occt::TColgp_SequenceOfVec2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HSequenceOfVec2d(*(::TColgp_SequenceOfVec2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfVec2d^ Macad::Occt::TColgp_HSequenceOfVec2d::Sequence()
-{
-    ::TColgp_SequenceOfVec2d* _result = new ::TColgp_SequenceOfVec2d();
-    *_result = (::TColgp_SequenceOfVec2d)((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Sequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfVec2d(_result);
-}
-
-void Macad::Occt::TColgp_HSequenceOfVec2d::Append(Macad::Occt::Vec2d theItem)
-{
-    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
-    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Append(*(gp_Vec2d*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HSequenceOfVec2d::Append(Macad::Occt::TColgp_SequenceOfVec2d^ theSequence)
-{
-    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Append(*(::TColgp_SequenceOfVec2d*)theSequence->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfVec2d^ Macad::Occt::TColgp_HSequenceOfVec2d::ChangeSequence()
-{
-    ::TColgp_SequenceOfVec2d* _result = new ::TColgp_SequenceOfVec2d();
-    *_result = ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->ChangeSequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfVec2d(_result);
-}
-
-int Macad::Occt::TColgp_HSequenceOfVec2d::Size()
-{
-    int _result = ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Size();
+    int _result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Length();
     return _result;
 }
+
+long long unsigned int Macad::Occt::TColgp_SequenceOfVec2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_SequenceOfVec2d::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_SequenceOfVec2d::TColgp_SequenceOfVec2d()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfVec2d();
+}
+
+Macad::Occt::TColgp_SequenceOfVec2d::TColgp_SequenceOfVec2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfVec2d(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::TColgp_SequenceOfVec2d::Lower()
+{
+    int _result = ::TColgp_SequenceOfVec2d::Lower();
+    return _result;
+}
+
+int Macad::Occt::TColgp_SequenceOfVec2d::Upper()
+{
+    int _result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfVec2d::IsEmpty()
+{
+    bool _result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Reverse()
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Exchange(int I, int J)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Clear()
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::TColgp_SequenceOfVec2d^ Macad::Occt::TColgp_SequenceOfVec2d::Assign(Macad::Occt::TColgp_SequenceOfVec2d^ theOther)
+{
+    ::TColgp_SequenceOfVec2d* _result = new ::TColgp_SequenceOfVec2d();
+    *_result = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Assign(*(::TColgp_SequenceOfVec2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfVec2d(_result);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Remove(Macad::Occt::TColgp_SequenceOfVec2d::Iterator^ thePosition)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Remove(*(::TColgp_SequenceOfVec2d::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Remove(int theIndex)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Append(Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Append(*(gp_Vec2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Append(Macad::Occt::TColgp_SequenceOfVec2d^ theSeq)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Append(*(::TColgp_SequenceOfVec2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Prepend(Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Prepend(*(gp_Vec2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Prepend(Macad::Occt::TColgp_SequenceOfVec2d^ theSeq)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Prepend(*(::TColgp_SequenceOfVec2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Vec2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::InsertBefore(int theIndex, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Vec2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfVec2d^ theSeq)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfVec2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::InsertBefore(int theIndex, Macad::Occt::TColgp_SequenceOfVec2d^ theSeq)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfVec2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::InsertAfter(Macad::Occt::TColgp_SequenceOfVec2d::Iterator^ thePosition, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfVec2d::Iterator*)thePosition->NativeInstance, *(gp_Vec2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfVec2d^ theSeq)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfVec2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::InsertAfter(int theIndex, Macad::Occt::TColgp_SequenceOfVec2d^ theSeq)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfVec2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Vec2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::InsertAfter(int theIndex, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Vec2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Split(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfVec2d^ theSeq)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfVec2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Split(int theIndex, Macad::Occt::TColgp_SequenceOfVec2d^ theSeq)
+{
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfVec2d*)theSeq->NativeInstance);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::First()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->First();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::ChangeFirst()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->ChangeFirst();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::Last()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Last();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::ChangeLast()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->ChangeLast();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::Value(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::Value(int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::ChangeValue(int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::SetValue(long long unsigned int theIndex, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->SetValue(theIndex, *(gp_Vec2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::SetValue(int theIndex, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfVec2d*)_NativeInstance)->SetValue(theIndex, *(gp_Vec2d*)pp_theItem);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::At(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Vec2d>^ Macad::Occt::TColgp_SequenceOfVec2d::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Vec2d>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfVec2d::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Vec2d>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfVec2d::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::TColgp_SequenceOfVec2d::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfVec2d::Iterator();
+}
+
+Macad::Occt::TColgp_SequenceOfVec2d::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfVec2d^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfVec2d::Iterator(*(::TColgp_SequenceOfVec2d*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::TColgp_SequenceOfVec2d::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfVec2d^ theSeq)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfVec2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfVec2d::Iterator(*(::TColgp_SequenceOfVec2d*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::TColgp_SequenceOfVec2d::Iterator::More()
+{
+    bool _result = ((::TColgp_SequenceOfVec2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfVec2d::Iterator::Next()
+{
+    ((::TColgp_SequenceOfVec2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::Iterator::Value()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_SequenceOfVec2d::Iterator::ChangeValue()
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_SequenceOfVec2d::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+bool Macad::Occt::TColgp_SequenceOfVec2d::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfVec2d::Iterator^ theOther)
+{
+    bool _result = ((::TColgp_SequenceOfVec2d::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfVec2d::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfVec2d::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::TColgp_SequenceOfVec2d::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_HSequenceOfVec2d
+//---------------------------------------------------------------------
 
 int Macad::Occt::TColgp_HSequenceOfVec2d::Length()
 {
@@ -11162,9 +13208,21 @@ int Macad::Occt::TColgp_HSequenceOfVec2d::Length()
     return _result;
 }
 
+long long unsigned int Macad::Occt::TColgp_HSequenceOfVec2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_HSequenceOfVec2d::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 int Macad::Occt::TColgp_HSequenceOfVec2d::Lower()
 {
-    int _result = ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Lower();
+    int _result = ::TColgp_HSequenceOfVec2d::Lower();
     return _result;
 }
 
@@ -11185,6 +13243,11 @@ void Macad::Occt::TColgp_HSequenceOfVec2d::Reverse()
     ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::TColgp_HSequenceOfVec2d::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::TColgp_HSequenceOfVec2d::Exchange(int I, int J)
 {
     ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Exchange(I, J);
@@ -11197,12 +13260,7 @@ void Macad::Occt::TColgp_HSequenceOfVec2d::Clear(Macad::Occt::NCollection_BaseAl
 
 void Macad::Occt::TColgp_HSequenceOfVec2d::Clear()
 {
-    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_HSequenceOfVec2d^ Macad::Occt::TColgp_HSequenceOfVec2d::Assign(Macad::Occt::TColgp_HSequenceOfVec2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
+    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Clear(nullptr);
 }
 
 void Macad::Occt::TColgp_HSequenceOfVec2d::Remove(Macad::Occt::TColgp_HSequenceOfVec2d::Iterator^ thePosition)
@@ -11210,10 +13268,36 @@ void Macad::Occt::TColgp_HSequenceOfVec2d::Remove(Macad::Occt::TColgp_HSequenceO
     ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Remove(*(::TColgp_HSequenceOfVec2d::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::TColgp_HSequenceOfVec2d::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec2d::Remove(int theIndex)
+{
+    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec2d::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec2d::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::TColgp_HSequenceOfVec2d::Prepend(Macad::Occt::Vec2d theItem)
 {
     pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Prepend(*(gp_Vec2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->InsertBefore(theIndex, *(gp_Vec2d*)pp_theItem);
 }
 
 void Macad::Occt::TColgp_HSequenceOfVec2d::InsertBefore(int theIndex, Macad::Occt::Vec2d theItem)
@@ -11228,9 +13312,16 @@ void Macad::Occt::TColgp_HSequenceOfVec2d::InsertAfter(Macad::Occt::TColgp_HSequ
     ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->InsertAfter(*(::TColgp_HSequenceOfVec2d::Iterator*)thePosition->NativeInstance, *(gp_Vec2d*)pp_theItem);
 }
 
-void Macad::Occt::TColgp_HSequenceOfVec2d::Split(int theIndex, Macad::Occt::TColgp_HSequenceOfVec2d^ theSeq)
+void Macad::Occt::TColgp_HSequenceOfVec2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::Vec2d theItem)
 {
-    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Split(theIndex, *(::TColgp_HSequenceOfVec2d*)theSeq->NativeInstance);
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Vec2d*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec2d::InsertAfter(int theIndex, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->InsertAfter(theIndex, *(gp_Vec2d*)pp_theItem);
 }
 
 Macad::Occt::Vec2d Macad::Occt::TColgp_HSequenceOfVec2d::First()
@@ -11257,9 +13348,21 @@ Macad::Occt::Vec2d Macad::Occt::TColgp_HSequenceOfVec2d::ChangeLast()
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
+Macad::Occt::Vec2d Macad::Occt::TColgp_HSequenceOfVec2d::Value(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
 Macad::Occt::Vec2d Macad::Occt::TColgp_HSequenceOfVec2d::Value(int theIndex)
 {
     ::gp_Vec2d _nativeResult = ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HSequenceOfVec2d::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->ChangeValue(theIndex);
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
@@ -11269,10 +13372,40 @@ Macad::Occt::Vec2d Macad::Occt::TColgp_HSequenceOfVec2d::ChangeValue(int theInde
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
+void Macad::Occt::TColgp_HSequenceOfVec2d::SetValue(long long unsigned int theIndex, Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->SetValue(theIndex, *(gp_Vec2d*)pp_theItem);
+}
+
 void Macad::Occt::TColgp_HSequenceOfVec2d::SetValue(int theIndex, Macad::Occt::Vec2d theItem)
 {
     pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->SetValue(theIndex, *(gp_Vec2d*)pp_theItem);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HSequenceOfVec2d::At(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::TColgp_HSequenceOfVec2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Vec2d _nativeResult = ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
+Macad::Occt::TColgp_HSequenceOfVec2d::TColgp_HSequenceOfVec2d()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HSequenceOfVec2d();
+}
+
+void Macad::Occt::TColgp_HSequenceOfVec2d::Append(Macad::Occt::Vec2d theItem)
+{
+    pin_ptr<Macad::Occt::Vec2d> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfVec2d*)_NativeInstance)->Append(*(gp_Vec2d*)pp_theItem);
 }
 
 Macad::Occt::TColgp_HSequenceOfVec2d^ Macad::Occt::TColgp_HSequenceOfVec2d::CreateDowncasted(::TColgp_HSequenceOfVec2d* instance)
@@ -11353,51 +13486,355 @@ bool Macad::Occt::TColgp_HSequenceOfVec2d::Iterator::Equals(System::Object^ obj)
 
 
 //---------------------------------------------------------------------
-//  Class  TColgp_HSequenceOfXY
+//  Class  TColgp_SequenceOfXY
 //---------------------------------------------------------------------
 
-Macad::Occt::TColgp_HSequenceOfXY::TColgp_HSequenceOfXY()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+int Macad::Occt::TColgp_SequenceOfXY::Length()
 {
-    NativeInstance = new ::TColgp_HSequenceOfXY();
-}
-
-Macad::Occt::TColgp_HSequenceOfXY::TColgp_HSequenceOfXY(Macad::Occt::TColgp_SequenceOfXY^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HSequenceOfXY(*(::TColgp_SequenceOfXY*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfXY^ Macad::Occt::TColgp_HSequenceOfXY::Sequence()
-{
-    ::TColgp_SequenceOfXY* _result = new ::TColgp_SequenceOfXY();
-    *_result = (::TColgp_SequenceOfXY)((::TColgp_HSequenceOfXY*)_NativeInstance)->Sequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfXY(_result);
-}
-
-void Macad::Occt::TColgp_HSequenceOfXY::Append(Macad::Occt::XY theItem)
-{
-    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
-    ((::TColgp_HSequenceOfXY*)_NativeInstance)->Append(*(gp_XY*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HSequenceOfXY::Append(Macad::Occt::TColgp_SequenceOfXY^ theSequence)
-{
-    ((::TColgp_HSequenceOfXY*)_NativeInstance)->Append(*(::TColgp_SequenceOfXY*)theSequence->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfXY^ Macad::Occt::TColgp_HSequenceOfXY::ChangeSequence()
-{
-    ::TColgp_SequenceOfXY* _result = new ::TColgp_SequenceOfXY();
-    *_result = ((::TColgp_HSequenceOfXY*)_NativeInstance)->ChangeSequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfXY(_result);
-}
-
-int Macad::Occt::TColgp_HSequenceOfXY::Size()
-{
-    int _result = ((::TColgp_HSequenceOfXY*)_NativeInstance)->Size();
+    int _result = ((::TColgp_SequenceOfXY*)_NativeInstance)->Length();
     return _result;
 }
+
+long long unsigned int Macad::Occt::TColgp_SequenceOfXY::Size()
+{
+    long long unsigned int _result = ((::TColgp_SequenceOfXY*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_SequenceOfXY::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_SequenceOfXY*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_SequenceOfXY::TColgp_SequenceOfXY()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfXY>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfXY();
+}
+
+Macad::Occt::TColgp_SequenceOfXY::TColgp_SequenceOfXY(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfXY>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfXY(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::TColgp_SequenceOfXY::Lower()
+{
+    int _result = ::TColgp_SequenceOfXY::Lower();
+    return _result;
+}
+
+int Macad::Occt::TColgp_SequenceOfXY::Upper()
+{
+    int _result = ((::TColgp_SequenceOfXY*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfXY::IsEmpty()
+{
+    bool _result = ((::TColgp_SequenceOfXY*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Reverse()
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Exchange(int I, int J)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Clear()
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::TColgp_SequenceOfXY^ Macad::Occt::TColgp_SequenceOfXY::Assign(Macad::Occt::TColgp_SequenceOfXY^ theOther)
+{
+    ::TColgp_SequenceOfXY* _result = new ::TColgp_SequenceOfXY();
+    *_result = ((::TColgp_SequenceOfXY*)_NativeInstance)->Assign(*(::TColgp_SequenceOfXY*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfXY(_result);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Remove(Macad::Occt::TColgp_SequenceOfXY::Iterator^ thePosition)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Remove(*(::TColgp_SequenceOfXY::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Remove(int theIndex)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Append(Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Append(*(gp_XY*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Append(Macad::Occt::TColgp_SequenceOfXY^ theSeq)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Append(*(::TColgp_SequenceOfXY*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Prepend(Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Prepend(*(gp_XY*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Prepend(Macad::Occt::TColgp_SequenceOfXY^ theSeq)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Prepend(*(::TColgp_SequenceOfXY*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::InsertBefore(long long unsigned int theIndex, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->InsertBefore(theIndex, *(gp_XY*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::InsertBefore(int theIndex, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->InsertBefore(theIndex, *(gp_XY*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfXY^ theSeq)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfXY*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::InsertBefore(int theIndex, Macad::Occt::TColgp_SequenceOfXY^ theSeq)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfXY*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::InsertAfter(Macad::Occt::TColgp_SequenceOfXY::Iterator^ thePosition, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfXY::Iterator*)thePosition->NativeInstance, *(gp_XY*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfXY^ theSeq)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfXY*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::InsertAfter(int theIndex, Macad::Occt::TColgp_SequenceOfXY^ theSeq)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfXY*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::InsertAfter(long long unsigned int theIndex, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->InsertAfter(theIndex, *(gp_XY*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::InsertAfter(int theIndex, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->InsertAfter(theIndex, *(gp_XY*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Split(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfXY^ theSeq)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfXY*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Split(int theIndex, Macad::Occt::TColgp_SequenceOfXY^ theSeq)
+{
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfXY*)theSeq->NativeInstance);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::First()
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->First();
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::ChangeFirst()
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->ChangeFirst();
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::Last()
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->Last();
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::ChangeLast()
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->ChangeLast();
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::Value(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::Value(int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::ChangeValue(int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::SetValue(long long unsigned int theIndex, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->SetValue(theIndex, *(gp_XY*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::SetValue(int theIndex, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXY*)_NativeInstance)->SetValue(theIndex, *(gp_XY*)pp_theItem);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::At(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::XY>^ Macad::Occt::TColgp_SequenceOfXY::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::XY>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfXY::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::XY>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfXY::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::TColgp_SequenceOfXY::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfXY::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfXY::Iterator();
+}
+
+Macad::Occt::TColgp_SequenceOfXY::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfXY^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfXY::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfXY::Iterator(*(::TColgp_SequenceOfXY*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::TColgp_SequenceOfXY::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfXY^ theSeq)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfXY::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfXY::Iterator(*(::TColgp_SequenceOfXY*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::TColgp_SequenceOfXY::Iterator::More()
+{
+    bool _result = ((::TColgp_SequenceOfXY::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfXY::Iterator::Next()
+{
+    ((::TColgp_SequenceOfXY::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::Iterator::Value()
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_SequenceOfXY::Iterator::ChangeValue()
+{
+    ::gp_XY _nativeResult = ((::TColgp_SequenceOfXY::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::XY(_nativeResult);
+}
+
+bool Macad::Occt::TColgp_SequenceOfXY::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfXY::Iterator^ theOther)
+{
+    bool _result = ((::TColgp_SequenceOfXY::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfXY::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfXY::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::TColgp_SequenceOfXY::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_HSequenceOfXY
+//---------------------------------------------------------------------
 
 int Macad::Occt::TColgp_HSequenceOfXY::Length()
 {
@@ -11405,9 +13842,21 @@ int Macad::Occt::TColgp_HSequenceOfXY::Length()
     return _result;
 }
 
+long long unsigned int Macad::Occt::TColgp_HSequenceOfXY::Size()
+{
+    long long unsigned int _result = ((::TColgp_HSequenceOfXY*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_HSequenceOfXY::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_HSequenceOfXY*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 int Macad::Occt::TColgp_HSequenceOfXY::Lower()
 {
-    int _result = ((::TColgp_HSequenceOfXY*)_NativeInstance)->Lower();
+    int _result = ::TColgp_HSequenceOfXY::Lower();
     return _result;
 }
 
@@ -11428,6 +13877,11 @@ void Macad::Occt::TColgp_HSequenceOfXY::Reverse()
     ((::TColgp_HSequenceOfXY*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::TColgp_HSequenceOfXY::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_HSequenceOfXY*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::TColgp_HSequenceOfXY::Exchange(int I, int J)
 {
     ((::TColgp_HSequenceOfXY*)_NativeInstance)->Exchange(I, J);
@@ -11440,12 +13894,7 @@ void Macad::Occt::TColgp_HSequenceOfXY::Clear(Macad::Occt::NCollection_BaseAlloc
 
 void Macad::Occt::TColgp_HSequenceOfXY::Clear()
 {
-    ((::TColgp_HSequenceOfXY*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_HSequenceOfXY^ Macad::Occt::TColgp_HSequenceOfXY::Assign(Macad::Occt::TColgp_HSequenceOfXY^ theOther)
-{
-    throw gcnew System::NotImplementedException();
+    ((::TColgp_HSequenceOfXY*)_NativeInstance)->Clear(nullptr);
 }
 
 void Macad::Occt::TColgp_HSequenceOfXY::Remove(Macad::Occt::TColgp_HSequenceOfXY::Iterator^ thePosition)
@@ -11453,10 +13902,36 @@ void Macad::Occt::TColgp_HSequenceOfXY::Remove(Macad::Occt::TColgp_HSequenceOfXY
     ((::TColgp_HSequenceOfXY*)_NativeInstance)->Remove(*(::TColgp_HSequenceOfXY::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::TColgp_HSequenceOfXY::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_HSequenceOfXY*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfXY::Remove(int theIndex)
+{
+    ((::TColgp_HSequenceOfXY*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfXY::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_HSequenceOfXY*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfXY::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_HSequenceOfXY*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::TColgp_HSequenceOfXY::Prepend(Macad::Occt::XY theItem)
 {
     pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfXY*)_NativeInstance)->Prepend(*(gp_XY*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfXY::InsertBefore(long long unsigned int theIndex, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfXY*)_NativeInstance)->InsertBefore(theIndex, *(gp_XY*)pp_theItem);
 }
 
 void Macad::Occt::TColgp_HSequenceOfXY::InsertBefore(int theIndex, Macad::Occt::XY theItem)
@@ -11471,9 +13946,16 @@ void Macad::Occt::TColgp_HSequenceOfXY::InsertAfter(Macad::Occt::TColgp_HSequenc
     ((::TColgp_HSequenceOfXY*)_NativeInstance)->InsertAfter(*(::TColgp_HSequenceOfXY::Iterator*)thePosition->NativeInstance, *(gp_XY*)pp_theItem);
 }
 
-void Macad::Occt::TColgp_HSequenceOfXY::Split(int theIndex, Macad::Occt::TColgp_HSequenceOfXY^ theSeq)
+void Macad::Occt::TColgp_HSequenceOfXY::InsertAfter(long long unsigned int theIndex, Macad::Occt::XY theItem)
 {
-    ((::TColgp_HSequenceOfXY*)_NativeInstance)->Split(theIndex, *(::TColgp_HSequenceOfXY*)theSeq->NativeInstance);
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfXY*)_NativeInstance)->InsertAfter(theIndex, *(gp_XY*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfXY::InsertAfter(int theIndex, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfXY*)_NativeInstance)->InsertAfter(theIndex, *(gp_XY*)pp_theItem);
 }
 
 Macad::Occt::XY Macad::Occt::TColgp_HSequenceOfXY::First()
@@ -11500,9 +13982,21 @@ Macad::Occt::XY Macad::Occt::TColgp_HSequenceOfXY::ChangeLast()
     return Macad::Occt::XY(_nativeResult);
 }
 
+Macad::Occt::XY Macad::Occt::TColgp_HSequenceOfXY::Value(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_HSequenceOfXY*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
 Macad::Occt::XY Macad::Occt::TColgp_HSequenceOfXY::Value(int theIndex)
 {
     ::gp_XY _nativeResult = ((::TColgp_HSequenceOfXY*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HSequenceOfXY::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_HSequenceOfXY*)_NativeInstance)->ChangeValue(theIndex);
     return Macad::Occt::XY(_nativeResult);
 }
 
@@ -11512,10 +14006,40 @@ Macad::Occt::XY Macad::Occt::TColgp_HSequenceOfXY::ChangeValue(int theIndex)
     return Macad::Occt::XY(_nativeResult);
 }
 
+void Macad::Occt::TColgp_HSequenceOfXY::SetValue(long long unsigned int theIndex, Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfXY*)_NativeInstance)->SetValue(theIndex, *(gp_XY*)pp_theItem);
+}
+
 void Macad::Occt::TColgp_HSequenceOfXY::SetValue(int theIndex, Macad::Occt::XY theItem)
 {
     pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfXY*)_NativeInstance)->SetValue(theIndex, *(gp_XY*)pp_theItem);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HSequenceOfXY::At(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_HSequenceOfXY*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::XY Macad::Occt::TColgp_HSequenceOfXY::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_XY _nativeResult = ((::TColgp_HSequenceOfXY*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::XY(_nativeResult);
+}
+
+Macad::Occt::TColgp_HSequenceOfXY::TColgp_HSequenceOfXY()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HSequenceOfXY();
+}
+
+void Macad::Occt::TColgp_HSequenceOfXY::Append(Macad::Occt::XY theItem)
+{
+    pin_ptr<Macad::Occt::XY> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfXY*)_NativeInstance)->Append(*(gp_XY*)pp_theItem);
 }
 
 Macad::Occt::TColgp_HSequenceOfXY^ Macad::Occt::TColgp_HSequenceOfXY::CreateDowncasted(::TColgp_HSequenceOfXY* instance)
@@ -11596,51 +14120,355 @@ bool Macad::Occt::TColgp_HSequenceOfXY::Iterator::Equals(System::Object^ obj)
 
 
 //---------------------------------------------------------------------
-//  Class  TColgp_HSequenceOfXYZ
+//  Class  TColgp_SequenceOfXYZ
 //---------------------------------------------------------------------
 
-Macad::Occt::TColgp_HSequenceOfXYZ::TColgp_HSequenceOfXYZ()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+int Macad::Occt::TColgp_SequenceOfXYZ::Length()
 {
-    NativeInstance = new ::TColgp_HSequenceOfXYZ();
-}
-
-Macad::Occt::TColgp_HSequenceOfXYZ::TColgp_HSequenceOfXYZ(Macad::Occt::TColgp_SequenceOfXYZ^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::TColgp_HSequenceOfXYZ(*(::TColgp_SequenceOfXYZ*)theOther->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfXYZ^ Macad::Occt::TColgp_HSequenceOfXYZ::Sequence()
-{
-    ::TColgp_SequenceOfXYZ* _result = new ::TColgp_SequenceOfXYZ();
-    *_result = (::TColgp_SequenceOfXYZ)((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Sequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfXYZ(_result);
-}
-
-void Macad::Occt::TColgp_HSequenceOfXYZ::Append(Macad::Occt::XYZ theItem)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
-    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Append(*(gp_XYZ*)pp_theItem);
-}
-
-void Macad::Occt::TColgp_HSequenceOfXYZ::Append(Macad::Occt::TColgp_SequenceOfXYZ^ theSequence)
-{
-    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Append(*(::TColgp_SequenceOfXYZ*)theSequence->NativeInstance);
-}
-
-Macad::Occt::TColgp_SequenceOfXYZ^ Macad::Occt::TColgp_HSequenceOfXYZ::ChangeSequence()
-{
-    ::TColgp_SequenceOfXYZ* _result = new ::TColgp_SequenceOfXYZ();
-    *_result = ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->ChangeSequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfXYZ(_result);
-}
-
-int Macad::Occt::TColgp_HSequenceOfXYZ::Size()
-{
-    int _result = ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Size();
+    int _result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Length();
     return _result;
 }
+
+long long unsigned int Macad::Occt::TColgp_SequenceOfXYZ::Size()
+{
+    long long unsigned int _result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_SequenceOfXYZ::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_SequenceOfXYZ::TColgp_SequenceOfXYZ()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfXYZ>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfXYZ();
+}
+
+Macad::Occt::TColgp_SequenceOfXYZ::TColgp_SequenceOfXYZ(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfXYZ>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfXYZ(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::TColgp_SequenceOfXYZ::Lower()
+{
+    int _result = ::TColgp_SequenceOfXYZ::Lower();
+    return _result;
+}
+
+int Macad::Occt::TColgp_SequenceOfXYZ::Upper()
+{
+    int _result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfXYZ::IsEmpty()
+{
+    bool _result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Reverse()
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Exchange(int I, int J)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Clear()
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::TColgp_SequenceOfXYZ^ Macad::Occt::TColgp_SequenceOfXYZ::Assign(Macad::Occt::TColgp_SequenceOfXYZ^ theOther)
+{
+    ::TColgp_SequenceOfXYZ* _result = new ::TColgp_SequenceOfXYZ();
+    *_result = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Assign(*(::TColgp_SequenceOfXYZ*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfXYZ(_result);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Remove(Macad::Occt::TColgp_SequenceOfXYZ::Iterator^ thePosition)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Remove(*(::TColgp_SequenceOfXYZ::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Remove(int theIndex)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Append(Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Append(*(gp_XYZ*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Append(Macad::Occt::TColgp_SequenceOfXYZ^ theSeq)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Append(*(::TColgp_SequenceOfXYZ*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Prepend(Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Prepend(*(gp_XYZ*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Prepend(Macad::Occt::TColgp_SequenceOfXYZ^ theSeq)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Prepend(*(::TColgp_SequenceOfXYZ*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::InsertBefore(long long unsigned int theIndex, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->InsertBefore(theIndex, *(gp_XYZ*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::InsertBefore(int theIndex, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->InsertBefore(theIndex, *(gp_XYZ*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfXYZ^ theSeq)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfXYZ*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::InsertBefore(int theIndex, Macad::Occt::TColgp_SequenceOfXYZ^ theSeq)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfXYZ*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::InsertAfter(Macad::Occt::TColgp_SequenceOfXYZ::Iterator^ thePosition, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfXYZ::Iterator*)thePosition->NativeInstance, *(gp_XYZ*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfXYZ^ theSeq)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfXYZ*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::InsertAfter(int theIndex, Macad::Occt::TColgp_SequenceOfXYZ^ theSeq)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfXYZ*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::InsertAfter(long long unsigned int theIndex, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->InsertAfter(theIndex, *(gp_XYZ*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::InsertAfter(int theIndex, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->InsertAfter(theIndex, *(gp_XYZ*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Split(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfXYZ^ theSeq)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfXYZ*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Split(int theIndex, Macad::Occt::TColgp_SequenceOfXYZ^ theSeq)
+{
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfXYZ*)theSeq->NativeInstance);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::First()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->First();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::ChangeFirst()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->ChangeFirst();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::Last()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Last();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::ChangeLast()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->ChangeLast();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::Value(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::Value(int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::ChangeValue(int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::SetValue(long long unsigned int theIndex, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->SetValue(theIndex, *(gp_XYZ*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::SetValue(int theIndex, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfXYZ*)_NativeInstance)->SetValue(theIndex, *(gp_XYZ*)pp_theItem);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::At(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::XYZ>^ Macad::Occt::TColgp_SequenceOfXYZ::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::XYZ>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfXYZ::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::XYZ>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfXYZ::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::TColgp_SequenceOfXYZ::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfXYZ::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfXYZ::Iterator();
+}
+
+Macad::Occt::TColgp_SequenceOfXYZ::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfXYZ^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfXYZ::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfXYZ::Iterator(*(::TColgp_SequenceOfXYZ*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::TColgp_SequenceOfXYZ::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfXYZ^ theSeq)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfXYZ::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfXYZ::Iterator(*(::TColgp_SequenceOfXYZ*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::TColgp_SequenceOfXYZ::Iterator::More()
+{
+    bool _result = ((::TColgp_SequenceOfXYZ::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfXYZ::Iterator::Next()
+{
+    ((::TColgp_SequenceOfXYZ::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::Iterator::Value()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_SequenceOfXYZ::Iterator::ChangeValue()
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_SequenceOfXYZ::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+bool Macad::Occt::TColgp_SequenceOfXYZ::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfXYZ::Iterator^ theOther)
+{
+    bool _result = ((::TColgp_SequenceOfXYZ::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfXYZ::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfXYZ::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::TColgp_SequenceOfXYZ::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_HSequenceOfXYZ
+//---------------------------------------------------------------------
 
 int Macad::Occt::TColgp_HSequenceOfXYZ::Length()
 {
@@ -11648,9 +14476,21 @@ int Macad::Occt::TColgp_HSequenceOfXYZ::Length()
     return _result;
 }
 
+long long unsigned int Macad::Occt::TColgp_HSequenceOfXYZ::Size()
+{
+    long long unsigned int _result = ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_HSequenceOfXYZ::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 int Macad::Occt::TColgp_HSequenceOfXYZ::Lower()
 {
-    int _result = ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Lower();
+    int _result = ::TColgp_HSequenceOfXYZ::Lower();
     return _result;
 }
 
@@ -11671,6 +14511,11 @@ void Macad::Occt::TColgp_HSequenceOfXYZ::Reverse()
     ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::TColgp_HSequenceOfXYZ::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::TColgp_HSequenceOfXYZ::Exchange(int I, int J)
 {
     ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Exchange(I, J);
@@ -11683,12 +14528,7 @@ void Macad::Occt::TColgp_HSequenceOfXYZ::Clear(Macad::Occt::NCollection_BaseAllo
 
 void Macad::Occt::TColgp_HSequenceOfXYZ::Clear()
 {
-    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::TColgp_HSequenceOfXYZ^ Macad::Occt::TColgp_HSequenceOfXYZ::Assign(Macad::Occt::TColgp_HSequenceOfXYZ^ theOther)
-{
-    throw gcnew System::NotImplementedException();
+    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Clear(nullptr);
 }
 
 void Macad::Occt::TColgp_HSequenceOfXYZ::Remove(Macad::Occt::TColgp_HSequenceOfXYZ::Iterator^ thePosition)
@@ -11696,10 +14536,36 @@ void Macad::Occt::TColgp_HSequenceOfXYZ::Remove(Macad::Occt::TColgp_HSequenceOfX
     ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Remove(*(::TColgp_HSequenceOfXYZ::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::TColgp_HSequenceOfXYZ::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfXYZ::Remove(int theIndex)
+{
+    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfXYZ::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_HSequenceOfXYZ::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::TColgp_HSequenceOfXYZ::Prepend(Macad::Occt::XYZ theItem)
 {
     pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Prepend(*(gp_XYZ*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfXYZ::InsertBefore(long long unsigned int theIndex, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->InsertBefore(theIndex, *(gp_XYZ*)pp_theItem);
 }
 
 void Macad::Occt::TColgp_HSequenceOfXYZ::InsertBefore(int theIndex, Macad::Occt::XYZ theItem)
@@ -11714,9 +14580,16 @@ void Macad::Occt::TColgp_HSequenceOfXYZ::InsertAfter(Macad::Occt::TColgp_HSequen
     ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->InsertAfter(*(::TColgp_HSequenceOfXYZ::Iterator*)thePosition->NativeInstance, *(gp_XYZ*)pp_theItem);
 }
 
-void Macad::Occt::TColgp_HSequenceOfXYZ::Split(int theIndex, Macad::Occt::TColgp_HSequenceOfXYZ^ theSeq)
+void Macad::Occt::TColgp_HSequenceOfXYZ::InsertAfter(long long unsigned int theIndex, Macad::Occt::XYZ theItem)
 {
-    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Split(theIndex, *(::TColgp_HSequenceOfXYZ*)theSeq->NativeInstance);
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->InsertAfter(theIndex, *(gp_XYZ*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_HSequenceOfXYZ::InsertAfter(int theIndex, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->InsertAfter(theIndex, *(gp_XYZ*)pp_theItem);
 }
 
 Macad::Occt::XYZ Macad::Occt::TColgp_HSequenceOfXYZ::First()
@@ -11743,9 +14616,21 @@ Macad::Occt::XYZ Macad::Occt::TColgp_HSequenceOfXYZ::ChangeLast()
     return Macad::Occt::XYZ(_nativeResult);
 }
 
+Macad::Occt::XYZ Macad::Occt::TColgp_HSequenceOfXYZ::Value(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
 Macad::Occt::XYZ Macad::Occt::TColgp_HSequenceOfXYZ::Value(int theIndex)
 {
     ::gp_XYZ _nativeResult = ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HSequenceOfXYZ::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->ChangeValue(theIndex);
     return Macad::Occt::XYZ(_nativeResult);
 }
 
@@ -11755,10 +14640,40 @@ Macad::Occt::XYZ Macad::Occt::TColgp_HSequenceOfXYZ::ChangeValue(int theIndex)
     return Macad::Occt::XYZ(_nativeResult);
 }
 
+void Macad::Occt::TColgp_HSequenceOfXYZ::SetValue(long long unsigned int theIndex, Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->SetValue(theIndex, *(gp_XYZ*)pp_theItem);
+}
+
 void Macad::Occt::TColgp_HSequenceOfXYZ::SetValue(int theIndex, Macad::Occt::XYZ theItem)
 {
     pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
     ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->SetValue(theIndex, *(gp_XYZ*)pp_theItem);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HSequenceOfXYZ::At(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::XYZ Macad::Occt::TColgp_HSequenceOfXYZ::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_XYZ _nativeResult = ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::XYZ(_nativeResult);
+}
+
+Macad::Occt::TColgp_HSequenceOfXYZ::TColgp_HSequenceOfXYZ()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::TColgp_HSequenceOfXYZ();
+}
+
+void Macad::Occt::TColgp_HSequenceOfXYZ::Append(Macad::Occt::XYZ theItem)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_theItem = &theItem;
+    ((::TColgp_HSequenceOfXYZ*)_NativeInstance)->Append(*(gp_XYZ*)pp_theItem);
 }
 
 Macad::Occt::TColgp_HSequenceOfXYZ^ Macad::Occt::TColgp_HSequenceOfXYZ::CreateDowncasted(::TColgp_HSequenceOfXYZ* instance)
@@ -11828,6 +14743,691 @@ bool Macad::Occt::TColgp_HSequenceOfXYZ::Iterator::Equals(System::Object^ obj)
         return false;
     }
     System::Type^ myType = Macad::Occt::TColgp_HSequenceOfXYZ::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfArray1OfPnt2d
+//---------------------------------------------------------------------
+
+int Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Length()
+{
+    int _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Size()
+{
+    long long unsigned int _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::TColgp_SequenceOfArray1OfPnt2d()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfArray1OfPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfArray1OfPnt2d();
+}
+
+Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::TColgp_SequenceOfArray1OfPnt2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfArray1OfPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfArray1OfPnt2d(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Lower()
+{
+    int _result = ::TColgp_SequenceOfArray1OfPnt2d::Lower();
+    return _result;
+}
+
+int Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Upper()
+{
+    int _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::IsEmpty()
+{
+    bool _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Reverse()
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Exchange(int I, int J)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Clear()
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Assign(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theOther)
+{
+    ::TColgp_SequenceOfArray1OfPnt2d* _result = new ::TColgp_SequenceOfArray1OfPnt2d();
+    *_result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Assign(*(::TColgp_SequenceOfArray1OfPnt2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfArray1OfPnt2d(_result);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Remove(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator^ thePosition)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Remove(*(::TColgp_SequenceOfArray1OfPnt2d::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Remove(int theIndex)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Append(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Append(Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Append(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Append(*(::TColgp_SequenceOfArray1OfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Prepend(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Prepend(Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Prepend(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Prepend(*(::TColgp_SequenceOfArray1OfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::InsertBefore(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfArray1OfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::InsertBefore(int theIndex, Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfArray1OfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::InsertAfter(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator^ thePosition, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfArray1OfPnt2d::Iterator*)thePosition->NativeInstance, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfArray1OfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::InsertAfter(int theIndex, Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfArray1OfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->InsertAfter(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::InsertAfter(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->InsertAfter(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Split(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfArray1OfPnt2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Split(int theIndex, Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theSeq)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfArray1OfPnt2d*)theSeq->NativeInstance);
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::First()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->First();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::ChangeFirst()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->ChangeFirst();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Last()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Last();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::ChangeLast()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->ChangeLast();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Value(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Value(int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::ChangeValue(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->ChangeValue(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::ChangeValue(int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->ChangeValue(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::SetValue(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::SetValue(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::At(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->At(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::ChangeAt(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d*)_NativeInstance)->ChangeAt(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfArray1OfPnt2d::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfArray1OfPnt2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfArray1OfPnt2d::Iterator();
+}
+
+Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfArray1OfPnt2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfArray1OfPnt2d::Iterator(*(::TColgp_SequenceOfArray1OfPnt2d*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d^ theSeq)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfArray1OfPnt2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfArray1OfPnt2d::Iterator(*(::TColgp_SequenceOfArray1OfPnt2d*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::More()
+{
+    bool _result = ((::TColgp_SequenceOfArray1OfPnt2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::Next()
+{
+    ((::TColgp_SequenceOfArray1OfPnt2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::Value()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d::Iterator*)_NativeInstance)->Value();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::ChangeValue()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::TColgp_SequenceOfArray1OfPnt2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator^ theOther)
+{
+    bool _result = ((::TColgp_SequenceOfArray1OfPnt2d::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfArray1OfPnt2d::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::TColgp_SequenceOfArray1OfPnt2d::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfAx1
+//---------------------------------------------------------------------
+
+int Macad::Occt::TColgp_SequenceOfAx1::Length()
+{
+    int _result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::TColgp_SequenceOfAx1::Size()
+{
+    long long unsigned int _result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::TColgp_SequenceOfAx1::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_SequenceOfAx1::TColgp_SequenceOfAx1()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfAx1>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfAx1();
+}
+
+Macad::Occt::TColgp_SequenceOfAx1::TColgp_SequenceOfAx1(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfAx1>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfAx1(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::TColgp_SequenceOfAx1::Lower()
+{
+    int _result = ::TColgp_SequenceOfAx1::Lower();
+    return _result;
+}
+
+int Macad::Occt::TColgp_SequenceOfAx1::Upper()
+{
+    int _result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfAx1::IsEmpty()
+{
+    bool _result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Reverse()
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Exchange(int I, int J)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Clear()
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::TColgp_SequenceOfAx1^ Macad::Occt::TColgp_SequenceOfAx1::Assign(Macad::Occt::TColgp_SequenceOfAx1^ theOther)
+{
+    ::TColgp_SequenceOfAx1* _result = new ::TColgp_SequenceOfAx1();
+    *_result = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Assign(*(::TColgp_SequenceOfAx1*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfAx1(_result);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Remove(Macad::Occt::TColgp_SequenceOfAx1::Iterator^ thePosition)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Remove(*(::TColgp_SequenceOfAx1::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Remove(long long unsigned int theIndex)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Remove(int theIndex)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Remove(int theFromIndex, int theToIndex)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Append(Macad::Occt::Ax1 theItem)
+{
+    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Append(*(gp_Ax1*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Append(Macad::Occt::TColgp_SequenceOfAx1^ theSeq)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Append(*(::TColgp_SequenceOfAx1*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Prepend(Macad::Occt::Ax1 theItem)
+{
+    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Prepend(*(gp_Ax1*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Prepend(Macad::Occt::TColgp_SequenceOfAx1^ theSeq)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Prepend(*(::TColgp_SequenceOfAx1*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::InsertBefore(long long unsigned int theIndex, Macad::Occt::Ax1 theItem)
+{
+    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->InsertBefore(theIndex, *(gp_Ax1*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::InsertBefore(int theIndex, Macad::Occt::Ax1 theItem)
+{
+    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->InsertBefore(theIndex, *(gp_Ax1*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfAx1^ theSeq)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfAx1*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::InsertBefore(int theIndex, Macad::Occt::TColgp_SequenceOfAx1^ theSeq)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->InsertBefore(theIndex, *(::TColgp_SequenceOfAx1*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::InsertAfter(Macad::Occt::TColgp_SequenceOfAx1::Iterator^ thePosition, Macad::Occt::Ax1 theItem)
+{
+    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->InsertAfter(*(::TColgp_SequenceOfAx1::Iterator*)thePosition->NativeInstance, *(gp_Ax1*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfAx1^ theSeq)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfAx1*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::InsertAfter(int theIndex, Macad::Occt::TColgp_SequenceOfAx1^ theSeq)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->InsertAfter(theIndex, *(::TColgp_SequenceOfAx1*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::InsertAfter(long long unsigned int theIndex, Macad::Occt::Ax1 theItem)
+{
+    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->InsertAfter(theIndex, *(gp_Ax1*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::InsertAfter(int theIndex, Macad::Occt::Ax1 theItem)
+{
+    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->InsertAfter(theIndex, *(gp_Ax1*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Split(long long unsigned int theIndex, Macad::Occt::TColgp_SequenceOfAx1^ theSeq)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfAx1*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Split(int theIndex, Macad::Occt::TColgp_SequenceOfAx1^ theSeq)
+{
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->Split(theIndex, *(::TColgp_SequenceOfAx1*)theSeq->NativeInstance);
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::First()
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->First();
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::ChangeFirst()
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->ChangeFirst();
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::Last()
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Last();
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::ChangeLast()
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->ChangeLast();
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::Value(long long unsigned int theIndex)
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::Value(int theIndex)
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->Value(theIndex);
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::ChangeValue(long long unsigned int theIndex)
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::ChangeValue(int theIndex)
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->ChangeValue(theIndex);
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::SetValue(long long unsigned int theIndex, Macad::Occt::Ax1 theItem)
+{
+    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->SetValue(theIndex, *(gp_Ax1*)pp_theItem);
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::SetValue(int theIndex, Macad::Occt::Ax1 theItem)
+{
+    pin_ptr<Macad::Occt::Ax1> pp_theItem = &theItem;
+    ((::TColgp_SequenceOfAx1*)_NativeInstance)->SetValue(theIndex, *(gp_Ax1*)pp_theItem);
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::At(long long unsigned int theIndex)
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->At(theIndex);
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::ChangeAt(long long unsigned int theIndex)
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1*)_NativeInstance)->ChangeAt(theIndex);
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Ax1>^ Macad::Occt::TColgp_SequenceOfAx1::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Ax1>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::TColgp_SequenceOfAx1::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Ax1>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  TColgp_SequenceOfAx1::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::TColgp_SequenceOfAx1::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfAx1::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfAx1::Iterator();
+}
+
+Macad::Occt::TColgp_SequenceOfAx1::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfAx1^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfAx1::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfAx1::Iterator(*(::TColgp_SequenceOfAx1*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::TColgp_SequenceOfAx1::Iterator::Iterator(Macad::Occt::TColgp_SequenceOfAx1^ theSeq)
+    : Macad::Occt::BaseClass<::TColgp_SequenceOfAx1::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::TColgp_SequenceOfAx1::Iterator(*(::TColgp_SequenceOfAx1*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::TColgp_SequenceOfAx1::Iterator::More()
+{
+    bool _result = ((::TColgp_SequenceOfAx1::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::TColgp_SequenceOfAx1::Iterator::Next()
+{
+    ((::TColgp_SequenceOfAx1::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::Iterator::Value()
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1::Iterator*)_NativeInstance)->Value();
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+Macad::Occt::Ax1 Macad::Occt::TColgp_SequenceOfAx1::Iterator::ChangeValue()
+{
+    ::gp_Ax1 _nativeResult = ((::TColgp_SequenceOfAx1::Iterator*)_NativeInstance)->ChangeValue();
+    return Macad::Occt::Ax1(_nativeResult);
+}
+
+bool Macad::Occt::TColgp_SequenceOfAx1::Iterator::IsEqual(Macad::Occt::TColgp_SequenceOfAx1::Iterator^ theOther)
+{
+    bool _result = ((::TColgp_SequenceOfAx1::Iterator*)_NativeInstance)->IsEqual(*(::TColgp_SequenceOfAx1::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TColgp_SequenceOfAx1::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::TColgp_SequenceOfAx1::Iterator::GetType();
     System::Type^ objType = obj->GetType();
     if (myType->Equals(objType) || objType->IsSubclassOf(myType))
     {

@@ -14,22 +14,46 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 //  Class  IntAna_ListOfCurve
 //---------------------------------------------------------------------
 
+int Macad::Occt::IntAna_ListOfCurve::Extent()
+{
+    int _result = ((::IntAna_ListOfCurve*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::IntAna_ListOfCurve::Length()
+{
+    int _result = ((::IntAna_ListOfCurve*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::IntAna_ListOfCurve::Size()
+{
+    long long unsigned int _result = ((::IntAna_ListOfCurve*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::IntAna_ListOfCurve::IsEmpty()
+{
+    bool _result = ((::IntAna_ListOfCurve*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::IntAna_ListOfCurve::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::IntAna_ListOfCurve*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::IntAna_ListOfCurve::IntAna_ListOfCurve()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::IntAna_ListOfCurve>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::IntAna_ListOfCurve();
 }
 
 Macad::Occt::IntAna_ListOfCurve::IntAna_ListOfCurve(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::IntAna_ListOfCurve>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::IntAna_ListOfCurve(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::IntAna_ListOfCurve::Size()
-{
-    int _result = ((::IntAna_ListOfCurve*)_NativeInstance)->Size();
-    return _result;
 }
 
 Macad::Occt::IntAna_ListOfCurve^ Macad::Occt::IntAna_ListOfCurve::Assign(Macad::Occt::IntAna_ListOfCurve^ theOther)
@@ -46,7 +70,7 @@ void Macad::Occt::IntAna_ListOfCurve::Clear(Macad::Occt::NCollection_BaseAllocat
 
 void Macad::Occt::IntAna_ListOfCurve::Clear()
 {
-    ((::IntAna_ListOfCurve*)_NativeInstance)->Clear(0L);
+    ((::IntAna_ListOfCurve*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::IntAna_Curve^ Macad::Occt::IntAna_ListOfCurve::First()
@@ -70,11 +94,26 @@ Macad::Occt::IntAna_Curve^ Macad::Occt::IntAna_ListOfCurve::Append(Macad::Occt::
     return _result==nullptr ? nullptr : gcnew Macad::Occt::IntAna_Curve(_result);
 }
 
+void Macad::Occt::IntAna_ListOfCurve::Append(Macad::Occt::IntAna_Curve^ theItem, Macad::Occt::IntAna_ListOfCurve::Iterator^ theIter)
+{
+    ((::IntAna_ListOfCurve*)_NativeInstance)->Append(*(::IntAna_Curve*)theItem->NativeInstance, *(::IntAna_ListOfCurve::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::IntAna_ListOfCurve::Append(Macad::Occt::IntAna_ListOfCurve^ theOther)
+{
+    ((::IntAna_ListOfCurve*)_NativeInstance)->Append(*(::IntAna_ListOfCurve*)theOther->NativeInstance);
+}
+
 Macad::Occt::IntAna_Curve^ Macad::Occt::IntAna_ListOfCurve::Prepend(Macad::Occt::IntAna_Curve^ theItem)
 {
     ::IntAna_Curve* _result = new ::IntAna_Curve();
     *_result = ((::IntAna_ListOfCurve*)_NativeInstance)->Prepend(*(::IntAna_Curve*)theItem->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::IntAna_Curve(_result);
+}
+
+void Macad::Occt::IntAna_ListOfCurve::Prepend(Macad::Occt::IntAna_ListOfCurve^ theOther)
+{
+    ((::IntAna_ListOfCurve*)_NativeInstance)->Prepend(*(::IntAna_ListOfCurve*)theOther->NativeInstance);
 }
 
 void Macad::Occt::IntAna_ListOfCurve::RemoveFirst()
@@ -94,6 +133,11 @@ Macad::Occt::IntAna_Curve^ Macad::Occt::IntAna_ListOfCurve::InsertBefore(Macad::
     return _result==nullptr ? nullptr : gcnew Macad::Occt::IntAna_Curve(_result);
 }
 
+void Macad::Occt::IntAna_ListOfCurve::InsertBefore(Macad::Occt::IntAna_ListOfCurve^ theOther, Macad::Occt::IntAna_ListOfCurve::Iterator^ theIter)
+{
+    ((::IntAna_ListOfCurve*)_NativeInstance)->InsertBefore(*(::IntAna_ListOfCurve*)theOther->NativeInstance, *(::IntAna_ListOfCurve::Iterator*)theIter->NativeInstance);
+}
+
 Macad::Occt::IntAna_Curve^ Macad::Occt::IntAna_ListOfCurve::InsertAfter(Macad::Occt::IntAna_Curve^ theItem, Macad::Occt::IntAna_ListOfCurve::Iterator^ theIter)
 {
     ::IntAna_Curve* _result = new ::IntAna_Curve();
@@ -101,9 +145,19 @@ Macad::Occt::IntAna_Curve^ Macad::Occt::IntAna_ListOfCurve::InsertAfter(Macad::O
     return _result==nullptr ? nullptr : gcnew Macad::Occt::IntAna_Curve(_result);
 }
 
+void Macad::Occt::IntAna_ListOfCurve::InsertAfter(Macad::Occt::IntAna_ListOfCurve^ theOther, Macad::Occt::IntAna_ListOfCurve::Iterator^ theIter)
+{
+    ((::IntAna_ListOfCurve*)_NativeInstance)->InsertAfter(*(::IntAna_ListOfCurve*)theOther->NativeInstance, *(::IntAna_ListOfCurve::Iterator*)theIter->NativeInstance);
+}
+
 void Macad::Occt::IntAna_ListOfCurve::Reverse()
 {
     ((::IntAna_ListOfCurve*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::IntAna_ListOfCurve::Exchange(Macad::Occt::IntAna_ListOfCurve^ theOther)
+{
+    ((::IntAna_ListOfCurve*)_NativeInstance)->Exchange(*(::IntAna_ListOfCurve*)theOther->NativeInstance);
 }
 
 System::Collections::Generic::IEnumerator<Macad::Occt::IntAna_Curve^>^ Macad::Occt::IntAna_ListOfCurve::GetEnumerator()
@@ -126,6 +180,12 @@ Macad::Occt::IntAna_ListOfCurve::Iterator::Iterator()
     : Macad::Occt::IteratorEnumerator<Macad::Occt::IntAna_Curve^, ::IntAna_ListOfCurve::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::IntAna_ListOfCurve::Iterator();
+}
+
+Macad::Occt::IntAna_ListOfCurve::Iterator::Iterator(Macad::Occt::NCollection_BaseList^ theList)
+    : Macad::Occt::IteratorEnumerator<Macad::Occt::IntAna_Curve^, ::IntAna_ListOfCurve::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::IntAna_ListOfCurve::Iterator(*(::NCollection_BaseList*)theList->NativeInstance);
 }
 
 bool Macad::Occt::IntAna_ListOfCurve::Iterator::More()

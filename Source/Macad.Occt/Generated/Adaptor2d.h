@@ -64,22 +64,22 @@ public:
     double LastParameter();
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// If necessary,  breaks the  curve in  intervals  of
-    /// continuity  <S>.    And  returns   the number   of
+    /// If necessary, breaks the curve in intervals of
+    /// continuity <S>. And returns the number of
     /// intervals.
     /// </summary>
     int NbIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
+    /// Stores in <T> the parameters bounding the intervals
     /// of continuity <S>.
     /// 
-    /// The array must provide  enough room to  accommodate
+    /// The array must provide enough room to accommodate
     /// for the parameters. i.e. T.Length() > NbIntervals()
     /// </summary>
     void Intervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  curve equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a curve equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -125,13 +125,13 @@ public:
     /// </summary>
     Macad::Occt::Vec2d DN(double U, int N);
     /// <summary>
-    /// Returns the parametric  resolution corresponding
+    /// Returns the parametric resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double Resolution(double R3d);
     /// <summary>
-    /// Returns  the  type of the   curve  in the  current
-    /// interval :   Line,   Circle,   Ellipse, Hyperbola,
+    /// Returns the type of the curve in the current
+    /// interval: Line, Circle, Ellipse, Hyperbola,
     /// Parabola, BezierCurve, BSplineCurve, OtherCurve.
     /// </summary>
     Macad::Occt::GeomAbs_CurveType GetCurveType();
@@ -147,6 +147,19 @@ public:
     int NbSamples();
     Macad::Occt::Geom2d_BezierCurve^ Bezier();
     Macad::Occt::Geom2d_BSplineCurve^ BSpline();
+    /// <summary>
+    /// Computes the point of parameter U on the curve.
+    /// Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Pnt2d EvalD0(double theU);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double theU, ) */
+    /// <summary>
+    /// Computes the Nth derivative at parameter U.
+    /// Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Vec2d EvalDN(double theU, int theN);
     static Macad::Occt::Adaptor2d_Curve2d^ CreateDowncasted(::Adaptor2d_Curve2d* instance);
 }; // class Adaptor2d_Curve2d
 
@@ -195,22 +208,22 @@ public:
     double LastParameter();
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// If necessary,  breaks the  curve in  intervals  of
-    /// continuity  <S>.    And  returns   the number   of
+    /// If necessary, breaks the curve in intervals of
+    /// continuity <S>. And returns the number of
     /// intervals.
     /// </summary>
     int NbIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
+    /// Stores in <T> the parameters bounding the intervals
     /// of continuity <S>.
     /// 
-    /// The array must provide  enough room to  accommodate
+    /// The array must provide enough room to accommodate
     /// for the parameters. i.e. T.Length() > NbIntervals()
     /// </summary>
     void Intervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  curve equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a curve equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -282,7 +295,7 @@ public:
     /// </summary>
     Adaptor2d_OffsetCurve(Macad::Occt::Adaptor2d_Curve2d^ C);
     /// <summary>
-    /// Creates  an  OffsetCurve curve.
+    /// Creates an OffsetCurve curve.
     /// The Offset is set to Offset.
     /// </summary>
     Adaptor2d_OffsetCurve(Macad::Occt::Adaptor2d_Curve2d^ C, double Offset);
@@ -292,11 +305,11 @@ public:
     /// </summary>
     Adaptor2d_OffsetCurve(Macad::Occt::Adaptor2d_Curve2d^ C, double Offset, double WFirst, double WLast);
     /// <summary>
-    /// Shallow copy of adaptor
+    /// Shallow copy of adaptor.
     /// </summary>
     Macad::Occt::Adaptor2d_Curve2d^ ShallowCopy();
     /// <summary>
-    /// Changes  the curve.  The Offset is reset to 0.
+    /// Changes the curve. The Offset is reset to 0.
     /// </summary>
     void Load(Macad::Occt::Adaptor2d_Curve2d^ S);
     /// <summary>
@@ -313,22 +326,22 @@ public:
     double LastParameter();
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// If necessary,  breaks the  curve in  intervals  of
-    /// continuity  <S>.    And  returns   the number   of
+    /// If necessary, breaks the curve in intervals of
+    /// continuity <S>. And returns the number of
     /// intervals.
     /// </summary>
     int NbIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
+    /// Stores in <T> the parameters bounding the intervals
     /// of continuity <S>.
     /// 
-    /// The array must provide  enough room to  accommodate
+    /// The array must provide enough room to accommodate
     /// for the parameters. i.e. T.Length() > NbIntervals()
     /// </summary>
     void Intervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  curve equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a curve equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -374,13 +387,13 @@ public:
     /// </summary>
     Macad::Occt::Vec2d DN(double U, int N);
     /// <summary>
-    /// Returns the parametric  resolution corresponding
+    /// Returns the parametric resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double Resolution(double R3d);
     /// <summary>
-    /// Returns  the  type of the   curve  in the  current
-    /// interval :   Line,   Circle,   Ellipse, Hyperbola,
+    /// Returns the type of the curve in the current
+    /// interval: Line, Circle, Ellipse, Hyperbola,
     /// Parabola, BezierCurve, BSplineCurve, OtherCurve.
     /// </summary>
     Macad::Occt::GeomAbs_CurveType GetCurveType();

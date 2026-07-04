@@ -11,16 +11,16 @@ namespace Occt
 //  Class  TopExp
 //---------------------------------------------------------------------
 /// <summary>
-/// This package   provides  basic tools  to   explore the
+/// This package provides basic tools to explore the
 /// topological data structures.
 /// 
-/// * Explorer : A tool to find all sub-shapes of  a given
+/// * Explorer: A tool to find all sub-shapes of a given
 /// type. e.g. all faces of a solid.
 /// 
 /// * Package methods to map sub-shapes of a shape.
 /// 
 /// Level : Public
-/// All methods of all  classes will be public.
+/// All methods of all classes will be public.
 /// </summary>
 public ref class TopExp sealed
     : public Macad::Occt::BaseClass<::TopExp>
@@ -52,14 +52,14 @@ public:
     TopExp();
     /// <summary>
     /// Tool to explore a topological data structure.
-    /// Stores in the map <M> all  the sub-shapes of <S>
+    /// Stores in the map <M> all the sub-shapes of <S>
     /// of type <T>.
     /// 
     /// Warning: The map is not cleared at first.
     /// </summary>
     static void MapShapes(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopAbs_ShapeEnum T, Macad::Occt::TopTools_IndexedMapOfShape^ M);
     /// <summary>
-    /// Stores in the map <M> all  the sub-shapes of <S>.
+    /// Stores in the map <M> all the sub-shapes of <S>.
     /// - If cumOri is true, the function composes all
     /// sub-shapes with the orientation of S.
     /// - If cumLoc is true, the function multiplies all
@@ -68,7 +68,7 @@ public:
     /// </summary>
     static void MapShapes(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopTools_IndexedMapOfShape^ M, bool cumOri, bool cumLoc);
     /// <summary>
-    /// Stores in the map <M> all  the sub-shapes of <S>.
+    /// Stores in the map <M> all the sub-shapes of <S>.
     /// - If cumOri is true, the function composes all
     /// sub-shapes with the orientation of S.
     /// - If cumLoc is true, the function multiplies all
@@ -77,7 +77,7 @@ public:
     /// </summary>
     static void MapShapes(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopTools_IndexedMapOfShape^ M, bool cumOri);
     /// <summary>
-    /// Stores in the map <M> all  the sub-shapes of <S>.
+    /// Stores in the map <M> all the sub-shapes of <S>.
     /// - If cumOri is true, the function composes all
     /// sub-shapes with the orientation of S.
     /// - If cumLoc is true, the function multiplies all
@@ -86,7 +86,7 @@ public:
     /// </summary>
     static void MapShapes(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopTools_IndexedMapOfShape^ M);
     /// <summary>
-    /// Stores in the map <M> all  the sub-shapes of <S>.
+    /// Stores in the map <M> all the sub-shapes of <S>.
     /// - If cumOri is true, the function composes all
     /// sub-shapes with the orientation of S.
     /// - If cumLoc is true, the function multiplies all
@@ -95,7 +95,7 @@ public:
     /// </summary>
     static void MapShapes(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopTools_MapOfShape^ M, bool cumOri, bool cumLoc);
     /// <summary>
-    /// Stores in the map <M> all  the sub-shapes of <S>.
+    /// Stores in the map <M> all the sub-shapes of <S>.
     /// - If cumOri is true, the function composes all
     /// sub-shapes with the orientation of S.
     /// - If cumLoc is true, the function multiplies all
@@ -104,7 +104,7 @@ public:
     /// </summary>
     static void MapShapes(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopTools_MapOfShape^ M, bool cumOri);
     /// <summary>
-    /// Stores in the map <M> all  the sub-shapes of <S>.
+    /// Stores in the map <M> all the sub-shapes of <S>.
     /// - If cumOri is true, the function composes all
     /// sub-shapes with the orientation of S.
     /// - If cumLoc is true, the function multiplies all
@@ -114,8 +114,8 @@ public:
     static void MapShapes(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopTools_MapOfShape^ M);
     /// <summary>
     /// Stores in the map <M> all the subshape of <S> of
-    /// type <TS>  for each one append  to  the list all
-    /// the ancestors of type <TA>.  For example map all
+    /// type <TS> for each one append to the list all
+    /// the ancestors of type <TA>. For example map all
     /// the edges and bind the list of faces.
     /// Warning: The map is not cleared at first.
     /// </summary>
@@ -123,7 +123,7 @@ public:
     /// <summary>
     /// Stores in the map <M> all the subshape of <S> of
     /// type <TS> for each one append to the list all
-    /// unique ancestors of type <TA>.  For example map all
+    /// unique ancestors of type <TA>. For example map all
     /// the edges and bind the list of faces.
     /// useOrientation = True : taking account the ancestor orientation
     /// Warning: The map is not cleared at first.
@@ -132,7 +132,7 @@ public:
     /// <summary>
     /// Stores in the map <M> all the subshape of <S> of
     /// type <TS> for each one append to the list all
-    /// unique ancestors of type <TA>.  For example map all
+    /// unique ancestors of type <TA>. For example map all
     /// the edges and bind the list of faces.
     /// useOrientation = True : taking account the ancestor orientation
     /// Warning: The map is not cleared at first.
@@ -163,28 +163,28 @@ public:
     /// </summary>
     static Macad::Occt::TopoDS_Vertex^ LastVertex(Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
-    /// Returns in Vfirst, Vlast the  FORWARD and REVERSED
+    /// Returns in Vfirst, Vlast the FORWARD and REVERSED
     /// vertices of the edge <E>. May be null shapes.
     /// CumOri = True : taking account the edge orientation
     /// </summary>
     static void Vertices(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Vertex^ Vfirst, Macad::Occt::TopoDS_Vertex^ Vlast, bool CumOri);
     /// <summary>
-    /// Returns in Vfirst, Vlast the  FORWARD and REVERSED
+    /// Returns in Vfirst, Vlast the FORWARD and REVERSED
     /// vertices of the edge <E>. May be null shapes.
     /// CumOri = True : taking account the edge orientation
     /// </summary>
     static void Vertices(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Vertex^ Vfirst, Macad::Occt::TopoDS_Vertex^ Vlast);
     /// <summary>
-    /// Returns  in  Vfirst,  Vlast   the first   and last
+    /// Returns in Vfirst, Vlast the first and last
     /// vertices of the open wire <W>. May be null shapes.
-    /// if   <W>  is closed Vfirst and Vlast  are a same
+    /// if <W> is closed Vfirst and Vlast are a same
     /// vertex on <W>.
     /// if <W> is no manifold. VFirst and VLast are null
     /// shapes.
     /// </summary>
     static void Vertices(Macad::Occt::TopoDS_Wire^ W, Macad::Occt::TopoDS_Vertex^ Vfirst, Macad::Occt::TopoDS_Vertex^ Vlast);
     /// <summary>
-    /// Finds   the  vertex <V> common   to  the two edges
+    /// Finds the vertex <V> common to the two edges
     /// <E1,E2>, returns True if this vertex exists.
     /// 
     /// Warning: <V> has sense only if the value <True> is returned
@@ -196,22 +196,22 @@ public:
 //  Class  TopExp_Explorer
 //---------------------------------------------------------------------
 /// <summary>
-/// An Explorer is a Tool to visit  a Topological Data
-/// Structure form the TopoDS package.
+/// An Explorer is a Tool to visit a Topological Data
+/// Structure from the TopoDS package.
 /// 
-/// An Explorer is built with :
+/// An Explorer is built with:
 /// 
 /// * The Shape to explore.
 /// 
-/// * The type of Shapes to find : e.g VERTEX, EDGE.
+/// * The type of Shapes to find: e.g VERTEX, EDGE.
 /// This type cannot be SHAPE.
 /// 
-/// * The type of Shapes to avoid. e.g  SHELL, EDGE.
-/// By default   this type is  SHAPE which  means no
+/// * The type of Shapes to avoid. e.g SHELL, EDGE.
+/// By default this type is SHAPE which means no
 /// restriction on the exploration.
 /// 
-/// The Explorer  visits  all the  structure   to find
-/// shapes of the   requested  type  which   are   not
+/// The Explorer visits all the structure to find
+/// shapes of the requested type which are not
 /// contained in the type to avoid.
 /// 
 /// Example to find all the Faces in the Shape S :
@@ -232,7 +232,7 @@ public:
 /// 
 /// for (Ex.Init(S,TopAbs_VERTEX,TopAbs_EDGE); ...)
 /// 
-/// To  find all the faces  in   a SHELL, then all the
+/// To find all the faces in a SHELL, then all the
 /// faces not in a SHELL :
 /// 
 /// TopExp_Explorer Ex1, Ex2;
@@ -248,10 +248,10 @@ public:
 /// // visit all faces not in a shell
 /// }
 /// 
-/// If   the type  to avoid  is   the same  or is less
+/// If the type to avoid is the same or is less
 /// complex than the type to find it has no effect.
 /// 
-/// For example searching edges  not in a vertex  does
+/// For example searching edges not in a vertex does
 /// not make a difference.
 /// </summary>
 public ref class TopExp_Explorer sealed
@@ -291,9 +291,9 @@ public:
     /// <ToFind> is the type of shapes to search.
     /// TopAbs_VERTEX, TopAbs_EDGE, ...
     /// 
-    /// <ToAvoid>   is the type   of shape to  skip in the
-    /// exploration.   If   <ToAvoid>  is  equal  or  less
-    /// complex than <ToFind> or if  <ToAVoid> is SHAPE it
+    /// <ToAvoid> is the type of shape to skip in the
+    /// exploration. If <ToAvoid> is equal or less
+    /// complex than <ToFind> or if <ToAVoid> is SHAPE it
     /// has no effect on the exploration.
     /// </summary>
     TopExp_Explorer(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopAbs_ShapeEnum ToFind, Macad::Occt::TopAbs_ShapeEnum ToAvoid);
@@ -303,9 +303,9 @@ public:
     /// <ToFind> is the type of shapes to search.
     /// TopAbs_VERTEX, TopAbs_EDGE, ...
     /// 
-    /// <ToAvoid>   is the type   of shape to  skip in the
-    /// exploration.   If   <ToAvoid>  is  equal  or  less
-    /// complex than <ToFind> or if  <ToAVoid> is SHAPE it
+    /// <ToAvoid> is the type of shape to skip in the
+    /// exploration. If <ToAvoid> is equal or less
+    /// complex than <ToFind> or if <ToAVoid> is SHAPE it
     /// has no effect on the exploration.
     /// </summary>
     TopExp_Explorer(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopAbs_ShapeEnum ToFind);
@@ -333,20 +333,14 @@ public:
     bool More();
     /// <summary>
     /// Moves to the next Shape in the exploration.
-    /// Exceptions
-    /// Standard_NoMoreObject if there are no more shapes to explore.
     /// </summary>
     void Next();
     /// <summary>
     /// Returns the current shape in the exploration.
-    /// Exceptions
-    /// Standard_NoSuchObject if this explorer has no more shapes to explore.
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Value();
     /// <summary>
     /// Returns the current shape in the exploration.
-    /// Exceptions
-    /// Standard_NoSuchObject if this explorer has no more shapes to explore.
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Current();
     /// <summary>
@@ -363,8 +357,7 @@ public:
     /// </summary>
     int Depth();
     /// <summary>
-    /// Clears the content of the explorer. It will return
-    /// False on More().
+    /// Clears the content of the explorer.
     /// </summary>
     void Clear();
 }; // class TopExp_Explorer

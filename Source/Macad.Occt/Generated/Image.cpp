@@ -1421,10 +1421,11 @@ void Macad::Occt::Image_VideoRecorder::Close()
     ((::Image_VideoRecorder*)_NativeInstance)->Close();
 }
 
-bool Macad::Occt::Image_VideoRecorder::Open(char theFileName, Macad::Occt::Image_VideoParams^ theParams)
+bool Macad::Occt::Image_VideoRecorder::Open(System::String^ theFileName, Macad::Occt::Image_VideoParams^ theParams)
 {
-    pin_ptr<char> pp_theFileName = &theFileName;
-    bool _result = ((::Image_VideoRecorder*)_NativeInstance)->Open((char*)pp_theFileName, *(::Image_VideoParams*)theParams->NativeInstance);
+    const char* sz_theFileName = (char*)(void*)Marshal::StringToHGlobalAnsi(theFileName);
+    bool _result = ((::Image_VideoRecorder*)_NativeInstance)->Open(sz_theFileName, *(::Image_VideoParams*)theParams->NativeInstance);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theFileName);
     return _result;
 }
 

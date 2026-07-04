@@ -5,11 +5,10 @@
 
 using namespace System::Runtime::InteropServices; // for class Marshal
 
-#include "NCollection.h"
-#include "Bnd.h"
 #include "Geom.h"
 #include "gp.h"
 #include "TColStd.h"
+#include "NCollection.h"
 #include "TopoDS.h"
 #include "TopTools.h"
 #include "BRepPrimAPI.h"
@@ -21,53 +20,6 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 #include "Message.h"
 #include "Geom2d.h"
 #include "BRepTools.h"
-
-
-//---------------------------------------------------------------------
-//  Class  BRepBuilderAPI_BndBoxTree
-//---------------------------------------------------------------------
-
-Macad::Occt::BRepBuilderAPI_BndBoxTree::BRepBuilderAPI_BndBoxTree()
-    : Macad::Occt::BaseClass<::BRepBuilderAPI_BndBoxTree>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRepBuilderAPI_BndBoxTree();
-}
-
-Macad::Occt::BRepBuilderAPI_BndBoxTree::BRepBuilderAPI_BndBoxTree(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::BRepBuilderAPI_BndBoxTree>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRepBuilderAPI_BndBoxTree(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-bool Macad::Occt::BRepBuilderAPI_BndBoxTree::Add(int theObj, Macad::Occt::Bnd_Box^ theBnd)
-{
-    pin_ptr<int> pp_theObj = &theObj;
-    bool _result = ((::BRepBuilderAPI_BndBoxTree*)_NativeInstance)->Add(*(int*)pp_theObj, *(::Bnd_Box*)theBnd->NativeInstance);
-    return _result;
-}
-
-void Macad::Occt::BRepBuilderAPI_BndBoxTree::Clear(Macad::Occt::NCollection_BaseAllocator^ aNewAlloc)
-{
-    ((::BRepBuilderAPI_BndBoxTree*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(aNewAlloc->NativeInstance));
-}
-
-void Macad::Occt::BRepBuilderAPI_BndBoxTree::Clear()
-{
-    ((::BRepBuilderAPI_BndBoxTree*)_NativeInstance)->Clear(0L);
-}
-
-bool Macad::Occt::BRepBuilderAPI_BndBoxTree::IsEmpty()
-{
-    bool _result = ((::BRepBuilderAPI_BndBoxTree*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepBuilderAPI_BndBoxTree::Allocator()
-{
-    Handle(::NCollection_BaseAllocator) _result = ((::BRepBuilderAPI_BndBoxTree*)_NativeInstance)->Allocator();
-    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
-}
-
 
 
 //---------------------------------------------------------------------
@@ -112,6 +64,20 @@ Macad::Occt::BRepBuilderAPI_VertexInspector::BRepBuilderAPI_VertexInspector(doub
     : Macad::Occt::BaseClass<::BRepBuilderAPI_VertexInspector>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepBuilderAPI_VertexInspector(theTol);
+}
+
+double Macad::Occt::BRepBuilderAPI_VertexInspector::Coord(int i, Macad::Occt::XYZ thePnt)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_thePnt = &thePnt;
+    double _result = ::BRepBuilderAPI_VertexInspector::Coord(i, *(gp_XYZ*)pp_thePnt);
+    return _result;
+}
+
+Macad::Occt::XYZ Macad::Occt::BRepBuilderAPI_VertexInspector::Shift(Macad::Occt::XYZ thePnt, double theTol)
+{
+    pin_ptr<Macad::Occt::XYZ> pp_thePnt = &thePnt;
+    ::gp_XYZ _nativeResult = ::BRepBuilderAPI_VertexInspector::Shift(*(gp_XYZ*)pp_thePnt, theTol);
+    return Macad::Occt::XYZ(_nativeResult);
 }
 
 void Macad::Occt::BRepBuilderAPI_VertexInspector::Add(Macad::Occt::XYZ thePnt)

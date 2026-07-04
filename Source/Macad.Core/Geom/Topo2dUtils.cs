@@ -93,7 +93,7 @@ public static class Topo2dUtils
         var builder = new BRep_Builder();
         var newShape = new TopoDS_Compound();
         builder.MakeCompound(newShape);
-        for (int i = wires.Lower(); i <= wires.Upper(); i++)
+        for (int i = TopTools_HSequenceOfShape.Lower(); i <= wires.Upper(); i++)
         {
             builder.Add(newShape, wires.Value(i));
         }

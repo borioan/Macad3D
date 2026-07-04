@@ -186,10 +186,14 @@ public class Vec2dTests
     [Test]
     public void MirrorVec2d()
     {
+        // OCCT 7.9.2's gp_Vec2d::Mirror(const gp_Vec2d&) had a bug: it applied the
+        // reflection matrix to the mirror vector's own coordinates instead of the
+        // vector being mirrored. OCCT 8.0 fixed this as part of its refactoring;
+        // (2,-1) is the mathematically correct reflection of (2,1) about the X axis.
         var p2 = new Vec2d(2, 1);
-        Assert.AreEqual(new Vec2d(1,0), p2.Mirrored(new Vec2d(1, 0)));
+        Assert.AreEqual(new Vec2d(2,-1), p2.Mirrored(new Vec2d(1, 0)));
         p2.Mirror(new Vec2d(1, 0));
-        Assert.AreEqual(new Vec2d(1, 0), p2);
+        Assert.AreEqual(new Vec2d(2, -1), p2);
     }
 
     //--------------------------------------------------------------------------------------------------

@@ -301,6 +301,13 @@ void Macad::Occt::BSplSLib::FunctionMultiply(Macad::Occt::BSplSLib_EvaluatorFunc
     ::BSplSLib::FunctionMultiply(*(::BSplSLib_EvaluatorFunction*)Function->NativeInstance, UBSplineDegree, VBSplineDegree, *(::TColStd_Array1OfReal*)UBSplineKnots->NativeInstance, *(::TColStd_Array1OfReal*)VBSplineKnots->NativeInstance, (::TColStd_Array1OfInteger*)UMults->NativeInstance, (::TColStd_Array1OfInteger*)VMults->NativeInstance, *(::TColgp_Array2OfPnt*)Poles->NativeInstance, (::TColStd_Array2OfReal*)Weights->NativeInstance, *(::TColStd_Array1OfReal*)UFlatKnots->NativeInstance, *(::TColStd_Array1OfReal*)VFlatKnots->NativeInstance, UNewDegree, VNewDegree, *(::TColgp_Array2OfPnt*)NewNumerator->NativeInstance, *(::TColStd_Array2OfReal*)NewDenominator->NativeInstance, *(int*)pp_theStatus);
 }
 
+Macad::Occt::TColStd_Array2OfReal^ Macad::Occt::BSplSLib::UnitWeights(int theNbUPoles, int theNbVPoles)
+{
+    ::TColStd_Array2OfReal* _result = new ::TColStd_Array2OfReal();
+    *_result = ::BSplSLib::UnitWeights(theNbUPoles, theNbVPoles);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array2OfReal(_result);
+}
+
 
 
 //---------------------------------------------------------------------
@@ -376,6 +383,31 @@ void Macad::Occt::BSplSLib_Cache::D2(double theU, double theV, Macad::Occt::Pnt%
     pin_ptr<Macad::Occt::Vec> pp_theCurvatureV = &theCurvatureV;
     pin_ptr<Macad::Occt::Vec> pp_theCurvatureUV = &theCurvatureUV;
     ((::BSplSLib_Cache*)_NativeInstance)->D2(*(double*)pp_theU, *(double*)pp_theV, *(gp_Pnt*)pp_thePoint, *(gp_Vec*)pp_theTangentU, *(gp_Vec*)pp_theTangentV, *(gp_Vec*)pp_theCurvatureU, *(gp_Vec*)pp_theCurvatureV, *(gp_Vec*)pp_theCurvatureUV);
+}
+
+void Macad::Occt::BSplSLib_Cache::D0Local(double theLocalU, double theLocalV, Macad::Occt::Pnt% thePoint)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_thePoint = &thePoint;
+    ((::BSplSLib_Cache*)_NativeInstance)->D0Local(theLocalU, theLocalV, *(gp_Pnt*)pp_thePoint);
+}
+
+void Macad::Occt::BSplSLib_Cache::D1Local(double theLocalU, double theLocalV, Macad::Occt::Pnt% thePoint, Macad::Occt::Vec% theTangentU, Macad::Occt::Vec% theTangentV)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_thePoint = &thePoint;
+    pin_ptr<Macad::Occt::Vec> pp_theTangentU = &theTangentU;
+    pin_ptr<Macad::Occt::Vec> pp_theTangentV = &theTangentV;
+    ((::BSplSLib_Cache*)_NativeInstance)->D1Local(theLocalU, theLocalV, *(gp_Pnt*)pp_thePoint, *(gp_Vec*)pp_theTangentU, *(gp_Vec*)pp_theTangentV);
+}
+
+void Macad::Occt::BSplSLib_Cache::D2Local(double theLocalU, double theLocalV, Macad::Occt::Pnt% thePoint, Macad::Occt::Vec% theTangentU, Macad::Occt::Vec% theTangentV, Macad::Occt::Vec% theCurvatureU, Macad::Occt::Vec% theCurvatureV, Macad::Occt::Vec% theCurvatureUV)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_thePoint = &thePoint;
+    pin_ptr<Macad::Occt::Vec> pp_theTangentU = &theTangentU;
+    pin_ptr<Macad::Occt::Vec> pp_theTangentV = &theTangentV;
+    pin_ptr<Macad::Occt::Vec> pp_theCurvatureU = &theCurvatureU;
+    pin_ptr<Macad::Occt::Vec> pp_theCurvatureV = &theCurvatureV;
+    pin_ptr<Macad::Occt::Vec> pp_theCurvatureUV = &theCurvatureUV;
+    ((::BSplSLib_Cache*)_NativeInstance)->D2Local(theLocalU, theLocalV, *(gp_Pnt*)pp_thePoint, *(gp_Vec*)pp_theTangentU, *(gp_Vec*)pp_theTangentV, *(gp_Vec*)pp_theCurvatureU, *(gp_Vec*)pp_theCurvatureV, *(gp_Vec*)pp_theCurvatureUV);
 }
 
 Macad::Occt::BSplSLib_Cache^ Macad::Occt::BSplSLib_Cache::CreateDowncasted(::BSplSLib_Cache* instance)

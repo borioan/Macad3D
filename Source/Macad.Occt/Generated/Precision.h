@@ -16,25 +16,25 @@ namespace Occt
 /// Generalities
 /// It is not advisable to use floating number equality. Instead, the difference
 /// between numbers must be compared with a given precision, i.e. :
-/// Standard_Real x1, x2 ;
+/// double x1, x2 ;
 /// x1 = ...
 /// x2 = ...
 /// If ( x1 == x2 ) ...
 /// should not be used and must be written as indicated below:
-/// Standard_Real x1, x2 ;
-/// Standard_Real Precision = ...
+/// double x1, x2 ;
+/// double Precision = ...
 /// x1 = ...
 /// x2 = ...
 /// If ( Abs ( x1 - x2 ) < Precision ) ...
 /// Likewise, when ordering floating numbers, you must take the following into account :
-/// Standard_Real x1, x2 ;
-/// Standard_Real Precision = ...
+/// double x1, x2 ;
+/// double Precision = ...
 /// x1 = ...       ! a large number
 /// x2 = ...       ! another large number
 /// If ( x1 < x2 - Precision ) ...
 /// is incorrect when x1 and x2 are large numbers ; it is better to write :
-/// Standard_Real x1, x2 ;
-/// Standard_Real Precision = ...
+/// double x1, x2 ;
+/// double Precision = ...
 /// x1 = ...       ! a large number
 /// x2 = ...       ! another large number
 /// If ( x2 - x1 > Precision ) ...
@@ -118,8 +118,8 @@ public:
     /// <summary>
     /// Returns the recommended precision value
     /// when checking the equality of two angles (given in radians).
-    /// Standard_Real Angle1 = ... , Angle2 = ... ;
-    /// If ( Abs( Angle2 - Angle1 ) < Precision::Angular() ) ...
+    /// double Angle1 = ... , Angle2 = ... ;
+    /// If ( std::abs( Angle2 - Angle1 ) < Precision::Angular() ) ...
     /// The tolerance of angular equality may be used to check the parallelism of two vectors :
     /// gp_Vec V1, V2 ;
     /// V1 = ...
@@ -133,7 +133,7 @@ public:
     /// D1 = ...
     /// D2 = ...
     /// you can use :
-    /// If ( Abs( D1.D2 ) < Precision::Angular() ) ...
+    /// If ( std::abs( D1.D2 ) < Precision::Angular() ) ...
     /// (although the function IsNormal does exist).
     /// </summary>
     static double Angular();
@@ -186,6 +186,35 @@ public:
     /// </summary>
     static double SquareConfusion();
     /// <summary>
+    /// Returns a precision value at machine epsilon level, used for
+    /// low-level numerical computations and floating-point comparisons.
+    /// Unlike the geometric tolerances (Confusion, Intersection, Approximation)
+    /// which are application-level values for modeling operations, this value
+    /// represents the fundamental limit of floating-point arithmetic precision.
+    /// 
+    /// Typical use cases include:
+    /// -   Checking if squared magnitudes are effectively zero (e.g., vector.SquareMagnitude() <
+    /// SquareComputational())
+    /// -   Division-by-zero protection in numerical algorithms
+    /// -   Convergence criteria in iterative solvers at machine precision level
+    /// -   Detecting numerical degeneracies in low-level computations
+    /// 
+    /// The computational tolerance is equal to DBL_EPSILON (approximately 2.22e-16),
+    /// which is the smallest positive value such that 1.0 + eps != 1.0 in double
+    /// precision floating-point arithmetic. This is the fundamental machine epsilon
+    /// for double (double) type.
+    /// 
+    /// Note: This value should NOT be used for geometric comparisons.
+    /// Use Precision::Confusion() for comparing geometric distances,
+    /// Precision::Angular() for angles, etc.
+    /// </summary>
+    static double Computational();
+    /// <summary>
+    /// Returns square of Computational.
+    /// Created for speed and convenience when comparing squared values.
+    /// </summary>
+    static double SquareComputational();
+    /// <summary>
     /// Returns the precision value in real space, frequently
     /// used by intersection algorithms to decide that a solution is reached.
     /// This function provides an acceptable level of precision
@@ -227,8 +256,8 @@ public:
     /// </summary>
     static double Approximation();
     /// <summary>
-    /// Convert a real  space precision  to  a  parametric
-    /// space precision.   <T>  is the mean  value  of the
+    /// Convert a real space precision to a parametric
+    /// space precision. <T> is the mean value of the
     /// length of the tangent of the curve or the surface.
     /// 
     /// Value is P / T
@@ -264,7 +293,7 @@ public:
     /// parameter u of this curve is ten times greater than the
     /// previous one. This shows that for two different curves,
     /// the distance between two points on the curve, resulting
-    /// from the same variation of parameter du, may vary   considerably.
+    /// from the same variation of parameter du, may vary considerably.
     /// -   Moreover, the variation of the parameter along the
     /// curve is generally not proportional to the curvilinear
     /// abscissa along the curve. So the distance between two
@@ -319,28 +348,28 @@ public:
     /// </summary>
     static double PApproximation(double T);
     /// <summary>
-    /// Convert a real  space precision  to  a  parametric
+    /// Convert a real space precision to a parametric
     /// space precision on a default curve.
     /// 
     /// Value is Parametric(P,1.e+2)
     /// </summary>
     static double Parametric(double P);
     /// <summary>
-    /// Used  to test distances  in parametric  space on a
+    /// Used to test distances in parametric space on a
     /// default curve.
     /// 
     /// This is Precision::Parametric(Precision::Confusion())
     /// </summary>
     static double PConfusion();
     /// <summary>
-    /// Used for Intersections  in parametric  space  on a
+    /// Used for Intersections in parametric space on a
     /// default curve.
     /// 
     /// This is Precision::Parametric(Precision::Intersection())
     /// </summary>
     static double PIntersection();
     /// <summary>
-    /// Used for  Approximations  in parametric space on a
+    /// Used for Approximations in parametric space on a
     /// default curve.
     /// 
     /// This is Precision::Parametric(Precision::Approximation())
@@ -348,21 +377,21 @@ public:
     static double PApproximation();
     /// <summary>
     /// Returns True if R may be considered as an infinite
-    /// number. Currently Abs(R) > 1e100
+    /// number. Currently std::abs(R) > 1e100
     /// </summary>
     static bool IsInfinite(double R);
     /// <summary>
-    /// Returns True if R may be considered as  a positive
+    /// Returns True if R may be considered as a positive
     /// infinite number. Currently R > 1e100
     /// </summary>
     static bool IsPositiveInfinite(double R);
     /// <summary>
-    /// Returns True if R may  be considered as a negative
+    /// Returns True if R may be considered as a negative
     /// infinite number. Currently R < -1e100
     /// </summary>
     static bool IsNegativeInfinite(double R);
     /// <summary>
-    /// Returns a  big number that  can  be  considered as
+    /// Returns a big number that can be considered as
     /// infinite. Use -Infinite() for a negative big number.
     /// </summary>
     static double Infinite();

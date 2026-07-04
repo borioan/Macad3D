@@ -64,13 +64,14 @@ namespace Macad {
 						const EXCEPTION_RECORD & er = *eptr->ExceptionRecord;
 						void* object = (void*)eptr->ExceptionRecord->ExceptionInformation[1];
 
-						auto occtException = dynamic_cast<::Standard_Failure*>(reinterpret_cast<Standard_Transient*>(object));
+						// OCCT 8: Standard_Failure derives from std::exception (not Standard_Transient anymore).
+						auto occtException = dynamic_cast<::Standard_Failure*>(reinterpret_cast<std::exception*>(object));
 						if (occtException != nullptr)
 						{
 							const char* message = occtException->GetMessageString();
 							if (message == nullptr || strlen(message) == 0)
 							{
-							   message = occtException->DynamicType()->Name();
+							   message = occtException->ExceptionType();
 							}
 							return gcnew ExceptionInfo(ExceptionInfo::ExceptionSource::OCCT, message);
 						}
@@ -93,7 +94,8 @@ namespace Macad {
 
 			static void RaiseOcctException()
 			{
-				::Standard_Failure::Raise("This is a OCCT exception of type Standard_Failure.");
+				// OCCT 8: Standard_Failure::Raise() (static factory) was removed; throw directly.
+				throw ::Standard_Failure("This is a OCCT exception of type Standard_Failure.");
 			}
 
 			//--------------------------------------------------------------------------------------------------

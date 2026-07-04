@@ -65,38 +65,7 @@ public class GenerateSourceCodePass : Pass
         includePackageListSource.Clear();
         foreach (var cd in package.Classes)
         {
-            if (cd.Ignore)
-                continue;
-
-            // Define base class include in header
-            if (cd.BaseClass != null) 
-            {
-                includePackageListHeader.Add(cd.BaseClass.Package.Name);
-            }
-
-            // Define derived class includes in header (for DownCast)
-            foreach (var derivedClass in cd.DerivedClasses)
-            {
-                if(derivedClass.Ignore)
-                    continue;
-                
-                includePackageListSource.Add(derivedClass.Package.Name);
-            }
-
-            // Define function referenced type includes in source
-            foreach (var fd in cd.Methods)
-            {
-                var fdp = fd.Type?.Element?.Package;
-                if (fdp != null)
-                    includePackageListSource.Add(fdp.Name);
-
-                foreach (var pd in fd.Parameters)
-                {
-                    var pdp = pd.Type?.Element?.Package;
-                    if (pdp != null)
-                        includePackageListSource.Add(pdp.Name);
-                }
-            }
+            _CollectIncludedPackages(cd, includePackageListHeader, includePackageListSource);
         }
 
         foreach (var include in includePackageListHeader.Distinct())
@@ -149,6 +118,50 @@ public class GenerateSourceCodePass : Pass
         File.WriteAllText(Path.Combine(Context.Settings.OutputPath, package + @".cpp"), _Body.ToString());
 
         return true;
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    void _CollectIncludedPackages(ClassDecl cd, List<string> includePackageListHeader, List<string> includePackageListSource)
+    {
+        if (cd.Ignore)
+            return;
+
+        // Define base class include in header
+        if (cd.BaseClass != null)
+        {
+            includePackageListHeader.Add(cd.BaseClass.Package.Name);
+        }
+
+        // Define derived class includes in header (for DownCast)
+        foreach (var derivedClass in cd.DerivedClasses)
+        {
+            if(derivedClass.Ignore)
+                continue;
+
+            includePackageListSource.Add(derivedClass.Package.Name);
+        }
+
+        // Define function referenced type includes in source
+        foreach (var fd in cd.Methods)
+        {
+            var fdp = fd.Type?.Element?.Package;
+            if (fdp != null)
+                includePackageListSource.Add(fdp.Name);
+
+            foreach (var pd in fd.Parameters)
+            {
+                var pdp = pd.Type?.Element?.Package;
+                if (pdp != null)
+                    includePackageListSource.Add(pdp.Name);
+            }
+        }
+
+        // Inner classes (e.g. "Iterator") can reference types from other packages too.
+        foreach (var icd in cd.InnerClasses)
+        {
+            _CollectIncludedPackages(icd, includePackageListHeader, includePackageListSource);
+        }
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -751,7 +764,7 @@ public class GenerateSourceCodePass : Pass
         try
         {
             byte[] bytes = new byte[comment.EndOffset - comment.BeginOffset];
-            using var fstream = File.Open(Path.Combine(Context.Settings.OcctIncludePath, comment.FileName), FileMode.Open, FileAccess.Read);
+            using var fstream = File.Open(comment.FileName, FileMode.Open, FileAccess.Read);
             fstream.Seek(comment.BeginOffset, SeekOrigin.Begin);
             fstream.ReadExactly(bytes);
             fstream.Close();

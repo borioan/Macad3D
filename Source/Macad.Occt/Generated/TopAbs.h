@@ -106,18 +106,18 @@ public enum class TopAbs_State
 //---------------------------------------------------------------------
 /// <summary>
 /// This package gives resources for Topology oriented
-/// applications such as : Topological Data Structure,
+/// applications such as: Topological Data Structure,
 /// Topological Algorithms.
 /// 
-/// It contains :
+/// It contains the:
 /// 
-/// * The ShapeEnum   enumeration  to  describe  the
+/// * ShapeEnum enumeration to describe the
 /// different topological shapes.
 /// 
-/// * The  Orientation  enumeration to  describe the
+/// * Orientation enumeration to describe the
 /// orientation of a topological shape.
 /// 
-/// * The  State    enumeration  to  describes  the
+/// * State enumeration to describes the
 /// position of a point relative to a Shape.
 /// 
 /// * Methods to manage the enumerations.
@@ -151,12 +151,12 @@ public:
 public:
     TopAbs();
     /// <summary>
-    /// Compose  the Orientation    <Or1>  and  <Or2>.    This
-    /// composition is not symmetric (if  you switch <Or1> and
-    /// <Or2> the result  is different). It assumes that <Or1>
+    /// Compose the Orientation <Or1> and <Or2>. This
+    /// composition is not symmetric (if you switch <Or1> and
+    /// <Or2> the result is different). It assumes that <Or1>
     /// is the Orientation of a Shape S1 containing a Shape S2
-    /// of Orientation   Or2.  The result    is the  cumulated
-    /// orientation of S2 in S1.  The composition law is :
+    /// of Orientation Or2. The result is the cumulated
+    /// orientation of S2 in S1. The composition law is:
     /// 
     /// \ Or2     FORWARD  REVERSED INTERNAL EXTERNAL
     /// Or1       -------------------------------------
@@ -172,7 +172,7 @@ public:
     /// </summary>
     static Macad::Occt::TopAbs_Orientation Compose(Macad::Occt::TopAbs_Orientation Or1, Macad::Occt::TopAbs_Orientation Or2);
     /// <summary>
-    /// xchanges the interior/exterior status of the two
+    /// Exchanges the interior/exterior status of the two
     /// sides. This is what happens when the sense of
     /// direction is reversed. The following rules apply:
     /// 
@@ -196,8 +196,8 @@ public:
     /// INTERNAL         EXTERNAL
     /// EXTERNAL         INTERNAL
     /// 
-    /// Complement  complements   the  material  side.  Inside
-    /// becomes outside.
+    /// Complement complements the material side.
+    /// Inside becomes outside.
     /// </summary>
     static Macad::Occt::TopAbs_Orientation Complement(Macad::Occt::TopAbs_Orientation Or);
     /// <summary>

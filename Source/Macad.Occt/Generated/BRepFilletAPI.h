@@ -48,8 +48,8 @@ public:
 public:
     BRepFilletAPI_LocalOperation();
     /// <summary>
-    /// Adds a  contour in  the  builder  (builds a
-    /// contour  of tangent edges).
+    /// Adds a contour in the builder (builds a
+    /// contour of tangent edges).
     /// </summary>
     void Add(Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
@@ -62,7 +62,7 @@ public:
     /// </summary>
     int NbContours();
     /// <summary>
-    /// Returns the index of  the  contour containing the edge
+    /// Returns the index of the contour containing the edge
     /// E, returns 0 if E doesn't belong to any contour.
     /// </summary>
     int Contour(Macad::Occt::TopoDS_Edge^ E);
@@ -110,15 +110,15 @@ public:
     /// </summary>
     bool Closed(int IC);
     /// <summary>
-    /// Reset all the fields updated   by Build operation  and
-    /// leave the  algorithm in  the  same state  than  before
-    /// build    call.  It   allows   contours    and   radius
-    /// modifications  to build the result another time.
+    /// Reset all the fields updated by Build operation and
+    /// leave the algorithm in the same state than before
+    /// build call. It allows contours and radius
+    /// modifications to build the result another time.
     /// </summary>
     void Reset();
     void Simulate(int IC);
     int NbSurf(int IC);
-    /* Method skipped due to unknown mapping: ChFiDS_SecHArray1 Sect(int IC, int IS, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray1<ChFiDS_CircSection> Sect(int IC, int IS, ) */
 }; // class BRepFilletAPI_LocalOperation
 
 //---------------------------------------------------------------------
@@ -234,8 +234,8 @@ public:
     /// </summary>
     void Dists(int IC, double% Dis1, double% Dis2);
     /// <summary>
-    /// Adds a  fillet contour in  the  builder  (builds a
-    /// contour  of tangent edges to <E> and sets the
+    /// Adds a fillet contour in the builder (builds a
+    /// contour of tangent edges to <E> and sets the
     /// distance <Dis1> and angle <Angle> ( parameters of the chamfer ) ).
     /// </summary>
     void AddDA(double Dis, double Angle, Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F);
@@ -414,19 +414,19 @@ public:
     void Reset();
     /* Method skipped due to unknown mapping: TopOpeBRepBuild_HBuilder Builder() */
     /// <summary>
-    /// Returns the  list   of shapes generated   from the
+    /// Returns the list of shapes generated from the
     /// shape <EorV>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Generated(Macad::Occt::TopoDS_Shape^ EorV);
     /// <summary>
-    /// Returns the list  of shapes modified from the shape
+    /// Returns the list of shapes modified from the shape
     /// <F>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ F);
     bool IsDeleted(Macad::Occt::TopoDS_Shape^ F);
     void Simulate(int IC);
     int NbSurf(int IC);
-    /* Method skipped due to unknown mapping: ChFiDS_SecHArray1 Sect(int IC, int IS, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray1<ChFiDS_CircSection> Sect(int IC, int IS, ) */
 }; // class BRepFilletAPI_MakeChamfer
 
 //---------------------------------------------------------------------
@@ -468,60 +468,60 @@ public:
 
 public:
     /// <summary>
-    /// Initializes   the computation    of   the  fillets.
-    /// <FShape> sets   the type   of fillet  surface. The
-    /// default value is ChFi3d_Rational (classical  nurbs
-    /// representation of  circles).   ChFi3d_QuasiAngular
-    /// corresponds to  a  nurbs representation of circles
-    /// which   parameterisation matches  the  circle one.
-    /// ChFi3d_Polynomial  corresponds to  a    polynomial
+    /// Initializes the computation of the fillets.
+    /// <FShape> sets the type of fillet surface. The
+    /// default value is ChFi3d_Rational (classical nurbs
+    /// representation of circles). ChFi3d_QuasiAngular
+    /// corresponds to a nurbs representation of circles
+    /// which parameterisation matches the circle one.
+    /// ChFi3d_Polynomial corresponds to a polynomial
     /// representation of circles.
     /// </summary>
     BRepFilletAPI_MakeFillet(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::ChFi3d_FilletShape FShape);
     /// <summary>
-    /// Initializes   the computation    of   the  fillets.
-    /// <FShape> sets   the type   of fillet  surface. The
-    /// default value is ChFi3d_Rational (classical  nurbs
-    /// representation of  circles).   ChFi3d_QuasiAngular
-    /// corresponds to  a  nurbs representation of circles
-    /// which   parameterisation matches  the  circle one.
-    /// ChFi3d_Polynomial  corresponds to  a    polynomial
+    /// Initializes the computation of the fillets.
+    /// <FShape> sets the type of fillet surface. The
+    /// default value is ChFi3d_Rational (classical nurbs
+    /// representation of circles). ChFi3d_QuasiAngular
+    /// corresponds to a nurbs representation of circles
+    /// which parameterisation matches the circle one.
+    /// ChFi3d_Polynomial corresponds to a polynomial
     /// representation of circles.
     /// </summary>
     BRepFilletAPI_MakeFillet(Macad::Occt::TopoDS_Shape^ S);
     void SetParams(double Tang, double Tesp, double T2d, double TApp3d, double TolApp2d, double Fleche);
     /// <summary>
-    /// Changes     the      parameters     of  continiuity
+    /// Changes the parameters of continiuity
     /// InternalContinuity to produce fillet'surfaces with
-    /// an continuity   Ci (i=0,1 or    2).
+    /// an continuity Ci (i=0,1 or 2).
     /// By defaultInternalContinuity = GeomAbs_C1.
-    /// AngularTolerance  is the G1 tolerance between fillet
+    /// AngularTolerance is the G1 tolerance between fillet
     /// and support'faces.
     /// </summary>
     void SetContinuity(Macad::Occt::GeomAbs_Shape InternalContinuity, double AngularTolerance);
     /// <summary>
-    /// Adds a  fillet contour in  the  builder  (builds a
-    /// contour  of tangent edges).
+    /// Adds a fillet contour in the builder (builds a
+    /// contour of tangent edges).
     /// The Radius must be set after.
     /// </summary>
     void Add(Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
-    /// Adds a  fillet description in  the  builder
-    /// - builds a contour  of tangent edges,
+    /// Adds a fillet description in the builder
+    /// - builds a contour of tangent edges,
     /// - sets the radius.
     /// </summary>
     void Add(double Radius, Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
-    /// Adds a  fillet description in  the  builder
-    /// - builds a contour  of tangent edges,
+    /// Adds a fillet description in the builder
+    /// - builds a contour of tangent edges,
     /// - sets a linear radius evolution law between
     /// the first and last vertex of the spine.
     /// </summary>
     void Add(double R1, double R2, Macad::Occt::TopoDS_Edge^ E);
     /* Method skipped due to unknown mapping: void Add(Law_Function L, TopoDS_Edge E, ) */
     /// <summary>
-    /// Adds a  fillet description in  the  builder
-    /// - builds a contour  of tangent edges,
+    /// Adds a fillet description in the builder
+    /// - builds a contour of tangent edges,
     /// - sets the radius evolution law interpolating the values
     /// given in the array UandR :
     /// 
@@ -554,7 +554,7 @@ public:
     /// in the array UandR as follows:
     /// -   the X coordinate of a point in UandR defines a
     /// relative parameter on the contour (i.e. a parameter between 0 and 1),
-    /// -          the Y coordinate of a point in UandR gives the
+    /// -   the Y coordinate of a point in UandR gives the
     /// corresponding value of the radius, and the radius evolves
     /// between the first and last vertices of the contour of index IC.
     /// </summary>
@@ -671,7 +671,7 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Vertex^ FirstVertex(int IC);
     /// <summary>
-    /// Returns the  last vertex of the contour of index IC
+    /// Returns the last vertex of the contour of index IC
     /// in the internal data structure of this algorithm.
     /// Warning
     /// Returns a null shape if IC is outside the bounds of the table of contours.
@@ -761,12 +761,12 @@ public:
     void Reset();
     /* Method skipped due to unknown mapping: TopOpeBRepBuild_HBuilder Builder() */
     /// <summary>
-    /// Returns the  list   of shapes generated   from the
+    /// Returns the list of shapes generated from the
     /// shape <EorV>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Generated(Macad::Occt::TopoDS_Shape^ EorV);
     /// <summary>
-    /// Returns the list  of shapes modified from the shape
+    /// Returns the list of shapes modified from the shape
     /// <F>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ F);
@@ -782,7 +782,7 @@ public:
     Macad::Occt::TopTools_ListOfShape^ NewFaces(int I);
     void Simulate(int IC);
     int NbSurf(int IC);
-    /* Method skipped due to unknown mapping: ChFiDS_SecHArray1 Sect(int IC, int IS, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray1<ChFiDS_CircSection> Sect(int IC, int IS, ) */
     /// <summary>
     /// Returns the number of contours where the computation
     /// of the fillet failed
@@ -908,7 +908,7 @@ public:
     /// <summary>
     /// This initialize method allow to init the builder
     /// from a face RefFace and another face ModFace which derive from RefFace.
-    /// This  is useful to modify a fillet or a chamfer already created on ModFace.
+    /// This is useful to modify a fillet or a chamfer already created on ModFace.
     /// </summary>
     void Init(Macad::Occt::TopoDS_Face^ RefFace, Macad::Occt::TopoDS_Face^ ModFace);
     /// <summary>
@@ -1079,7 +1079,7 @@ public:
     /// </summary>
     int NbChamfer();
     /// <summary>
-    /// Returns the list  of shapes modified from the shape
+    /// Returns the list of shapes modified from the shape
     /// <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ S);

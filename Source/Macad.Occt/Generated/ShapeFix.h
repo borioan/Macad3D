@@ -8,6 +8,111 @@ namespace Macad
 namespace Occt
 {
 //---------------------------------------------------------------------
+//  Class  ShapeFix_DataMapOfShapeBox2d
+//---------------------------------------------------------------------
+public ref class ShapeFix_DataMapOfShapeBox2d sealed
+    : public Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>
+{
+
+#ifdef Include_ShapeFix_DataMapOfShapeBox2d_h
+public:
+    Include_ShapeFix_DataMapOfShapeBox2d_h
+#endif
+
+public:
+    ShapeFix_DataMapOfShapeBox2d(::ShapeFix_DataMapOfShapeBox2d* nativeInstance)
+        : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>( nativeInstance, true )
+    {}
+
+    ShapeFix_DataMapOfShapeBox2d(::ShapeFix_DataMapOfShapeBox2d& nativeInstance)
+        : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>( &nativeInstance, false )
+    {}
+
+    property ::ShapeFix_DataMapOfShapeBox2d* NativeInstance
+    {
+        ::ShapeFix_DataMapOfShapeBox2d* get()
+        {
+            return static_cast<::ShapeFix_DataMapOfShapeBox2d*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d::Iterator>
+    {
+
+#ifdef Include_ShapeFix_DataMapOfShapeBox2d_Iterator_h
+    public:
+        Include_ShapeFix_DataMapOfShapeBox2d_Iterator_h
+#endif
+
+    public:
+        Iterator(::ShapeFix_DataMapOfShapeBox2d::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::ShapeFix_DataMapOfShapeBox2d::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::ShapeFix_DataMapOfShapeBox2d::Iterator* NativeInstance
+        {
+            ::ShapeFix_DataMapOfShapeBox2d::Iterator* get()
+            {
+                return static_cast<::ShapeFix_DataMapOfShapeBox2d::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        Iterator();
+        Iterator(Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ theMap);
+        bool More();
+        void Next();
+        Macad::Occt::Bnd_Box2d^ Value();
+        Macad::Occt::Bnd_Box2d^ ChangeValue();
+        Macad::Occt::TopoDS_Shape^ Key();
+    }; // class Iterator
+
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
+    ShapeFix_DataMapOfShapeBox2d();
+    ShapeFix_DataMapOfShapeBox2d(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    ShapeFix_DataMapOfShapeBox2d(long long unsigned int theNbBuckets);
+    ShapeFix_DataMapOfShapeBox2d(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    ShapeFix_DataMapOfShapeBox2d(int theNbBuckets);
+    ShapeFix_DataMapOfShapeBox2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    ShapeFix_DataMapOfShapeBox2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets);
+    ShapeFix_DataMapOfShapeBox2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher);
+    ShapeFix_DataMapOfShapeBox2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    ShapeFix_DataMapOfShapeBox2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets);
+    /* Method skipped due to unknown mapping: ItemsView Items() */
+    void Exchange(Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ theOther);
+    Macad::Occt::TopTools_ShapeMapHasher^ GetHasher();
+    Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ Assign(Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ theOther);
+    void ReSize(long long unsigned int N);
+    void ReSize(int N);
+    bool Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem);
+    Macad::Occt::Bnd_Box2d^ Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem);
+    Macad::Occt::Bnd_Box2d^ TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem);
+    bool IsBound(Macad::Occt::TopoDS_Shape^ theKey);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<const Bnd_Box2d>>> Contained(TopoDS_Shape theKey, ) */
+    bool UnBind(Macad::Occt::TopoDS_Shape^ theKey);
+    Macad::Occt::Bnd_Box2d^ Seek(Macad::Occt::TopoDS_Shape^ theKey);
+    Macad::Occt::Bnd_Box2d^ Find(Macad::Occt::TopoDS_Shape^ theKey);
+    bool Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theValue);
+    Macad::Occt::Bnd_Box2d^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
+    Macad::Occt::Bnd_Box2d^ ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
+    void Clear(bool doReleaseMemory);
+    void Clear();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+}; // class ShapeFix_DataMapOfShapeBox2d
+
+//---------------------------------------------------------------------
 //  Class  ShapeFix_SequenceOfWireSegment
 //---------------------------------------------------------------------
 public ref class ShapeFix_SequenceOfWireSegment sealed
@@ -66,6 +171,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq, bool isStart);
+        Iterator(Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq);
         bool More();
         void Next();
         Macad::Occt::ShapeFix_WireSegment^ Value();
@@ -74,119 +181,56 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     ShapeFix_SequenceOfWireSegment();
     ShapeFix_SequenceOfWireSegment(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::ShapeFix_SequenceOfWireSegment^ Assign(Macad::Occt::ShapeFix_SequenceOfWireSegment^ theOther);
     void Remove(Macad::Occt::ShapeFix_SequenceOfWireSegment::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::ShapeFix_WireSegment^ theItem);
+    void Append(Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq);
     void Prepend(Macad::Occt::ShapeFix_WireSegment^ theItem);
+    void Prepend(Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq);
     void InsertAfter(Macad::Occt::ShapeFix_SequenceOfWireSegment::Iterator^ thePosition, Macad::Occt::ShapeFix_WireSegment^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq);
     void Split(int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq);
     Macad::Occt::ShapeFix_WireSegment^ First();
     Macad::Occt::ShapeFix_WireSegment^ ChangeFirst();
     Macad::Occt::ShapeFix_WireSegment^ Last();
     Macad::Occt::ShapeFix_WireSegment^ ChangeLast();
+    Macad::Occt::ShapeFix_WireSegment^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::ShapeFix_WireSegment^ Value(int theIndex);
+    Macad::Occt::ShapeFix_WireSegment^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::ShapeFix_WireSegment^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem);
     void SetValue(int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem);
+    Macad::Occt::ShapeFix_WireSegment^ At(long long unsigned int theIndex);
+    Macad::Occt::ShapeFix_WireSegment^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::ShapeFix_WireSegment^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class ShapeFix_SequenceOfWireSegment
-
-//---------------------------------------------------------------------
-//  Class  ShapeFix_DataMapOfShapeBox2d
-//---------------------------------------------------------------------
-public ref class ShapeFix_DataMapOfShapeBox2d sealed
-    : public Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>
-{
-
-#ifdef Include_ShapeFix_DataMapOfShapeBox2d_h
-public:
-    Include_ShapeFix_DataMapOfShapeBox2d_h
-#endif
-
-public:
-    ShapeFix_DataMapOfShapeBox2d(::ShapeFix_DataMapOfShapeBox2d* nativeInstance)
-        : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>( nativeInstance, true )
-    {}
-
-    ShapeFix_DataMapOfShapeBox2d(::ShapeFix_DataMapOfShapeBox2d& nativeInstance)
-        : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>( &nativeInstance, false )
-    {}
-
-    property ::ShapeFix_DataMapOfShapeBox2d* NativeInstance
-    {
-        ::ShapeFix_DataMapOfShapeBox2d* get()
-        {
-            return static_cast<::ShapeFix_DataMapOfShapeBox2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d::Iterator>
-    {
-
-#ifdef Include_ShapeFix_DataMapOfShapeBox2d_Iterator_h
-    public:
-        Include_ShapeFix_DataMapOfShapeBox2d_Iterator_h
-#endif
-
-    public:
-        Iterator(::ShapeFix_DataMapOfShapeBox2d::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::ShapeFix_DataMapOfShapeBox2d::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::ShapeFix_DataMapOfShapeBox2d::Iterator* NativeInstance
-        {
-            ::ShapeFix_DataMapOfShapeBox2d::Iterator* get()
-            {
-                return static_cast<::ShapeFix_DataMapOfShapeBox2d::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::Bnd_Box2d^ Value();
-        Macad::Occt::Bnd_Box2d^ ChangeValue();
-        Macad::Occt::TopoDS_Shape^ Key();
-    }; // class Iterator
-
-    ShapeFix_DataMapOfShapeBox2d();
-    ShapeFix_DataMapOfShapeBox2d(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    ShapeFix_DataMapOfShapeBox2d(int theNbBuckets);
-    void Exchange(Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ theOther);
-    Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ Assign(Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ theOther);
-    void ReSize(int N);
-    bool Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem);
-    Macad::Occt::Bnd_Box2d^ Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem);
-    bool IsBound(Macad::Occt::TopoDS_Shape^ theKey);
-    bool UnBind(Macad::Occt::TopoDS_Shape^ theKey);
-    Macad::Occt::Bnd_Box2d^ Seek(Macad::Occt::TopoDS_Shape^ theKey);
-    Macad::Occt::Bnd_Box2d^ Find(Macad::Occt::TopoDS_Shape^ theKey);
-    Macad::Occt::Bnd_Box2d^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
-    Macad::Occt::Bnd_Box2d^ ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
-    void Clear(bool doReleaseMemory);
-    void Clear();
-    int Size();
-}; // class ShapeFix_DataMapOfShapeBox2d
 
 //---------------------------------------------------------------------
 //  Class  ShapeFix
@@ -540,7 +584,7 @@ public:
 /// 
 /// It splits (if necessary) original face to several ones by
 /// splitting lines which are joint lines on a supplied grid of
-/// surfaces (U- and V- isolines of the  composite surface).
+/// surfaces (U- and V- isolines of the composite surface).
 /// There are two modes of work, which differ in the way of
 /// handling faces on periodic surfaces:
 /// 
@@ -719,7 +763,7 @@ public:
     bool FixRemovePCurve(Macad::Occt::TopoDS_Edge^ edge, Macad::Occt::Geom_Surface^ surface, Macad::Occt::TopLoc_Location^ location);
     /// <summary>
     /// Removes 3d curve of the edge if it does not match the vertices
-    /// Returns: True,  if does not match, removed (status DONE)
+    /// Returns: True, if does not match, removed (status DONE)
     /// False, (status OK) if matches or (status FAIL) if no 3d curve,
     /// nothing done
     /// </summary>
@@ -808,7 +852,7 @@ public:
     /// Status:
     /// OK   : the original tolerances have not been changed
     /// DONE1: the tolerance of first vertex has been increased
-    /// DONE2: the tolerance of last  vertex has been increased
+    /// DONE2: the tolerance of last vertex has been increased
     /// </summary>
     bool FixVertexTolerance(Macad::Occt::TopoDS_Edge^ edge);
     bool FixReversed2d(Macad::Occt::TopoDS_Edge^ edge, Macad::Occt::TopoDS_Face^ face);
@@ -1511,6 +1555,14 @@ public:
     /// </summary>
     void SetFace(Macad::Occt::TopoDS_Face^ face);
     /// <summary>
+    /// Set working face for the wire and surface analysis object
+    /// </summary>
+    void SetFace(Macad::Occt::TopoDS_Face^ theFace, Macad::Occt::ShapeAnalysis_Surface^ theSurfaceAnalysis);
+    /// <summary>
+    /// Set surface analysis for the wire
+    /// </summary>
+    void SetSurface(Macad::Occt::ShapeAnalysis_Surface^ theSurfaceAnalysis);
+    /// <summary>
     /// Set surface for the wire
     /// </summary>
     void SetSurface(Macad::Occt::Geom_Surface^ surf);
@@ -1559,6 +1611,24 @@ public:
     /// returns working face (Analyzer.Face())
     /// </summary>
     Macad::Occt::TopoDS_Face^ Face();
+    /// <summary>
+    /// This method performs all the available fixes.
+    /// If some fix is turned on or off explicitly by the Fix..Mode() flag,
+    /// this fix is either called or not depending on that flag.
+    /// Else (i.e. if flag is default) fix is called depending on the
+    /// situation: some fixes are not called or are limited if order of
+    /// edges in the wire is not OK, or depending on modes
+    /// 
+    /// The order of the fixes and default behaviour of Perform() are:
+    /// FixReorder
+    /// FixSmall (with lockvtx true if ! TopoMode or if wire is not ordered)
+    /// FixConnected (if wire is ordered)
+    /// FixEdgeCurves (without FixShifted if wire is not ordered)
+    /// FixDegenerated (if wire is ordered)
+    /// FixSelfIntersection (if wire is ordered and ClosedMode is True)
+    /// FixLacking (if wire is ordered)
+    /// </summary>
+    bool Perform(Macad::Occt::Message_ProgressRange^ theProgress);
     /// <summary>
     /// This method performs all the available fixes.
     /// If some fix is turned on or off explicitly by the Fix..Mode() flag,
@@ -1705,6 +1775,16 @@ public:
     /// the same one
     /// Tests with starting preci or, if given greater, <prec>
     /// If <prec> is -1 then MaxTolerance() is taken.
+    /// If <theUpdateWire> is true, synchronizes wire data with context replacements.
+    /// </summary>
+    bool FixConnected(int num, double prec, bool theUpdateWire);
+    /// <summary>
+    /// Fixes connected edges (preceding and current)
+    /// Forces Vertices (end of preceding-begin of current) to be
+    /// the same one
+    /// Tests with starting preci or, if given greater, <prec>
+    /// If <prec> is -1 then MaxTolerance() is taken.
+    /// If <theUpdateWire> is true, synchronizes wire data with context replacements.
     /// </summary>
     bool FixConnected(int num, double prec);
     /// <summary>
@@ -2069,6 +2149,21 @@ public:
     /// (as if face were FORWARD).
     /// </summary>
     void Add(Macad::Occt::TopoDS_Wire^ wire);
+    /// <summary>
+    /// Performs all the fixes, depending on modes
+    /// Function Status returns the status of last call to Perform()
+    /// ShapeExtend_OK   : face was OK, nothing done
+    /// ShapeExtend_DONE1: some wires are fixed
+    /// ShapeExtend_DONE2: orientation of wires fixed
+    /// ShapeExtend_DONE3: missing seam added
+    /// ShapeExtend_DONE4: small area wire removed
+    /// ShapeExtend_DONE5: natural bounds added
+    /// ShapeExtend_FAIL1: some fails during fixing wires
+    /// ShapeExtend_FAIL2: cannot fix orientation of wires
+    /// ShapeExtend_FAIL3: cannot add missing seam
+    /// ShapeExtend_FAIL4: cannot remove small area wire
+    /// </summary>
+    bool Perform(Macad::Occt::Message_ProgressRange^ theProgress);
     /// <summary>
     /// Performs all the fixes, depending on modes
     /// Function Status returns the status of last call to Perform()
@@ -2574,7 +2669,7 @@ public:
     /// Returns (modifiable) the mode for creation of solids.
     /// If mode myCreateOpenSolidMode is equal to true
     /// solids are created from open shells
-    /// else solids are created  from closed shells only.
+    /// else solids are created from closed shells only.
     /// ShapeFix_Shell, by default False.
     /// </summary>
     property bool CreateOpenSolidMode {
@@ -2741,13 +2836,13 @@ public:
     /// of faces. Other faces are stored in Error compound.
     /// Modes :
     /// isAccountMultiConex - mode for account cases of multiconnexity.
-    /// If this mode is equal to Standard_True, separate shells will be created
-    /// in the cases of multiconnexity. If this mode is equal to Standard_False,
-    /// one shell will be created without account of multiconnexity.By default - Standard_True;
+    /// If this mode is equal to true, separate shells will be created
+    /// in the cases of multiconnexity. If this mode is equal to false,
+    /// one shell will be created without account of multiconnexity.By default - true;
     /// NonManifold - mode for creation of non-manifold shells.
-    /// If this mode is equal to Standard_True one non-manifold will be created from shell
-    /// contains multishared edges. Else if this mode is equal to Standard_False only
-    /// manifold shells will be created. By default - Standard_False.
+    /// If this mode is equal to true one non-manifold will be created from shell
+    /// contains multishared edges. Else if this mode is equal to false only
+    /// manifold shells will be created. By default - false.
     /// </summary>
     bool FixFaceOrientation(Macad::Occt::TopoDS_Shell^ shell, bool isAccountMultiConex, bool NonManifold);
     /// <summary>
@@ -2758,13 +2853,13 @@ public:
     /// of faces. Other faces are stored in Error compound.
     /// Modes :
     /// isAccountMultiConex - mode for account cases of multiconnexity.
-    /// If this mode is equal to Standard_True, separate shells will be created
-    /// in the cases of multiconnexity. If this mode is equal to Standard_False,
-    /// one shell will be created without account of multiconnexity.By default - Standard_True;
+    /// If this mode is equal to true, separate shells will be created
+    /// in the cases of multiconnexity. If this mode is equal to false,
+    /// one shell will be created without account of multiconnexity.By default - true;
     /// NonManifold - mode for creation of non-manifold shells.
-    /// If this mode is equal to Standard_True one non-manifold will be created from shell
-    /// contains multishared edges. Else if this mode is equal to Standard_False only
-    /// manifold shells will be created. By default - Standard_False.
+    /// If this mode is equal to true one non-manifold will be created from shell
+    /// contains multishared edges. Else if this mode is equal to false only
+    /// manifold shells will be created. By default - false.
     /// </summary>
     bool FixFaceOrientation(Macad::Occt::TopoDS_Shell^ shell, bool isAccountMultiConex);
     /// <summary>
@@ -2775,13 +2870,13 @@ public:
     /// of faces. Other faces are stored in Error compound.
     /// Modes :
     /// isAccountMultiConex - mode for account cases of multiconnexity.
-    /// If this mode is equal to Standard_True, separate shells will be created
-    /// in the cases of multiconnexity. If this mode is equal to Standard_False,
-    /// one shell will be created without account of multiconnexity.By default - Standard_True;
+    /// If this mode is equal to true, separate shells will be created
+    /// in the cases of multiconnexity. If this mode is equal to false,
+    /// one shell will be created without account of multiconnexity.By default - true;
     /// NonManifold - mode for creation of non-manifold shells.
-    /// If this mode is equal to Standard_True one non-manifold will be created from shell
-    /// contains multishared edges. Else if this mode is equal to Standard_False only
-    /// manifold shells will be created. By default - Standard_False.
+    /// If this mode is equal to true one non-manifold will be created from shell
+    /// contains multishared edges. Else if this mode is equal to false only
+    /// manifold shells will be created. By default - false.
     /// </summary>
     bool FixFaceOrientation(Macad::Occt::TopoDS_Shell^ shell);
     /// <summary>
@@ -3291,7 +3386,7 @@ public:
     bool CheckSmallEdges(Macad::Occt::TopTools_MapOfShape^ theSmallEdges, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theEdgeToFaces, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theFaceWithSmall, Macad::Occt::TopTools_MapOfShape^ theMultyEdges);
     /// <summary>
     /// Auxiliary tool for FixSmallEdges which merges small edges.
-    /// If theModeDrop is equal to Standard_True then small edges,
+    /// If theModeDrop is equal to true then small edges,
     /// which cannot be connected with adjacent edges are dropped.
     /// Otherwise they are kept.
     /// theLimitAngle specifies maximum allowed tangency
@@ -3301,7 +3396,7 @@ public:
     bool MergeSmallEdges(Macad::Occt::TopTools_MapOfShape^ theSmallEdges, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theEdgeToFaces, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theFaceWithSmall, Macad::Occt::TopTools_MapOfShape^ theMultyEdges, bool theModeDrop, double theLimitAngle);
     /// <summary>
     /// Auxiliary tool for FixSmallEdges which merges small edges.
-    /// If theModeDrop is equal to Standard_True then small edges,
+    /// If theModeDrop is equal to true then small edges,
     /// which cannot be connected with adjacent edges are dropped.
     /// Otherwise they are kept.
     /// theLimitAngle specifies maximum allowed tangency
@@ -3311,7 +3406,7 @@ public:
     bool MergeSmallEdges(Macad::Occt::TopTools_MapOfShape^ theSmallEdges, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theEdgeToFaces, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theFaceWithSmall, Macad::Occt::TopTools_MapOfShape^ theMultyEdges, bool theModeDrop);
     /// <summary>
     /// Auxiliary tool for FixSmallEdges which merges small edges.
-    /// If theModeDrop is equal to Standard_True then small edges,
+    /// If theModeDrop is equal to true then small edges,
     /// which cannot be connected with adjacent edges are dropped.
     /// Otherwise they are kept.
     /// theLimitAngle specifies maximum allowed tangency

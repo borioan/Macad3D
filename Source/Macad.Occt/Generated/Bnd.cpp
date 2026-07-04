@@ -38,14 +38,20 @@ Macad::Occt::Bnd_Array1OfBox::Bnd_Array1OfBox(Macad::Occt::Bnd_Box^ theBegin, in
     _NativeInstance = new ::Bnd_Array1OfBox(*(::Bnd_Box*)theBegin->NativeInstance, theLower, theUpper, true);
 }
 
+Macad::Occt::Bnd_Array1OfBox::Bnd_Array1OfBox(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::Bnd_Array1OfBox>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Bnd_Array1OfBox(theSize);
+}
+
 void Macad::Occt::Bnd_Array1OfBox::Init(Macad::Occt::Bnd_Box^ theValue)
 {
     ((::Bnd_Array1OfBox*)_NativeInstance)->Init(*(::Bnd_Box*)theValue->NativeInstance);
 }
 
-int Macad::Occt::Bnd_Array1OfBox::Size()
+long long unsigned int Macad::Occt::Bnd_Array1OfBox::Size()
 {
-    int _result = ((::Bnd_Array1OfBox*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::Bnd_Array1OfBox*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -77,6 +83,13 @@ Macad::Occt::Bnd_Array1OfBox^ Macad::Occt::Bnd_Array1OfBox::Assign(Macad::Occt::
 {
     ::Bnd_Array1OfBox* _result = new ::Bnd_Array1OfBox();
     *_result = ((::Bnd_Array1OfBox*)_NativeInstance)->Assign(*(::Bnd_Array1OfBox*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfBox(_result);
+}
+
+Macad::Occt::Bnd_Array1OfBox^ Macad::Occt::Bnd_Array1OfBox::CopyValues(Macad::Occt::Bnd_Array1OfBox^ theOther)
+{
+    ::Bnd_Array1OfBox* _result = new ::Bnd_Array1OfBox();
+    *_result = ((::Bnd_Array1OfBox*)_NativeInstance)->CopyValues(*(::Bnd_Array1OfBox*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfBox(_result);
 }
 
@@ -129,6 +142,20 @@ Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_Array1OfBox::ChangeValue(int theIndex)
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
 }
 
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_Array1OfBox::At(long long unsigned int theIndex)
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = (::Bnd_Box)((::Bnd_Array1OfBox*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_Array1OfBox::ChangeAt(long long unsigned int theIndex)
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = ((::Bnd_Array1OfBox*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
 void Macad::Occt::Bnd_Array1OfBox::SetValue(int theIndex, Macad::Occt::Bnd_Box^ theItem)
 {
     ((::Bnd_Array1OfBox*)_NativeInstance)->SetValue(theIndex, *(::Bnd_Box*)theItem->NativeInstance);
@@ -147,6 +174,11 @@ void Macad::Occt::Bnd_Array1OfBox::UpdateUpperBound(int theUpper)
 void Macad::Occt::Bnd_Array1OfBox::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::Bnd_Array1OfBox*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::Bnd_Array1OfBox::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::Bnd_Array1OfBox*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::Bnd_Array1OfBox::IsDeletable()
@@ -170,6 +202,41 @@ System::Collections::IEnumerator^ Macad::Occt::Bnd_Array1OfBox::GetEnumerator2()
 //---------------------------------------------------------------------
 //  Class  Bnd_Array1OfBox::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::Bnd_Array1OfBox::Iterator::Init(Macad::Occt::Bnd_Array1OfBox^ theList)
+{
+    ((::Bnd_Array1OfBox::Iterator*)_NativeInstance)->Init(*(::Bnd_Array1OfBox*)theList->NativeInstance);
+}
+
+bool Macad::Occt::Bnd_Array1OfBox::Iterator::More()
+{
+    bool _result = ((::Bnd_Array1OfBox::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::Bnd_Array1OfBox::Iterator::Initialize(Macad::Occt::Bnd_Array1OfBox^ theList)
+{
+    ((::Bnd_Array1OfBox::Iterator*)_NativeInstance)->Initialize(*(::Bnd_Array1OfBox*)theList->NativeInstance);
+}
+
+void Macad::Occt::Bnd_Array1OfBox::Iterator::Next()
+{
+    ((::Bnd_Array1OfBox::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_Array1OfBox::Iterator::Value()
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = (::Bnd_Box)((::Bnd_Array1OfBox::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_Array1OfBox::Iterator::ChangeValue()
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = ((::Bnd_Array1OfBox::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
 
 
 
@@ -201,14 +268,20 @@ Macad::Occt::Bnd_Array1OfBox2d::Bnd_Array1OfBox2d(Macad::Occt::Bnd_Box2d^ theBeg
     _NativeInstance = new ::Bnd_Array1OfBox2d(*(::Bnd_Box2d*)theBegin->NativeInstance, theLower, theUpper, true);
 }
 
+Macad::Occt::Bnd_Array1OfBox2d::Bnd_Array1OfBox2d(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::Bnd_Array1OfBox2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Bnd_Array1OfBox2d(theSize);
+}
+
 void Macad::Occt::Bnd_Array1OfBox2d::Init(Macad::Occt::Bnd_Box2d^ theValue)
 {
     ((::Bnd_Array1OfBox2d*)_NativeInstance)->Init(*(::Bnd_Box2d*)theValue->NativeInstance);
 }
 
-int Macad::Occt::Bnd_Array1OfBox2d::Size()
+long long unsigned int Macad::Occt::Bnd_Array1OfBox2d::Size()
 {
-    int _result = ((::Bnd_Array1OfBox2d*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::Bnd_Array1OfBox2d*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -240,6 +313,13 @@ Macad::Occt::Bnd_Array1OfBox2d^ Macad::Occt::Bnd_Array1OfBox2d::Assign(Macad::Oc
 {
     ::Bnd_Array1OfBox2d* _result = new ::Bnd_Array1OfBox2d();
     *_result = ((::Bnd_Array1OfBox2d*)_NativeInstance)->Assign(*(::Bnd_Array1OfBox2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfBox2d(_result);
+}
+
+Macad::Occt::Bnd_Array1OfBox2d^ Macad::Occt::Bnd_Array1OfBox2d::CopyValues(Macad::Occt::Bnd_Array1OfBox2d^ theOther)
+{
+    ::Bnd_Array1OfBox2d* _result = new ::Bnd_Array1OfBox2d();
+    *_result = ((::Bnd_Array1OfBox2d*)_NativeInstance)->CopyValues(*(::Bnd_Array1OfBox2d*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfBox2d(_result);
 }
 
@@ -292,6 +372,20 @@ Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_Array1OfBox2d::ChangeValue(int theIndex
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
 }
 
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_Array1OfBox2d::At(long long unsigned int theIndex)
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = (::Bnd_Box2d)((::Bnd_Array1OfBox2d*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_Array1OfBox2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = ((::Bnd_Array1OfBox2d*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
 void Macad::Occt::Bnd_Array1OfBox2d::SetValue(int theIndex, Macad::Occt::Bnd_Box2d^ theItem)
 {
     ((::Bnd_Array1OfBox2d*)_NativeInstance)->SetValue(theIndex, *(::Bnd_Box2d*)theItem->NativeInstance);
@@ -310,6 +404,11 @@ void Macad::Occt::Bnd_Array1OfBox2d::UpdateUpperBound(int theUpper)
 void Macad::Occt::Bnd_Array1OfBox2d::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::Bnd_Array1OfBox2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::Bnd_Array1OfBox2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::Bnd_Array1OfBox2d*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::Bnd_Array1OfBox2d::IsDeletable()
@@ -333,6 +432,41 @@ System::Collections::IEnumerator^ Macad::Occt::Bnd_Array1OfBox2d::GetEnumerator2
 //---------------------------------------------------------------------
 //  Class  Bnd_Array1OfBox2d::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::Bnd_Array1OfBox2d::Iterator::Init(Macad::Occt::Bnd_Array1OfBox2d^ theList)
+{
+    ((::Bnd_Array1OfBox2d::Iterator*)_NativeInstance)->Init(*(::Bnd_Array1OfBox2d*)theList->NativeInstance);
+}
+
+bool Macad::Occt::Bnd_Array1OfBox2d::Iterator::More()
+{
+    bool _result = ((::Bnd_Array1OfBox2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::Bnd_Array1OfBox2d::Iterator::Initialize(Macad::Occt::Bnd_Array1OfBox2d^ theList)
+{
+    ((::Bnd_Array1OfBox2d::Iterator*)_NativeInstance)->Initialize(*(::Bnd_Array1OfBox2d*)theList->NativeInstance);
+}
+
+void Macad::Occt::Bnd_Array1OfBox2d::Iterator::Next()
+{
+    ((::Bnd_Array1OfBox2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_Array1OfBox2d::Iterator::Value()
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = (::Bnd_Box2d)((::Bnd_Array1OfBox2d::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_Array1OfBox2d::Iterator::ChangeValue()
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = ((::Bnd_Array1OfBox2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
 
 
 
@@ -364,14 +498,20 @@ Macad::Occt::Bnd_Array1OfSphere::Bnd_Array1OfSphere(Macad::Occt::Bnd_Sphere^ the
     _NativeInstance = new ::Bnd_Array1OfSphere(*(::Bnd_Sphere*)theBegin->NativeInstance, theLower, theUpper, true);
 }
 
+Macad::Occt::Bnd_Array1OfSphere::Bnd_Array1OfSphere(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::Bnd_Array1OfSphere>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Bnd_Array1OfSphere(theSize);
+}
+
 void Macad::Occt::Bnd_Array1OfSphere::Init(Macad::Occt::Bnd_Sphere^ theValue)
 {
     ((::Bnd_Array1OfSphere*)_NativeInstance)->Init(*(::Bnd_Sphere*)theValue->NativeInstance);
 }
 
-int Macad::Occt::Bnd_Array1OfSphere::Size()
+long long unsigned int Macad::Occt::Bnd_Array1OfSphere::Size()
 {
-    int _result = ((::Bnd_Array1OfSphere*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::Bnd_Array1OfSphere*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -403,6 +543,13 @@ Macad::Occt::Bnd_Array1OfSphere^ Macad::Occt::Bnd_Array1OfSphere::Assign(Macad::
 {
     ::Bnd_Array1OfSphere* _result = new ::Bnd_Array1OfSphere();
     *_result = ((::Bnd_Array1OfSphere*)_NativeInstance)->Assign(*(::Bnd_Array1OfSphere*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfSphere(_result);
+}
+
+Macad::Occt::Bnd_Array1OfSphere^ Macad::Occt::Bnd_Array1OfSphere::CopyValues(Macad::Occt::Bnd_Array1OfSphere^ theOther)
+{
+    ::Bnd_Array1OfSphere* _result = new ::Bnd_Array1OfSphere();
+    *_result = ((::Bnd_Array1OfSphere*)_NativeInstance)->CopyValues(*(::Bnd_Array1OfSphere*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfSphere(_result);
 }
 
@@ -455,6 +602,20 @@ Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_Array1OfSphere::ChangeValue(int theInd
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
 }
 
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_Array1OfSphere::At(long long unsigned int theIndex)
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = (::Bnd_Sphere)((::Bnd_Array1OfSphere*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_Array1OfSphere::ChangeAt(long long unsigned int theIndex)
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = ((::Bnd_Array1OfSphere*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
 void Macad::Occt::Bnd_Array1OfSphere::SetValue(int theIndex, Macad::Occt::Bnd_Sphere^ theItem)
 {
     ((::Bnd_Array1OfSphere*)_NativeInstance)->SetValue(theIndex, *(::Bnd_Sphere*)theItem->NativeInstance);
@@ -473,6 +634,11 @@ void Macad::Occt::Bnd_Array1OfSphere::UpdateUpperBound(int theUpper)
 void Macad::Occt::Bnd_Array1OfSphere::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::Bnd_Array1OfSphere*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::Bnd_Array1OfSphere::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::Bnd_Array1OfSphere*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::Bnd_Array1OfSphere::IsDeletable()
@@ -496,6 +662,635 @@ System::Collections::IEnumerator^ Macad::Occt::Bnd_Array1OfSphere::GetEnumerator
 //---------------------------------------------------------------------
 //  Class  Bnd_Array1OfSphere::Iterator
 //---------------------------------------------------------------------
+
+void Macad::Occt::Bnd_Array1OfSphere::Iterator::Init(Macad::Occt::Bnd_Array1OfSphere^ theList)
+{
+    ((::Bnd_Array1OfSphere::Iterator*)_NativeInstance)->Init(*(::Bnd_Array1OfSphere*)theList->NativeInstance);
+}
+
+bool Macad::Occt::Bnd_Array1OfSphere::Iterator::More()
+{
+    bool _result = ((::Bnd_Array1OfSphere::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::Bnd_Array1OfSphere::Iterator::Initialize(Macad::Occt::Bnd_Array1OfSphere^ theList)
+{
+    ((::Bnd_Array1OfSphere::Iterator*)_NativeInstance)->Initialize(*(::Bnd_Array1OfSphere*)theList->NativeInstance);
+}
+
+void Macad::Occt::Bnd_Array1OfSphere::Iterator::Next()
+{
+    ((::Bnd_Array1OfSphere::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_Array1OfSphere::Iterator::Value()
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = (::Bnd_Sphere)((::Bnd_Array1OfSphere::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_Array1OfSphere::Iterator::ChangeValue()
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = ((::Bnd_Array1OfSphere::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Bnd_HArray1OfBox
+//---------------------------------------------------------------------
+
+void Macad::Occt::Bnd_HArray1OfBox::Init(Macad::Occt::Bnd_Box^ theValue)
+{
+    ((::Bnd_HArray1OfBox*)_NativeInstance)->Init(*(::Bnd_Box*)theValue->NativeInstance);
+}
+
+long long unsigned int Macad::Occt::Bnd_HArray1OfBox::Size()
+{
+    long long unsigned int _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::Bnd_HArray1OfBox::Length()
+{
+    int _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->Length();
+    return _result;
+}
+
+bool Macad::Occt::Bnd_HArray1OfBox::IsEmpty()
+{
+    bool _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+int Macad::Occt::Bnd_HArray1OfBox::Lower()
+{
+    int _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->Lower();
+    return _result;
+}
+
+int Macad::Occt::Bnd_HArray1OfBox::Upper()
+{
+    int _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->Upper();
+    return _result;
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::First()
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = (::Bnd_Box)((::Bnd_HArray1OfBox*)_NativeInstance)->First();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::ChangeFirst()
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = ((::Bnd_HArray1OfBox*)_NativeInstance)->ChangeFirst();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::Last()
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = (::Bnd_Box)((::Bnd_HArray1OfBox*)_NativeInstance)->Last();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::ChangeLast()
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = ((::Bnd_HArray1OfBox*)_NativeInstance)->ChangeLast();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::Value(int theIndex)
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = (::Bnd_Box)((::Bnd_HArray1OfBox*)_NativeInstance)->Value(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::ChangeValue(int theIndex)
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = ((::Bnd_HArray1OfBox*)_NativeInstance)->ChangeValue(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::At(long long unsigned int theIndex)
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = (::Bnd_Box)((::Bnd_HArray1OfBox*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::ChangeAt(long long unsigned int theIndex)
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = ((::Bnd_HArray1OfBox*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+void Macad::Occt::Bnd_HArray1OfBox::SetValue(int theIndex, Macad::Occt::Bnd_Box^ theItem)
+{
+    ((::Bnd_HArray1OfBox*)_NativeInstance)->SetValue(theIndex, *(::Bnd_Box*)theItem->NativeInstance);
+}
+
+void Macad::Occt::Bnd_HArray1OfBox::UpdateLowerBound(int theLower)
+{
+    ((::Bnd_HArray1OfBox*)_NativeInstance)->UpdateLowerBound(theLower);
+}
+
+void Macad::Occt::Bnd_HArray1OfBox::UpdateUpperBound(int theUpper)
+{
+    ((::Bnd_HArray1OfBox*)_NativeInstance)->UpdateUpperBound(theUpper);
+}
+
+void Macad::Occt::Bnd_HArray1OfBox::Resize(int theLower, int theUpper, bool theToCopyData)
+{
+    ((::Bnd_HArray1OfBox*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::Bnd_HArray1OfBox::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::Bnd_HArray1OfBox*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
+bool Macad::Occt::Bnd_HArray1OfBox::IsDeletable()
+{
+    bool _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->IsDeletable();
+    return _result;
+}
+
+Macad::Occt::Bnd_HArray1OfBox::Bnd_HArray1OfBox()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfBox();
+}
+
+Macad::Occt::Bnd_HArray1OfBox::Bnd_HArray1OfBox(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfBox(theLower, theUpper);
+}
+
+Macad::Occt::Bnd_HArray1OfBox::Bnd_HArray1OfBox(int theLower, int theUpper, Macad::Occt::Bnd_Box^ theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfBox(theLower, theUpper, *(::Bnd_Box*)theValue->NativeInstance);
+}
+
+Macad::Occt::Bnd_HArray1OfBox::Bnd_HArray1OfBox(Macad::Occt::Bnd_Box^ theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfBox(*(::Bnd_Box*)theBegin->NativeInstance, theLower, theUpper, theUseBuffer);
+}
+
+Macad::Occt::Bnd_HArray1OfBox^ Macad::Occt::Bnd_HArray1OfBox::CreateDowncasted(::Bnd_HArray1OfBox* instance)
+{
+    return gcnew Macad::Occt::Bnd_HArray1OfBox( instance );
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Bnd_Box^>^ Macad::Occt::Bnd_HArray1OfBox::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Bnd_Box^>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::Bnd_HArray1OfBox::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Bnd_Box^>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Bnd_HArray1OfBox::Iterator
+//---------------------------------------------------------------------
+
+bool Macad::Occt::Bnd_HArray1OfBox::Iterator::More()
+{
+    bool _result = ((::Bnd_HArray1OfBox::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::Bnd_HArray1OfBox::Iterator::Next()
+{
+    ((::Bnd_HArray1OfBox::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::Iterator::Value()
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = (::Bnd_Box)((::Bnd_HArray1OfBox::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::Iterator::ChangeValue()
+{
+    ::Bnd_Box* _result = new ::Bnd_Box();
+    *_result = ((::Bnd_HArray1OfBox::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Bnd_HArray1OfBox2d
+//---------------------------------------------------------------------
+
+void Macad::Occt::Bnd_HArray1OfBox2d::Init(Macad::Occt::Bnd_Box2d^ theValue)
+{
+    ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Init(*(::Bnd_Box2d*)theValue->NativeInstance);
+}
+
+long long unsigned int Macad::Occt::Bnd_HArray1OfBox2d::Size()
+{
+    long long unsigned int _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::Bnd_HArray1OfBox2d::Length()
+{
+    int _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+bool Macad::Occt::Bnd_HArray1OfBox2d::IsEmpty()
+{
+    bool _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+int Macad::Occt::Bnd_HArray1OfBox2d::Lower()
+{
+    int _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Lower();
+    return _result;
+}
+
+int Macad::Occt::Bnd_HArray1OfBox2d::Upper()
+{
+    int _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Upper();
+    return _result;
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::First()
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = (::Bnd_Box2d)((::Bnd_HArray1OfBox2d*)_NativeInstance)->First();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::ChangeFirst()
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->ChangeFirst();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::Last()
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = (::Bnd_Box2d)((::Bnd_HArray1OfBox2d*)_NativeInstance)->Last();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::ChangeLast()
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->ChangeLast();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::Value(int theIndex)
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = (::Bnd_Box2d)((::Bnd_HArray1OfBox2d*)_NativeInstance)->Value(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::ChangeValue(int theIndex)
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->ChangeValue(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::At(long long unsigned int theIndex)
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = (::Bnd_Box2d)((::Bnd_HArray1OfBox2d*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::ChangeAt(long long unsigned int theIndex)
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+void Macad::Occt::Bnd_HArray1OfBox2d::SetValue(int theIndex, Macad::Occt::Bnd_Box2d^ theItem)
+{
+    ((::Bnd_HArray1OfBox2d*)_NativeInstance)->SetValue(theIndex, *(::Bnd_Box2d*)theItem->NativeInstance);
+}
+
+void Macad::Occt::Bnd_HArray1OfBox2d::UpdateLowerBound(int theLower)
+{
+    ((::Bnd_HArray1OfBox2d*)_NativeInstance)->UpdateLowerBound(theLower);
+}
+
+void Macad::Occt::Bnd_HArray1OfBox2d::UpdateUpperBound(int theUpper)
+{
+    ((::Bnd_HArray1OfBox2d*)_NativeInstance)->UpdateUpperBound(theUpper);
+}
+
+void Macad::Occt::Bnd_HArray1OfBox2d::Resize(int theLower, int theUpper, bool theToCopyData)
+{
+    ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::Bnd_HArray1OfBox2d::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
+bool Macad::Occt::Bnd_HArray1OfBox2d::IsDeletable()
+{
+    bool _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->IsDeletable();
+    return _result;
+}
+
+Macad::Occt::Bnd_HArray1OfBox2d::Bnd_HArray1OfBox2d()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfBox2d();
+}
+
+Macad::Occt::Bnd_HArray1OfBox2d::Bnd_HArray1OfBox2d(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfBox2d(theLower, theUpper);
+}
+
+Macad::Occt::Bnd_HArray1OfBox2d::Bnd_HArray1OfBox2d(int theLower, int theUpper, Macad::Occt::Bnd_Box2d^ theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfBox2d(theLower, theUpper, *(::Bnd_Box2d*)theValue->NativeInstance);
+}
+
+Macad::Occt::Bnd_HArray1OfBox2d::Bnd_HArray1OfBox2d(Macad::Occt::Bnd_Box2d^ theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfBox2d(*(::Bnd_Box2d*)theBegin->NativeInstance, theLower, theUpper, theUseBuffer);
+}
+
+Macad::Occt::Bnd_HArray1OfBox2d^ Macad::Occt::Bnd_HArray1OfBox2d::CreateDowncasted(::Bnd_HArray1OfBox2d* instance)
+{
+    return gcnew Macad::Occt::Bnd_HArray1OfBox2d( instance );
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Bnd_Box2d^>^ Macad::Occt::Bnd_HArray1OfBox2d::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Bnd_Box2d^>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::Bnd_HArray1OfBox2d::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Bnd_Box2d^>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Bnd_HArray1OfBox2d::Iterator
+//---------------------------------------------------------------------
+
+bool Macad::Occt::Bnd_HArray1OfBox2d::Iterator::More()
+{
+    bool _result = ((::Bnd_HArray1OfBox2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::Bnd_HArray1OfBox2d::Iterator::Next()
+{
+    ((::Bnd_HArray1OfBox2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::Iterator::Value()
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = (::Bnd_Box2d)((::Bnd_HArray1OfBox2d::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::Iterator::ChangeValue()
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = ((::Bnd_HArray1OfBox2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Bnd_HArray1OfSphere
+//---------------------------------------------------------------------
+
+void Macad::Occt::Bnd_HArray1OfSphere::Init(Macad::Occt::Bnd_Sphere^ theValue)
+{
+    ((::Bnd_HArray1OfSphere*)_NativeInstance)->Init(*(::Bnd_Sphere*)theValue->NativeInstance);
+}
+
+long long unsigned int Macad::Occt::Bnd_HArray1OfSphere::Size()
+{
+    long long unsigned int _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->Size();
+    return _result;
+}
+
+int Macad::Occt::Bnd_HArray1OfSphere::Length()
+{
+    int _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->Length();
+    return _result;
+}
+
+bool Macad::Occt::Bnd_HArray1OfSphere::IsEmpty()
+{
+    bool _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+int Macad::Occt::Bnd_HArray1OfSphere::Lower()
+{
+    int _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->Lower();
+    return _result;
+}
+
+int Macad::Occt::Bnd_HArray1OfSphere::Upper()
+{
+    int _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->Upper();
+    return _result;
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::First()
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = (::Bnd_Sphere)((::Bnd_HArray1OfSphere*)_NativeInstance)->First();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::ChangeFirst()
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->ChangeFirst();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::Last()
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = (::Bnd_Sphere)((::Bnd_HArray1OfSphere*)_NativeInstance)->Last();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::ChangeLast()
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->ChangeLast();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::Value(int theIndex)
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = (::Bnd_Sphere)((::Bnd_HArray1OfSphere*)_NativeInstance)->Value(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::ChangeValue(int theIndex)
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->ChangeValue(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::At(long long unsigned int theIndex)
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = (::Bnd_Sphere)((::Bnd_HArray1OfSphere*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::ChangeAt(long long unsigned int theIndex)
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+void Macad::Occt::Bnd_HArray1OfSphere::SetValue(int theIndex, Macad::Occt::Bnd_Sphere^ theItem)
+{
+    ((::Bnd_HArray1OfSphere*)_NativeInstance)->SetValue(theIndex, *(::Bnd_Sphere*)theItem->NativeInstance);
+}
+
+void Macad::Occt::Bnd_HArray1OfSphere::UpdateLowerBound(int theLower)
+{
+    ((::Bnd_HArray1OfSphere*)_NativeInstance)->UpdateLowerBound(theLower);
+}
+
+void Macad::Occt::Bnd_HArray1OfSphere::UpdateUpperBound(int theUpper)
+{
+    ((::Bnd_HArray1OfSphere*)_NativeInstance)->UpdateUpperBound(theUpper);
+}
+
+void Macad::Occt::Bnd_HArray1OfSphere::Resize(int theLower, int theUpper, bool theToCopyData)
+{
+    ((::Bnd_HArray1OfSphere*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::Bnd_HArray1OfSphere::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::Bnd_HArray1OfSphere*)_NativeInstance)->Resize(theSize, theToCopyData);
+}
+
+bool Macad::Occt::Bnd_HArray1OfSphere::IsDeletable()
+{
+    bool _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->IsDeletable();
+    return _result;
+}
+
+Macad::Occt::Bnd_HArray1OfSphere::Bnd_HArray1OfSphere()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfSphere();
+}
+
+Macad::Occt::Bnd_HArray1OfSphere::Bnd_HArray1OfSphere(int theLower, int theUpper)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfSphere(theLower, theUpper);
+}
+
+Macad::Occt::Bnd_HArray1OfSphere::Bnd_HArray1OfSphere(int theLower, int theUpper, Macad::Occt::Bnd_Sphere^ theValue)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfSphere(theLower, theUpper, *(::Bnd_Sphere*)theValue->NativeInstance);
+}
+
+Macad::Occt::Bnd_HArray1OfSphere::Bnd_HArray1OfSphere(Macad::Occt::Bnd_Sphere^ theBegin, int theLower, int theUpper, bool theUseBuffer)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::Bnd_HArray1OfSphere(*(::Bnd_Sphere*)theBegin->NativeInstance, theLower, theUpper, theUseBuffer);
+}
+
+Macad::Occt::Bnd_HArray1OfSphere^ Macad::Occt::Bnd_HArray1OfSphere::CreateDowncasted(::Bnd_HArray1OfSphere* instance)
+{
+    return gcnew Macad::Occt::Bnd_HArray1OfSphere( instance );
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Bnd_Sphere^>^ Macad::Occt::Bnd_HArray1OfSphere::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Bnd_Sphere^>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::Bnd_HArray1OfSphere::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Bnd_Sphere^>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Bnd_HArray1OfSphere::Iterator
+//---------------------------------------------------------------------
+
+bool Macad::Occt::Bnd_HArray1OfSphere::Iterator::More()
+{
+    bool _result = ((::Bnd_HArray1OfSphere::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::Bnd_HArray1OfSphere::Iterator::Next()
+{
+    ((::Bnd_HArray1OfSphere::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::Iterator::Value()
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = (::Bnd_Sphere)((::Bnd_HArray1OfSphere::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
+
+Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::Iterator::ChangeValue()
+{
+    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
+    *_result = ((::Bnd_HArray1OfSphere::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
+}
 
 
 
@@ -575,6 +1370,42 @@ void Macad::Occt::Bnd_Box::Get(double% theXmin, double% theYmin, double% theZmin
     pin_ptr<double> pp_theYmax = &theYmax;
     pin_ptr<double> pp_theZmax = &theZmax;
     ((::Bnd_Box*)_NativeInstance)->Get(*(double*)pp_theXmin, *(double*)pp_theYmin, *(double*)pp_theZmin, *(double*)pp_theXmax, *(double*)pp_theYmax, *(double*)pp_theZmax);
+}
+
+double Macad::Occt::Bnd_Box::GetXMin()
+{
+    double _result = ((::Bnd_Box*)_NativeInstance)->GetXMin();
+    return _result;
+}
+
+double Macad::Occt::Bnd_Box::GetXMax()
+{
+    double _result = ((::Bnd_Box*)_NativeInstance)->GetXMax();
+    return _result;
+}
+
+double Macad::Occt::Bnd_Box::GetYMin()
+{
+    double _result = ((::Bnd_Box*)_NativeInstance)->GetYMin();
+    return _result;
+}
+
+double Macad::Occt::Bnd_Box::GetYMax()
+{
+    double _result = ((::Bnd_Box*)_NativeInstance)->GetYMax();
+    return _result;
+}
+
+double Macad::Occt::Bnd_Box::GetZMin()
+{
+    double _result = ((::Bnd_Box*)_NativeInstance)->GetZMin();
+    return _result;
+}
+
+double Macad::Occt::Bnd_Box::GetZMax()
+{
+    double _result = ((::Bnd_Box*)_NativeInstance)->GetZMax();
+    return _result;
 }
 
 Macad::Occt::Pnt Macad::Occt::Bnd_Box::CornerMin()
@@ -779,6 +1610,19 @@ bool Macad::Occt::Bnd_Box::IsOut(Macad::Occt::Pnt P1, Macad::Occt::Pnt P2, Macad
     return _result;
 }
 
+bool Macad::Occt::Bnd_Box::Contains(Macad::Occt::Pnt theP)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theP = &theP;
+    bool _result = ((::Bnd_Box*)_NativeInstance)->Contains(*(gp_Pnt*)pp_theP);
+    return _result;
+}
+
+bool Macad::Occt::Bnd_Box::Intersects(Macad::Occt::Bnd_Box^ theOther)
+{
+    bool _result = ((::Bnd_Box*)_NativeInstance)->Intersects(*(::Bnd_Box*)theOther->NativeInstance);
+    return _result;
+}
+
 double Macad::Occt::Bnd_Box::Distance(Macad::Occt::Bnd_Box^ Other)
 {
     double _result = ((::Bnd_Box*)_NativeInstance)->Distance(*(::Bnd_Box*)Other->NativeInstance);
@@ -893,6 +1737,30 @@ void Macad::Occt::Bnd_Box2d::Get(double% aXmin, double% aYmin, double% aXmax, do
     ((::Bnd_Box2d*)_NativeInstance)->Get(*(double*)pp_aXmin, *(double*)pp_aYmin, *(double*)pp_aXmax, *(double*)pp_aYmax);
 }
 
+double Macad::Occt::Bnd_Box2d::GetXMin()
+{
+    double _result = ((::Bnd_Box2d*)_NativeInstance)->GetXMin();
+    return _result;
+}
+
+double Macad::Occt::Bnd_Box2d::GetXMax()
+{
+    double _result = ((::Bnd_Box2d*)_NativeInstance)->GetXMax();
+    return _result;
+}
+
+double Macad::Occt::Bnd_Box2d::GetYMin()
+{
+    double _result = ((::Bnd_Box2d*)_NativeInstance)->GetYMin();
+    return _result;
+}
+
+double Macad::Occt::Bnd_Box2d::GetYMax()
+{
+    double _result = ((::Bnd_Box2d*)_NativeInstance)->GetYMax();
+    return _result;
+}
+
 void Macad::Occt::Bnd_Box2d::OpenXmin()
 {
     ((::Bnd_Box2d*)_NativeInstance)->OpenXmin();
@@ -1005,6 +1873,25 @@ bool Macad::Occt::Bnd_Box2d::IsOut(Macad::Occt::Pnt2d theP0, Macad::Occt::Pnt2d 
 bool Macad::Occt::Bnd_Box2d::IsOut(Macad::Occt::Bnd_Box2d^ Other)
 {
     bool _result = ((::Bnd_Box2d*)_NativeInstance)->IsOut(*(::Bnd_Box2d*)Other->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::Bnd_Box2d::Contains(Macad::Occt::Pnt2d theP)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_theP = &theP;
+    bool _result = ((::Bnd_Box2d*)_NativeInstance)->Contains(*(gp_Pnt2d*)pp_theP);
+    return _result;
+}
+
+bool Macad::Occt::Bnd_Box2d::Intersects(Macad::Occt::Bnd_Box2d^ theOther)
+{
+    bool _result = ((::Bnd_Box2d*)_NativeInstance)->Intersects(*(::Bnd_Box2d*)theOther->NativeInstance);
+    return _result;
+}
+
+double Macad::Occt::Bnd_Box2d::Distance(Macad::Occt::Bnd_Box2d^ theOther)
+{
+    double _result = ((::Bnd_Box2d*)_NativeInstance)->Distance(*(::Bnd_Box2d*)theOther->NativeInstance);
     return _result;
 }
 
@@ -1156,852 +2043,6 @@ double Macad::Occt::Bnd_Sphere::SquareExtent()
 
 
 //---------------------------------------------------------------------
-//  Class  Bnd_B2d
-//---------------------------------------------------------------------
-
-Macad::Occt::Bnd_B2d::Bnd_B2d()
-    : Macad::Occt::BaseClass<::Bnd_B2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Bnd_B2d();
-}
-
-Macad::Occt::Bnd_B2d::Bnd_B2d(Macad::Occt::XY theCenter, Macad::Occt::XY theHSize)
-    : Macad::Occt::BaseClass<::Bnd_B2d>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XY> pp_theCenter = &theCenter;
-    pin_ptr<Macad::Occt::XY> pp_theHSize = &theHSize;
-    _NativeInstance = new ::Bnd_B2d(*(gp_XY*)pp_theCenter, *(gp_XY*)pp_theHSize);
-}
-
-bool Macad::Occt::Bnd_B2d::IsVoid()
-{
-    bool _result = ((::Bnd_B2d*)_NativeInstance)->IsVoid();
-    return _result;
-}
-
-void Macad::Occt::Bnd_B2d::Clear()
-{
-    ((::Bnd_B2d*)_NativeInstance)->Clear();
-}
-
-void Macad::Occt::Bnd_B2d::Add(Macad::Occt::XY thePnt)
-{
-    pin_ptr<Macad::Occt::XY> pp_thePnt = &thePnt;
-    ((::Bnd_B2d*)_NativeInstance)->Add(*(gp_XY*)pp_thePnt);
-}
-
-void Macad::Occt::Bnd_B2d::Add(Macad::Occt::Pnt2d thePnt)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_thePnt = &thePnt;
-    ((::Bnd_B2d*)_NativeInstance)->Add(*(gp_Pnt2d*)pp_thePnt);
-}
-
-void Macad::Occt::Bnd_B2d::Add(Macad::Occt::Bnd_B2d^ theBox)
-{
-    ((::Bnd_B2d*)_NativeInstance)->Add(*(::Bnd_B2d*)theBox->NativeInstance);
-}
-
-Macad::Occt::XY Macad::Occt::Bnd_B2d::CornerMin()
-{
-    ::gp_XY _nativeResult = ((::Bnd_B2d*)_NativeInstance)->CornerMin();
-    return Macad::Occt::XY(_nativeResult);
-}
-
-Macad::Occt::XY Macad::Occt::Bnd_B2d::CornerMax()
-{
-    ::gp_XY _nativeResult = ((::Bnd_B2d*)_NativeInstance)->CornerMax();
-    return Macad::Occt::XY(_nativeResult);
-}
-
-double Macad::Occt::Bnd_B2d::SquareExtent()
-{
-    double _result = ((::Bnd_B2d*)_NativeInstance)->SquareExtent();
-    return _result;
-}
-
-void Macad::Occt::Bnd_B2d::Enlarge(double theDiff)
-{
-    ((::Bnd_B2d*)_NativeInstance)->Enlarge(theDiff);
-}
-
-bool Macad::Occt::Bnd_B2d::Limit(Macad::Occt::Bnd_B2d^ theOtherBox)
-{
-    bool _result = ((::Bnd_B2d*)_NativeInstance)->Limit(*(::Bnd_B2d*)theOtherBox->NativeInstance);
-    return _result;
-}
-
-Macad::Occt::Bnd_B2d^ Macad::Occt::Bnd_B2d::Transformed(Macad::Occt::Trsf2d theTrsf)
-{
-    ::Bnd_B2d* _result = new ::Bnd_B2d();
-    pin_ptr<Macad::Occt::Trsf2d> pp_theTrsf = &theTrsf;
-    *_result = ((::Bnd_B2d*)_NativeInstance)->Transformed(*(gp_Trsf2d*)pp_theTrsf);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_B2d(_result);
-}
-
-bool Macad::Occt::Bnd_B2d::IsOut(Macad::Occt::XY thePnt)
-{
-    pin_ptr<Macad::Occt::XY> pp_thePnt = &thePnt;
-    bool _result = ((::Bnd_B2d*)_NativeInstance)->IsOut(*(gp_XY*)pp_thePnt);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2d::IsOut(Macad::Occt::XY theCenter, double theRadius, bool isCircleHollow)
-{
-    pin_ptr<Macad::Occt::XY> pp_theCenter = &theCenter;
-    bool _result = ((::Bnd_B2d*)_NativeInstance)->IsOut(*(gp_XY*)pp_theCenter, theRadius, isCircleHollow);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2d::IsOut(Macad::Occt::XY theCenter, double theRadius)
-{
-    pin_ptr<Macad::Occt::XY> pp_theCenter = &theCenter;
-    bool _result = ((::Bnd_B2d*)_NativeInstance)->IsOut(*(gp_XY*)pp_theCenter, theRadius, false);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2d::IsOut(Macad::Occt::Bnd_B2d^ theOtherBox)
-{
-    bool _result = ((::Bnd_B2d*)_NativeInstance)->IsOut(*(::Bnd_B2d*)theOtherBox->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2d::IsOut(Macad::Occt::Bnd_B2d^ theOtherBox, Macad::Occt::Trsf2d theTrsf)
-{
-    pin_ptr<Macad::Occt::Trsf2d> pp_theTrsf = &theTrsf;
-    bool _result = ((::Bnd_B2d*)_NativeInstance)->IsOut(*(::Bnd_B2d*)theOtherBox->NativeInstance, *(gp_Trsf2d*)pp_theTrsf);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2d::IsOut(Macad::Occt::Ax2d theLine)
-{
-    pin_ptr<Macad::Occt::Ax2d> pp_theLine = &theLine;
-    bool _result = ((::Bnd_B2d*)_NativeInstance)->IsOut(*(gp_Ax2d*)pp_theLine);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2d::IsOut(Macad::Occt::XY theP0, Macad::Occt::XY theP1)
-{
-    pin_ptr<Macad::Occt::XY> pp_theP0 = &theP0;
-    pin_ptr<Macad::Occt::XY> pp_theP1 = &theP1;
-    bool _result = ((::Bnd_B2d*)_NativeInstance)->IsOut(*(gp_XY*)pp_theP0, *(gp_XY*)pp_theP1);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2d::IsIn(Macad::Occt::Bnd_B2d^ theBox)
-{
-    bool _result = ((::Bnd_B2d*)_NativeInstance)->IsIn(*(::Bnd_B2d*)theBox->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2d::IsIn(Macad::Occt::Bnd_B2d^ theBox, Macad::Occt::Trsf2d theTrsf)
-{
-    pin_ptr<Macad::Occt::Trsf2d> pp_theTrsf = &theTrsf;
-    bool _result = ((::Bnd_B2d*)_NativeInstance)->IsIn(*(::Bnd_B2d*)theBox->NativeInstance, *(gp_Trsf2d*)pp_theTrsf);
-    return _result;
-}
-
-void Macad::Occt::Bnd_B2d::SetCenter(Macad::Occt::XY theCenter)
-{
-    pin_ptr<Macad::Occt::XY> pp_theCenter = &theCenter;
-    ((::Bnd_B2d*)_NativeInstance)->SetCenter(*(gp_XY*)pp_theCenter);
-}
-
-void Macad::Occt::Bnd_B2d::SetHSize(Macad::Occt::XY theHSize)
-{
-    pin_ptr<Macad::Occt::XY> pp_theHSize = &theHSize;
-    ((::Bnd_B2d*)_NativeInstance)->SetHSize(*(gp_XY*)pp_theHSize);
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Bnd_B2f
-//---------------------------------------------------------------------
-
-Macad::Occt::Bnd_B2f::Bnd_B2f()
-    : Macad::Occt::BaseClass<::Bnd_B2f>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Bnd_B2f();
-}
-
-Macad::Occt::Bnd_B2f::Bnd_B2f(Macad::Occt::XY theCenter, Macad::Occt::XY theHSize)
-    : Macad::Occt::BaseClass<::Bnd_B2f>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XY> pp_theCenter = &theCenter;
-    pin_ptr<Macad::Occt::XY> pp_theHSize = &theHSize;
-    _NativeInstance = new ::Bnd_B2f(*(gp_XY*)pp_theCenter, *(gp_XY*)pp_theHSize);
-}
-
-bool Macad::Occt::Bnd_B2f::IsVoid()
-{
-    bool _result = ((::Bnd_B2f*)_NativeInstance)->IsVoid();
-    return _result;
-}
-
-void Macad::Occt::Bnd_B2f::Clear()
-{
-    ((::Bnd_B2f*)_NativeInstance)->Clear();
-}
-
-void Macad::Occt::Bnd_B2f::Add(Macad::Occt::XY thePnt)
-{
-    pin_ptr<Macad::Occt::XY> pp_thePnt = &thePnt;
-    ((::Bnd_B2f*)_NativeInstance)->Add(*(gp_XY*)pp_thePnt);
-}
-
-void Macad::Occt::Bnd_B2f::Add(Macad::Occt::Pnt2d thePnt)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_thePnt = &thePnt;
-    ((::Bnd_B2f*)_NativeInstance)->Add(*(gp_Pnt2d*)pp_thePnt);
-}
-
-void Macad::Occt::Bnd_B2f::Add(Macad::Occt::Bnd_B2f^ theBox)
-{
-    ((::Bnd_B2f*)_NativeInstance)->Add(*(::Bnd_B2f*)theBox->NativeInstance);
-}
-
-Macad::Occt::XY Macad::Occt::Bnd_B2f::CornerMin()
-{
-    ::gp_XY _nativeResult = ((::Bnd_B2f*)_NativeInstance)->CornerMin();
-    return Macad::Occt::XY(_nativeResult);
-}
-
-Macad::Occt::XY Macad::Occt::Bnd_B2f::CornerMax()
-{
-    ::gp_XY _nativeResult = ((::Bnd_B2f*)_NativeInstance)->CornerMax();
-    return Macad::Occt::XY(_nativeResult);
-}
-
-double Macad::Occt::Bnd_B2f::SquareExtent()
-{
-    double _result = ((::Bnd_B2f*)_NativeInstance)->SquareExtent();
-    return _result;
-}
-
-void Macad::Occt::Bnd_B2f::Enlarge(double theDiff)
-{
-    ((::Bnd_B2f*)_NativeInstance)->Enlarge(theDiff);
-}
-
-bool Macad::Occt::Bnd_B2f::Limit(Macad::Occt::Bnd_B2f^ theOtherBox)
-{
-    bool _result = ((::Bnd_B2f*)_NativeInstance)->Limit(*(::Bnd_B2f*)theOtherBox->NativeInstance);
-    return _result;
-}
-
-Macad::Occt::Bnd_B2f^ Macad::Occt::Bnd_B2f::Transformed(Macad::Occt::Trsf2d theTrsf)
-{
-    ::Bnd_B2f* _result = new ::Bnd_B2f();
-    pin_ptr<Macad::Occt::Trsf2d> pp_theTrsf = &theTrsf;
-    *_result = ((::Bnd_B2f*)_NativeInstance)->Transformed(*(gp_Trsf2d*)pp_theTrsf);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_B2f(_result);
-}
-
-bool Macad::Occt::Bnd_B2f::IsOut(Macad::Occt::XY thePnt)
-{
-    pin_ptr<Macad::Occt::XY> pp_thePnt = &thePnt;
-    bool _result = ((::Bnd_B2f*)_NativeInstance)->IsOut(*(gp_XY*)pp_thePnt);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2f::IsOut(Macad::Occt::XY theCenter, double theRadius, bool isCircleHollow)
-{
-    pin_ptr<Macad::Occt::XY> pp_theCenter = &theCenter;
-    bool _result = ((::Bnd_B2f*)_NativeInstance)->IsOut(*(gp_XY*)pp_theCenter, theRadius, isCircleHollow);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2f::IsOut(Macad::Occt::XY theCenter, double theRadius)
-{
-    pin_ptr<Macad::Occt::XY> pp_theCenter = &theCenter;
-    bool _result = ((::Bnd_B2f*)_NativeInstance)->IsOut(*(gp_XY*)pp_theCenter, theRadius, false);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2f::IsOut(Macad::Occt::Bnd_B2f^ theOtherBox)
-{
-    bool _result = ((::Bnd_B2f*)_NativeInstance)->IsOut(*(::Bnd_B2f*)theOtherBox->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2f::IsOut(Macad::Occt::Bnd_B2f^ theOtherBox, Macad::Occt::Trsf2d theTrsf)
-{
-    pin_ptr<Macad::Occt::Trsf2d> pp_theTrsf = &theTrsf;
-    bool _result = ((::Bnd_B2f*)_NativeInstance)->IsOut(*(::Bnd_B2f*)theOtherBox->NativeInstance, *(gp_Trsf2d*)pp_theTrsf);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2f::IsOut(Macad::Occt::Ax2d theLine)
-{
-    pin_ptr<Macad::Occt::Ax2d> pp_theLine = &theLine;
-    bool _result = ((::Bnd_B2f*)_NativeInstance)->IsOut(*(gp_Ax2d*)pp_theLine);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2f::IsOut(Macad::Occt::XY theP0, Macad::Occt::XY theP1)
-{
-    pin_ptr<Macad::Occt::XY> pp_theP0 = &theP0;
-    pin_ptr<Macad::Occt::XY> pp_theP1 = &theP1;
-    bool _result = ((::Bnd_B2f*)_NativeInstance)->IsOut(*(gp_XY*)pp_theP0, *(gp_XY*)pp_theP1);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2f::IsIn(Macad::Occt::Bnd_B2f^ theBox)
-{
-    bool _result = ((::Bnd_B2f*)_NativeInstance)->IsIn(*(::Bnd_B2f*)theBox->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B2f::IsIn(Macad::Occt::Bnd_B2f^ theBox, Macad::Occt::Trsf2d theTrsf)
-{
-    pin_ptr<Macad::Occt::Trsf2d> pp_theTrsf = &theTrsf;
-    bool _result = ((::Bnd_B2f*)_NativeInstance)->IsIn(*(::Bnd_B2f*)theBox->NativeInstance, *(gp_Trsf2d*)pp_theTrsf);
-    return _result;
-}
-
-void Macad::Occt::Bnd_B2f::SetCenter(Macad::Occt::XY theCenter)
-{
-    pin_ptr<Macad::Occt::XY> pp_theCenter = &theCenter;
-    ((::Bnd_B2f*)_NativeInstance)->SetCenter(*(gp_XY*)pp_theCenter);
-}
-
-void Macad::Occt::Bnd_B2f::SetHSize(Macad::Occt::XY theHSize)
-{
-    pin_ptr<Macad::Occt::XY> pp_theHSize = &theHSize;
-    ((::Bnd_B2f*)_NativeInstance)->SetHSize(*(gp_XY*)pp_theHSize);
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Bnd_B3d
-//---------------------------------------------------------------------
-
-Macad::Occt::Bnd_B3d::Bnd_B3d()
-    : Macad::Occt::BaseClass<::Bnd_B3d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Bnd_B3d();
-}
-
-Macad::Occt::Bnd_B3d::Bnd_B3d(Macad::Occt::XYZ theCenter, Macad::Occt::XYZ theHSize)
-    : Macad::Occt::BaseClass<::Bnd_B3d>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theCenter = &theCenter;
-    pin_ptr<Macad::Occt::XYZ> pp_theHSize = &theHSize;
-    _NativeInstance = new ::Bnd_B3d(*(gp_XYZ*)pp_theCenter, *(gp_XYZ*)pp_theHSize);
-}
-
-bool Macad::Occt::Bnd_B3d::IsVoid()
-{
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsVoid();
-    return _result;
-}
-
-void Macad::Occt::Bnd_B3d::Clear()
-{
-    ((::Bnd_B3d*)_NativeInstance)->Clear();
-}
-
-void Macad::Occt::Bnd_B3d::Add(Macad::Occt::XYZ thePnt)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_thePnt = &thePnt;
-    ((::Bnd_B3d*)_NativeInstance)->Add(*(gp_XYZ*)pp_thePnt);
-}
-
-void Macad::Occt::Bnd_B3d::Add(Macad::Occt::Pnt thePnt)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_thePnt = &thePnt;
-    ((::Bnd_B3d*)_NativeInstance)->Add(*(gp_Pnt*)pp_thePnt);
-}
-
-void Macad::Occt::Bnd_B3d::Add(Macad::Occt::Bnd_B3d^ theBox)
-{
-    ((::Bnd_B3d*)_NativeInstance)->Add(*(::Bnd_B3d*)theBox->NativeInstance);
-}
-
-Macad::Occt::XYZ Macad::Occt::Bnd_B3d::CornerMin()
-{
-    ::gp_XYZ _nativeResult = ((::Bnd_B3d*)_NativeInstance)->CornerMin();
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-Macad::Occt::XYZ Macad::Occt::Bnd_B3d::CornerMax()
-{
-    ::gp_XYZ _nativeResult = ((::Bnd_B3d*)_NativeInstance)->CornerMax();
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-double Macad::Occt::Bnd_B3d::SquareExtent()
-{
-    double _result = ((::Bnd_B3d*)_NativeInstance)->SquareExtent();
-    return _result;
-}
-
-void Macad::Occt::Bnd_B3d::Enlarge(double theDiff)
-{
-    ((::Bnd_B3d*)_NativeInstance)->Enlarge(theDiff);
-}
-
-bool Macad::Occt::Bnd_B3d::Limit(Macad::Occt::Bnd_B3d^ theOtherBox)
-{
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->Limit(*(::Bnd_B3d*)theOtherBox->NativeInstance);
-    return _result;
-}
-
-Macad::Occt::Bnd_B3d^ Macad::Occt::Bnd_B3d::Transformed(Macad::Occt::Trsf theTrsf)
-{
-    ::Bnd_B3d* _result = new ::Bnd_B3d();
-    pin_ptr<Macad::Occt::Trsf> pp_theTrsf = &theTrsf;
-    *_result = ((::Bnd_B3d*)_NativeInstance)->Transformed(*(gp_Trsf*)pp_theTrsf);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_B3d(_result);
-}
-
-bool Macad::Occt::Bnd_B3d::IsOut(Macad::Occt::XYZ thePnt)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_thePnt = &thePnt;
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsOut(*(gp_XYZ*)pp_thePnt);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3d::IsOut(Macad::Occt::XYZ theCenter, double theRadius, bool isSphereHollow)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theCenter = &theCenter;
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsOut(*(gp_XYZ*)pp_theCenter, theRadius, isSphereHollow);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3d::IsOut(Macad::Occt::XYZ theCenter, double theRadius)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theCenter = &theCenter;
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsOut(*(gp_XYZ*)pp_theCenter, theRadius, false);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3d::IsOut(Macad::Occt::Bnd_B3d^ theOtherBox)
-{
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsOut(*(::Bnd_B3d*)theOtherBox->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3d::IsOut(Macad::Occt::Bnd_B3d^ theOtherBox, Macad::Occt::Trsf theTrsf)
-{
-    pin_ptr<Macad::Occt::Trsf> pp_theTrsf = &theTrsf;
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsOut(*(::Bnd_B3d*)theOtherBox->NativeInstance, *(gp_Trsf*)pp_theTrsf);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3d::IsOut(Macad::Occt::Ax1 theLine, bool isRay, double theOverthickness)
-{
-    pin_ptr<Macad::Occt::Ax1> pp_theLine = &theLine;
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsOut(*(gp_Ax1*)pp_theLine, isRay, theOverthickness);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3d::IsOut(Macad::Occt::Ax1 theLine, bool isRay)
-{
-    pin_ptr<Macad::Occt::Ax1> pp_theLine = &theLine;
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsOut(*(gp_Ax1*)pp_theLine, isRay, 0.);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3d::IsOut(Macad::Occt::Ax1 theLine)
-{
-    pin_ptr<Macad::Occt::Ax1> pp_theLine = &theLine;
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsOut(*(gp_Ax1*)pp_theLine, false, 0.);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3d::IsOut(Macad::Occt::Ax3 thePlane)
-{
-    pin_ptr<Macad::Occt::Ax3> pp_thePlane = &thePlane;
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsOut(*(gp_Ax3*)pp_thePlane);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3d::IsIn(Macad::Occt::Bnd_B3d^ theBox)
-{
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsIn(*(::Bnd_B3d*)theBox->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3d::IsIn(Macad::Occt::Bnd_B3d^ theBox, Macad::Occt::Trsf theTrsf)
-{
-    pin_ptr<Macad::Occt::Trsf> pp_theTrsf = &theTrsf;
-    bool _result = ((::Bnd_B3d*)_NativeInstance)->IsIn(*(::Bnd_B3d*)theBox->NativeInstance, *(gp_Trsf*)pp_theTrsf);
-    return _result;
-}
-
-void Macad::Occt::Bnd_B3d::SetCenter(Macad::Occt::XYZ theCenter)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theCenter = &theCenter;
-    ((::Bnd_B3d*)_NativeInstance)->SetCenter(*(gp_XYZ*)pp_theCenter);
-}
-
-void Macad::Occt::Bnd_B3d::SetHSize(Macad::Occt::XYZ theHSize)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theHSize = &theHSize;
-    ((::Bnd_B3d*)_NativeInstance)->SetHSize(*(gp_XYZ*)pp_theHSize);
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Bnd_B3f
-//---------------------------------------------------------------------
-
-Macad::Occt::Bnd_B3f::Bnd_B3f()
-    : Macad::Occt::BaseClass<::Bnd_B3f>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Bnd_B3f();
-}
-
-Macad::Occt::Bnd_B3f::Bnd_B3f(Macad::Occt::XYZ theCenter, Macad::Occt::XYZ theHSize)
-    : Macad::Occt::BaseClass<::Bnd_B3f>(BaseClass::InitMode::Uninitialized)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theCenter = &theCenter;
-    pin_ptr<Macad::Occt::XYZ> pp_theHSize = &theHSize;
-    _NativeInstance = new ::Bnd_B3f(*(gp_XYZ*)pp_theCenter, *(gp_XYZ*)pp_theHSize);
-}
-
-bool Macad::Occt::Bnd_B3f::IsVoid()
-{
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsVoid();
-    return _result;
-}
-
-void Macad::Occt::Bnd_B3f::Clear()
-{
-    ((::Bnd_B3f*)_NativeInstance)->Clear();
-}
-
-void Macad::Occt::Bnd_B3f::Add(Macad::Occt::XYZ thePnt)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_thePnt = &thePnt;
-    ((::Bnd_B3f*)_NativeInstance)->Add(*(gp_XYZ*)pp_thePnt);
-}
-
-void Macad::Occt::Bnd_B3f::Add(Macad::Occt::Pnt thePnt)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_thePnt = &thePnt;
-    ((::Bnd_B3f*)_NativeInstance)->Add(*(gp_Pnt*)pp_thePnt);
-}
-
-void Macad::Occt::Bnd_B3f::Add(Macad::Occt::Bnd_B3f^ theBox)
-{
-    ((::Bnd_B3f*)_NativeInstance)->Add(*(::Bnd_B3f*)theBox->NativeInstance);
-}
-
-Macad::Occt::XYZ Macad::Occt::Bnd_B3f::CornerMin()
-{
-    ::gp_XYZ _nativeResult = ((::Bnd_B3f*)_NativeInstance)->CornerMin();
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-Macad::Occt::XYZ Macad::Occt::Bnd_B3f::CornerMax()
-{
-    ::gp_XYZ _nativeResult = ((::Bnd_B3f*)_NativeInstance)->CornerMax();
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-double Macad::Occt::Bnd_B3f::SquareExtent()
-{
-    double _result = ((::Bnd_B3f*)_NativeInstance)->SquareExtent();
-    return _result;
-}
-
-void Macad::Occt::Bnd_B3f::Enlarge(double theDiff)
-{
-    ((::Bnd_B3f*)_NativeInstance)->Enlarge(theDiff);
-}
-
-bool Macad::Occt::Bnd_B3f::Limit(Macad::Occt::Bnd_B3f^ theOtherBox)
-{
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->Limit(*(::Bnd_B3f*)theOtherBox->NativeInstance);
-    return _result;
-}
-
-Macad::Occt::Bnd_B3f^ Macad::Occt::Bnd_B3f::Transformed(Macad::Occt::Trsf theTrsf)
-{
-    ::Bnd_B3f* _result = new ::Bnd_B3f();
-    pin_ptr<Macad::Occt::Trsf> pp_theTrsf = &theTrsf;
-    *_result = ((::Bnd_B3f*)_NativeInstance)->Transformed(*(gp_Trsf*)pp_theTrsf);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_B3f(_result);
-}
-
-bool Macad::Occt::Bnd_B3f::IsOut(Macad::Occt::XYZ thePnt)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_thePnt = &thePnt;
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsOut(*(gp_XYZ*)pp_thePnt);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3f::IsOut(Macad::Occt::XYZ theCenter, double theRadius, bool isSphereHollow)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theCenter = &theCenter;
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsOut(*(gp_XYZ*)pp_theCenter, theRadius, isSphereHollow);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3f::IsOut(Macad::Occt::XYZ theCenter, double theRadius)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theCenter = &theCenter;
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsOut(*(gp_XYZ*)pp_theCenter, theRadius, false);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3f::IsOut(Macad::Occt::Bnd_B3f^ theOtherBox)
-{
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsOut(*(::Bnd_B3f*)theOtherBox->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3f::IsOut(Macad::Occt::Bnd_B3f^ theOtherBox, Macad::Occt::Trsf theTrsf)
-{
-    pin_ptr<Macad::Occt::Trsf> pp_theTrsf = &theTrsf;
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsOut(*(::Bnd_B3f*)theOtherBox->NativeInstance, *(gp_Trsf*)pp_theTrsf);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3f::IsOut(Macad::Occt::Ax1 theLine, bool isRay, double theOverthickness)
-{
-    pin_ptr<Macad::Occt::Ax1> pp_theLine = &theLine;
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsOut(*(gp_Ax1*)pp_theLine, isRay, theOverthickness);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3f::IsOut(Macad::Occt::Ax1 theLine, bool isRay)
-{
-    pin_ptr<Macad::Occt::Ax1> pp_theLine = &theLine;
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsOut(*(gp_Ax1*)pp_theLine, isRay, 0.);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3f::IsOut(Macad::Occt::Ax1 theLine)
-{
-    pin_ptr<Macad::Occt::Ax1> pp_theLine = &theLine;
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsOut(*(gp_Ax1*)pp_theLine, false, 0.);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3f::IsOut(Macad::Occt::Ax3 thePlane)
-{
-    pin_ptr<Macad::Occt::Ax3> pp_thePlane = &thePlane;
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsOut(*(gp_Ax3*)pp_thePlane);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3f::IsIn(Macad::Occt::Bnd_B3f^ theBox)
-{
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsIn(*(::Bnd_B3f*)theBox->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Bnd_B3f::IsIn(Macad::Occt::Bnd_B3f^ theBox, Macad::Occt::Trsf theTrsf)
-{
-    pin_ptr<Macad::Occt::Trsf> pp_theTrsf = &theTrsf;
-    bool _result = ((::Bnd_B3f*)_NativeInstance)->IsIn(*(::Bnd_B3f*)theBox->NativeInstance, *(gp_Trsf*)pp_theTrsf);
-    return _result;
-}
-
-void Macad::Occt::Bnd_B3f::SetCenter(Macad::Occt::XYZ theCenter)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theCenter = &theCenter;
-    ((::Bnd_B3f*)_NativeInstance)->SetCenter(*(gp_XYZ*)pp_theCenter);
-}
-
-void Macad::Occt::Bnd_B3f::SetHSize(Macad::Occt::XYZ theHSize)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_theHSize = &theHSize;
-    ((::Bnd_B3f*)_NativeInstance)->SetHSize(*(gp_XYZ*)pp_theHSize);
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Bnd_HArray1OfBox
-//---------------------------------------------------------------------
-
-Macad::Occt::Bnd_HArray1OfBox::Bnd_HArray1OfBox()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfBox();
-}
-
-Macad::Occt::Bnd_HArray1OfBox::Bnd_HArray1OfBox(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfBox(theLower, theUpper);
-}
-
-Macad::Occt::Bnd_HArray1OfBox::Bnd_HArray1OfBox(int theLower, int theUpper, Macad::Occt::Bnd_Box^ theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfBox(theLower, theUpper, *(::Bnd_Box*)theValue->NativeInstance);
-}
-
-Macad::Occt::Bnd_HArray1OfBox::Bnd_HArray1OfBox(Macad::Occt::Bnd_Box^ theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfBox(*(::Bnd_Box*)theBegin->NativeInstance, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::Bnd_HArray1OfBox::Bnd_HArray1OfBox(Macad::Occt::Bnd_Array1OfBox^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfBox(*(::Bnd_Array1OfBox*)theOther->NativeInstance);
-}
-
-Macad::Occt::Bnd_Array1OfBox^ Macad::Occt::Bnd_HArray1OfBox::Array1()
-{
-    ::Bnd_Array1OfBox* _result = new ::Bnd_Array1OfBox();
-    *_result = (::Bnd_Array1OfBox)((::Bnd_HArray1OfBox*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfBox(_result);
-}
-
-Macad::Occt::Bnd_Array1OfBox^ Macad::Occt::Bnd_HArray1OfBox::ChangeArray1()
-{
-    ::Bnd_Array1OfBox* _result = new ::Bnd_Array1OfBox();
-    *_result = ((::Bnd_HArray1OfBox*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfBox(_result);
-}
-
-void Macad::Occt::Bnd_HArray1OfBox::Init(Macad::Occt::Bnd_Box^ theValue)
-{
-    ((::Bnd_HArray1OfBox*)_NativeInstance)->Init(*(::Bnd_Box*)theValue->NativeInstance);
-}
-
-int Macad::Occt::Bnd_HArray1OfBox::Size()
-{
-    int _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::Bnd_HArray1OfBox::Length()
-{
-    int _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->Length();
-    return _result;
-}
-
-bool Macad::Occt::Bnd_HArray1OfBox::IsEmpty()
-{
-    bool _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-int Macad::Occt::Bnd_HArray1OfBox::Lower()
-{
-    int _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::Bnd_HArray1OfBox::Upper()
-{
-    int _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->Upper();
-    return _result;
-}
-
-Macad::Occt::Bnd_HArray1OfBox^ Macad::Occt::Bnd_HArray1OfBox::Assign(Macad::Occt::Bnd_HArray1OfBox^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Bnd_HArray1OfBox^ Macad::Occt::Bnd_HArray1OfBox::Move(Macad::Occt::Bnd_HArray1OfBox^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::First()
-{
-    ::Bnd_Box* _result = new ::Bnd_Box();
-    *_result = (::Bnd_Box)((::Bnd_HArray1OfBox*)_NativeInstance)->First();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
-}
-
-Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::ChangeFirst()
-{
-    ::Bnd_Box* _result = new ::Bnd_Box();
-    *_result = ((::Bnd_HArray1OfBox*)_NativeInstance)->ChangeFirst();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
-}
-
-Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::Last()
-{
-    ::Bnd_Box* _result = new ::Bnd_Box();
-    *_result = (::Bnd_Box)((::Bnd_HArray1OfBox*)_NativeInstance)->Last();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
-}
-
-Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::ChangeLast()
-{
-    ::Bnd_Box* _result = new ::Bnd_Box();
-    *_result = ((::Bnd_HArray1OfBox*)_NativeInstance)->ChangeLast();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
-}
-
-Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::Value(int theIndex)
-{
-    ::Bnd_Box* _result = new ::Bnd_Box();
-    *_result = (::Bnd_Box)((::Bnd_HArray1OfBox*)_NativeInstance)->Value(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
-}
-
-Macad::Occt::Bnd_Box^ Macad::Occt::Bnd_HArray1OfBox::ChangeValue(int theIndex)
-{
-    ::Bnd_Box* _result = new ::Bnd_Box();
-    *_result = ((::Bnd_HArray1OfBox*)_NativeInstance)->ChangeValue(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
-}
-
-void Macad::Occt::Bnd_HArray1OfBox::SetValue(int theIndex, Macad::Occt::Bnd_Box^ theItem)
-{
-    ((::Bnd_HArray1OfBox*)_NativeInstance)->SetValue(theIndex, *(::Bnd_Box*)theItem->NativeInstance);
-}
-
-void Macad::Occt::Bnd_HArray1OfBox::UpdateLowerBound(int theLower)
-{
-    ((::Bnd_HArray1OfBox*)_NativeInstance)->UpdateLowerBound(theLower);
-}
-
-void Macad::Occt::Bnd_HArray1OfBox::UpdateUpperBound(int theUpper)
-{
-    ((::Bnd_HArray1OfBox*)_NativeInstance)->UpdateUpperBound(theUpper);
-}
-
-void Macad::Occt::Bnd_HArray1OfBox::Resize(int theLower, int theUpper, bool theToCopyData)
-{
-    ((::Bnd_HArray1OfBox*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
-}
-
-bool Macad::Occt::Bnd_HArray1OfBox::IsDeletable()
-{
-    bool _result = ((::Bnd_HArray1OfBox*)_NativeInstance)->IsDeletable();
-    return _result;
-}
-
-Macad::Occt::Bnd_HArray1OfBox^ Macad::Occt::Bnd_HArray1OfBox::CreateDowncasted(::Bnd_HArray1OfBox* instance)
-{
-    return gcnew Macad::Occt::Bnd_HArray1OfBox( instance );
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Bnd_Box^>^ Macad::Occt::Bnd_HArray1OfBox::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Bnd_Box^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::Bnd_HArray1OfBox::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Bnd_Box^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Bnd_HArray1OfBox::Iterator
-//---------------------------------------------------------------------
-
-
-
-//---------------------------------------------------------------------
 //  Class  Bnd_BoundSortBox
 //---------------------------------------------------------------------
 
@@ -2011,24 +2052,24 @@ Macad::Occt::Bnd_BoundSortBox::Bnd_BoundSortBox()
     _NativeInstance = new ::Bnd_BoundSortBox();
 }
 
-void Macad::Occt::Bnd_BoundSortBox::Initialize(Macad::Occt::Bnd_Box^ CompleteBox, Macad::Occt::Bnd_HArray1OfBox^ SetOfBox)
+void Macad::Occt::Bnd_BoundSortBox::Initialize(Macad::Occt::Bnd_HArray1OfBox^ theSetOfBoxes)
 {
-    ((::Bnd_BoundSortBox*)_NativeInstance)->Initialize(*(::Bnd_Box*)CompleteBox->NativeInstance, Handle(::Bnd_HArray1OfBox)(SetOfBox->NativeInstance));
+    ((::Bnd_BoundSortBox*)_NativeInstance)->Initialize(Handle(::Bnd_HArray1OfBox)(theSetOfBoxes->NativeInstance));
 }
 
-void Macad::Occt::Bnd_BoundSortBox::Initialize(Macad::Occt::Bnd_HArray1OfBox^ SetOfBox)
+void Macad::Occt::Bnd_BoundSortBox::Initialize(Macad::Occt::Bnd_Box^ theEnclosingBox, Macad::Occt::Bnd_HArray1OfBox^ theSetOfBoxes)
 {
-    ((::Bnd_BoundSortBox*)_NativeInstance)->Initialize(Handle(::Bnd_HArray1OfBox)(SetOfBox->NativeInstance));
+    ((::Bnd_BoundSortBox*)_NativeInstance)->Initialize(*(::Bnd_Box*)theEnclosingBox->NativeInstance, Handle(::Bnd_HArray1OfBox)(theSetOfBoxes->NativeInstance));
 }
 
-void Macad::Occt::Bnd_BoundSortBox::Initialize(Macad::Occt::Bnd_Box^ CompleteBox, int nbComponents)
+void Macad::Occt::Bnd_BoundSortBox::Initialize(Macad::Occt::Bnd_Box^ theEnclosingBox, int theNbBoxes)
 {
-    ((::Bnd_BoundSortBox*)_NativeInstance)->Initialize(*(::Bnd_Box*)CompleteBox->NativeInstance, nbComponents);
+    ((::Bnd_BoundSortBox*)_NativeInstance)->Initialize(*(::Bnd_Box*)theEnclosingBox->NativeInstance, theNbBoxes);
 }
 
-void Macad::Occt::Bnd_BoundSortBox::Add(Macad::Occt::Bnd_Box^ theBox, int boxIndex)
+void Macad::Occt::Bnd_BoundSortBox::Add(Macad::Occt::Bnd_Box^ theBox, int theIndex)
 {
-    ((::Bnd_BoundSortBox*)_NativeInstance)->Add(*(::Bnd_Box*)theBox->NativeInstance, boxIndex);
+    ((::Bnd_BoundSortBox*)_NativeInstance)->Add(*(::Bnd_Box*)theBox->NativeInstance, theIndex);
 }
 
 Macad::Occt::TColStd_ListOfInteger^ Macad::Occt::Bnd_BoundSortBox::Compare(Macad::Occt::Bnd_Box^ theBox)
@@ -2038,391 +2079,13 @@ Macad::Occt::TColStd_ListOfInteger^ Macad::Occt::Bnd_BoundSortBox::Compare(Macad
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_ListOfInteger(_result);
 }
 
-Macad::Occt::TColStd_ListOfInteger^ Macad::Occt::Bnd_BoundSortBox::Compare(Macad::Occt::Pln P)
+Macad::Occt::TColStd_ListOfInteger^ Macad::Occt::Bnd_BoundSortBox::Compare(Macad::Occt::Pln thePlane)
 {
     ::TColStd_ListOfInteger* _result = new ::TColStd_ListOfInteger();
-    pin_ptr<Macad::Occt::Pln> pp_P = &P;
-    *_result = (::TColStd_ListOfInteger)((::Bnd_BoundSortBox*)_NativeInstance)->Compare(*(gp_Pln*)pp_P);
+    pin_ptr<Macad::Occt::Pln> pp_thePlane = &thePlane;
+    *_result = (::TColStd_ListOfInteger)((::Bnd_BoundSortBox*)_NativeInstance)->Compare(*(gp_Pln*)pp_thePlane);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_ListOfInteger(_result);
 }
-
-void Macad::Occt::Bnd_BoundSortBox::Dump()
-{
-    ((::Bnd_BoundSortBox*)_NativeInstance)->Dump();
-}
-
-void Macad::Occt::Bnd_BoundSortBox::Destroy()
-{
-    ((::Bnd_BoundSortBox*)_NativeInstance)->Destroy();
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Bnd_HArray1OfBox2d
-//---------------------------------------------------------------------
-
-Macad::Occt::Bnd_HArray1OfBox2d::Bnd_HArray1OfBox2d()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfBox2d();
-}
-
-Macad::Occt::Bnd_HArray1OfBox2d::Bnd_HArray1OfBox2d(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfBox2d(theLower, theUpper);
-}
-
-Macad::Occt::Bnd_HArray1OfBox2d::Bnd_HArray1OfBox2d(int theLower, int theUpper, Macad::Occt::Bnd_Box2d^ theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfBox2d(theLower, theUpper, *(::Bnd_Box2d*)theValue->NativeInstance);
-}
-
-Macad::Occt::Bnd_HArray1OfBox2d::Bnd_HArray1OfBox2d(Macad::Occt::Bnd_Box2d^ theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfBox2d(*(::Bnd_Box2d*)theBegin->NativeInstance, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::Bnd_HArray1OfBox2d::Bnd_HArray1OfBox2d(Macad::Occt::Bnd_Array1OfBox2d^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfBox2d(*(::Bnd_Array1OfBox2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::Bnd_Array1OfBox2d^ Macad::Occt::Bnd_HArray1OfBox2d::Array1()
-{
-    ::Bnd_Array1OfBox2d* _result = new ::Bnd_Array1OfBox2d();
-    *_result = (::Bnd_Array1OfBox2d)((::Bnd_HArray1OfBox2d*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfBox2d(_result);
-}
-
-Macad::Occt::Bnd_Array1OfBox2d^ Macad::Occt::Bnd_HArray1OfBox2d::ChangeArray1()
-{
-    ::Bnd_Array1OfBox2d* _result = new ::Bnd_Array1OfBox2d();
-    *_result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfBox2d(_result);
-}
-
-void Macad::Occt::Bnd_HArray1OfBox2d::Init(Macad::Occt::Bnd_Box2d^ theValue)
-{
-    ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Init(*(::Bnd_Box2d*)theValue->NativeInstance);
-}
-
-int Macad::Occt::Bnd_HArray1OfBox2d::Size()
-{
-    int _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::Bnd_HArray1OfBox2d::Length()
-{
-    int _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-bool Macad::Occt::Bnd_HArray1OfBox2d::IsEmpty()
-{
-    bool _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-int Macad::Occt::Bnd_HArray1OfBox2d::Lower()
-{
-    int _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::Bnd_HArray1OfBox2d::Upper()
-{
-    int _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Upper();
-    return _result;
-}
-
-Macad::Occt::Bnd_HArray1OfBox2d^ Macad::Occt::Bnd_HArray1OfBox2d::Assign(Macad::Occt::Bnd_HArray1OfBox2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Bnd_HArray1OfBox2d^ Macad::Occt::Bnd_HArray1OfBox2d::Move(Macad::Occt::Bnd_HArray1OfBox2d^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::First()
-{
-    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
-    *_result = (::Bnd_Box2d)((::Bnd_HArray1OfBox2d*)_NativeInstance)->First();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::ChangeFirst()
-{
-    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
-    *_result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->ChangeFirst();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::Last()
-{
-    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
-    *_result = (::Bnd_Box2d)((::Bnd_HArray1OfBox2d*)_NativeInstance)->Last();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::ChangeLast()
-{
-    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
-    *_result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->ChangeLast();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::Value(int theIndex)
-{
-    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
-    *_result = (::Bnd_Box2d)((::Bnd_HArray1OfBox2d*)_NativeInstance)->Value(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::Bnd_HArray1OfBox2d::ChangeValue(int theIndex)
-{
-    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
-    *_result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->ChangeValue(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-void Macad::Occt::Bnd_HArray1OfBox2d::SetValue(int theIndex, Macad::Occt::Bnd_Box2d^ theItem)
-{
-    ((::Bnd_HArray1OfBox2d*)_NativeInstance)->SetValue(theIndex, *(::Bnd_Box2d*)theItem->NativeInstance);
-}
-
-void Macad::Occt::Bnd_HArray1OfBox2d::UpdateLowerBound(int theLower)
-{
-    ((::Bnd_HArray1OfBox2d*)_NativeInstance)->UpdateLowerBound(theLower);
-}
-
-void Macad::Occt::Bnd_HArray1OfBox2d::UpdateUpperBound(int theUpper)
-{
-    ((::Bnd_HArray1OfBox2d*)_NativeInstance)->UpdateUpperBound(theUpper);
-}
-
-void Macad::Occt::Bnd_HArray1OfBox2d::Resize(int theLower, int theUpper, bool theToCopyData)
-{
-    ((::Bnd_HArray1OfBox2d*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
-}
-
-bool Macad::Occt::Bnd_HArray1OfBox2d::IsDeletable()
-{
-    bool _result = ((::Bnd_HArray1OfBox2d*)_NativeInstance)->IsDeletable();
-    return _result;
-}
-
-Macad::Occt::Bnd_HArray1OfBox2d^ Macad::Occt::Bnd_HArray1OfBox2d::CreateDowncasted(::Bnd_HArray1OfBox2d* instance)
-{
-    return gcnew Macad::Occt::Bnd_HArray1OfBox2d( instance );
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Bnd_Box2d^>^ Macad::Occt::Bnd_HArray1OfBox2d::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Bnd_Box2d^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::Bnd_HArray1OfBox2d::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Bnd_Box2d^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Bnd_HArray1OfBox2d::Iterator
-//---------------------------------------------------------------------
-
-
-
-//---------------------------------------------------------------------
-//  Class  Bnd_HArray1OfSphere
-//---------------------------------------------------------------------
-
-Macad::Occt::Bnd_HArray1OfSphere::Bnd_HArray1OfSphere()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfSphere();
-}
-
-Macad::Occt::Bnd_HArray1OfSphere::Bnd_HArray1OfSphere(int theLower, int theUpper)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfSphere(theLower, theUpper);
-}
-
-Macad::Occt::Bnd_HArray1OfSphere::Bnd_HArray1OfSphere(int theLower, int theUpper, Macad::Occt::Bnd_Sphere^ theValue)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfSphere(theLower, theUpper, *(::Bnd_Sphere*)theValue->NativeInstance);
-}
-
-Macad::Occt::Bnd_HArray1OfSphere::Bnd_HArray1OfSphere(Macad::Occt::Bnd_Sphere^ theBegin, int theLower, int theUpper, bool parameter1)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfSphere(*(::Bnd_Sphere*)theBegin->NativeInstance, theLower, theUpper, parameter1);
-}
-
-Macad::Occt::Bnd_HArray1OfSphere::Bnd_HArray1OfSphere(Macad::Occt::Bnd_Array1OfSphere^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Bnd_HArray1OfSphere(*(::Bnd_Array1OfSphere*)theOther->NativeInstance);
-}
-
-Macad::Occt::Bnd_Array1OfSphere^ Macad::Occt::Bnd_HArray1OfSphere::Array1()
-{
-    ::Bnd_Array1OfSphere* _result = new ::Bnd_Array1OfSphere();
-    *_result = (::Bnd_Array1OfSphere)((::Bnd_HArray1OfSphere*)_NativeInstance)->Array1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfSphere(_result);
-}
-
-Macad::Occt::Bnd_Array1OfSphere^ Macad::Occt::Bnd_HArray1OfSphere::ChangeArray1()
-{
-    ::Bnd_Array1OfSphere* _result = new ::Bnd_Array1OfSphere();
-    *_result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->ChangeArray1();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Array1OfSphere(_result);
-}
-
-void Macad::Occt::Bnd_HArray1OfSphere::Init(Macad::Occt::Bnd_Sphere^ theValue)
-{
-    ((::Bnd_HArray1OfSphere*)_NativeInstance)->Init(*(::Bnd_Sphere*)theValue->NativeInstance);
-}
-
-int Macad::Occt::Bnd_HArray1OfSphere::Size()
-{
-    int _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::Bnd_HArray1OfSphere::Length()
-{
-    int _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->Length();
-    return _result;
-}
-
-bool Macad::Occt::Bnd_HArray1OfSphere::IsEmpty()
-{
-    bool _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-int Macad::Occt::Bnd_HArray1OfSphere::Lower()
-{
-    int _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::Bnd_HArray1OfSphere::Upper()
-{
-    int _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->Upper();
-    return _result;
-}
-
-Macad::Occt::Bnd_HArray1OfSphere^ Macad::Occt::Bnd_HArray1OfSphere::Assign(Macad::Occt::Bnd_HArray1OfSphere^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Bnd_HArray1OfSphere^ Macad::Occt::Bnd_HArray1OfSphere::Move(Macad::Occt::Bnd_HArray1OfSphere^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::First()
-{
-    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
-    *_result = (::Bnd_Sphere)((::Bnd_HArray1OfSphere*)_NativeInstance)->First();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
-}
-
-Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::ChangeFirst()
-{
-    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
-    *_result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->ChangeFirst();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
-}
-
-Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::Last()
-{
-    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
-    *_result = (::Bnd_Sphere)((::Bnd_HArray1OfSphere*)_NativeInstance)->Last();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
-}
-
-Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::ChangeLast()
-{
-    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
-    *_result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->ChangeLast();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
-}
-
-Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::Value(int theIndex)
-{
-    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
-    *_result = (::Bnd_Sphere)((::Bnd_HArray1OfSphere*)_NativeInstance)->Value(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
-}
-
-Macad::Occt::Bnd_Sphere^ Macad::Occt::Bnd_HArray1OfSphere::ChangeValue(int theIndex)
-{
-    ::Bnd_Sphere* _result = new ::Bnd_Sphere();
-    *_result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->ChangeValue(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Sphere(_result);
-}
-
-void Macad::Occt::Bnd_HArray1OfSphere::SetValue(int theIndex, Macad::Occt::Bnd_Sphere^ theItem)
-{
-    ((::Bnd_HArray1OfSphere*)_NativeInstance)->SetValue(theIndex, *(::Bnd_Sphere*)theItem->NativeInstance);
-}
-
-void Macad::Occt::Bnd_HArray1OfSphere::UpdateLowerBound(int theLower)
-{
-    ((::Bnd_HArray1OfSphere*)_NativeInstance)->UpdateLowerBound(theLower);
-}
-
-void Macad::Occt::Bnd_HArray1OfSphere::UpdateUpperBound(int theUpper)
-{
-    ((::Bnd_HArray1OfSphere*)_NativeInstance)->UpdateUpperBound(theUpper);
-}
-
-void Macad::Occt::Bnd_HArray1OfSphere::Resize(int theLower, int theUpper, bool theToCopyData)
-{
-    ((::Bnd_HArray1OfSphere*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
-}
-
-bool Macad::Occt::Bnd_HArray1OfSphere::IsDeletable()
-{
-    bool _result = ((::Bnd_HArray1OfSphere*)_NativeInstance)->IsDeletable();
-    return _result;
-}
-
-Macad::Occt::Bnd_HArray1OfSphere^ Macad::Occt::Bnd_HArray1OfSphere::CreateDowncasted(::Bnd_HArray1OfSphere* instance)
-{
-    return gcnew Macad::Occt::Bnd_HArray1OfSphere( instance );
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Bnd_Sphere^>^ Macad::Occt::Bnd_HArray1OfSphere::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Bnd_Sphere^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::Bnd_HArray1OfSphere::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Bnd_Sphere^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Bnd_HArray1OfSphere::Iterator
-//---------------------------------------------------------------------
 
 
 
@@ -2593,6 +2256,19 @@ bool Macad::Occt::Bnd_OBB::IsOut(Macad::Occt::Pnt theP)
     return _result;
 }
 
+bool Macad::Occt::Bnd_OBB::Contains(Macad::Occt::Pnt theP)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theP = &theP;
+    bool _result = ((::Bnd_OBB*)_NativeInstance)->Contains(*(gp_Pnt*)pp_theP);
+    return _result;
+}
+
+bool Macad::Occt::Bnd_OBB::Intersects(Macad::Occt::Bnd_OBB^ theOther)
+{
+    bool _result = ((::Bnd_OBB*)_NativeInstance)->Intersects(*(::Bnd_OBB*)theOther->NativeInstance);
+    return _result;
+}
+
 bool Macad::Occt::Bnd_OBB::IsCompletelyInside(Macad::Occt::Bnd_OBB^ theOther)
 {
     bool _result = ((::Bnd_OBB*)_NativeInstance)->IsCompletelyInside(*(::Bnd_OBB*)theOther->NativeInstance);
@@ -2653,16 +2329,16 @@ bool Macad::Occt::Bnd_Range::Union(Macad::Occt::Bnd_Range^ theOther)
     return _result;
 }
 
-int Macad::Occt::Bnd_Range::IsIntersected(double theVal, double thePeriod)
+Macad::Occt::Bnd_Range::IntersectStatus Macad::Occt::Bnd_Range::IsIntersected(double theVal, double thePeriod)
 {
-    int _result = ((::Bnd_Range*)_NativeInstance)->IsIntersected(theVal, thePeriod);
-    return _result;
+    ::Bnd_Range::IntersectStatus _result = ((::Bnd_Range*)_NativeInstance)->IsIntersected(theVal, thePeriod);
+    return (Macad::Occt::Bnd_Range::IntersectStatus)_result;
 }
 
-int Macad::Occt::Bnd_Range::IsIntersected(double theVal)
+Macad::Occt::Bnd_Range::IntersectStatus Macad::Occt::Bnd_Range::IsIntersected(double theVal)
 {
-    int _result = ((::Bnd_Range*)_NativeInstance)->IsIntersected(theVal, 0.);
-    return _result;
+    ::Bnd_Range::IntersectStatus _result = ((::Bnd_Range*)_NativeInstance)->IsIntersected(theVal, 0.);
+    return (Macad::Occt::Bnd_Range::IntersectStatus)_result;
 }
 
 void Macad::Occt::Bnd_Range::Add(double theParameter)
@@ -2757,6 +2433,18 @@ bool Macad::Occt::Bnd_Range::IsOut(double theValue)
 bool Macad::Occt::Bnd_Range::IsOut(Macad::Occt::Bnd_Range^ theRange)
 {
     bool _result = ((::Bnd_Range*)_NativeInstance)->IsOut(*(::Bnd_Range*)theRange->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::Bnd_Range::Contains(double theValue)
+{
+    bool _result = ((::Bnd_Range*)_NativeInstance)->Contains(theValue);
+    return _result;
+}
+
+bool Macad::Occt::Bnd_Range::Intersects(Macad::Occt::Bnd_Range^ theRange)
+{
+    bool _result = ((::Bnd_Range*)_NativeInstance)->Intersects(*(::Bnd_Range*)theRange->NativeInstance);
     return _result;
 }
 

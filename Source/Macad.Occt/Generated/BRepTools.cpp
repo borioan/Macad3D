@@ -6,10 +6,10 @@
 using namespace System::Runtime::InteropServices; // for class Marshal
 
 #include "NCollection.h"
+#include "TopTools.h"
 #include "TopoDS.h"
 #include "TColgp.h"
 #include "Bnd.h"
-#include "TopTools.h"
 #include "Message.h"
 #include "BRep.h"
 #include "Geom.h"
@@ -25,10 +25,58 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 //  Class  BRepTools_MapOfVertexPnt2d
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::BRepTools_MapOfVertexPnt2d::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepTools_MapOfVertexPnt2d::Extent()
+{
+    int _result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepTools_MapOfVertexPnt2d::Length()
+{
+    int _result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepTools_MapOfVertexPnt2d::Size()
+{
+    long long unsigned int _result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepTools_MapOfVertexPnt2d::IsEmpty()
+{
+    bool _result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepTools_MapOfVertexPnt2d::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepTools_MapOfVertexPnt2d::BRepTools_MapOfVertexPnt2d()
     : Macad::Occt::BaseClass<::BRepTools_MapOfVertexPnt2d>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepTools_MapOfVertexPnt2d();
+}
+
+Macad::Occt::BRepTools_MapOfVertexPnt2d::BRepTools_MapOfVertexPnt2d(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepTools_MapOfVertexPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepTools_MapOfVertexPnt2d(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepTools_MapOfVertexPnt2d::BRepTools_MapOfVertexPnt2d(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepTools_MapOfVertexPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepTools_MapOfVertexPnt2d(theNbBuckets, nullptr);
 }
 
 Macad::Occt::BRepTools_MapOfVertexPnt2d::BRepTools_MapOfVertexPnt2d(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -40,7 +88,37 @@ Macad::Occt::BRepTools_MapOfVertexPnt2d::BRepTools_MapOfVertexPnt2d(int theNbBuc
 Macad::Occt::BRepTools_MapOfVertexPnt2d::BRepTools_MapOfVertexPnt2d(int theNbBuckets)
     : Macad::Occt::BaseClass<::BRepTools_MapOfVertexPnt2d>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::BRepTools_MapOfVertexPnt2d(theNbBuckets, 0L);
+    _NativeInstance = new ::BRepTools_MapOfVertexPnt2d(theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepTools_MapOfVertexPnt2d::BRepTools_MapOfVertexPnt2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepTools_MapOfVertexPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepTools_MapOfVertexPnt2d(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepTools_MapOfVertexPnt2d::BRepTools_MapOfVertexPnt2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepTools_MapOfVertexPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepTools_MapOfVertexPnt2d(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepTools_MapOfVertexPnt2d::BRepTools_MapOfVertexPnt2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher)
+    : Macad::Occt::BaseClass<::BRepTools_MapOfVertexPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepTools_MapOfVertexPnt2d(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, 1, nullptr);
+}
+
+Macad::Occt::BRepTools_MapOfVertexPnt2d::BRepTools_MapOfVertexPnt2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepTools_MapOfVertexPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepTools_MapOfVertexPnt2d(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepTools_MapOfVertexPnt2d::BRepTools_MapOfVertexPnt2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepTools_MapOfVertexPnt2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepTools_MapOfVertexPnt2d(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
 }
 
 void Macad::Occt::BRepTools_MapOfVertexPnt2d::Exchange(Macad::Occt::BRepTools_MapOfVertexPnt2d^ theOther)
@@ -48,11 +126,23 @@ void Macad::Occt::BRepTools_MapOfVertexPnt2d::Exchange(Macad::Occt::BRepTools_Ma
     ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->Exchange(*(::BRepTools_MapOfVertexPnt2d*)theOther->NativeInstance);
 }
 
+Macad::Occt::TopTools_ShapeMapHasher^ Macad::Occt::BRepTools_MapOfVertexPnt2d::GetHasher()
+{
+    ::TopTools_ShapeMapHasher* _result = new ::TopTools_ShapeMapHasher();
+    *_result = (::TopTools_ShapeMapHasher)((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->GetHasher();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ShapeMapHasher(_result);
+}
+
 Macad::Occt::BRepTools_MapOfVertexPnt2d^ Macad::Occt::BRepTools_MapOfVertexPnt2d::Assign(Macad::Occt::BRepTools_MapOfVertexPnt2d^ theOther)
 {
     ::BRepTools_MapOfVertexPnt2d* _result = new ::BRepTools_MapOfVertexPnt2d();
     *_result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->Assign(*(::BRepTools_MapOfVertexPnt2d*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepTools_MapOfVertexPnt2d(_result);
+}
+
+void Macad::Occt::BRepTools_MapOfVertexPnt2d::ReSize(long long unsigned int N)
+{
+    ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->ReSize(N);
 }
 
 void Macad::Occt::BRepTools_MapOfVertexPnt2d::ReSize(int N)
@@ -69,6 +159,19 @@ bool Macad::Occt::BRepTools_MapOfVertexPnt2d::Bind(Macad::Occt::TopoDS_Shape^ th
 Macad::Occt::TColgp_SequenceOfPnt2d^ Macad::Occt::BRepTools_MapOfVertexPnt2d::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt2d^ theItem)
 {
     ::TColgp_SequenceOfPnt2d* _result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->Bound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColgp_SequenceOfPnt2d*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt2d(_result);
+}
+
+bool Macad::Occt::BRepTools_MapOfVertexPnt2d::TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt2d^ theItem)
+{
+    bool _result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColgp_SequenceOfPnt2d*)theItem->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::TColgp_SequenceOfPnt2d^ Macad::Occt::BRepTools_MapOfVertexPnt2d::TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt2d^ theItem)
+{
+    ::TColgp_SequenceOfPnt2d* _result = new ::TColgp_SequenceOfPnt2d();
+    *_result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColgp_SequenceOfPnt2d*)theItem->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt2d(_result);
 }
 
@@ -97,6 +200,12 @@ Macad::Occt::TColgp_SequenceOfPnt2d^ Macad::Occt::BRepTools_MapOfVertexPnt2d::Fi
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt2d(_result);
 }
 
+bool Macad::Occt::BRepTools_MapOfVertexPnt2d::Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt2d^ theValue)
+{
+    bool _result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColgp_SequenceOfPnt2d*)theValue->NativeInstance);
+    return _result;
+}
+
 Macad::Occt::TColgp_SequenceOfPnt2d^ Macad::Occt::BRepTools_MapOfVertexPnt2d::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
 {
     ::TColgp_SequenceOfPnt2d* _result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->ChangeSeek(*(::TopoDS_Shape*)theKey->NativeInstance);
@@ -120,10 +229,9 @@ void Macad::Occt::BRepTools_MapOfVertexPnt2d::Clear()
     ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::BRepTools_MapOfVertexPnt2d::Size()
+void Macad::Occt::BRepTools_MapOfVertexPnt2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->Size();
-    return _result;
+    ((::BRepTools_MapOfVertexPnt2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -136,6 +244,12 @@ Macad::Occt::BRepTools_MapOfVertexPnt2d::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRepTools_MapOfVertexPnt2d::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepTools_MapOfVertexPnt2d::Iterator();
+}
+
+Macad::Occt::BRepTools_MapOfVertexPnt2d::Iterator::Iterator(Macad::Occt::BRepTools_MapOfVertexPnt2d^ theMap)
+    : Macad::Occt::BaseClass<::BRepTools_MapOfVertexPnt2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepTools_MapOfVertexPnt2d::Iterator(*(::BRepTools_MapOfVertexPnt2d*)theMap->NativeInstance);
 }
 
 bool Macad::Occt::BRepTools_MapOfVertexPnt2d::Iterator::More()
@@ -308,19 +422,19 @@ bool Macad::Occt::BRepTools::Triangulation(Macad::Occt::TopoDS_Shape^ theShape, 
 
 bool Macad::Occt::BRepTools::LoadTriangulation(Macad::Occt::TopoDS_Shape^ theShape, int theTriangulationIdx, bool theToSetAsActive)
 {
-    bool _result = ::BRepTools::LoadTriangulation(*(::TopoDS_Shape*)theShape->NativeInstance, theTriangulationIdx, theToSetAsActive, ::opencascade::handle<::OSD_FileSystem>());
+    bool _result = ::BRepTools::LoadTriangulation(*(::TopoDS_Shape*)theShape->NativeInstance, theTriangulationIdx, theToSetAsActive, ::occ::handle<::OSD_FileSystem>());
     return _result;
 }
 
 bool Macad::Occt::BRepTools::LoadTriangulation(Macad::Occt::TopoDS_Shape^ theShape, int theTriangulationIdx)
 {
-    bool _result = ::BRepTools::LoadTriangulation(*(::TopoDS_Shape*)theShape->NativeInstance, theTriangulationIdx, false, ::opencascade::handle<::OSD_FileSystem>());
+    bool _result = ::BRepTools::LoadTriangulation(*(::TopoDS_Shape*)theShape->NativeInstance, theTriangulationIdx, false, ::occ::handle<::OSD_FileSystem>());
     return _result;
 }
 
 bool Macad::Occt::BRepTools::LoadTriangulation(Macad::Occt::TopoDS_Shape^ theShape)
 {
-    bool _result = ::BRepTools::LoadTriangulation(*(::TopoDS_Shape*)theShape->NativeInstance, -1, false, ::opencascade::handle<::OSD_FileSystem>());
+    bool _result = ::BRepTools::LoadTriangulation(*(::TopoDS_Shape*)theShape->NativeInstance, -1, false, ::occ::handle<::OSD_FileSystem>());
     return _result;
 }
 
@@ -350,7 +464,7 @@ bool Macad::Occt::BRepTools::ActivateTriangulation(Macad::Occt::TopoDS_Shape^ th
 
 bool Macad::Occt::BRepTools::LoadAllTriangulations(Macad::Occt::TopoDS_Shape^ theShape)
 {
-    bool _result = ::BRepTools::LoadAllTriangulations(*(::TopoDS_Shape*)theShape->NativeInstance, ::opencascade::handle<::OSD_FileSystem>());
+    bool _result = ::BRepTools::LoadAllTriangulations(*(::TopoDS_Shape*)theShape->NativeInstance, ::occ::handle<::OSD_FileSystem>());
     return _result;
 }
 
@@ -1030,6 +1144,13 @@ Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepTools_ReShape::Value(Macad::Occt::To
 {
     ::TopoDS_Shape* _result = new ::TopoDS_Shape();
     *_result = ((::BRepTools_ReShape*)_NativeInstance)->Value(*(::TopoDS_Shape*)shape->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
+}
+
+Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepTools_ReShape::ValueLeaf(Macad::Occt::TopoDS_Shape^ theShape)
+{
+    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
+    *_result = ((::BRepTools_ReShape*)_NativeInstance)->ValueLeaf(*(::TopoDS_Shape*)theShape->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
 }
 

@@ -2,53 +2,11 @@
 
 #pragma once
 
-#include "Standard.h"
 
 namespace Macad
 {
 namespace Occt
 {
-//---------------------------------------------------------------------
-//  Class  ShapeAnalysis_BoxBndTree
-//---------------------------------------------------------------------
-public ref class ShapeAnalysis_BoxBndTree sealed
-    : public Macad::Occt::BaseClass<::ShapeAnalysis_BoxBndTree>
-{
-
-#ifdef Include_ShapeAnalysis_BoxBndTree_h
-public:
-    Include_ShapeAnalysis_BoxBndTree_h
-#endif
-
-public:
-    ShapeAnalysis_BoxBndTree(::ShapeAnalysis_BoxBndTree* nativeInstance)
-        : Macad::Occt::BaseClass<::ShapeAnalysis_BoxBndTree>( nativeInstance, true )
-    {}
-
-    ShapeAnalysis_BoxBndTree(::ShapeAnalysis_BoxBndTree& nativeInstance)
-        : Macad::Occt::BaseClass<::ShapeAnalysis_BoxBndTree>( &nativeInstance, false )
-    {}
-
-    property ::ShapeAnalysis_BoxBndTree* NativeInstance
-    {
-        ::ShapeAnalysis_BoxBndTree* get()
-        {
-            return static_cast<::ShapeAnalysis_BoxBndTree*>(_NativeInstance);
-        }
-    }
-
-public:
-    ShapeAnalysis_BoxBndTree();
-    ShapeAnalysis_BoxBndTree(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    bool Add(int theObj, Macad::Occt::Bnd_Box^ theBnd);
-    /* Method skipped due to unknown mapping: int Select(Selector theSelector, ) */
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ aNewAlloc);
-    void Clear();
-    bool IsEmpty();
-    /* Method skipped due to unknown mapping: TreeNode Root() */
-    Macad::Occt::NCollection_BaseAllocator^ Allocator();
-}; // class ShapeAnalysis_BoxBndTree
-
 //---------------------------------------------------------------------
 //  Class  ShapeAnalysis_DataMapOfShapeListOfReal
 //---------------------------------------------------------------------
@@ -107,6 +65,7 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::ShapeAnalysis_DataMapOfShapeListOfReal^ theMap);
         bool More();
         void Next();
         Macad::Occt::TColStd_ListOfReal^ Value();
@@ -114,23 +73,43 @@ public:
         Macad::Occt::TopoDS_Shape^ Key();
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     ShapeAnalysis_DataMapOfShapeListOfReal();
+    ShapeAnalysis_DataMapOfShapeListOfReal(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    ShapeAnalysis_DataMapOfShapeListOfReal(long long unsigned int theNbBuckets);
     ShapeAnalysis_DataMapOfShapeListOfReal(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     ShapeAnalysis_DataMapOfShapeListOfReal(int theNbBuckets);
+    ShapeAnalysis_DataMapOfShapeListOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    ShapeAnalysis_DataMapOfShapeListOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets);
+    ShapeAnalysis_DataMapOfShapeListOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher);
+    ShapeAnalysis_DataMapOfShapeListOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    ShapeAnalysis_DataMapOfShapeListOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets);
+    /* Method skipped due to unknown mapping: ItemsView Items() */
     void Exchange(Macad::Occt::ShapeAnalysis_DataMapOfShapeListOfReal^ theOther);
+    Macad::Occt::TopTools_ShapeMapHasher^ GetHasher();
     Macad::Occt::ShapeAnalysis_DataMapOfShapeListOfReal^ Assign(Macad::Occt::ShapeAnalysis_DataMapOfShapeListOfReal^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     bool Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_ListOfReal^ theItem);
     Macad::Occt::TColStd_ListOfReal^ Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_ListOfReal^ theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_ListOfReal^ theItem);
+    Macad::Occt::TColStd_ListOfReal^ TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_ListOfReal^ theItem);
     bool IsBound(Macad::Occt::TopoDS_Shape^ theKey);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<const NCollection_List<double>>>> Contained(TopoDS_Shape theKey, ) */
     bool UnBind(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColStd_ListOfReal^ Seek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColStd_ListOfReal^ Find(Macad::Occt::TopoDS_Shape^ theKey);
+    bool Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_ListOfReal^ theValue);
     Macad::Occt::TColStd_ListOfReal^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColStd_ListOfReal^ ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class ShapeAnalysis_DataMapOfShapeListOfReal
 
 //---------------------------------------------------------------------
@@ -192,6 +171,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theSeq, bool isStart);
+        Iterator(Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theSeq);
         bool More();
         void Next();
         Macad::Occt::ShapeAnalysis_FreeBoundData^ Value();
@@ -200,35 +181,179 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     ShapeAnalysis_SequenceOfFreeBounds();
     ShapeAnalysis_SequenceOfFreeBounds(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ Assign(Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theOther);
     void Remove(Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    void Append(Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theSeq);
     void Prepend(Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    void Prepend(Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theSeq);
     void InsertAfter(Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds::Iterator^ thePosition, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theSeq);
     void Split(int theIndex, Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theSeq);
     Macad::Occt::ShapeAnalysis_FreeBoundData^ First();
     Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeFirst();
     Macad::Occt::ShapeAnalysis_FreeBoundData^ Last();
     Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeLast();
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::ShapeAnalysis_FreeBoundData^ Value(int theIndex);
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
     void SetValue(int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ At(long long unsigned int theIndex);
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::ShapeAnalysis_FreeBoundData^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class ShapeAnalysis_SequenceOfFreeBounds
+
+//---------------------------------------------------------------------
+//  Class  ShapeAnalysis_HSequenceOfFreeBounds
+//---------------------------------------------------------------------
+public ref class ShapeAnalysis_HSequenceOfFreeBounds sealed
+    : public Macad::Occt::Standard_Transient
+    , public IIndexEnumerable<Macad::Occt::ShapeAnalysis_FreeBoundData^>
+{
+
+#ifdef Include_ShapeAnalysis_HSequenceOfFreeBounds_h
+public:
+    Include_ShapeAnalysis_HSequenceOfFreeBounds_h
+#endif
+
+public:
+    ShapeAnalysis_HSequenceOfFreeBounds(::ShapeAnalysis_HSequenceOfFreeBounds* nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    ShapeAnalysis_HSequenceOfFreeBounds(::ShapeAnalysis_HSequenceOfFreeBounds& nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    property ::ShapeAnalysis_HSequenceOfFreeBounds* NativeInstance
+    {
+        ::ShapeAnalysis_HSequenceOfFreeBounds* get()
+        {
+            return static_cast<::ShapeAnalysis_HSequenceOfFreeBounds*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::ShapeAnalysis_HSequenceOfFreeBounds::Iterator>
+    {
+
+#ifdef Include_ShapeAnalysis_HSequenceOfFreeBounds_Iterator_h
+    public:
+        Include_ShapeAnalysis_HSequenceOfFreeBounds_Iterator_h
+#endif
+
+    public:
+        Iterator(::ShapeAnalysis_HSequenceOfFreeBounds::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::ShapeAnalysis_HSequenceOfFreeBounds::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::ShapeAnalysis_HSequenceOfFreeBounds::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::ShapeAnalysis_HSequenceOfFreeBounds::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::ShapeAnalysis_HSequenceOfFreeBounds::Iterator* NativeInstance
+        {
+            ::ShapeAnalysis_HSequenceOfFreeBounds::Iterator* get()
+            {
+                return static_cast<::ShapeAnalysis_HSequenceOfFreeBounds::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        Iterator();
+        /* Method skipped due to unknown mapping: void Iterator(NCollection_HSequence<TI_0>::SequenceType theSeq, bool isStart, ) */
+        /* Method skipped due to unknown mapping: void Iterator(NCollection_HSequence<TI_0>::SequenceType theSeq, bool isStart, ) */
+        bool More();
+        void Next();
+        Macad::Occt::ShapeAnalysis_FreeBoundData^ Value();
+        Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeValue();
+        bool IsEqual(Macad::Occt::ShapeAnalysis_HSequenceOfFreeBounds::Iterator^ theOther);
+        bool Equals(System::Object^ obj) override;
+    }; // class Iterator
+
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
+    static int Lower();
+    int Upper();
+    bool IsEmpty();
+    void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
+    void Exchange(int I, int J);
+    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    void Clear();
+    /* Method skipped due to unknown mapping: NCollection_HSequence<TI_0>::SequenceType Assign(NCollection_HSequence<TI_0>::SequenceType theOther, ) */
+    void Remove(Macad::Occt::ShapeAnalysis_HSequenceOfFreeBounds::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
+    void Prepend(Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    /* Method skipped due to unknown mapping: void Prepend(NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    void InsertBefore(int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    /* Method skipped due to unknown mapping: void InsertBefore(long long unsigned int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    /* Method skipped due to unknown mapping: void InsertBefore(int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    void InsertAfter(Macad::Occt::ShapeAnalysis_HSequenceOfFreeBounds::Iterator^ thePosition, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    /* Method skipped due to unknown mapping: void InsertAfter(long long unsigned int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    /* Method skipped due to unknown mapping: void InsertAfter(int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    /* Method skipped due to unknown mapping: void Split(long long unsigned int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    /* Method skipped due to unknown mapping: void Split(int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ First();
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeFirst();
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ Last();
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeLast();
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ Value(long long unsigned int theIndex);
+    virtual Macad::Occt::ShapeAnalysis_FreeBoundData^ Value(int theIndex);
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeValue(long long unsigned int theIndex);
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    void SetValue(int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ At(long long unsigned int theIndex);
+    Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeAt(long long unsigned int theIndex);
+    ShapeAnalysis_HSequenceOfFreeBounds();
+    /* Method skipped due to unknown mapping: void ShapeAnalysis_HSequenceOfFreeBounds(SequenceType theOther, ) */
+    /* Method skipped due to unknown mapping: SequenceType Sequence() */
+    /* Method skipped due to unknown mapping: SequenceType ChangeSequence() */
+    void Append(Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
+    /* Method skipped due to unknown mapping: void Append(SequenceType theSequence, ) */
+    static Macad::Occt::ShapeAnalysis_HSequenceOfFreeBounds^ CreateDowncasted(::ShapeAnalysis_HSequenceOfFreeBounds* instance);
+    virtual System::Collections::Generic::IEnumerator<Macad::Occt::ShapeAnalysis_FreeBoundData^>^ GetEnumerator();
+    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
+}; // class ShapeAnalysis_HSequenceOfFreeBounds
 
 //---------------------------------------------------------------------
 //  Class  ShapeAnalysis
@@ -1422,8 +1547,44 @@ public:
     /// adjacent edges share the same vertex.
     /// If <shared> is False connection is performed only when
     /// ends of adjacent edges are at distance less than <toler>.
+    /// Connects edges from the given sequence into wires.
     /// </summary>
+    /// <param name="in]">
+    /// edges the sequence of edges to connect
+    /// </param>
+    /// <param name="in]">
+    /// toler distance tolerance for connection
+    /// </param>
+    /// <param name="in]">
+    /// shared if true, connection uses shared vertices only
+    /// </param>
+    /// <returns>
+    /// sequence of resulting wires
+    /// </returns>
+    static Macad::Occt::TopTools_HSequenceOfShape^ ConnectEdgesToWires(Macad::Occt::TopTools_HSequenceOfShape^ edges, double toler, bool shared);
+    /// <summary>
+    /// </summary>
+    /// @deprecated Use ConnectEdgesToWires() returning handle by value instead.
     static void ConnectEdgesToWires(Macad::Occt::TopTools_HSequenceOfShape^ edges, double toler, bool shared, Macad::Occt::TopTools_HSequenceOfShape^ wires);
+    /// <summary>
+    /// Connects wires from the given sequence into longer wires.
+    /// </summary>
+    /// <param name="in]">
+    /// iwires the sequence of input wires
+    /// </param>
+    /// <param name="in]">
+    /// toler distance tolerance for connection
+    /// </param>
+    /// <param name="in]">
+    /// shared if true, connection uses shared vertices only
+    /// </param>
+    /// <returns>
+    /// sequence of resulting wires
+    /// </returns>
+    static Macad::Occt::TopTools_HSequenceOfShape^ ConnectWiresToWires(Macad::Occt::TopTools_HSequenceOfShape^ iwires, double toler, bool shared);
+    /// <summary>
+    /// </summary>
+    /// @deprecated Use ConnectWiresToWires() returning handle by value instead.
     static void ConnectWiresToWires(Macad::Occt::TopTools_HSequenceOfShape^ iwires, double toler, bool shared, Macad::Occt::TopTools_HSequenceOfShape^ owires);
     /// <summary>
     /// Builds sequence of <owires> out of sequence of not sorted
@@ -1439,7 +1600,28 @@ public:
     /// ends of adjacent wires are at distance less than <toler>.
     /// Map <vertices> stores the correspondence between original
     /// end vertices of the wires and new connecting vertices.
+    /// Connects wires from the given sequence into longer wires.
+    /// Also fills the map of original to new connecting vertices.
     /// </summary>
+    /// <param name="in]">
+    /// iwires the sequence of input wires
+    /// </param>
+    /// <param name="in]">
+    /// toler distance tolerance for connection
+    /// </param>
+    /// <param name="in]">
+    /// shared if true, connection uses shared vertices only
+    /// </param>
+    /// <param name="out]">
+    /// vertices map of original vertices to new connecting vertices
+    /// </param>
+    /// <returns>
+    /// sequence of resulting wires
+    /// </returns>
+    static Macad::Occt::TopTools_HSequenceOfShape^ ConnectWiresToWires(Macad::Occt::TopTools_HSequenceOfShape^ iwires, double toler, bool shared, Macad::Occt::TopTools_DataMapOfShapeShape^ vertices);
+    /// <summary>
+    /// </summary>
+    /// @deprecated Use ConnectWiresToWires() returning handle by value instead.
     static void ConnectWiresToWires(Macad::Occt::TopTools_HSequenceOfShape^ iwires, double toler, bool shared, Macad::Occt::TopTools_HSequenceOfShape^ owires, Macad::Occt::TopTools_DataMapOfShapeShape^ vertices);
     /// <summary>
     /// Extracts closed sub-wires out of <wires> and adds them
@@ -1458,107 +1640,6 @@ public:
     /// </summary>
     static void DispatchWires(Macad::Occt::TopTools_HSequenceOfShape^ wires, Macad::Occt::TopoDS_Compound^ closed, Macad::Occt::TopoDS_Compound^ open);
 }; // class ShapeAnalysis_FreeBounds
-
-//---------------------------------------------------------------------
-//  Class  ShapeAnalysis_HSequenceOfFreeBounds
-//---------------------------------------------------------------------
-public ref class ShapeAnalysis_HSequenceOfFreeBounds sealed
-    : public Macad::Occt::Standard_Transient
-    , public IIndexEnumerable<Macad::Occt::ShapeAnalysis_FreeBoundData^>
-{
-
-#ifdef Include_ShapeAnalysis_HSequenceOfFreeBounds_h
-public:
-    Include_ShapeAnalysis_HSequenceOfFreeBounds_h
-#endif
-
-public:
-    ShapeAnalysis_HSequenceOfFreeBounds(::ShapeAnalysis_HSequenceOfFreeBounds* nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    ShapeAnalysis_HSequenceOfFreeBounds(::ShapeAnalysis_HSequenceOfFreeBounds& nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    property ::ShapeAnalysis_HSequenceOfFreeBounds* NativeInstance
-    {
-        ::ShapeAnalysis_HSequenceOfFreeBounds* get()
-        {
-            return static_cast<::ShapeAnalysis_HSequenceOfFreeBounds*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::ShapeAnalysis_HSequenceOfFreeBounds::Iterator>
-    {
-
-#ifdef Include_ShapeAnalysis_HSequenceOfFreeBounds_Iterator_h
-    public:
-        Include_ShapeAnalysis_HSequenceOfFreeBounds_Iterator_h
-#endif
-
-    public:
-        Iterator(::ShapeAnalysis_HSequenceOfFreeBounds::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::ShapeAnalysis_HSequenceOfFreeBounds::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::ShapeAnalysis_HSequenceOfFreeBounds::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::ShapeAnalysis_HSequenceOfFreeBounds::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::ShapeAnalysis_HSequenceOfFreeBounds::Iterator* NativeInstance
-        {
-            ::ShapeAnalysis_HSequenceOfFreeBounds::Iterator* get()
-            {
-                return static_cast<::ShapeAnalysis_HSequenceOfFreeBounds::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::ShapeAnalysis_FreeBoundData^ Value();
-        Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeValue();
-        bool IsEqual(Macad::Occt::ShapeAnalysis_HSequenceOfFreeBounds::Iterator^ theOther);
-        bool Equals(System::Object^ obj) override;
-    }; // class Iterator
-
-    ShapeAnalysis_HSequenceOfFreeBounds();
-    ShapeAnalysis_HSequenceOfFreeBounds(Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theOther);
-    Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ Sequence();
-    void Append(Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
-    void Append(Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ theSequence);
-    Macad::Occt::ShapeAnalysis_SequenceOfFreeBounds^ ChangeSequence();
-    int Size();
-    int Length();
-    int Lower();
-    int Upper();
-    bool IsEmpty();
-    void Reverse();
-    void Exchange(int I, int J);
-    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::ShapeAnalysis_HSequenceOfFreeBounds^ Assign(Macad::Occt::ShapeAnalysis_HSequenceOfFreeBounds^ theOther);
-    void Remove(Macad::Occt::ShapeAnalysis_HSequenceOfFreeBounds::Iterator^ thePosition);
-    void Prepend(Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
-    void InsertBefore(int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
-    void InsertAfter(Macad::Occt::ShapeAnalysis_HSequenceOfFreeBounds::Iterator^ thePosition, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
-    void Split(int theIndex, Macad::Occt::ShapeAnalysis_HSequenceOfFreeBounds^ theSeq);
-    Macad::Occt::ShapeAnalysis_FreeBoundData^ First();
-    Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeFirst();
-    Macad::Occt::ShapeAnalysis_FreeBoundData^ Last();
-    Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeLast();
-    virtual Macad::Occt::ShapeAnalysis_FreeBoundData^ Value(int theIndex);
-    Macad::Occt::ShapeAnalysis_FreeBoundData^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::ShapeAnalysis_FreeBoundData^ theItem);
-    static Macad::Occt::ShapeAnalysis_HSequenceOfFreeBounds^ CreateDowncasted(::ShapeAnalysis_HSequenceOfFreeBounds* instance);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::ShapeAnalysis_FreeBoundData^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class ShapeAnalysis_HSequenceOfFreeBounds
 
 //---------------------------------------------------------------------
 //  Class  ShapeAnalysis_FreeBoundsProperties
@@ -1889,7 +1970,7 @@ public:
 
     /// <summary>
     /// Returns (modifiable) the flag which defines whether to store faces
-    /// with edges if its  pcurves are trimmed curves
+    /// with edges if its pcurves are trimmed curves
     /// </summary>
     property bool ModifyTrimmed2dMode {
         bool get() {
@@ -2700,7 +2781,7 @@ public:
     /// </summary>
     Macad::Occt::TColStd_HSequenceOfReal^ Perform(Macad::Occt::TColStd_HSequenceOfReal^ Papams, bool To2d);
     /// <summary>
-    /// Transfers parameter given by  Param from 3d curve
+    /// Transfers parameter given by Param from 3d curve
     /// to pcurve (if To2d is True) or back (if To2d is False)
     /// </summary>
     double Perform(double Param, bool To2d);
@@ -2715,13 +2796,13 @@ public:
     bool IsSameRange();
     /// <summary>
     /// Make a copy of non-manifold vertex theVert
-    /// (i.e. create new  TVertex and replace PointRepresentations for this vertex
+    /// (i.e. create new TVertex and replace PointRepresentations for this vertex
     /// from fromedge to toedge. Other representations were copied)
     /// </summary>
     static Macad::Occt::TopoDS_Vertex^ CopyNMVertex(Macad::Occt::TopoDS_Vertex^ theVert, Macad::Occt::TopoDS_Edge^ toedge, Macad::Occt::TopoDS_Edge^ fromedge);
     /// <summary>
     /// Make a copy of non-manifold vertex theVert
-    /// (i.e. create new  TVertex and replace PointRepresentations for this vertex
+    /// (i.e. create new TVertex and replace PointRepresentations for this vertex
     /// from fromFace to toFace. Other representations were copied)
     /// </summary>
     static Macad::Occt::TopoDS_Vertex^ CopyNMVertex(Macad::Occt::TopoDS_Vertex^ theVert, Macad::Occt::TopoDS_Face^ toFace, Macad::Occt::TopoDS_Face^ fromFace);
@@ -3035,6 +3116,14 @@ public:
     /// </summary>
     void SetFace(Macad::Occt::TopoDS_Face^ face);
     /// <summary>
+    /// Loads the face the wire lies on and surface analysis object
+    /// </summary>
+    void SetFace(Macad::Occt::TopoDS_Face^ theFace, Macad::Occt::ShapeAnalysis_Surface^ theSurfaceAnalysis);
+    /// <summary>
+    /// Loads the surface analysis object
+    /// </summary>
+    void SetSurface(Macad::Occt::ShapeAnalysis_Surface^ theSurfaceAnalysis);
+    /// <summary>
     /// Loads the surface the wire lies on
     /// </summary>
     void SetSurface(Macad::Occt::Geom_Surface^ surface);
@@ -3261,7 +3350,7 @@ public:
     bool CheckOrder(Macad::Occt::ShapeAnalysis_WireOrder^ sawo);
     /// <summary>
     /// Checks connected edges (num-th and preceding).
-    /// Tests with starting preci from <SBWD> or  with <prec> if
+    /// Tests with starting preci from <SBWD> or with <prec> if
     /// it is greater.
     /// Considers Vertices.
     /// Returns: False if edges are connected by the common vertex, else True
@@ -3277,7 +3366,7 @@ public:
     bool CheckConnected(int num, double prec);
     /// <summary>
     /// Checks connected edges (num-th and preceding).
-    /// Tests with starting preci from <SBWD> or  with <prec> if
+    /// Tests with starting preci from <SBWD> or with <prec> if
     /// it is greater.
     /// Considers Vertices.
     /// Returns: False if edges are connected by the common vertex, else True
@@ -3430,19 +3519,19 @@ public:
     /// FAIL : No 3d curve(s) on the edge(s)
     /// </summary>
     bool CheckCurveGap();
-    /* Method skipped due to unknown mapping: bool CheckSelfIntersectingEdge(int num, IntRes2d_SequenceOfIntersectionPoint points2d, TColgp_SequenceOfPnt points3d, ) */
+    /* Method skipped due to unknown mapping: bool CheckSelfIntersectingEdge(int num, NCollection_Sequence<IntRes2d_IntersectionPoint> points2d, TColgp_SequenceOfPnt points3d, ) */
     bool CheckSelfIntersectingEdge(int num);
-    /* Method skipped due to unknown mapping: bool CheckIntersectingEdges(int num, IntRes2d_SequenceOfIntersectionPoint points2d, TColgp_SequenceOfPnt points3d, TColStd_SequenceOfReal errors, ) */
+    /* Method skipped due to unknown mapping: bool CheckIntersectingEdges(int num, NCollection_Sequence<IntRes2d_IntersectionPoint> points2d, TColgp_SequenceOfPnt points3d, TColStd_SequenceOfReal errors, ) */
     /// <summary>
     /// Checks two adjacent edges for intersecting.
     /// Remark : Calls the previous method
     /// Status : See the function above for details
     /// </summary>
     bool CheckIntersectingEdges(int num);
-    /* Method skipped due to unknown mapping: bool CheckIntersectingEdges(int num1, int num2, IntRes2d_SequenceOfIntersectionPoint points2d, TColgp_SequenceOfPnt points3d, TColStd_SequenceOfReal errors, ) */
+    /* Method skipped due to unknown mapping: bool CheckIntersectingEdges(int num1, int num2, NCollection_Sequence<IntRes2d_IntersectionPoint> points2d, TColgp_SequenceOfPnt points3d, TColStd_SequenceOfReal errors, ) */
     /// <summary>
     /// Checks i-th and j-th edges for intersecting.
-    /// Remark : Calls  previous method.
+    /// Remark : Calls previous method.
     /// Status : See the function above for details
     /// </summary>
     bool CheckIntersectingEdges(int num1, int num2);

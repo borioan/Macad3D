@@ -129,7 +129,7 @@ public:
     /// <summary>
     /// Computes the max distance between edge
     /// and its 2d representation on the face.
-    /// Sets the default precision.  The current Precision
+    /// Sets the default precision. The current Precision
     /// is returned.
     /// </summary>
     static void Precision(double P);
@@ -182,71 +182,71 @@ public:
     /// </summary>
     static void SameRange(Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
-    /// Computes the 3d curve for the edge  <E> if it does
-    /// not exist. Returns True  if the curve was computed
-    /// or  existed. Returns False  if there is no  planar
+    /// Computes the 3d curve for the edge <E> if it does
+    /// not exist. Returns True if the curve was computed
+    /// or existed. Returns False if there is no planar
     /// pcurve or the computation failed.
     /// <MaxSegment> >= 30 in approximation
     /// </summary>
     static bool BuildCurve3d(Macad::Occt::TopoDS_Edge^ E, double Tolerance, Macad::Occt::GeomAbs_Shape Continuity, int MaxDegree, int MaxSegment);
     /// <summary>
-    /// Computes the 3d curve for the edge  <E> if it does
-    /// not exist. Returns True  if the curve was computed
-    /// or  existed. Returns False  if there is no  planar
+    /// Computes the 3d curve for the edge <E> if it does
+    /// not exist. Returns True if the curve was computed
+    /// or existed. Returns False if there is no planar
     /// pcurve or the computation failed.
     /// <MaxSegment> >= 30 in approximation
     /// </summary>
     static bool BuildCurve3d(Macad::Occt::TopoDS_Edge^ E, double Tolerance, Macad::Occt::GeomAbs_Shape Continuity, int MaxDegree);
     /// <summary>
-    /// Computes the 3d curve for the edge  <E> if it does
-    /// not exist. Returns True  if the curve was computed
-    /// or  existed. Returns False  if there is no  planar
+    /// Computes the 3d curve for the edge <E> if it does
+    /// not exist. Returns True if the curve was computed
+    /// or existed. Returns False if there is no planar
     /// pcurve or the computation failed.
     /// <MaxSegment> >= 30 in approximation
     /// </summary>
     static bool BuildCurve3d(Macad::Occt::TopoDS_Edge^ E, double Tolerance, Macad::Occt::GeomAbs_Shape Continuity);
     /// <summary>
-    /// Computes the 3d curve for the edge  <E> if it does
-    /// not exist. Returns True  if the curve was computed
-    /// or  existed. Returns False  if there is no  planar
+    /// Computes the 3d curve for the edge <E> if it does
+    /// not exist. Returns True if the curve was computed
+    /// or existed. Returns False if there is no planar
     /// pcurve or the computation failed.
     /// <MaxSegment> >= 30 in approximation
     /// </summary>
     static bool BuildCurve3d(Macad::Occt::TopoDS_Edge^ E, double Tolerance);
     /// <summary>
-    /// Computes the 3d curve for the edge  <E> if it does
-    /// not exist. Returns True  if the curve was computed
-    /// or  existed. Returns False  if there is no  planar
+    /// Computes the 3d curve for the edge <E> if it does
+    /// not exist. Returns True if the curve was computed
+    /// or existed. Returns False if there is no planar
     /// pcurve or the computation failed.
     /// <MaxSegment> >= 30 in approximation
     /// </summary>
     static bool BuildCurve3d(Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
-    /// Computes  the 3d curves  for all the  edges of <S>
+    /// Computes the 3d curves for all the edges of <S>
     /// return False if one of the computation failed.
     /// <MaxSegment> >= 30 in approximation
     /// </summary>
     static bool BuildCurves3d(Macad::Occt::TopoDS_Shape^ S, double Tolerance, Macad::Occt::GeomAbs_Shape Continuity, int MaxDegree, int MaxSegment);
     /// <summary>
-    /// Computes  the 3d curves  for all the  edges of <S>
+    /// Computes the 3d curves for all the edges of <S>
     /// return False if one of the computation failed.
     /// <MaxSegment> >= 30 in approximation
     /// </summary>
     static bool BuildCurves3d(Macad::Occt::TopoDS_Shape^ S, double Tolerance, Macad::Occt::GeomAbs_Shape Continuity, int MaxDegree);
     /// <summary>
-    /// Computes  the 3d curves  for all the  edges of <S>
+    /// Computes the 3d curves for all the edges of <S>
     /// return False if one of the computation failed.
     /// <MaxSegment> >= 30 in approximation
     /// </summary>
     static bool BuildCurves3d(Macad::Occt::TopoDS_Shape^ S, double Tolerance, Macad::Occt::GeomAbs_Shape Continuity);
     /// <summary>
-    /// Computes  the 3d curves  for all the  edges of <S>
+    /// Computes the 3d curves for all the edges of <S>
     /// return False if one of the computation failed.
     /// <MaxSegment> >= 30 in approximation
     /// </summary>
     static bool BuildCurves3d(Macad::Occt::TopoDS_Shape^ S, double Tolerance);
     /// <summary>
-    /// Computes  the 3d curves  for all the  edges of <S>
+    /// Computes the 3d curves for all the edges of <S>
     /// return False if one of the computation failed.
     /// </summary>
     static bool BuildCurves3d(Macad::Occt::TopoDS_Shape^ S);
@@ -260,47 +260,47 @@ public:
     /// </summary>
     static void BuildPCurveForEdgeOnPlane(Macad::Occt::TopoDS_Edge^ theE, Macad::Occt::TopoDS_Face^ theF, Macad::Occt::Geom2d_Curve^ aC2D, bool% bToUpdate);
     /// <summary>
-    /// Checks if the edge has a  Tolerance smaller than -- --
-    /// -- -- MaxToleranceToCheck  if  so it will compute  the
-    /// radius    of  -- the   cylindrical  pipe  surface that
+    /// Checks if the edge has a Tolerance smaller than
+    /// MaxToleranceToCheck if so it will compute the
+    /// radius of the cylindrical pipe surface that
     /// MinToleranceRequest is the minimum tolerance before it
     /// is useful to start testing.
     /// Usually it should be around 10e-5
-    /// contains all -- the curve representation of the edge
+    /// contains all the curve representation of the edge
     /// returns True if the Edge tolerance had to be updated
     /// </summary>
     static bool UpdateEdgeTol(Macad::Occt::TopoDS_Edge^ E, double MinToleranceRequest, double MaxToleranceToCheck);
     /// <summary>
-    /// -- Checks all the edges of the shape whose -- -- --
-    /// Tolerance  is  smaller than  MaxToleranceToCheck --
-    /// Returns True if at  least  one edge was updated --
+    /// Checks all the edges of the shape whose
+    /// Tolerance is smaller than MaxToleranceToCheck
+    /// Returns True if at least one edge was updated
     /// MinToleranceRequest is the minimum tolerance before
-    /// --  it -- is  useful to start  testing.
-    /// Usually it should be around -- 10e-5--
+    /// it is useful to start testing.
+    /// Usually it should be around 10e-5
     /// 
-    /// Warning :The  method is  very  slow  as it  checks all.
-    /// Use  only  in interfaces or  processing assimilate batch
+    /// Warning: The method is very slow as it checks all.
+    /// Use only in interfaces or processing assimilate batch
     /// </summary>
     static bool UpdateEdgeTolerance(Macad::Occt::TopoDS_Shape^ S, double MinToleranceRequest, double MaxToleranceToCheck);
     /// <summary>
-    /// Computes new 2d curve(s)  for the edge <theEdge> to have
-    /// the same parameter  as  the  3d curve.
+    /// Computes new 2d curve(s) for the edge <theEdge> to have
+    /// the same parameter as the 3d curve.
     /// The algorithm is not done if the flag SameParameter
-    /// was True  on the  Edge.
+    /// was True on the Edge.
     /// </summary>
     static void SameParameter(Macad::Occt::TopoDS_Edge^ theEdge, double Tolerance);
     /// <summary>
-    /// Computes new 2d curve(s)  for the edge <theEdge> to have
-    /// the same parameter  as  the  3d curve.
+    /// Computes new 2d curve(s) for the edge <theEdge> to have
+    /// the same parameter as the 3d curve.
     /// The algorithm is not done if the flag SameParameter
-    /// was True  on the  Edge.
+    /// was True on the Edge.
     /// </summary>
     static void SameParameter(Macad::Occt::TopoDS_Edge^ theEdge);
     /// <summary>
-    /// Computes new 2d curve(s)  for the edge <theEdge> to have
-    /// the same parameter  as  the  3d curve.
+    /// Computes new 2d curve(s) for the edge <theEdge> to have
+    /// the same parameter as the 3d curve.
     /// The algorithm is not done if the flag SameParameter
-    /// was True  on the  Edge.<br>
+    /// was True on the Edge.
     /// theNewTol is a new tolerance of vertices of the input edge
     /// (not applied inside the algorithm, but pre-computed).
     /// If IsUseOldEdge is true then the input edge will be modified,
@@ -309,31 +309,31 @@ public:
     /// </summary>
     static Macad::Occt::TopoDS_Edge^ SameParameter(Macad::Occt::TopoDS_Edge^ theEdge, double theTolerance, double% theNewTol, bool IsUseOldEdge);
     /// <summary>
-    /// Computes new 2d curve(s) for all the edges of  <S>
-    /// to have the same parameter  as  the  3d curve.
+    /// Computes new 2d curve(s) for all the edges of <S>
+    /// to have the same parameter as the 3d curve.
     /// The algorithm is not done if the flag SameParameter
-    /// was True  on an  Edge.
+    /// was True on an Edge.
     /// </summary>
     static void SameParameter(Macad::Occt::TopoDS_Shape^ S, double Tolerance, bool forced);
     /// <summary>
-    /// Computes new 2d curve(s) for all the edges of  <S>
-    /// to have the same parameter  as  the  3d curve.
+    /// Computes new 2d curve(s) for all the edges of <S>
+    /// to have the same parameter as the 3d curve.
     /// The algorithm is not done if the flag SameParameter
-    /// was True  on an  Edge.
+    /// was True on an Edge.
     /// </summary>
     static void SameParameter(Macad::Occt::TopoDS_Shape^ S, double Tolerance);
     /// <summary>
-    /// Computes new 2d curve(s) for all the edges of  <S>
-    /// to have the same parameter  as  the  3d curve.
+    /// Computes new 2d curve(s) for all the edges of <S>
+    /// to have the same parameter as the 3d curve.
     /// The algorithm is not done if the flag SameParameter
-    /// was True  on an  Edge.
+    /// was True on an Edge.
     /// </summary>
     static void SameParameter(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Computes new 2d curve(s) for all the edges of  <S>
-    /// to have the same parameter  as  the  3d curve.
+    /// Computes new 2d curve(s) for all the edges of <S>
+    /// to have the same parameter as the 3d curve.
     /// The algorithm is not done if the flag SameParameter
-    /// was True  on an  Edge.<br>
+    /// was True on an Edge.
     /// theReshaper is used to record the modifications of input shape <S> to prevent any
     /// modifications on the shape itself.
     /// Thus the input shape (and its subshapes) will not be modified, instead the reshaper will
@@ -341,10 +341,10 @@ public:
     /// </summary>
     static void SameParameter(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::BRepTools_ReShape^ theReshaper, double Tolerance, bool forced);
     /// <summary>
-    /// Computes new 2d curve(s) for all the edges of  <S>
-    /// to have the same parameter  as  the  3d curve.
+    /// Computes new 2d curve(s) for all the edges of <S>
+    /// to have the same parameter as the 3d curve.
     /// The algorithm is not done if the flag SameParameter
-    /// was True  on an  Edge.<br>
+    /// was True on an Edge.
     /// theReshaper is used to record the modifications of input shape <S> to prevent any
     /// modifications on the shape itself.
     /// Thus the input shape (and its subshapes) will not be modified, instead the reshaper will
@@ -352,10 +352,10 @@ public:
     /// </summary>
     static void SameParameter(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::BRepTools_ReShape^ theReshaper, double Tolerance);
     /// <summary>
-    /// Computes new 2d curve(s) for all the edges of  <S>
-    /// to have the same parameter  as  the  3d curve.
+    /// Computes new 2d curve(s) for all the edges of <S>
+    /// to have the same parameter as the 3d curve.
     /// The algorithm is not done if the flag SameParameter
-    /// was True  on an  Edge.<br>
+    /// was True on an Edge.
     /// theReshaper is used to record the modifications of input shape <S> to prevent any
     /// modifications on the shape itself.
     /// Thus the input shape (and its subshapes) will not be modified, instead the reshaper will
@@ -363,24 +363,24 @@ public:
     /// </summary>
     static void SameParameter(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::BRepTools_ReShape^ theReshaper);
     /// <summary>
-    /// Replaces tolerance   of  FACE EDGE VERTEX  by  the
+    /// Replaces tolerance of FACE EDGE VERTEX by the
     /// tolerance Max of their connected handling shapes.
     /// It is not necessary to use this call after
     /// SameParameter. (called in)
     /// </summary>
     static void UpdateTolerances(Macad::Occt::TopoDS_Shape^ S, bool verifyFaceTolerance);
     /// <summary>
-    /// Replaces tolerance   of  FACE EDGE VERTEX  by  the
+    /// Replaces tolerance of FACE EDGE VERTEX by the
     /// tolerance Max of their connected handling shapes.
     /// It is not necessary to use this call after
     /// SameParameter. (called in)
     /// </summary>
     static void UpdateTolerances(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Replaces tolerance   of  FACE EDGE VERTEX  by  the
+    /// Replaces tolerance of FACE EDGE VERTEX by the
     /// tolerance Max of their connected handling shapes.
     /// It is not necessary to use this call after
-    /// SameParameter. (called in)<br>
+    /// SameParameter. (called in)
     /// theReshaper is used to record the modifications of input shape <S> to prevent any
     /// modifications on the shape itself.
     /// Thus the input shape (and its subshapes) will not be modified, instead the reshaper will
@@ -388,10 +388,10 @@ public:
     /// </summary>
     static void UpdateTolerances(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::BRepTools_ReShape^ theReshaper, bool verifyFaceTolerance);
     /// <summary>
-    /// Replaces tolerance   of  FACE EDGE VERTEX  by  the
+    /// Replaces tolerance of FACE EDGE VERTEX by the
     /// tolerance Max of their connected handling shapes.
     /// It is not necessary to use this call after
-    /// SameParameter. (called in)<br>
+    /// SameParameter. (called in)
     /// theReshaper is used to record the modifications of input shape <S> to prevent any
     /// modifications on the shape itself.
     /// Thus the input shape (and its subshapes) will not be modified, instead the reshaper will
@@ -404,8 +404,8 @@ public:
     /// </summary>
     static void UpdateInnerTolerances(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Orients the solid forward  and the  shell with the
-    /// orientation to have  matter in the solid. Returns
+    /// Orients the solid forward and the shell with the
+    /// orientation to have matter in the solid. Returns
     /// False if the solid is unOrientable (open or incoherent)
     /// </summary>
     static bool OrientClosedSolid(Macad::Occt::TopoDS_Solid^ solid);
@@ -457,14 +457,14 @@ public:
     /// </summary>
     static void EncodeRegularity(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F1, Macad::Occt::TopoDS_Face^ F2);
     /// <summary>
-    /// Sorts in  LF the Faces of   S on the  complexity of
-    /// their                  surfaces
+    /// Sorts in LF the Faces of S on the complexity of
+    /// their surfaces
     /// (Plane,Cylinder,Cone,Sphere,Torus,other)
     /// </summary>
     static void SortFaces(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopTools_ListOfShape^ LF);
     /// <summary>
-    /// Sorts in  LF  the   Faces  of S   on the reverse
-    /// complexity       of       their      surfaces
+    /// Sorts in LF the Faces of S on the reverse
+    /// complexity of their surfaces
     /// (other,Torus,Sphere,Cone,Cylinder,Plane)
     /// </summary>
     static void ReverseSortFaces(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopTools_ListOfShape^ LF);
@@ -500,7 +500,7 @@ public:
     /// This can be used to construct the new vertex which covers the given set of
     /// other vertices.
     /// </summary>
-    static void BoundingVertex(Macad::Occt::TopoDS_ListOfShape^ theLV, Macad::Occt::Pnt% theNewCenter, double% theNewTol);
+    static void BoundingVertex(Macad::Occt::TopTools_ListOfShape^ theLV, Macad::Occt::Pnt% theNewCenter, double% theNewTol);
     /// <summary>
     /// For an edge defined by 3d curve and tolerance and vertices defined by points,
     /// parameters on curve and tolerances,
@@ -590,7 +590,7 @@ public:
     void Init(Macad::Occt::TopoDS_Edge^ theEdge, Macad::Occt::TopoDS_Face^ theFace);
     /// <summary>
     /// Performs the calculation
-    /// If myIsParallel == Standard_True then computation will be performed in parallel.
+    /// If myIsParallel == true then computation will be performed in parallel.
     /// </summary>
     void Perform();
     /// <summary>
@@ -681,25 +681,25 @@ public:
 //  Class  BRepLib_FindSurface
 //---------------------------------------------------------------------
 /// <summary>
-/// Provides an  algorithm to find  a Surface  through a
+/// Provides an algorithm to find a Surface through a
 /// set of edges.
 /// 
-/// The edges  of  the  shape  given  as  argument are
-/// explored if they are not coplanar at  the required
-/// tolerance  the method Found returns false.
+/// The edges of the shape given as argument are
+/// explored if they are not coplanar at the required
+/// tolerance the method Found returns false.
 /// 
-/// If a null tolerance is given the max of the  edges
+/// If a null tolerance is given the max of the edges
 /// tolerances is used.
 /// 
-/// The method Tolerance returns the true distance  of
+/// The method Tolerance returns the true distance of
 /// the edges to the Surface.
 /// 
 /// The method Surface returns the Surface if found.
 /// 
-/// The method Existed  returns returns  True  if  the
+/// The method Existed returns True if the
 /// Surface was already attached to some of the edges.
 /// 
-/// When Existed  returns True  the  Surface  may have a
+/// When Existed returns True the Surface may have a
 /// location given by the Location method.
 /// </summary>
 public ref class BRepLib_FindSurface sealed
@@ -731,90 +731,90 @@ public:
 public:
     BRepLib_FindSurface();
     /// <summary>
-    /// Computes the Surface from the edges of  <S> with the
+    /// Computes the Surface from the edges of <S> with the
     /// given tolerance.
     /// if <OnlyPlane> is true, the computed surface will be
     /// a plane. If it is not possible to find a plane, the
     /// flag NotDone will be set.
-    /// If <OnlyClosed> is true,  then  S  should be a wire
-    /// and the existing surface,  on  which wire S is not
+    /// If <OnlyClosed> is true, then S should be a wire
+    /// and the existing surface, on which wire S is not
     /// closed in 2D, will be ignored.
     /// </summary>
     BRepLib_FindSurface(Macad::Occt::TopoDS_Shape^ S, double Tol, bool OnlyPlane, bool OnlyClosed);
     /// <summary>
-    /// Computes the Surface from the edges of  <S> with the
+    /// Computes the Surface from the edges of <S> with the
     /// given tolerance.
     /// if <OnlyPlane> is true, the computed surface will be
     /// a plane. If it is not possible to find a plane, the
     /// flag NotDone will be set.
-    /// If <OnlyClosed> is true,  then  S  should be a wire
-    /// and the existing surface,  on  which wire S is not
+    /// If <OnlyClosed> is true, then S should be a wire
+    /// and the existing surface, on which wire S is not
     /// closed in 2D, will be ignored.
     /// </summary>
     BRepLib_FindSurface(Macad::Occt::TopoDS_Shape^ S, double Tol, bool OnlyPlane);
     /// <summary>
-    /// Computes the Surface from the edges of  <S> with the
+    /// Computes the Surface from the edges of <S> with the
     /// given tolerance.
     /// if <OnlyPlane> is true, the computed surface will be
     /// a plane. If it is not possible to find a plane, the
     /// flag NotDone will be set.
-    /// If <OnlyClosed> is true,  then  S  should be a wire
-    /// and the existing surface,  on  which wire S is not
+    /// If <OnlyClosed> is true, then S should be a wire
+    /// and the existing surface, on which wire S is not
     /// closed in 2D, will be ignored.
     /// </summary>
     BRepLib_FindSurface(Macad::Occt::TopoDS_Shape^ S, double Tol);
     /// <summary>
-    /// Computes the Surface from the edges of  <S> with the
+    /// Computes the Surface from the edges of <S> with the
     /// given tolerance.
     /// if <OnlyPlane> is true, the computed surface will be
     /// a plane. If it is not possible to find a plane, the
     /// flag NotDone will be set.
-    /// If <OnlyClosed> is true,  then  S  should be a wire
-    /// and the existing surface,  on  which wire S is not
+    /// If <OnlyClosed> is true, then S should be a wire
+    /// and the existing surface, on which wire S is not
     /// closed in 2D, will be ignored.
     /// </summary>
     BRepLib_FindSurface(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Computes the Surface from the edges of  <S> with the
+    /// Computes the Surface from the edges of <S> with the
     /// given tolerance.
     /// if <OnlyPlane> is true, the computed surface will be
     /// a plane. If it is not possible to find a plane, the
     /// flag NotDone will be set.
-    /// If <OnlyClosed> is true,  then  S  should be a wire
-    /// and the existing surface,  on  which wire S is not
+    /// If <OnlyClosed> is true, then S should be a wire
+    /// and the existing surface, on which wire S is not
     /// closed in 2D, will be ignored.
     /// </summary>
     void Init(Macad::Occt::TopoDS_Shape^ S, double Tol, bool OnlyPlane, bool OnlyClosed);
     /// <summary>
-    /// Computes the Surface from the edges of  <S> with the
+    /// Computes the Surface from the edges of <S> with the
     /// given tolerance.
     /// if <OnlyPlane> is true, the computed surface will be
     /// a plane. If it is not possible to find a plane, the
     /// flag NotDone will be set.
-    /// If <OnlyClosed> is true,  then  S  should be a wire
-    /// and the existing surface,  on  which wire S is not
+    /// If <OnlyClosed> is true, then S should be a wire
+    /// and the existing surface, on which wire S is not
     /// closed in 2D, will be ignored.
     /// </summary>
     void Init(Macad::Occt::TopoDS_Shape^ S, double Tol, bool OnlyPlane);
     /// <summary>
-    /// Computes the Surface from the edges of  <S> with the
+    /// Computes the Surface from the edges of <S> with the
     /// given tolerance.
     /// if <OnlyPlane> is true, the computed surface will be
     /// a plane. If it is not possible to find a plane, the
     /// flag NotDone will be set.
-    /// If <OnlyClosed> is true,  then  S  should be a wire
-    /// and the existing surface,  on  which wire S is not
+    /// If <OnlyClosed> is true, then S should be a wire
+    /// and the existing surface, on which wire S is not
     /// closed in 2D, will be ignored.
     /// </summary>
     void Init(Macad::Occt::TopoDS_Shape^ S, double Tol);
     /// <summary>
-    /// Computes the Surface from the edges of  <S> with the
+    /// Computes the Surface from the edges of <S> with the
     /// given tolerance.
     /// if <OnlyPlane> is true, the computed surface will be
     /// a plane. If it is not possible to find a plane, the
     /// flag NotDone will be set.
-    /// If <OnlyClosed> is true,  then  S  should be a wire
-    /// and the existing surface,  on  which wire S is not
+    /// If <OnlyClosed> is true, then S should be a wire
+    /// and the existing surface, on which wire S is not
     /// closed in 2D, will be ignored.
     /// </summary>
     void Init(Macad::Occt::TopoDS_Shape^ S);
@@ -830,13 +830,13 @@ public:
 //  Class  BRepLib_FuseEdges
 //---------------------------------------------------------------------
 /// <summary>
-/// This class can detect  vertices in a face that can
+/// This class can detect vertices in a face that can
 /// be considered useless and then perform the fuse of
-/// the  edges and remove  the  useless vertices.  By
-/// useles vertices,  we mean :
-/// * vertices that  have  exactly two connex edges
+/// the edges and remove the useless vertices. By
+/// useles vertices, we mean:
+/// * vertices that have exactly two connex edges
 /// * the edges connex to the vertex must have
-/// exactly the same 2 connex faces .
+/// exactly the same 2 connex faces.
 /// * The edges connex to the vertex must have the
 /// same geometric support.
 /// </summary>
@@ -868,12 +868,12 @@ public:
 
 public:
     /// <summary>
-    /// Initialise members  and build  construction of map
+    /// Initialise members and build construction of map
     /// of ancestors.
     /// </summary>
     BRepLib_FuseEdges(Macad::Occt::TopoDS_Shape^ theShape, bool PerformNow);
     /// <summary>
-    /// Initialise members  and build  construction of map
+    /// Initialise members and build construction of map
     /// of ancestors.
     /// </summary>
     BRepLib_FuseEdges(Macad::Occt::TopoDS_Shape^ theShape);
@@ -883,25 +883,25 @@ public:
     void AvoidEdges(Macad::Occt::TopTools_IndexedMapOfShape^ theMapEdg);
     /// <summary>
     /// set mode to enable concatenation G1 BSpline edges in one
-    /// End  Modified  by  IFV  19.04.07
+    /// End Modified by IFV 19.04.07
     /// </summary>
     void SetConcatBSpl(bool theConcatBSpl);
     /// <summary>
     /// set mode to enable concatenation G1 BSpline edges in one
-    /// End  Modified  by  IFV  19.04.07
+    /// End Modified by IFV 19.04.07
     /// </summary>
     void SetConcatBSpl();
     /// <summary>
-    /// returns  all the list of edges to be fused
+    /// returns all the list of edges to be fused
     /// each list of the map represent a set of connex edges
     /// that can be fused.
     /// </summary>
     void Edges(Macad::Occt::TopTools_DataMapOfIntegerListOfShape^ theMapLstEdg);
     /// <summary>
     /// returns all the fused edges. each integer entry in
-    /// the   map  corresponds  to  the  integer   in the
-    /// DataMapOfIntegerListOfShape  we    get in  method
-    /// Edges.   That is to say, to  the list  of edges in
+    /// the map corresponds to the integer in the
+    /// DataMapOfIntegerListOfShape we get in method
+    /// Edges. That is to say, to the list of edges in
     /// theMapLstEdg(i) corresponds the resulting edge theMapEdge(i)
     /// </summary>
     void ResultEdges(Macad::Occt::TopTools_DataMapOfIntegerShape^ theMapEdg);
@@ -919,7 +919,7 @@ public:
     /// </summary>
     int NbVertices();
     /// <summary>
-    /// Using  map of list of connex  edges, fuse each list to
+    /// Using map of list of connex edges, fuse each list to
     /// one edge and then update myShape
     /// </summary>
     void Perform();
@@ -929,10 +929,10 @@ public:
 //  Class  BRepLib_MakeShape
 //---------------------------------------------------------------------
 /// <summary>
-/// This    is  the  root     class for     all  shape
-/// constructions.  It stores the result.
+/// This is the root class for all shape
+/// constructions. It stores the result.
 /// 
-/// It  provides deferred methods to trace the history
+/// It provides deferred methods to trace the history
 /// of sub-shapes.
 /// </summary>
 public ref class BRepLib_MakeShape
@@ -968,7 +968,7 @@ public:
 
 public:
     /// <summary>
-    /// This is  called by  Shape().  It does  nothing but
+    /// This is called by Shape(). It does nothing but
     /// may be redefined.
     /// </summary>
     void Build();
@@ -1008,34 +1008,34 @@ public:
 /// <summary>
 /// Provides methods to build edges.
 /// 
-/// The   methods have  the  following   syntax, where
+/// The methods have the following syntax, where
 /// TheCurve is one of Lin, Circ, ...
 /// 
 /// Create(C : TheCurve)
 /// 
-/// Makes an edge on  the whole curve.  Add vertices
+/// Makes an edge on the whole curve. Add vertices
 /// on finite curves.
 /// 
 /// Create(C : TheCurve; p1,p2 : Real)
 /// 
-/// Make an edge  on the curve between parameters p1
+/// Make an edge on the curve between parameters p1
 /// and p2. if p2 < p1 the edge will be REVERSED. If
-/// p1  or p2 is infinite the  curve will be open in
-/// that  direction. Vertices are created for finite
+/// p1 or p2 is infinite the curve will be open in
+/// that direction. Vertices are created for finite
 /// values of p1 and p2.
 /// 
 /// Create(C : TheCurve; P1, P2 : Pnt from gp)
 /// 
-/// Make an edge on the curve  between the points P1
-/// and P2. The  points are projected on   the curve
-/// and the   previous method is  used. An  error is
+/// Make an edge on the curve between the points P1
+/// and P2. The points are projected on the curve
+/// and the previous method is used. An error is
 /// raised if the points are not on the curve.
 /// 
 /// Create(C : TheCurve; V1, V2 : Vertex from TopoDS)
 /// 
-/// Make an edge  on the curve  between the vertices
-/// V1 and V2. Same as the  previous but no vertices
-/// are created. If a vertex is  Null the curve will
+/// Make an edge on the curve between the vertices
+/// V1 and V2. Same as the previous but no vertices
+/// are created. If a vertex is Null the curve will
 /// be open in this direction.
 /// </summary>
 public ref class BRepLib_MakeEdge sealed
@@ -1133,34 +1133,34 @@ public:
 /// <summary>
 /// Provides methods to build edges.
 /// 
-/// The   methods have  the  following   syntax, where
+/// The methods have the following syntax, where
 /// TheCurve is one of Lin2d, Circ2d, ...
 /// 
 /// Create(C : TheCurve)
 /// 
-/// Makes an edge on  the whole curve.  Add vertices
+/// Makes an edge on the whole curve. Add vertices
 /// on finite curves.
 /// 
 /// Create(C : TheCurve; p1,p2 : Real)
 /// 
-/// Make an edge  on the curve between parameters p1
+/// Make an edge on the curve between parameters p1
 /// and p2. if p2 < p1 the edge will be REVERSED. If
-/// p1  or p2 is infinite the  curve will be open in
-/// that  direction. Vertices are created for finite
+/// p1 or p2 is infinite the curve will be open in
+/// that direction. Vertices are created for finite
 /// values of p1 and p2.
 /// 
 /// Create(C : TheCurve; P1, P2 : Pnt2d from gp)
 /// 
-/// Make an edge on the curve  between the points P1
-/// and P2. The  points are projected on   the curve
-/// and the   previous method is  used. An  error is
+/// Make an edge on the curve between the points P1
+/// and P2. The points are projected on the curve
+/// and the previous method is used. An error is
 /// raised if the points are not on the curve.
 /// 
 /// Create(C : TheCurve; V1, V2 : Vertex from TopoDS)
 /// 
-/// Make an edge  on the curve  between the vertices
-/// V1 and V2. Same as the  previous but no vertices
-/// are created. If a vertex is  Null the curve will
+/// Make an edge on the curve between the vertices
+/// V1 and V2. Same as the previous but no vertices
+/// are created. If a vertex is Null the curve will
 /// be open in this direction.
 /// </summary>
 public ref class BRepLib_MakeEdge2d sealed
@@ -1262,7 +1262,7 @@ public:
 /// * From a surface and a wire.
 /// 
 /// - A flag Inside is given, when this flag is True
-/// the  wire is  oriented to bound a finite area on
+/// the wire is oriented to bound a finite area on
 /// the surface.
 /// 
 /// * From a face and a wire.
@@ -1426,7 +1426,7 @@ public:
     /// </summary>
     void Init(Macad::Occt::TopoDS_Face^ F);
     /// <summary>
-    /// Creates the face  from the  surface. If Bound is
+    /// Creates the face from the surface. If Bound is
     /// True a wire is made from the natural bounds.
     /// Accepts tolerance value (TolDegen) for resolution
     /// of degenerated edges.
@@ -1473,8 +1473,8 @@ public:
 /// 
 /// - any number of vertices.
 /// 
-/// When a point or vertex is added to the  polygon if
-/// it is identic  to the previous  point no  edge  is
+/// When a point or vertex is added to the polygon if
+/// it is identic to the previous point no edge is
 /// built. The method added can be used to test it.
 /// </summary>
 public ref class BRepLib_MakePolygon sealed
@@ -1521,7 +1521,7 @@ public:
     void Add(Macad::Occt::Pnt P);
     void Add(Macad::Occt::TopoDS_Vertex^ V);
     /// <summary>
-    /// Returns  True if  the last   vertex  or point  was
+    /// Returns True if the last vertex or point was
     /// successfully added.
     /// </summary>
     bool Added();
@@ -1581,12 +1581,12 @@ public:
     BRepLib_MakeShell(Macad::Occt::Geom_Surface^ S, double UMin, double UMax, double VMin, double VMax, bool Segment);
     BRepLib_MakeShell(Macad::Occt::Geom_Surface^ S, double UMin, double UMax, double VMin, double VMax);
     /// <summary>
-    /// Creates the shell from the surface  and the min-max
+    /// Creates the shell from the surface and the min-max
     /// values.
     /// </summary>
     void Init(Macad::Occt::Geom_Surface^ S, double UMin, double UMax, double VMin, double VMax, bool Segment);
     /// <summary>
-    /// Creates the shell from the surface  and the min-max
+    /// Creates the shell from the surface and the min-max
     /// values.
     /// </summary>
     void Init(Macad::Occt::Geom_Surface^ S, double UMin, double UMax, double VMin, double VMax);
@@ -1601,7 +1601,7 @@ public:
 //  Class  BRepLib_MakeSolid
 //---------------------------------------------------------------------
 /// <summary>
-/// Makes a solid from compsolid  or  shells.
+/// Makes a solid from compsolid or shells.
 /// </summary>
 public ref class BRepLib_MakeSolid sealed
     : public Macad::Occt::BRepLib_MakeShape
@@ -1716,26 +1716,26 @@ public:
 /// <summary>
 /// Provides methods to build wires.
 /// 
-/// A wire may be built :
+/// A wire may be built:
 /// 
 /// * From a single edge.
 /// 
 /// * From a wire and an edge.
 /// 
-/// - A new wire  is created with the edges  of  the
+/// - A new wire is created with the edges of the
 /// wire + the edge.
 /// 
-/// - If the edge is not connected  to the wire the
-/// flag NotDone   is set and  the  method Wire will
+/// - If the edge is not connected to the wire the
+/// flag NotDone is set and the method Wire will
 /// raise an error.
 /// 
-/// - The connection may be :
+/// - The connection may be:
 /// 
 /// . Through an existing vertex. The edge is shared.
 /// 
 /// . Through a geometric coincidence of vertices.
-/// The edge is  copied  and the vertices from the
-/// edge are  replaced  by  the vertices from  the
+/// The edge is copied and the vertices from the
+/// edge are replaced by the vertices from the
 /// wire.
 /// 
 /// . The new edge and the connection vertices are
@@ -1743,7 +1743,7 @@ public:
 /// 
 /// * From 2, 3, 4 edges.
 /// 
-/// - A wire is  created from  the first edge, the
+/// - A wire is created from the first edge, the
 /// following edges are added.
 /// 
 /// * From many edges.
@@ -1822,7 +1822,7 @@ public:
     void Add(Macad::Occt::TopoDS_Wire^ W);
     /// <summary>
     /// Add the edges of <L> to the current wire.
-    /// The edges are not to be consecutive.  But they are
+    /// The edges are not to be consecutive. But they are
     /// to be all connected geometrically or topologically.
     /// </summary>
     void Add(Macad::Occt::TopTools_ListOfShape^ L);

@@ -12,7 +12,7 @@ namespace Occt
 //  Class  GeomAdaptor
 //---------------------------------------------------------------------
 /// <summary>
-/// this package contains the  geometric definition of
+/// this package contains the geometric definition of
 /// curve and surface necessary to use algorithms.
 /// </summary>
 public ref class GeomAdaptor sealed
@@ -44,7 +44,7 @@ public:
 public:
     GeomAdaptor();
     /// <summary>
-    /// Inherited  from    GHCurve.   Provides a  curve
+    /// Inherited from GHCurve. Provides a curve
     /// handled by reference.
     /// Build a Geom_Curve using the information from the
     /// Curve from Adaptor3d
@@ -114,7 +114,7 @@ public:
     GeomAdaptor_Curve();
     GeomAdaptor_Curve(Macad::Occt::Geom_Curve^ theCurve);
     /// <summary>
-    /// Standard_ConstructionError is raised if theUFirst>theULast
+    /// Standard_ConstructionError is raised if theUFirst > theULast + Precision::PConfusion()
     /// </summary>
     GeomAdaptor_Curve(Macad::Occt::Geom_Curve^ theCurve, double theUFirst, double theULast);
     /// <summary>
@@ -127,7 +127,7 @@ public:
     void Reset();
     void Load(Macad::Occt::Geom_Curve^ theCurve);
     /// <summary>
-    /// Standard_ConstructionError is raised if theUFirst>theULast
+    /// Standard_ConstructionError is raised if theUFirst > theULast + Precision::PConfusion()
     /// </summary>
     void Load(Macad::Occt::Geom_Curve^ theCurve, double theUFirst, double theULast);
     /// <summary>
@@ -139,21 +139,21 @@ public:
     double LastParameter();
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// Returns  the number  of  intervals for  continuity
+    /// Returns the number of intervals for continuity
     /// <S>. May be one if Continuity(me) >= <S>
     /// </summary>
     int NbIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
+    /// Stores in <T> the parameters bounding the intervals
     /// of continuity <S>.
     /// 
-    /// The array must provide  enough room to  accommodate
+    /// The array must provide enough room to accommodate
     /// for the parameters. i.e. T.Length() > NbIntervals()
     /// </summary>
     void Intervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  curve equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a curve equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -161,54 +161,6 @@ public:
     bool IsClosed();
     bool IsPeriodic();
     double Period();
-    /// <summary>
-    /// Computes the point of parameter U on the curve
-    /// </summary>
-    Macad::Occt::Pnt Value(double U);
-    /// <summary>
-    /// Computes the point of parameter U.
-    /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
-    /// <summary>
-    /// Computes the point of parameter U on the curve
-    /// with its first derivative.
-    /// 
-    /// Warning : On the specific case of BSplineCurve:
-    /// if the curve is cut in interval of continuity at least C1, the
-    /// derivatives are computed on the current interval.
-    /// else the derivatives are computed on the basis curve.
-    /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V);
-    /// <summary>
-    /// Returns the point P of parameter U, the first and second
-    /// derivatives V1 and V2.
-    /// 
-    /// Warning : On the specific case of BSplineCurve:
-    /// if the curve is cut in interval of continuity at least C2, the
-    /// derivatives are computed on the current interval.
-    /// else the derivatives are computed on the basis curve.
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// Returns the point P of parameter U, the first, the second
-    /// and the third derivative.
-    /// 
-    /// Warning : On the specific case of BSplineCurve:
-    /// if the curve is cut in interval of continuity at least C3, the
-    /// derivatives are computed on the current interval.
-    /// else the derivatives are computed on the basis curve.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
-    /// <summary>
-    /// The returned vector gives the value of the derivative for the
-    /// order of derivation N.
-    /// Warning : On the specific case of BSplineCurve:
-    /// if the curve is cut in interval of continuity CN, the
-    /// derivatives are computed on the current interval.
-    /// else the derivatives are computed on the basis curve.
-    /// Raised if N < 1.
-    /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
     /// <summary>
     /// returns the parametric resolution
     /// </summary>
@@ -260,6 +212,17 @@ public:
     /// </summary>
     Macad::Occt::Geom_BSplineCurve^ BSpline();
     Macad::Occt::Geom_OffsetCurve^ OffsetCurve();
+    /// <summary>
+    /// Point evaluation. Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Pnt EvalD0(double theU);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double theU, ) */
+    /// <summary>
+    /// DN evaluation. Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Vec EvalDN(double theU, int theN);
     static Macad::Occt::GeomAdaptor_Curve^ CreateDowncasted(::GeomAdaptor_Curve* instance);
 }; // class GeomAdaptor_Curve
 
@@ -344,39 +307,63 @@ public:
     double LastUParameter();
     double FirstVParameter();
     double LastVParameter();
+    /// <summary>
+    /// Returns the parametric bounds of the surface.
+    /// </summary>
+    /// <param name="out]">
+    /// theU1 minimum U parameter
+    /// </param>
+    /// <param name="out]">
+    /// theU2 maximum U parameter
+    /// </param>
+    /// <param name="out]">
+    /// theV1 minimum V parameter
+    /// </param>
+    /// <param name="out]">
+    /// theV2 maximum V parameter
+    /// </param>
+    void Bounds(double% theU1, double% theU2, double% theV1, double% theV2);
+    /// <summary>
+    /// Returns tolerance in U direction.
+    /// </summary>
+    double ToleranceU();
+    /// <summary>
+    /// Returns tolerance in V direction.
+    /// </summary>
+    double ToleranceV();
     Macad::Occt::GeomAbs_Shape UContinuity();
     Macad::Occt::GeomAbs_Shape VContinuity();
     /// <summary>
-    /// Returns the number of U intervals for  continuity
+    /// Returns the number of U intervals for continuity
     /// <S>. May be one if UContinuity(me) >= <S>
     /// </summary>
     int NbUIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the number of V intervals for  continuity
+    /// Returns the number of V intervals for continuity
     /// <S>. May be one if VContinuity(me) >= <S>
     /// </summary>
     int NbVIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the  intervals with the requested continuity
+    /// Returns the intervals with the requested continuity
     /// in the U direction.
     /// </summary>
     void UIntervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the  intervals with the requested continuity
+    /// Returns the intervals with the requested continuity
     /// in the V direction.
     /// </summary>
     void VIntervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  surface trimmed in the U direction
-    /// equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a surface trimmed in the U direction
+    /// equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
     Macad::Occt::Adaptor3d_Surface^ UTrim(double First, double Last, double Tol);
     /// <summary>
-    /// Returns    a  surface trimmed in the V direction  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a surface trimmed in the V direction between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -388,68 +375,30 @@ public:
     bool IsVPeriodic();
     double VPeriod();
     /// <summary>
-    /// Computes the point of parameters U,V on the surface.
+    /// Point evaluation. Raises an exception on failure.
     /// </summary>
-    Macad::Occt::Pnt Value(double U, double V);
+    Macad::Occt::Pnt EvalD0(double theU, double theV);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double theU, double theV, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double theU, double theV, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double theU, double theV, ) */
     /// <summary>
-    /// Computes the point of parameters U,V on the surface.
+    /// DN evaluation. Raises an exception on failure.
     /// </summary>
-    void D0(double U, double V, Macad::Occt::Pnt% P);
+    Macad::Occt::Vec EvalDN(double theU, double theV, int theNu, int theNv);
     /// <summary>
-    /// Computes the point  and the first derivatives on
-    /// the surface.
-    /// 
-    /// Warning : On the specific case of BSplineSurface:
-    /// if the surface is cut in interval of continuity at least C1,
-    /// the derivatives are computed on the current interval.
-    /// else the derivatives are computed on the basis surface.
-    /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
-    /// <summary>
-    /// Computes   the point,  the  first  and  second
-    /// derivatives on the surface.
-    /// 
-    /// Warning : On the specific case of BSplineSurface:
-    /// if the surface is cut in interval of continuity at least C2,
-    /// the derivatives are computed on the current interval.
-    /// else the derivatives are computed on the basis surface.
-    /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
-    /// <summary>
-    /// Computes the point,  the first, second and third
-    /// derivatives on the surface.
-    /// 
-    /// Warning : On the specific case of BSplineSurface:
-    /// if the surface is cut in interval of continuity at least C3,
-    /// the derivatives are computed on the current interval.
-    /// else the derivatives are computed on the basis surface.
-    /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
-    /// <summary>
-    /// Computes the derivative of order Nu in the
-    /// direction U and Nv in the direction V at the point P(U, V).
-    /// 
-    /// Warning : On the specific case of BSplineSurface:
-    /// if the surface is cut in interval of continuity CN,
-    /// the derivatives are computed on the current interval.
-    /// else the derivatives are computed on the basis surface.
-    /// Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
-    /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
-    /// <summary>
-    /// Returns the parametric U  resolution corresponding
+    /// Returns the parametric U resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double UResolution(double R3d);
     /// <summary>
-    /// Returns the parametric V  resolution corresponding
+    /// Returns the parametric V resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double VResolution(double R3d);
     /// <summary>
-    /// Returns the type of the surface : Plane, Cylinder,
-    /// Cone,      Sphere,        Torus,    BezierSurface,
-    /// BSplineSurface,               SurfaceOfRevolution,
+    /// Returns the type of the surface: Plane, Cylinder,
+    /// Cone, Sphere, Torus, BezierSurface,
+    /// BSplineSurface, SurfaceOfRevolution,
     /// SurfaceOfExtrusion, OtherSurface
     /// </summary>
     Macad::Occt::GeomAbs_SurfaceType GetSurfaceType();
@@ -494,12 +443,11 @@ public:
 //  Class  GeomAdaptor_SurfaceOfLinearExtrusion
 //---------------------------------------------------------------------
 /// <summary>
-/// Generalised cylinder. This surface is obtained  by sweeping a  curve in  a given
-/// direction. The parametrization range  for the parameter U is defined
+/// Generalised cylinder. This surface is obtained by sweeping a curve in a given
+/// direction. The parametrization range for the parameter U is defined
 /// with referenced the curve.
 /// The parametrization range for the parameter V is ]-infinite,+infinite[
-/// The  position of  the   curve gives  the origin for    the
-/// parameter V.
+/// The position of the curve gives the origin for the parameter V.
 /// The continuity of the surface is CN in the V direction.
 /// </summary>
 public ref class GeomAdaptor_SurfaceOfLinearExtrusion sealed
@@ -560,36 +508,36 @@ public:
     /// </summary>
     Macad::Occt::GeomAbs_Shape VContinuity();
     /// <summary>
-    /// Returns the number of U intervals for  continuity
+    /// Returns the number of U intervals for continuity
     /// <S>. May be one if UContinuity(me) >= <S>
     /// </summary>
     int NbUIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the number of V intervals for  continuity
+    /// Returns the number of V intervals for continuity
     /// <S>. May be one if VContinuity(me) >= <S>
     /// </summary>
     int NbVIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the  intervals with the requested continuity
+    /// Returns the intervals with the requested continuity
     /// in the U direction.
     /// </summary>
     void UIntervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the  intervals with the requested continuity
+    /// Returns the intervals with the requested continuity
     /// in the V direction.
     /// </summary>
     void VIntervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  surface trimmed in the U direction
-    /// equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a surface trimmed in the U direction
+    /// equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
     Macad::Occt::Adaptor3d_Surface^ UTrim(double First, double Last, double Tol);
     /// <summary>
-    /// Returns    a  surface trimmed in the V direction  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a surface trimmed in the V direction between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -601,19 +549,19 @@ public:
     bool IsVPeriodic();
     double VPeriod();
     /// <summary>
-    /// Returns the parametric U  resolution corresponding
+    /// Returns the parametric U resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double UResolution(double R3d);
     /// <summary>
-    /// Returns the parametric V  resolution corresponding
+    /// Returns the parametric V resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double VResolution(double R3d);
     /// <summary>
-    /// Returns the type of the surface : Plane, Cylinder,
-    /// Cone,      Sphere,        Torus,    BezierSurface,
-    /// BSplineSurface,               SurfaceOfRevolution,
+    /// Returns the type of the surface: Plane, Cylinder,
+    /// Cone, Sphere, Torus, BezierSurface,
+    /// BSplineSurface, SurfaceOfRevolution,
     /// SurfaceOfExtrusion, OtherSurface
     /// </summary>
     Macad::Occt::GeomAbs_SurfaceType GetSurfaceType();
@@ -645,7 +593,7 @@ public:
 /// possible to be in the previous case after a cylindrical projection
 /// of the curve in a referenced plane.
 /// For a complete surface of revolution the parametric range is
-/// 0 <= U <= 2*PI.       --
+/// 0 <= U <= 2*PI
 /// The parametric range for V is defined with the revolved curve.
 /// The origin of the U parametrization is given by the position
 /// of the revolved curve (reference). The direction of the revolution
@@ -714,36 +662,36 @@ public:
     /// </summary>
     Macad::Occt::GeomAbs_Shape VContinuity();
     /// <summary>
-    /// Returns the number of U intervals for  continuity
+    /// Returns the number of U intervals for continuity
     /// <S>. May be one if UContinuity(me) >= <S>
     /// </summary>
     int NbUIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the number of V intervals for  continuity
+    /// Returns the number of V intervals for continuity
     /// <S>. May be one if VContinuity(me) >= <S>
     /// </summary>
     int NbVIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the  intervals with the requested continuity
+    /// Returns the intervals with the requested continuity
     /// in the U direction.
     /// </summary>
     void UIntervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns the  intervals with the requested continuity
+    /// Returns the intervals with the requested continuity
     /// in the V direction.
     /// </summary>
     void VIntervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  surface trimmed in the U direction
-    /// equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a surface trimmed in the U direction
+    /// equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
     Macad::Occt::Adaptor3d_Surface^ UTrim(double First, double Last, double Tol);
     /// <summary>
-    /// Returns    a  surface trimmed in the V direction  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a surface trimmed in the V direction between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -755,19 +703,19 @@ public:
     bool IsVPeriodic();
     double VPeriod();
     /// <summary>
-    /// Returns the parametric U  resolution corresponding
+    /// Returns the parametric U resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double UResolution(double R3d);
     /// <summary>
-    /// Returns the parametric V  resolution corresponding
+    /// Returns the parametric V resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double VResolution(double R3d);
     /// <summary>
-    /// Returns the type of the surface : Plane, Cylinder,
-    /// Cone,      Sphere,        Torus,    BezierSurface,
-    /// BSplineSurface,               SurfaceOfRevolution,
+    /// Returns the type of the surface: Plane, Cylinder,
+    /// Cone, Sphere, Torus, BezierSurface,
+    /// BSplineSurface, SurfaceOfRevolution,
     /// SurfaceOfExtrusion, OtherSurface
     /// </summary>
     Macad::Occt::GeomAbs_SurfaceType GetSurfaceType();
@@ -791,6 +739,530 @@ public:
     Macad::Occt::Adaptor3d_Curve^ BasisCurve();
     static Macad::Occt::GeomAdaptor_SurfaceOfRevolution^ CreateDowncasted(::GeomAdaptor_SurfaceOfRevolution* instance);
 }; // class GeomAdaptor_SurfaceOfRevolution
+
+//---------------------------------------------------------------------
+//  Class  GeomAdaptor_TransformedCurve
+//---------------------------------------------------------------------
+/// <summary>
+/// An adaptor for curves with an applied transformation.
+/// 
+/// This class wraps a GeomAdaptor_Curve (or an Adaptor3d_CurveOnSurface) and
+/// applies a gp_Trsf transformation to all point and derivative evaluations.
+/// It serves as a base class for BRepAdaptor_Curve and allows batch evaluation
+/// with transformations in GeomGridEval_Curve.
+/// 
+/// The evaluation methods (Value, D0, D1, D2, D3, DN) are marked final
+/// to enable optimizations in grid evaluation.
+/// </summary>
+public ref class GeomAdaptor_TransformedCurve
+    : public Macad::Occt::Adaptor3d_Curve
+{
+
+#ifdef Include_GeomAdaptor_TransformedCurve_h
+public:
+    Include_GeomAdaptor_TransformedCurve_h
+#endif
+
+protected:
+    GeomAdaptor_TransformedCurve(InitMode init)
+        : Macad::Occt::Adaptor3d_Curve( init )
+    {}
+
+public:
+    GeomAdaptor_TransformedCurve(::GeomAdaptor_TransformedCurve* nativeInstance)
+        : Macad::Occt::Adaptor3d_Curve( nativeInstance )
+    {}
+
+    GeomAdaptor_TransformedCurve(::GeomAdaptor_TransformedCurve& nativeInstance)
+        : Macad::Occt::Adaptor3d_Curve( nativeInstance )
+    {}
+
+    property ::GeomAdaptor_TransformedCurve* NativeInstance
+    {
+        ::GeomAdaptor_TransformedCurve* get()
+        {
+            return static_cast<::GeomAdaptor_TransformedCurve*>(_NativeInstance);
+        }
+    }
+
+public:
+    /// <summary>
+    /// Creates an undefined curve with identity transformation.
+    /// </summary>
+    GeomAdaptor_TransformedCurve();
+    /// <summary>
+    /// Creates a curve adaptor with transformation.
+    /// </summary>
+    /// <param name="theCurve">
+    /// underlying geometry
+    /// </param>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    GeomAdaptor_TransformedCurve(Macad::Occt::Geom_Curve^ theCurve, Macad::Occt::Trsf theTrsf);
+    /// <summary>
+    /// Creates a curve adaptor with transformation and parameter bounds.
+    /// </summary>
+    /// <param name="theCurve">
+    /// underlying geometry
+    /// </param>
+    /// <param name="theFirst">
+    /// minimum parameter
+    /// </param>
+    /// <param name="theLast">
+    /// maximum parameter
+    /// </param>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    GeomAdaptor_TransformedCurve(Macad::Occt::Geom_Curve^ theCurve, double theFirst, double theLast, Macad::Occt::Trsf theTrsf);
+    /// <summary>
+    /// Shallow copy of adaptor.
+    /// </summary>
+    Macad::Occt::Adaptor3d_Curve^ ShallowCopy();
+    /// <summary>
+    /// Loads the curve geometry.
+    /// </summary>
+    /// <param name="theCurve">
+    /// underlying geometry
+    /// </param>
+    void Load(Macad::Occt::Geom_Curve^ theCurve);
+    /// <summary>
+    /// Loads the curve geometry with parameter bounds.
+    /// </summary>
+    /// <param name="theCurve">
+    /// underlying geometry
+    /// </param>
+    /// <param name="theFirst">
+    /// minimum parameter
+    /// </param>
+    /// <param name="theLast">
+    /// maximum parameter
+    /// </param>
+    void Load(Macad::Occt::Geom_Curve^ theCurve, double theFirst, double theLast);
+    /// <summary>
+    /// Sets the curve on surface adaptor.
+    /// </summary>
+    /// <param name="theConSurf">
+    /// curve on surface adaptor
+    /// </param>
+    void LoadCurveOnSurface(Macad::Occt::Adaptor3d_CurveOnSurface^ theConSurf);
+    /// <summary>
+    /// Sets the transformation.
+    /// </summary>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    void SetTrsf(Macad::Occt::Trsf theTrsf);
+    /// <summary>
+    /// Returns the transformation.
+    /// </summary>
+    Macad::Occt::Trsf Trsf();
+    /// <summary>
+    /// Returns true if the geometry is a 3D curve (not curve on surface).
+    /// </summary>
+    bool Is3DCurve();
+    /// <summary>
+    /// Returns true if the geometry is a curve on surface.
+    /// </summary>
+    bool IsCurveOnSurface();
+    /// <summary>
+    /// Returns the underlying GeomAdaptor_Curve.
+    /// </summary>
+    Macad::Occt::GeomAdaptor_Curve^ Curve();
+    /// <summary>
+    /// Returns the underlying GeomAdaptor_Curve for modification.
+    /// </summary>
+    Macad::Occt::GeomAdaptor_Curve^ ChangeCurve();
+    /// <summary>
+    /// Returns the CurveOnSurface adaptor.
+    /// </summary>
+    Macad::Occt::Adaptor3d_CurveOnSurface^ CurveOnSurface();
+    /// <summary>
+    /// Returns the underlying Geom_Curve.
+    /// </summary>
+    Macad::Occt::Geom_Curve^ GeomCurve();
+    double FirstParameter();
+    double LastParameter();
+    Macad::Occt::GeomAbs_Shape Continuity();
+    int NbIntervals(Macad::Occt::GeomAbs_Shape theS);
+    void Intervals(Macad::Occt::TColStd_Array1OfReal^ theT, Macad::Occt::GeomAbs_Shape theS);
+    Macad::Occt::Adaptor3d_Curve^ Trim(double theFirst, double theLast, double theTol);
+    bool IsClosed();
+    bool IsPeriodic();
+    double Period();
+    /// <summary>
+    /// Point evaluation. Applies transformation after evaluation.
+    /// </summary>
+    Macad::Occt::Pnt EvalD0(double theU);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double theU, ) */
+    /// <summary>
+    /// DN evaluation. Applies transformation after evaluation.
+    /// </summary>
+    Macad::Occt::Vec EvalDN(double theU, int theN);
+    double Resolution(double theR3d);
+    Macad::Occt::GeomAbs_CurveType GetCurveType();
+    Macad::Occt::gp_Lin^ Line();
+    Macad::Occt::gp_Circ^ Circle();
+    Macad::Occt::gp_Elips^ Ellipse();
+    Macad::Occt::gp_Hypr^ Hyperbola();
+    Macad::Occt::gp_Parab^ Parabola();
+    int Degree();
+    bool IsRational();
+    int NbPoles();
+    int NbKnots();
+    Macad::Occt::Geom_BezierCurve^ Bezier();
+    Macad::Occt::Geom_BSplineCurve^ BSpline();
+    Macad::Occt::Geom_OffsetCurve^ OffsetCurve();
+    static Macad::Occt::GeomAdaptor_TransformedCurve^ CreateDowncasted(::GeomAdaptor_TransformedCurve* instance);
+}; // class GeomAdaptor_TransformedCurve
+
+//---------------------------------------------------------------------
+//  Class  GeomAdaptor_TransformedSurface
+//---------------------------------------------------------------------
+/// <summary>
+/// An adaptor for surfaces with an applied transformation.
+/// 
+/// This class wraps a GeomAdaptor_Surface and applies a gp_Trsf transformation
+/// to all point and derivative evaluations. It serves as a base class for
+/// BRepAdaptor_Surface and allows batch evaluation with transformations in
+/// GeomGridEval_Surface.
+/// 
+/// The evaluation methods (Value, D0, D1, D2, D3, DN) are marked final
+/// to enable optimizations in grid evaluation.
+/// </summary>
+public ref class GeomAdaptor_TransformedSurface
+    : public Macad::Occt::Adaptor3d_Surface
+{
+
+#ifdef Include_GeomAdaptor_TransformedSurface_h
+public:
+    Include_GeomAdaptor_TransformedSurface_h
+#endif
+
+protected:
+    GeomAdaptor_TransformedSurface(InitMode init)
+        : Macad::Occt::Adaptor3d_Surface( init )
+    {}
+
+public:
+    GeomAdaptor_TransformedSurface(::GeomAdaptor_TransformedSurface* nativeInstance)
+        : Macad::Occt::Adaptor3d_Surface( nativeInstance )
+    {}
+
+    GeomAdaptor_TransformedSurface(::GeomAdaptor_TransformedSurface& nativeInstance)
+        : Macad::Occt::Adaptor3d_Surface( nativeInstance )
+    {}
+
+    property ::GeomAdaptor_TransformedSurface* NativeInstance
+    {
+        ::GeomAdaptor_TransformedSurface* get()
+        {
+            return static_cast<::GeomAdaptor_TransformedSurface*>(_NativeInstance);
+        }
+    }
+
+public:
+    /// <summary>
+    /// Creates an undefined surface with identity transformation.
+    /// </summary>
+    GeomAdaptor_TransformedSurface();
+    /// <summary>
+    /// Creates a surface adaptor with transformation.
+    /// </summary>
+    /// <param name="theSurface">
+    /// underlying geometry
+    /// </param>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    GeomAdaptor_TransformedSurface(Macad::Occt::Geom_Surface^ theSurface, Macad::Occt::Trsf theTrsf);
+    /// <summary>
+    /// Creates a surface adaptor with transformation and parameter bounds.
+    /// </summary>
+    /// <param name="theSurface">
+    /// underlying geometry
+    /// </param>
+    /// <param name="theUFirst">
+    /// minimum U parameter
+    /// </param>
+    /// <param name="theULast">
+    /// maximum U parameter
+    /// </param>
+    /// <param name="theVFirst">
+    /// minimum V parameter
+    /// </param>
+    /// <param name="theVLast">
+    /// maximum V parameter
+    /// </param>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    /// <param name="theTolU">
+    /// tolerance in U direction
+    /// </param>
+    /// <param name="theTolV">
+    /// tolerance in V direction
+    /// </param>
+    GeomAdaptor_TransformedSurface(Macad::Occt::Geom_Surface^ theSurface, double theUFirst, double theULast, double theVFirst, double theVLast, Macad::Occt::Trsf theTrsf, double theTolU, double theTolV);
+    /// <summary>
+    /// Creates a surface adaptor with transformation and parameter bounds.
+    /// </summary>
+    /// <param name="theSurface">
+    /// underlying geometry
+    /// </param>
+    /// <param name="theUFirst">
+    /// minimum U parameter
+    /// </param>
+    /// <param name="theULast">
+    /// maximum U parameter
+    /// </param>
+    /// <param name="theVFirst">
+    /// minimum V parameter
+    /// </param>
+    /// <param name="theVLast">
+    /// maximum V parameter
+    /// </param>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    /// <param name="theTolU">
+    /// tolerance in U direction
+    /// </param>
+    /// <param name="theTolV">
+    /// tolerance in V direction
+    /// </param>
+    GeomAdaptor_TransformedSurface(Macad::Occt::Geom_Surface^ theSurface, double theUFirst, double theULast, double theVFirst, double theVLast, Macad::Occt::Trsf theTrsf, double theTolU);
+    /// <summary>
+    /// Creates a surface adaptor with transformation and parameter bounds.
+    /// </summary>
+    /// <param name="theSurface">
+    /// underlying geometry
+    /// </param>
+    /// <param name="theUFirst">
+    /// minimum U parameter
+    /// </param>
+    /// <param name="theULast">
+    /// maximum U parameter
+    /// </param>
+    /// <param name="theVFirst">
+    /// minimum V parameter
+    /// </param>
+    /// <param name="theVLast">
+    /// maximum V parameter
+    /// </param>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    /// <param name="theTolU">
+    /// tolerance in U direction
+    /// </param>
+    /// <param name="theTolV">
+    /// tolerance in V direction
+    /// </param>
+    GeomAdaptor_TransformedSurface(Macad::Occt::Geom_Surface^ theSurface, double theUFirst, double theULast, double theVFirst, double theVLast, Macad::Occt::Trsf theTrsf);
+    /// <summary>
+    /// Shallow copy of adaptor.
+    /// </summary>
+    Macad::Occt::Adaptor3d_Surface^ ShallowCopy();
+    /// <summary>
+    /// Loads the surface geometry.
+    /// </summary>
+    /// <param name="theSurface">
+    /// underlying geometry
+    /// </param>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    void Load(Macad::Occt::Geom_Surface^ theSurface, Macad::Occt::Trsf theTrsf);
+    /// <summary>
+    /// Loads the surface geometry with parameter bounds.
+    /// </summary>
+    /// <param name="theSurface">
+    /// underlying geometry
+    /// </param>
+    /// <param name="theUFirst">
+    /// minimum U parameter
+    /// </param>
+    /// <param name="theULast">
+    /// maximum U parameter
+    /// </param>
+    /// <param name="theVFirst">
+    /// minimum V parameter
+    /// </param>
+    /// <param name="theVLast">
+    /// maximum V parameter
+    /// </param>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    /// <param name="theTolU">
+    /// tolerance in U direction
+    /// </param>
+    /// <param name="theTolV">
+    /// tolerance in V direction
+    /// </param>
+    void Load(Macad::Occt::Geom_Surface^ theSurface, double theUFirst, double theULast, double theVFirst, double theVLast, Macad::Occt::Trsf theTrsf, double theTolU, double theTolV);
+    /// <summary>
+    /// Loads the surface geometry with parameter bounds.
+    /// </summary>
+    /// <param name="theSurface">
+    /// underlying geometry
+    /// </param>
+    /// <param name="theUFirst">
+    /// minimum U parameter
+    /// </param>
+    /// <param name="theULast">
+    /// maximum U parameter
+    /// </param>
+    /// <param name="theVFirst">
+    /// minimum V parameter
+    /// </param>
+    /// <param name="theVLast">
+    /// maximum V parameter
+    /// </param>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    /// <param name="theTolU">
+    /// tolerance in U direction
+    /// </param>
+    /// <param name="theTolV">
+    /// tolerance in V direction
+    /// </param>
+    void Load(Macad::Occt::Geom_Surface^ theSurface, double theUFirst, double theULast, double theVFirst, double theVLast, Macad::Occt::Trsf theTrsf, double theTolU);
+    /// <summary>
+    /// Loads the surface geometry with parameter bounds.
+    /// </summary>
+    /// <param name="theSurface">
+    /// underlying geometry
+    /// </param>
+    /// <param name="theUFirst">
+    /// minimum U parameter
+    /// </param>
+    /// <param name="theULast">
+    /// maximum U parameter
+    /// </param>
+    /// <param name="theVFirst">
+    /// minimum V parameter
+    /// </param>
+    /// <param name="theVLast">
+    /// maximum V parameter
+    /// </param>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    /// <param name="theTolU">
+    /// tolerance in U direction
+    /// </param>
+    /// <param name="theTolV">
+    /// tolerance in V direction
+    /// </param>
+    void Load(Macad::Occt::Geom_Surface^ theSurface, double theUFirst, double theULast, double theVFirst, double theVLast, Macad::Occt::Trsf theTrsf);
+    /// <summary>
+    /// Sets the transformation.
+    /// </summary>
+    /// <param name="theTrsf">
+    /// transformation to apply
+    /// </param>
+    void SetTrsf(Macad::Occt::Trsf theTrsf);
+    /// <summary>
+    /// Returns true if non-identity transformation is applied.
+    /// </summary>
+    bool HasTrsf();
+    /// <summary>
+    /// Returns the transformation.
+    /// </summary>
+    Macad::Occt::Trsf Trsf();
+    /// <summary>
+    /// Returns the underlying GeomAdaptor_Surface.
+    /// </summary>
+    Macad::Occt::GeomAdaptor_Surface^ Surface();
+    /// <summary>
+    /// Returns the underlying original GeomAdaptor_Surface without transformation applied.
+    /// </summary>
+    Macad::Occt::GeomAdaptor_Surface^ AdaptorSurfaceOriginal();
+    /// <summary>
+    /// Returns an adaptor for the transformed surface state.
+    /// Uses the original adaptor for identity transformation to preserve existing trimming.
+    /// </summary>
+    Macad::Occt::GeomAdaptor_Surface^ AdaptorSurfaceTransformed();
+    /// <summary>
+    /// Returns the underlying original Geom_Surface without transformation applied.
+    /// </summary>
+    Macad::Occt::Geom_Surface^ GeomSurfaceOriginal();
+    /// <summary>
+    /// Returns the transformed Geom_Surface cached for current state.
+    /// </summary>
+    Macad::Occt::Geom_Surface^ GeomSurfaceTransformed();
+    /// <summary>
+    /// Returns the underlying Geom_Surface.
+    /// </summary>
+    Macad::Occt::Geom_Surface^ GeomSurface();
+    double FirstUParameter();
+    double LastUParameter();
+    double FirstVParameter();
+    double LastVParameter();
+    Macad::Occt::GeomAbs_Shape UContinuity();
+    Macad::Occt::GeomAbs_Shape VContinuity();
+    int NbUIntervals(Macad::Occt::GeomAbs_Shape theS);
+    int NbVIntervals(Macad::Occt::GeomAbs_Shape theS);
+    void UIntervals(Macad::Occt::TColStd_Array1OfReal^ theT, Macad::Occt::GeomAbs_Shape theS);
+    void VIntervals(Macad::Occt::TColStd_Array1OfReal^ theT, Macad::Occt::GeomAbs_Shape theS);
+    Macad::Occt::Adaptor3d_Surface^ UTrim(double theFirst, double theLast, double theTol);
+    Macad::Occt::Adaptor3d_Surface^ VTrim(double theFirst, double theLast, double theTol);
+    bool IsUClosed();
+    bool IsVClosed();
+    bool IsUPeriodic();
+    double UPeriod();
+    bool IsVPeriodic();
+    double VPeriod();
+    /// <summary>
+    /// Returns tolerance in U direction.
+    /// </summary>
+    double ToleranceU();
+    /// <summary>
+    /// Returns tolerance in V direction.
+    /// </summary>
+    double ToleranceV();
+    /// <summary>
+    /// Point evaluation. Applies transformation after evaluation.
+    /// </summary>
+    Macad::Occt::Pnt EvalD0(double theU, double theV);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double theU, double theV, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double theU, double theV, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double theU, double theV, ) */
+    /// <summary>
+    /// DN evaluation. Applies transformation after evaluation.
+    /// </summary>
+    Macad::Occt::Vec EvalDN(double theU, double theV, int theNu, int theNv);
+    double UResolution(double theR3d);
+    double VResolution(double theR3d);
+    Macad::Occt::GeomAbs_SurfaceType GetSurfaceType();
+    Macad::Occt::Pln Plane();
+    Macad::Occt::gp_Cylinder^ Cylinder();
+    Macad::Occt::gp_Cone^ Cone();
+    Macad::Occt::gp_Sphere^ Sphere();
+    Macad::Occt::gp_Torus^ Torus();
+    int UDegree();
+    int NbUPoles();
+    int VDegree();
+    int NbVPoles();
+    int NbUKnots();
+    int NbVKnots();
+    bool IsURational();
+    bool IsVRational();
+    Macad::Occt::Geom_BezierSurface^ Bezier();
+    Macad::Occt::Geom_BSplineSurface^ BSpline();
+    Macad::Occt::Ax1 AxeOfRevolution();
+    Macad::Occt::Dir Direction();
+    Macad::Occt::Adaptor3d_Curve^ BasisCurve();
+    Macad::Occt::Adaptor3d_Surface^ BasisSurface();
+    double OffsetValue();
+    static Macad::Occt::GeomAdaptor_TransformedSurface^ CreateDowncasted(::GeomAdaptor_TransformedSurface* instance);
+}; // class GeomAdaptor_TransformedSurface
 
 }; // namespace Occt
 }; // namespace Macad

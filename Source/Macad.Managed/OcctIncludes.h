@@ -11,8 +11,10 @@
 #include <Standard_Transient.hxx>
 
 #include <TColgp_Array1OfPnt.hxx>
+#include <TColgp_Array1OfPnt2d.hxx> // OCCT 8: no longer pulled in transitively
 #include <TColgp_HArray1OfPnt.hxx>
 #include <TCollection_AsciiString.hxx>
+#include <Poly_Array1OfTriangle.hxx> // OCCT 8: no longer pulled in transitively
 
 #include <UnitsAPI.hxx>
 #include <Precision.hxx>
@@ -104,6 +106,8 @@
 #include <DsgPrs_XYZPlanePresentation.hxx>
 #include <DsgPrs_ShadedPlanePresentation.hxx>
 
+#include <Graphic3d_Vec2.hxx> // OCCT 8: no longer pulled in transitively
+#include <Graphic3d_Vec3.hxx>
 #include <Graphic3d_CView.hxx>
 #include <Graphic3d_GraphicDriver.hxx>
 #include <Graphic3d_AspectLine3d.hxx>
@@ -115,7 +119,7 @@
 #include <Graphic3d_ArrayOfQuadrangles.hxx>
 #include <Graphic3d_Group.hxx>
 #include <Graphic3d_TextureParams.hxx>
-#include <Graphic3d_Texture2Dmanual.hxx>
+#include <Graphic3d_Texture2D.hxx> // OCCT 8: Graphic3d_Texture2Dmanual.hxx (deprecated alias) was removed
 
 #include <V3d.hxx>
 #pragma warning( suppress: 4996 ) // Deprecation warning for Handle_Graphic3d_CLight
@@ -125,9 +129,11 @@
 #include <SelectMgr_EntityOwner.hxx>
 #include <SelectMgr_Selection.hxx>
 #include <SelectMgr_SelectableObject.hxx>
-#include <SelectMgr_SequenceOfOwner.hxx>
+#include <NCollection_Sequence.hxx>
+// OCCT 8: SelectMgr_SequenceOfOwner.hxx (deprecated alias) was removed
+typedef NCollection_Sequence<Handle(SelectMgr_EntityOwner)> SelectMgr_SequenceOfOwner;
 
-#include <SelectBasics_EntityOwner.hxx>
+// OCCT 8: SelectBasics_EntityOwner.hxx (forwarding stub to SelectMgr_EntityOwner.hxx, included above) was removed
 
 #include <StdSelect_Shape.hxx>
 #include <StdSelect_BRepOwner.hxx>
@@ -148,6 +154,7 @@
 #include <AIS_Plane.hxx>
 #include <AIS_Circle.hxx>
 #include <AIS_InteractiveContext.hxx>
+#include <AIS_ListOfInteractive.hxx> // OCCT 8: no longer pulled in transitively
 #include <AIS_GraphicTool.hxx>
 #include <AIS_RubberBand.hxx>
 #include <AIS_ViewCube.hxx>

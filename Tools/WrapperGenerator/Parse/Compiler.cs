@@ -41,6 +41,20 @@ public class Compiler
             "-D __clang__",
             "-D _ALLOW_COMPILER_AND_STL_VERSION_MISMATCH",
 
+            // OCCT 8 requires C++17 (std::optional/variant). MSVC gates those
+            // STL headers on _HAS_CXX17 / _MSVC_LANG, which castxml does not set
+            // automatically in --castxml-cc-msvc mode.
+            "-std=c++17",
+            "-D _HAS_CXX17=1",
+            "-D _HAS_CXX20=0",
+            "-D _MSVC_LANG=201703L",
+
+            // The newer MSVC STL uses a clang builtin castxml's clang lacks, and
+            // trips an invalid-constexpr diagnostic; neutralize both so castxml
+            // can parse the standard library headers.
+            "-D__builtin_verbose_trap(a,b)=__builtin_trap()",
+            "-Wno-invalid-constexpr",
+
             // Options for Clang
             "-fcxx-exceptions", // Enable C++ exceptions
         };

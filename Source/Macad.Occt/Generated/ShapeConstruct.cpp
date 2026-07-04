@@ -246,98 +246,52 @@ Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::ShapeConstruct_ProjectCurveOn
     NativeInstance = new ::ShapeConstruct_ProjectCurveOnSurface();
 }
 
-void Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::Init(Macad::Occt::Geom_Surface^ surf, double preci)
+void Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::Init(Macad::Occt::Geom_Surface^ theSurf, double thePreci)
 {
-    ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->Init(Handle(::Geom_Surface)(surf->NativeInstance), preci);
+    ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->Init(Handle(::Geom_Surface)(theSurf->NativeInstance), thePreci);
 }
 
-void Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::Init(Macad::Occt::ShapeAnalysis_Surface^ surf, double preci)
+void Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::Init(Macad::Occt::ShapeAnalysis_Surface^ theSurf, double thePreci)
 {
-    ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->Init(Handle(::ShapeAnalysis_Surface)(surf->NativeInstance), preci);
+    ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->Init(Handle(::ShapeAnalysis_Surface)(theSurf->NativeInstance), thePreci);
 }
 
-void Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::SetSurface(Macad::Occt::Geom_Surface^ surf)
+void Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::SetSurface(Macad::Occt::Geom_Surface^ theSurf)
 {
-    ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->SetSurface(Handle(::Geom_Surface)(surf->NativeInstance));
+    ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->SetSurface(Handle(::Geom_Surface)(theSurf->NativeInstance));
 }
 
-void Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::SetSurface(Macad::Occt::ShapeAnalysis_Surface^ surf)
+void Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::SetSurface(Macad::Occt::ShapeAnalysis_Surface^ theSurf)
 {
-    ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->SetSurface(Handle(::ShapeAnalysis_Surface)(surf->NativeInstance));
+    ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->SetSurface(Handle(::ShapeAnalysis_Surface)(theSurf->NativeInstance));
 }
 
-void Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::SetPrecision(double preci)
+void Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::SetPrecision(double thePreci)
 {
-    ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->SetPrecision(preci);
+    ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->SetPrecision(thePreci);
 }
 
-bool Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::Perform(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d, double TolFirst, double TolLast)
+bool Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::Perform(Macad::Occt::Geom_Curve^ theC3D, double theFirst, double theLast, Macad::Occt::Geom2d_Curve^ theC2D, double theTolFirst, double theTolLast)
 {
-    Handle(::Geom_Curve) h_c3d = c3d->NativeInstance;
-    Handle(::Geom2d_Curve) h_c2d = c2d->NativeInstance;
-    bool _result = ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->Perform(h_c3d, First, Last, h_c2d, TolFirst, TolLast);
-    c3d->NativeInstance = h_c3d.get();
-    c2d->NativeInstance = h_c2d.get();
+    Handle(::Geom2d_Curve) h_theC2D = theC2D->NativeInstance;
+    bool _result = ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->Perform(Handle(::Geom_Curve)(theC3D->NativeInstance), theFirst, theLast, h_theC2D, theTolFirst, theTolLast);
+    theC2D->NativeInstance = h_theC2D.get();
     return _result;
 }
 
-bool Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::Perform(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d, double TolFirst)
+bool Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::Perform(Macad::Occt::Geom_Curve^ theC3D, double theFirst, double theLast, Macad::Occt::Geom2d_Curve^ theC2D, double theTolFirst)
 {
-    Handle(::Geom_Curve) h_c3d = c3d->NativeInstance;
-    Handle(::Geom2d_Curve) h_c2d = c2d->NativeInstance;
-    bool _result = ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->Perform(h_c3d, First, Last, h_c2d, TolFirst, -1);
-    c3d->NativeInstance = h_c3d.get();
-    c2d->NativeInstance = h_c2d.get();
+    Handle(::Geom2d_Curve) h_theC2D = theC2D->NativeInstance;
+    bool _result = ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->Perform(Handle(::Geom_Curve)(theC3D->NativeInstance), theFirst, theLast, h_theC2D, theTolFirst, ::Precision::Confusion());
+    theC2D->NativeInstance = h_theC2D.get();
     return _result;
 }
 
-bool Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::Perform(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d)
+bool Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::Perform(Macad::Occt::Geom_Curve^ theC3D, double theFirst, double theLast, Macad::Occt::Geom2d_Curve^ theC2D)
 {
-    Handle(::Geom_Curve) h_c3d = c3d->NativeInstance;
-    Handle(::Geom2d_Curve) h_c2d = c2d->NativeInstance;
-    bool _result = ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->Perform(h_c3d, First, Last, h_c2d, -1, -1);
-    c3d->NativeInstance = h_c3d.get();
-    c2d->NativeInstance = h_c2d.get();
-    return _result;
-}
-
-bool Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::PerformByProjLib(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d, Macad::Occt::GeomAbs_Shape continuity, int maxdeg, int nbinterval)
-{
-    Handle(::Geom_Curve) h_c3d = c3d->NativeInstance;
-    Handle(::Geom2d_Curve) h_c2d = c2d->NativeInstance;
-    bool _result = ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->PerformByProjLib(h_c3d, First, Last, h_c2d, (::GeomAbs_Shape)continuity, maxdeg, nbinterval);
-    c3d->NativeInstance = h_c3d.get();
-    c2d->NativeInstance = h_c2d.get();
-    return _result;
-}
-
-bool Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::PerformByProjLib(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d, Macad::Occt::GeomAbs_Shape continuity, int maxdeg)
-{
-    Handle(::Geom_Curve) h_c3d = c3d->NativeInstance;
-    Handle(::Geom2d_Curve) h_c2d = c2d->NativeInstance;
-    bool _result = ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->PerformByProjLib(h_c3d, First, Last, h_c2d, (::GeomAbs_Shape)continuity, maxdeg, -1);
-    c3d->NativeInstance = h_c3d.get();
-    c2d->NativeInstance = h_c2d.get();
-    return _result;
-}
-
-bool Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::PerformByProjLib(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d, Macad::Occt::GeomAbs_Shape continuity)
-{
-    Handle(::Geom_Curve) h_c3d = c3d->NativeInstance;
-    Handle(::Geom2d_Curve) h_c2d = c2d->NativeInstance;
-    bool _result = ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->PerformByProjLib(h_c3d, First, Last, h_c2d, (::GeomAbs_Shape)continuity, 12, -1);
-    c3d->NativeInstance = h_c3d.get();
-    c2d->NativeInstance = h_c2d.get();
-    return _result;
-}
-
-bool Macad::Occt::ShapeConstruct_ProjectCurveOnSurface::PerformByProjLib(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d)
-{
-    Handle(::Geom_Curve) h_c3d = c3d->NativeInstance;
-    Handle(::Geom2d_Curve) h_c2d = c2d->NativeInstance;
-    bool _result = ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->PerformByProjLib(h_c3d, First, Last, h_c2d, GeomAbs_C1, 12, -1);
-    c3d->NativeInstance = h_c3d.get();
-    c2d->NativeInstance = h_c2d.get();
+    Handle(::Geom2d_Curve) h_theC2D = theC2D->NativeInstance;
+    bool _result = ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->Perform(Handle(::Geom_Curve)(theC3D->NativeInstance), theFirst, theLast, h_theC2D, ::Precision::Confusion(), ::Precision::Confusion());
+    theC2D->NativeInstance = h_theC2D.get();
     return _result;
 }
 

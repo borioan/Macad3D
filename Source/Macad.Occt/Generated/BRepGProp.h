@@ -90,7 +90,7 @@ public:
     /// If we have cube with sizes 1, 1, 1, its linear properties = 12
     /// for SkipEdges = true and 24 for SkipEdges = false.
     /// UseTriangulation is a special flag, which defines preferable
-    /// source of geometry data. If UseTriangulation = Standard_False,
+    /// source of geometry data. If UseTriangulation = false,
     /// exact geometry objects (curves) are used, otherwise polygons of
     /// triangulation are used first.
     /// </summary>
@@ -132,7 +132,7 @@ public:
     /// If we have cube with sizes 1, 1, 1, its linear properties = 12
     /// for SkipEdges = true and 24 for SkipEdges = false.
     /// UseTriangulation is a special flag, which defines preferable
-    /// source of geometry data. If UseTriangulation = Standard_False,
+    /// source of geometry data. If UseTriangulation = false,
     /// exact geometry objects (curves) are used, otherwise polygons of
     /// triangulation are used first.
     /// </summary>
@@ -174,7 +174,7 @@ public:
     /// If we have cube with sizes 1, 1, 1, its linear properties = 12
     /// for SkipEdges = true and 24 for SkipEdges = false.
     /// UseTriangulation is a special flag, which defines preferable
-    /// source of geometry data. If UseTriangulation = Standard_False,
+    /// source of geometry data. If UseTriangulation = false,
     /// exact geometry objects (curves) are used, otherwise polygons of
     /// triangulation are used first.
     /// </summary>
@@ -217,7 +217,7 @@ public:
     /// For ex., if SkipShared = True, faces, shared by two or more shells,
     /// are taken into calculation only once.
     /// UseTriangulation is a special flag, which defines preferable
-    /// source of geometry data. If UseTriangulation = Standard_False,
+    /// source of geometry data. If UseTriangulation = false,
     /// exact geometry objects (surfaces) are used,
     /// otherwise face triangulations are used first.
     /// </summary>
@@ -260,7 +260,7 @@ public:
     /// For ex., if SkipShared = True, faces, shared by two or more shells,
     /// are taken into calculation only once.
     /// UseTriangulation is a special flag, which defines preferable
-    /// source of geometry data. If UseTriangulation = Standard_False,
+    /// source of geometry data. If UseTriangulation = false,
     /// exact geometry objects (surfaces) are used,
     /// otherwise face triangulations are used first.
     /// </summary>
@@ -303,7 +303,7 @@ public:
     /// For ex., if SkipShared = True, faces, shared by two or more shells,
     /// are taken into calculation only once.
     /// UseTriangulation is a special flag, which defines preferable
-    /// source of geometry data. If UseTriangulation = Standard_False,
+    /// source of geometry data. If UseTriangulation = false,
     /// exact geometry objects (surfaces) are used,
     /// otherwise face triangulations are used first.
     /// </summary>
@@ -313,7 +313,7 @@ public:
     /// The surface properties of all the faces in <S> are computed.
     /// Adaptive 2D Gauss integration is used.
     /// Parameter Eps sets maximal relative error of computed mass (area) for each face.
-    /// Error is calculated as Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// Error is calculated as std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// Method returns estimation of relative error reached for whole shape.
     /// WARNING: if Eps > 0.001 algorithm performs non-adaptive integration.
@@ -328,7 +328,7 @@ public:
     /// The surface properties of all the faces in <S> are computed.
     /// Adaptive 2D Gauss integration is used.
     /// Parameter Eps sets maximal relative error of computed mass (area) for each face.
-    /// Error is calculated as Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// Error is calculated as std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// Method returns estimation of relative error reached for whole shape.
     /// WARNING: if Eps > 0.001 algorithm performs non-adaptive integration.
@@ -378,7 +378,7 @@ public:
     /// (the same TShape, location and orientation) faces are taken
     /// into calculation only once.
     /// UseTriangulation is a special flag, which defines preferable
-    /// source of geometry data. If UseTriangulation = Standard_False,
+    /// source of geometry data. If UseTriangulation = false,
     /// exact geometry objects (surfaces) are used,
     /// otherwise face triangulations are used first.
     /// </summary>
@@ -423,7 +423,7 @@ public:
     /// (the same TShape, location and orientation) faces are taken
     /// into calculation only once.
     /// UseTriangulation is a special flag, which defines preferable
-    /// source of geometry data. If UseTriangulation = Standard_False,
+    /// source of geometry data. If UseTriangulation = false,
     /// exact geometry objects (surfaces) are used,
     /// otherwise face triangulations are used first.
     /// </summary>
@@ -468,7 +468,7 @@ public:
     /// (the same TShape, location and orientation) faces are taken
     /// into calculation only once.
     /// UseTriangulation is a special flag, which defines preferable
-    /// source of geometry data. If UseTriangulation = Standard_False,
+    /// source of geometry data. If UseTriangulation = false,
     /// exact geometry objects (surfaces) are used,
     /// otherwise face triangulations are used first.
     /// </summary>
@@ -513,7 +513,7 @@ public:
     /// (the same TShape, location and orientation) faces are taken
     /// into calculation only once.
     /// UseTriangulation is a special flag, which defines preferable
-    /// source of geometry data. If UseTriangulation = Standard_False,
+    /// source of geometry data. If UseTriangulation = false,
     /// exact geometry objects (surfaces) are used,
     /// otherwise face triangulations are used first.
     /// </summary>
@@ -524,7 +524,7 @@ public:
     /// If OnlyClosed is True then computed faces must belong to closed Shells.
     /// Adaptive 2D Gauss integration is used.
     /// Parameter Eps sets maximal relative error of computed mass (volume) for each face.
-    /// Error is calculated as Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// Error is calculated as std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// Method returns estimation of relative error reached for whole shape.
     /// WARNING: if Eps > 0.001 algorithm performs non-adaptive integration.
@@ -541,7 +541,7 @@ public:
     /// If OnlyClosed is True then computed faces must belong to closed Shells.
     /// Adaptive 2D Gauss integration is used.
     /// Parameter Eps sets maximal relative error of computed mass (volume) for each face.
-    /// Error is calculated as Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// Error is calculated as std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// Method returns estimation of relative error reached for whole shape.
     /// WARNING: if Eps > 0.001 algorithm performs non-adaptive integration.
@@ -558,7 +558,7 @@ public:
     /// If OnlyClosed is True then computed faces must belong to closed Shells.
     /// Adaptive 2D Gauss integration is used.
     /// Parameter Eps sets maximal relative error of computed mass (volume) for each face.
-    /// Error is calculated as Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// Error is calculated as std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// Method returns estimation of relative error reached for whole shape.
     /// WARNING: if Eps > 0.001 algorithm performs non-adaptive integration.
@@ -708,7 +708,7 @@ public:
 //  Class  BRepGProp_Cinert
 //---------------------------------------------------------------------
 /// <summary>
-/// Computes the  global properties of bounded curves
+/// Computes the global properties of bounded curves
 /// in 3D space. The curve must have at least a continuity C1.
 /// It can be a curve as defined in the template CurveTool from
 /// package GProp. This template gives the minimum of methods
@@ -817,7 +817,7 @@ public:
 //  Class  BRepGProp_EdgeTool
 //---------------------------------------------------------------------
 /// <summary>
-/// Provides  the required  methods    to instantiate
+/// Provides the required methods to instantiate
 /// CGProps from GProp with a Curve from BRepAdaptor.
 /// </summary>
 public ref class BRepGProp_EdgeTool sealed
@@ -850,20 +850,20 @@ public:
     BRepGProp_EdgeTool();
     /// <summary>
     /// Returns the parametric value of the start point of
-    /// the curve.  The curve is oriented from the start point
+    /// the curve. The curve is oriented from the start point
     /// to the end point.
     /// </summary>
     static double FirstParameter(Macad::Occt::BRepAdaptor_Curve^ C);
     /// <summary>
     /// Returns the parametric value of the end point of
-    /// the curve.  The curve is oriented from the start point
+    /// the curve. The curve is oriented from the start point
     /// to the end point.
     /// </summary>
     static double LastParameter(Macad::Occt::BRepAdaptor_Curve^ C);
     /// <summary>
     /// Returns the number of Gauss points required to do
     /// the integration with a good accuracy using the
-    /// Gauss method.  For a polynomial curve of degree n
+    /// Gauss method. For a polynomial curve of degree n
     /// the maxima of accuracy is obtained with an order
     /// of integration equal to 2*n-1.
     /// </summary>
@@ -878,15 +878,15 @@ public:
     /// </summary>
     static void D1(Macad::Occt::BRepAdaptor_Curve^ C, double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
     /// <summary>
-    /// Returns  the number  of  intervals for  continuity
+    /// Returns the number of intervals for continuity
     /// <S>. May be one if Continuity(me) >= <S>
     /// </summary>
     static int NbIntervals(Macad::Occt::BRepAdaptor_Curve^ C, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
+    /// Stores in <T> the parameters bounding the intervals
     /// of continuity <S>.
     /// 
-    /// The array must provide  enough room to  accommodate
+    /// The array must provide enough room to accommodate
     /// for the parameters. i.e. T.Length() > NbIntervals()
     /// </summary>
     static void Intervals(Macad::Occt::BRepAdaptor_Curve^ C, Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
@@ -955,7 +955,7 @@ public:
     void Load(Macad::Occt::TopoDS_Face^ F);
     int VIntegrationOrder();
     /// <summary>
-    /// Returns Standard_True if the face is not trimmed.
+    /// Returns true if the face is not trimmed.
     /// </summary>
     bool NaturalRestriction();
     /// <summary>
@@ -1018,7 +1018,7 @@ public:
     /// Loading the boundary arc. This arc is either a top, bottom,
     /// left or right bound of a UV rectangle in which the
     /// parameters of surface are defined.
-    /// If IsFirstParam is equal to Standard_True, the face is
+    /// If IsFirstParam is equal to true, the face is
     /// initialized by either left of bottom bound. Otherwise it is
     /// initialized by the top or right one.
     /// If theIsoType is equal to GeomAbs_IsoU, the face is
@@ -1034,6 +1034,19 @@ public:
     /// If the face is not a BSpline, the array initialized with
     /// theUMin and theUMax only.
     /// </summary>
+    /// <param name="in]">
+    /// theUMin lower U bound
+    /// </param>
+    /// <param name="in]">
+    /// theUMax upper U bound
+    /// </param>
+    /// <returns>
+    /// array of U knot values
+    /// </returns>
+    Macad::Occt::TColStd_HArray1OfReal^ GetUKnots(double theUMin, double theUMax);
+    /// <summary>
+    /// </summary>
+    /// @deprecated Use GetUKnots() returning handle by value instead.
     void GetUKnots(double theUMin, double theUMax, Macad::Occt::TColStd_HArray1OfReal^ theUKnots);
     /// <summary>
     /// Returns an array of combination of T knots of the arc and
@@ -1046,6 +1059,19 @@ public:
     /// If the face is not a BSpline, the array initialized with
     /// theTMin and theTMax only.
     /// </summary>
+    /// <param name="in]">
+    /// theTMin lower T bound
+    /// </param>
+    /// <param name="in]">
+    /// theTMax upper T bound
+    /// </param>
+    /// <returns>
+    /// array of T knot values
+    /// </returns>
+    Macad::Occt::TColStd_HArray1OfReal^ GetTKnots(double theTMin, double theTMax);
+    /// <summary>
+    /// </summary>
+    /// @deprecated Use GetTKnots() returning handle by value instead.
     void GetTKnots(double theTMin, double theTMax, Macad::Occt::TColStd_HArray1OfReal^ theTKnots);
 }; // class BRepGProp_Face
 
@@ -1253,7 +1279,7 @@ public:
     /// </param>
     /// <returns>
     /// value of error which is calculated as
-    /// Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// </returns>
     double Compute(Macad::Occt::BRepGProp_Face^ theSurface, Macad::Occt::BRepGProp_Domain^ theDomain, Macad::Occt::Pnt theLocation, double theEps, double theCoeff, bool theByPoint, double% theOutMass, Macad::Occt::Pnt% theOutGravityCenter, Macad::Occt::Mat% theOutInertia);
@@ -1284,7 +1310,7 @@ public:
     /// </param>
     /// <returns>
     /// value of error which is calculated as
-    /// Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// </returns>
     double Compute(Macad::Occt::BRepGProp_Face^ theSurface, Macad::Occt::BRepGProp_Domain^ theDomain, Macad::Occt::Pnt theLocation, double theEps, double% theOutMass, Macad::Occt::Pnt% theOutGravityCenter, Macad::Occt::Mat% theOutInertia);
@@ -1294,8 +1320,8 @@ public:
 //  Class  BRepGProp_MeshCinert
 //---------------------------------------------------------------------
 /// <summary>
-/// Computes the  global properties of
-/// of polylines  represented by set of points.
+/// Computes the global properties of
+/// of polylines represented by set of points.
 /// This class is used for computation of global
 /// properties of edge, which has no exact geometry
 /// (3d or 2d curve), but has any of allowed
@@ -1332,15 +1358,24 @@ public:
     BRepGProp_MeshCinert();
     void SetLocation(Macad::Occt::Pnt CLocation);
     /// <summary>
-    /// Computes the  global properties of
-    /// of polylines  represented by set of points.
+    /// Computes the global properties of
+    /// of polylines represented by set of points.
     /// </summary>
     void Perform(Macad::Occt::TColgp_Array1OfPnt^ theNodes);
     /// <summary>
-    /// Prepare set of 3d points on base of any available edge polygons:
-    /// 3D polygon, polygon on triangulation, 2d polygon on surface
-    /// If edge has no polygons, array thePolyg is left unchanged
+    /// Prepares set of 3d points on base of any available edge polygons:
+    /// 3D polygon, polygon on triangulation, 2d polygon on surface.
     /// </summary>
+    /// <param name="in]">
+    /// theE the edge to extract polygon from
+    /// </param>
+    /// <returns>
+    /// array of 3D points, or null handle if edge has no polygons
+    /// </returns>
+    static Macad::Occt::TColgp_HArray1OfPnt^ PreparePolygon(Macad::Occt::TopoDS_Edge^ theE);
+    /// <summary>
+    /// </summary>
+    /// @deprecated Use PreparePolygon() returning handle by value instead.
     static void PreparePolygon(Macad::Occt::TopoDS_Edge^ theE, Macad::Occt::TColgp_HArray1OfPnt^ thePolyg);
 }; // class BRepGProp_MeshCinert
 
@@ -1469,7 +1504,7 @@ public:
     double Perform(Macad::Occt::BRepGProp_Face^ S, Macad::Occt::BRepGProp_Domain^ D, double Eps);
     /// <summary>
     /// If previously used method contained Eps parameter
-    /// get actual relative error of the computation, else return  1.0.
+    /// get actual relative error of the computation, else return 1.0.
     /// </summary>
     double GetEpsilon();
 }; // class BRepGProp_Sinert
@@ -1525,7 +1560,7 @@ public:
     /// The method is quick and its precision is enough for many cases of analytical
     /// surfaces.
     /// Non-adaptive 2D Gauss integration with predefined numbers of Gauss points
-    /// is used. Numbers of points depend on types of surfaces and  curves.
+    /// is used. Numbers of points depend on types of surfaces and curves.
     /// Error of the computation is not calculated.
     /// </summary>
     BRepGProp_Vinert(Macad::Occt::BRepGProp_Face^ S, Macad::Occt::Pnt VLocation);
@@ -1534,7 +1569,7 @@ public:
     /// delimited with the surface <S> and the point VLocation. S can be closed
     /// Adaptive 2D Gauss integration is used.
     /// Parameter Eps sets maximal relative error of computed mass (volume) for face.
-    /// Error is calculated as Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// Error is calculated as std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// </summary>
     BRepGProp_Vinert(Macad::Occt::BRepGProp_Face^ S, Macad::Occt::Pnt VLocation, double Eps);
@@ -1544,7 +1579,7 @@ public:
     /// The method is quick and its precision is enough for many cases of analytical
     /// surfaces.
     /// Non-adaptive 2D Gauss integration with predefined numbers of Gauss points
-    /// is used. Numbers of points depend on types of surfaces and  curves.
+    /// is used. Numbers of points depend on types of surfaces and curves.
     /// Error of the computation is not calculated.
     /// </summary>
     BRepGProp_Vinert(Macad::Occt::BRepGProp_Face^ S, Macad::Occt::Pnt O, Macad::Occt::Pnt VLocation);
@@ -1553,7 +1588,7 @@ public:
     /// delimited with the surface <S> and the point VLocation.
     /// Adaptive 2D Gauss integration is used.
     /// Parameter Eps sets maximal relative error of computed mass (volume) for face.
-    /// Error is calculated as Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// Error is calculated as std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// WARNING: if Eps > 0.001 algorithm performs non-adaptive integration.
     /// </summary>
@@ -1564,7 +1599,7 @@ public:
     /// The method is quick and its precision is enough for many cases of analytical
     /// surfaces.
     /// Non-adaptive 2D Gauss integration with predefined numbers of Gauss points
-    /// is used. Numbers of points depend on types of surfaces and  curves.
+    /// is used. Numbers of points depend on types of surfaces and curves.
     /// Error of the computation is not calculated.
     /// </summary>
     BRepGProp_Vinert(Macad::Occt::BRepGProp_Face^ S, Macad::Occt::Pln Pl, Macad::Occt::Pnt VLocation);
@@ -1573,7 +1608,7 @@ public:
     /// delimited with the surface <S> and the plane Pln.
     /// Adaptive 2D Gauss integration is used.
     /// Parameter Eps sets maximal relative error of computed mass (volume) for face.
-    /// Error is calculated as Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// Error is calculated as std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// WARNING: if Eps > 0.001 algorithm performs non-adaptive integration.
     /// </summary>
@@ -1584,7 +1619,7 @@ public:
     /// The method is quick and its precision is enough for many cases of analytical
     /// surfaces.
     /// Non-adaptive 2D Gauss integration with predefined numbers of Gauss points
-    /// is used. Numbers of points depend on types of surfaces and  curves.
+    /// is used. Numbers of points depend on types of surfaces and curves.
     /// Error of the computation is not calculated.
     /// </summary>
     BRepGProp_Vinert(Macad::Occt::BRepGProp_Face^ S, Macad::Occt::BRepGProp_Domain^ D, Macad::Occt::Pnt VLocation);
@@ -1593,7 +1628,7 @@ public:
     /// delimited with the surface <S> and the point VLocation. S can be closed
     /// Adaptive 2D Gauss integration is used.
     /// Parameter Eps sets maximal relative error of computed mass (volume) for face.
-    /// Error is calculated as Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// Error is calculated as std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// </summary>
     BRepGProp_Vinert(Macad::Occt::BRepGProp_Face^ S, Macad::Occt::BRepGProp_Domain^ D, Macad::Occt::Pnt VLocation, double Eps);
@@ -1603,7 +1638,7 @@ public:
     /// The method is quick and its precision is enough for many cases of analytical
     /// surfaces.
     /// Non-adaptive 2D Gauss integration with predefined numbers of Gauss points
-    /// is used. Numbers of points depend on types of surfaces and  curves.
+    /// is used. Numbers of points depend on types of surfaces and curves.
     /// Error of the computation is not calculated.
     /// </summary>
     BRepGProp_Vinert(Macad::Occt::BRepGProp_Face^ S, Macad::Occt::BRepGProp_Domain^ D, Macad::Occt::Pnt O, Macad::Occt::Pnt VLocation);
@@ -1612,7 +1647,7 @@ public:
     /// delimited with the surface <S> and the point VLocation.
     /// Adaptive 2D Gauss integration is used.
     /// Parameter Eps sets maximal relative error of computed mass (volume) for face.
-    /// Error is calculated as Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// Error is calculated as std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// WARNING: if Eps > 0.001 algorithm performs non-adaptive integration.
     /// </summary>
@@ -1623,7 +1658,7 @@ public:
     /// The method is quick and its precision is enough for many cases of analytical
     /// surfaces.
     /// Non-adaptive 2D Gauss integration with predefined numbers of Gauss points
-    /// is used. Numbers of points depend on types of surfaces and  curves.
+    /// is used. Numbers of points depend on types of surfaces and curves.
     /// Error of the computation is not calculated.
     /// </summary>
     BRepGProp_Vinert(Macad::Occt::BRepGProp_Face^ S, Macad::Occt::BRepGProp_Domain^ D, Macad::Occt::Pln Pl, Macad::Occt::Pnt VLocation);
@@ -1632,7 +1667,7 @@ public:
     /// delimited with the surface <S> and the plane Pln.
     /// Adaptive 2D Gauss integration is used.
     /// Parameter Eps sets maximal relative error of computed mass (volume) for face.
-    /// Error is calculated as Abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
+    /// Error is calculated as std::abs((M(i+1)-M(i))/M(i+1)), M(i+1) and M(i) are values
     /// for two successive steps of adaptive integration.
     /// WARNING: if Eps > 0.001 algorithm performs non-adaptive integration.
     /// </summary>
@@ -1651,8 +1686,8 @@ public:
     void Perform(Macad::Occt::BRepGProp_Face^ S, Macad::Occt::BRepGProp_Domain^ D, Macad::Occt::Pln Pl);
     double Perform(Macad::Occt::BRepGProp_Face^ S, Macad::Occt::BRepGProp_Domain^ D, Macad::Occt::Pln Pl, double Eps);
     /// <summary>
-    /// If previously used methods containe Eps parameter
-    /// gets actual relative error of the computation, else returns  1.0.
+    /// If previously used methods contain Eps parameter
+    /// gets actual relative error of the computation, else returns 1.0.
     /// </summary>
     double GetEpsilon();
 }; // class BRepGProp_Vinert

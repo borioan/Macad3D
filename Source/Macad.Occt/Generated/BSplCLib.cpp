@@ -292,6 +292,24 @@ Macad::Occt::TColStd_Array1OfInteger^ Macad::Occt::BSplCLib::NoMults()
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfInteger(_result);
 }
 
+int Macad::Occt::BSplCLib::MaxUnitWeightsSize()
+{
+    int _result = ::BSplCLib::MaxUnitWeightsSize();
+    return _result;
+}
+
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::BSplCLib::UnitWeights(int theNbElems)
+{
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = ::BSplCLib::UnitWeights(theNbElems);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
+}
+
+double Macad::Occt::BSplCLib::UnitWeightsData()
+{
+    throw gcnew System::NotImplementedException();
+}
+
 void Macad::Occt::BSplCLib::BuildKnots(int Degree, int Index, bool Periodic, Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Mults, double% LK)
 {
     pin_ptr<double> pp_LK = &LK;
@@ -1179,6 +1197,66 @@ void Macad::Occt::BSplCLib_Cache::D3(double theParameter, Macad::Occt::Pnt% theP
     pin_ptr<Macad::Occt::Vec> pp_theCurvature = &theCurvature;
     pin_ptr<Macad::Occt::Vec> pp_theTorsion = &theTorsion;
     ((::BSplCLib_Cache*)_NativeInstance)->D3(*(double*)pp_theParameter, *(gp_Pnt*)pp_thePoint, *(gp_Vec*)pp_theTangent, *(gp_Vec*)pp_theCurvature, *(gp_Vec*)pp_theTorsion);
+}
+
+void Macad::Occt::BSplCLib_Cache::D0Local(double theLocalParam, Macad::Occt::Pnt% thePoint)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_thePoint = &thePoint;
+    ((::BSplCLib_Cache*)_NativeInstance)->D0Local(theLocalParam, *(gp_Pnt*)pp_thePoint);
+}
+
+void Macad::Occt::BSplCLib_Cache::D1Local(double theLocalParam, Macad::Occt::Pnt% thePoint, Macad::Occt::Vec% theTangent)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_thePoint = &thePoint;
+    pin_ptr<Macad::Occt::Vec> pp_theTangent = &theTangent;
+    ((::BSplCLib_Cache*)_NativeInstance)->D1Local(theLocalParam, *(gp_Pnt*)pp_thePoint, *(gp_Vec*)pp_theTangent);
+}
+
+void Macad::Occt::BSplCLib_Cache::D2Local(double theLocalParam, Macad::Occt::Pnt% thePoint, Macad::Occt::Vec% theTangent, Macad::Occt::Vec% theCurvature)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_thePoint = &thePoint;
+    pin_ptr<Macad::Occt::Vec> pp_theTangent = &theTangent;
+    pin_ptr<Macad::Occt::Vec> pp_theCurvature = &theCurvature;
+    ((::BSplCLib_Cache*)_NativeInstance)->D2Local(theLocalParam, *(gp_Pnt*)pp_thePoint, *(gp_Vec*)pp_theTangent, *(gp_Vec*)pp_theCurvature);
+}
+
+void Macad::Occt::BSplCLib_Cache::D3Local(double theLocalParam, Macad::Occt::Pnt% thePoint, Macad::Occt::Vec% theTangent, Macad::Occt::Vec% theCurvature, Macad::Occt::Vec% theTorsion)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_thePoint = &thePoint;
+    pin_ptr<Macad::Occt::Vec> pp_theTangent = &theTangent;
+    pin_ptr<Macad::Occt::Vec> pp_theCurvature = &theCurvature;
+    pin_ptr<Macad::Occt::Vec> pp_theTorsion = &theTorsion;
+    ((::BSplCLib_Cache*)_NativeInstance)->D3Local(theLocalParam, *(gp_Pnt*)pp_thePoint, *(gp_Vec*)pp_theTangent, *(gp_Vec*)pp_theCurvature, *(gp_Vec*)pp_theTorsion);
+}
+
+void Macad::Occt::BSplCLib_Cache::D0Local(double theLocalParam, Macad::Occt::Pnt2d% thePoint)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_thePoint = &thePoint;
+    ((::BSplCLib_Cache*)_NativeInstance)->D0Local(theLocalParam, *(gp_Pnt2d*)pp_thePoint);
+}
+
+void Macad::Occt::BSplCLib_Cache::D1Local(double theLocalParam, Macad::Occt::Pnt2d% thePoint, Macad::Occt::Vec2d% theTangent)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_thePoint = &thePoint;
+    pin_ptr<Macad::Occt::Vec2d> pp_theTangent = &theTangent;
+    ((::BSplCLib_Cache*)_NativeInstance)->D1Local(theLocalParam, *(gp_Pnt2d*)pp_thePoint, *(gp_Vec2d*)pp_theTangent);
+}
+
+void Macad::Occt::BSplCLib_Cache::D2Local(double theLocalParam, Macad::Occt::Pnt2d% thePoint, Macad::Occt::Vec2d% theTangent, Macad::Occt::Vec2d% theCurvature)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_thePoint = &thePoint;
+    pin_ptr<Macad::Occt::Vec2d> pp_theTangent = &theTangent;
+    pin_ptr<Macad::Occt::Vec2d> pp_theCurvature = &theCurvature;
+    ((::BSplCLib_Cache*)_NativeInstance)->D2Local(theLocalParam, *(gp_Pnt2d*)pp_thePoint, *(gp_Vec2d*)pp_theTangent, *(gp_Vec2d*)pp_theCurvature);
+}
+
+void Macad::Occt::BSplCLib_Cache::D3Local(double theLocalParam, Macad::Occt::Pnt2d% thePoint, Macad::Occt::Vec2d% theTangent, Macad::Occt::Vec2d% theCurvature, Macad::Occt::Vec2d% theTorsion)
+{
+    pin_ptr<Macad::Occt::Pnt2d> pp_thePoint = &thePoint;
+    pin_ptr<Macad::Occt::Vec2d> pp_theTangent = &theTangent;
+    pin_ptr<Macad::Occt::Vec2d> pp_theCurvature = &theCurvature;
+    pin_ptr<Macad::Occt::Vec2d> pp_theTorsion = &theTorsion;
+    ((::BSplCLib_Cache*)_NativeInstance)->D3Local(theLocalParam, *(gp_Pnt2d*)pp_thePoint, *(gp_Vec2d*)pp_theTangent, *(gp_Vec2d*)pp_theCurvature, *(gp_Vec2d*)pp_theTorsion);
 }
 
 Macad::Occt::BSplCLib_Cache^ Macad::Occt::BSplCLib_Cache::CreateDowncasted(::BSplCLib_Cache* instance)

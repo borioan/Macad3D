@@ -7,7 +7,6 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 
 #include "gp.h"
 #include "SelectMgr.h"
-#include "Graphic3d.h"
 #include "TColgp.h"
 
 
@@ -86,18 +85,6 @@ void Macad::Occt::SelectBasics_PickResult::SetDistToGeomCenter(double theDistToC
     ((::SelectBasics_PickResult*)_NativeInstance)->SetDistToGeomCenter(theDistToCenter);
 }
 
-Macad::Occt::gp_Vec3f^ Macad::Occt::SelectBasics_PickResult::SurfaceNormal()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::SelectBasics_PickResult*)_NativeInstance)->SurfaceNormal();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-void Macad::Occt::SelectBasics_PickResult::SetSurfaceNormal(Macad::Occt::gp_Vec3f^ theNormal)
-{
-    ((::SelectBasics_PickResult*)_NativeInstance)->SetSurfaceNormal(*(::gp_Vec3f*)theNormal->NativeInstance);
-}
-
 void Macad::Occt::SelectBasics_PickResult::SetSurfaceNormal(Macad::Occt::Vec theNormal)
 {
     pin_ptr<Macad::Occt::Vec> pp_theNormal = &theNormal;
@@ -143,25 +130,6 @@ Macad::Occt::SelectBasics_SelectingVolumeManager::SelectBasics_SelectingVolumeMa
 int Macad::Occt::SelectBasics_SelectingVolumeManager::GetActiveSelectionType()
 {
     int _result = ((::SelectBasics_SelectingVolumeManager*)_NativeInstance)->GetActiveSelectionType();
-    return _result;
-}
-
-bool Macad::Occt::SelectBasics_SelectingVolumeManager::OverlapsBox(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax, Macad::Occt::SelectBasics_PickResult^ thePickResult)
-{
-    bool _result = ((::SelectBasics_SelectingVolumeManager*)_NativeInstance)->OverlapsBox(*(::Graphic3d_Vec3d*)theBoxMin->NativeInstance, *(::Graphic3d_Vec3d*)theBoxMax->NativeInstance, *(::SelectBasics_PickResult*)thePickResult->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::SelectBasics_SelectingVolumeManager::OverlapsBox(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax, bool% theInside)
-{
-    pin_ptr<bool> pp_theInside = &theInside;
-    bool _result = ((::SelectBasics_SelectingVolumeManager*)_NativeInstance)->OverlapsBox(*(::Graphic3d_Vec3d*)theBoxMin->NativeInstance, *(::Graphic3d_Vec3d*)theBoxMax->NativeInstance, (bool*)pp_theInside);
-    return _result;
-}
-
-bool Macad::Occt::SelectBasics_SelectingVolumeManager::OverlapsBox(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax)
-{
-    bool _result = ((::SelectBasics_SelectingVolumeManager*)_NativeInstance)->OverlapsBox(*(::Graphic3d_Vec3d*)theBoxMin->NativeInstance, *(::Graphic3d_Vec3d*)theBoxMax->NativeInstance, nullptr);
     return _result;
 }
 
@@ -329,25 +297,6 @@ void Macad::Occt::SelectBasics_SelectingVolumeManager::DumpJson(System::IO::Text
     std::ostringstream oss_theOStream;
     ((::SelectBasics_SelectingVolumeManager*)_NativeInstance)->DumpJson(oss_theOStream, -1);
     theOStream->Write(gcnew System::String(oss_theOStream.str().c_str()));
-}
-
-bool Macad::Occt::SelectBasics_SelectingVolumeManager::Overlaps(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax, Macad::Occt::SelectBasics_PickResult^ thePickResult)
-{
-    bool _result = ((::SelectBasics_SelectingVolumeManager*)_NativeInstance)->Overlaps(*(::Graphic3d_Vec3d*)theBoxMin->NativeInstance, *(::Graphic3d_Vec3d*)theBoxMax->NativeInstance, *(::SelectBasics_PickResult*)thePickResult->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::SelectBasics_SelectingVolumeManager::Overlaps(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax, bool% theInside)
-{
-    pin_ptr<bool> pp_theInside = &theInside;
-    bool _result = ((::SelectBasics_SelectingVolumeManager*)_NativeInstance)->Overlaps(*(::Graphic3d_Vec3d*)theBoxMin->NativeInstance, *(::Graphic3d_Vec3d*)theBoxMax->NativeInstance, (bool*)pp_theInside);
-    return _result;
-}
-
-bool Macad::Occt::SelectBasics_SelectingVolumeManager::Overlaps(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax)
-{
-    bool _result = ((::SelectBasics_SelectingVolumeManager*)_NativeInstance)->Overlaps(*(::Graphic3d_Vec3d*)theBoxMin->NativeInstance, *(::Graphic3d_Vec3d*)theBoxMax->NativeInstance, nullptr);
-    return _result;
 }
 
 bool Macad::Occt::SelectBasics_SelectingVolumeManager::Overlaps(Macad::Occt::Pnt thePnt, Macad::Occt::SelectBasics_PickResult^ thePickResult)

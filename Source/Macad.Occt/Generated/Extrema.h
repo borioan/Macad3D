@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "Standard.h"
 
 namespace Macad
 {
@@ -96,20 +95,31 @@ public:
         }
 
     public:
+        void Init(Macad::Occt::Extrema_Array1OfPOnCurv^ theList);
+        bool More();
+        void Initialize(Macad::Occt::Extrema_Array1OfPOnCurv^ theList);
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnCurv^ Value();
+        Macad::Occt::Extrema_POnCurv^ ChangeValue();
     }; // class Iterator
 
     Extrema_Array1OfPOnCurv();
     Extrema_Array1OfPOnCurv(int theLower, int theUpper);
-    /* Method skipped due to unknown mapping: void Extrema_Array1OfPOnCurv(allocator_type theAlloc, int theLower, int theUpper, ) */
     Extrema_Array1OfPOnCurv(Macad::Occt::Extrema_POnCurv^ theBegin, int theLower, int theUpper, bool theUseBuffer);
     Extrema_Array1OfPOnCurv(Macad::Occt::Extrema_POnCurv^ theBegin, int theLower, int theUpper);
+    Extrema_Array1OfPOnCurv(long long unsigned int theSize);
     void Init(Macad::Occt::Extrema_POnCurv^ theValue);
-    int Size();
+    long long unsigned int Size();
     int Length();
     bool IsEmpty();
     int Lower();
     int Upper();
     Macad::Occt::Extrema_Array1OfPOnCurv^ Assign(Macad::Occt::Extrema_Array1OfPOnCurv^ theOther);
+    Macad::Occt::Extrema_Array1OfPOnCurv^ CopyValues(Macad::Occt::Extrema_Array1OfPOnCurv^ theOther);
     Macad::Occt::Extrema_Array1OfPOnCurv^ Move(Macad::Occt::Extrema_Array1OfPOnCurv^ theOther);
     Macad::Occt::Extrema_POnCurv^ First();
     Macad::Occt::Extrema_POnCurv^ ChangeFirst();
@@ -117,10 +127,13 @@ public:
     Macad::Occt::Extrema_POnCurv^ ChangeLast();
     virtual Macad::Occt::Extrema_POnCurv^ Value(int theIndex);
     Macad::Occt::Extrema_POnCurv^ ChangeValue(int theIndex);
+    Macad::Occt::Extrema_POnCurv^ At(long long unsigned int theIndex);
+    Macad::Occt::Extrema_POnCurv^ ChangeAt(long long unsigned int theIndex);
     void SetValue(int theIndex, Macad::Occt::Extrema_POnCurv^ theItem);
     void UpdateLowerBound(int theLower);
     void UpdateUpperBound(int theUpper);
     void Resize(int theLower, int theUpper, bool theToCopyData);
+    void Resize(long long unsigned int theSize, bool theToCopyData);
     bool IsDeletable();
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnCurv^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
@@ -184,20 +197,31 @@ public:
         }
 
     public:
+        void Init(Macad::Occt::Extrema_Array1OfPOnCurv2d^ theList);
+        bool More();
+        void Initialize(Macad::Occt::Extrema_Array1OfPOnCurv2d^ theList);
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnCurv2d^ Value();
+        Macad::Occt::Extrema_POnCurv2d^ ChangeValue();
     }; // class Iterator
 
     Extrema_Array1OfPOnCurv2d();
     Extrema_Array1OfPOnCurv2d(int theLower, int theUpper);
-    /* Method skipped due to unknown mapping: void Extrema_Array1OfPOnCurv2d(allocator_type theAlloc, int theLower, int theUpper, ) */
     Extrema_Array1OfPOnCurv2d(Macad::Occt::Extrema_POnCurv2d^ theBegin, int theLower, int theUpper, bool theUseBuffer);
     Extrema_Array1OfPOnCurv2d(Macad::Occt::Extrema_POnCurv2d^ theBegin, int theLower, int theUpper);
+    Extrema_Array1OfPOnCurv2d(long long unsigned int theSize);
     void Init(Macad::Occt::Extrema_POnCurv2d^ theValue);
-    int Size();
+    long long unsigned int Size();
     int Length();
     bool IsEmpty();
     int Lower();
     int Upper();
     Macad::Occt::Extrema_Array1OfPOnCurv2d^ Assign(Macad::Occt::Extrema_Array1OfPOnCurv2d^ theOther);
+    Macad::Occt::Extrema_Array1OfPOnCurv2d^ CopyValues(Macad::Occt::Extrema_Array1OfPOnCurv2d^ theOther);
     Macad::Occt::Extrema_Array1OfPOnCurv2d^ Move(Macad::Occt::Extrema_Array1OfPOnCurv2d^ theOther);
     Macad::Occt::Extrema_POnCurv2d^ First();
     Macad::Occt::Extrema_POnCurv2d^ ChangeFirst();
@@ -205,10 +229,13 @@ public:
     Macad::Occt::Extrema_POnCurv2d^ ChangeLast();
     virtual Macad::Occt::Extrema_POnCurv2d^ Value(int theIndex);
     Macad::Occt::Extrema_POnCurv2d^ ChangeValue(int theIndex);
+    Macad::Occt::Extrema_POnCurv2d^ At(long long unsigned int theIndex);
+    Macad::Occt::Extrema_POnCurv2d^ ChangeAt(long long unsigned int theIndex);
     void SetValue(int theIndex, Macad::Occt::Extrema_POnCurv2d^ theItem);
     void UpdateLowerBound(int theLower);
     void UpdateUpperBound(int theUpper);
     void Resize(int theLower, int theUpper, bool theToCopyData);
+    void Resize(long long unsigned int theSize, bool theToCopyData);
     bool IsDeletable();
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnCurv2d^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
@@ -272,20 +299,31 @@ public:
         }
 
     public:
+        void Init(Macad::Occt::Extrema_Array1OfPOnSurf^ theList);
+        bool More();
+        void Initialize(Macad::Occt::Extrema_Array1OfPOnSurf^ theList);
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnSurf^ Value();
+        Macad::Occt::Extrema_POnSurf^ ChangeValue();
     }; // class Iterator
 
     Extrema_Array1OfPOnSurf();
     Extrema_Array1OfPOnSurf(int theLower, int theUpper);
-    /* Method skipped due to unknown mapping: void Extrema_Array1OfPOnSurf(allocator_type theAlloc, int theLower, int theUpper, ) */
     Extrema_Array1OfPOnSurf(Macad::Occt::Extrema_POnSurf^ theBegin, int theLower, int theUpper, bool theUseBuffer);
     Extrema_Array1OfPOnSurf(Macad::Occt::Extrema_POnSurf^ theBegin, int theLower, int theUpper);
+    Extrema_Array1OfPOnSurf(long long unsigned int theSize);
     void Init(Macad::Occt::Extrema_POnSurf^ theValue);
-    int Size();
+    long long unsigned int Size();
     int Length();
     bool IsEmpty();
     int Lower();
     int Upper();
     Macad::Occt::Extrema_Array1OfPOnSurf^ Assign(Macad::Occt::Extrema_Array1OfPOnSurf^ theOther);
+    Macad::Occt::Extrema_Array1OfPOnSurf^ CopyValues(Macad::Occt::Extrema_Array1OfPOnSurf^ theOther);
     Macad::Occt::Extrema_Array1OfPOnSurf^ Move(Macad::Occt::Extrema_Array1OfPOnSurf^ theOther);
     Macad::Occt::Extrema_POnSurf^ First();
     Macad::Occt::Extrema_POnSurf^ ChangeFirst();
@@ -293,10 +331,13 @@ public:
     Macad::Occt::Extrema_POnSurf^ ChangeLast();
     virtual Macad::Occt::Extrema_POnSurf^ Value(int theIndex);
     Macad::Occt::Extrema_POnSurf^ ChangeValue(int theIndex);
+    Macad::Occt::Extrema_POnSurf^ At(long long unsigned int theIndex);
+    Macad::Occt::Extrema_POnSurf^ ChangeAt(long long unsigned int theIndex);
     void SetValue(int theIndex, Macad::Occt::Extrema_POnSurf^ theItem);
     void UpdateLowerBound(int theLower);
     void UpdateUpperBound(int theUpper);
     void Resize(int theLower, int theUpper, bool theToCopyData);
+    void Resize(long long unsigned int theSize, bool theToCopyData);
     bool IsDeletable();
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnSurf^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
@@ -359,30 +400,18 @@ public:
         }
 
     public:
+        /* Method skipped due to unknown mapping: void Init(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        bool More();
+        /* Method skipped due to unknown mapping: void Initialize(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnCurv^ Value();
+        Macad::Occt::Extrema_POnCurv^ ChangeValue();
     }; // class Iterator
 
-    Extrema_Array2OfPOnCurv();
-    Extrema_Array2OfPOnCurv(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    /* Method skipped due to unknown mapping: void Extrema_Array2OfPOnCurv(allocator_type theAlloc, int theRowLower, int theRowUpper, int theColLower, int theColUpper, ) */
-    Extrema_Array2OfPOnCurv(Macad::Occt::Extrema_POnCurv^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
-    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    int Size();
-    int Length();
-    int NbRows();
-    int NbColumns();
-    int RowLength();
-    int ColLength();
-    int LowerRow();
-    int UpperRow();
-    int LowerCol();
-    int UpperCol();
-    Macad::Occt::Extrema_Array2OfPOnCurv^ Assign(Macad::Occt::Extrema_Array2OfPOnCurv^ theOther);
-    Macad::Occt::Extrema_Array2OfPOnCurv^ Move(Macad::Occt::Extrema_Array2OfPOnCurv^ theOther);
-    Macad::Occt::Extrema_POnCurv^ Value(int theRow, int theCol);
-    Macad::Occt::Extrema_POnCurv^ ChangeValue(int theRow, int theCol);
-    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnCurv^ theItem);
-    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
     void Init(Macad::Occt::Extrema_POnCurv^ theValue);
     bool IsEmpty();
     int Lower();
@@ -394,6 +423,38 @@ public:
     void UpdateLowerBound(int theLower);
     void UpdateUpperBound(int theUpper);
     bool IsDeletable();
+    Extrema_Array2OfPOnCurv();
+    Extrema_Array2OfPOnCurv(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    Extrema_Array2OfPOnCurv(Macad::Occt::Extrema_POnCurv^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    Extrema_Array2OfPOnCurv(long long unsigned int theNbRows, long long unsigned int theNbCols);
+    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
+    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    long long unsigned int Size();
+    int Length();
+    int NbRows();
+    int NbColumns();
+    int RowLength();
+    int ColLength();
+    int LowerRow();
+    int UpperRow();
+    int LowerCol();
+    int UpperCol();
+    void UpdateLowerRow(int theLowerRow);
+    void UpdateLowerCol(int theLowerCol);
+    void UpdateUpperRow(int theUpperRow);
+    void UpdateUpperCol(int theUpperCol);
+    Macad::Occt::Extrema_Array2OfPOnCurv^ Assign(Macad::Occt::Extrema_Array2OfPOnCurv^ theOther);
+    Macad::Occt::Extrema_Array2OfPOnCurv^ CopyValues(Macad::Occt::Extrema_Array2OfPOnCurv^ theOther);
+    Macad::Occt::Extrema_Array2OfPOnCurv^ Move(Macad::Occt::Extrema_Array2OfPOnCurv^ theOther);
+    Macad::Occt::Extrema_POnCurv^ Value(int theRow, int theCol);
+    Macad::Occt::Extrema_POnCurv^ ChangeValue(int theRow, int theCol);
+    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnCurv^ theItem);
+    Macad::Occt::Extrema_POnCurv^ At(long long unsigned int theRow, long long unsigned int theCol);
+    Macad::Occt::Extrema_POnCurv^ ChangeAt(long long unsigned int theRow, long long unsigned int theCol);
+    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
+    void ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
 }; // class Extrema_Array2OfPOnCurv
 
 //---------------------------------------------------------------------
@@ -453,30 +514,18 @@ public:
         }
 
     public:
+        /* Method skipped due to unknown mapping: void Init(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        bool More();
+        /* Method skipped due to unknown mapping: void Initialize(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnCurv2d^ Value();
+        Macad::Occt::Extrema_POnCurv2d^ ChangeValue();
     }; // class Iterator
 
-    Extrema_Array2OfPOnCurv2d();
-    Extrema_Array2OfPOnCurv2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    /* Method skipped due to unknown mapping: void Extrema_Array2OfPOnCurv2d(allocator_type theAlloc, int theRowLower, int theRowUpper, int theColLower, int theColUpper, ) */
-    Extrema_Array2OfPOnCurv2d(Macad::Occt::Extrema_POnCurv2d^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
-    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    int Size();
-    int Length();
-    int NbRows();
-    int NbColumns();
-    int RowLength();
-    int ColLength();
-    int LowerRow();
-    int UpperRow();
-    int LowerCol();
-    int UpperCol();
-    Macad::Occt::Extrema_Array2OfPOnCurv2d^ Assign(Macad::Occt::Extrema_Array2OfPOnCurv2d^ theOther);
-    Macad::Occt::Extrema_Array2OfPOnCurv2d^ Move(Macad::Occt::Extrema_Array2OfPOnCurv2d^ theOther);
-    Macad::Occt::Extrema_POnCurv2d^ Value(int theRow, int theCol);
-    Macad::Occt::Extrema_POnCurv2d^ ChangeValue(int theRow, int theCol);
-    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnCurv2d^ theItem);
-    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
     void Init(Macad::Occt::Extrema_POnCurv2d^ theValue);
     bool IsEmpty();
     int Lower();
@@ -488,6 +537,38 @@ public:
     void UpdateLowerBound(int theLower);
     void UpdateUpperBound(int theUpper);
     bool IsDeletable();
+    Extrema_Array2OfPOnCurv2d();
+    Extrema_Array2OfPOnCurv2d(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    Extrema_Array2OfPOnCurv2d(Macad::Occt::Extrema_POnCurv2d^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    Extrema_Array2OfPOnCurv2d(long long unsigned int theNbRows, long long unsigned int theNbCols);
+    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
+    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    long long unsigned int Size();
+    int Length();
+    int NbRows();
+    int NbColumns();
+    int RowLength();
+    int ColLength();
+    int LowerRow();
+    int UpperRow();
+    int LowerCol();
+    int UpperCol();
+    void UpdateLowerRow(int theLowerRow);
+    void UpdateLowerCol(int theLowerCol);
+    void UpdateUpperRow(int theUpperRow);
+    void UpdateUpperCol(int theUpperCol);
+    Macad::Occt::Extrema_Array2OfPOnCurv2d^ Assign(Macad::Occt::Extrema_Array2OfPOnCurv2d^ theOther);
+    Macad::Occt::Extrema_Array2OfPOnCurv2d^ CopyValues(Macad::Occt::Extrema_Array2OfPOnCurv2d^ theOther);
+    Macad::Occt::Extrema_Array2OfPOnCurv2d^ Move(Macad::Occt::Extrema_Array2OfPOnCurv2d^ theOther);
+    Macad::Occt::Extrema_POnCurv2d^ Value(int theRow, int theCol);
+    Macad::Occt::Extrema_POnCurv2d^ ChangeValue(int theRow, int theCol);
+    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnCurv2d^ theItem);
+    Macad::Occt::Extrema_POnCurv2d^ At(long long unsigned int theRow, long long unsigned int theCol);
+    Macad::Occt::Extrema_POnCurv2d^ ChangeAt(long long unsigned int theRow, long long unsigned int theCol);
+    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
+    void ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
 }; // class Extrema_Array2OfPOnCurv2d
 
 //---------------------------------------------------------------------
@@ -547,30 +628,18 @@ public:
         }
 
     public:
+        /* Method skipped due to unknown mapping: void Init(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        bool More();
+        /* Method skipped due to unknown mapping: void Initialize(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnSurf^ Value();
+        Macad::Occt::Extrema_POnSurf^ ChangeValue();
     }; // class Iterator
 
-    Extrema_Array2OfPOnSurf();
-    Extrema_Array2OfPOnSurf(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    /* Method skipped due to unknown mapping: void Extrema_Array2OfPOnSurf(allocator_type theAlloc, int theRowLower, int theRowUpper, int theColLower, int theColUpper, ) */
-    Extrema_Array2OfPOnSurf(Macad::Occt::Extrema_POnSurf^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
-    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    int Size();
-    int Length();
-    int NbRows();
-    int NbColumns();
-    int RowLength();
-    int ColLength();
-    int LowerRow();
-    int UpperRow();
-    int LowerCol();
-    int UpperCol();
-    Macad::Occt::Extrema_Array2OfPOnSurf^ Assign(Macad::Occt::Extrema_Array2OfPOnSurf^ theOther);
-    Macad::Occt::Extrema_Array2OfPOnSurf^ Move(Macad::Occt::Extrema_Array2OfPOnSurf^ theOther);
-    Macad::Occt::Extrema_POnSurf^ Value(int theRow, int theCol);
-    Macad::Occt::Extrema_POnSurf^ ChangeValue(int theRow, int theCol);
-    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnSurf^ theItem);
-    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
     void Init(Macad::Occt::Extrema_POnSurf^ theValue);
     bool IsEmpty();
     int Lower();
@@ -582,6 +651,38 @@ public:
     void UpdateLowerBound(int theLower);
     void UpdateUpperBound(int theUpper);
     bool IsDeletable();
+    Extrema_Array2OfPOnSurf();
+    Extrema_Array2OfPOnSurf(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    Extrema_Array2OfPOnSurf(Macad::Occt::Extrema_POnSurf^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    Extrema_Array2OfPOnSurf(long long unsigned int theNbRows, long long unsigned int theNbCols);
+    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
+    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    long long unsigned int Size();
+    int Length();
+    int NbRows();
+    int NbColumns();
+    int RowLength();
+    int ColLength();
+    int LowerRow();
+    int UpperRow();
+    int LowerCol();
+    int UpperCol();
+    void UpdateLowerRow(int theLowerRow);
+    void UpdateLowerCol(int theLowerCol);
+    void UpdateUpperRow(int theUpperRow);
+    void UpdateUpperCol(int theUpperCol);
+    Macad::Occt::Extrema_Array2OfPOnSurf^ Assign(Macad::Occt::Extrema_Array2OfPOnSurf^ theOther);
+    Macad::Occt::Extrema_Array2OfPOnSurf^ CopyValues(Macad::Occt::Extrema_Array2OfPOnSurf^ theOther);
+    Macad::Occt::Extrema_Array2OfPOnSurf^ Move(Macad::Occt::Extrema_Array2OfPOnSurf^ theOther);
+    Macad::Occt::Extrema_POnSurf^ Value(int theRow, int theCol);
+    Macad::Occt::Extrema_POnSurf^ ChangeValue(int theRow, int theCol);
+    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnSurf^ theItem);
+    Macad::Occt::Extrema_POnSurf^ At(long long unsigned int theRow, long long unsigned int theCol);
+    Macad::Occt::Extrema_POnSurf^ ChangeAt(long long unsigned int theRow, long long unsigned int theCol);
+    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
+    void ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
 }; // class Extrema_Array2OfPOnSurf
 
 //---------------------------------------------------------------------
@@ -641,9 +742,9 @@ public:
         }
 
     public:
-        void Init(Macad::Occt::Extrema_Array2OfPOnSurfParams^ theList);
+        /* Method skipped due to unknown mapping: void Init(NCollection_HArray1<TI_0>::Array1Type theList, ) */
         bool More();
-        void Initialize(Macad::Occt::Extrema_Array2OfPOnSurfParams^ theList);
+        /* Method skipped due to unknown mapping: void Initialize(NCollection_HArray1<TI_0>::Array1Type theList, ) */
         /* Method skipped due to unknown mapping: iterator ValueIter() */
         /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
         /* Method skipped due to unknown mapping: iterator EndIter() */
@@ -653,28 +754,6 @@ public:
         Macad::Occt::Extrema_POnSurfParams^ ChangeValue();
     }; // class Iterator
 
-    Extrema_Array2OfPOnSurfParams();
-    Extrema_Array2OfPOnSurfParams(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    /* Method skipped due to unknown mapping: void Extrema_Array2OfPOnSurfParams(allocator_type theAlloc, int theRowLower, int theRowUpper, int theColLower, int theColUpper, ) */
-    Extrema_Array2OfPOnSurfParams(Macad::Occt::Extrema_POnSurfParams^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
-    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    int Size();
-    int Length();
-    int NbRows();
-    int NbColumns();
-    int RowLength();
-    int ColLength();
-    int LowerRow();
-    int UpperRow();
-    int LowerCol();
-    int UpperCol();
-    Macad::Occt::Extrema_Array2OfPOnSurfParams^ Assign(Macad::Occt::Extrema_Array2OfPOnSurfParams^ theOther);
-    Macad::Occt::Extrema_Array2OfPOnSurfParams^ Move(Macad::Occt::Extrema_Array2OfPOnSurfParams^ theOther);
-    Macad::Occt::Extrema_POnSurfParams^ Value(int theRow, int theCol);
-    Macad::Occt::Extrema_POnSurfParams^ ChangeValue(int theRow, int theCol);
-    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnSurfParams^ theItem);
-    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
     void Init(Macad::Occt::Extrema_POnSurfParams^ theValue);
     bool IsEmpty();
     int Lower();
@@ -686,7 +765,934 @@ public:
     void UpdateLowerBound(int theLower);
     void UpdateUpperBound(int theUpper);
     bool IsDeletable();
+    Extrema_Array2OfPOnSurfParams();
+    Extrema_Array2OfPOnSurfParams(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    Extrema_Array2OfPOnSurfParams(Macad::Occt::Extrema_POnSurfParams^ theBegin, int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    Extrema_Array2OfPOnSurfParams(long long unsigned int theNbRows, long long unsigned int theNbCols);
+    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
+    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    long long unsigned int Size();
+    int Length();
+    int NbRows();
+    int NbColumns();
+    int RowLength();
+    int ColLength();
+    int LowerRow();
+    int UpperRow();
+    int LowerCol();
+    int UpperCol();
+    void UpdateLowerRow(int theLowerRow);
+    void UpdateLowerCol(int theLowerCol);
+    void UpdateUpperRow(int theUpperRow);
+    void UpdateUpperCol(int theUpperCol);
+    Macad::Occt::Extrema_Array2OfPOnSurfParams^ Assign(Macad::Occt::Extrema_Array2OfPOnSurfParams^ theOther);
+    Macad::Occt::Extrema_Array2OfPOnSurfParams^ CopyValues(Macad::Occt::Extrema_Array2OfPOnSurfParams^ theOther);
+    Macad::Occt::Extrema_Array2OfPOnSurfParams^ Move(Macad::Occt::Extrema_Array2OfPOnSurfParams^ theOther);
+    Macad::Occt::Extrema_POnSurfParams^ Value(int theRow, int theCol);
+    Macad::Occt::Extrema_POnSurfParams^ ChangeValue(int theRow, int theCol);
+    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnSurfParams^ theItem);
+    Macad::Occt::Extrema_POnSurfParams^ At(long long unsigned int theRow, long long unsigned int theCol);
+    Macad::Occt::Extrema_POnSurfParams^ ChangeAt(long long unsigned int theRow, long long unsigned int theCol);
+    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
+    void ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
 }; // class Extrema_Array2OfPOnSurfParams
+
+//---------------------------------------------------------------------
+//  Class  Extrema_ExtPC
+//---------------------------------------------------------------------
+/// <summary>
+/// Type alias for 3D point-to-curve extremum computation.
+/// </summary>
+public ref class Extrema_ExtPC sealed
+    : public Macad::Occt::BaseClass<::Extrema_ExtPC>
+{
+
+#ifdef Include_Extrema_ExtPC_h
+public:
+    Include_Extrema_ExtPC_h
+#endif
+
+public:
+    Extrema_ExtPC(::Extrema_ExtPC* nativeInstance)
+        : Macad::Occt::BaseClass<::Extrema_ExtPC>( nativeInstance, true )
+    {}
+
+    Extrema_ExtPC(::Extrema_ExtPC& nativeInstance)
+        : Macad::Occt::BaseClass<::Extrema_ExtPC>( &nativeInstance, false )
+    {}
+
+    property ::Extrema_ExtPC* NativeInstance
+    {
+        ::Extrema_ExtPC* get()
+        {
+            return static_cast<::Extrema_ExtPC*>(_NativeInstance);
+        }
+    }
+
+public:
+    Extrema_ExtPC();
+    Extrema_ExtPC(Macad::Occt::Pnt theP, Macad::Occt::Adaptor3d_Curve^ theC, double theUinf, double theUsup, double theTolF);
+    Extrema_ExtPC(Macad::Occt::Pnt theP, Macad::Occt::Adaptor3d_Curve^ theC, double theUinf, double theUsup);
+    Extrema_ExtPC(Macad::Occt::Pnt theP, Macad::Occt::Adaptor3d_Curve^ theC, double theTolF);
+    Extrema_ExtPC(Macad::Occt::Pnt theP, Macad::Occt::Adaptor3d_Curve^ theC);
+    void Initialize(Macad::Occt::Adaptor3d_Curve^ theC, double theUinf, double theUsup, double theTolF);
+    void Initialize(Macad::Occt::Adaptor3d_Curve^ theC, double theUinf, double theUsup);
+    void Perform(Macad::Occt::Pnt theP);
+    bool IsDone();
+    double SquareDistance(int theN);
+    int NbExt();
+    bool IsMin(int theN);
+    Macad::Occt::Extrema_POnCurv^ Point(int theN);
+    void TrimmedSquareDistances(double% theDist1, double% theDist2, Macad::Occt::Pnt% theP1, Macad::Occt::Pnt% theP2);
+}; // class Extrema_ExtPC
+
+//---------------------------------------------------------------------
+//  Class  Extrema_ExtPC2d
+//---------------------------------------------------------------------
+/// <summary>
+/// Type alias for 2D point-to-curve extremum computation.
+/// </summary>
+public ref class Extrema_ExtPC2d sealed
+    : public Macad::Occt::BaseClass<::Extrema_ExtPC2d>
+{
+
+#ifdef Include_Extrema_ExtPC2d_h
+public:
+    Include_Extrema_ExtPC2d_h
+#endif
+
+public:
+    Extrema_ExtPC2d(::Extrema_ExtPC2d* nativeInstance)
+        : Macad::Occt::BaseClass<::Extrema_ExtPC2d>( nativeInstance, true )
+    {}
+
+    Extrema_ExtPC2d(::Extrema_ExtPC2d& nativeInstance)
+        : Macad::Occt::BaseClass<::Extrema_ExtPC2d>( &nativeInstance, false )
+    {}
+
+    property ::Extrema_ExtPC2d* NativeInstance
+    {
+        ::Extrema_ExtPC2d* get()
+        {
+            return static_cast<::Extrema_ExtPC2d*>(_NativeInstance);
+        }
+    }
+
+public:
+    Extrema_ExtPC2d();
+    Extrema_ExtPC2d(Macad::Occt::Pnt2d theP, Macad::Occt::Adaptor2d_Curve2d^ theC, double theUinf, double theUsup, double theTolF);
+    Extrema_ExtPC2d(Macad::Occt::Pnt2d theP, Macad::Occt::Adaptor2d_Curve2d^ theC, double theUinf, double theUsup);
+    Extrema_ExtPC2d(Macad::Occt::Pnt2d theP, Macad::Occt::Adaptor2d_Curve2d^ theC, double theTolF);
+    Extrema_ExtPC2d(Macad::Occt::Pnt2d theP, Macad::Occt::Adaptor2d_Curve2d^ theC);
+    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ theC, double theUinf, double theUsup, double theTolF);
+    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ theC, double theUinf, double theUsup);
+    void Perform(Macad::Occt::Pnt2d theP);
+    bool IsDone();
+    double SquareDistance(int theN);
+    int NbExt();
+    bool IsMin(int theN);
+    Macad::Occt::Extrema_POnCurv2d^ Point(int theN);
+    void TrimmedSquareDistances(double% theDist1, double% theDist2, Macad::Occt::Pnt2d% theP1, Macad::Occt::Pnt2d% theP2);
+}; // class Extrema_ExtPC2d
+
+//---------------------------------------------------------------------
+//  Class  Extrema_ELPCOfLocateExtPC
+//---------------------------------------------------------------------
+/// <summary>
+/// Type alias for 3D point-to-curve extremum computation for LocateExtPC.
+/// </summary>
+public ref class Extrema_ELPCOfLocateExtPC sealed
+    : public Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC>
+{
+
+#ifdef Include_Extrema_ELPCOfLocateExtPC_h
+public:
+    Include_Extrema_ELPCOfLocateExtPC_h
+#endif
+
+public:
+    Extrema_ELPCOfLocateExtPC(::Extrema_ELPCOfLocateExtPC* nativeInstance)
+        : Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC>( nativeInstance, true )
+    {}
+
+    Extrema_ELPCOfLocateExtPC(::Extrema_ELPCOfLocateExtPC& nativeInstance)
+        : Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC>( &nativeInstance, false )
+    {}
+
+    property ::Extrema_ELPCOfLocateExtPC* NativeInstance
+    {
+        ::Extrema_ELPCOfLocateExtPC* get()
+        {
+            return static_cast<::Extrema_ELPCOfLocateExtPC*>(_NativeInstance);
+        }
+    }
+
+public:
+    Extrema_ELPCOfLocateExtPC();
+    Extrema_ELPCOfLocateExtPC(Macad::Occt::Pnt theP, Macad::Occt::Adaptor3d_Curve^ theC, double theUinf, double theUsup, double theTolF);
+    Extrema_ELPCOfLocateExtPC(Macad::Occt::Pnt theP, Macad::Occt::Adaptor3d_Curve^ theC, double theUinf, double theUsup);
+    Extrema_ELPCOfLocateExtPC(Macad::Occt::Pnt theP, Macad::Occt::Adaptor3d_Curve^ theC, double theTolF);
+    Extrema_ELPCOfLocateExtPC(Macad::Occt::Pnt theP, Macad::Occt::Adaptor3d_Curve^ theC);
+    void Initialize(Macad::Occt::Adaptor3d_Curve^ theC, double theUinf, double theUsup, double theTolF);
+    void Initialize(Macad::Occt::Adaptor3d_Curve^ theC, double theUinf, double theUsup);
+    void Perform(Macad::Occt::Pnt theP);
+    bool IsDone();
+    double SquareDistance(int theN);
+    int NbExt();
+    bool IsMin(int theN);
+    Macad::Occt::Extrema_POnCurv^ Point(int theN);
+    void TrimmedSquareDistances(double% theDist1, double% theDist2, Macad::Occt::Pnt% theP1, Macad::Occt::Pnt% theP2);
+}; // class Extrema_ELPCOfLocateExtPC
+
+//---------------------------------------------------------------------
+//  Class  Extrema_ELPCOfLocateExtPC2d
+//---------------------------------------------------------------------
+/// <summary>
+/// Type alias for 2D point-to-curve extremum computation for LocateExtPC.
+/// </summary>
+public ref class Extrema_ELPCOfLocateExtPC2d sealed
+    : public Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC2d>
+{
+
+#ifdef Include_Extrema_ELPCOfLocateExtPC2d_h
+public:
+    Include_Extrema_ELPCOfLocateExtPC2d_h
+#endif
+
+public:
+    Extrema_ELPCOfLocateExtPC2d(::Extrema_ELPCOfLocateExtPC2d* nativeInstance)
+        : Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC2d>( nativeInstance, true )
+    {}
+
+    Extrema_ELPCOfLocateExtPC2d(::Extrema_ELPCOfLocateExtPC2d& nativeInstance)
+        : Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC2d>( &nativeInstance, false )
+    {}
+
+    property ::Extrema_ELPCOfLocateExtPC2d* NativeInstance
+    {
+        ::Extrema_ELPCOfLocateExtPC2d* get()
+        {
+            return static_cast<::Extrema_ELPCOfLocateExtPC2d*>(_NativeInstance);
+        }
+    }
+
+public:
+    Extrema_ELPCOfLocateExtPC2d();
+    Extrema_ELPCOfLocateExtPC2d(Macad::Occt::Pnt2d theP, Macad::Occt::Adaptor2d_Curve2d^ theC, double theUinf, double theUsup, double theTolF);
+    Extrema_ELPCOfLocateExtPC2d(Macad::Occt::Pnt2d theP, Macad::Occt::Adaptor2d_Curve2d^ theC, double theUinf, double theUsup);
+    Extrema_ELPCOfLocateExtPC2d(Macad::Occt::Pnt2d theP, Macad::Occt::Adaptor2d_Curve2d^ theC, double theTolF);
+    Extrema_ELPCOfLocateExtPC2d(Macad::Occt::Pnt2d theP, Macad::Occt::Adaptor2d_Curve2d^ theC);
+    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ theC, double theUinf, double theUsup, double theTolF);
+    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ theC, double theUinf, double theUsup);
+    void Perform(Macad::Occt::Pnt2d theP);
+    bool IsDone();
+    double SquareDistance(int theN);
+    int NbExt();
+    bool IsMin(int theN);
+    Macad::Occt::Extrema_POnCurv2d^ Point(int theN);
+    void TrimmedSquareDistances(double% theDist1, double% theDist2, Macad::Occt::Pnt2d% theP1, Macad::Occt::Pnt2d% theP2);
+}; // class Extrema_ELPCOfLocateExtPC2d
+
+//---------------------------------------------------------------------
+//  Class  Extrema_HArray1OfPOnCurv
+//---------------------------------------------------------------------
+public ref class Extrema_HArray1OfPOnCurv sealed
+    : public Macad::Occt::Standard_Transient
+    , public IIndexEnumerable<Macad::Occt::Extrema_POnCurv^>
+{
+
+#ifdef Include_Extrema_HArray1OfPOnCurv_h
+public:
+    Include_Extrema_HArray1OfPOnCurv_h
+#endif
+
+public:
+    Extrema_HArray1OfPOnCurv(::Extrema_HArray1OfPOnCurv* nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    Extrema_HArray1OfPOnCurv(::Extrema_HArray1OfPOnCurv& nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    property ::Extrema_HArray1OfPOnCurv* NativeInstance
+    {
+        ::Extrema_HArray1OfPOnCurv* get()
+        {
+            return static_cast<::Extrema_HArray1OfPOnCurv*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv::Iterator>
+    {
+
+#ifdef Include_Extrema_HArray1OfPOnCurv_Iterator_h
+    public:
+        Include_Extrema_HArray1OfPOnCurv_Iterator_h
+#endif
+
+    public:
+        Iterator(::Extrema_HArray1OfPOnCurv::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::Extrema_HArray1OfPOnCurv::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::Extrema_HArray1OfPOnCurv::Iterator* NativeInstance
+        {
+            ::Extrema_HArray1OfPOnCurv::Iterator* get()
+            {
+                return static_cast<::Extrema_HArray1OfPOnCurv::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        /* Method skipped due to unknown mapping: void Init(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        bool More();
+        /* Method skipped due to unknown mapping: void Initialize(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnCurv^ Value();
+        Macad::Occt::Extrema_POnCurv^ ChangeValue();
+    }; // class Iterator
+
+    void Init(Macad::Occt::Extrema_POnCurv^ theValue);
+    long long unsigned int Size();
+    int Length();
+    bool IsEmpty();
+    int Lower();
+    int Upper();
+    /* Method skipped due to unknown mapping: NCollection_HArray1<TI_0>::Array1Type Assign(NCollection_HArray1<TI_0>::Array1Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray1<TI_0>::Array1Type CopyValues(NCollection_HArray1<TI_0>::Array1Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray1<TI_0>::Array1Type Move(NCollection_HArray1<TI_0>::Array1Type theOther, ) */
+    Macad::Occt::Extrema_POnCurv^ First();
+    Macad::Occt::Extrema_POnCurv^ ChangeFirst();
+    Macad::Occt::Extrema_POnCurv^ Last();
+    Macad::Occt::Extrema_POnCurv^ ChangeLast();
+    virtual Macad::Occt::Extrema_POnCurv^ Value(int theIndex);
+    Macad::Occt::Extrema_POnCurv^ ChangeValue(int theIndex);
+    Macad::Occt::Extrema_POnCurv^ At(long long unsigned int theIndex);
+    Macad::Occt::Extrema_POnCurv^ ChangeAt(long long unsigned int theIndex);
+    void SetValue(int theIndex, Macad::Occt::Extrema_POnCurv^ theItem);
+    void UpdateLowerBound(int theLower);
+    void UpdateUpperBound(int theUpper);
+    void Resize(int theLower, int theUpper, bool theToCopyData);
+    void Resize(long long unsigned int theSize, bool theToCopyData);
+    bool IsDeletable();
+    Extrema_HArray1OfPOnCurv();
+    Extrema_HArray1OfPOnCurv(int theLower, int theUpper);
+    Extrema_HArray1OfPOnCurv(int theLower, int theUpper, Macad::Occt::Extrema_POnCurv^ theValue);
+    Extrema_HArray1OfPOnCurv(Macad::Occt::Extrema_POnCurv^ theBegin, int theLower, int theUpper, bool theUseBuffer);
+    /* Method skipped due to unknown mapping: void Extrema_HArray1OfPOnCurv(Array1Type theOther, ) */
+    /* Method skipped due to unknown mapping: Array1Type Array1() */
+    /* Method skipped due to unknown mapping: Array1Type ChangeArray1() */
+    static Macad::Occt::Extrema_HArray1OfPOnCurv^ CreateDowncasted(::Extrema_HArray1OfPOnCurv* instance);
+    virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnCurv^>^ GetEnumerator();
+    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
+}; // class Extrema_HArray1OfPOnCurv
+
+//---------------------------------------------------------------------
+//  Class  Extrema_HArray1OfPOnCurv2d
+//---------------------------------------------------------------------
+public ref class Extrema_HArray1OfPOnCurv2d sealed
+    : public Macad::Occt::Standard_Transient
+    , public IIndexEnumerable<Macad::Occt::Extrema_POnCurv2d^>
+{
+
+#ifdef Include_Extrema_HArray1OfPOnCurv2d_h
+public:
+    Include_Extrema_HArray1OfPOnCurv2d_h
+#endif
+
+public:
+    Extrema_HArray1OfPOnCurv2d(::Extrema_HArray1OfPOnCurv2d* nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    Extrema_HArray1OfPOnCurv2d(::Extrema_HArray1OfPOnCurv2d& nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    property ::Extrema_HArray1OfPOnCurv2d* NativeInstance
+    {
+        ::Extrema_HArray1OfPOnCurv2d* get()
+        {
+            return static_cast<::Extrema_HArray1OfPOnCurv2d*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv2d::Iterator>
+    {
+
+#ifdef Include_Extrema_HArray1OfPOnCurv2d_Iterator_h
+    public:
+        Include_Extrema_HArray1OfPOnCurv2d_Iterator_h
+#endif
+
+    public:
+        Iterator(::Extrema_HArray1OfPOnCurv2d::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv2d::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::Extrema_HArray1OfPOnCurv2d::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv2d::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::Extrema_HArray1OfPOnCurv2d::Iterator* NativeInstance
+        {
+            ::Extrema_HArray1OfPOnCurv2d::Iterator* get()
+            {
+                return static_cast<::Extrema_HArray1OfPOnCurv2d::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        /* Method skipped due to unknown mapping: void Init(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        bool More();
+        /* Method skipped due to unknown mapping: void Initialize(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnCurv2d^ Value();
+        Macad::Occt::Extrema_POnCurv2d^ ChangeValue();
+    }; // class Iterator
+
+    void Init(Macad::Occt::Extrema_POnCurv2d^ theValue);
+    long long unsigned int Size();
+    int Length();
+    bool IsEmpty();
+    int Lower();
+    int Upper();
+    /* Method skipped due to unknown mapping: NCollection_HArray1<TI_0>::Array1Type Assign(NCollection_HArray1<TI_0>::Array1Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray1<TI_0>::Array1Type CopyValues(NCollection_HArray1<TI_0>::Array1Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray1<TI_0>::Array1Type Move(NCollection_HArray1<TI_0>::Array1Type theOther, ) */
+    Macad::Occt::Extrema_POnCurv2d^ First();
+    Macad::Occt::Extrema_POnCurv2d^ ChangeFirst();
+    Macad::Occt::Extrema_POnCurv2d^ Last();
+    Macad::Occt::Extrema_POnCurv2d^ ChangeLast();
+    virtual Macad::Occt::Extrema_POnCurv2d^ Value(int theIndex);
+    Macad::Occt::Extrema_POnCurv2d^ ChangeValue(int theIndex);
+    Macad::Occt::Extrema_POnCurv2d^ At(long long unsigned int theIndex);
+    Macad::Occt::Extrema_POnCurv2d^ ChangeAt(long long unsigned int theIndex);
+    void SetValue(int theIndex, Macad::Occt::Extrema_POnCurv2d^ theItem);
+    void UpdateLowerBound(int theLower);
+    void UpdateUpperBound(int theUpper);
+    void Resize(int theLower, int theUpper, bool theToCopyData);
+    void Resize(long long unsigned int theSize, bool theToCopyData);
+    bool IsDeletable();
+    Extrema_HArray1OfPOnCurv2d();
+    Extrema_HArray1OfPOnCurv2d(int theLower, int theUpper);
+    Extrema_HArray1OfPOnCurv2d(int theLower, int theUpper, Macad::Occt::Extrema_POnCurv2d^ theValue);
+    Extrema_HArray1OfPOnCurv2d(Macad::Occt::Extrema_POnCurv2d^ theBegin, int theLower, int theUpper, bool theUseBuffer);
+    /* Method skipped due to unknown mapping: void Extrema_HArray1OfPOnCurv2d(Array1Type theOther, ) */
+    /* Method skipped due to unknown mapping: Array1Type Array1() */
+    /* Method skipped due to unknown mapping: Array1Type ChangeArray1() */
+    static Macad::Occt::Extrema_HArray1OfPOnCurv2d^ CreateDowncasted(::Extrema_HArray1OfPOnCurv2d* instance);
+    virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnCurv2d^>^ GetEnumerator();
+    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
+}; // class Extrema_HArray1OfPOnCurv2d
+
+//---------------------------------------------------------------------
+//  Class  Extrema_HArray1OfPOnSurf
+//---------------------------------------------------------------------
+public ref class Extrema_HArray1OfPOnSurf sealed
+    : public Macad::Occt::Standard_Transient
+    , public IIndexEnumerable<Macad::Occt::Extrema_POnSurf^>
+{
+
+#ifdef Include_Extrema_HArray1OfPOnSurf_h
+public:
+    Include_Extrema_HArray1OfPOnSurf_h
+#endif
+
+public:
+    Extrema_HArray1OfPOnSurf(::Extrema_HArray1OfPOnSurf* nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    Extrema_HArray1OfPOnSurf(::Extrema_HArray1OfPOnSurf& nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    property ::Extrema_HArray1OfPOnSurf* NativeInstance
+    {
+        ::Extrema_HArray1OfPOnSurf* get()
+        {
+            return static_cast<::Extrema_HArray1OfPOnSurf*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::Extrema_HArray1OfPOnSurf::Iterator>
+    {
+
+#ifdef Include_Extrema_HArray1OfPOnSurf_Iterator_h
+    public:
+        Include_Extrema_HArray1OfPOnSurf_Iterator_h
+#endif
+
+    public:
+        Iterator(::Extrema_HArray1OfPOnSurf::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnSurf::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::Extrema_HArray1OfPOnSurf::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnSurf::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::Extrema_HArray1OfPOnSurf::Iterator* NativeInstance
+        {
+            ::Extrema_HArray1OfPOnSurf::Iterator* get()
+            {
+                return static_cast<::Extrema_HArray1OfPOnSurf::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        /* Method skipped due to unknown mapping: void Init(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        bool More();
+        /* Method skipped due to unknown mapping: void Initialize(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnSurf^ Value();
+        Macad::Occt::Extrema_POnSurf^ ChangeValue();
+    }; // class Iterator
+
+    void Init(Macad::Occt::Extrema_POnSurf^ theValue);
+    long long unsigned int Size();
+    int Length();
+    bool IsEmpty();
+    int Lower();
+    int Upper();
+    /* Method skipped due to unknown mapping: NCollection_HArray1<TI_0>::Array1Type Assign(NCollection_HArray1<TI_0>::Array1Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray1<TI_0>::Array1Type CopyValues(NCollection_HArray1<TI_0>::Array1Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray1<TI_0>::Array1Type Move(NCollection_HArray1<TI_0>::Array1Type theOther, ) */
+    Macad::Occt::Extrema_POnSurf^ First();
+    Macad::Occt::Extrema_POnSurf^ ChangeFirst();
+    Macad::Occt::Extrema_POnSurf^ Last();
+    Macad::Occt::Extrema_POnSurf^ ChangeLast();
+    virtual Macad::Occt::Extrema_POnSurf^ Value(int theIndex);
+    Macad::Occt::Extrema_POnSurf^ ChangeValue(int theIndex);
+    Macad::Occt::Extrema_POnSurf^ At(long long unsigned int theIndex);
+    Macad::Occt::Extrema_POnSurf^ ChangeAt(long long unsigned int theIndex);
+    void SetValue(int theIndex, Macad::Occt::Extrema_POnSurf^ theItem);
+    void UpdateLowerBound(int theLower);
+    void UpdateUpperBound(int theUpper);
+    void Resize(int theLower, int theUpper, bool theToCopyData);
+    void Resize(long long unsigned int theSize, bool theToCopyData);
+    bool IsDeletable();
+    Extrema_HArray1OfPOnSurf();
+    Extrema_HArray1OfPOnSurf(int theLower, int theUpper);
+    Extrema_HArray1OfPOnSurf(int theLower, int theUpper, Macad::Occt::Extrema_POnSurf^ theValue);
+    Extrema_HArray1OfPOnSurf(Macad::Occt::Extrema_POnSurf^ theBegin, int theLower, int theUpper, bool theUseBuffer);
+    /* Method skipped due to unknown mapping: void Extrema_HArray1OfPOnSurf(Array1Type theOther, ) */
+    /* Method skipped due to unknown mapping: Array1Type Array1() */
+    /* Method skipped due to unknown mapping: Array1Type ChangeArray1() */
+    static Macad::Occt::Extrema_HArray1OfPOnSurf^ CreateDowncasted(::Extrema_HArray1OfPOnSurf* instance);
+    virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnSurf^>^ GetEnumerator();
+    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
+}; // class Extrema_HArray1OfPOnSurf
+
+//---------------------------------------------------------------------
+//  Class  Extrema_HArray2OfPOnCurv
+//---------------------------------------------------------------------
+public ref class Extrema_HArray2OfPOnCurv sealed
+    : public Macad::Occt::Standard_Transient
+{
+
+#ifdef Include_Extrema_HArray2OfPOnCurv_h
+public:
+    Include_Extrema_HArray2OfPOnCurv_h
+#endif
+
+public:
+    Extrema_HArray2OfPOnCurv(::Extrema_HArray2OfPOnCurv* nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    Extrema_HArray2OfPOnCurv(::Extrema_HArray2OfPOnCurv& nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    property ::Extrema_HArray2OfPOnCurv* NativeInstance
+    {
+        ::Extrema_HArray2OfPOnCurv* get()
+        {
+            return static_cast<::Extrema_HArray2OfPOnCurv*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv::Iterator>
+    {
+
+#ifdef Include_Extrema_HArray2OfPOnCurv_Iterator_h
+    public:
+        Include_Extrema_HArray2OfPOnCurv_Iterator_h
+#endif
+
+    public:
+        Iterator(::Extrema_HArray2OfPOnCurv::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::Extrema_HArray2OfPOnCurv::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::Extrema_HArray2OfPOnCurv::Iterator* NativeInstance
+        {
+            ::Extrema_HArray2OfPOnCurv::Iterator* get()
+            {
+                return static_cast<::Extrema_HArray2OfPOnCurv::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        /* Method skipped due to unknown mapping: void Init(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        bool More();
+        /* Method skipped due to unknown mapping: void Initialize(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnCurv^ Value();
+        Macad::Occt::Extrema_POnCurv^ ChangeValue();
+    }; // class Iterator
+
+    void Init(Macad::Occt::Extrema_POnCurv^ theValue);
+    bool IsEmpty();
+    int Lower();
+    int Upper();
+    Macad::Occt::Extrema_POnCurv^ First();
+    Macad::Occt::Extrema_POnCurv^ ChangeFirst();
+    Macad::Occt::Extrema_POnCurv^ Last();
+    Macad::Occt::Extrema_POnCurv^ ChangeLast();
+    void UpdateLowerBound(int theLower);
+    void UpdateUpperBound(int theUpper);
+    bool IsDeletable();
+    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
+    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    long long unsigned int Size();
+    int Length();
+    int NbRows();
+    int NbColumns();
+    int RowLength();
+    int ColLength();
+    int LowerRow();
+    int UpperRow();
+    int LowerCol();
+    int UpperCol();
+    void UpdateLowerRow(int theLowerRow);
+    void UpdateLowerCol(int theLowerCol);
+    void UpdateUpperRow(int theUpperRow);
+    void UpdateUpperCol(int theUpperCol);
+    /* Method skipped due to unknown mapping: NCollection_HArray2<TI_0>::Array2Type Assign(NCollection_HArray2<TI_0>::Array2Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray2<TI_0>::Array2Type CopyValues(NCollection_HArray2<TI_0>::Array2Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray2<TI_0>::Array2Type Move(NCollection_HArray2<TI_0>::Array2Type theOther, ) */
+    Macad::Occt::Extrema_POnCurv^ Value(int theRow, int theCol);
+    Macad::Occt::Extrema_POnCurv^ ChangeValue(int theRow, int theCol);
+    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnCurv^ theItem);
+    Macad::Occt::Extrema_POnCurv^ At(long long unsigned int theRow, long long unsigned int theCol);
+    Macad::Occt::Extrema_POnCurv^ ChangeAt(long long unsigned int theRow, long long unsigned int theCol);
+    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
+    void ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
+    Extrema_HArray2OfPOnCurv(int theRowLow, int theRowUpp, int theColLow, int theColUpp);
+    Extrema_HArray2OfPOnCurv(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Extrema_POnCurv^ theValue);
+    /* Method skipped due to unknown mapping: void Extrema_HArray2OfPOnCurv(Array2Type theOther, ) */
+    /* Method skipped due to unknown mapping: Array2Type Array2() */
+    /* Method skipped due to unknown mapping: Array2Type ChangeArray2() */
+    static Macad::Occt::Extrema_HArray2OfPOnCurv^ CreateDowncasted(::Extrema_HArray2OfPOnCurv* instance);
+}; // class Extrema_HArray2OfPOnCurv
+
+//---------------------------------------------------------------------
+//  Class  Extrema_HArray2OfPOnCurv2d
+//---------------------------------------------------------------------
+public ref class Extrema_HArray2OfPOnCurv2d sealed
+    : public Macad::Occt::Standard_Transient
+{
+
+#ifdef Include_Extrema_HArray2OfPOnCurv2d_h
+public:
+    Include_Extrema_HArray2OfPOnCurv2d_h
+#endif
+
+public:
+    Extrema_HArray2OfPOnCurv2d(::Extrema_HArray2OfPOnCurv2d* nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    Extrema_HArray2OfPOnCurv2d(::Extrema_HArray2OfPOnCurv2d& nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    property ::Extrema_HArray2OfPOnCurv2d* NativeInstance
+    {
+        ::Extrema_HArray2OfPOnCurv2d* get()
+        {
+            return static_cast<::Extrema_HArray2OfPOnCurv2d*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv2d::Iterator>
+    {
+
+#ifdef Include_Extrema_HArray2OfPOnCurv2d_Iterator_h
+    public:
+        Include_Extrema_HArray2OfPOnCurv2d_Iterator_h
+#endif
+
+    public:
+        Iterator(::Extrema_HArray2OfPOnCurv2d::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv2d::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::Extrema_HArray2OfPOnCurv2d::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv2d::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::Extrema_HArray2OfPOnCurv2d::Iterator* NativeInstance
+        {
+            ::Extrema_HArray2OfPOnCurv2d::Iterator* get()
+            {
+                return static_cast<::Extrema_HArray2OfPOnCurv2d::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        /* Method skipped due to unknown mapping: void Init(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        bool More();
+        /* Method skipped due to unknown mapping: void Initialize(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnCurv2d^ Value();
+        Macad::Occt::Extrema_POnCurv2d^ ChangeValue();
+    }; // class Iterator
+
+    void Init(Macad::Occt::Extrema_POnCurv2d^ theValue);
+    bool IsEmpty();
+    int Lower();
+    int Upper();
+    Macad::Occt::Extrema_POnCurv2d^ First();
+    Macad::Occt::Extrema_POnCurv2d^ ChangeFirst();
+    Macad::Occt::Extrema_POnCurv2d^ Last();
+    Macad::Occt::Extrema_POnCurv2d^ ChangeLast();
+    void UpdateLowerBound(int theLower);
+    void UpdateUpperBound(int theUpper);
+    bool IsDeletable();
+    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
+    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    long long unsigned int Size();
+    int Length();
+    int NbRows();
+    int NbColumns();
+    int RowLength();
+    int ColLength();
+    int LowerRow();
+    int UpperRow();
+    int LowerCol();
+    int UpperCol();
+    void UpdateLowerRow(int theLowerRow);
+    void UpdateLowerCol(int theLowerCol);
+    void UpdateUpperRow(int theUpperRow);
+    void UpdateUpperCol(int theUpperCol);
+    /* Method skipped due to unknown mapping: NCollection_HArray2<TI_0>::Array2Type Assign(NCollection_HArray2<TI_0>::Array2Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray2<TI_0>::Array2Type CopyValues(NCollection_HArray2<TI_0>::Array2Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray2<TI_0>::Array2Type Move(NCollection_HArray2<TI_0>::Array2Type theOther, ) */
+    Macad::Occt::Extrema_POnCurv2d^ Value(int theRow, int theCol);
+    Macad::Occt::Extrema_POnCurv2d^ ChangeValue(int theRow, int theCol);
+    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnCurv2d^ theItem);
+    Macad::Occt::Extrema_POnCurv2d^ At(long long unsigned int theRow, long long unsigned int theCol);
+    Macad::Occt::Extrema_POnCurv2d^ ChangeAt(long long unsigned int theRow, long long unsigned int theCol);
+    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
+    void ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
+    Extrema_HArray2OfPOnCurv2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp);
+    Extrema_HArray2OfPOnCurv2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Extrema_POnCurv2d^ theValue);
+    /* Method skipped due to unknown mapping: void Extrema_HArray2OfPOnCurv2d(Array2Type theOther, ) */
+    /* Method skipped due to unknown mapping: Array2Type Array2() */
+    /* Method skipped due to unknown mapping: Array2Type ChangeArray2() */
+    static Macad::Occt::Extrema_HArray2OfPOnCurv2d^ CreateDowncasted(::Extrema_HArray2OfPOnCurv2d* instance);
+}; // class Extrema_HArray2OfPOnCurv2d
+
+//---------------------------------------------------------------------
+//  Class  Extrema_HArray2OfPOnSurf
+//---------------------------------------------------------------------
+public ref class Extrema_HArray2OfPOnSurf sealed
+    : public Macad::Occt::Standard_Transient
+{
+
+#ifdef Include_Extrema_HArray2OfPOnSurf_h
+public:
+    Include_Extrema_HArray2OfPOnSurf_h
+#endif
+
+public:
+    Extrema_HArray2OfPOnSurf(::Extrema_HArray2OfPOnSurf* nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    Extrema_HArray2OfPOnSurf(::Extrema_HArray2OfPOnSurf& nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    property ::Extrema_HArray2OfPOnSurf* NativeInstance
+    {
+        ::Extrema_HArray2OfPOnSurf* get()
+        {
+            return static_cast<::Extrema_HArray2OfPOnSurf*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::Extrema_HArray2OfPOnSurf::Iterator>
+    {
+
+#ifdef Include_Extrema_HArray2OfPOnSurf_Iterator_h
+    public:
+        Include_Extrema_HArray2OfPOnSurf_Iterator_h
+#endif
+
+    public:
+        Iterator(::Extrema_HArray2OfPOnSurf::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnSurf::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::Extrema_HArray2OfPOnSurf::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnSurf::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::Extrema_HArray2OfPOnSurf::Iterator* NativeInstance
+        {
+            ::Extrema_HArray2OfPOnSurf::Iterator* get()
+            {
+                return static_cast<::Extrema_HArray2OfPOnSurf::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        /* Method skipped due to unknown mapping: void Init(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        bool More();
+        /* Method skipped due to unknown mapping: void Initialize(NCollection_HArray1<TI_0>::Array1Type theList, ) */
+        /* Method skipped due to unknown mapping: iterator ValueIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeValueIter() */
+        /* Method skipped due to unknown mapping: iterator EndIter() */
+        /* Method skipped due to unknown mapping: iterator ChangeEndIter() */
+        void Next();
+        Macad::Occt::Extrema_POnSurf^ Value();
+        Macad::Occt::Extrema_POnSurf^ ChangeValue();
+    }; // class Iterator
+
+    void Init(Macad::Occt::Extrema_POnSurf^ theValue);
+    bool IsEmpty();
+    int Lower();
+    int Upper();
+    Macad::Occt::Extrema_POnSurf^ First();
+    Macad::Occt::Extrema_POnSurf^ ChangeFirst();
+    Macad::Occt::Extrema_POnSurf^ Last();
+    Macad::Occt::Extrema_POnSurf^ ChangeLast();
+    void UpdateLowerBound(int theLower);
+    void UpdateUpperBound(int theUpper);
+    bool IsDeletable();
+    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
+    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
+    long long unsigned int Size();
+    int Length();
+    int NbRows();
+    int NbColumns();
+    int RowLength();
+    int ColLength();
+    int LowerRow();
+    int UpperRow();
+    int LowerCol();
+    int UpperCol();
+    void UpdateLowerRow(int theLowerRow);
+    void UpdateLowerCol(int theLowerCol);
+    void UpdateUpperRow(int theUpperRow);
+    void UpdateUpperCol(int theUpperCol);
+    /* Method skipped due to unknown mapping: NCollection_HArray2<TI_0>::Array2Type Assign(NCollection_HArray2<TI_0>::Array2Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray2<TI_0>::Array2Type CopyValues(NCollection_HArray2<TI_0>::Array2Type theOther, ) */
+    /* Method skipped due to unknown mapping: NCollection_HArray2<TI_0>::Array2Type Move(NCollection_HArray2<TI_0>::Array2Type theOther, ) */
+    Macad::Occt::Extrema_POnSurf^ Value(int theRow, int theCol);
+    Macad::Occt::Extrema_POnSurf^ ChangeValue(int theRow, int theCol);
+    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnSurf^ theItem);
+    Macad::Occt::Extrema_POnSurf^ At(long long unsigned int theRow, long long unsigned int theCol);
+    Macad::Occt::Extrema_POnSurf^ ChangeAt(long long unsigned int theRow, long long unsigned int theCol);
+    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void ResizeWithTrim(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
+    void Resize(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
+    void ResizeWithTrim(long long unsigned int theNbRows, long long unsigned int theNbCols, bool theToCopyData);
+    Extrema_HArray2OfPOnSurf(int theRowLow, int theRowUpp, int theColLow, int theColUpp);
+    Extrema_HArray2OfPOnSurf(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Extrema_POnSurf^ theValue);
+    /* Method skipped due to unknown mapping: void Extrema_HArray2OfPOnSurf(Array2Type theOther, ) */
+    /* Method skipped due to unknown mapping: Array2Type Array2() */
+    /* Method skipped due to unknown mapping: Array2Type ChangeArray2() */
+    static Macad::Occt::Extrema_HArray2OfPOnSurf^ CreateDowncasted(::Extrema_HArray2OfPOnSurf* instance);
+}; // class Extrema_HArray2OfPOnSurf
+
+//---------------------------------------------------------------------
+//  Class  Extrema_HUBTreeOfSphere
+//---------------------------------------------------------------------
+public ref class Extrema_HUBTreeOfSphere sealed
+    : public Macad::Occt::BaseClass<::Extrema_HUBTreeOfSphere>
+{
+
+#ifdef Include_Extrema_HUBTreeOfSphere_h
+public:
+    Include_Extrema_HUBTreeOfSphere_h
+#endif
+
+public:
+    Extrema_HUBTreeOfSphere(::Extrema_HUBTreeOfSphere* nativeInstance)
+        : Macad::Occt::BaseClass<::Extrema_HUBTreeOfSphere>( nativeInstance, true )
+    {}
+
+    Extrema_HUBTreeOfSphere(::Extrema_HUBTreeOfSphere& nativeInstance)
+        : Macad::Occt::BaseClass<::Extrema_HUBTreeOfSphere>( &nativeInstance, false )
+    {}
+
+    property ::Extrema_HUBTreeOfSphere* NativeInstance
+    {
+        ::Extrema_HUBTreeOfSphere* get()
+        {
+            return static_cast<::Extrema_HUBTreeOfSphere*>(_NativeInstance);
+        }
+    }
+
+public:
+    Extrema_HUBTreeOfSphere();
+    /* Method skipped due to unknown mapping: void Extrema_HUBTreeOfSphere(Extrema_UBTreeOfSphere theObject, ) */
+    /* Method skipped due to unknown mapping: Extrema_UBTreeOfSphere get() */
+    static Macad::Occt::Extrema_HUBTreeOfSphere^ DownCast(Macad::Occt::Standard_Transient^ theOther);
+}; // class Extrema_HUBTreeOfSphere
 
 //---------------------------------------------------------------------
 //  Class  Extrema_SequenceOfPOnCurv
@@ -747,6 +1753,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::Extrema_SequenceOfPOnCurv^ theSeq, bool isStart);
+        Iterator(Macad::Occt::Extrema_SequenceOfPOnCurv^ theSeq);
         bool More();
         void Next();
         Macad::Occt::Extrema_POnCurv^ Value();
@@ -755,32 +1763,53 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     Extrema_SequenceOfPOnCurv();
     Extrema_SequenceOfPOnCurv(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::Extrema_SequenceOfPOnCurv^ Assign(Macad::Occt::Extrema_SequenceOfPOnCurv^ theOther);
     void Remove(Macad::Occt::Extrema_SequenceOfPOnCurv::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::Extrema_POnCurv^ theItem);
+    void Append(Macad::Occt::Extrema_SequenceOfPOnCurv^ theSeq);
     void Prepend(Macad::Occt::Extrema_POnCurv^ theItem);
+    void Prepend(Macad::Occt::Extrema_SequenceOfPOnCurv^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Extrema_POnCurv^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::Extrema_POnCurv^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv^ theSeq);
     void InsertAfter(Macad::Occt::Extrema_SequenceOfPOnCurv::Iterator^ thePosition, Macad::Occt::Extrema_POnCurv^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Extrema_POnCurv^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::Extrema_POnCurv^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv^ theSeq);
     void Split(int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv^ theSeq);
     Macad::Occt::Extrema_POnCurv^ First();
     Macad::Occt::Extrema_POnCurv^ ChangeFirst();
     Macad::Occt::Extrema_POnCurv^ Last();
     Macad::Occt::Extrema_POnCurv^ ChangeLast();
+    Macad::Occt::Extrema_POnCurv^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::Extrema_POnCurv^ Value(int theIndex);
+    Macad::Occt::Extrema_POnCurv^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::Extrema_POnCurv^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::Extrema_POnCurv^ theItem);
     void SetValue(int theIndex, Macad::Occt::Extrema_POnCurv^ theItem);
+    Macad::Occt::Extrema_POnCurv^ At(long long unsigned int theIndex);
+    Macad::Occt::Extrema_POnCurv^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnCurv^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class Extrema_SequenceOfPOnCurv
@@ -844,6 +1873,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::Extrema_SequenceOfPOnCurv2d^ theSeq, bool isStart);
+        Iterator(Macad::Occt::Extrema_SequenceOfPOnCurv2d^ theSeq);
         bool More();
         void Next();
         Macad::Occt::Extrema_POnCurv2d^ Value();
@@ -852,32 +1883,53 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     Extrema_SequenceOfPOnCurv2d();
     Extrema_SequenceOfPOnCurv2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::Extrema_SequenceOfPOnCurv2d^ Assign(Macad::Occt::Extrema_SequenceOfPOnCurv2d^ theOther);
     void Remove(Macad::Occt::Extrema_SequenceOfPOnCurv2d::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::Extrema_POnCurv2d^ theItem);
+    void Append(Macad::Occt::Extrema_SequenceOfPOnCurv2d^ theSeq);
     void Prepend(Macad::Occt::Extrema_POnCurv2d^ theItem);
+    void Prepend(Macad::Occt::Extrema_SequenceOfPOnCurv2d^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Extrema_POnCurv2d^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::Extrema_POnCurv2d^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv2d^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv2d^ theSeq);
     void InsertAfter(Macad::Occt::Extrema_SequenceOfPOnCurv2d::Iterator^ thePosition, Macad::Occt::Extrema_POnCurv2d^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv2d^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv2d^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Extrema_POnCurv2d^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::Extrema_POnCurv2d^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv2d^ theSeq);
     void Split(int theIndex, Macad::Occt::Extrema_SequenceOfPOnCurv2d^ theSeq);
     Macad::Occt::Extrema_POnCurv2d^ First();
     Macad::Occt::Extrema_POnCurv2d^ ChangeFirst();
     Macad::Occt::Extrema_POnCurv2d^ Last();
     Macad::Occt::Extrema_POnCurv2d^ ChangeLast();
+    Macad::Occt::Extrema_POnCurv2d^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::Extrema_POnCurv2d^ Value(int theIndex);
+    Macad::Occt::Extrema_POnCurv2d^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::Extrema_POnCurv2d^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::Extrema_POnCurv2d^ theItem);
     void SetValue(int theIndex, Macad::Occt::Extrema_POnCurv2d^ theItem);
+    Macad::Occt::Extrema_POnCurv2d^ At(long long unsigned int theIndex);
+    Macad::Occt::Extrema_POnCurv2d^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnCurv2d^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class Extrema_SequenceOfPOnCurv2d
@@ -941,6 +1993,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::Extrema_SequenceOfPOnSurf^ theSeq, bool isStart);
+        Iterator(Macad::Occt::Extrema_SequenceOfPOnSurf^ theSeq);
         bool More();
         void Next();
         Macad::Occt::Extrema_POnSurf^ Value();
@@ -949,75 +2003,63 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     Extrema_SequenceOfPOnSurf();
     Extrema_SequenceOfPOnSurf(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::Extrema_SequenceOfPOnSurf^ Assign(Macad::Occt::Extrema_SequenceOfPOnSurf^ theOther);
     void Remove(Macad::Occt::Extrema_SequenceOfPOnSurf::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::Extrema_POnSurf^ theItem);
+    void Append(Macad::Occt::Extrema_SequenceOfPOnSurf^ theSeq);
     void Prepend(Macad::Occt::Extrema_POnSurf^ theItem);
+    void Prepend(Macad::Occt::Extrema_SequenceOfPOnSurf^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Extrema_POnSurf^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::Extrema_POnSurf^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Extrema_SequenceOfPOnSurf^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::Extrema_SequenceOfPOnSurf^ theSeq);
     void InsertAfter(Macad::Occt::Extrema_SequenceOfPOnSurf::Iterator^ thePosition, Macad::Occt::Extrema_POnSurf^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Extrema_SequenceOfPOnSurf^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::Extrema_SequenceOfPOnSurf^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Extrema_POnSurf^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::Extrema_POnSurf^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::Extrema_SequenceOfPOnSurf^ theSeq);
     void Split(int theIndex, Macad::Occt::Extrema_SequenceOfPOnSurf^ theSeq);
     Macad::Occt::Extrema_POnSurf^ First();
     Macad::Occt::Extrema_POnSurf^ ChangeFirst();
     Macad::Occt::Extrema_POnSurf^ Last();
     Macad::Occt::Extrema_POnSurf^ ChangeLast();
+    Macad::Occt::Extrema_POnSurf^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::Extrema_POnSurf^ Value(int theIndex);
+    Macad::Occt::Extrema_POnSurf^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::Extrema_POnSurf^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::Extrema_POnSurf^ theItem);
     void SetValue(int theIndex, Macad::Occt::Extrema_POnSurf^ theItem);
+    Macad::Occt::Extrema_POnSurf^ At(long long unsigned int theIndex);
+    Macad::Occt::Extrema_POnSurf^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnSurf^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class Extrema_SequenceOfPOnSurf
 
 //---------------------------------------------------------------------
-//  Class  Extrema_HUBTreeOfSphere
-//---------------------------------------------------------------------
-public ref class Extrema_HUBTreeOfSphere sealed
-    : public Macad::Occt::BaseClass<::Extrema_HUBTreeOfSphere>
-{
-
-#ifdef Include_Extrema_HUBTreeOfSphere_h
-public:
-    Include_Extrema_HUBTreeOfSphere_h
-#endif
-
-public:
-    Extrema_HUBTreeOfSphere(::Extrema_HUBTreeOfSphere* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_HUBTreeOfSphere>( nativeInstance, true )
-    {}
-
-    Extrema_HUBTreeOfSphere(::Extrema_HUBTreeOfSphere& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_HUBTreeOfSphere>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_HUBTreeOfSphere* NativeInstance
-    {
-        ::Extrema_HUBTreeOfSphere* get()
-        {
-            return static_cast<::Extrema_HUBTreeOfSphere*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_HUBTreeOfSphere();
-    /* Method skipped due to unknown mapping: void Extrema_HUBTreeOfSphere(Extrema_UBTreeOfSphere theObject, ) */
-    /* Method skipped due to unknown mapping: Extrema_UBTreeOfSphere get() */
-    static Macad::Occt::Extrema_HUBTreeOfSphere^ DownCast(Macad::Occt::Standard_Transient^ theOther);
-}; // class Extrema_HUBTreeOfSphere
-
-//---------------------------------------------------------------------
 //  Class  Extrema_POnCurv
 //---------------------------------------------------------------------
+/// <summary>
+/// Definition of a point on curve.
+/// </summary>
 public ref class Extrema_POnCurv sealed
     : public Macad::Occt::BaseClass<::Extrema_POnCurv>
 {
@@ -1053,11 +2095,11 @@ public:
     /// Creation of a point on curve with a parameter
     /// value on the curve and a Pnt from gp.
     /// </summary>
-    Extrema_POnCurv(double U, Macad::Occt::Pnt P);
+    Extrema_POnCurv(double theU, Macad::Occt::Pnt theP);
     /// <summary>
-    /// sets the point and parameter values.
+    /// Sets the point and parameter values.
     /// </summary>
-    void SetValues(double U, Macad::Occt::Pnt P);
+    void SetValues(double theU, Macad::Occt::Pnt theP);
     /// <summary>
     /// Returns the point.
     /// </summary>
@@ -1071,6 +2113,9 @@ public:
 //---------------------------------------------------------------------
 //  Class  Extrema_POnCurv2d
 //---------------------------------------------------------------------
+/// <summary>
+/// Definition of a point on 2D curve.
+/// </summary>
 public ref class Extrema_POnCurv2d sealed
     : public Macad::Occt::BaseClass<::Extrema_POnCurv2d>
 {
@@ -1106,11 +2151,11 @@ public:
     /// Creation of a point on curve with a parameter
     /// value on the curve and a Pnt from gp.
     /// </summary>
-    Extrema_POnCurv2d(double U, Macad::Occt::Pnt2d P);
+    Extrema_POnCurv2d(double theU, Macad::Occt::Pnt2d theP);
     /// <summary>
-    /// sets the point and parameter values.
+    /// Sets the point and parameter values.
     /// </summary>
-    void SetValues(double U, Macad::Occt::Pnt2d P);
+    void SetValues(double theU, Macad::Occt::Pnt2d theP);
     /// <summary>
     /// Returns the point.
     /// </summary>
@@ -1167,7 +2212,7 @@ public:
     /// Creation of a point on surface with parameter
     /// values on the surface and a Pnt from gp.
     /// </summary>
-    Extrema_POnSurf(double U, double V, Macad::Occt::Pnt P);
+    Extrema_POnSurf(double theU, double theV, Macad::Occt::Pnt theP);
     /// <summary>
     /// Returns the 3d point.
     /// </summary>
@@ -1180,7 +2225,7 @@ public:
     /// <summary>
     /// Returns the parameter values on the surface.
     /// </summary>
-    void Parameter(double% U, double% V);
+    void Parameter(double% theU, double% theV);
 }; // class Extrema_POnSurf
 
 //---------------------------------------------------------------------
@@ -1287,49 +2332,46 @@ public:
 
 public:
     Extrema_CurveTool();
-    static double FirstParameter(Macad::Occt::Adaptor3d_Curve^ C);
-    static double LastParameter(Macad::Occt::Adaptor3d_Curve^ C);
-    static Macad::Occt::GeomAbs_Shape Continuity(Macad::Occt::Adaptor3d_Curve^ C);
+    static double FirstParameter(Macad::Occt::Adaptor3d_Curve^ theC);
+    static double LastParameter(Macad::Occt::Adaptor3d_Curve^ theC);
+    static Macad::Occt::GeomAbs_Shape Continuity(Macad::Occt::Adaptor3d_Curve^ theC);
     /// <summary>
-    /// Returns  the number  of  intervals for  continuity
-    /// <S>. May be one if Continuity(me) >= <S>
+    /// Returns the number of intervals for continuity <S>.
+    /// May be one if Continuity(me) >= <S>
     /// </summary>
-    static int NbIntervals(Macad::Occt::Adaptor3d_Curve^ C, Macad::Occt::GeomAbs_Shape S);
+    static int NbIntervals(Macad::Occt::Adaptor3d_Curve^ theC, Macad::Occt::GeomAbs_Shape theS);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
-    /// of continuity <S>.
-    /// 
-    /// The array must provide  enough room to  accommodate
-    /// for the parameters. i.e. T.Length() > NbIntervals()
+    /// Stores in <T> the parameters bounding the intervals of continuity <S>.
+    /// The array must provide enough room to accommodate for the parameters.
+    /// i.e. T.Length() > NbIntervals()
     /// </summary>
-    static void Intervals(Macad::Occt::Adaptor3d_Curve^ C, Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
+    static void Intervals(Macad::Occt::Adaptor3d_Curve^ theC, Macad::Occt::TColStd_Array1OfReal^ theT, Macad::Occt::GeomAbs_Shape theS);
     /// <summary>
     /// Returns the parameters bounding the intervals of subdivision of curve
     /// according to Curvature deflection. Value of deflection is defined in method.
-    /// 
     /// </summary>
-    static Macad::Occt::TColStd_HArray1OfReal^ DeflCurvIntervals(Macad::Occt::Adaptor3d_Curve^ C);
-    static bool IsPeriodic(Macad::Occt::Adaptor3d_Curve^ C);
-    static double Period(Macad::Occt::Adaptor3d_Curve^ C);
-    static double Resolution(Macad::Occt::Adaptor3d_Curve^ C, double R3d);
-    static Macad::Occt::GeomAbs_CurveType GetCurveType(Macad::Occt::Adaptor3d_Curve^ C);
-    static Macad::Occt::Pnt Value(Macad::Occt::Adaptor3d_Curve^ C, double U);
-    static void D0(Macad::Occt::Adaptor3d_Curve^ C, double U, Macad::Occt::Pnt% P);
-    static void D1(Macad::Occt::Adaptor3d_Curve^ C, double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V);
-    static void D2(Macad::Occt::Adaptor3d_Curve^ C, double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    static void D3(Macad::Occt::Adaptor3d_Curve^ C, double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
-    static Macad::Occt::Vec DN(Macad::Occt::Adaptor3d_Curve^ C, double U, int N);
-    static Macad::Occt::gp_Lin^ Line(Macad::Occt::Adaptor3d_Curve^ C);
-    static Macad::Occt::gp_Circ^ Circle(Macad::Occt::Adaptor3d_Curve^ C);
-    static Macad::Occt::gp_Elips^ Ellipse(Macad::Occt::Adaptor3d_Curve^ C);
-    static Macad::Occt::gp_Hypr^ Hyperbola(Macad::Occt::Adaptor3d_Curve^ C);
-    static Macad::Occt::gp_Parab^ Parabola(Macad::Occt::Adaptor3d_Curve^ C);
-    static int Degree(Macad::Occt::Adaptor3d_Curve^ C);
-    static bool IsRational(Macad::Occt::Adaptor3d_Curve^ C);
-    static int NbPoles(Macad::Occt::Adaptor3d_Curve^ C);
-    static int NbKnots(Macad::Occt::Adaptor3d_Curve^ C);
-    static Macad::Occt::Geom_BezierCurve^ Bezier(Macad::Occt::Adaptor3d_Curve^ C);
-    static Macad::Occt::Geom_BSplineCurve^ BSpline(Macad::Occt::Adaptor3d_Curve^ C);
+    static Macad::Occt::TColStd_HArray1OfReal^ DeflCurvIntervals(Macad::Occt::Adaptor3d_Curve^ theC);
+    static bool IsPeriodic(Macad::Occt::Adaptor3d_Curve^ theC);
+    static double Period(Macad::Occt::Adaptor3d_Curve^ theC);
+    static double Resolution(Macad::Occt::Adaptor3d_Curve^ theC, double theR3d);
+    static Macad::Occt::GeomAbs_CurveType GetCurveType(Macad::Occt::Adaptor3d_Curve^ theC);
+    static Macad::Occt::Pnt Value(Macad::Occt::Adaptor3d_Curve^ theC, double theU);
+    static void D0(Macad::Occt::Adaptor3d_Curve^ theC, double theU, Macad::Occt::Pnt% theP);
+    static void D1(Macad::Occt::Adaptor3d_Curve^ theC, double theU, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theV);
+    static void D2(Macad::Occt::Adaptor3d_Curve^ theC, double theU, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theV1, Macad::Occt::Vec% theV2);
+    static void D3(Macad::Occt::Adaptor3d_Curve^ theC, double theU, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theV1, Macad::Occt::Vec% theV2, Macad::Occt::Vec% theV3);
+    static Macad::Occt::Vec DN(Macad::Occt::Adaptor3d_Curve^ theC, double theU, int theN);
+    static Macad::Occt::gp_Lin^ Line(Macad::Occt::Adaptor3d_Curve^ theC);
+    static Macad::Occt::gp_Circ^ Circle(Macad::Occt::Adaptor3d_Curve^ theC);
+    static Macad::Occt::gp_Elips^ Ellipse(Macad::Occt::Adaptor3d_Curve^ theC);
+    static Macad::Occt::gp_Hypr^ Hyperbola(Macad::Occt::Adaptor3d_Curve^ theC);
+    static Macad::Occt::gp_Parab^ Parabola(Macad::Occt::Adaptor3d_Curve^ theC);
+    static int Degree(Macad::Occt::Adaptor3d_Curve^ theC);
+    static bool IsRational(Macad::Occt::Adaptor3d_Curve^ theC);
+    static int NbPoles(Macad::Occt::Adaptor3d_Curve^ theC);
+    static int NbKnots(Macad::Occt::Adaptor3d_Curve^ theC);
+    static Macad::Occt::Geom_BezierCurve^ Bezier(Macad::Occt::Adaptor3d_Curve^ theC);
+    static Macad::Occt::Geom_BSplineCurve^ BSpline(Macad::Occt::Adaptor3d_Curve^ theC);
 }; // class Extrema_CurveTool
 
 //---------------------------------------------------------------------
@@ -1363,266 +2405,71 @@ public:
 
 public:
     Extrema_Curve2dTool();
-    static double FirstParameter(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static double LastParameter(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static Macad::Occt::GeomAbs_Shape Continuity(Macad::Occt::Adaptor2d_Curve2d^ C);
+    static double FirstParameter(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static double LastParameter(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static Macad::Occt::GeomAbs_Shape Continuity(Macad::Occt::Adaptor2d_Curve2d^ theC);
     /// <summary>
-    /// If necessary,   breaks the curve  in  intervals of
-    /// continuity <S>.     And   returns  the  number  of
-    /// intervals.
+    /// If necessary, breaks the curve in intervals of continuity <S>.
+    /// And returns the number of intervals.
     /// </summary>
-    static int NbIntervals(Macad::Occt::Adaptor2d_Curve2d^ C, Macad::Occt::GeomAbs_Shape S);
+    static int NbIntervals(Macad::Occt::Adaptor2d_Curve2d^ theC, Macad::Occt::GeomAbs_Shape theS);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
-    /// of continuity <S>.
+    /// Stores in <T> the parameters bounding the intervals of continuity <S>.
     /// </summary>
-    static void Intervals(Macad::Occt::Adaptor2d_Curve2d^ C, Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
+    static void Intervals(Macad::Occt::Adaptor2d_Curve2d^ theC, Macad::Occt::TColStd_Array1OfReal^ theT, Macad::Occt::GeomAbs_Shape theS);
     /// <summary>
     /// Returns the parameters bounding the intervals of subdivision of curve
     /// according to Curvature deflection. Value of deflection is defined in method.
-    /// 
     /// </summary>
-    static Macad::Occt::TColStd_HArray1OfReal^ DeflCurvIntervals(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static bool IsClosed(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static bool IsPeriodic(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static double Period(Macad::Occt::Adaptor2d_Curve2d^ C);
+    static Macad::Occt::TColStd_HArray1OfReal^ DeflCurvIntervals(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static bool IsClosed(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static bool IsPeriodic(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static double Period(Macad::Occt::Adaptor2d_Curve2d^ theC);
     /// <summary>
     /// Computes the point of parameter U on the curve.
     /// </summary>
-    static Macad::Occt::Pnt2d Value(Macad::Occt::Adaptor2d_Curve2d^ C, double U);
+    static Macad::Occt::Pnt2d Value(Macad::Occt::Adaptor2d_Curve2d^ theC, double theU);
     /// <summary>
     /// Computes the point of parameter U on the curve.
     /// </summary>
-    static void D0(Macad::Occt::Adaptor2d_Curve2d^ C, double U, Macad::Occt::Pnt2d% P);
+    static void D0(Macad::Occt::Adaptor2d_Curve2d^ theC, double theU, Macad::Occt::Pnt2d% theP);
     /// <summary>
-    /// Computes the point of parameter U on the curve with its
-    /// first derivative.
+    /// Computes the point of parameter U on the curve with its first derivative.
     /// </summary>
-    static void D1(Macad::Occt::Adaptor2d_Curve2d^ C, double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V);
+    static void D1(Macad::Occt::Adaptor2d_Curve2d^ theC, double theU, Macad::Occt::Pnt2d% theP, Macad::Occt::Vec2d% theV);
     /// <summary>
-    /// Returns the point P of parameter U, the first and second
-    /// derivatives V1 and V2.
+    /// Returns the point P of parameter U, the first and second derivatives V1 and V2.
     /// </summary>
-    static void D2(Macad::Occt::Adaptor2d_Curve2d^ C, double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2);
+    static void D2(Macad::Occt::Adaptor2d_Curve2d^ theC, double theU, Macad::Occt::Pnt2d% theP, Macad::Occt::Vec2d% theV1, Macad::Occt::Vec2d% theV2);
     /// <summary>
-    /// Returns the point P of parameter U, the first, the second
-    /// and the third derivative.
+    /// Returns the point P of parameter U, the first, the second and the third derivative.
     /// </summary>
-    static void D3(Macad::Occt::Adaptor2d_Curve2d^ C, double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2, Macad::Occt::Vec2d% V3);
+    static void D3(Macad::Occt::Adaptor2d_Curve2d^ theC, double theU, Macad::Occt::Pnt2d% theP, Macad::Occt::Vec2d% theV1, Macad::Occt::Vec2d% theV2, Macad::Occt::Vec2d% theV3);
     /// <summary>
-    /// The returned vector gives the value of the derivative for the
-    /// order of derivation N.
+    /// The returned vector gives the value of the derivative for the order of derivation N.
     /// </summary>
-    static Macad::Occt::Vec2d DN(Macad::Occt::Adaptor2d_Curve2d^ C, double U, int N);
+    static Macad::Occt::Vec2d DN(Macad::Occt::Adaptor2d_Curve2d^ theC, double theU, int theN);
     /// <summary>
-    /// Returns the parametric  resolution corresponding
-    /// to the real space resolution <R3d>.
+    /// Returns the parametric resolution corresponding to the real space resolution <R3d>.
     /// </summary>
-    static double Resolution(Macad::Occt::Adaptor2d_Curve2d^ C, double R3d);
+    static double Resolution(Macad::Occt::Adaptor2d_Curve2d^ theC, double theR3d);
     /// <summary>
-    /// Returns  the  type of the   curve  in the  current
-    /// interval :   Line,   Circle,   Ellipse, Hyperbola,
-    /// Parabola, BezierCurve, BSplineCurve, OtherCurve.
+    /// Returns the type of the curve in the current interval:
+    /// Line, Circle, Ellipse, Hyperbola, Parabola, BezierCurve, BSplineCurve, OtherCurve.
     /// </summary>
-    static Macad::Occt::GeomAbs_CurveType GetCurveType(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static Macad::Occt::gp_Lin2d^ Line(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static Macad::Occt::gp_Circ2d^ Circle(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static Macad::Occt::gp_Elips2d^ Ellipse(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static Macad::Occt::gp_Hypr2d^ Hyperbola(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static Macad::Occt::gp_Parab2d^ Parabola(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static int Degree(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static bool IsRational(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static int NbPoles(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static int NbKnots(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static Macad::Occt::Geom2d_BezierCurve^ Bezier(Macad::Occt::Adaptor2d_Curve2d^ C);
-    static Macad::Occt::Geom2d_BSplineCurve^ BSpline(Macad::Occt::Adaptor2d_Curve2d^ C);
+    static Macad::Occt::GeomAbs_CurveType GetCurveType(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static Macad::Occt::gp_Lin2d^ Line(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static Macad::Occt::gp_Circ2d^ Circle(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static Macad::Occt::gp_Elips2d^ Ellipse(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static Macad::Occt::gp_Hypr2d^ Hyperbola(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static Macad::Occt::gp_Parab2d^ Parabola(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static int Degree(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static bool IsRational(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static int NbPoles(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static int NbKnots(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static Macad::Occt::Geom2d_BezierCurve^ Bezier(Macad::Occt::Adaptor2d_Curve2d^ theC);
+    static Macad::Occt::Geom2d_BSplineCurve^ BSpline(Macad::Occt::Adaptor2d_Curve2d^ theC);
 }; // class Extrema_Curve2dTool
-
-//---------------------------------------------------------------------
-//  Class  Extrema_ECC
-//---------------------------------------------------------------------
-public ref class Extrema_ECC sealed
-    : public Macad::Occt::BaseClass<::Extrema_ECC>
-{
-
-#ifdef Include_Extrema_ECC_h
-public:
-    Include_Extrema_ECC_h
-#endif
-
-public:
-    Extrema_ECC(::Extrema_ECC* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ECC>( nativeInstance, true )
-    {}
-
-    Extrema_ECC(::Extrema_ECC& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ECC>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_ECC* NativeInstance
-    {
-        ::Extrema_ECC* get()
-        {
-            return static_cast<::Extrema_ECC*>(_NativeInstance);
-        }
-    }
-
-public:
-    /// <summary>
-    /// Calculates all the distances as above
-    /// between Uinf and Usup for C1 and  between Vinf and Vsup
-    /// for C2.
-    /// </summary>
-    Extrema_ECC();
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u,v)=distance(C1(u),C2(v)) has an
-    /// extremum when gradient(f)=0. The algorithm uses
-    /// Evtushenko's global optimization solver.
-    /// </summary>
-    Extrema_ECC(Macad::Occt::Adaptor3d_Curve^ C1, Macad::Occt::Adaptor3d_Curve^ C2);
-    /// <summary>
-    /// Calculates all the distances as above
-    /// between Uinf and Usup for C1 and  between Vinf and Vsup
-    /// for C2.
-    /// </summary>
-    Extrema_ECC(Macad::Occt::Adaptor3d_Curve^ C1, Macad::Occt::Adaptor3d_Curve^ C2, double Uinf, double Usup, double Vinf, double Vsup);
-    /// <summary>
-    /// Set params in case of empty constructor is usage.
-    /// </summary>
-    void SetParams(Macad::Occt::Adaptor3d_Curve^ C1, Macad::Occt::Adaptor3d_Curve^ C2, double Uinf, double Usup, double Vinf, double Vsup);
-    void SetTolerance(double Tol);
-    /// <summary>
-    /// Set flag for single extrema computation. Works on parametric solver only.
-    /// </summary>
-    void SetSingleSolutionFlag(bool theSingleSolutionFlag);
-    /// <summary>
-    /// Get flag for single extrema computation. Works on parametric solver only.
-    /// </summary>
-    bool GetSingleSolutionFlag();
-    /// <summary>
-    /// Performs calculations.
-    /// </summary>
-    void Perform();
-    /// <summary>
-    /// Returns True if the distances are found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns state of myParallel flag.
-    /// </summary>
-    bool IsParallel();
-    /// <summary>
-    /// Returns the number of extremum distances.
-    /// </summary>
-    int NbExt();
-    /// <summary>
-    /// Returns the value of the Nth square extremum distance.
-    /// </summary>
-    double SquareDistance(int N);
-    /// <summary>
-    /// Returns the value of the Nth square extremum distance.
-    /// </summary>
-    double SquareDistance();
-    /// <summary>
-    /// Returns the points of the Nth extremum distance.
-    /// P1 is on the first curve, P2 on the second one.
-    /// </summary>
-    void Points(int N, Macad::Occt::Extrema_POnCurv^ P1, Macad::Occt::Extrema_POnCurv^ P2);
-}; // class Extrema_ECC
-
-//---------------------------------------------------------------------
-//  Class  Extrema_ECC2d
-//---------------------------------------------------------------------
-public ref class Extrema_ECC2d sealed
-    : public Macad::Occt::BaseClass<::Extrema_ECC2d>
-{
-
-#ifdef Include_Extrema_ECC2d_h
-public:
-    Include_Extrema_ECC2d_h
-#endif
-
-public:
-    Extrema_ECC2d(::Extrema_ECC2d* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ECC2d>( nativeInstance, true )
-    {}
-
-    Extrema_ECC2d(::Extrema_ECC2d& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ECC2d>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_ECC2d* NativeInstance
-    {
-        ::Extrema_ECC2d* get()
-        {
-            return static_cast<::Extrema_ECC2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    /// <summary>
-    /// Calculates all the distances as above
-    /// between Uinf and Usup for C1 and  between Vinf and Vsup
-    /// for C2.
-    /// </summary>
-    Extrema_ECC2d();
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u,v)=distance(C1(u),C2(v)) has an
-    /// extremum when gradient(f)=0. The algorithm uses
-    /// Evtushenko's global optimization solver.
-    /// </summary>
-    Extrema_ECC2d(Macad::Occt::Adaptor2d_Curve2d^ C1, Macad::Occt::Adaptor2d_Curve2d^ C2);
-    /// <summary>
-    /// Calculates all the distances as above
-    /// between Uinf and Usup for C1 and  between Vinf and Vsup
-    /// for C2.
-    /// </summary>
-    Extrema_ECC2d(Macad::Occt::Adaptor2d_Curve2d^ C1, Macad::Occt::Adaptor2d_Curve2d^ C2, double Uinf, double Usup, double Vinf, double Vsup);
-    /// <summary>
-    /// Set params in case of empty constructor is usage.
-    /// </summary>
-    void SetParams(Macad::Occt::Adaptor2d_Curve2d^ C1, Macad::Occt::Adaptor2d_Curve2d^ C2, double Uinf, double Usup, double Vinf, double Vsup);
-    void SetTolerance(double Tol);
-    /// <summary>
-    /// Set flag for single extrema computation. Works on parametric solver only.
-    /// </summary>
-    void SetSingleSolutionFlag(bool theSingleSolutionFlag);
-    /// <summary>
-    /// Get flag for single extrema computation. Works on parametric solver only.
-    /// </summary>
-    bool GetSingleSolutionFlag();
-    /// <summary>
-    /// Performs calculations.
-    /// </summary>
-    void Perform();
-    /// <summary>
-    /// Returns True if the distances are found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns state of myParallel flag.
-    /// </summary>
-    bool IsParallel();
-    /// <summary>
-    /// Returns the number of extremum distances.
-    /// </summary>
-    int NbExt();
-    /// <summary>
-    /// Returns the value of the Nth square extremum distance.
-    /// </summary>
-    double SquareDistance(int N);
-    /// <summary>
-    /// Returns the value of the Nth square extremum distance.
-    /// </summary>
-    double SquareDistance();
-    /// <summary>
-    /// Returns the points of the Nth extremum distance.
-    /// P1 is on the first curve, P2 on the second one.
-    /// </summary>
-    void Points(int N, Macad::Occt::Extrema_POnCurv2d^ P1, Macad::Occt::Extrema_POnCurv2d^ P2);
-}; // class Extrema_ECC2d
 
 //---------------------------------------------------------------------
 //  Class  Extrema_ExtPElC
@@ -1741,230 +2588,6 @@ public:
 }; // class Extrema_ExtPElC
 
 //---------------------------------------------------------------------
-//  Class  Extrema_EPCOfELPCOfLocateExtPC
-//---------------------------------------------------------------------
-public ref class Extrema_EPCOfELPCOfLocateExtPC sealed
-    : public Macad::Occt::BaseClass<::Extrema_EPCOfELPCOfLocateExtPC>
-{
-
-#ifdef Include_Extrema_EPCOfELPCOfLocateExtPC_h
-public:
-    Include_Extrema_EPCOfELPCOfLocateExtPC_h
-#endif
-
-public:
-    Extrema_EPCOfELPCOfLocateExtPC(::Extrema_EPCOfELPCOfLocateExtPC* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_EPCOfELPCOfLocateExtPC>( nativeInstance, true )
-    {}
-
-    Extrema_EPCOfELPCOfLocateExtPC(::Extrema_EPCOfELPCOfLocateExtPC& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_EPCOfELPCOfLocateExtPC>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_EPCOfELPCOfLocateExtPC* NativeInstance
-    {
-        ::Extrema_EPCOfELPCOfLocateExtPC* get()
-        {
-            return static_cast<::Extrema_EPCOfELPCOfLocateExtPC*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_EPCOfELPCOfLocateExtPC();
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// NbU is used to locate the close points to
-    /// find the zeros.
-    /// Tol and TolU are used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// abs(Un-Un-1) < TolU and abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_EPCOfELPCOfLocateExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, int NbU, double TolU, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// NbU is used to locate the close points to
-    /// find the zeros.
-    /// Zeros are searched between umin and usup.
-    /// Tol and TolU are used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// abs(Un-Un-1) < TolU and abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_EPCOfELPCOfLocateExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C, int NbU, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C, int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// the algorithm is done with the point P.
-    /// An exception is raised if the fields have not
-    /// been initialized.
-    /// </summary>
-    void Perform(Macad::Occt::Pnt P);
-    /// <summary>
-    /// True if the distances are found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the number of extremum distances.
-    /// </summary>
-    int NbExt();
-    /// <summary>
-    /// Returns the value of the Nth extremum square distance.
-    /// </summary>
-    double SquareDistance(int N);
-    /// <summary>
-    /// Returns True if the Nth extremum distance is a
-    /// minimum.
-    /// </summary>
-    bool IsMin(int N);
-    /// <summary>
-    /// Returns the point of the Nth extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv^ Point(int N);
-}; // class Extrema_EPCOfELPCOfLocateExtPC
-
-//---------------------------------------------------------------------
-//  Class  Extrema_ELPCOfLocateExtPC
-//---------------------------------------------------------------------
-public ref class Extrema_ELPCOfLocateExtPC sealed
-    : public Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC>
-{
-
-#ifdef Include_Extrema_ELPCOfLocateExtPC_h
-public:
-    Include_Extrema_ELPCOfLocateExtPC_h
-#endif
-
-public:
-    Extrema_ELPCOfLocateExtPC(::Extrema_ELPCOfLocateExtPC* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC>( nativeInstance, true )
-    {}
-
-    Extrema_ELPCOfLocateExtPC(::Extrema_ELPCOfLocateExtPC& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_ELPCOfLocateExtPC* NativeInstance
-    {
-        ::Extrema_ELPCOfLocateExtPC* get()
-        {
-            return static_cast<::Extrema_ELPCOfLocateExtPC*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_ELPCOfLocateExtPC();
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Zeros are searched between uinf and usup.
-    /// Tol  is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ELPCOfLocateExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, double Uinf, double Usup, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Zeros are searched between uinf and usup.
-    /// Tol  is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ELPCOfLocateExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, double Uinf, double Usup);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Tol is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ELPCOfLocateExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Tol is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ELPCOfLocateExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C);
-    /// <summary>
-    /// initializes the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C, double Uinf, double Usup, double TolF);
-    /// <summary>
-    /// initializes the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C, double Uinf, double Usup);
-    /// <summary>
-    /// An exception is raised if the fields have not been
-    /// initialized.
-    /// </summary>
-    void Perform(Macad::Occt::Pnt P);
-    /// <summary>
-    /// True if the distances are found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the value of the <N>th extremum square distance.
-    /// </summary>
-    double SquareDistance(int N);
-    /// <summary>
-    /// Returns the number of extremum distances.
-    /// </summary>
-    int NbExt();
-    /// <summary>
-    /// Returns True if the <N>th extremum distance is a
-    /// minimum.
-    /// </summary>
-    bool IsMin(int N);
-    /// <summary>
-    /// Returns the point of the <N>th extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv^ Point(int N);
-    /// <summary>
-    /// if the curve is a trimmed curve,
-    /// dist1 is a square distance between <P> and the point
-    /// of parameter FirstParameter <P1> and
-    /// dist2 is a square distance between <P> and the point
-    /// of parameter LastParameter <P2>.
-    /// </summary>
-    void TrimmedSquareDistances(double% dist1, double% dist2, Macad::Occt::Pnt% P1, Macad::Occt::Pnt% P2);
-}; // class Extrema_ELPCOfLocateExtPC
-
-//---------------------------------------------------------------------
 //  Class  Extrema_ExtPElC2d
 //---------------------------------------------------------------------
 /// <summary>
@@ -2079,436 +2702,6 @@ public:
     /// </summary>
     Macad::Occt::Extrema_POnCurv2d^ Point(int N);
 }; // class Extrema_ExtPElC2d
-
-//---------------------------------------------------------------------
-//  Class  Extrema_EPCOfELPCOfLocateExtPC2d
-//---------------------------------------------------------------------
-public ref class Extrema_EPCOfELPCOfLocateExtPC2d sealed
-    : public Macad::Occt::BaseClass<::Extrema_EPCOfELPCOfLocateExtPC2d>
-{
-
-#ifdef Include_Extrema_EPCOfELPCOfLocateExtPC2d_h
-public:
-    Include_Extrema_EPCOfELPCOfLocateExtPC2d_h
-#endif
-
-public:
-    Extrema_EPCOfELPCOfLocateExtPC2d(::Extrema_EPCOfELPCOfLocateExtPC2d* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_EPCOfELPCOfLocateExtPC2d>( nativeInstance, true )
-    {}
-
-    Extrema_EPCOfELPCOfLocateExtPC2d(::Extrema_EPCOfELPCOfLocateExtPC2d& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_EPCOfELPCOfLocateExtPC2d>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_EPCOfELPCOfLocateExtPC2d* NativeInstance
-    {
-        ::Extrema_EPCOfELPCOfLocateExtPC2d* get()
-        {
-            return static_cast<::Extrema_EPCOfELPCOfLocateExtPC2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_EPCOfELPCOfLocateExtPC2d();
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// NbU is used to locate the close points to
-    /// find the zeros.
-    /// Tol and TolU are used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// abs(Un-Un-1) < TolU and abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_EPCOfELPCOfLocateExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, int NbU, double TolU, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// NbU is used to locate the close points to
-    /// find the zeros.
-    /// Zeros are searched between umin and usup.
-    /// Tol and TolU are used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// abs(Un-Un-1) < TolU and abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_EPCOfELPCOfLocateExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C, int NbU, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C, int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// the algorithm is done with the point P.
-    /// An exception is raised if the fields have not
-    /// been initialized.
-    /// </summary>
-    void Perform(Macad::Occt::Pnt2d P);
-    /// <summary>
-    /// True if the distances are found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the number of extremum distances.
-    /// </summary>
-    int NbExt();
-    /// <summary>
-    /// Returns the value of the Nth extremum square distance.
-    /// </summary>
-    double SquareDistance(int N);
-    /// <summary>
-    /// Returns True if the Nth extremum distance is a
-    /// minimum.
-    /// </summary>
-    bool IsMin(int N);
-    /// <summary>
-    /// Returns the point of the Nth extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv2d^ Point(int N);
-}; // class Extrema_EPCOfELPCOfLocateExtPC2d
-
-//---------------------------------------------------------------------
-//  Class  Extrema_ELPCOfLocateExtPC2d
-//---------------------------------------------------------------------
-public ref class Extrema_ELPCOfLocateExtPC2d sealed
-    : public Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC2d>
-{
-
-#ifdef Include_Extrema_ELPCOfLocateExtPC2d_h
-public:
-    Include_Extrema_ELPCOfLocateExtPC2d_h
-#endif
-
-public:
-    Extrema_ELPCOfLocateExtPC2d(::Extrema_ELPCOfLocateExtPC2d* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC2d>( nativeInstance, true )
-    {}
-
-    Extrema_ELPCOfLocateExtPC2d(::Extrema_ELPCOfLocateExtPC2d& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ELPCOfLocateExtPC2d>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_ELPCOfLocateExtPC2d* NativeInstance
-    {
-        ::Extrema_ELPCOfLocateExtPC2d* get()
-        {
-            return static_cast<::Extrema_ELPCOfLocateExtPC2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_ELPCOfLocateExtPC2d();
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Zeros are searched between uinf and usup.
-    /// Tol  is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ELPCOfLocateExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, double Uinf, double Usup, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Zeros are searched between uinf and usup.
-    /// Tol  is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ELPCOfLocateExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, double Uinf, double Usup);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Tol is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ELPCOfLocateExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Tol is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ELPCOfLocateExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C);
-    /// <summary>
-    /// initializes the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C, double Uinf, double Usup, double TolF);
-    /// <summary>
-    /// initializes the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C, double Uinf, double Usup);
-    /// <summary>
-    /// An exception is raised if the fields have not been
-    /// initialized.
-    /// </summary>
-    void Perform(Macad::Occt::Pnt2d P);
-    /// <summary>
-    /// True if the distances are found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the value of the <N>th extremum square distance.
-    /// </summary>
-    double SquareDistance(int N);
-    /// <summary>
-    /// Returns the number of extremum distances.
-    /// </summary>
-    int NbExt();
-    /// <summary>
-    /// Returns True if the <N>th extremum distance is a
-    /// minimum.
-    /// </summary>
-    bool IsMin(int N);
-    /// <summary>
-    /// Returns the point of the <N>th extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv2d^ Point(int N);
-    /// <summary>
-    /// if the curve is a trimmed curve,
-    /// dist1 is a square distance between <P> and the point
-    /// of parameter FirstParameter <P1> and
-    /// dist2 is a square distance between <P> and the point
-    /// of parameter LastParameter <P2>.
-    /// </summary>
-    void TrimmedSquareDistances(double% dist1, double% dist2, Macad::Occt::Pnt2d% P1, Macad::Occt::Pnt2d% P2);
-}; // class Extrema_ELPCOfLocateExtPC2d
-
-//---------------------------------------------------------------------
-//  Class  Extrema_EPCOfExtPC
-//---------------------------------------------------------------------
-public ref class Extrema_EPCOfExtPC sealed
-    : public Macad::Occt::BaseClass<::Extrema_EPCOfExtPC>
-{
-
-#ifdef Include_Extrema_EPCOfExtPC_h
-public:
-    Include_Extrema_EPCOfExtPC_h
-#endif
-
-public:
-    Extrema_EPCOfExtPC(::Extrema_EPCOfExtPC* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_EPCOfExtPC>( nativeInstance, true )
-    {}
-
-    Extrema_EPCOfExtPC(::Extrema_EPCOfExtPC& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_EPCOfExtPC>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_EPCOfExtPC* NativeInstance
-    {
-        ::Extrema_EPCOfExtPC* get()
-        {
-            return static_cast<::Extrema_EPCOfExtPC*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_EPCOfExtPC();
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// NbU is used to locate the close points to
-    /// find the zeros.
-    /// Tol and TolU are used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// abs(Un-Un-1) < TolU and abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_EPCOfExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, int NbU, double TolU, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// NbU is used to locate the close points to
-    /// find the zeros.
-    /// Zeros are searched between umin and usup.
-    /// Tol and TolU are used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// abs(Un-Un-1) < TolU and abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_EPCOfExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C, int NbU, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C, int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// the algorithm is done with the point P.
-    /// An exception is raised if the fields have not
-    /// been initialized.
-    /// </summary>
-    void Perform(Macad::Occt::Pnt P);
-    /// <summary>
-    /// True if the distances are found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the number of extremum distances.
-    /// </summary>
-    int NbExt();
-    /// <summary>
-    /// Returns the value of the Nth extremum square distance.
-    /// </summary>
-    double SquareDistance(int N);
-    /// <summary>
-    /// Returns True if the Nth extremum distance is a
-    /// minimum.
-    /// </summary>
-    bool IsMin(int N);
-    /// <summary>
-    /// Returns the point of the Nth extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv^ Point(int N);
-}; // class Extrema_EPCOfExtPC
-
-//---------------------------------------------------------------------
-//  Class  Extrema_EPCOfExtPC2d
-//---------------------------------------------------------------------
-public ref class Extrema_EPCOfExtPC2d sealed
-    : public Macad::Occt::BaseClass<::Extrema_EPCOfExtPC2d>
-{
-
-#ifdef Include_Extrema_EPCOfExtPC2d_h
-public:
-    Include_Extrema_EPCOfExtPC2d_h
-#endif
-
-public:
-    Extrema_EPCOfExtPC2d(::Extrema_EPCOfExtPC2d* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_EPCOfExtPC2d>( nativeInstance, true )
-    {}
-
-    Extrema_EPCOfExtPC2d(::Extrema_EPCOfExtPC2d& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_EPCOfExtPC2d>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_EPCOfExtPC2d* NativeInstance
-    {
-        ::Extrema_EPCOfExtPC2d* get()
-        {
-            return static_cast<::Extrema_EPCOfExtPC2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_EPCOfExtPC2d();
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// NbU is used to locate the close points to
-    /// find the zeros.
-    /// Tol and TolU are used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// abs(Un-Un-1) < TolU and abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_EPCOfExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, int NbU, double TolU, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// NbU is used to locate the close points to
-    /// find the zeros.
-    /// Zeros are searched between umin and usup.
-    /// Tol and TolU are used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// abs(Un-Un-1) < TolU and abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_EPCOfExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C, int NbU, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C, int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(int NbU, double Umin, double Usup, double TolU, double TolF);
-    /// <summary>
-    /// the algorithm is done with the point P.
-    /// An exception is raised if the fields have not
-    /// been initialized.
-    /// </summary>
-    void Perform(Macad::Occt::Pnt2d P);
-    /// <summary>
-    /// True if the distances are found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the number of extremum distances.
-    /// </summary>
-    int NbExt();
-    /// <summary>
-    /// Returns the value of the Nth extremum square distance.
-    /// </summary>
-    double SquareDistance(int N);
-    /// <summary>
-    /// Returns True if the Nth extremum distance is a
-    /// minimum.
-    /// </summary>
-    bool IsMin(int N);
-    /// <summary>
-    /// Returns the point of the Nth extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv2d^ Point(int N);
-}; // class Extrema_EPCOfExtPC2d
 
 //---------------------------------------------------------------------
 //  Class  Extrema_ExtElC
@@ -2960,188 +3153,6 @@ public:
 }; // class Extrema_ExtCC2d
 
 //---------------------------------------------------------------------
-//  Class  Extrema_HArray1OfPOnCurv
-//---------------------------------------------------------------------
-public ref class Extrema_HArray1OfPOnCurv sealed
-    : public Macad::Occt::Standard_Transient
-    , public IIndexEnumerable<Macad::Occt::Extrema_POnCurv^>
-{
-
-#ifdef Include_Extrema_HArray1OfPOnCurv_h
-public:
-    Include_Extrema_HArray1OfPOnCurv_h
-#endif
-
-public:
-    Extrema_HArray1OfPOnCurv(::Extrema_HArray1OfPOnCurv* nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    Extrema_HArray1OfPOnCurv(::Extrema_HArray1OfPOnCurv& nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    property ::Extrema_HArray1OfPOnCurv* NativeInstance
-    {
-        ::Extrema_HArray1OfPOnCurv* get()
-        {
-            return static_cast<::Extrema_HArray1OfPOnCurv*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv::Iterator>
-    {
-
-#ifdef Include_Extrema_HArray1OfPOnCurv_Iterator_h
-    public:
-        Include_Extrema_HArray1OfPOnCurv_Iterator_h
-#endif
-
-    public:
-        Iterator(::Extrema_HArray1OfPOnCurv::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Extrema_HArray1OfPOnCurv::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Extrema_HArray1OfPOnCurv::Iterator* NativeInstance
-        {
-            ::Extrema_HArray1OfPOnCurv::Iterator* get()
-            {
-                return static_cast<::Extrema_HArray1OfPOnCurv::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    Extrema_HArray1OfPOnCurv();
-    Extrema_HArray1OfPOnCurv(int theLower, int theUpper);
-    Extrema_HArray1OfPOnCurv(int theLower, int theUpper, Macad::Occt::Extrema_POnCurv^ theValue);
-    Extrema_HArray1OfPOnCurv(Macad::Occt::Extrema_POnCurv^ theBegin, int theLower, int theUpper, bool parameter1);
-    Extrema_HArray1OfPOnCurv(Macad::Occt::Extrema_Array1OfPOnCurv^ theOther);
-    Macad::Occt::Extrema_Array1OfPOnCurv^ Array1();
-    Macad::Occt::Extrema_Array1OfPOnCurv^ ChangeArray1();
-    void Init(Macad::Occt::Extrema_POnCurv^ theValue);
-    int Size();
-    int Length();
-    bool IsEmpty();
-    int Lower();
-    int Upper();
-    Macad::Occt::Extrema_HArray1OfPOnCurv^ Assign(Macad::Occt::Extrema_HArray1OfPOnCurv^ theOther);
-    Macad::Occt::Extrema_HArray1OfPOnCurv^ Move(Macad::Occt::Extrema_HArray1OfPOnCurv^ theOther);
-    Macad::Occt::Extrema_POnCurv^ First();
-    Macad::Occt::Extrema_POnCurv^ ChangeFirst();
-    Macad::Occt::Extrema_POnCurv^ Last();
-    Macad::Occt::Extrema_POnCurv^ ChangeLast();
-    virtual Macad::Occt::Extrema_POnCurv^ Value(int theIndex);
-    Macad::Occt::Extrema_POnCurv^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::Extrema_POnCurv^ theItem);
-    void UpdateLowerBound(int theLower);
-    void UpdateUpperBound(int theUpper);
-    void Resize(int theLower, int theUpper, bool theToCopyData);
-    bool IsDeletable();
-    static Macad::Occt::Extrema_HArray1OfPOnCurv^ CreateDowncasted(::Extrema_HArray1OfPOnCurv* instance);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnCurv^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class Extrema_HArray1OfPOnCurv
-
-//---------------------------------------------------------------------
-//  Class  Extrema_HArray1OfPOnSurf
-//---------------------------------------------------------------------
-public ref class Extrema_HArray1OfPOnSurf sealed
-    : public Macad::Occt::Standard_Transient
-    , public IIndexEnumerable<Macad::Occt::Extrema_POnSurf^>
-{
-
-#ifdef Include_Extrema_HArray1OfPOnSurf_h
-public:
-    Include_Extrema_HArray1OfPOnSurf_h
-#endif
-
-public:
-    Extrema_HArray1OfPOnSurf(::Extrema_HArray1OfPOnSurf* nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    Extrema_HArray1OfPOnSurf(::Extrema_HArray1OfPOnSurf& nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    property ::Extrema_HArray1OfPOnSurf* NativeInstance
-    {
-        ::Extrema_HArray1OfPOnSurf* get()
-        {
-            return static_cast<::Extrema_HArray1OfPOnSurf*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Extrema_HArray1OfPOnSurf::Iterator>
-    {
-
-#ifdef Include_Extrema_HArray1OfPOnSurf_Iterator_h
-    public:
-        Include_Extrema_HArray1OfPOnSurf_Iterator_h
-#endif
-
-    public:
-        Iterator(::Extrema_HArray1OfPOnSurf::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnSurf::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Extrema_HArray1OfPOnSurf::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnSurf::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Extrema_HArray1OfPOnSurf::Iterator* NativeInstance
-        {
-            ::Extrema_HArray1OfPOnSurf::Iterator* get()
-            {
-                return static_cast<::Extrema_HArray1OfPOnSurf::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    Extrema_HArray1OfPOnSurf();
-    Extrema_HArray1OfPOnSurf(int theLower, int theUpper);
-    Extrema_HArray1OfPOnSurf(int theLower, int theUpper, Macad::Occt::Extrema_POnSurf^ theValue);
-    Extrema_HArray1OfPOnSurf(Macad::Occt::Extrema_POnSurf^ theBegin, int theLower, int theUpper, bool parameter1);
-    Extrema_HArray1OfPOnSurf(Macad::Occt::Extrema_Array1OfPOnSurf^ theOther);
-    Macad::Occt::Extrema_Array1OfPOnSurf^ Array1();
-    Macad::Occt::Extrema_Array1OfPOnSurf^ ChangeArray1();
-    void Init(Macad::Occt::Extrema_POnSurf^ theValue);
-    int Size();
-    int Length();
-    bool IsEmpty();
-    int Lower();
-    int Upper();
-    Macad::Occt::Extrema_HArray1OfPOnSurf^ Assign(Macad::Occt::Extrema_HArray1OfPOnSurf^ theOther);
-    Macad::Occt::Extrema_HArray1OfPOnSurf^ Move(Macad::Occt::Extrema_HArray1OfPOnSurf^ theOther);
-    Macad::Occt::Extrema_POnSurf^ First();
-    Macad::Occt::Extrema_POnSurf^ ChangeFirst();
-    Macad::Occt::Extrema_POnSurf^ Last();
-    Macad::Occt::Extrema_POnSurf^ ChangeLast();
-    virtual Macad::Occt::Extrema_POnSurf^ Value(int theIndex);
-    Macad::Occt::Extrema_POnSurf^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::Extrema_POnSurf^ theItem);
-    void UpdateLowerBound(int theLower);
-    void UpdateUpperBound(int theUpper);
-    void Resize(int theLower, int theUpper, bool theToCopyData);
-    bool IsDeletable();
-    static Macad::Occt::Extrema_HArray1OfPOnSurf^ CreateDowncasted(::Extrema_HArray1OfPOnSurf* instance);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnSurf^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class Extrema_HArray1OfPOnSurf
-
-//---------------------------------------------------------------------
 //  Class  Extrema_ExtElCS
 //---------------------------------------------------------------------
 /// <summary>
@@ -3450,248 +3461,6 @@ public:
     /// </summary>
     void Points(int N, Macad::Occt::Extrema_POnSurf^ P1, Macad::Occt::Extrema_POnSurf^ P2);
 }; // class Extrema_ExtElSS
-
-//---------------------------------------------------------------------
-//  Class  Extrema_ExtPC
-//---------------------------------------------------------------------
-public ref class Extrema_ExtPC sealed
-    : public Macad::Occt::BaseClass<::Extrema_ExtPC>
-{
-
-#ifdef Include_Extrema_ExtPC_h
-public:
-    Include_Extrema_ExtPC_h
-#endif
-
-public:
-    Extrema_ExtPC(::Extrema_ExtPC* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ExtPC>( nativeInstance, true )
-    {}
-
-    Extrema_ExtPC(::Extrema_ExtPC& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ExtPC>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_ExtPC* NativeInstance
-    {
-        ::Extrema_ExtPC* get()
-        {
-            return static_cast<::Extrema_ExtPC*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_ExtPC();
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Zeros are searched between uinf and usup.
-    /// Tol  is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, double Uinf, double Usup, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Zeros are searched between uinf and usup.
-    /// Tol  is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, double Uinf, double Usup);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Tol is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Tol is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C);
-    /// <summary>
-    /// initializes the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C, double Uinf, double Usup, double TolF);
-    /// <summary>
-    /// initializes the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C, double Uinf, double Usup);
-    /// <summary>
-    /// An exception is raised if the fields have not been
-    /// initialized.
-    /// </summary>
-    void Perform(Macad::Occt::Pnt P);
-    /// <summary>
-    /// True if the distances are found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the value of the <N>th extremum square distance.
-    /// </summary>
-    double SquareDistance(int N);
-    /// <summary>
-    /// Returns the number of extremum distances.
-    /// </summary>
-    int NbExt();
-    /// <summary>
-    /// Returns True if the <N>th extremum distance is a
-    /// minimum.
-    /// </summary>
-    bool IsMin(int N);
-    /// <summary>
-    /// Returns the point of the <N>th extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv^ Point(int N);
-    /// <summary>
-    /// if the curve is a trimmed curve,
-    /// dist1 is a square distance between <P> and the point
-    /// of parameter FirstParameter <P1> and
-    /// dist2 is a square distance between <P> and the point
-    /// of parameter LastParameter <P2>.
-    /// </summary>
-    void TrimmedSquareDistances(double% dist1, double% dist2, Macad::Occt::Pnt% P1, Macad::Occt::Pnt% P2);
-}; // class Extrema_ExtPC
-
-//---------------------------------------------------------------------
-//  Class  Extrema_ExtPC2d
-//---------------------------------------------------------------------
-public ref class Extrema_ExtPC2d sealed
-    : public Macad::Occt::BaseClass<::Extrema_ExtPC2d>
-{
-
-#ifdef Include_Extrema_ExtPC2d_h
-public:
-    Include_Extrema_ExtPC2d_h
-#endif
-
-public:
-    Extrema_ExtPC2d(::Extrema_ExtPC2d* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ExtPC2d>( nativeInstance, true )
-    {}
-
-    Extrema_ExtPC2d(::Extrema_ExtPC2d& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_ExtPC2d>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_ExtPC2d* NativeInstance
-    {
-        ::Extrema_ExtPC2d* get()
-        {
-            return static_cast<::Extrema_ExtPC2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_ExtPC2d();
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Zeros are searched between uinf and usup.
-    /// Tol  is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, double Uinf, double Usup, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Zeros are searched between uinf and usup.
-    /// Tol  is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, double Uinf, double Usup);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Tol is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, double TolF);
-    /// <summary>
-    /// It calculates all the distances.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches all the
-    /// zeros inside the definition range of the curve.
-    /// Tol is used to decide to stop the
-    /// iterations according to the following condition:
-    /// if n is the number of iterations,
-    /// the algorithm stops when abs(F(Un)-F(Un-1)) < Tol.
-    /// </summary>
-    Extrema_ExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C);
-    /// <summary>
-    /// initializes the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C, double Uinf, double Usup, double TolF);
-    /// <summary>
-    /// initializes the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C, double Uinf, double Usup);
-    /// <summary>
-    /// An exception is raised if the fields have not been
-    /// initialized.
-    /// </summary>
-    void Perform(Macad::Occt::Pnt2d P);
-    /// <summary>
-    /// True if the distances are found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the value of the <N>th extremum square distance.
-    /// </summary>
-    double SquareDistance(int N);
-    /// <summary>
-    /// Returns the number of extremum distances.
-    /// </summary>
-    int NbExt();
-    /// <summary>
-    /// Returns True if the <N>th extremum distance is a
-    /// minimum.
-    /// </summary>
-    bool IsMin(int N);
-    /// <summary>
-    /// Returns the point of the <N>th extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv2d^ Point(int N);
-    /// <summary>
-    /// if the curve is a trimmed curve,
-    /// dist1 is a square distance between <P> and the point
-    /// of parameter FirstParameter <P1> and
-    /// dist2 is a square distance between <P> and the point
-    /// of parameter LastParameter <P2>.
-    /// </summary>
-    void TrimmedSquareDistances(double% dist1, double% dist2, Macad::Occt::Pnt2d% P1, Macad::Occt::Pnt2d% P2);
-}; // class Extrema_ExtPC2d
 
 //---------------------------------------------------------------------
 //  Class  Extrema_ExtPElS
@@ -4698,385 +4467,6 @@ public:
 }; // class Extrema_GenLocateExtSS
 
 //---------------------------------------------------------------------
-//  Class  Extrema_HArray1OfPOnCurv2d
-//---------------------------------------------------------------------
-public ref class Extrema_HArray1OfPOnCurv2d sealed
-    : public Macad::Occt::Standard_Transient
-    , public IIndexEnumerable<Macad::Occt::Extrema_POnCurv2d^>
-{
-
-#ifdef Include_Extrema_HArray1OfPOnCurv2d_h
-public:
-    Include_Extrema_HArray1OfPOnCurv2d_h
-#endif
-
-public:
-    Extrema_HArray1OfPOnCurv2d(::Extrema_HArray1OfPOnCurv2d* nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    Extrema_HArray1OfPOnCurv2d(::Extrema_HArray1OfPOnCurv2d& nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    property ::Extrema_HArray1OfPOnCurv2d* NativeInstance
-    {
-        ::Extrema_HArray1OfPOnCurv2d* get()
-        {
-            return static_cast<::Extrema_HArray1OfPOnCurv2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv2d::Iterator>
-    {
-
-#ifdef Include_Extrema_HArray1OfPOnCurv2d_Iterator_h
-    public:
-        Include_Extrema_HArray1OfPOnCurv2d_Iterator_h
-#endif
-
-    public:
-        Iterator(::Extrema_HArray1OfPOnCurv2d::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv2d::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Extrema_HArray1OfPOnCurv2d::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray1OfPOnCurv2d::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Extrema_HArray1OfPOnCurv2d::Iterator* NativeInstance
-        {
-            ::Extrema_HArray1OfPOnCurv2d::Iterator* get()
-            {
-                return static_cast<::Extrema_HArray1OfPOnCurv2d::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    Extrema_HArray1OfPOnCurv2d();
-    Extrema_HArray1OfPOnCurv2d(int theLower, int theUpper);
-    Extrema_HArray1OfPOnCurv2d(int theLower, int theUpper, Macad::Occt::Extrema_POnCurv2d^ theValue);
-    Extrema_HArray1OfPOnCurv2d(Macad::Occt::Extrema_POnCurv2d^ theBegin, int theLower, int theUpper, bool parameter1);
-    Extrema_HArray1OfPOnCurv2d(Macad::Occt::Extrema_Array1OfPOnCurv2d^ theOther);
-    Macad::Occt::Extrema_Array1OfPOnCurv2d^ Array1();
-    Macad::Occt::Extrema_Array1OfPOnCurv2d^ ChangeArray1();
-    void Init(Macad::Occt::Extrema_POnCurv2d^ theValue);
-    int Size();
-    int Length();
-    bool IsEmpty();
-    int Lower();
-    int Upper();
-    Macad::Occt::Extrema_HArray1OfPOnCurv2d^ Assign(Macad::Occt::Extrema_HArray1OfPOnCurv2d^ theOther);
-    Macad::Occt::Extrema_HArray1OfPOnCurv2d^ Move(Macad::Occt::Extrema_HArray1OfPOnCurv2d^ theOther);
-    Macad::Occt::Extrema_POnCurv2d^ First();
-    Macad::Occt::Extrema_POnCurv2d^ ChangeFirst();
-    Macad::Occt::Extrema_POnCurv2d^ Last();
-    Macad::Occt::Extrema_POnCurv2d^ ChangeLast();
-    virtual Macad::Occt::Extrema_POnCurv2d^ Value(int theIndex);
-    Macad::Occt::Extrema_POnCurv2d^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::Extrema_POnCurv2d^ theItem);
-    void UpdateLowerBound(int theLower);
-    void UpdateUpperBound(int theUpper);
-    void Resize(int theLower, int theUpper, bool theToCopyData);
-    bool IsDeletable();
-    static Macad::Occt::Extrema_HArray1OfPOnCurv2d^ CreateDowncasted(::Extrema_HArray1OfPOnCurv2d* instance);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::Extrema_POnCurv2d^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class Extrema_HArray1OfPOnCurv2d
-
-//---------------------------------------------------------------------
-//  Class  Extrema_HArray2OfPOnCurv
-//---------------------------------------------------------------------
-public ref class Extrema_HArray2OfPOnCurv sealed
-    : public Macad::Occt::Standard_Transient
-{
-
-#ifdef Include_Extrema_HArray2OfPOnCurv_h
-public:
-    Include_Extrema_HArray2OfPOnCurv_h
-#endif
-
-public:
-    Extrema_HArray2OfPOnCurv(::Extrema_HArray2OfPOnCurv* nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    Extrema_HArray2OfPOnCurv(::Extrema_HArray2OfPOnCurv& nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    property ::Extrema_HArray2OfPOnCurv* NativeInstance
-    {
-        ::Extrema_HArray2OfPOnCurv* get()
-        {
-            return static_cast<::Extrema_HArray2OfPOnCurv*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv::Iterator>
-    {
-
-#ifdef Include_Extrema_HArray2OfPOnCurv_Iterator_h
-    public:
-        Include_Extrema_HArray2OfPOnCurv_Iterator_h
-#endif
-
-    public:
-        Iterator(::Extrema_HArray2OfPOnCurv::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Extrema_HArray2OfPOnCurv::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Extrema_HArray2OfPOnCurv::Iterator* NativeInstance
-        {
-            ::Extrema_HArray2OfPOnCurv::Iterator* get()
-            {
-                return static_cast<::Extrema_HArray2OfPOnCurv::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    Extrema_HArray2OfPOnCurv(int theRowLow, int theRowUpp, int theColLow, int theColUpp);
-    Extrema_HArray2OfPOnCurv(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Extrema_POnCurv^ theValue);
-    Extrema_HArray2OfPOnCurv(Macad::Occt::Extrema_Array2OfPOnCurv^ theOther);
-    Macad::Occt::Extrema_Array2OfPOnCurv^ Array2();
-    Macad::Occt::Extrema_Array2OfPOnCurv^ ChangeArray2();
-    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
-    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    int Size();
-    int Length();
-    int NbRows();
-    int NbColumns();
-    int RowLength();
-    int ColLength();
-    int LowerRow();
-    int UpperRow();
-    int LowerCol();
-    int UpperCol();
-    Macad::Occt::Extrema_HArray2OfPOnCurv^ Assign(Macad::Occt::Extrema_HArray2OfPOnCurv^ theOther);
-    Macad::Occt::Extrema_HArray2OfPOnCurv^ Move(Macad::Occt::Extrema_HArray2OfPOnCurv^ theOther);
-    Macad::Occt::Extrema_POnCurv^ Value(int theRow, int theCol);
-    Macad::Occt::Extrema_POnCurv^ ChangeValue(int theRow, int theCol);
-    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnCurv^ theItem);
-    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
-    void Init(Macad::Occt::Extrema_POnCurv^ theValue);
-    bool IsEmpty();
-    int Lower();
-    int Upper();
-    Macad::Occt::Extrema_POnCurv^ First();
-    Macad::Occt::Extrema_POnCurv^ ChangeFirst();
-    Macad::Occt::Extrema_POnCurv^ Last();
-    Macad::Occt::Extrema_POnCurv^ ChangeLast();
-    void UpdateLowerBound(int theLower);
-    void UpdateUpperBound(int theUpper);
-    bool IsDeletable();
-    static Macad::Occt::Extrema_HArray2OfPOnCurv^ CreateDowncasted(::Extrema_HArray2OfPOnCurv* instance);
-}; // class Extrema_HArray2OfPOnCurv
-
-//---------------------------------------------------------------------
-//  Class  Extrema_HArray2OfPOnCurv2d
-//---------------------------------------------------------------------
-public ref class Extrema_HArray2OfPOnCurv2d sealed
-    : public Macad::Occt::Standard_Transient
-{
-
-#ifdef Include_Extrema_HArray2OfPOnCurv2d_h
-public:
-    Include_Extrema_HArray2OfPOnCurv2d_h
-#endif
-
-public:
-    Extrema_HArray2OfPOnCurv2d(::Extrema_HArray2OfPOnCurv2d* nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    Extrema_HArray2OfPOnCurv2d(::Extrema_HArray2OfPOnCurv2d& nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    property ::Extrema_HArray2OfPOnCurv2d* NativeInstance
-    {
-        ::Extrema_HArray2OfPOnCurv2d* get()
-        {
-            return static_cast<::Extrema_HArray2OfPOnCurv2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv2d::Iterator>
-    {
-
-#ifdef Include_Extrema_HArray2OfPOnCurv2d_Iterator_h
-    public:
-        Include_Extrema_HArray2OfPOnCurv2d_Iterator_h
-#endif
-
-    public:
-        Iterator(::Extrema_HArray2OfPOnCurv2d::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv2d::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Extrema_HArray2OfPOnCurv2d::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnCurv2d::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Extrema_HArray2OfPOnCurv2d::Iterator* NativeInstance
-        {
-            ::Extrema_HArray2OfPOnCurv2d::Iterator* get()
-            {
-                return static_cast<::Extrema_HArray2OfPOnCurv2d::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    Extrema_HArray2OfPOnCurv2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp);
-    Extrema_HArray2OfPOnCurv2d(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Extrema_POnCurv2d^ theValue);
-    Extrema_HArray2OfPOnCurv2d(Macad::Occt::Extrema_Array2OfPOnCurv2d^ theOther);
-    Macad::Occt::Extrema_Array2OfPOnCurv2d^ Array2();
-    Macad::Occt::Extrema_Array2OfPOnCurv2d^ ChangeArray2();
-    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
-    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    int Size();
-    int Length();
-    int NbRows();
-    int NbColumns();
-    int RowLength();
-    int ColLength();
-    int LowerRow();
-    int UpperRow();
-    int LowerCol();
-    int UpperCol();
-    Macad::Occt::Extrema_HArray2OfPOnCurv2d^ Assign(Macad::Occt::Extrema_HArray2OfPOnCurv2d^ theOther);
-    Macad::Occt::Extrema_HArray2OfPOnCurv2d^ Move(Macad::Occt::Extrema_HArray2OfPOnCurv2d^ theOther);
-    Macad::Occt::Extrema_POnCurv2d^ Value(int theRow, int theCol);
-    Macad::Occt::Extrema_POnCurv2d^ ChangeValue(int theRow, int theCol);
-    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnCurv2d^ theItem);
-    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
-    void Init(Macad::Occt::Extrema_POnCurv2d^ theValue);
-    bool IsEmpty();
-    int Lower();
-    int Upper();
-    Macad::Occt::Extrema_POnCurv2d^ First();
-    Macad::Occt::Extrema_POnCurv2d^ ChangeFirst();
-    Macad::Occt::Extrema_POnCurv2d^ Last();
-    Macad::Occt::Extrema_POnCurv2d^ ChangeLast();
-    void UpdateLowerBound(int theLower);
-    void UpdateUpperBound(int theUpper);
-    bool IsDeletable();
-    static Macad::Occt::Extrema_HArray2OfPOnCurv2d^ CreateDowncasted(::Extrema_HArray2OfPOnCurv2d* instance);
-}; // class Extrema_HArray2OfPOnCurv2d
-
-//---------------------------------------------------------------------
-//  Class  Extrema_HArray2OfPOnSurf
-//---------------------------------------------------------------------
-public ref class Extrema_HArray2OfPOnSurf sealed
-    : public Macad::Occt::Standard_Transient
-{
-
-#ifdef Include_Extrema_HArray2OfPOnSurf_h
-public:
-    Include_Extrema_HArray2OfPOnSurf_h
-#endif
-
-public:
-    Extrema_HArray2OfPOnSurf(::Extrema_HArray2OfPOnSurf* nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    Extrema_HArray2OfPOnSurf(::Extrema_HArray2OfPOnSurf& nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    property ::Extrema_HArray2OfPOnSurf* NativeInstance
-    {
-        ::Extrema_HArray2OfPOnSurf* get()
-        {
-            return static_cast<::Extrema_HArray2OfPOnSurf*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Extrema_HArray2OfPOnSurf::Iterator>
-    {
-
-#ifdef Include_Extrema_HArray2OfPOnSurf_Iterator_h
-    public:
-        Include_Extrema_HArray2OfPOnSurf_Iterator_h
-#endif
-
-    public:
-        Iterator(::Extrema_HArray2OfPOnSurf::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnSurf::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Extrema_HArray2OfPOnSurf::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Extrema_HArray2OfPOnSurf::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Extrema_HArray2OfPOnSurf::Iterator* NativeInstance
-        {
-            ::Extrema_HArray2OfPOnSurf::Iterator* get()
-            {
-                return static_cast<::Extrema_HArray2OfPOnSurf::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    Extrema_HArray2OfPOnSurf(int theRowLow, int theRowUpp, int theColLow, int theColUpp);
-    Extrema_HArray2OfPOnSurf(int theRowLow, int theRowUpp, int theColLow, int theColUpp, Macad::Occt::Extrema_POnSurf^ theValue);
-    Extrema_HArray2OfPOnSurf(Macad::Occt::Extrema_Array2OfPOnSurf^ theOther);
-    Macad::Occt::Extrema_Array2OfPOnSurf^ Array2();
-    Macad::Occt::Extrema_Array2OfPOnSurf^ ChangeArray2();
-    static int BeginPosition(int theRowLower, int parameter1, int theColLower, int theColUpper);
-    static int LastPosition(int theRowLower, int theRowUpper, int theColLower, int theColUpper);
-    int Size();
-    int Length();
-    int NbRows();
-    int NbColumns();
-    int RowLength();
-    int ColLength();
-    int LowerRow();
-    int UpperRow();
-    int LowerCol();
-    int UpperCol();
-    Macad::Occt::Extrema_HArray2OfPOnSurf^ Assign(Macad::Occt::Extrema_HArray2OfPOnSurf^ theOther);
-    Macad::Occt::Extrema_HArray2OfPOnSurf^ Move(Macad::Occt::Extrema_HArray2OfPOnSurf^ theOther);
-    Macad::Occt::Extrema_POnSurf^ Value(int theRow, int theCol);
-    Macad::Occt::Extrema_POnSurf^ ChangeValue(int theRow, int theCol);
-    void SetValue(int theRow, int theCol, Macad::Occt::Extrema_POnSurf^ theItem);
-    void Resize(int theRowLower, int theRowUpper, int theColLower, int theColUpper, bool theToCopyData);
-    void Init(Macad::Occt::Extrema_POnSurf^ theValue);
-    bool IsEmpty();
-    int Lower();
-    int Upper();
-    Macad::Occt::Extrema_POnSurf^ First();
-    Macad::Occt::Extrema_POnSurf^ ChangeFirst();
-    Macad::Occt::Extrema_POnSurf^ Last();
-    Macad::Occt::Extrema_POnSurf^ ChangeLast();
-    void UpdateLowerBound(int theLower);
-    void UpdateUpperBound(int theUpper);
-    bool IsDeletable();
-    static Macad::Occt::Extrema_HArray2OfPOnSurf^ CreateDowncasted(::Extrema_HArray2OfPOnSurf* instance);
-}; // class Extrema_HArray2OfPOnSurf
-
-//---------------------------------------------------------------------
 //  Class  Extrema_LocateExtCC
 //---------------------------------------------------------------------
 /// <summary>
@@ -5193,440 +4583,6 @@ public:
     /// </summary>
     void Point(Macad::Occt::Extrema_POnCurv2d^ P1, Macad::Occt::Extrema_POnCurv2d^ P2);
 }; // class Extrema_LocateExtCC2d
-
-//---------------------------------------------------------------------
-//  Class  Extrema_LocEPCOfLocateExtPC
-//---------------------------------------------------------------------
-public ref class Extrema_LocEPCOfLocateExtPC sealed
-    : public Macad::Occt::BaseClass<::Extrema_LocEPCOfLocateExtPC>
-{
-
-#ifdef Include_Extrema_LocEPCOfLocateExtPC_h
-public:
-    Include_Extrema_LocEPCOfLocateExtPC_h
-#endif
-
-public:
-    Extrema_LocEPCOfLocateExtPC(::Extrema_LocEPCOfLocateExtPC* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocEPCOfLocateExtPC>( nativeInstance, true )
-    {}
-
-    Extrema_LocEPCOfLocateExtPC(::Extrema_LocEPCOfLocateExtPC& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocEPCOfLocateExtPC>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_LocEPCOfLocateExtPC* NativeInstance
-    {
-        ::Extrema_LocEPCOfLocateExtPC* get()
-        {
-            return static_cast<::Extrema_LocEPCOfLocateExtPC*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_LocEPCOfLocateExtPC();
-    /// <summary>
-    /// Calculates the distance with a close point.
-    /// The close point is defined by the parameter value
-    /// U0.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches a zero
-    /// near the close point.
-    /// TolU is used to decide to stop the iterations.
-    /// At the nth iteration, the criteria is:
-    /// abs(Un - Un-1) < TolU.
-    /// </summary>
-    Extrema_LocEPCOfLocateExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, double U0, double TolU);
-    /// <summary>
-    /// Calculates the distance with a close point.
-    /// The close point is defined by the parameter value
-    /// U0.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches a zero
-    /// near the close point.
-    /// Zeros are searched between Umin et Usup.
-    /// TolU is used to decide to stop the iterations.
-    /// At the nth iteration, the criteria is:
-    /// abs(Un - Un-1) < TolU.
-    /// </summary>
-    Extrema_LocEPCOfLocateExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, double U0, double Umin, double Usup, double TolU);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C, double Umin, double Usup, double TolU);
-    /// <summary>
-    /// the algorithm is done with the point P.
-    /// An exception is raised if the fields have not
-    /// been initialized.
-    /// </summary>
-    void Perform(Macad::Occt::Pnt P, double U0);
-    /// <summary>
-    /// Returns True if the distance is found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the value of the extremum square distance.
-    /// </summary>
-    double SquareDistance();
-    /// <summary>
-    /// Returns True if the extremum distance is a minimum.
-    /// </summary>
-    bool IsMin();
-    /// <summary>
-    /// Returns the point of the extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv^ Point();
-}; // class Extrema_LocEPCOfLocateExtPC
-
-//---------------------------------------------------------------------
-//  Class  Extrema_LocateExtPC
-//---------------------------------------------------------------------
-public ref class Extrema_LocateExtPC sealed
-    : public Macad::Occt::BaseClass<::Extrema_LocateExtPC>
-{
-
-#ifdef Include_Extrema_LocateExtPC_h
-public:
-    Include_Extrema_LocateExtPC_h
-#endif
-
-public:
-    Extrema_LocateExtPC(::Extrema_LocateExtPC* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocateExtPC>( nativeInstance, true )
-    {}
-
-    Extrema_LocateExtPC(::Extrema_LocateExtPC& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocateExtPC>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_LocateExtPC* NativeInstance
-    {
-        ::Extrema_LocateExtPC* get()
-        {
-            return static_cast<::Extrema_LocateExtPC*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_LocateExtPC();
-    /// <summary>
-    /// Calculates the distance with a close point.
-    /// The close point is defined by the parameter value
-    /// U0.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches a zero
-    /// near the close point.
-    /// TolF is used to decide to stop the iterations.
-    /// At the nth iteration, the criteria is:
-    /// abs(Un - Un-1) < TolF.
-    /// </summary>
-    Extrema_LocateExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, double U0, double TolF);
-    /// <summary>
-    /// Calculates the distance with a close point.
-    /// The close point is defined by the parameter value
-    /// U0.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches a zero
-    /// near the close point.
-    /// Zeros are searched between Umin et Usup.
-    /// TolF is used to decide to stop the iterations.
-    /// At the nth iteration, the criteria is:
-    /// abs(Un - Un-1) < TolF.
-    /// </summary>
-    Extrema_LocateExtPC(Macad::Occt::Pnt P, Macad::Occt::Adaptor3d_Curve^ C, double U0, double Umin, double Usup, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor3d_Curve^ C, double Umin, double Usup, double TolF);
-    void Perform(Macad::Occt::Pnt P, double U0);
-    /// <summary>
-    /// Returns True if the distance is found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the value of the extremum square distance.
-    /// </summary>
-    double SquareDistance();
-    /// <summary>
-    /// Returns True if the extremum distance is a minimum.
-    /// </summary>
-    bool IsMin();
-    /// <summary>
-    /// Returns the point of the extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv^ Point();
-}; // class Extrema_LocateExtPC
-
-//---------------------------------------------------------------------
-//  Class  Extrema_LocEPCOfLocateExtPC2d
-//---------------------------------------------------------------------
-public ref class Extrema_LocEPCOfLocateExtPC2d sealed
-    : public Macad::Occt::BaseClass<::Extrema_LocEPCOfLocateExtPC2d>
-{
-
-#ifdef Include_Extrema_LocEPCOfLocateExtPC2d_h
-public:
-    Include_Extrema_LocEPCOfLocateExtPC2d_h
-#endif
-
-public:
-    Extrema_LocEPCOfLocateExtPC2d(::Extrema_LocEPCOfLocateExtPC2d* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocEPCOfLocateExtPC2d>( nativeInstance, true )
-    {}
-
-    Extrema_LocEPCOfLocateExtPC2d(::Extrema_LocEPCOfLocateExtPC2d& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocEPCOfLocateExtPC2d>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_LocEPCOfLocateExtPC2d* NativeInstance
-    {
-        ::Extrema_LocEPCOfLocateExtPC2d* get()
-        {
-            return static_cast<::Extrema_LocEPCOfLocateExtPC2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_LocEPCOfLocateExtPC2d();
-    /// <summary>
-    /// Calculates the distance with a close point.
-    /// The close point is defined by the parameter value
-    /// U0.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches a zero
-    /// near the close point.
-    /// TolU is used to decide to stop the iterations.
-    /// At the nth iteration, the criteria is:
-    /// abs(Un - Un-1) < TolU.
-    /// </summary>
-    Extrema_LocEPCOfLocateExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, double U0, double TolU);
-    /// <summary>
-    /// Calculates the distance with a close point.
-    /// The close point is defined by the parameter value
-    /// U0.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches a zero
-    /// near the close point.
-    /// Zeros are searched between Umin et Usup.
-    /// TolU is used to decide to stop the iterations.
-    /// At the nth iteration, the criteria is:
-    /// abs(Un - Un-1) < TolU.
-    /// </summary>
-    Extrema_LocEPCOfLocateExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, double U0, double Umin, double Usup, double TolU);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C, double Umin, double Usup, double TolU);
-    /// <summary>
-    /// the algorithm is done with the point P.
-    /// An exception is raised if the fields have not
-    /// been initialized.
-    /// </summary>
-    void Perform(Macad::Occt::Pnt2d P, double U0);
-    /// <summary>
-    /// Returns True if the distance is found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the value of the extremum square distance.
-    /// </summary>
-    double SquareDistance();
-    /// <summary>
-    /// Returns True if the extremum distance is a minimum.
-    /// </summary>
-    bool IsMin();
-    /// <summary>
-    /// Returns the point of the extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv2d^ Point();
-}; // class Extrema_LocEPCOfLocateExtPC2d
-
-//---------------------------------------------------------------------
-//  Class  Extrema_LocateExtPC2d
-//---------------------------------------------------------------------
-public ref class Extrema_LocateExtPC2d sealed
-    : public Macad::Occt::BaseClass<::Extrema_LocateExtPC2d>
-{
-
-#ifdef Include_Extrema_LocateExtPC2d_h
-public:
-    Include_Extrema_LocateExtPC2d_h
-#endif
-
-public:
-    Extrema_LocateExtPC2d(::Extrema_LocateExtPC2d* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocateExtPC2d>( nativeInstance, true )
-    {}
-
-    Extrema_LocateExtPC2d(::Extrema_LocateExtPC2d& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocateExtPC2d>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_LocateExtPC2d* NativeInstance
-    {
-        ::Extrema_LocateExtPC2d* get()
-        {
-            return static_cast<::Extrema_LocateExtPC2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    Extrema_LocateExtPC2d();
-    /// <summary>
-    /// Calculates the distance with a close point.
-    /// The close point is defined by the parameter value
-    /// U0.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches a zero
-    /// near the close point.
-    /// TolF is used to decide to stop the iterations.
-    /// At the nth iteration, the criteria is:
-    /// abs(Un - Un-1) < TolF.
-    /// </summary>
-    Extrema_LocateExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, double U0, double TolF);
-    /// <summary>
-    /// Calculates the distance with a close point.
-    /// The close point is defined by the parameter value
-    /// U0.
-    /// The function F(u)=distance(P,C(u)) has an extremum
-    /// when g(u)=dF/du=0. The algorithm searches a zero
-    /// near the close point.
-    /// Zeros are searched between Umin et Usup.
-    /// TolF is used to decide to stop the iterations.
-    /// At the nth iteration, the criteria is:
-    /// abs(Un - Un-1) < TolF.
-    /// </summary>
-    Extrema_LocateExtPC2d(Macad::Occt::Pnt2d P, Macad::Occt::Adaptor2d_Curve2d^ C, double U0, double Umin, double Usup, double TolF);
-    /// <summary>
-    /// sets the fields of the algorithm.
-    /// </summary>
-    void Initialize(Macad::Occt::Adaptor2d_Curve2d^ C, double Umin, double Usup, double TolF);
-    void Perform(Macad::Occt::Pnt2d P, double U0);
-    /// <summary>
-    /// Returns True if the distance is found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the value of the extremum square distance.
-    /// </summary>
-    double SquareDistance();
-    /// <summary>
-    /// Returns True if the extremum distance is a minimum.
-    /// </summary>
-    bool IsMin();
-    /// <summary>
-    /// Returns the point of the extremum distance.
-    /// </summary>
-    Macad::Occt::Extrema_POnCurv2d^ Point();
-}; // class Extrema_LocateExtPC2d
-
-//---------------------------------------------------------------------
-//  Class  Extrema_LocECC
-//---------------------------------------------------------------------
-public ref class Extrema_LocECC sealed
-    : public Macad::Occt::BaseClass<::Extrema_LocECC>
-{
-
-#ifdef Include_Extrema_LocECC_h
-public:
-    Include_Extrema_LocECC_h
-#endif
-
-public:
-    Extrema_LocECC(::Extrema_LocECC* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocECC>( nativeInstance, true )
-    {}
-
-    Extrema_LocECC(::Extrema_LocECC& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocECC>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_LocECC* NativeInstance
-    {
-        ::Extrema_LocECC* get()
-        {
-            return static_cast<::Extrema_LocECC*>(_NativeInstance);
-        }
-    }
-
-public:
-    /// <summary>
-    /// Calculates the distance with a close point. The
-    /// close point is defined by a parameter value on each
-    /// curve.
-    /// The function F(u,v)=distance(C1(u),C2(v)) has an
-    /// extremun when gradient(f)=0. The algorithm searches
-    /// the zero near the close point.
-    /// </summary>
-    Extrema_LocECC(Macad::Occt::Adaptor3d_Curve^ C1, Macad::Occt::Adaptor3d_Curve^ C2, double U0, double V0, double TolU, double TolV);
-    /// <summary>
-    /// Returns True if the distance is found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the value of the extremum square distance.
-    /// </summary>
-    double SquareDistance();
-    /// <summary>
-    /// Returns the points of the extremum distance.
-    /// P1 is on the first curve, P2 on the second one.
-    /// </summary>
-    void Point(Macad::Occt::Extrema_POnCurv^ P1, Macad::Occt::Extrema_POnCurv^ P2);
-}; // class Extrema_LocECC
-
-//---------------------------------------------------------------------
-//  Class  Extrema_LocECC2d
-//---------------------------------------------------------------------
-public ref class Extrema_LocECC2d sealed
-    : public Macad::Occt::BaseClass<::Extrema_LocECC2d>
-{
-
-#ifdef Include_Extrema_LocECC2d_h
-public:
-    Include_Extrema_LocECC2d_h
-#endif
-
-public:
-    Extrema_LocECC2d(::Extrema_LocECC2d* nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocECC2d>( nativeInstance, true )
-    {}
-
-    Extrema_LocECC2d(::Extrema_LocECC2d& nativeInstance)
-        : Macad::Occt::BaseClass<::Extrema_LocECC2d>( &nativeInstance, false )
-    {}
-
-    property ::Extrema_LocECC2d* NativeInstance
-    {
-        ::Extrema_LocECC2d* get()
-        {
-            return static_cast<::Extrema_LocECC2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    /// <summary>
-    /// Calculates the distance with a close point. The
-    /// close point is defined by a parameter value on each
-    /// curve.
-    /// The function F(u,v)=distance(C1(u),C2(v)) has an
-    /// extremun when gradient(f)=0. The algorithm searches
-    /// the zero near the close point.
-    /// </summary>
-    Extrema_LocECC2d(Macad::Occt::Adaptor2d_Curve2d^ C1, Macad::Occt::Adaptor2d_Curve2d^ C2, double U0, double V0, double TolU, double TolV);
-    /// <summary>
-    /// Returns True if the distance is found.
-    /// </summary>
-    bool IsDone();
-    /// <summary>
-    /// Returns the value of the extremum square distance.
-    /// </summary>
-    double SquareDistance();
-    /// <summary>
-    /// Returns the points of the extremum distance.
-    /// P1 is on the first curve, P2 on the second one.
-    /// </summary>
-    void Point(Macad::Occt::Extrema_POnCurv2d^ P1, Macad::Occt::Extrema_POnCurv2d^ P2);
-}; // class Extrema_LocECC2d
 
 }; // namespace Occt
 }; // namespace Macad

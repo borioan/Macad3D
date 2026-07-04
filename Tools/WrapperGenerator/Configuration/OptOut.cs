@@ -80,6 +80,7 @@ public static partial class Configuration
     /* If copied from linker message, remove the sequence $$F */
     public static List<string> MissingExports = new()
     {
+        "?IsEqual@TCollection_AsciiString@@SA_NAEBV1@QEBD@Z", // OCCT 8: overload not exported from TKernel
         "?GetAnalyse@BRepOffset_MakeOffset@@QEBAAEBVBRepOffset_Analyse@@XZ",
         "?TransformShapeFU@BRepFeat_MakeLinearForm@@QEAAXH@Z",
         "?GetAbsolutError@BRepGProp_VinertGK@@QEBANXZ",

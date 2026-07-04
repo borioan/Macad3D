@@ -24,6 +24,12 @@ bool Macad::Occt::gce_Root::IsDone()
     return _result;
 }
 
+bool Macad::Occt::gce_Root::IsError()
+{
+    bool _result = ((::gce_Root*)_NativeInstance)->IsError();
+    return _result;
+}
+
 Macad::Occt::gce_ErrorType Macad::Occt::gce_Root::Status()
 {
     ::gce_ErrorType _result = ((::gce_Root*)_NativeInstance)->Status();
@@ -106,7 +112,7 @@ Macad::Occt::gp_Circ^ Macad::Occt::gce_MakeCirc::Value()
 Macad::Occt::gp_Circ^ Macad::Occt::gce_MakeCirc::Operator()
 {
     ::gp_Circ* _result = new ::gp_Circ();
-    *_result = (::gp_Circ)((::gce_MakeCirc*)_NativeInstance)->Operator();
+    *_result = ((::gce_MakeCirc*)_NativeInstance)->Operator();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ(_result);
 }
 
@@ -199,7 +205,7 @@ Macad::Occt::gp_Circ2d^ Macad::Occt::gce_MakeCirc2d::Value()
 Macad::Occt::gp_Circ2d^ Macad::Occt::gce_MakeCirc2d::Operator()
 {
     ::gp_Circ2d* _result = new ::gp_Circ2d();
-    *_result = (::gp_Circ2d)((::gce_MakeCirc2d*)_NativeInstance)->Operator();
+    *_result = ((::gce_MakeCirc2d*)_NativeInstance)->Operator();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Circ2d(_result);
 }
 
@@ -274,7 +280,7 @@ Macad::Occt::gp_Cone^ Macad::Occt::gce_MakeCone::Value()
 Macad::Occt::gp_Cone^ Macad::Occt::gce_MakeCone::Operator()
 {
     ::gp_Cone* _result = new ::gp_Cone();
-    *_result = (::gp_Cone)((::gce_MakeCone*)_NativeInstance)->Operator();
+    *_result = ((::gce_MakeCone*)_NativeInstance)->Operator();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Cone(_result);
 }
 
@@ -336,7 +342,7 @@ Macad::Occt::gp_Cylinder^ Macad::Occt::gce_MakeCylinder::Value()
 Macad::Occt::gp_Cylinder^ Macad::Occt::gce_MakeCylinder::Operator()
 {
     ::gp_Cylinder* _result = new ::gp_Cylinder();
-    *_result = (::gp_Cylinder)((::gce_MakeCylinder*)_NativeInstance)->Operator();
+    *_result = ((::gce_MakeCylinder*)_NativeInstance)->Operator();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Cylinder(_result);
 }
 
@@ -464,7 +470,7 @@ Macad::Occt::gp_Elips^ Macad::Occt::gce_MakeElips::Value()
 Macad::Occt::gp_Elips^ Macad::Occt::gce_MakeElips::Operator()
 {
     ::gp_Elips* _result = new ::gp_Elips();
-    *_result = (::gp_Elips)((::gce_MakeElips*)_NativeInstance)->Operator();
+    *_result = ((::gce_MakeElips*)_NativeInstance)->Operator();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Elips(_result);
 }
 
@@ -514,7 +520,7 @@ Macad::Occt::gp_Elips2d^ Macad::Occt::gce_MakeElips2d::Value()
 Macad::Occt::gp_Elips2d^ Macad::Occt::gce_MakeElips2d::Operator()
 {
     ::gp_Elips2d* _result = new ::gp_Elips2d();
-    *_result = (::gp_Elips2d)((::gce_MakeElips2d*)_NativeInstance)->Operator();
+    *_result = ((::gce_MakeElips2d*)_NativeInstance)->Operator();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Elips2d(_result);
 }
 
@@ -550,7 +556,7 @@ Macad::Occt::gp_Hypr^ Macad::Occt::gce_MakeHypr::Value()
 Macad::Occt::gp_Hypr^ Macad::Occt::gce_MakeHypr::Operator()
 {
     ::gp_Hypr* _result = new ::gp_Hypr();
-    *_result = (::gp_Hypr)((::gce_MakeHypr*)_NativeInstance)->Operator();
+    *_result = ((::gce_MakeHypr*)_NativeInstance)->Operator();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Hypr(_result);
 }
 
@@ -593,7 +599,7 @@ Macad::Occt::gp_Hypr2d^ Macad::Occt::gce_MakeHypr2d::Value()
 Macad::Occt::gp_Hypr2d^ Macad::Occt::gce_MakeHypr2d::Operator()
 {
     ::gp_Hypr2d* _result = new ::gp_Hypr2d();
-    *_result = (::gp_Hypr2d)((::gce_MakeHypr2d*)_NativeInstance)->Operator();
+    *_result = ((::gce_MakeHypr2d*)_NativeInstance)->Operator();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Hypr2d(_result);
 }
 
@@ -643,7 +649,7 @@ Macad::Occt::gp_Lin^ Macad::Occt::gce_MakeLin::Value()
 Macad::Occt::gp_Lin^ Macad::Occt::gce_MakeLin::Operator()
 {
     ::gp_Lin* _result = new ::gp_Lin();
-    *_result = (::gp_Lin)((::gce_MakeLin*)_NativeInstance)->Operator();
+    *_result = ((::gce_MakeLin*)_NativeInstance)->Operator();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin(_result);
 }
 
@@ -698,7 +704,7 @@ Macad::Occt::gce_MakeLin2d::gce_MakeLin2d(Macad::Occt::Pnt2d P1, Macad::Occt::Pn
 Macad::Occt::gp_Lin2d^ Macad::Occt::gce_MakeLin2d::Value()
 {
     ::gp_Lin2d* _result = new ::gp_Lin2d();
-    *_result = ((::gce_MakeLin2d*)_NativeInstance)->Value();
+    *_result = (::gp_Lin2d)((::gce_MakeLin2d*)_NativeInstance)->Value();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Lin2d(_result);
 }
 
@@ -846,7 +852,7 @@ Macad::Occt::gp_Parab^ Macad::Occt::gce_MakeParab::Value()
 Macad::Occt::gp_Parab^ Macad::Occt::gce_MakeParab::Operator()
 {
     ::gp_Parab* _result = new ::gp_Parab();
-    *_result = (::gp_Parab)((::gce_MakeParab*)_NativeInstance)->Operator();
+    *_result = ((::gce_MakeParab*)_NativeInstance)->Operator();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Parab(_result);
 }
 
@@ -919,7 +925,7 @@ Macad::Occt::gp_Parab2d^ Macad::Occt::gce_MakeParab2d::Value()
 Macad::Occt::gp_Parab2d^ Macad::Occt::gce_MakeParab2d::Operator()
 {
     ::gp_Parab2d* _result = new ::gp_Parab2d();
-    *_result = (::gp_Parab2d)((::gce_MakeParab2d*)_NativeInstance)->Operator();
+    *_result = ((::gce_MakeParab2d*)_NativeInstance)->Operator();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Parab2d(_result);
 }
 

@@ -8,103 +8,6 @@ namespace Macad
 namespace Occt
 {
 //---------------------------------------------------------------------
-//  Class  Geom2dConvert_SequenceOfPPoint
-//---------------------------------------------------------------------
-public ref class Geom2dConvert_SequenceOfPPoint sealed
-    : public Macad::Occt::BaseClass<::Geom2dConvert_SequenceOfPPoint>
-    , public IIndexEnumerable<Macad::Occt::Geom2dConvert_PPoint^>
-{
-
-#ifdef Include_Geom2dConvert_SequenceOfPPoint_h
-public:
-    Include_Geom2dConvert_SequenceOfPPoint_h
-#endif
-
-public:
-    Geom2dConvert_SequenceOfPPoint(::Geom2dConvert_SequenceOfPPoint* nativeInstance)
-        : Macad::Occt::BaseClass<::Geom2dConvert_SequenceOfPPoint>( nativeInstance, true )
-    {}
-
-    Geom2dConvert_SequenceOfPPoint(::Geom2dConvert_SequenceOfPPoint& nativeInstance)
-        : Macad::Occt::BaseClass<::Geom2dConvert_SequenceOfPPoint>( &nativeInstance, false )
-    {}
-
-    property ::Geom2dConvert_SequenceOfPPoint* NativeInstance
-    {
-        ::Geom2dConvert_SequenceOfPPoint* get()
-        {
-            return static_cast<::Geom2dConvert_SequenceOfPPoint*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Geom2dConvert_SequenceOfPPoint::Iterator>
-    {
-
-#ifdef Include_Geom2dConvert_SequenceOfPPoint_Iterator_h
-    public:
-        Include_Geom2dConvert_SequenceOfPPoint_Iterator_h
-#endif
-
-    public:
-        Iterator(::Geom2dConvert_SequenceOfPPoint::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Geom2dConvert_SequenceOfPPoint::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Geom2dConvert_SequenceOfPPoint::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Geom2dConvert_SequenceOfPPoint::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Geom2dConvert_SequenceOfPPoint::Iterator* NativeInstance
-        {
-            ::Geom2dConvert_SequenceOfPPoint::Iterator* get()
-            {
-                return static_cast<::Geom2dConvert_SequenceOfPPoint::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::Geom2dConvert_PPoint^ Value();
-        Macad::Occt::Geom2dConvert_PPoint^ ChangeValue();
-        bool IsEqual(Macad::Occt::Geom2dConvert_SequenceOfPPoint::Iterator^ theOther);
-        bool Equals(System::Object^ obj) override;
-    }; // class Iterator
-
-    Geom2dConvert_SequenceOfPPoint();
-    Geom2dConvert_SequenceOfPPoint(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
-    int Upper();
-    bool IsEmpty();
-    void Reverse();
-    void Exchange(int I, int J);
-    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::Geom2dConvert_SequenceOfPPoint^ Assign(Macad::Occt::Geom2dConvert_SequenceOfPPoint^ theOther);
-    void Remove(Macad::Occt::Geom2dConvert_SequenceOfPPoint::Iterator^ thePosition);
-    void Append(Macad::Occt::Geom2dConvert_PPoint^ theItem);
-    void Prepend(Macad::Occt::Geom2dConvert_PPoint^ theItem);
-    void InsertBefore(int theIndex, Macad::Occt::Geom2dConvert_PPoint^ theItem);
-    void InsertAfter(Macad::Occt::Geom2dConvert_SequenceOfPPoint::Iterator^ thePosition, Macad::Occt::Geom2dConvert_PPoint^ theItem);
-    void Split(int theIndex, Macad::Occt::Geom2dConvert_SequenceOfPPoint^ theSeq);
-    Macad::Occt::Geom2dConvert_PPoint^ First();
-    Macad::Occt::Geom2dConvert_PPoint^ ChangeFirst();
-    Macad::Occt::Geom2dConvert_PPoint^ Last();
-    Macad::Occt::Geom2dConvert_PPoint^ ChangeLast();
-    virtual Macad::Occt::Geom2dConvert_PPoint^ Value(int theIndex);
-    Macad::Occt::Geom2dConvert_PPoint^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::Geom2dConvert_PPoint^ theItem);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::Geom2dConvert_PPoint^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class Geom2dConvert_SequenceOfPPoint
-
-//---------------------------------------------------------------------
 //  Class  Geom2dConvert
 //---------------------------------------------------------------------
 /// <summary>
@@ -121,7 +24,7 @@ public:
 /// References :
 /// . Generating the Bezier Points of B-spline curves and surfaces
 /// (Wolfgang Bohm) CAGD volume 13 number 6 november 1981
-/// . On NURBS: A Survey  (Leslie Piegl) IEEE Computer Graphics and
+/// . On NURBS: A Survey (Leslie Piegl) IEEE Computer Graphics and
 /// Application January 1991
 /// . Curve and surface construction using rational B-splines
 /// (Leslie Piegl and Wayne Tiller) CAD Volume 19 number 9 november
@@ -158,16 +61,16 @@ public:
 public:
     Geom2dConvert();
     /// <summary>
-    /// -- Convert a curve to BSpline  by Approximation
+    /// Convert a curve to BSpline by Approximation
     /// 
     /// This method computes the arc of B-spline curve between the two
-    /// knots FromK1 and ToK2.  If C is periodic the arc has the same
-    /// orientation as C if SameOrientation = Standard_True.
-    /// If C is not periodic  SameOrientation is not used for the
+    /// knots FromK1 and ToK2. If C is periodic the arc has the same
+    /// orientation as C if SameOrientation = true.
+    /// If C is not periodic SameOrientation is not used for the
     /// computation and C is oriented from the knot fromK1 to the
     /// knot toK2.
     /// We just keep the local definition of C between the knots
-    /// FromK1 and ToK2.  The returned B-spline curve has its first
+    /// FromK1 and ToK2. The returned B-spline curve has its first
     /// and last knots with a multiplicity equal to degree + 1, where
     /// degree is the polynomial degree of C.
     /// The indexes of the knots FromK1 and ToK2 doesn't include the
@@ -179,16 +82,16 @@ public:
     /// </summary>
     static Macad::Occt::Geom2d_BSplineCurve^ SplitBSplineCurve(Macad::Occt::Geom2d_BSplineCurve^ C, int FromK1, int ToK2, bool SameOrientation);
     /// <summary>
-    /// -- Convert a curve to BSpline  by Approximation
+    /// Convert a curve to BSpline by Approximation
     /// 
     /// This method computes the arc of B-spline curve between the two
-    /// knots FromK1 and ToK2.  If C is periodic the arc has the same
-    /// orientation as C if SameOrientation = Standard_True.
-    /// If C is not periodic  SameOrientation is not used for the
+    /// knots FromK1 and ToK2. If C is periodic the arc has the same
+    /// orientation as C if SameOrientation = true.
+    /// If C is not periodic SameOrientation is not used for the
     /// computation and C is oriented from the knot fromK1 to the
     /// knot toK2.
     /// We just keep the local definition of C between the knots
-    /// FromK1 and ToK2.  The returned B-spline curve has its first
+    /// FromK1 and ToK2. The returned B-spline curve has its first
     /// and last knots with a multiplicity equal to degree + 1, where
     /// degree is the polynomial degree of C.
     /// The indexes of the knots FromK1 and ToK2 doesn't include the
@@ -208,7 +111,7 @@ public:
     /// computation and C is oriented fromU1 toU2.
     /// If U1 and U2 and two parametric values we consider that
     /// U1 = U2 if Abs (U1 - U2) <= ParametricTolerance and
-    /// ParametricTolerance must  be greater or equal to Resolution
+    /// ParametricTolerance must be greater or equal to Resolution
     /// from package gp.
     /// 
     /// Raised if FromU1 or ToU2 are out of the parametric bounds of the
@@ -226,7 +129,7 @@ public:
     /// computation and C is oriented fromU1 toU2.
     /// If U1 and U2 and two parametric values we consider that
     /// U1 = U2 if Abs (U1 - U2) <= ParametricTolerance and
-    /// ParametricTolerance must  be greater or equal to Resolution
+    /// ParametricTolerance must be greater or equal to Resolution
     /// from package gp.
     /// 
     /// Raised if FromU1 or ToU2 are out of the parametric bounds of the
@@ -237,10 +140,10 @@ public:
     static Macad::Occt::Geom2d_BSplineCurve^ SplitBSplineCurve(Macad::Occt::Geom2d_BSplineCurve^ C, double FromU1, double ToU2, double ParametricTolerance);
     /// <summary>
     /// This function converts a non infinite curve from
-    /// Geom into a  B-spline curve.  C must  be  an ellipse or a
-    /// circle or a trimmed conic  or a trimmed  line or a Bezier
-    /// curve or a trimmed  Bezier curve or a  BSpline curve or  a
-    /// trimmed BSpline   curve  or an  Offset  curve or a  trimmed
+    /// Geom into a B-spline curve. C must be an ellipse or a
+    /// circle or a trimmed conic or a trimmed line or a Bezier
+    /// curve or a trimmed Bezier curve or a BSpline curve or a
+    /// trimmed BSpline curve or an Offset curve or a trimmed
     /// Offset curve.
     /// The returned B-spline is not periodic except if C is a
     /// Circle or an Ellipse.
@@ -265,9 +168,9 @@ public:
     /// 
     /// t = tan (theta/2)
     /// 
-    /// with TgtThetaOver2  the routine will compute the number of spans
+    /// with TgtThetaOver2 the routine will compute the number of spans
     /// using the rule num_spans = [ (ULast - UFirst) / 1.2 ] + 1
-    /// with TgtThetaOver2_N, N  spans will be forced: an error will
+    /// with TgtThetaOver2_N, N spans will be forced: an error will
     /// be raized if (ULast - UFirst) >= PI and N = 1,
     /// ULast - UFirst >= 2 PI and N = 2
     /// 
@@ -304,10 +207,10 @@ public:
     static Macad::Occt::Geom2d_BSplineCurve^ CurveToBSplineCurve(Macad::Occt::Geom2d_Curve^ C, Macad::Occt::Convert_ParameterisationType Parameterisation);
     /// <summary>
     /// This function converts a non infinite curve from
-    /// Geom into a  B-spline curve.  C must  be  an ellipse or a
-    /// circle or a trimmed conic  or a trimmed  line or a Bezier
-    /// curve or a trimmed  Bezier curve or a  BSpline curve or  a
-    /// trimmed BSpline   curve  or an  Offset  curve or a  trimmed
+    /// Geom into a B-spline curve. C must be an ellipse or a
+    /// circle or a trimmed conic or a trimmed line or a Bezier
+    /// curve or a trimmed Bezier curve or a BSpline curve or a
+    /// trimmed BSpline curve or an Offset curve or a trimmed
     /// Offset curve.
     /// The returned B-spline is not periodic except if C is a
     /// Circle or an Ellipse.
@@ -332,9 +235,9 @@ public:
     /// 
     /// t = tan (theta/2)
     /// 
-    /// with TgtThetaOver2  the routine will compute the number of spans
+    /// with TgtThetaOver2 the routine will compute the number of spans
     /// using the rule num_spans = [ (ULast - UFirst) / 1.2 ] + 1
-    /// with TgtThetaOver2_N, N  spans will be forced: an error will
+    /// with TgtThetaOver2_N, N spans will be forced: an error will
     /// be raized if (ULast - UFirst) >= PI and N = 1,
     /// ULast - UFirst >= 2 PI and N = 2
     /// 
@@ -369,18 +272,18 @@ public:
     /// cannot be used to convert a quasi-complete circle or ellipse).
     /// </summary>
     static Macad::Occt::Geom2d_BSplineCurve^ CurveToBSplineCurve(Macad::Occt::Geom2d_Curve^ C);
-    /* Method skipped due to unknown mapping: void ConcatG1(TColGeom2d_Array1OfBSplineCurve ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, TColGeom2d_HArray1OfBSplineCurve ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, ) */
-    /* Method skipped due to unknown mapping: void ConcatC1(TColGeom2d_Array1OfBSplineCurve ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, TColStd_HArray1OfInteger ArrayOfIndices, TColGeom2d_HArray1OfBSplineCurve ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, ) */
-    /* Method skipped due to unknown mapping: void ConcatC1(TColGeom2d_Array1OfBSplineCurve ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, TColStd_HArray1OfInteger ArrayOfIndices, TColGeom2d_HArray1OfBSplineCurve ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, double AngularTolerance, ) */
+    /* Method skipped due to unknown mapping: void ConcatG1(NCollection_Array1<opencascade::handle<Geom2d_BSplineCurve>> ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, NCollection_HArray1<opencascade::handle<Geom2d_BSplineCurve>> ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, ) */
+    /* Method skipped due to unknown mapping: void ConcatC1(NCollection_Array1<opencascade::handle<Geom2d_BSplineCurve>> ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, TColStd_HArray1OfInteger ArrayOfIndices, NCollection_HArray1<opencascade::handle<Geom2d_BSplineCurve>> ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, ) */
+    /* Method skipped due to unknown mapping: void ConcatC1(NCollection_Array1<opencascade::handle<Geom2d_BSplineCurve>> ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, TColStd_HArray1OfInteger ArrayOfIndices, NCollection_HArray1<opencascade::handle<Geom2d_BSplineCurve>> ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, double AngularTolerance, ) */
     /// <summary>
-    /// This Method reduces as   far as it  is possible the
-    /// multiplicities of  the  knots of  the BSpline BS.(keeping  the geometry).
+    /// This Method reduces as far as it is possible the
+    /// multiplicities of the knots of the BSpline BS.(keeping the geometry).
     /// It returns a new BSpline which could still be C0.
     /// tolerance is a geometrical tolerance
     /// </summary>
     static void C0BSplineToC1BSplineCurve(Macad::Occt::Geom2d_BSplineCurve^ BS, double Tolerance);
-    /* Method skipped due to unknown mapping: void C0BSplineToArrayOfC1BSplineCurve(Geom2d_BSplineCurve BS, TColGeom2d_HArray1OfBSplineCurve tabBS, double Tolerance, ) */
-    /* Method skipped due to unknown mapping: void C0BSplineToArrayOfC1BSplineCurve(Geom2d_BSplineCurve BS, TColGeom2d_HArray1OfBSplineCurve tabBS, double AngularTolerance, double Tolerance, ) */
+    /* Method skipped due to unknown mapping: void C0BSplineToArrayOfC1BSplineCurve(Geom2d_BSplineCurve BS, NCollection_HArray1<opencascade::handle<Geom2d_BSplineCurve>> tabBS, double Tolerance, ) */
+    /* Method skipped due to unknown mapping: void C0BSplineToArrayOfC1BSplineCurve(Geom2d_BSplineCurve BS, NCollection_HArray1<opencascade::handle<Geom2d_BSplineCurve>> tabBS, double AngularTolerance, double Tolerance, ) */
 }; // class Geom2dConvert
 
 //---------------------------------------------------------------------
@@ -497,7 +400,7 @@ public:
     /// Constructor.
     /// </summary>
     Geom2dConvert_ApproxArcsSegments(Macad::Occt::Adaptor2d_Curve2d^ theCurve, double theTolerance, double theAngleTol);
-    /* Method skipped due to unknown mapping: TColGeom2d_SequenceOfCurve GetResult() */
+    /* Method skipped due to unknown mapping: NCollection_Sequence<opencascade::handle<Geom2d_Curve>> GetResult() */
 }; // class Geom2dConvert_ApproxArcsSegments
 
 //---------------------------------------------------------------------
@@ -560,24 +463,24 @@ public:
     /// </summary>
     Macad::Occt::Geom2d_BSplineCurve^ Curve();
     /// <summary>
-    /// returns  Standard_True  if  the  approximation  has
-    /// been  done  with  within  required tolerance
+    /// returns true if the approximation has
+    /// been done with within required tolerance
     /// </summary>
     bool IsDone();
     /// <summary>
-    /// returns  Standard_True if the approximation did come out
-    /// with a result that  is not NECESSARELY within the required tolerance
+    /// returns true if the approximation did come out
+    /// with a result that is not NECESSARELY within the required tolerance
     /// </summary>
     bool HasResult();
     /// <summary>
     /// Returns the greatest distance between a point on the
     /// source conic and the BSpline curve resulting from the
     /// approximation. (>0 when an approximation
-    /// has  been  done, 0  if  no  approximation)
+    /// has been done, 0 if no approximation)
     /// </summary>
     double MaxError();
     /// <summary>
-    /// Print on the stream  o  information about the object
+    /// Print on the stream o information about the object
     /// </summary>
     void Dump(System::IO::TextWriter^ o);
 }; // class Geom2dConvert_ApproxCurve
@@ -751,7 +654,7 @@ public:
     /// limited by the two parameter values U1 and U2
     /// for Example if there is a Knot Uk and
     /// Uk < U < Uk + ParametricTolerance/2 the last curve
-    /// corresponds to the span [Uk-1, Uk] and not to  [Uk, Uk+1]
+    /// corresponds to the span [Uk-1, Uk] and not to [Uk, Uk+1]
     /// The result consists of a series of BasisCurve arcs
     /// limited by points corresponding to knot values of the curve.
     /// Use the available interrogation functions to ascertain
@@ -776,12 +679,12 @@ public:
     /// computed by this algorithm.
     /// </summary>
     Macad::Occt::Geom2d_BezierCurve^ Arc(int Index);
-    /* Method skipped due to unknown mapping: void Arcs(TColGeom2d_Array1OfBezierCurve Curves, ) */
+    /* Method skipped due to unknown mapping: void Arcs(NCollection_Array1<opencascade::handle<Geom2d_BezierCurve>> Curves, ) */
     /// <summary>
     /// This methode returns the bspline's knots associated to
     /// the converted arcs
-    /// Raises DimensionError if the length  of Curves is not equal to
-    /// NbArcs +  1
+    /// Raises DimensionError if the length of Curves is not equal to
+    /// NbArcs + 1
     /// </summary>
     void Knots(Macad::Occt::TColStd_Array1OfReal^ TKnots);
     /// <summary>
@@ -831,22 +734,22 @@ public:
 
 public:
     /// <summary>
-    /// Initialize the algorithme
+    /// Initialize the algorithm
     /// - Parameterisation is used to convert
     /// </summary>
     Geom2dConvert_CompCurveToBSplineCurve(Macad::Occt::Convert_ParameterisationType Parameterisation);
     /// <summary>
-    /// Initialize the algorithme
+    /// Initialize the algorithm
     /// - Parameterisation is used to convert
     /// </summary>
     Geom2dConvert_CompCurveToBSplineCurve();
     /// <summary>
-    /// Initialize the algorithme with one curve
+    /// Initialize the algorithm with one curve
     /// - Parameterisation is used to convert
     /// </summary>
     Geom2dConvert_CompCurveToBSplineCurve(Macad::Occt::Geom2d_BoundedCurve^ BasisCurve, Macad::Occt::Convert_ParameterisationType Parameterisation);
     /// <summary>
-    /// Initialize the algorithme with one curve
+    /// Initialize the algorithm with one curve
     /// - Parameterisation is used to convert
     /// </summary>
     Geom2dConvert_CompCurveToBSplineCurve(Macad::Occt::Geom2d_BoundedCurve^ BasisCurve);

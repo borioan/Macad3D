@@ -15,6 +15,15 @@ public class ParsePass : Pass
     readonly TypeDecl _VoidTypeDefinition = new() { Name = "void" };
     static readonly char[] TrimChars = { (char)0x1, (char)0x2, ' ', '=' };
 
+    // OCCT 8.0.0 deprecated compat headers with a dangling #include to a header that
+    // was itself removed (e.g. Graphic3d_MapIteratorOfMapOfStructure.hxx still includes
+    // the deleted Graphic3d_MapOfStructure.hxx). Nothing in Macad references these
+    // deprecated aliases, so they are simply excluded from compilation.
+    static readonly HashSet<string> BrokenDeprecatedHeaders = new(StringComparer.InvariantCultureIgnoreCase)
+    {
+        "Graphic3d_MapIteratorOfMapOfStructure.hxx",
+    };
+
     //--------------------------------------------------------------------------------------------------
 
     public override bool Process()
@@ -55,6 +64,7 @@ public class ParsePass : Pass
             headerFiles.Add(rootHeader);
         }
         headerFiles.AddRange(Directory.EnumerateFiles(Context.Settings.OcctIncludePath, package.Name + "_*.hxx")
+                                      .Where(f => !BrokenDeprecatedHeaders.Contains(Path.GetFileName(f)))
                                       .Select(Path.GetFullPath));
 
         // Package classes
@@ -69,9 +79,15 @@ public class ParsePass : Pass
         Logger.Context = package.Name;
         _TypeCache.Clear();
 
-        // Get file IDs
+        // Get file IDs. Match by file name, not full path: since OCCT 8 the flat
+        // include headers are just forwarding stubs, and CastXML reports each
+        // class in its real "src/..." header. OCCT header file names are globally
+        // unique, so matching the name keeps the package association correct for
+        // both the old flat layout and the new one.
+        var headerNames = new HashSet<string>(headerFiles.Select(Path.GetFileName),
+                                              StringComparer.InvariantCultureIgnoreCase);
         var fileItems = from item in _Db.Files
-                        where headerFiles.Contains(item.Value, StringComparer.InvariantCultureIgnoreCase)
+                        where headerNames.Contains(Path.GetFileName(item.Value))
                         select item;
         Dictionary<string, string> fileSet = fileItems.ToDictionary(fileItem => fileItem.Key, fileItem => fileItem.Value);
 
@@ -162,7 +178,10 @@ public class ParsePass : Pass
 
         var c = new Comment()
         {
-            FileName = Path.GetFileName(_Db.Files[itemsComment.file]),
+            // Keep the full path castxml reported, not just the file name: since OCCT 8
+            // the flat inc/*.hxx headers are forwarding stubs, so the comment's byte
+            // offsets only make sense against the real "src/..." header castxml parsed.
+            FileName = _Db.Files[itemsComment.file],
             BeginOffset = itemsComment.begin_offset,
             EndOffset = itemsComment.end_offset
         };
@@ -451,9 +470,13 @@ public class ParsePass : Pass
                     fp.Default = p.@default.Trim(TrimChars);
 
                     // Make sure any type is interpreted as native, not wrapped
-                    if (fp.Default.StartsWith("opencascade::handle<"))
+                    // OCCT 8 introduced "occ::handle<T>" as an alias for
+                    // "opencascade::handle<T>"; castxml can print either spelling.
+                    string[] handlePrefixes = { "opencascade::handle<", "occ::handle<" };
+                    var handlePrefix = handlePrefixes.FirstOrDefault(fp.Default.StartsWith);
+                    if (handlePrefix != null)
                     {
-                        fp.Default = fp.Default.Insert(20, "::");
+                        fp.Default = fp.Default.Insert(handlePrefix.Length, "::");
                     }
                     else if (fp.Default.EndsWith("()")) // Constructor
                     {
@@ -677,8 +700,31 @@ public class ParsePass : Pass
         }
         else if (td.Name.StartsWith("handle<"))
         {
-            td.Name = td.Name.Replace("handle<", "").TrimEnd('>').TrimStart(':');
+            // T itself may be a template instance (e.g. "NCollection_HArray1<gp_Pnt>", via
+            // OCCT 8's "occ::handle<T>" alias, reported by castxml without the namespace
+            // prefix), so only the single trailing '>' that closes "handle<" must be
+            // removed here, not every trailing '>'.
+            td.Name = td.Name.Substring("handle<".Length);
+            td.Name = td.Name.Remove(td.Name.Length - 1).TrimStart(':');
             td.IsHandle = true;
+        }
+
+        // OCCT 8 dropped the Standard_CString/Standard_ExtString typedefs from many API
+        // signatures in favor of the raw pointer types directly (e.g. TCollection_ExtendedString
+        // and Quantity_Color::ColorFromHex now take "const char*"/"const wchar_t*" rather than
+        // "const Standard_CString"/"const Standard_ExtString"). AnsiStringWrapper/
+        // UnicodeStringWrapper are keyed on those typedef names, so without this a "const char*"
+        // C-string parameter would fall back to being treated as a single native char (-> sbyte),
+        // not System::String^. Only bare pointer types that never passed through any other named
+        // typedef are affected - e.g. "const Standard_PCharacter" (an output-buffer typedef,
+        // unrelated to C-strings) already has "Standard_PCharacter" in td.Typedefs and must be
+        // left alone, or this would collide with its own (correct) resolution.
+        if (td.IsConst && td.IsPointer && td.Typedefs.Count == 0)
+        {
+            if (td.Name == "char")
+                td.Typedefs.Insert(0, "Standard_CString");
+            else if (td.Name is "wchar_t" or "char16_t")
+                td.Typedefs.Insert(0, "Standard_ExtString");
         }
 
         _TypeCache.Add(id, td);

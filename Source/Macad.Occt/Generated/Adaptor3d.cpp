@@ -85,45 +85,45 @@ double Macad::Occt::Adaptor3d_Curve::Period()
     return _result;
 }
 
-Macad::Occt::Pnt Macad::Occt::Adaptor3d_Curve::Value(double U)
+Macad::Occt::Pnt Macad::Occt::Adaptor3d_Curve::Value(double theU)
 {
-    ::gp_Pnt _nativeResult = ((::Adaptor3d_Curve*)_NativeInstance)->Value(U);
+    ::gp_Pnt _nativeResult = ((::Adaptor3d_Curve*)_NativeInstance)->Value(theU);
     return Macad::Occt::Pnt(_nativeResult);
 }
 
-void Macad::Occt::Adaptor3d_Curve::D0(double U, Macad::Occt::Pnt% P)
+void Macad::Occt::Adaptor3d_Curve::D0(double theU, Macad::Occt::Pnt% theP)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    ((::Adaptor3d_Curve*)_NativeInstance)->D0(U, *(gp_Pnt*)pp_P);
+    pin_ptr<Macad::Occt::Pnt> pp_theP = &theP;
+    ((::Adaptor3d_Curve*)_NativeInstance)->D0(theU, *(gp_Pnt*)pp_theP);
 }
 
-void Macad::Occt::Adaptor3d_Curve::D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V)
+void Macad::Occt::Adaptor3d_Curve::D1(double theU, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theV)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V = &V;
-    ((::Adaptor3d_Curve*)_NativeInstance)->D1(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V);
+    pin_ptr<Macad::Occt::Pnt> pp_theP = &theP;
+    pin_ptr<Macad::Occt::Vec> pp_theV = &theV;
+    ((::Adaptor3d_Curve*)_NativeInstance)->D1(theU, *(gp_Pnt*)pp_theP, *(gp_Vec*)pp_theV);
 }
 
-void Macad::Occt::Adaptor3d_Curve::D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2)
+void Macad::Occt::Adaptor3d_Curve::D2(double theU, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theV1, Macad::Occt::Vec% theV2)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec> pp_V2 = &V2;
-    ((::Adaptor3d_Curve*)_NativeInstance)->D2(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V1, *(gp_Vec*)pp_V2);
+    pin_ptr<Macad::Occt::Pnt> pp_theP = &theP;
+    pin_ptr<Macad::Occt::Vec> pp_theV1 = &theV1;
+    pin_ptr<Macad::Occt::Vec> pp_theV2 = &theV2;
+    ((::Adaptor3d_Curve*)_NativeInstance)->D2(theU, *(gp_Pnt*)pp_theP, *(gp_Vec*)pp_theV1, *(gp_Vec*)pp_theV2);
 }
 
-void Macad::Occt::Adaptor3d_Curve::D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3)
+void Macad::Occt::Adaptor3d_Curve::D3(double theU, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theV1, Macad::Occt::Vec% theV2, Macad::Occt::Vec% theV3)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec> pp_V3 = &V3;
-    ((::Adaptor3d_Curve*)_NativeInstance)->D3(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V1, *(gp_Vec*)pp_V2, *(gp_Vec*)pp_V3);
+    pin_ptr<Macad::Occt::Pnt> pp_theP = &theP;
+    pin_ptr<Macad::Occt::Vec> pp_theV1 = &theV1;
+    pin_ptr<Macad::Occt::Vec> pp_theV2 = &theV2;
+    pin_ptr<Macad::Occt::Vec> pp_theV3 = &theV3;
+    ((::Adaptor3d_Curve*)_NativeInstance)->D3(theU, *(gp_Pnt*)pp_theP, *(gp_Vec*)pp_theV1, *(gp_Vec*)pp_theV2, *(gp_Vec*)pp_theV3);
 }
 
-Macad::Occt::Vec Macad::Occt::Adaptor3d_Curve::DN(double U, int N)
+Macad::Occt::Vec Macad::Occt::Adaptor3d_Curve::DN(double theU, int theN)
 {
-    ::gp_Vec _nativeResult = ((::Adaptor3d_Curve*)_NativeInstance)->DN(U, N);
+    ::gp_Vec _nativeResult = ((::Adaptor3d_Curve*)_NativeInstance)->DN(theU, theN);
     return Macad::Occt::Vec(_nativeResult);
 }
 
@@ -216,6 +216,18 @@ Macad::Occt::Geom_OffsetCurve^ Macad::Occt::Adaptor3d_Curve::OffsetCurve()
     return _result.IsNull() ? nullptr : Macad::Occt::Geom_OffsetCurve::CreateDowncasted(_result.get());
 }
 
+Macad::Occt::Pnt Macad::Occt::Adaptor3d_Curve::EvalD0(double theU)
+{
+    ::gp_Pnt _nativeResult = ((::Adaptor3d_Curve*)_NativeInstance)->EvalD0(theU);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::Adaptor3d_Curve::EvalDN(double theU, int theN)
+{
+    ::gp_Vec _nativeResult = ((::Adaptor3d_Curve*)_NativeInstance)->EvalDN(theU, theN);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
 Macad::Occt::Adaptor3d_Curve^ Macad::Occt::Adaptor3d_Curve::CreateDowncasted(::Adaptor3d_Curve* instance)
 {
     if( instance == nullptr )
@@ -227,10 +239,10 @@ Macad::Occt::Adaptor3d_Curve^ Macad::Occt::Adaptor3d_Curve::CreateDowncasted(::A
         return Macad::Occt::Adaptor3d_IsoCurve::CreateDowncasted((::Adaptor3d_IsoCurve*)instance);
     if (instance->IsKind(STANDARD_TYPE(::GeomAdaptor_Curve)))
         return Macad::Occt::GeomAdaptor_Curve::CreateDowncasted((::GeomAdaptor_Curve*)instance);
+    if (instance->IsKind(STANDARD_TYPE(::GeomAdaptor_TransformedCurve)))
+        return Macad::Occt::GeomAdaptor_TransformedCurve::CreateDowncasted((::GeomAdaptor_TransformedCurve*)instance);
     if (instance->IsKind(STANDARD_TYPE(::ProjLib_ProjectOnPlane)))
         return Macad::Occt::ProjLib_ProjectOnPlane::CreateDowncasted((::ProjLib_ProjectOnPlane*)instance);
-    if (instance->IsKind(STANDARD_TYPE(::BRepAdaptor_Curve)))
-        return Macad::Occt::BRepAdaptor_Curve::CreateDowncasted((::BRepAdaptor_Curve*)instance);
     if (instance->IsKind(STANDARD_TYPE(::BRepAdaptor_CompCurve)))
         return Macad::Occt::BRepAdaptor_CompCurve::CreateDowncasted((::BRepAdaptor_CompCurve*)instance);
     
@@ -361,55 +373,55 @@ double Macad::Occt::Adaptor3d_Surface::VPeriod()
     return _result;
 }
 
-Macad::Occt::Pnt Macad::Occt::Adaptor3d_Surface::Value(double U, double V)
+Macad::Occt::Pnt Macad::Occt::Adaptor3d_Surface::Value(double theU, double theV)
 {
-    ::gp_Pnt _nativeResult = ((::Adaptor3d_Surface*)_NativeInstance)->Value(U, V);
+    ::gp_Pnt _nativeResult = ((::Adaptor3d_Surface*)_NativeInstance)->Value(theU, theV);
     return Macad::Occt::Pnt(_nativeResult);
 }
 
-void Macad::Occt::Adaptor3d_Surface::D0(double U, double V, Macad::Occt::Pnt% P)
+void Macad::Occt::Adaptor3d_Surface::D0(double theU, double theV, Macad::Occt::Pnt% theP)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    ((::Adaptor3d_Surface*)_NativeInstance)->D0(U, V, *(gp_Pnt*)pp_P);
+    pin_ptr<Macad::Occt::Pnt> pp_theP = &theP;
+    ((::Adaptor3d_Surface*)_NativeInstance)->D0(theU, theV, *(gp_Pnt*)pp_theP);
 }
 
-void Macad::Occt::Adaptor3d_Surface::D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V)
+void Macad::Occt::Adaptor3d_Surface::D1(double theU, double theV, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theD1U, Macad::Occt::Vec% theD1V)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_D1U = &D1U;
-    pin_ptr<Macad::Occt::Vec> pp_D1V = &D1V;
-    ((::Adaptor3d_Surface*)_NativeInstance)->D1(U, V, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_D1U, *(gp_Vec*)pp_D1V);
+    pin_ptr<Macad::Occt::Pnt> pp_theP = &theP;
+    pin_ptr<Macad::Occt::Vec> pp_theD1U = &theD1U;
+    pin_ptr<Macad::Occt::Vec> pp_theD1V = &theD1V;
+    ((::Adaptor3d_Surface*)_NativeInstance)->D1(theU, theV, *(gp_Pnt*)pp_theP, *(gp_Vec*)pp_theD1U, *(gp_Vec*)pp_theD1V);
 }
 
-void Macad::Occt::Adaptor3d_Surface::D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV)
+void Macad::Occt::Adaptor3d_Surface::D2(double theU, double theV, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theD1U, Macad::Occt::Vec% theD1V, Macad::Occt::Vec% theD2U, Macad::Occt::Vec% theD2V, Macad::Occt::Vec% theD2UV)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_D1U = &D1U;
-    pin_ptr<Macad::Occt::Vec> pp_D1V = &D1V;
-    pin_ptr<Macad::Occt::Vec> pp_D2U = &D2U;
-    pin_ptr<Macad::Occt::Vec> pp_D2V = &D2V;
-    pin_ptr<Macad::Occt::Vec> pp_D2UV = &D2UV;
-    ((::Adaptor3d_Surface*)_NativeInstance)->D2(U, V, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_D1U, *(gp_Vec*)pp_D1V, *(gp_Vec*)pp_D2U, *(gp_Vec*)pp_D2V, *(gp_Vec*)pp_D2UV);
+    pin_ptr<Macad::Occt::Pnt> pp_theP = &theP;
+    pin_ptr<Macad::Occt::Vec> pp_theD1U = &theD1U;
+    pin_ptr<Macad::Occt::Vec> pp_theD1V = &theD1V;
+    pin_ptr<Macad::Occt::Vec> pp_theD2U = &theD2U;
+    pin_ptr<Macad::Occt::Vec> pp_theD2V = &theD2V;
+    pin_ptr<Macad::Occt::Vec> pp_theD2UV = &theD2UV;
+    ((::Adaptor3d_Surface*)_NativeInstance)->D2(theU, theV, *(gp_Pnt*)pp_theP, *(gp_Vec*)pp_theD1U, *(gp_Vec*)pp_theD1V, *(gp_Vec*)pp_theD2U, *(gp_Vec*)pp_theD2V, *(gp_Vec*)pp_theD2UV);
 }
 
-void Macad::Occt::Adaptor3d_Surface::D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV)
+void Macad::Occt::Adaptor3d_Surface::D3(double theU, double theV, Macad::Occt::Pnt% theP, Macad::Occt::Vec% theD1U, Macad::Occt::Vec% theD1V, Macad::Occt::Vec% theD2U, Macad::Occt::Vec% theD2V, Macad::Occt::Vec% theD2UV, Macad::Occt::Vec% theD3U, Macad::Occt::Vec% theD3V, Macad::Occt::Vec% theD3UUV, Macad::Occt::Vec% theD3UVV)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_D1U = &D1U;
-    pin_ptr<Macad::Occt::Vec> pp_D1V = &D1V;
-    pin_ptr<Macad::Occt::Vec> pp_D2U = &D2U;
-    pin_ptr<Macad::Occt::Vec> pp_D2V = &D2V;
-    pin_ptr<Macad::Occt::Vec> pp_D2UV = &D2UV;
-    pin_ptr<Macad::Occt::Vec> pp_D3U = &D3U;
-    pin_ptr<Macad::Occt::Vec> pp_D3V = &D3V;
-    pin_ptr<Macad::Occt::Vec> pp_D3UUV = &D3UUV;
-    pin_ptr<Macad::Occt::Vec> pp_D3UVV = &D3UVV;
-    ((::Adaptor3d_Surface*)_NativeInstance)->D3(U, V, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_D1U, *(gp_Vec*)pp_D1V, *(gp_Vec*)pp_D2U, *(gp_Vec*)pp_D2V, *(gp_Vec*)pp_D2UV, *(gp_Vec*)pp_D3U, *(gp_Vec*)pp_D3V, *(gp_Vec*)pp_D3UUV, *(gp_Vec*)pp_D3UVV);
+    pin_ptr<Macad::Occt::Pnt> pp_theP = &theP;
+    pin_ptr<Macad::Occt::Vec> pp_theD1U = &theD1U;
+    pin_ptr<Macad::Occt::Vec> pp_theD1V = &theD1V;
+    pin_ptr<Macad::Occt::Vec> pp_theD2U = &theD2U;
+    pin_ptr<Macad::Occt::Vec> pp_theD2V = &theD2V;
+    pin_ptr<Macad::Occt::Vec> pp_theD2UV = &theD2UV;
+    pin_ptr<Macad::Occt::Vec> pp_theD3U = &theD3U;
+    pin_ptr<Macad::Occt::Vec> pp_theD3V = &theD3V;
+    pin_ptr<Macad::Occt::Vec> pp_theD3UUV = &theD3UUV;
+    pin_ptr<Macad::Occt::Vec> pp_theD3UVV = &theD3UVV;
+    ((::Adaptor3d_Surface*)_NativeInstance)->D3(theU, theV, *(gp_Pnt*)pp_theP, *(gp_Vec*)pp_theD1U, *(gp_Vec*)pp_theD1V, *(gp_Vec*)pp_theD2U, *(gp_Vec*)pp_theD2V, *(gp_Vec*)pp_theD2UV, *(gp_Vec*)pp_theD3U, *(gp_Vec*)pp_theD3V, *(gp_Vec*)pp_theD3UUV, *(gp_Vec*)pp_theD3UVV);
 }
 
-Macad::Occt::Vec Macad::Occt::Adaptor3d_Surface::DN(double U, double V, int Nu, int Nv)
+Macad::Occt::Vec Macad::Occt::Adaptor3d_Surface::DN(double theU, double theV, int theNu, int theNv)
 {
-    ::gp_Vec _nativeResult = ((::Adaptor3d_Surface*)_NativeInstance)->DN(U, V, Nu, Nv);
+    ::gp_Vec _nativeResult = ((::Adaptor3d_Surface*)_NativeInstance)->DN(theU, theV, theNu, theNv);
     return Macad::Occt::Vec(_nativeResult);
 }
 
@@ -555,6 +567,18 @@ double Macad::Occt::Adaptor3d_Surface::OffsetValue()
     return _result;
 }
 
+Macad::Occt::Pnt Macad::Occt::Adaptor3d_Surface::EvalD0(double theU, double theV)
+{
+    ::gp_Pnt _nativeResult = ((::Adaptor3d_Surface*)_NativeInstance)->EvalD0(theU, theV);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::Adaptor3d_Surface::EvalDN(double theU, double theV, int theNu, int theNv)
+{
+    ::gp_Vec _nativeResult = ((::Adaptor3d_Surface*)_NativeInstance)->EvalDN(theU, theV, theNu, theNv);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
 Macad::Occt::Adaptor3d_Surface^ Macad::Occt::Adaptor3d_Surface::CreateDowncasted(::Adaptor3d_Surface* instance)
 {
     if( instance == nullptr )
@@ -562,8 +586,8 @@ Macad::Occt::Adaptor3d_Surface^ Macad::Occt::Adaptor3d_Surface::CreateDowncasted
     
     if (instance->IsKind(STANDARD_TYPE(::GeomAdaptor_Surface)))
         return Macad::Occt::GeomAdaptor_Surface::CreateDowncasted((::GeomAdaptor_Surface*)instance);
-    if (instance->IsKind(STANDARD_TYPE(::BRepAdaptor_Surface)))
-        return Macad::Occt::BRepAdaptor_Surface::CreateDowncasted((::BRepAdaptor_Surface*)instance);
+    if (instance->IsKind(STANDARD_TYPE(::GeomAdaptor_TransformedSurface)))
+        return Macad::Occt::GeomAdaptor_TransformedSurface::CreateDowncasted((::GeomAdaptor_TransformedSurface*)instance);
     
     return gcnew Macad::Occt::Adaptor3d_Surface( instance );
 }
@@ -690,45 +714,15 @@ double Macad::Occt::Adaptor3d_CurveOnSurface::Period()
     return _result;
 }
 
-Macad::Occt::Pnt Macad::Occt::Adaptor3d_CurveOnSurface::Value(double U)
+Macad::Occt::Pnt Macad::Occt::Adaptor3d_CurveOnSurface::EvalD0(double theU)
 {
-    ::gp_Pnt _nativeResult = ((::Adaptor3d_CurveOnSurface*)_NativeInstance)->Value(U);
+    ::gp_Pnt _nativeResult = ((::Adaptor3d_CurveOnSurface*)_NativeInstance)->EvalD0(theU);
     return Macad::Occt::Pnt(_nativeResult);
 }
 
-void Macad::Occt::Adaptor3d_CurveOnSurface::D0(double U, Macad::Occt::Pnt% P)
+Macad::Occt::Vec Macad::Occt::Adaptor3d_CurveOnSurface::EvalDN(double theU, int theN)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    ((::Adaptor3d_CurveOnSurface*)_NativeInstance)->D0(U, *(gp_Pnt*)pp_P);
-}
-
-void Macad::Occt::Adaptor3d_CurveOnSurface::D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V = &V;
-    ((::Adaptor3d_CurveOnSurface*)_NativeInstance)->D1(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V);
-}
-
-void Macad::Occt::Adaptor3d_CurveOnSurface::D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec> pp_V2 = &V2;
-    ((::Adaptor3d_CurveOnSurface*)_NativeInstance)->D2(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V1, *(gp_Vec*)pp_V2);
-}
-
-void Macad::Occt::Adaptor3d_CurveOnSurface::D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec> pp_V3 = &V3;
-    ((::Adaptor3d_CurveOnSurface*)_NativeInstance)->D3(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V1, *(gp_Vec*)pp_V2, *(gp_Vec*)pp_V3);
-}
-
-Macad::Occt::Vec Macad::Occt::Adaptor3d_CurveOnSurface::DN(double U, int N)
-{
-    ::gp_Vec _nativeResult = ((::Adaptor3d_CurveOnSurface*)_NativeInstance)->DN(U, N);
+    ::gp_Vec _nativeResult = ((::Adaptor3d_CurveOnSurface*)_NativeInstance)->EvalDN(theU, theN);
     return Macad::Occt::Vec(_nativeResult);
 }
 
@@ -1284,45 +1278,15 @@ double Macad::Occt::Adaptor3d_IsoCurve::Period()
     return _result;
 }
 
-Macad::Occt::Pnt Macad::Occt::Adaptor3d_IsoCurve::Value(double U)
+Macad::Occt::Pnt Macad::Occt::Adaptor3d_IsoCurve::EvalD0(double theU)
 {
-    ::gp_Pnt _nativeResult = ((::Adaptor3d_IsoCurve*)_NativeInstance)->Value(U);
+    ::gp_Pnt _nativeResult = ((::Adaptor3d_IsoCurve*)_NativeInstance)->EvalD0(theU);
     return Macad::Occt::Pnt(_nativeResult);
 }
 
-void Macad::Occt::Adaptor3d_IsoCurve::D0(double U, Macad::Occt::Pnt% P)
+Macad::Occt::Vec Macad::Occt::Adaptor3d_IsoCurve::EvalDN(double theU, int theN)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    ((::Adaptor3d_IsoCurve*)_NativeInstance)->D0(U, *(gp_Pnt*)pp_P);
-}
-
-void Macad::Occt::Adaptor3d_IsoCurve::D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V = &V;
-    ((::Adaptor3d_IsoCurve*)_NativeInstance)->D1(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V);
-}
-
-void Macad::Occt::Adaptor3d_IsoCurve::D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec> pp_V2 = &V2;
-    ((::Adaptor3d_IsoCurve*)_NativeInstance)->D2(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V1, *(gp_Vec*)pp_V2);
-}
-
-void Macad::Occt::Adaptor3d_IsoCurve::D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec> pp_V3 = &V3;
-    ((::Adaptor3d_IsoCurve*)_NativeInstance)->D3(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V1, *(gp_Vec*)pp_V2, *(gp_Vec*)pp_V3);
-}
-
-Macad::Occt::Vec Macad::Occt::Adaptor3d_IsoCurve::DN(double U, int N)
-{
-    ::gp_Vec _nativeResult = ((::Adaptor3d_IsoCurve*)_NativeInstance)->DN(U, N);
+    ::gp_Vec _nativeResult = ((::Adaptor3d_IsoCurve*)_NativeInstance)->EvalDN(theU, theN);
     return Macad::Occt::Vec(_nativeResult);
 }
 

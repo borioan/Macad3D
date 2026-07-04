@@ -66,26 +66,44 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::TopLoc_MapOfLocation^ theMap);
         bool More() override;
         void Next() override;
         Macad::Occt::TopLoc_Location^ Value() override;
         Macad::Occt::TopLoc_Location^ Key();
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     TopLoc_MapOfLocation();
+    TopLoc_MapOfLocation(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    TopLoc_MapOfLocation(long long unsigned int theNbBuckets);
     TopLoc_MapOfLocation(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     TopLoc_MapOfLocation(int theNbBuckets);
+    /* Method skipped due to unknown mapping: void TopLoc_MapOfLocation(NCollection_DefaultHasher<TopLoc_Location> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void TopLoc_MapOfLocation(NCollection_DefaultHasher<TopLoc_Location> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void TopLoc_MapOfLocation(NCollection_DefaultHasher<TopLoc_Location> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void TopLoc_MapOfLocation(NCollection_DefaultHasher<TopLoc_Location> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void TopLoc_MapOfLocation(NCollection_DefaultHasher<TopLoc_Location> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
     void Exchange(Macad::Occt::TopLoc_MapOfLocation^ theOther);
+    /* Method skipped due to unknown mapping: NCollection_DefaultHasher<TopLoc_Location> GetHasher() */
     Macad::Occt::TopLoc_MapOfLocation^ Assign(Macad::Occt::TopLoc_MapOfLocation^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     bool Add(Macad::Occt::TopLoc_Location^ theKey);
     Macad::Occt::TopLoc_Location^ Added(Macad::Occt::TopLoc_Location^ theKey);
     bool Contains(Macad::Occt::TopLoc_Location^ theKey);
+    /* Method skipped due to unknown mapping: optional<std::reference_wrapper<const TopLoc_Location>> Contained(TopLoc_Location theKey, ) */
     bool Remove(Macad::Occt::TopLoc_Location^ K);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     bool IsEqual(Macad::Occt::TopLoc_MapOfLocation^ theOther);
+    bool Contains(Macad::Occt::TopLoc_MapOfLocation^ theOther);
     void Union(Macad::Occt::TopLoc_MapOfLocation^ theLeft, Macad::Occt::TopLoc_MapOfLocation^ theRight);
     bool Unite(Macad::Occt::TopLoc_MapOfLocation^ theOther);
     bool HasIntersection(Macad::Occt::TopLoc_MapOfLocation^ theMap);
@@ -216,12 +234,9 @@ public:
 /// An ItemLocation is an elementary coordinate system
 /// in a Location.
 /// 
-/// The  ItemLocation     contains :
-/// 
+/// The ItemLocation contains:
 /// * The elementary Datum.
-/// 
 /// * The exponent of the elementary Datum.
-/// 
 /// * The transformation associated to the composition.
 /// </summary>
 public ref class TopLoc_ItemLocation sealed
@@ -271,14 +286,14 @@ public:
 //---------------------------------------------------------------------
 /// <summary>
 /// An SListOfItemLocation is a LISP like list of Items.
-/// An SListOfItemLocation is :
+/// An SListOfItemLocation is:
 /// . Empty.
-/// . Or it has a Value and a  Tail  which is an other SListOfItemLocation.
+/// . Or it has a Value and a Tail which is an other SListOfItemLocation.
 /// 
 /// The Tail of an empty list is an empty list.
-/// SListOfItemLocation are  shared.  It  means   that they  can  be
+/// SListOfItemLocation are shared. It means that they can be
 /// modified through other lists.
-/// SListOfItemLocation may  be used  as Iterators. They  have Next,
+/// SListOfItemLocation may be used as Iterators. They have Next,
 /// More, and value methods. To iterate on the content
 /// of the list S just do.
 /// 
@@ -318,11 +333,11 @@ public:
     /// </summary>
     TopLoc_SListOfItemLocation();
     /// <summary>
-    /// Creates a List with <anItem> as value  and <aTail> as tail.
+    /// Creates a List with <anItem> as value and <aTail> as tail.
     /// </summary>
     TopLoc_SListOfItemLocation(Macad::Occt::TopLoc_ItemLocation^ anItem, Macad::Occt::TopLoc_SListOfItemLocation^ aTail);
     /// <summary>
-    /// Sets  a list  from  an  other  one. The  lists are
+    /// Sets a list from an other one. The lists are
     /// shared. The list itself is returned.
     /// </summary>
     Macad::Occt::TopLoc_SListOfItemLocation^ Assign(Macad::Occt::TopLoc_SListOfItemLocation^ Other);
@@ -336,17 +351,17 @@ public:
     void Clear();
     /// <summary>
     /// Returns the current value of the list. An error is
-    /// raised  if the list is empty.
+    /// raised if the list is empty.
     /// </summary>
     Macad::Occt::TopLoc_ItemLocation^ Value();
     /// <summary>
-    /// Returns the current tail of  the list. On an empty
+    /// Returns the current tail of the list. On an empty
     /// list the tail is the list itself.
     /// </summary>
     Macad::Occt::TopLoc_SListOfItemLocation^ Tail();
     /// <summary>
     /// Replaces the list by a list with <anItem> as Value
-    /// and the  list <me> as  tail.
+    /// and the list <me> as tail.
     /// </summary>
     void Construct(Macad::Occt::TopLoc_ItemLocation^ anItem);
     /// <summary>
@@ -354,13 +369,13 @@ public:
     /// </summary>
     void ToTail();
     /// <summary>
-    /// Returns True if the iterator  has a current value.
+    /// Returns True if the iterator has a current value.
     /// This is !IsEmpty()
     /// </summary>
     bool More();
     /// <summary>
     /// Moves the iterator to the next object in the list.
-    /// If the iterator is empty it will  stay empty. This is ToTail()
+    /// If the iterator is empty it will stay empty. This is ToTail()
     /// </summary>
     void Next();
 }; // class TopLoc_SListOfItemLocation
@@ -427,23 +442,23 @@ public:
     /// </summary>
     void Identity();
     /// <summary>
-    /// Returns    the  first   elementary  datum  of  the
-    /// Location.  Use the NextLocation function recursively to access
+    /// Returns the first elementary datum of the
+    /// Location. Use the NextLocation function recursively to access
     /// the other data comprising this location.
     /// Exceptions
     /// Standard_NoSuchObject if this location is empty.
     /// </summary>
     Macad::Occt::TopLoc_Datum3D^ FirstDatum();
     /// <summary>
-    /// Returns   the  power  elevation  of    the   first
+    /// Returns the power elevation of the first
     /// elementary datum.
     /// Exceptions
     /// Standard_NoSuchObject if this location is empty.
     /// </summary>
     int FirstPower();
     /// <summary>
-    /// Returns  a Location representing  <me> without the
-    /// first datum. We have the relation :
+    /// Returns a Location representing <me> without the
+    /// first datum. We have the relation:
     /// 
     /// <me> = NextLocation() * FirstDatum() ^ FirstPower()
     /// Exceptions
@@ -451,7 +466,7 @@ public:
     /// </summary>
     Macad::Occt::TopLoc_Location^ NextLocation();
     /// <summary>
-    /// Returns  the transformation    associated  to  the
+    /// Returns the transformation associated to the
     /// coordinate system.
     /// </summary>
     Macad::Occt::Trsf Transformation();
@@ -462,12 +477,12 @@ public:
     /// </summary>
     Macad::Occt::TopLoc_Location^ Inverted();
     /// <summary>
-    /// Returns <me> * <Other>, the  elementary datums are
+    /// Returns <me> * <Other>, the elementary datums are
     /// concatenated.
     /// </summary>
     Macad::Occt::TopLoc_Location^ Multiplied(Macad::Occt::TopLoc_Location^ Other);
     /// <summary>
-    /// Returns  <me> / <Other>.
+    /// Returns <me> / <Other>.
     /// </summary>
     Macad::Occt::TopLoc_Location^ Divided(Macad::Occt::TopLoc_Location^ Other);
     /// <summary>
@@ -475,8 +490,8 @@ public:
     /// </summary>
     Macad::Occt::TopLoc_Location^ Predivided(Macad::Occt::TopLoc_Location^ Other);
     /// <summary>
-    /// Returns me at the power <pwr>.   If <pwr>  is zero
-    /// returns  Identity.  <pwr> can  be lower  than zero
+    /// Returns me at the power <pwr>. If <pwr> is zero
+    /// returns Identity. <pwr> can be lower than zero
     /// (usual meaning for powers).
     /// </summary>
     Macad::Occt::TopLoc_Location^ Powered(int pwr);
@@ -494,14 +509,14 @@ public:
     /// series of TopLoc_Datum3D and respective powers.
     /// This method is an alias for operator ==.
     /// </summary>
-    bool IsEqual(Macad::Occt::TopLoc_Location^ Other);
+    bool IsEqual(Macad::Occt::TopLoc_Location^ theOther);
     /// <summary>
     /// Returns true if this location and the location Other do
     /// not have the same elementary data, i.e. do not
     /// contain the same series of TopLoc_Datum3D and respective powers.
     /// This method is an alias for operator !=.
     /// </summary>
-    bool IsDifferent(Macad::Occt::TopLoc_Location^ Other);
+    bool IsDifferent(Macad::Occt::TopLoc_Location^ theOther);
     /// <summary>
     /// Dumps the content of me into the stream
     /// </summary>

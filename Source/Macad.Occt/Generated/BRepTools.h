@@ -66,6 +66,7 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepTools_MapOfVertexPnt2d^ theMap);
         bool More();
         void Next();
         Macad::Occt::TColgp_SequenceOfPnt2d^ Value();
@@ -73,59 +74,79 @@ public:
         Macad::Occt::TopoDS_Shape^ Key();
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepTools_MapOfVertexPnt2d();
+    BRepTools_MapOfVertexPnt2d(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepTools_MapOfVertexPnt2d(long long unsigned int theNbBuckets);
     BRepTools_MapOfVertexPnt2d(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     BRepTools_MapOfVertexPnt2d(int theNbBuckets);
+    BRepTools_MapOfVertexPnt2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepTools_MapOfVertexPnt2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets);
+    BRepTools_MapOfVertexPnt2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher);
+    BRepTools_MapOfVertexPnt2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepTools_MapOfVertexPnt2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets);
+    /* Method skipped due to unknown mapping: ItemsView Items() */
     void Exchange(Macad::Occt::BRepTools_MapOfVertexPnt2d^ theOther);
+    Macad::Occt::TopTools_ShapeMapHasher^ GetHasher();
     Macad::Occt::BRepTools_MapOfVertexPnt2d^ Assign(Macad::Occt::BRepTools_MapOfVertexPnt2d^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     bool Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt2d^ theItem);
     Macad::Occt::TColgp_SequenceOfPnt2d^ Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt2d^ theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt2d^ theItem);
+    Macad::Occt::TColgp_SequenceOfPnt2d^ TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt2d^ theItem);
     bool IsBound(Macad::Occt::TopoDS_Shape^ theKey);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<const NCollection_Sequence<gp_Pnt2d>>>> Contained(TopoDS_Shape theKey, ) */
     bool UnBind(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColgp_SequenceOfPnt2d^ Seek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColgp_SequenceOfPnt2d^ Find(Macad::Occt::TopoDS_Shape^ theKey);
+    bool Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt2d^ theValue);
     Macad::Occt::TColgp_SequenceOfPnt2d^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColgp_SequenceOfPnt2d^ ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class BRepTools_MapOfVertexPnt2d
 
 //---------------------------------------------------------------------
 //  Class  BRepTools
 //---------------------------------------------------------------------
 /// <summary>
-/// The BRepTools package provides  utilities for BRep
+/// The BRepTools package provides utilities for BRep
 /// data structures.
 /// 
-/// * WireExplorer : A tool to explore the topology of
+/// * WireExplorer: Tool to explore the topology of
 /// a wire in the order of the edges.
 /// 
-/// * ShapeSet :  Tools used for  dumping, writing and
+/// * ShapeSet: Tools used for dumping, writing and
 /// reading.
 /// 
-/// * UVBounds : Methods to compute the  limits of the
-/// boundary  of a  face,  a wire or   an edge in  the
+/// * UVBounds: Methods to compute the limits of the
+/// boundary of a face, a wire or an edge in the
 /// parametric space of a face.
 /// 
-/// *  Update : Methods  to call when   a topology has
-/// been created to compute all missing data.
+/// * Update: Methods to call when a topology has been
+/// created to compute all missing data.
 /// 
 /// * UpdateFaceUVPoints: Method to update the UV points
 /// stored with the edges on a face.
 /// 
-/// * Compare : Method to compare two vertices.
+/// * Compare: Method to compare two vertices.
 /// 
-/// * Compare : Method to compare two edges.
+/// * Compare: Method to compare two edges.
 /// 
-/// * OuterWire : A method to find the outer wire of a
+/// * OuterWire: Method to find the outer wire of a
 /// face.
 /// 
-/// * Map3DEdges : A method to map all the 3D Edges of
+/// * Map3DEdges: Method to map all the 3D Edges of
 /// a Shape.
 /// 
-/// * Dump : A method to dump a BRep object.
+/// * Dump: Method to dump a BRep object.
 /// </summary>
 public ref class BRepTools sealed
     : public Macad::Occt::BaseClass<::BRepTools>
@@ -156,32 +177,32 @@ public:
 public:
     BRepTools();
     /// <summary>
-    /// Returns in UMin,  UMax, VMin,  VMax  the  bounding
+    /// Returns in UMin, UMax, VMin, VMax the bounding
     /// values in the parametric space of F.
     /// </summary>
     static void UVBounds(Macad::Occt::TopoDS_Face^ F, double% UMin, double% UMax, double% VMin, double% VMax);
     /// <summary>
-    /// Returns in UMin,  UMax, VMin,  VMax  the  bounding
+    /// Returns in UMin, UMax, VMin, VMax the bounding
     /// values of the wire in the parametric space of F.
     /// </summary>
     static void UVBounds(Macad::Occt::TopoDS_Face^ F, Macad::Occt::TopoDS_Wire^ W, double% UMin, double% UMax, double% VMin, double% VMax);
     /// <summary>
-    /// Returns in UMin,  UMax, VMin,  VMax  the  bounding
+    /// Returns in UMin, UMax, VMin, VMax the bounding
     /// values of the edge in the parametric space of F.
     /// </summary>
     static void UVBounds(Macad::Occt::TopoDS_Face^ F, Macad::Occt::TopoDS_Edge^ E, double% UMin, double% UMax, double% VMin, double% VMax);
     /// <summary>
-    /// Adds  to  the box <B>  the bounding values in  the
+    /// Adds to the box <B> the bounding values in the
     /// parametric space of F.
     /// </summary>
     static void AddUVBounds(Macad::Occt::TopoDS_Face^ F, Macad::Occt::Bnd_Box2d^ B);
     /// <summary>
-    /// Adds  to the box  <B>  the bounding  values of the
+    /// Adds to the box <B> the bounding values of the
     /// wire in the parametric space of F.
     /// </summary>
     static void AddUVBounds(Macad::Occt::TopoDS_Face^ F, Macad::Occt::TopoDS_Wire^ W, Macad::Occt::Bnd_Box2d^ B);
     /// <summary>
-    /// Adds to  the box <B>  the  bounding values  of the
+    /// Adds to the box <B> the bounding values of the
     /// edge in the parametric space of F.
     /// </summary>
     static void AddUVBounds(Macad::Occt::TopoDS_Face^ F, Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Bnd_Box2d^ B);
@@ -490,12 +511,12 @@ public:
     /// </returns>
     static bool UnloadAllTriangulations(Macad::Occt::TopoDS_Shape^ theShape);
     /// <summary>
-    /// Returns  True if  the    distance between the  two
+    /// Returns True if the distance between the two
     /// vertices is lower than their tolerance.
     /// </summary>
     static bool Compare(Macad::Occt::TopoDS_Vertex^ V1, Macad::Occt::TopoDS_Vertex^ V2);
     /// <summary>
-    /// Returns  True if  the    distance between the  two
+    /// Returns True if the distance between the two
     /// edges is lower than their tolerance.
     /// </summary>
     static bool Compare(Macad::Occt::TopoDS_Edge^ E1, Macad::Occt::TopoDS_Edge^ E2);
@@ -505,12 +526,12 @@ public:
     /// </summary>
     static Macad::Occt::TopoDS_Wire^ OuterWire(Macad::Occt::TopoDS_Face^ F);
     /// <summary>
-    /// Stores in the map  <M> all the 3D topology edges
+    /// Stores in the map <M> all the 3D topology edges
     /// of <S>.
     /// </summary>
     static void Map3DEdges(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopTools_IndexedMapOfShape^ M);
     /// <summary>
-    /// Verifies that the edge  <E> is found two  times on
+    /// Verifies that the edge <E> is found two times on
     /// the face <F> before calling BRep_Tool::IsClosed.
     /// </summary>
     static bool IsReallyClosed(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F);
@@ -686,17 +707,17 @@ public:
     /// </param>
     static bool Write(Macad::Occt::TopoDS_Shape^ theShape, System::String^ theFile, bool theWithTriangles, bool theWithNormals, Macad::Occt::TopTools_FormatVersion theVersion);
     /// <summary>
-    /// Reads a Shape  from <File>,  returns it in  <Sh>.
+    /// Reads a Shape from <File>, returns it in <Sh>.
     /// <B> is used to build the shape.
     /// </summary>
     static bool Read(Macad::Occt::TopoDS_Shape^ Sh, System::String^ File, Macad::Occt::BRep_Builder^ B, Macad::Occt::Message_ProgressRange^ theProgress);
     /// <summary>
-    /// Reads a Shape  from <File>,  returns it in  <Sh>.
+    /// Reads a Shape from <File>, returns it in <Sh>.
     /// <B> is used to build the shape.
     /// </summary>
     static bool Read(Macad::Occt::TopoDS_Shape^ Sh, System::String^ File, Macad::Occt::BRep_Builder^ B);
     /// <summary>
-    /// Evals real tolerance of edge  <theE>.
+    /// Evals real tolerance of edge <theE>.
     /// <theC3d>, <theC2d>, <theS>, <theF>, <theL> are
     /// correspondently 3d curve of edge, 2d curve on surface <theS> and
     /// rang of edge
@@ -705,8 +726,8 @@ public:
     /// </summary>
     static double EvalAndUpdateTol(Macad::Occt::TopoDS_Edge^ theE, Macad::Occt::Geom_Curve^ theC3d, Macad::Occt::Geom2d_Curve^ theC2d, Macad::Occt::Geom_Surface^ theS, double theF, double theL);
     /// <summary>
-    /// returns the cumul  of the orientation  of <Edge>
-    /// and thc containing wire in <Face>
+    /// returns the cumul of the orientation of <Edge>
+    /// and the containing wire in <Face>
     /// </summary>
     static Macad::Occt::TopAbs_Orientation OriEdgeInFace(Macad::Occt::TopoDS_Edge^ theEdge, Macad::Occt::TopoDS_Face^ theFace);
     /// <summary>
@@ -731,8 +752,9 @@ public:
     static void RemoveInternals(Macad::Occt::TopoDS_Shape^ theS);
     /// <summary>
     /// Check all locations of shape according criterium:
-    /// aTrsf.IsNegative() || (Abs(Abs(aTrsf.ScaleFactor()) - 1.) > TopLoc_Location::ScalePrec())
-    /// All sub-shapes having such locations are put in list theProblemShapes
+    /// aTrsf.IsNegative() || (std::abs(std::abs(aTrsf.ScaleFactor()) - 1.) >
+    /// TopLoc_Location::ScalePrec()) All sub-shapes having such locations are put in list
+    /// theProblemShapes
     /// </summary>
     static void CheckLocations(Macad::Occt::TopoDS_Shape^ theS, Macad::Occt::TopTools_ListOfShape^ theProblemShapes);
 }; // class BRepTools
@@ -838,10 +860,10 @@ public:
     /// </summary>
     bool NewParameter(Macad::Occt::TopoDS_Vertex^ V, Macad::Occt::TopoDS_Edge^ E, double% P, double% Tol);
     /// <summary>
-    /// Returns the  continuity of  <NewE> between <NewF1>
+    /// Returns the continuity of <NewE> between <NewF1>
     /// and <NewF2>.
-    /// <NewE> is the new  edge created from <E>.  <NewF1>
-    /// (resp. <NewF2>) is the new  face created from <F1>
+    /// <NewE> is the new edge created from <E>. <NewF1>
+    /// (resp. <NewF2>) is the new face created from <F1>
     /// (resp. <F2>).
     /// </summary>
     Macad::Occt::GeomAbs_Shape Continuity(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F1, Macad::Occt::TopoDS_Face^ F2, Macad::Occt::TopoDS_Edge^ NewE, Macad::Occt::TopoDS_Face^ NewF1, Macad::Occt::TopoDS_Face^ NewF2);
@@ -953,7 +975,7 @@ public:
     /// <summary>
     /// Returns the continuity of theNewEdge between theNewFace1 and theNewFace2.
     /// 
-    /// theNewEdge is the new edge created from theEdge.  theNewFace1
+    /// theNewEdge is the new edge created from theEdge. theNewFace1
     /// (resp. theNewFace2) is the new face created from theFace1 (resp. theFace2).
     /// </summary>
     Macad::Occt::GeomAbs_Shape Continuity(Macad::Occt::TopoDS_Edge^ theEdge, Macad::Occt::TopoDS_Face^ theFace1, Macad::Occt::TopoDS_Face^ theFace2, Macad::Occt::TopoDS_Edge^ theNewEdge, Macad::Occt::TopoDS_Face^ theNewFace1, Macad::Occt::TopoDS_Face^ theNewFace2);
@@ -967,7 +989,7 @@ public:
 //  Class  BRepTools_GTrsfModification
 //---------------------------------------------------------------------
 /// <summary>
-/// Defines a modification of the  geometry by a  GTrsf
+/// Defines a modification of the geometry by a GTrsf
 /// from gp. All methods return True and transform the
 /// geometry.
 /// </summary>
@@ -1004,59 +1026,59 @@ public:
     /// </summary>
     Macad::Occt::gp_GTrsf^ GTrsf();
     /// <summary>
-    /// Returns Standard_True  if  the face  <F> has  been
-    /// modified.  In this  case, <S> is the new geometric
-    /// support of  the  face, <L> the  new location,<Tol>
-    /// the new  tolerance.<RevWires> has  to  be set   to
-    /// Standard_True   when the modification reverses the
-    /// normal of  the   surface.(the wires   have  to  be
-    /// reversed).   <RevFace>   has   to   be   set    to
-    /// Standard_True if  the orientation  of the modified
-    /// face changes in the  shells which contain  it.  --
-    /// Here, <RevFace>  will  return Standard_True if the
-    /// -- gp_Trsf is negative.
+    /// Returns true if the face <F> has been
+    /// modified. In this case, <S> is the new geometric
+    /// support of the face, <L> the new location,<Tol>
+    /// the new tolerance.<RevWires> has to be set to
+    /// true when the modification reverses the
+    /// normal of the surface. (the wires have to be
+    /// reversed). <RevFace> has to be set to
+    /// true if the orientation of the modified
+    /// face changes in the shells which contain it.
+    /// Here, <RevFace> will return true if the
+    /// - gp_Trsf is negative.
     /// </summary>
     bool NewSurface(Macad::Occt::TopoDS_Face^ F, Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L, double% Tol, bool% RevWires, bool% RevFace);
     /// <summary>
-    /// Returns Standard_True  if  the edge  <E> has  been
-    /// modified.  In this case,  <C> is the new geometric
-    /// support of the  edge, <L> the  new location, <Tol>
-    /// the         new    tolerance.   Otherwise, returns
-    /// Standard_False,    and  <C>,  <L>,   <Tol> are not
+    /// Returns true if the edge <E> has been
+    /// modified. In this case, <C> is the new geometric
+    /// support of the edge, <L> the new location, <Tol>
+    /// the new tolerance. Otherwise, returns
+    /// false, and <C>, <L>, <Tol> are not
     /// significant.
     /// </summary>
     bool NewCurve(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom_Curve^ C, Macad::Occt::TopLoc_Location^ L, double% Tol);
     /// <summary>
-    /// Returns  Standard_True if the  vertex <V> has been
-    /// modified.  In this  case, <P> is the new geometric
-    /// support of the vertex,   <Tol> the new  tolerance.
-    /// Otherwise, returns Standard_False, and <P>,  <Tol>
+    /// Returns true if the vertex <V> has been
+    /// modified. In this case, <P> is the new geometric
+    /// support of the vertex, <Tol> the new tolerance.
+    /// Otherwise, returns false, and <P>, <Tol>
     /// are not significant.
     /// </summary>
     bool NewPoint(Macad::Occt::TopoDS_Vertex^ V, Macad::Occt::Pnt% P, double% Tol);
     /// <summary>
-    /// Returns Standard_True if  the edge  <E> has a  new
+    /// Returns true if the edge <E> has a new
     /// curve on surface on the face <F>.In this case, <C>
-    /// is the new geometric support of  the edge, <L> the
+    /// is the new geometric support of the edge, <L> the
     /// new location, <Tol> the new tolerance.
-    /// Otherwise, returns  Standard_False, and <C>,  <L>,
+    /// Otherwise, returns false, and <C>, <L>,
     /// <Tol> are not significant.
     /// </summary>
     bool NewCurve2d(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F, Macad::Occt::TopoDS_Edge^ NewE, Macad::Occt::TopoDS_Face^ NewF, Macad::Occt::Geom2d_Curve^ C, double% Tol);
     /// <summary>
-    /// Returns Standard_True if the Vertex  <V> has a new
-    /// parameter on the  edge <E>. In  this case,  <P> is
-    /// the parameter,    <Tol>  the     new    tolerance.
-    /// Otherwise, returns Standard_False, and <P>,  <Tol>
+    /// Returns true if the Vertex <V> has a new
+    /// parameter on the edge <E>. In this case, <P> is
+    /// the parameter, <Tol> the new tolerance.
+    /// Otherwise, returns false, and <P>, <Tol>
     /// are not significant.
     /// </summary>
     bool NewParameter(Macad::Occt::TopoDS_Vertex^ V, Macad::Occt::TopoDS_Edge^ E, double% P, double% Tol);
     /// <summary>
-    /// Returns the  continuity of  <NewE> between <NewF1>
+    /// Returns the continuity of <NewE> between <NewF1>
     /// and <NewF2>.
     /// 
-    /// <NewE> is the new  edge created from <E>.  <NewF1>
-    /// (resp. <NewF2>) is the new  face created from <F1>
+    /// <NewE> is the new edge created from <E>. <NewF1>
+    /// (resp. <NewF2>) is the new face created from <F1>
     /// (resp. <F2>).
     /// </summary>
     Macad::Occt::GeomAbs_Shape Continuity(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F1, Macad::Occt::TopoDS_Face^ F2, Macad::Occt::TopoDS_Edge^ NewE, Macad::Occt::TopoDS_Face^ NewF1, Macad::Occt::TopoDS_Face^ NewF2);
@@ -1291,7 +1313,7 @@ public:
     /// </summary>
     BRepTools_Modifier(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Creates a modifier on  the shape <S>, and performs
+    /// Creates a modifier on the shape <S>, and performs
     /// the modifications described by <M>.
     /// </summary>
     BRepTools_Modifier(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::BRepTools_Modification^ M);
@@ -1308,7 +1330,7 @@ public:
     /// </summary>
     void Perform(Macad::Occt::BRepTools_Modification^ M);
     /// <summary>
-    /// Returns Standard_True if the modification has
+    /// Returns true if the modification has
     /// been computed successfully.
     /// </summary>
     bool IsDone();
@@ -1332,7 +1354,7 @@ public:
 //  Class  BRepTools_NurbsConvertModification
 //---------------------------------------------------------------------
 /// <summary>
-/// Defines a modification of the  geometry by a  Trsf
+/// Defines a modification of the geometry by a Trsf
 /// from gp. All methods return True and transform the
 /// geometry.
 /// </summary>
@@ -1365,59 +1387,59 @@ public:
 public:
     BRepTools_NurbsConvertModification();
     /// <summary>
-    /// Returns Standard_True  if  the face  <F> has  been
-    /// modified.  In this  case, <S> is the new geometric
-    /// support of  the  face, <L> the  new location,<Tol>
-    /// the new  tolerance.<RevWires> has  to  be set   to
-    /// Standard_True   when the modification reverses the
-    /// normal of  the   surface.(the wires   have  to  be
-    /// reversed).   <RevFace>   has   to   be   set    to
-    /// Standard_True if  the orientation  of the modified
-    /// face changes in the  shells which contain  it.  --
-    /// Here, <RevFace>  will  return Standard_True if the
-    /// -- gp_Trsf is negative.
+    /// Returns true if the face <F> has been
+    /// modified. In this case, <S> is the new geometric
+    /// support of the face, <L> the new location,<Tol>
+    /// the new tolerance.<RevWires> has to be set to
+    /// true when the modification reverses the
+    /// normal of the surface. (the wires have to be
+    /// reversed). <RevFace> has to be set to
+    /// true if the orientation of the modified
+    /// face changes in the shells which contain it.
+    /// Here, <RevFace> will return true if the
+    /// - gp_Trsf is negative.
     /// </summary>
     bool NewSurface(Macad::Occt::TopoDS_Face^ F, Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L, double% Tol, bool% RevWires, bool% RevFace);
     /// <summary>
-    /// Returns Standard_True  if  the edge  <E> has  been
-    /// modified.  In this case,  <C> is the new geometric
-    /// support of the  edge, <L> the  new location, <Tol>
-    /// the         new    tolerance.   Otherwise, returns
-    /// Standard_False,    and  <C>,  <L>,   <Tol> are not
+    /// Returns true if the edge <E> has been
+    /// modified. In this case, <C> is the new geometric
+    /// support of the edge, <L> the new location, <Tol>
+    /// the new tolerance. Otherwise, returns
+    /// false, and <C>, <L>, <Tol> are not
     /// significant.
     /// </summary>
     bool NewCurve(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom_Curve^ C, Macad::Occt::TopLoc_Location^ L, double% Tol);
     /// <summary>
-    /// Returns  Standard_True if the  vertex <V> has been
-    /// modified.  In this  case, <P> is the new geometric
-    /// support of the vertex,   <Tol> the new  tolerance.
-    /// Otherwise, returns Standard_False, and <P>,  <Tol>
+    /// Returns true if the vertex <V> has been
+    /// modified. In this case, <P> is the new geometric
+    /// support of the vertex, <Tol> the new tolerance.
+    /// Otherwise, returns false, and <P>, <Tol>
     /// are not significant.
     /// </summary>
     bool NewPoint(Macad::Occt::TopoDS_Vertex^ V, Macad::Occt::Pnt% P, double% Tol);
     /// <summary>
-    /// Returns Standard_True if  the edge  <E> has a  new
+    /// Returns true if the edge <E> has a new
     /// curve on surface on the face <F>.In this case, <C>
-    /// is the new geometric support of  the edge, <L> the
+    /// is the new geometric support of the edge, <L> the
     /// new location, <Tol> the new tolerance.
-    /// Otherwise, returns  Standard_False, and <C>,  <L>,
+    /// Otherwise, returns false, and <C>, <L>,
     /// <Tol> are not significant.
     /// </summary>
     bool NewCurve2d(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F, Macad::Occt::TopoDS_Edge^ NewE, Macad::Occt::TopoDS_Face^ NewF, Macad::Occt::Geom2d_Curve^ C, double% Tol);
     /// <summary>
-    /// Returns Standard_True if the Vertex  <V> has a new
-    /// parameter on the  edge <E>. In  this case,  <P> is
-    /// the parameter,    <Tol>  the     new    tolerance.
-    /// Otherwise, returns Standard_False, and <P>,  <Tol>
+    /// Returns true if the Vertex <V> has a new
+    /// parameter on the edge <E>. In this case, <P> is
+    /// the parameter, <Tol> the new tolerance.
+    /// Otherwise, returns false, and <P>, <Tol>
     /// are not significant.
     /// </summary>
     bool NewParameter(Macad::Occt::TopoDS_Vertex^ V, Macad::Occt::TopoDS_Edge^ E, double% P, double% Tol);
     /// <summary>
-    /// Returns the  continuity of  <NewE> between <NewF1>
+    /// Returns the continuity of <NewE> between <NewF1>
     /// and <NewF2>.
     /// 
-    /// <NewE> is the new  edge created from <E>.  <NewF1>
-    /// (resp. <NewF2>) is the new  face created from <F1>
+    /// <NewE> is the new edge created from <E>. <NewF1>
+    /// (resp. <NewF2>) is the new face created from <F1>
     /// (resp. <F2>).
     /// </summary>
     Macad::Occt::GeomAbs_Shape Continuity(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F1, Macad::Occt::TopoDS_Face^ F2, Macad::Occt::TopoDS_Edge^ NewE, Macad::Occt::TopoDS_Face^ NewF1, Macad::Occt::TopoDS_Face^ NewF2);
@@ -1534,6 +1556,17 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Value(Macad::Occt::TopoDS_Shape^ shape);
     /// <summary>
+    /// Follows the replacement chain for @p theShape to its leaf without descending into sub-shapes.
+    /// Iterates Value() until a fixpoint is reached. Unlike Apply(), this does not rebuild
+    /// the shape from its children, so it is safe to call on edges/wires whose sub-shapes
+    /// have their own pending replacements (avoids cascading sub-shape re-expansion).
+    /// </summary>
+    /// <returns>
+    /// the final replacement, or the original shape if not recorded,
+    /// or a Null shape if the chain terminates in a Remove.
+    /// </returns>
+    Macad::Occt::TopoDS_Shape^ ValueLeaf(Macad::Occt::TopoDS_Shape^ theShape);
+    /// <summary>
     /// Returns a complete substitution status for a shape
     /// 0  : not recorded,   <newsh> = original <shape>
     /// < 0: to be removed,  <newsh> is NULL
@@ -1595,8 +1628,8 @@ public:
 //---------------------------------------------------------------------
 /// <summary>
 /// Removes location datums, which satisfy conditions:
-/// aTrsf.IsNegative() || (Abs(Abs(aTrsf.ScaleFactor()) - 1.) > TopLoc_Location::ScalePrec())
-/// from all locations of shape and its subshapes
+/// aTrsf.IsNegative() || (std::abs(std::abs(aTrsf.ScaleFactor()) - 1.) >
+/// TopLoc_Location::ScalePrec()) from all locations of shape and its subshapes
 /// </summary>
 public ref class BRepTools_PurgeLocations sealed
     : public Macad::Occt::BaseClass<::BRepTools_PurgeLocations>
@@ -1686,18 +1719,17 @@ public:
 public:
     BRepTools_Quilt();
     /// <summary>
-    /// Binds <Enew> to   be  the  new edge  instead   of
-    /// <Eold>.
+    /// Binds <Enew> to be the new edge instead of <Eold>.
     /// 
-    /// The faces  of  the added  shape containing  <Eold>
+    /// The faces of the added shape containing <Eold>
     /// will be copied to substitute <Eold> by <Enew>.
     /// 
-    /// The vertices  of   <Eold> will   be bound to   the
+    /// The vertices of <Eold> will be bound to the
     /// vertices of <Enew> with the same orientation.
     /// 
-    /// If <Eold>  and <Enew>  have different orientations
-    /// the curves are considered  to be opposite  and the
-    /// pcurves of <Eold>  will be copied  and reversed in
+    /// If <Eold> and <Enew> have different orientations
+    /// the curves are considered to be opposite and the
+    /// pcurves of <Eold> will be copied and reversed in
     /// the new faces.
     /// 
     /// <Eold> must belong to the next added shape, <Enew> must belong
@@ -1707,17 +1739,17 @@ public:
     /// <summary>
     /// Binds <VNew> to be a new vertex instead of <Vold>.
     /// 
-    /// The faces  of  the added  shape containing  <Vold>
+    /// The faces of the added shape containing <Vold>
     /// will be copied to substitute <Vold> by <Vnew>.
     /// </summary>
     void Bind(Macad::Occt::TopoDS_Vertex^ Vold, Macad::Occt::TopoDS_Vertex^ Vnew);
     /// <summary>
-    /// Add   the faces of  <S>  to  the Quilt,  the faces
+    /// Add the faces of <S> to the Quilt, the faces
     /// containing bounded edges are copied.
     /// </summary>
     void Add(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Returns   True if <S> has   been  copied (<S> is a
+    /// Returns True if <S> has been copied (<S> is a
     /// vertex, an edge or a face)
     /// </summary>
     bool IsCopied(Macad::Occt::TopoDS_Shape^ S);
@@ -1737,7 +1769,7 @@ public:
 //  Class  BRepTools_ShapeSet
 //---------------------------------------------------------------------
 /// <summary>
-/// Contains a Shape and all  its subshapes, locations
+/// Contains a Shape and all its subshapes, locations
 /// and geometries.
 /// 
 /// The topology is inherited from TopTools.
@@ -1842,12 +1874,12 @@ public:
     /// </summary>
     void DumpGeometry(System::IO::TextWriter^ OS);
     /// <summary>
-    /// Writes the geometry of  me  on the stream <OS> in a
+    /// Writes the geometry of me on the stream <OS> in a
     /// format that can be read back by Read.
     /// </summary>
     void WriteGeometry(System::IO::TextWriter^ OS, Macad::Occt::Message_ProgressRange^ theProgress);
     /// <summary>
-    /// Writes the geometry of  me  on the stream <OS> in a
+    /// Writes the geometry of me on the stream <OS> in a
     /// format that can be read back by Read.
     /// </summary>
     void WriteGeometry(System::IO::TextWriter^ OS);
@@ -1858,14 +1890,14 @@ public:
     /// </summary>
     void DumpGeometry(Macad::Occt::TopoDS_Shape^ S, System::IO::TextWriter^ OS);
     /// <summary>
-    /// Writes the geometry of <S>  on the stream <OS> in a
+    /// Writes the geometry of <S> on the stream <OS> in a
     /// format that can be read back by Read.
     /// </summary>
     void WriteGeometry(Macad::Occt::TopoDS_Shape^ S, System::IO::TextWriter^ OS);
     /* Method skipped due to unknown mapping: void ReadGeometry(TopAbs_ShapeEnum T, istream IS, TopoDS_Shape S, ) */
     /// <summary>
-    /// Inserts  the shape <S2> in  the  shape <S1>.  This
-    /// method must be   redefined  to  use   the  correct
+    /// Inserts the shape <S2> in the shape <S1>. This
+    /// method must be redefined to use the correct
     /// builder.
     /// </summary>
     void AddShapes(Macad::Occt::TopoDS_Shape^ S1, Macad::Occt::TopoDS_Shape^ S2);
@@ -1997,7 +2029,7 @@ public:
     /// <summary>
     /// <Oldshape> will be replaced by <NewShapes>.
     /// 
-    /// <NewShapes> can be empty , in this case <OldShape>
+    /// <NewShapes> can be empty, in this case <OldShape>
     /// will disparate from its ancestors.
     /// 
     /// if an item of <NewShapes> is oriented FORWARD.
@@ -2013,7 +2045,7 @@ public:
     /// </summary>
     void Build(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Returns   True if <S> has   been  replaced .
+    /// Returns True if <S> has been replaced.
     /// </summary>
     bool IsCopied(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
@@ -2128,11 +2160,11 @@ public:
     /// </summary>
     bool NewParameter(Macad::Occt::TopoDS_Vertex^ V, Macad::Occt::TopoDS_Edge^ E, double% P, double% Tol);
     /// <summary>
-    /// Returns the  continuity of  <NewE> between <NewF1>
+    /// Returns the continuity of <NewE> between <NewF1>
     /// and <NewF2>.
     /// 
-    /// <NewE> is the new  edge created from <E>.  <NewF1>
-    /// (resp. <NewF2>) is the new  face created from <F1>
+    /// <NewE> is the new edge created from <E>. <NewF1>
+    /// (resp. <NewF2>) is the new face created from <F1>
     /// (resp. <F2>).
     /// </summary>
     Macad::Occt::GeomAbs_Shape Continuity(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F1, Macad::Occt::TopoDS_Face^ F2, Macad::Occt::TopoDS_Edge^ NewE, Macad::Occt::TopoDS_Face^ NewF1, Macad::Occt::TopoDS_Face^ NewF2);
@@ -2189,11 +2221,11 @@ public:
     /// </summary>
     BRepTools_WireExplorer();
     /// <summary>
-    /// IInitializes an exploration  of the wire <W>.
+    /// IInitializes an exploration of the wire <W>.
     /// </summary>
     BRepTools_WireExplorer(Macad::Occt::TopoDS_Wire^ W);
     /// <summary>
-    /// Initializes an exploration  of the wire <W>.
+    /// Initializes an exploration of the wire <W>.
     /// F is used to select the edge connected to the
     /// previous in the parametric representation of <F>.
     /// </summary>
@@ -2216,7 +2248,7 @@ public:
     /// </summary>
     void Init(Macad::Occt::TopoDS_Wire^ W, Macad::Occt::TopoDS_Face^ F, double UMin, double UMax, double VMin, double VMax);
     /// <summary>
-    /// Returns True if there  is a current  edge.
+    /// Returns True if there is a current edge.
     /// </summary>
     bool More();
     /// <summary>
@@ -2232,7 +2264,7 @@ public:
     /// </summary>
     Macad::Occt::TopAbs_Orientation Orientation();
     /// <summary>
-    /// Returns the vertex connecting the current  edge to
+    /// Returns the vertex connecting the current edge to
     /// the previous one.
     /// </summary>
     Macad::Occt::TopoDS_Vertex^ CurrentVertex();

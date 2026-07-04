@@ -4,6 +4,11 @@
 
 #pragma once
 
+// OCCT 8's NCollection_LocalArray.hxx calls std::numeric_limits<T>::max(), which the
+// unguarded windows.h max()/min() macros break.
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
 #include <windows.h>
 #include <shellapi.h>
 #include <iostream>

@@ -73,8 +73,8 @@ public:
     /// </summary>
     bool IsLine();
     /// <summary>
-    /// computes the   minimal box  to include  all normal
-    /// projection points of the initial array  on the plane.
+    /// computes the minimal box to include all normal
+    /// projection points of the initial array on the plane.
     /// </summary>
     void MinMaxBox(double% Umin, double% Umax, double% Vmin, double% Vmax);
     /* Method skipped due to unknown mapping: bool HalfSpace(TColgp_SequenceOfVec NewNormals, TColgp_SequenceOfVec Normals, GeomPlate_SequenceOfAij Bset, double LinTol, double AngTol, ) */

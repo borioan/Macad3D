@@ -96,7 +96,7 @@ public:
     /// </summary>
     void AllowLinearization(bool theIsAllowed);
     /// <summary>
-    /// Add Closing Faces,  <F>  has to be  in  the initial
+    /// Add Closing Faces, <F> has to be in the initial
     /// shape S.
     /// </summary>
     void AddFace(Macad::Occt::TopoDS_Face^ F);
@@ -144,7 +144,7 @@ public:
     /// <summary>
     /// </summary>
     /// @name History methods
-    /// Returns the  list of shapes generated from the shape <S>.
+    /// Returns the list of shapes generated from the shape <S>.
     Macad::Occt::TopTools_ListOfShape^ Generated(Macad::Occt::TopoDS_Shape^ theS);
     /// <summary>
     /// Returns the list of shapes modified from the shape <S>.

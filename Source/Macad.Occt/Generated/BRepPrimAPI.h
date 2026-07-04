@@ -331,7 +331,7 @@ public:
 //  Class  BRepPrimAPI_MakeCylinder
 //---------------------------------------------------------------------
 /// <summary>
-/// Describes functions to build cylinders or portions of  cylinders.
+/// Describes functions to build cylinders or portions of cylinders.
 /// A MakeCylinder object provides a framework for:
 /// -   defining the construction of a cylinder,
 /// -   implementing the construction algorithm, and
@@ -401,8 +401,8 @@ public:
     /// </param>
     BRepPrimAPI_MakeCylinder(Macad::Occt::Ax2 Axes, double R, double H);
     /// <summary>
-    /// Make a cylinder   of  radius R  and  length H with
-    /// angle  H.
+    /// Make a cylinder of radius R and length H with
+    /// angle H.
     /// Constructs
     /// -   a cylinder of radius R and height H, or
     /// -   a portion of cylinder of radius R and height H, and of
@@ -505,11 +505,11 @@ public:
 /// -      Edges generate Faces.
 /// -      Wires generate Shells.
 /// -      Faces generate Solids.
-/// -      Shells generate Composite  Solids.
+/// -      Shells generate Composite Solids.
 /// You are not allowed to sweep Solids and Composite Solids.
 /// Two kinds of sweeps are implemented in the BRepPrimAPI package:
-/// -      The linear sweep called a   Prism
-/// -      The rotational sweep    called a Revol
+/// -      The linear sweep called a Prism
+/// -      The rotational sweep called a Revol
 /// Swept constructions along complex profiles such as BSpline curves
 /// are also available in the BRepOffsetAPI package..
 /// </summary>
@@ -547,7 +547,7 @@ public:
 public:
     BRepPrimAPI_MakeSweep();
     /// <summary>
-    /// Returns the  TopoDS  Shape of the bottom of the sweep.
+    /// Returns the TopoDS Shape of the bottom of the sweep.
     /// </summary>
     Macad::Occt::TopoDS_Shape^ FirstShape();
     /// <summary>
@@ -625,8 +625,8 @@ public:
     BRepPrimAPI_MakePrism(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::Vec V);
     /// <summary>
     /// Builds a semi-infinite or an infinite prism of base S.
-    /// If Inf is true the prism  is infinite, if Inf is false
-    /// the prism is semi-infinite (in the direction D).  If C
+    /// If Inf is true the prism is infinite, if Inf is false
+    /// the prism is semi-infinite (in the direction D). If C
     /// is true S is copied (for semi-infinite prisms).
     /// If Canonize is true then generated surfaces
     /// are attempted to be canonized in simple types
@@ -634,8 +634,8 @@ public:
     BRepPrimAPI_MakePrism(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::Dir D, bool Inf, bool Copy, bool Canonize);
     /// <summary>
     /// Builds a semi-infinite or an infinite prism of base S.
-    /// If Inf is true the prism  is infinite, if Inf is false
-    /// the prism is semi-infinite (in the direction D).  If C
+    /// If Inf is true the prism is infinite, if Inf is false
+    /// the prism is semi-infinite (in the direction D). If C
     /// is true S is copied (for semi-infinite prisms).
     /// If Canonize is true then generated surfaces
     /// are attempted to be canonized in simple types
@@ -643,8 +643,8 @@ public:
     BRepPrimAPI_MakePrism(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::Dir D, bool Inf, bool Copy);
     /// <summary>
     /// Builds a semi-infinite or an infinite prism of base S.
-    /// If Inf is true the prism  is infinite, if Inf is false
-    /// the prism is semi-infinite (in the direction D).  If C
+    /// If Inf is true the prism is infinite, if Inf is false
+    /// the prism is semi-infinite (in the direction D). If C
     /// is true S is copied (for semi-infinite prisms).
     /// If Canonize is true then generated surfaces
     /// are attempted to be canonized in simple types
@@ -652,8 +652,8 @@ public:
     BRepPrimAPI_MakePrism(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::Dir D, bool Inf);
     /// <summary>
     /// Builds a semi-infinite or an infinite prism of base S.
-    /// If Inf is true the prism  is infinite, if Inf is false
-    /// the prism is semi-infinite (in the direction D).  If C
+    /// If Inf is true the prism is infinite, if Inf is false
+    /// the prism is semi-infinite (in the direction D). If C
     /// is true S is copied (for semi-infinite prisms).
     /// If Canonize is true then generated surfaces
     /// are attempted to be canonized in simple types
@@ -669,7 +669,7 @@ public:
     /// </summary>
     void Build();
     /// <summary>
-    /// Returns the  TopoDS  Shape of the bottom of the prism.
+    /// Returns the TopoDS Shape of the bottom of the prism.
     /// </summary>
     Macad::Occt::TopoDS_Shape^ FirstShape();
     /// <summary>
@@ -690,13 +690,13 @@ public:
     /// </summary>
     bool IsDeleted(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Returns the TopoDS Shape of the bottom  of the  prism.
-    /// generated  with  theShape (subShape of the  generating shape).
+    /// Returns the TopoDS Shape of the bottom of the prism.
+    /// generated with theShape (subShape of the generating shape).
     /// </summary>
     Macad::Occt::TopoDS_Shape^ FirstShape(Macad::Occt::TopoDS_Shape^ theShape);
     /// <summary>
-    /// Returns the  TopoDS  Shape of the top  of  the  prism.
-    /// generated  with  theShape (subShape of the  generating shape).
+    /// Returns the TopoDS Shape of the top of the prism.
+    /// generated with theShape (subShape of the generating shape).
     /// </summary>
     Macad::Occt::TopoDS_Shape^ LastShape(Macad::Occt::TopoDS_Shape^ theShape);
 }; // class BRepPrimAPI_MakePrism
@@ -711,10 +711,10 @@ public:
 /// 
 /// * A basis topology which is swept.
 /// 
-/// The   basis topology  must   not  contain solids
+/// The basis topology must not contain solids
 /// (neither composite solids.).
 /// 
-/// The basis topology  may be copied  or  shared in
+/// The basis topology may be copied or shared in
 /// the result.
 /// 
 /// * A rotation axis and angle :
@@ -733,8 +733,8 @@ public:
 /// - Face   -> Solid.
 /// - Shell  -> CompSolid.
 /// 
-/// Sweeping a Compound sweeps  the elements  of the
-/// compound  and creates    a  compound with    the
+/// Sweeping a Compound sweeps the elements of the
+/// compound and creates a compound with the
 /// results.
 /// </summary>
 public ref class BRepPrimAPI_MakeRevol sealed
@@ -765,22 +765,22 @@ public:
 
 public:
     /// <summary>
-    /// Builds the Revol of base S, axis  A and angle  D. If C
+    /// Builds the Revol of base S, axis A and angle D. If C
     /// is true, S is copied.
     /// </summary>
     BRepPrimAPI_MakeRevol(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::Ax1 A, double D, bool Copy);
     /// <summary>
-    /// Builds the Revol of base S, axis  A and angle  D. If C
+    /// Builds the Revol of base S, axis A and angle D. If C
     /// is true, S is copied.
     /// </summary>
     BRepPrimAPI_MakeRevol(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::Ax1 A, double D);
     /// <summary>
-    /// Builds the Revol of base S, axis  A and angle 2*Pi. If
+    /// Builds the Revol of base S, axis A and angle 2*Pi. If
     /// C is true, S is copied.
     /// </summary>
     BRepPrimAPI_MakeRevol(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::Ax1 A, bool Copy);
     /// <summary>
-    /// Builds the Revol of base S, axis  A and angle 2*Pi. If
+    /// Builds the Revol of base S, axis A and angle 2*Pi. If
     /// C is true, S is copied.
     /// </summary>
     BRepPrimAPI_MakeRevol(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::Ax1 A);
@@ -794,7 +794,7 @@ public:
     /// </summary>
     void Build();
     /// <summary>
-    /// Returns the first shape of the revol  (coinciding with
+    /// Returns the first shape of the revol (coinciding with
     /// the generating shape).
     /// </summary>
     Macad::Occt::TopoDS_Shape^ FirstShape();
@@ -814,12 +814,12 @@ public:
     bool IsDeleted(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
     /// Returns the TopoDS Shape of the beginning of the revolution,
-    /// generated with theShape  (subShape of the generating shape).
+    /// generated with theShape (subShape of the generating shape).
     /// </summary>
     Macad::Occt::TopoDS_Shape^ FirstShape(Macad::Occt::TopoDS_Shape^ theShape);
     /// <summary>
     /// Returns the TopoDS Shape of the end of the revolution,
-    /// generated with  theShape (subShape of the  generating shape).
+    /// generated with theShape (subShape of the generating shape).
     /// </summary>
     Macad::Occt::TopoDS_Shape^ LastShape(Macad::Occt::TopoDS_Shape^ theShape);
     /// <summary>
@@ -1263,7 +1263,7 @@ public:
     /// Make a section of a torus of radii R1 R2.
     /// For all algorithms The resulting shape is composed of
     /// -      a lateral toroidal face,
-    /// -      two conical faces (defined  by the equation v = angle1 and
+    /// -      two conical faces (defined by the equation v = angle1 and
     /// v = angle2) if the sphere is truncated in the v parametric
     /// direction (they may be cylindrical faces in some
     /// particular conditions), and in case of a portion
@@ -1279,7 +1279,8 @@ public:
     /// axis parallel to the Y axis and passing through the center
     /// of the reference circle gives the v parameter on the
     /// reference circle. The X axis gives the origin of the v
-    /// parameter. Near 0, as v increases, the Z coordinate decreases.
+    /// parameter. Near 0, as v increases, the Z coordinate increases
+    /// (following the standard trigonometric convention: Z = r*sin(v)).
     /// </summary>
     BRepPrimAPI_MakeTorus(Macad::Occt::Ax2 Axes, double R1, double R2, double angle1, double angle2, double angle);
     /// <summary>

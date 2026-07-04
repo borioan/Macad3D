@@ -67,6 +67,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::Geom_SequenceOfBSplineSurface^ theSeq, bool isStart);
+        Iterator(Macad::Occt::Geom_SequenceOfBSplineSurface^ theSeq);
         bool More();
         void Next();
         Macad::Occt::Geom_BSplineSurface^ Value();
@@ -75,35 +77,179 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     Geom_SequenceOfBSplineSurface();
     Geom_SequenceOfBSplineSurface(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::Geom_SequenceOfBSplineSurface^ Assign(Macad::Occt::Geom_SequenceOfBSplineSurface^ theOther);
     void Remove(Macad::Occt::Geom_SequenceOfBSplineSurface::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::Geom_BSplineSurface^ theItem);
+    void Append(Macad::Occt::Geom_SequenceOfBSplineSurface^ theSeq);
     void Prepend(Macad::Occt::Geom_BSplineSurface^ theItem);
+    void Prepend(Macad::Occt::Geom_SequenceOfBSplineSurface^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Geom_SequenceOfBSplineSurface^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::Geom_SequenceOfBSplineSurface^ theSeq);
     void InsertAfter(Macad::Occt::Geom_SequenceOfBSplineSurface::Iterator^ thePosition, Macad::Occt::Geom_BSplineSurface^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Geom_SequenceOfBSplineSurface^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::Geom_SequenceOfBSplineSurface^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::Geom_SequenceOfBSplineSurface^ theSeq);
     void Split(int theIndex, Macad::Occt::Geom_SequenceOfBSplineSurface^ theSeq);
     Macad::Occt::Geom_BSplineSurface^ First();
     Macad::Occt::Geom_BSplineSurface^ ChangeFirst();
     Macad::Occt::Geom_BSplineSurface^ Last();
     Macad::Occt::Geom_BSplineSurface^ ChangeLast();
+    Macad::Occt::Geom_BSplineSurface^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::Geom_BSplineSurface^ Value(int theIndex);
+    Macad::Occt::Geom_BSplineSurface^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::Geom_BSplineSurface^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
     void SetValue(int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
+    Macad::Occt::Geom_BSplineSurface^ At(long long unsigned int theIndex);
+    Macad::Occt::Geom_BSplineSurface^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::Geom_BSplineSurface^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class Geom_SequenceOfBSplineSurface
+
+//---------------------------------------------------------------------
+//  Class  Geom_HSequenceOfBSplineSurface
+//---------------------------------------------------------------------
+public ref class Geom_HSequenceOfBSplineSurface sealed
+    : public Macad::Occt::Standard_Transient
+    , public IIndexEnumerable<Macad::Occt::Geom_BSplineSurface^>
+{
+
+#ifdef Include_Geom_HSequenceOfBSplineSurface_h
+public:
+    Include_Geom_HSequenceOfBSplineSurface_h
+#endif
+
+public:
+    Geom_HSequenceOfBSplineSurface(::Geom_HSequenceOfBSplineSurface* nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    Geom_HSequenceOfBSplineSurface(::Geom_HSequenceOfBSplineSurface& nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    property ::Geom_HSequenceOfBSplineSurface* NativeInstance
+    {
+        ::Geom_HSequenceOfBSplineSurface* get()
+        {
+            return static_cast<::Geom_HSequenceOfBSplineSurface*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::Geom_HSequenceOfBSplineSurface::Iterator>
+    {
+
+#ifdef Include_Geom_HSequenceOfBSplineSurface_Iterator_h
+    public:
+        Include_Geom_HSequenceOfBSplineSurface_Iterator_h
+#endif
+
+    public:
+        Iterator(::Geom_HSequenceOfBSplineSurface::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::Geom_HSequenceOfBSplineSurface::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::Geom_HSequenceOfBSplineSurface::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::Geom_HSequenceOfBSplineSurface::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::Geom_HSequenceOfBSplineSurface::Iterator* NativeInstance
+        {
+            ::Geom_HSequenceOfBSplineSurface::Iterator* get()
+            {
+                return static_cast<::Geom_HSequenceOfBSplineSurface::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        Iterator();
+        /* Method skipped due to unknown mapping: void Iterator(NCollection_HSequence<TI_0>::SequenceType theSeq, bool isStart, ) */
+        /* Method skipped due to unknown mapping: void Iterator(NCollection_HSequence<TI_0>::SequenceType theSeq, bool isStart, ) */
+        bool More();
+        void Next();
+        Macad::Occt::Geom_BSplineSurface^ Value();
+        Macad::Occt::Geom_BSplineSurface^ ChangeValue();
+        bool IsEqual(Macad::Occt::Geom_HSequenceOfBSplineSurface::Iterator^ theOther);
+        bool Equals(System::Object^ obj) override;
+    }; // class Iterator
+
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
+    static int Lower();
+    int Upper();
+    bool IsEmpty();
+    void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
+    void Exchange(int I, int J);
+    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    void Clear();
+    /* Method skipped due to unknown mapping: NCollection_HSequence<TI_0>::SequenceType Assign(NCollection_HSequence<TI_0>::SequenceType theOther, ) */
+    void Remove(Macad::Occt::Geom_HSequenceOfBSplineSurface::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
+    void Prepend(Macad::Occt::Geom_BSplineSurface^ theItem);
+    /* Method skipped due to unknown mapping: void Prepend(NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
+    void InsertBefore(int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
+    /* Method skipped due to unknown mapping: void InsertBefore(long long unsigned int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    /* Method skipped due to unknown mapping: void InsertBefore(int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    void InsertAfter(Macad::Occt::Geom_HSequenceOfBSplineSurface::Iterator^ thePosition, Macad::Occt::Geom_BSplineSurface^ theItem);
+    /* Method skipped due to unknown mapping: void InsertAfter(long long unsigned int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    /* Method skipped due to unknown mapping: void InsertAfter(int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
+    /* Method skipped due to unknown mapping: void Split(long long unsigned int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    /* Method skipped due to unknown mapping: void Split(int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    Macad::Occt::Geom_BSplineSurface^ First();
+    Macad::Occt::Geom_BSplineSurface^ ChangeFirst();
+    Macad::Occt::Geom_BSplineSurface^ Last();
+    Macad::Occt::Geom_BSplineSurface^ ChangeLast();
+    Macad::Occt::Geom_BSplineSurface^ Value(long long unsigned int theIndex);
+    virtual Macad::Occt::Geom_BSplineSurface^ Value(int theIndex);
+    Macad::Occt::Geom_BSplineSurface^ ChangeValue(long long unsigned int theIndex);
+    Macad::Occt::Geom_BSplineSurface^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
+    void SetValue(int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
+    Macad::Occt::Geom_BSplineSurface^ At(long long unsigned int theIndex);
+    Macad::Occt::Geom_BSplineSurface^ ChangeAt(long long unsigned int theIndex);
+    Geom_HSequenceOfBSplineSurface();
+    /* Method skipped due to unknown mapping: void Geom_HSequenceOfBSplineSurface(SequenceType theOther, ) */
+    /* Method skipped due to unknown mapping: SequenceType Sequence() */
+    /* Method skipped due to unknown mapping: SequenceType ChangeSequence() */
+    void Append(Macad::Occt::Geom_BSplineSurface^ theItem);
+    /* Method skipped due to unknown mapping: void Append(SequenceType theSequence, ) */
+    static Macad::Occt::Geom_HSequenceOfBSplineSurface^ CreateDowncasted(::Geom_HSequenceOfBSplineSurface* instance);
+    virtual System::Collections::Generic::IEnumerator<Macad::Occt::Geom_BSplineSurface^>^ GetEnumerator();
+    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
+}; // class Geom_HSequenceOfBSplineSurface
 
 //---------------------------------------------------------------------
 //  Class  Geom_Geometry
@@ -188,7 +334,7 @@ public:
     /// </summary>
     void Scale(Macad::Occt::Pnt P, double S);
     /// <summary>
-    /// Translates a Geometry.  V is the vector of the translation.
+    /// Translates a Geometry. V is the vector of the translation.
     /// </summary>
     void Translate(Macad::Occt::Vec V);
     /// <summary>
@@ -236,7 +382,7 @@ public:
 /// The Geom package provides two implementations of
 /// 3D positioning systems:
 /// - the axis (Geom_Axis1Placement class), which is defined by:
-/// - its origin, also termed the "Location point" of the  axis,
+/// - its origin, also termed the "Location point" of the axis,
 /// - its unit vector, termed the "Direction" or "main
 /// Direction" of the axis;
 /// - the right-handed coordinate system
@@ -314,7 +460,7 @@ public:
     /// </summary>
     void SetDirection(Macad::Occt::Dir V);
     /// <summary>
-    /// Assigns the point P as the origin of this positioning  system.
+    /// Assigns the point P as the origin of this positioning system.
     /// </summary>
     void SetLocation(Macad::Occt::Pnt P);
     /// <summary>
@@ -512,7 +658,7 @@ public:
     /// then "XDirection" is computed as follow :
     /// XDirection = Direction ^ ( Vx ^ Direction).
     /// The main direction is not modified.
-    /// Raised if Vx and "Direction"  are parallel.
+    /// Raised if Vx and "Direction" are parallel.
     /// </summary>
     void SetXDirection(Macad::Occt::Dir Vx);
     /// <summary>
@@ -540,7 +686,7 @@ public:
     /// <summary>
     /// Transforms an axis placement with a Trsf.
     /// The "Location" point, the "XDirection" and the
-    /// "YDirection" are transformed with T.  The resulting
+    /// "YDirection" are transformed with T. The resulting
     /// main "Direction" of <me> is the cross product between
     /// the "XDirection" and the "YDirection" after transformation.
     /// </summary>
@@ -551,6 +697,78 @@ public:
     Macad::Occt::Geom_Geometry^ Copy();
     static Macad::Occt::Geom_Axis2Placement^ CreateDowncasted(::Geom_Axis2Placement* instance);
 }; // class Geom_Axis2Placement
+
+//---------------------------------------------------------------------
+//  Class  Geom_UndefinedDerivative
+//---------------------------------------------------------------------
+public ref class Geom_UndefinedDerivative sealed
+    : public Macad::Occt::Standard_DomainError
+{
+
+#ifdef Include_Geom_UndefinedDerivative_h
+public:
+    Include_Geom_UndefinedDerivative_h
+#endif
+
+public:
+    Geom_UndefinedDerivative(::Geom_UndefinedDerivative* nativeInstance)
+        : Macad::Occt::Standard_DomainError( nativeInstance )
+    {}
+
+    Geom_UndefinedDerivative(::Geom_UndefinedDerivative& nativeInstance)
+        : Macad::Occt::Standard_DomainError( nativeInstance )
+    {}
+
+    property ::Geom_UndefinedDerivative* NativeInstance
+    {
+        ::Geom_UndefinedDerivative* get()
+        {
+            return static_cast<::Geom_UndefinedDerivative*>(_NativeInstance);
+        }
+    }
+
+public:
+    Geom_UndefinedDerivative(System::String^ theMessage);
+    Geom_UndefinedDerivative();
+    Geom_UndefinedDerivative(System::String^ theMessage, System::String^ theStackTrace);
+    System::String^ ExceptionType();
+}; // class Geom_UndefinedDerivative
+
+//---------------------------------------------------------------------
+//  Class  Geom_UndefinedValue
+//---------------------------------------------------------------------
+public ref class Geom_UndefinedValue sealed
+    : public Macad::Occt::Standard_DomainError
+{
+
+#ifdef Include_Geom_UndefinedValue_h
+public:
+    Include_Geom_UndefinedValue_h
+#endif
+
+public:
+    Geom_UndefinedValue(::Geom_UndefinedValue* nativeInstance)
+        : Macad::Occt::Standard_DomainError( nativeInstance )
+    {}
+
+    Geom_UndefinedValue(::Geom_UndefinedValue& nativeInstance)
+        : Macad::Occt::Standard_DomainError( nativeInstance )
+    {}
+
+    property ::Geom_UndefinedValue* NativeInstance
+    {
+        ::Geom_UndefinedValue* get()
+        {
+            return static_cast<::Geom_UndefinedValue*>(_NativeInstance);
+        }
+    }
+
+public:
+    Geom_UndefinedValue(System::String^ theMessage);
+    Geom_UndefinedValue();
+    Geom_UndefinedValue(System::String^ theMessage, System::String^ theStackTrace);
+    System::String^ ExceptionType();
+}; // class Geom_UndefinedValue
 
 //---------------------------------------------------------------------
 //  Class  Geom_Curve
@@ -618,14 +836,14 @@ public:
     /// <summary>
     /// Changes the direction of parametrization of <me>.
     /// The "FirstParameter" and the "LastParameter" are not changed
-    /// but the orientation  of the curve is modified. If the curve
+    /// but the orientation of the curve is modified. If the curve
     /// is bounded the StartPoint of the initial curve becomes the
-    /// EndPoint of the reversed curve  and the EndPoint of the initial
+    /// EndPoint of the reversed curve and the EndPoint of the initial
     /// curve becomes the StartPoint of the reversed curve.
     /// </summary>
     void Reverse();
     /// <summary>
-    /// Returns the  parameter on the  reversed  curve for
+    /// Returns the parameter on the reversed curve for
     /// the point of parameter U on <me>.
     /// 
     /// me->Reversed()->Value(me->ReversedParameter(U))
@@ -636,7 +854,7 @@ public:
     /// </summary>
     double ReversedParameter(double U);
     /// <summary>
-    /// Returns the  parameter on the  transformed  curve for
+    /// Returns the parameter on the transformed curve for
     /// the transform of the point of parameter U on <me>.
     /// 
     /// me->Transformed(T)->Value(me->TransformedParameter(U,T))
@@ -651,8 +869,8 @@ public:
     /// </summary>
     double TransformedParameter(double U, Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns a  coefficient to compute the parameter on
-    /// the transformed  curve  for  the transform  of the
+    /// Returns a coefficient to compute the parameter on
+    /// the transformed curve for the transform of the
     /// point on <me>.
     /// 
     /// Transformed(T)->Value(U * ParametricTransformation(T))
@@ -707,10 +925,10 @@ public:
     /// . the curve is always periodic by definition (Circle)
     /// . the curve can be defined as periodic (BSpline). In this case
     /// a function SetPeriodic allows you to give the shape of the
-    /// curve.  The general rule for this case is : if a curve can be
+    /// curve. The general rule for this case is : if a curve can be
     /// periodic or not the default periodicity set is non periodic
     /// and you have to turn (explicitly) the curve into a periodic
-    /// curve  if you want the curve to be periodic.
+    /// curve if you want the curve to be periodic.
     /// </summary>
     bool IsPeriodic();
     /// <summary>
@@ -731,58 +949,44 @@ public:
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
     /// Returns true if the degree of continuity of this curve is at least N.
-    /// Exceptions -  Standard_RangeError if N is less than 0.
+    /// Exceptions - Standard_RangeError if N is less than 0.
     /// </summary>
     bool IsCN(int N);
     /// <summary>
+    /// Computes the point of parameter U.
+    /// Raises an exception on failure (e.g. OffsetCurve at singular point).
+    /// </summary>
+    Macad::Occt::Pnt EvalD0(double U);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, ) */
+    /// <summary>
+    /// Computes the Nth derivative at parameter U.
+    /// Raises an exception if the curve continuity is not CN, or N < 1.
+    /// </summary>
+    Macad::Occt::Vec EvalDN(double U, int N);
+    /// <summary>
     /// Returns in P the point of parameter U.
-    /// If the curve is periodic  then the returned point is P(U) with
-    /// U = Ustart + (U - Uend)  where Ustart and Uend are the
-    /// parametric bounds of the curve.
-    /// 
-    /// Raised only for the "OffsetCurve" if it is not possible to
-    /// compute the current point. For example when the first
-    /// derivative on the basis curve and the offset direction
-    /// are parallel.
     /// </summary>
     void D0(double U, Macad::Occt::Pnt% P);
     /// <summary>
     /// Returns the point P of parameter U and the first derivative V1.
-    /// Raised if the continuity of the curve is not C1.
     /// </summary>
     void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
     /// <summary>
-    /// Returns the point P of parameter U, the first and second
-    /// derivatives V1 and V2.
-    /// Raised if the continuity of the curve is not C2.
+    /// Returns the point P of parameter U, the first and second derivatives V1 and V2.
     /// </summary>
     void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
     /// <summary>
-    /// Returns the point P of parameter U, the first, the second
-    /// and the third derivative.
-    /// Raised if the continuity of the curve is not C3.
+    /// Returns the point P of parameter U, the first, the second and the third derivative.
     /// </summary>
     void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
     /// <summary>
-    /// The returned vector gives the value of the derivative for the
-    /// order of derivation N.
-    /// Raised if the continuity of the curve is not CN.
-    /// 
-    /// Raised if the   derivative  cannot  be  computed
-    /// easily. e.g. rational bspline and n > 3.
-    /// Raised if N < 1.
+    /// The returned vector gives the value of the derivative for the order of derivation N.
     /// </summary>
     Macad::Occt::Vec DN(double U, int N);
     /// <summary>
     /// Computes the point of parameter U on <me>.
-    /// If the curve is periodic  then the returned point is P(U) with
-    /// U = Ustart + (U - Uend)  where Ustart and Uend are the
-    /// parametric bounds of the curve.
-    /// it is implemented with D0.
-    /// 
-    /// Raised only for the "OffsetCurve" if it is not possible to
-    /// compute the current point. For example when the first
-    /// derivative on the basis curve and the offset direction are parallel.
     /// </summary>
     Macad::Occt::Pnt Value(double U);
     /// <summary>
@@ -951,21 +1155,31 @@ public:
 public:
     /// <summary>
     /// Creates a non rational Bezier curve with a set of poles
-    /// CurvePoles.  The weights are defaulted to all being 1.
+    /// CurvePoles. The weights are defaulted to all being 1.
     /// Raises ConstructionError if the number of poles is greater than MaxDegree + 1
     /// or lower than 2.
     /// </summary>
     Geom_BezierCurve(Macad::Occt::TColgp_Array1OfPnt^ CurvePoles);
     /// <summary>
     /// Creates a rational Bezier curve with the set of poles
-    /// CurvePoles and the set of weights  PoleWeights .
+    /// CurvePoles and the set of weights PoleWeights.
     /// If all the weights are identical the curve is considered
     /// as non rational. Raises ConstructionError if
-    /// the number of poles is greater than  MaxDegree + 1 or lower
+    /// the number of poles is greater than MaxDegree + 1 or lower
     /// than 2 or CurvePoles and CurveWeights have not the same length
     /// or one weight value is lower or equal to Resolution from package gp.
     /// </summary>
     Geom_BezierCurve(Macad::Occt::TColgp_Array1OfPnt^ CurvePoles, Macad::Occt::TColStd_Array1OfReal^ PoleWeights);
+    /// <summary>
+    /// Returns true if an evaluation representation is attached.
+    /// </summary>
+    bool HasEvalRepresentation();
+    /* Method skipped due to unknown mapping: GeomEval_RepCurveDesc::Base EvalRepresentation() */
+    /* Method skipped due to unknown mapping: void SetEvalRepresentation(GeomEval_RepCurveDesc::Base theDesc, ) */
+    /// <summary>
+    /// Removes the evaluation representation.
+    /// </summary>
+    void ClearEvalRepresentation();
     /// <summary>
     /// Increases the degree of a bezier curve. Degree is the new
     /// degree of <me>. Raises ConstructionError
@@ -1025,11 +1239,11 @@ public:
     void RemovePole(int Index);
     /// <summary>
     /// Reverses the direction of parametrization of <me>
-    /// Value (NewU) =  Value (1 - OldU)
+    /// Value (NewU) = Value (1 - OldU)
     /// </summary>
     void Reverse();
     /// <summary>
-    /// Returns the  parameter on the  reversed  curve for
+    /// Returns the parameter on the reversed curve for
     /// the point of parameter U on <me>.
     /// 
     /// returns 1-U
@@ -1108,26 +1322,17 @@ public:
     /// parameter U can be out of the bounds of the curve.
     /// </summary>
     int Degree();
-    void D0(double U, Macad::Occt::Pnt% P);
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// For this Bezier curve, computes
-    /// - the point P of parameter U, or
-    /// - the point P and one or more of the following values:
-    /// - V1, the first derivative vector,
-    /// - V2, the second derivative vector,
-    /// - V3, the third derivative vector.
-    /// Note: the parameter U can be outside the bounds of the curve.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
+    Macad::Occt::Pnt EvalD0(double U);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, ) */
     /// <summary>
     /// For the point of parameter U of this Bezier curve,
     /// computes the vector corresponding to the Nth derivative.
     /// Note: the parameter U can be outside the bounds of the curve.
     /// Exceptions Standard_RangeError if N is less than 1.
     /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
+    Macad::Occt::Vec EvalDN(double U, int N);
     /// <summary>
     /// Returns Value (U=0.), it is the first control point of the curve.
     /// </summary>
@@ -1137,13 +1342,13 @@ public:
     /// </summary>
     Macad::Occt::Pnt EndPoint();
     /// <summary>
-    /// Returns the value of the first  parameter of this
+    /// Returns the value of the first parameter of this
     /// Bezier curve. This is 0.0, which gives the start point of this Bezier curve
     /// </summary>
     double FirstParameter();
     /// <summary>
     /// Returns the value of the last parameter of this
-    /// Bezier curve. This is  1.0, which gives the end point of this Bezier curve.
+    /// Bezier curve. This is 1.0, which gives the end point of this Bezier curve.
     /// </summary>
     double LastParameter();
     /// <summary>
@@ -1181,6 +1386,14 @@ public:
     /// </summary>
     Macad::Occt::TColStd_Array1OfReal^ Weights();
     /// <summary>
+    /// Returns a const reference to the weights array.
+    /// For rational curves: the internal owning weights array.
+    /// For non-rational curves: a non-owning view of unit weights from BSplCLib.
+    /// The array is always sized to match NbPoles().
+    /// </summary>
+    /// @warning Do NOT modify elements through the returned reference.
+    Macad::Occt::TColStd_Array1OfReal^ WeightsArray();
+    /// <summary>
     /// Applies the transformation T to this Bezier curve.
     /// </summary>
     void Transform(Macad::Occt::Trsf T);
@@ -1209,6 +1422,18 @@ public:
     /// Dumps the content of me into the stream
     /// </summary>
     void DumpJson(System::IO::TextWriter^ theOStream);
+    /// <summary>
+    /// Returns Bezier knots {0.0, 1.0} as a static array.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfReal^ Knots();
+    /// <summary>
+    /// Returns Bezier multiplicities for the current degree.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfInteger^ Multiplicities();
+    /// <summary>
+    /// Returns Bezier flat knots for the current degree.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfReal^ KnotSequence();
     static Macad::Occt::Geom_BezierCurve^ CreateDowncasted(::Geom_BezierCurve* instance);
 }; // class Geom_BezierCurve
 
@@ -1284,7 +1509,7 @@ public:
     /// </summary>
     Macad::Occt::Geom_Surface^ UReversed();
     /// <summary>
-    /// Returns the  parameter on the  Ureversed surface for
+    /// Returns the parameter on the Ureversed surface for
     /// the point of parameter U on <me>.
     /// </summary>
     /// @code
@@ -1307,7 +1532,7 @@ public:
     /// </summary>
     Macad::Occt::Geom_Surface^ VReversed();
     /// <summary>
-    /// Returns the  parameter on the  Vreversed surface for
+    /// Returns the parameter on the Vreversed surface for
     /// the point of parameter V on <me>.
     /// </summary>
     /// @code
@@ -1319,7 +1544,7 @@ public:
     /// @endcode
     double VReversedParameter(double V);
     /// <summary>
-    /// Computes the  parameters on the  transformed  surface for
+    /// Computes the parameters on the transformed surface for
     /// the transform of the point of parameters U,V on <me>.
     /// </summary>
     /// @code
@@ -1335,11 +1560,11 @@ public:
     /// @endcode
     /// This method does not change <U> and <V>
     /// 
-    /// It  can be redefined.  For  example on  the Plane,
+    /// It can be redefined. For example on the Plane,
     /// Cylinder, Cone, Revolved and Extruded surfaces.
     void TransformParameters(double% U, double% V, Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns a 2d transformation  used to find the  new
+    /// Returns a 2d transformation used to find the new
     /// parameters of a point on the transformed surface.
     /// </summary>
     /// @code
@@ -1349,20 +1574,20 @@ public:
     /// @code
     /// me->Value(U,V).Transformed(T)
     /// @endcode
-    /// Where U',V' are  obtained by transforming U,V with
+    /// Where U',V' are obtained by transforming U,V with
     /// the 2d transformation returned by
     /// @code
     /// me->ParametricTransformation(T)
     /// @endcode
     /// This method returns an identity transformation
     /// 
-    /// It  can be redefined.  For  example on  the Plane,
+    /// It can be redefined. For example on the Plane,
     /// Cylinder, Cone, Revolved and Extruded surfaces.
     Macad::Occt::gp_GTrsf2d^ ParametricTransformation(Macad::Occt::Trsf T);
     /// <summary>
     /// Returns the parametric bounds U1, U2, V1 and V2 of this surface.
     /// If the surface is infinite, this function can return a value
-    /// equal to Precision::Infinite: instead of Standard_Real::LastReal.
+    /// equal to Precision::Infinite: instead of double::LastReal.
     /// </summary>
     void Bounds(double% U1, double% U2, double% V1, double% V2);
     /// <summary>
@@ -1448,46 +1673,40 @@ public:
     /// </summary>
     bool IsCNv(int N);
     /// <summary>
-    /// Computes the point of parameter U,V on the surface.
-    /// 
-    /// Raised only for an "OffsetSurface" if it is not possible to
-    /// compute the current point.
+    /// Computes the point of parameter (U, V) on the surface.
+    /// Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
+    /// <summary>
+    /// Computes the derivative of order Nu in U and Nv in V at the point (U, V).
+    /// Raises an exception on failure.
+    /// </summary>
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
+    /// <summary>
+    /// Computes the point of parameter (U, V).
     /// </summary>
     void D0(double U, double V, Macad::Occt::Pnt% P);
     /// <summary>
-    /// Computes the point P and the first derivatives in the directions U and V at this point.
-    /// Raised if the continuity of the surface is not C1.
-    /// 
-    /// Tip: use GeomLib::NormEstim() to calculate surface normal at specified (U, V) point.
+    /// Computes the point and first partial derivatives.
     /// </summary>
     void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
     /// <summary>
-    /// Computes the point P, the first and the second derivatives in
-    /// the directions U and V at this point.
-    /// Raised if the continuity of the surface is not C2.
+    /// Computes the point and partial derivatives up to 2nd order.
     /// </summary>
     void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
     /// <summary>
-    /// Computes the point P, the first,the second and the third
-    /// derivatives in the directions U and V at this point.
-    /// Raised if the continuity of the surface is not C2.
+    /// Computes the point and partial derivatives up to 3rd order.
     /// </summary>
     void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
     /// <summary>
-    /// Computes the derivative of order Nu in the direction U and Nv in the direction V at the point
-    /// P(U, V).
-    /// 
-    /// Raised if the continuity of the surface is not CNu in the U direction or not CNv in the V
-    /// direction. Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
+    /// Computes the derivative of order Nu in U and Nv in V.
     /// </summary>
     Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Computes the point of parameter (U, V) on the surface.
-    /// 
-    /// It is implemented with D0.
-    /// Tip: use GeomLib::NormEstim() to calculate surface normal at specified (U, V) point.
-    /// 
-    /// Raised only for an "OffsetSurface" if it is not possible to compute the current point.
     /// </summary>
     Macad::Occt::Pnt Value(double U, double V);
     /// <summary>
@@ -1702,6 +1921,16 @@ public:
     /// </summary>
     Geom_BezierSurface(Macad::Occt::TColgp_Array2OfPnt^ SurfacePoles, Macad::Occt::TColStd_Array2OfReal^ PoleWeights);
     /// <summary>
+    /// Returns true if an evaluation representation is attached.
+    /// </summary>
+    bool HasEvalRepresentation();
+    /* Method skipped due to unknown mapping: GeomEval_RepSurfaceDesc::Base EvalRepresentation() */
+    /* Method skipped due to unknown mapping: void SetEvalRepresentation(GeomEval_RepSurfaceDesc::Base theDesc, ) */
+    /// <summary>
+    /// Removes the evaluation representation.
+    /// </summary>
+    void ClearEvalRepresentation();
+    /// <summary>
     /// Exchanges the direction U and V on a Bezier surface
     /// As a consequence:
     /// - the poles and weights tables are transposed,
@@ -1713,7 +1942,7 @@ public:
     /// <summary>
     /// Increases the degree of this Bezier surface in the two parametric directions.
     /// 
-    /// Raised if UDegree < UDegree <me>  or VDegree < VDegree <me>
+    /// Raised if UDegree < UDegree <me> or VDegree < VDegree <me>
     /// Raised if the degree of the surface is greater than MaxDegree
     /// in one of the two directions U or V.
     /// </summary>
@@ -1853,7 +2082,7 @@ public:
     /// If the surface is rational the weight of range (UIndex, VIndex)
     /// is not modified.
     /// 
-    /// Raised if  UIndex < 1 or UIndex > NbUPoles  or  VIndex < 1
+    /// Raised if UIndex < 1 or UIndex > NbUPoles or VIndex < 1
     /// or VIndex > NbVPoles.
     /// </summary>
     void SetPole(int UIndex, int VIndex, Macad::Occt::Pnt P);
@@ -1862,7 +2091,7 @@ public:
     /// If the surface <me> is not rational it can become rational.
     /// if the surface was rational it can become non-rational.
     /// 
-    /// raises if  UIndex < 1 or UIndex > NbUPoles  or  VIndex < 1
+    /// raises if UIndex < 1 or UIndex > NbUPoles or VIndex < 1
     /// or VIndex > NbVPoles.
     /// Raised if Weight <= Resolution from package gp.
     /// </summary>
@@ -1871,7 +2100,7 @@ public:
     /// Modifies a column of poles.
     /// The length of CPoles can be lower but not greater than NbUPoles
     /// so you can modify just a part of the column.
-    /// Raised if VIndex < 1 or  VIndex > NbVPoles
+    /// Raised if VIndex < 1 or VIndex > NbVPoles
     /// 
     /// Raised if CPoles.Lower() < 1 or CPoles.Upper() > NbUPoles
     /// </summary>
@@ -1882,7 +2111,7 @@ public:
     /// If the surface was non-rational it can become rational.
     /// The length of CPoles can be lower but not greater than NbUPoles
     /// so you can modify just a part of the column.
-    /// Raised if VIndex < 1 or  VIndex > NbVPoles
+    /// Raised if VIndex < 1 or VIndex > NbVPoles
     /// 
     /// Raised if CPoles.Lower() < 1 or CPoles.Upper() > NbUPoles
     /// Raised if CPoleWeights and CPoles have not the same bounds.
@@ -1894,7 +2123,7 @@ public:
     /// Modifies a row of poles.
     /// The length of CPoles can be lower but not greater than NbVPoles
     /// so you can modify just a part of the row.
-    /// Raised if UIndex < 1 or  UIndex > NbUPoles
+    /// Raised if UIndex < 1 or UIndex > NbUPoles
     /// 
     /// Raised if CPoles.Lower() < 1 or CPoles.Upper() > NbVPoles
     /// </summary>
@@ -1905,7 +2134,7 @@ public:
     /// If the surface was non-rational it can become rational.
     /// The length of CPoles can be lower but not greater than NbVPoles
     /// so you can modify just a part of the row.
-    /// Raised if UIndex < 1 or  UIndex > NbUPoles
+    /// Raised if UIndex < 1 or UIndex > NbUPoles
     /// 
     /// Raised if CPoles.Lower() < 1 or CPoles.Upper() > NbVPoles
     /// Raised if CPoleWeights and CPoles have not the same bounds.
@@ -1918,7 +2147,7 @@ public:
     /// If the surface was non-rational it can become rational.
     /// If the surface was rational it can become non-rational.
     /// 
-    /// Raised if UIndex < 1  or  UIndex > NbUPoles or VIndex < 1 or
+    /// Raised if UIndex < 1 or UIndex > NbUPoles or VIndex < 1 or
     /// VIndex > NbVPoles.
     /// Raised if Weight <= Resolution from package gp.
     /// </summary>
@@ -1929,7 +2158,7 @@ public:
     /// If the surface was non-rational it can become rational.
     /// The length of CPoleWeights can be lower but not greater than
     /// NbUPoles.
-    /// Raised if VIndex < 1 or  VIndex > NbVPoles
+    /// Raised if VIndex < 1 or VIndex > NbVPoles
     /// 
     /// Raised if CPoleWeights.Lower() < 1 or CPoleWeights.Upper() >
     /// NbUPoles
@@ -1943,7 +2172,7 @@ public:
     /// If the surface was non-rational it can become rational.
     /// The length of CPoleWeights can be lower but not greater than
     /// NbVPoles.
-    /// Raised if UIndex < 1 or  UIndex > NbUPoles
+    /// Raised if UIndex < 1 or UIndex > NbUPoles
     /// 
     /// Raised if CPoleWeights.Lower() < 1 or CPoleWeights.Upper() >
     /// NbVPoles
@@ -1953,7 +2182,7 @@ public:
     void SetWeightRow(int UIndex, Macad::Occt::TColStd_Array1OfReal^ CPoleWeights);
     /// <summary>
     /// Changes the orientation of this Bezier surface in the
-    /// u  parametric direction. The bounds of the
+    /// u parametric direction. The bounds of the
     /// surface are not changed, but the given parametric
     /// direction is reversed. Hence, the orientation of the surface is reversed.
     /// </summary>
@@ -1996,30 +2225,25 @@ public:
     /// continuity is infinite.
     /// </summary>
     Macad::Occt::GeomAbs_Shape Continuity();
-    void D0(double U, double V, Macad::Occt::Pnt% P);
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
     /// <summary>
-    /// Computes P, the point of parameters (U, V) of this Bezier surface, and
-    /// - one or more of the following sets of vectors:
-    /// - D1U and D1V, the first derivative vectors at this point,
-    /// - D2U, D2V and D2UV, the second derivative
-    /// vectors at this point,
-    /// - D3U, D3V, D3UUV and D3UVV, the third
-    /// derivative vectors at this point.
-    /// Note: The parameters U and V can be outside the bounds of the surface.
+    /// Computes the point of parameter (U, V) on the surface.
+    /// Raises an exception on failure.
     /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
     /// <summary>
     /// Computes the derivative of order Nu in the u
     /// parametric direction, and Nv in the v parametric
     /// direction, at the point of parameters (U, V) of this Bezier surface.
     /// Note: The parameters U and V can be outside the bounds of the surface.
+    /// Raises an exception on failure.
     /// Exceptions
     /// Standard_RangeError if:
     /// - Nu + Nv is less than 1, or Nu or Nv is negative.
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Returns the number of poles in the U direction.
     /// </summary>
@@ -2062,7 +2286,7 @@ public:
     int VDegree();
     /// <summary>
     /// Computes the V isoparametric curve. For a Bezier surface the
-    /// VIso  curve is a Bezier curve.
+    /// VIso curve is a Bezier curve.
     /// </summary>
     Macad::Occt::Geom_Curve^ VIso(double V);
     /// <summary>
@@ -2084,6 +2308,14 @@ public:
     /// </summary>
     Macad::Occt::TColStd_Array2OfReal^ Weights();
     /// <summary>
+    /// Returns a const reference to the weights array.
+    /// For rational surfaces: the internal owning weights array.
+    /// For non-rational surfaces: a non-owning view of unit weights from BSplSLib.
+    /// The array is always sized to match NbUPoles() x NbVPoles().
+    /// </summary>
+    /// @warning Do NOT modify elements through the returned reference.
+    Macad::Occt::TColStd_Array2OfReal^ WeightsArray();
+    /// <summary>
     /// Returns True if the first control points row and the
     /// last control points row are identical. The tolerance
     /// criterion is Resolution from package gp.
@@ -2096,11 +2328,11 @@ public:
     /// </summary>
     bool IsVClosed();
     /// <summary>
-    /// Returns True, a Bezier surface is always  CN
+    /// Returns True, a Bezier surface is always CN
     /// </summary>
     bool IsCNu(int N);
     /// <summary>
-    /// Returns True, a BezierSurface is always  CN
+    /// Returns True, a BezierSurface is always CN
     /// </summary>
     bool IsCNv(int N);
     /// <summary>
@@ -2163,6 +2395,30 @@ public:
     /// Dumps the content of me into the stream
     /// </summary>
     void DumpJson(System::IO::TextWriter^ theOStream);
+    /// <summary>
+    /// Returns Bezier knots {0.0, 1.0} as a static array.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfReal^ UKnots();
+    /// <summary>
+    /// Returns Bezier knots {0.0, 1.0} as a static array.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfReal^ VKnots();
+    /// <summary>
+    /// Returns Bezier multiplicities for the U degree.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfInteger^ UMultiplicities();
+    /// <summary>
+    /// Returns Bezier multiplicities for the V degree.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfInteger^ VMultiplicities();
+    /// <summary>
+    /// Returns Bezier flat knots for the U degree.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfReal^ UKnotSequence();
+    /// <summary>
+    /// Returns Bezier flat knots for the V degree.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfReal^ VKnotSequence();
     static Macad::Occt::Geom_BezierSurface^ CreateDowncasted(::Geom_BezierSurface* instance);
 }; // class Geom_BezierSurface
 
@@ -2285,17 +2541,17 @@ public:
 
 public:
     /// <summary>
-    /// Creates a  non-rational B_spline curve   on  the
+    /// Creates a non-rational B_spline curve on the
     /// basis <Knots, Multiplicities> of degree <Degree>.
     /// </summary>
     Geom_BSplineCurve(Macad::Occt::TColgp_Array1OfPnt^ Poles, Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Multiplicities, int Degree, bool Periodic);
     /// <summary>
-    /// Creates a  non-rational B_spline curve   on  the
+    /// Creates a non-rational B_spline curve on the
     /// basis <Knots, Multiplicities> of degree <Degree>.
     /// </summary>
     Geom_BSplineCurve(Macad::Occt::TColgp_Array1OfPnt^ Poles, Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Multiplicities, int Degree);
     /// <summary>
-    /// Creates  a rational B_spline  curve  on the basis
+    /// Creates a rational B_spline curve on the basis
     /// <Knots, Multiplicities> of degree <Degree>.
     /// Raises ConstructionError subject to the following conditions
     /// 0 < Degree <= MaxDegree.
@@ -2312,7 +2568,7 @@ public:
     /// may be Degree+1 (this is even recommended if you want the
     /// curve to start and finish on the first and last pole).
     /// 
-    /// On a periodic  curve the first  and  the last multicities
+    /// On a periodic curve the first and the last multicities
     /// must be the same.
     /// 
     /// on non-periodic curves
@@ -2325,7 +2581,7 @@ public:
     /// </summary>
     Geom_BSplineCurve(Macad::Occt::TColgp_Array1OfPnt^ Poles, Macad::Occt::TColStd_Array1OfReal^ Weights, Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Multiplicities, int Degree, bool Periodic, bool CheckRational);
     /// <summary>
-    /// Creates  a rational B_spline  curve  on the basis
+    /// Creates a rational B_spline curve on the basis
     /// <Knots, Multiplicities> of degree <Degree>.
     /// Raises ConstructionError subject to the following conditions
     /// 0 < Degree <= MaxDegree.
@@ -2342,7 +2598,7 @@ public:
     /// may be Degree+1 (this is even recommended if you want the
     /// curve to start and finish on the first and last pole).
     /// 
-    /// On a periodic  curve the first  and  the last multicities
+    /// On a periodic curve the first and the last multicities
     /// must be the same.
     /// 
     /// on non-periodic curves
@@ -2355,7 +2611,7 @@ public:
     /// </summary>
     Geom_BSplineCurve(Macad::Occt::TColgp_Array1OfPnt^ Poles, Macad::Occt::TColStd_Array1OfReal^ Weights, Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Multiplicities, int Degree, bool Periodic);
     /// <summary>
-    /// Creates  a rational B_spline  curve  on the basis
+    /// Creates a rational B_spline curve on the basis
     /// <Knots, Multiplicities> of degree <Degree>.
     /// Raises ConstructionError subject to the following conditions
     /// 0 < Degree <= MaxDegree.
@@ -2372,7 +2628,7 @@ public:
     /// may be Degree+1 (this is even recommended if you want the
     /// curve to start and finish on the first and last pole).
     /// 
-    /// On a periodic  curve the first  and  the last multicities
+    /// On a periodic curve the first and the last multicities
     /// must be the same.
     /// 
     /// on non-periodic curves
@@ -2385,6 +2641,16 @@ public:
     /// </summary>
     Geom_BSplineCurve(Macad::Occt::TColgp_Array1OfPnt^ Poles, Macad::Occt::TColStd_Array1OfReal^ Weights, Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Multiplicities, int Degree);
     /// <summary>
+    /// Returns true if an evaluation representation is attached.
+    /// </summary>
+    bool HasEvalRepresentation();
+    /* Method skipped due to unknown mapping: GeomEval_RepCurveDesc::Base EvalRepresentation() */
+    /* Method skipped due to unknown mapping: void SetEvalRepresentation(GeomEval_RepCurveDesc::Base theDesc, ) */
+    /// <summary>
+    /// Removes the evaluation representation.
+    /// </summary>
+    void ClearEvalRepresentation();
+    /// <summary>
     /// Increases the degree of this BSpline curve to
     /// Degree. As a result, the poles, weights and
     /// multiplicities tables are modified; the knots table is
@@ -2396,160 +2662,160 @@ public:
     /// </summary>
     void IncreaseDegree(int Degree);
     /// <summary>
-    /// Increases the multiplicity  of the knot <Index> to
+    /// Increases the multiplicity of the knot <Index> to
     /// <M>.
     /// 
-    /// If   <M>   is   lower   or  equal   to  the current
-    /// multiplicity nothing is done. If <M> is higher than
-    /// the degree the degree is used.
+    /// If <M> is lower or equal to the current multiplicity
+    /// nothing is done. If <M> is higher than the degree,
+    /// the degree is used.
     /// If <Index> is not in [FirstUKnotIndex, LastUKnotIndex]
     /// </summary>
     void IncreaseMultiplicity(int Index, int M);
     /// <summary>
-    /// Increases  the  multiplicities   of  the knots  in
+    /// Increases the multiplicities of the knots in
     /// [I1,I2] to <M>.
     /// 
-    /// For each knot if  <M>  is  lower  or equal  to  the
-    /// current multiplicity  nothing  is  done. If <M>  is
+    /// For each knot if <M> is lower or equal to the
+    /// current multiplicity nothing is done. If <M> is
     /// higher than the degree the degree is used.
     /// If <I1,I2> are not in [FirstUKnotIndex, LastUKnotIndex]
     /// </summary>
     void IncreaseMultiplicity(int I1, int I2, int M);
     /// <summary>
-    /// Increment  the  multiplicities   of  the knots  in
+    /// Increment the multiplicities of the knots in
     /// [I1,I2] by <M>.
     /// 
-    /// If <M> is not positive nithing is done.
+    /// If <M> is not positive nothing is done.
     /// 
-    /// For   each  knot   the resulting   multiplicity  is
+    /// For each knot the resulting multiplicity is
     /// limited to the Degree.
     /// If <I1,I2> are not in [FirstUKnotIndex, LastUKnotIndex]
     /// </summary>
     void IncrementMultiplicity(int I1, int I2, int M);
     /// <summary>
-    /// Inserts a knot value in the sequence of knots.  If
-    /// <U>  is an  existing knot     the multiplicity  is
+    /// Inserts a knot value in the sequence of knots.
+    /// If <U> is an existing knot the multiplicity is
     /// increased by <M>.
     /// 
-    /// If U  is  not  on the parameter  range  nothing is
+    /// If U is not on the parameter range nothing is
     /// done.
     /// 
-    /// If the multiplicity is negative or null nothing is
-    /// done. The  new   multiplicity  is limited  to  the
+    /// If the multiplicity is negative or null nothing
+    /// is done. The new multiplicity is limited to the
     /// degree.
     /// 
-    /// The  tolerance criterion  for  knots  equality  is
+    /// The tolerance criterion for knots equality is
     /// the max of Epsilon(U) and ParametricTolerance.
     /// </summary>
     void InsertKnot(double U, int M, double ParametricTolerance, bool Add);
     /// <summary>
-    /// Inserts a knot value in the sequence of knots.  If
-    /// <U>  is an  existing knot     the multiplicity  is
+    /// Inserts a knot value in the sequence of knots.
+    /// If <U> is an existing knot the multiplicity is
     /// increased by <M>.
     /// 
-    /// If U  is  not  on the parameter  range  nothing is
+    /// If U is not on the parameter range nothing is
     /// done.
     /// 
-    /// If the multiplicity is negative or null nothing is
-    /// done. The  new   multiplicity  is limited  to  the
+    /// If the multiplicity is negative or null nothing
+    /// is done. The new multiplicity is limited to the
     /// degree.
     /// 
-    /// The  tolerance criterion  for  knots  equality  is
+    /// The tolerance criterion for knots equality is
     /// the max of Epsilon(U) and ParametricTolerance.
     /// </summary>
     void InsertKnot(double U, int M, double ParametricTolerance);
     /// <summary>
-    /// Inserts a knot value in the sequence of knots.  If
-    /// <U>  is an  existing knot     the multiplicity  is
+    /// Inserts a knot value in the sequence of knots.
+    /// If <U> is an existing knot the multiplicity is
     /// increased by <M>.
     /// 
-    /// If U  is  not  on the parameter  range  nothing is
+    /// If U is not on the parameter range nothing is
     /// done.
     /// 
-    /// If the multiplicity is negative or null nothing is
-    /// done. The  new   multiplicity  is limited  to  the
+    /// If the multiplicity is negative or null nothing
+    /// is done. The new multiplicity is limited to the
     /// degree.
     /// 
-    /// The  tolerance criterion  for  knots  equality  is
+    /// The tolerance criterion for knots equality is
     /// the max of Epsilon(U) and ParametricTolerance.
     /// </summary>
     void InsertKnot(double U, int M);
     /// <summary>
-    /// Inserts a knot value in the sequence of knots.  If
-    /// <U>  is an  existing knot     the multiplicity  is
+    /// Inserts a knot value in the sequence of knots.
+    /// If <U> is an existing knot the multiplicity is
     /// increased by <M>.
     /// 
-    /// If U  is  not  on the parameter  range  nothing is
+    /// If U is not on the parameter range nothing is
     /// done.
     /// 
-    /// If the multiplicity is negative or null nothing is
-    /// done. The  new   multiplicity  is limited  to  the
+    /// If the multiplicity is negative or null nothing
+    /// is done. The new multiplicity is limited to the
     /// degree.
     /// 
-    /// The  tolerance criterion  for  knots  equality  is
+    /// The tolerance criterion for knots equality is
     /// the max of Epsilon(U) and ParametricTolerance.
     /// </summary>
     void InsertKnot(double U);
     /// <summary>
-    /// Inserts a set of knots  values in  the sequence of
+    /// Inserts a set of knots values in the sequence of
     /// knots.
     /// 
     /// For each U = Knots(i), M = Mults(i)
     /// 
-    /// If <U>  is an existing  knot  the  multiplicity is
-    /// increased by  <M> if  <Add>  is True, increased to
+    /// If <U> is an existing knot the multiplicity is
+    /// increased by <M> if <Add> is True, increased to
     /// <M> if <Add> is False.
     /// 
-    /// If U  is  not  on the parameter  range  nothing is
+    /// If U is not on the parameter range nothing is
     /// done.
     /// 
-    /// If the multiplicity is negative or null nothing is
-    /// done. The  new   multiplicity  is limited  to  the
+    /// If the multiplicity is negative or null nothing
+    /// is done. The new multiplicity is limited to the
     /// degree.
     /// 
-    /// The  tolerance criterion  for  knots  equality  is
+    /// The tolerance criterion for knots equality is
     /// the max of Epsilon(U) and ParametricTolerance.
     /// </summary>
     void InsertKnots(Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Mults, double ParametricTolerance, bool Add);
     /// <summary>
-    /// Inserts a set of knots  values in  the sequence of
+    /// Inserts a set of knots values in the sequence of
     /// knots.
     /// 
     /// For each U = Knots(i), M = Mults(i)
     /// 
-    /// If <U>  is an existing  knot  the  multiplicity is
-    /// increased by  <M> if  <Add>  is True, increased to
+    /// If <U> is an existing knot the multiplicity is
+    /// increased by <M> if <Add> is True, increased to
     /// <M> if <Add> is False.
     /// 
-    /// If U  is  not  on the parameter  range  nothing is
+    /// If U is not on the parameter range nothing is
     /// done.
     /// 
-    /// If the multiplicity is negative or null nothing is
-    /// done. The  new   multiplicity  is limited  to  the
+    /// If the multiplicity is negative or null nothing
+    /// is done. The new multiplicity is limited to the
     /// degree.
     /// 
-    /// The  tolerance criterion  for  knots  equality  is
+    /// The tolerance criterion for knots equality is
     /// the max of Epsilon(U) and ParametricTolerance.
     /// </summary>
     void InsertKnots(Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Mults, double ParametricTolerance);
     /// <summary>
-    /// Inserts a set of knots  values in  the sequence of
+    /// Inserts a set of knots values in the sequence of
     /// knots.
     /// 
     /// For each U = Knots(i), M = Mults(i)
     /// 
-    /// If <U>  is an existing  knot  the  multiplicity is
-    /// increased by  <M> if  <Add>  is True, increased to
+    /// If <U> is an existing knot the multiplicity is
+    /// increased by <M> if <Add> is True, increased to
     /// <M> if <Add> is False.
     /// 
-    /// If U  is  not  on the parameter  range  nothing is
+    /// If U is not on the parameter range nothing is
     /// done.
     /// 
-    /// If the multiplicity is negative or null nothing is
-    /// done. The  new   multiplicity  is limited  to  the
+    /// If the multiplicity is negative or null nothing
+    /// is done. The new multiplicity is limited to the
     /// degree.
     /// 
-    /// The  tolerance criterion  for  knots  equality  is
+    /// The tolerance criterion for knots equality is
     /// the max of Epsilon(U) and ParametricTolerance.
     /// </summary>
     void InsertKnots(Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Mults);
@@ -2568,11 +2834,11 @@ public:
     /// A low tolerance is used to prevent modification of
     /// the curve. A high tolerance is used to "smooth" the curve.
     /// Exceptions
-    /// Standard_OutOfRange if Index is outside the
-    /// bounds of the knots table.
+    /// Standard_OutOfRange if Index is outside the bounds of the
+    /// knots table.
     /// pole insertion and pole removing
     /// this operation is limited to the Uniform or QuasiUniform
-    /// BSplineCurve. The knot values are modified . If the BSpline is
+    /// BSplineCurve. The knot values are modified. If the BSpline is
     /// NonUniform or Piecewise Bezier an exception Construction error
     /// is raised.
     /// </summary>
@@ -2587,7 +2853,7 @@ public:
     /// </summary>
     void Reverse();
     /// <summary>
-    /// Returns the  parameter on the  reversed  curve for
+    /// Returns the parameter on the reversed curve for
     /// the point of parameter U on <me>.
     /// 
     /// returns UFirst + ULast - U
@@ -2704,7 +2970,7 @@ public:
     void SetOrigin(int Index);
     /// <summary>
     /// Set the origin of a periodic curve at Knot U. If U
-    /// is  not a  knot  of  the  BSpline  a  new knot  is
+    /// is not a knot of the BSpline a new knot is
     /// inserted. KnotVector and poles are modified.
     /// Raised if the curve is not periodic
     /// </summary>
@@ -2838,21 +3104,12 @@ public:
     /// </summary>
     int Degree();
     /// <summary>
-    /// Returns in P the point of parameter U.
+    /// Returns the point of parameter U.
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
-    /// <summary>
-    /// Raised if the continuity of the curve is not C1.
-    /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
-    /// <summary>
-    /// Raised if the continuity of the curve is not C2.
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// Raised if the continuity of the curve is not C3.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
+    Macad::Occt::Pnt EvalD0(double U);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, ) */
     /// <summary>
     /// For the point of parameter U of this BSpline curve,
     /// computes the vector corresponding to the Nth derivative.
@@ -2867,17 +3124,17 @@ public:
     /// The following functions compute the point of parameter U
     /// and the derivatives at this point on the B-spline curve
     /// arc defined between the knot FromK1 and the knot ToK2.
-    /// U can be out of bounds [Knot (FromK1),  Knot (ToK2)] but
+    /// U can be out of bounds [Knot (FromK1), Knot (ToK2)] but
     /// for the computation we only use the definition of the curve
     /// between these two knots. This method is useful to compute
     /// local derivative, if the order of continuity of the whole
-    /// curve is not greater enough.    Inside the parametric
+    /// curve is not greater enough. Inside the parametric
     /// domain Knot (FromK1), Knot (ToK2) the evaluations are
     /// the same as if we consider the whole definition of the
     /// curve. Of course the evaluations are different outside
     /// this parametric domain.
     /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
+    Macad::Occt::Vec EvalDN(double U, int N);
     /// <summary>
     /// Raised if FromK1 = ToK2.
     /// </summary>
@@ -3056,26 +3313,26 @@ public:
     /// Locates the parametric value U in the sequence of knots.
     /// If "WithKnotRepetition" is True we consider the knot's
     /// representation with repetition of multiple knot value,
-    /// otherwise  we consider the knot's representation with
+    /// otherwise we consider the knot's representation with
     /// no repetition of multiple knot values.
     /// Knots (I1) <= U <= Knots (I2)
-    /// . if I1 = I2  U is a knot value (the tolerance criterion
+    /// . if I1 = I2 U is a knot value (the tolerance criterion
     /// ParametricTolerance is used).
-    /// . if I1 < 1  => U < Knots (1) - Abs(ParametricTolerance)
-    /// . if I2 > NbKnots => U > Knots (NbKnots) + Abs(ParametricTolerance)
+    /// . if I1 < 1 => U < Knots (1) - std::abs(ParametricTolerance)
+    /// . if I2 > NbKnots => U > Knots (NbKnots) + std::abs(ParametricTolerance)
     /// </summary>
     void LocateU(double U, double ParametricTolerance, int% I1, int% I2, bool WithKnotRepetition);
     /// <summary>
     /// Locates the parametric value U in the sequence of knots.
     /// If "WithKnotRepetition" is True we consider the knot's
     /// representation with repetition of multiple knot value,
-    /// otherwise  we consider the knot's representation with
+    /// otherwise we consider the knot's representation with
     /// no repetition of multiple knot values.
     /// Knots (I1) <= U <= Knots (I2)
-    /// . if I1 = I2  U is a knot value (the tolerance criterion
+    /// . if I1 = I2 U is a knot value (the tolerance criterion
     /// ParametricTolerance is used).
-    /// . if I1 < 1  => U < Knots (1) - Abs(ParametricTolerance)
-    /// . if I2 > NbKnots => U > Knots (NbKnots) + Abs(ParametricTolerance)
+    /// . if I1 < 1 => U < Knots (1) - std::abs(ParametricTolerance)
+    /// . if I2 > NbKnots => U > Knots (NbKnots) + std::abs(ParametricTolerance)
     /// </summary>
     void LocateU(double U, double ParametricTolerance, int% I1, int% I2);
     /// <summary>
@@ -3139,6 +3396,14 @@ public:
     /// Returns the weights of the B-spline curve;
     /// </summary>
     Macad::Occt::TColStd_Array1OfReal^ Weights();
+    /// <summary>
+    /// Returns a const reference to the weights array.
+    /// For rational curves: the internal owning weights array.
+    /// For non-rational curves: a non-owning view of unit weights from BSplCLib.
+    /// The array is always sized to match NbPoles().
+    /// </summary>
+    /// @warning Do NOT modify elements through the returned reference.
+    Macad::Occt::TColStd_Array1OfReal^ WeightsArray();
     /// <summary>
     /// Applies the transformation T to this BSpline curve.
     /// </summary>
@@ -3320,73 +3585,73 @@ public:
 
 public:
     /// <summary>
-    /// Creates  a non-rational b-spline surface (weights
+    /// Creates a non-rational b-spline surface (weights
     /// default value is 1.).
     /// The following conditions must be verified.
     /// 0 < UDegree <= MaxDegree.
     /// UKnots.Length() == UMults.Length() >= 2
     /// UKnots(i) < UKnots(i+1) (Knots are increasing)
     /// 1 <= UMults(i) <= UDegree
-    /// On a   non  uperiodic   surface    the  first and    last
-    /// umultiplicities  may  be     UDegree+1  (this   is   even
-    /// recommended if you want the curve  to start and finish on
+    /// On a non uperiodic surface the first and last
+    /// umultiplicities may be UDegree+1 (this is even
+    /// recommended if you want the curve to start and finish on
     /// the first and last pole).
-    /// On a uperiodic     surface  the first    and   the   last
+    /// On a uperiodic surface the first and the last
     /// umultiplicities must be the same.
     /// on non-uperiodic surfaces
     /// Poles.ColLength() == Sum(UMults(i)) - UDegree - 1 >= 2
     /// on uperiodic surfaces
     /// Poles.ColLength() == Sum(UMults(i)) except the first or last
-    /// The previous conditions for U holds  also for V, with the
+    /// The previous conditions for U holds also for V, with the
     /// RowLength of the poles.
     /// </summary>
     Geom_BSplineSurface(Macad::Occt::TColgp_Array2OfPnt^ Poles, Macad::Occt::TColStd_Array1OfReal^ UKnots, Macad::Occt::TColStd_Array1OfReal^ VKnots, Macad::Occt::TColStd_Array1OfInteger^ UMults, Macad::Occt::TColStd_Array1OfInteger^ VMults, int UDegree, int VDegree, bool UPeriodic, bool VPeriodic);
     /// <summary>
-    /// Creates  a non-rational b-spline surface (weights
+    /// Creates a non-rational b-spline surface (weights
     /// default value is 1.).
     /// The following conditions must be verified.
     /// 0 < UDegree <= MaxDegree.
     /// UKnots.Length() == UMults.Length() >= 2
     /// UKnots(i) < UKnots(i+1) (Knots are increasing)
     /// 1 <= UMults(i) <= UDegree
-    /// On a   non  uperiodic   surface    the  first and    last
-    /// umultiplicities  may  be     UDegree+1  (this   is   even
-    /// recommended if you want the curve  to start and finish on
+    /// On a non uperiodic surface the first and last
+    /// umultiplicities may be UDegree+1 (this is even
+    /// recommended if you want the curve to start and finish on
     /// the first and last pole).
-    /// On a uperiodic     surface  the first    and   the   last
+    /// On a uperiodic surface the first and the last
     /// umultiplicities must be the same.
     /// on non-uperiodic surfaces
     /// Poles.ColLength() == Sum(UMults(i)) - UDegree - 1 >= 2
     /// on uperiodic surfaces
     /// Poles.ColLength() == Sum(UMults(i)) except the first or last
-    /// The previous conditions for U holds  also for V, with the
+    /// The previous conditions for U holds also for V, with the
     /// RowLength of the poles.
     /// </summary>
     Geom_BSplineSurface(Macad::Occt::TColgp_Array2OfPnt^ Poles, Macad::Occt::TColStd_Array1OfReal^ UKnots, Macad::Occt::TColStd_Array1OfReal^ VKnots, Macad::Occt::TColStd_Array1OfInteger^ UMults, Macad::Occt::TColStd_Array1OfInteger^ VMults, int UDegree, int VDegree, bool UPeriodic);
     /// <summary>
-    /// Creates  a non-rational b-spline surface (weights
+    /// Creates a non-rational b-spline surface (weights
     /// default value is 1.).
     /// The following conditions must be verified.
     /// 0 < UDegree <= MaxDegree.
     /// UKnots.Length() == UMults.Length() >= 2
     /// UKnots(i) < UKnots(i+1) (Knots are increasing)
     /// 1 <= UMults(i) <= UDegree
-    /// On a   non  uperiodic   surface    the  first and    last
-    /// umultiplicities  may  be     UDegree+1  (this   is   even
-    /// recommended if you want the curve  to start and finish on
+    /// On a non uperiodic surface the first and last
+    /// umultiplicities may be UDegree+1 (this is even
+    /// recommended if you want the curve to start and finish on
     /// the first and last pole).
-    /// On a uperiodic     surface  the first    and   the   last
+    /// On a uperiodic surface the first and the last
     /// umultiplicities must be the same.
     /// on non-uperiodic surfaces
     /// Poles.ColLength() == Sum(UMults(i)) - UDegree - 1 >= 2
     /// on uperiodic surfaces
     /// Poles.ColLength() == Sum(UMults(i)) except the first or last
-    /// The previous conditions for U holds  also for V, with the
+    /// The previous conditions for U holds also for V, with the
     /// RowLength of the poles.
     /// </summary>
     Geom_BSplineSurface(Macad::Occt::TColgp_Array2OfPnt^ Poles, Macad::Occt::TColStd_Array1OfReal^ UKnots, Macad::Occt::TColStd_Array1OfReal^ VKnots, Macad::Occt::TColStd_Array1OfInteger^ UMults, Macad::Occt::TColStd_Array1OfInteger^ VMults, int UDegree, int VDegree);
     /// <summary>
-    /// Creates  a non-rational b-spline surface (weights
+    /// Creates a non-rational b-spline surface (weights
     /// default value is 1.).
     /// 
     /// The following conditions must be verified.
@@ -3397,12 +3662,12 @@ public:
     /// UKnots(i) < UKnots(i+1) (Knots are increasing)
     /// 1 <= UMults(i) <= UDegree
     /// 
-    /// On a   non  uperiodic   surface    the  first and    last
-    /// umultiplicities  may  be     UDegree+1  (this   is   even
-    /// recommended if you want the curve  to start and finish on
-    /// the first and last pole).
+    /// On a non uperiodic surface the first and last
+    /// umultiplicities may be UDegree+1 (this is even recommended
+    /// if you want the curve to start and finish on the first
+    /// and last pole).
     /// 
-    /// On a uperiodic     surface  the first    and   the   last
+    /// On a uperiodic surface the first and the last
     /// umultiplicities must be the same.
     /// 
     /// on non-uperiodic surfaces
@@ -3414,12 +3679,12 @@ public:
     /// Poles.ColLength() == Sum(UMults(i)) except the first or
     /// last
     /// 
-    /// The previous conditions for U holds  also for V, with the
+    /// The previous conditions for U holds also for V, with the
     /// RowLength of the poles.
     /// </summary>
     Geom_BSplineSurface(Macad::Occt::TColgp_Array2OfPnt^ Poles, Macad::Occt::TColStd_Array2OfReal^ Weights, Macad::Occt::TColStd_Array1OfReal^ UKnots, Macad::Occt::TColStd_Array1OfReal^ VKnots, Macad::Occt::TColStd_Array1OfInteger^ UMults, Macad::Occt::TColStd_Array1OfInteger^ VMults, int UDegree, int VDegree, bool UPeriodic, bool VPeriodic);
     /// <summary>
-    /// Creates  a non-rational b-spline surface (weights
+    /// Creates a non-rational b-spline surface (weights
     /// default value is 1.).
     /// 
     /// The following conditions must be verified.
@@ -3430,12 +3695,12 @@ public:
     /// UKnots(i) < UKnots(i+1) (Knots are increasing)
     /// 1 <= UMults(i) <= UDegree
     /// 
-    /// On a   non  uperiodic   surface    the  first and    last
-    /// umultiplicities  may  be     UDegree+1  (this   is   even
-    /// recommended if you want the curve  to start and finish on
-    /// the first and last pole).
+    /// On a non uperiodic surface the first and last
+    /// umultiplicities may be UDegree+1 (this is even recommended
+    /// if you want the curve to start and finish on the first
+    /// and last pole).
     /// 
-    /// On a uperiodic     surface  the first    and   the   last
+    /// On a uperiodic surface the first and the last
     /// umultiplicities must be the same.
     /// 
     /// on non-uperiodic surfaces
@@ -3447,12 +3712,12 @@ public:
     /// Poles.ColLength() == Sum(UMults(i)) except the first or
     /// last
     /// 
-    /// The previous conditions for U holds  also for V, with the
+    /// The previous conditions for U holds also for V, with the
     /// RowLength of the poles.
     /// </summary>
     Geom_BSplineSurface(Macad::Occt::TColgp_Array2OfPnt^ Poles, Macad::Occt::TColStd_Array2OfReal^ Weights, Macad::Occt::TColStd_Array1OfReal^ UKnots, Macad::Occt::TColStd_Array1OfReal^ VKnots, Macad::Occt::TColStd_Array1OfInteger^ UMults, Macad::Occt::TColStd_Array1OfInteger^ VMults, int UDegree, int VDegree, bool UPeriodic);
     /// <summary>
-    /// Creates  a non-rational b-spline surface (weights
+    /// Creates a non-rational b-spline surface (weights
     /// default value is 1.).
     /// 
     /// The following conditions must be verified.
@@ -3463,12 +3728,12 @@ public:
     /// UKnots(i) < UKnots(i+1) (Knots are increasing)
     /// 1 <= UMults(i) <= UDegree
     /// 
-    /// On a   non  uperiodic   surface    the  first and    last
-    /// umultiplicities  may  be     UDegree+1  (this   is   even
-    /// recommended if you want the curve  to start and finish on
-    /// the first and last pole).
+    /// On a non uperiodic surface the first and last
+    /// umultiplicities may be UDegree+1 (this is even recommended
+    /// if you want the curve to start and finish on the first
+    /// and last pole).
     /// 
-    /// On a uperiodic     surface  the first    and   the   last
+    /// On a uperiodic surface the first and the last
     /// umultiplicities must be the same.
     /// 
     /// on non-uperiodic surfaces
@@ -3480,10 +3745,20 @@ public:
     /// Poles.ColLength() == Sum(UMults(i)) except the first or
     /// last
     /// 
-    /// The previous conditions for U holds  also for V, with the
+    /// The previous conditions for U holds also for V, with the
     /// RowLength of the poles.
     /// </summary>
     Geom_BSplineSurface(Macad::Occt::TColgp_Array2OfPnt^ Poles, Macad::Occt::TColStd_Array2OfReal^ Weights, Macad::Occt::TColStd_Array1OfReal^ UKnots, Macad::Occt::TColStd_Array1OfReal^ VKnots, Macad::Occt::TColStd_Array1OfInteger^ UMults, Macad::Occt::TColStd_Array1OfInteger^ VMults, int UDegree, int VDegree);
+    /// <summary>
+    /// Returns true if an evaluation representation is attached.
+    /// </summary>
+    bool HasEvalRepresentation();
+    /* Method skipped due to unknown mapping: GeomEval_RepSurfaceDesc::Base EvalRepresentation() */
+    /* Method skipped due to unknown mapping: void SetEvalRepresentation(GeomEval_RepSurfaceDesc::Base theDesc, ) */
+    /// <summary>
+    /// Removes the evaluation representation.
+    /// </summary>
+    void ClearEvalRepresentation();
     /// <summary>
     /// Exchanges the u and v parametric directions on
     /// this BSpline surface.
@@ -3503,7 +3778,7 @@ public:
     /// surface must be closed in that parametric direction,
     /// and the knot sequence relative to that direction must be periodic.
     /// To generate this periodic sequence of knots, the
-    /// functions FirstUKnotIndex and LastUKnotIndex  are used to
+    /// functions FirstUKnotIndex and LastUKnotIndex are used to
     /// compute I1 and I2. These are the indexes, in the
     /// knot array associated with the given parametric
     /// direction, of the knots that correspond to the first and
@@ -3604,7 +3879,7 @@ public:
     /// <summary>
     /// Computes the u parameter on the modified
     /// surface, produced by reversing its U parametric
-    /// direction, for the point of u parameter U,  on this BSpline surface.
+    /// direction, for the point of u parameter U, on this BSpline surface.
     /// For a BSpline surface, these functions return respectively:
     /// - UFirst + ULast - U,
     /// where UFirst, ULast are
@@ -3648,7 +3923,7 @@ public:
     /// - increased to M, if Add is false.
     /// The tolerance criterion used to check the equality of
     /// the knots is the larger of the values ParametricTolerance and
-    /// Standard_Real::Epsilon(val), where val is the knot value to be inserted.
+    /// double::Epsilon(val), where val is the knot value to be inserted.
     /// Warning
     /// - If a given multiplicity coefficient is null, or negative, nothing is done.
     /// - The new multiplicity of a knot is limited to the degree of this BSpline surface in the
@@ -3670,7 +3945,7 @@ public:
     /// - increased to M, if Add is false.
     /// The tolerance criterion used to check the equality of
     /// the knots is the larger of the values ParametricTolerance and
-    /// Standard_Real::Epsilon(val), where val is the knot value to be inserted.
+    /// double::Epsilon(val), where val is the knot value to be inserted.
     /// Warning
     /// - If a given multiplicity coefficient is null, or negative, nothing is done.
     /// - The new multiplicity of a knot is limited to the degree of this BSpline surface in the
@@ -3692,7 +3967,7 @@ public:
     /// - increased to M, if Add is false.
     /// The tolerance criterion used to check the equality of
     /// the knots is the larger of the values ParametricTolerance and
-    /// Standard_Real::Epsilon(val), where val is the knot value to be inserted.
+    /// double::Epsilon(val), where val is the knot value to be inserted.
     /// Warning
     /// - If a given multiplicity coefficient is null, or negative, nothing is done.
     /// - The new multiplicity of a knot is limited to the degree of this BSpline surface in the
@@ -3714,7 +3989,7 @@ public:
     /// - increased to M, if Add is false.
     /// The tolerance criterion used to check the equality of
     /// the knots is the larger of the values ParametricTolerance and
-    /// Standard_Real::Epsilon(val), where val is the knot value to be inserted.
+    /// double::Epsilon(val), where val is the knot value to be inserted.
     /// Warning
     /// - If a given multiplicity coefficient is null, or negative, nothing is done.
     /// - The new multiplicity of a knot is limited to the degree of this BSpline surface in the
@@ -3736,7 +4011,7 @@ public:
     /// - increased to M, if Add is false.
     /// The tolerance criterion used to check the equality of
     /// the knots is the larger of the values ParametricTolerance and
-    /// Standard_Real::Epsilon(val), where val is the knot value to be inserted.
+    /// double::Epsilon(val), where val is the knot value to be inserted.
     /// Warning
     /// - If a given multiplicity coefficient is null, or negative, nothing is done.
     /// - The new multiplicity of a knot is limited to the degree of this BSpline surface in the
@@ -3758,7 +4033,7 @@ public:
     /// - increased to M, if Add is false.
     /// The tolerance criterion used to check the equality of
     /// the knots is the larger of the values ParametricTolerance and
-    /// Standard_Real::Epsilon(val), where val is the knot value to be inserted.
+    /// double::Epsilon(val), where val is the knot value to be inserted.
     /// Warning
     /// - If a given multiplicity coefficient is null, or negative, nothing is done.
     /// - The new multiplicity of a knot is limited to the degree of this BSpline surface in the
@@ -3839,7 +4114,7 @@ public:
     void IncreaseUMultiplicity(int FromI1, int ToI2, int M);
     /// <summary>
     /// Increments the multiplicity of the consecutives uknots FromI1..ToI2
-    /// by step.   The multiplicity of each knot FromI1,.....,ToI2 must be
+    /// by step. The multiplicity of each knot FromI1,.....,ToI2 must be
     /// lower or equal to the UDegree of the B_spline.
     /// 
     /// Raised if FromI1 or ToI2 is not in the range
@@ -3875,7 +4150,7 @@ public:
     void IncreaseVMultiplicity(int FromI1, int ToI2, int M);
     /// <summary>
     /// Increments the multiplicity of the consecutives vknots FromI1..ToI2
-    /// by step.  The multiplicity of each knot FromI1,.....,ToI2 must be
+    /// by step. The multiplicity of each knot FromI1,.....,ToI2 must be
     /// lower or equal to the VDegree of the B_spline.
     /// 
     /// Raised if FromI1 or ToI2 is not in the range
@@ -4077,7 +4352,7 @@ public:
     /// 
     /// Raised if there is an index such that UK (Index+1) <= UK (Index).
     /// 
-    /// Raised if  UK.Lower() < 1 or UK.Upper() > NbUKnots
+    /// Raised if UK.Lower() < 1 or UK.Upper() > NbUKnots
     /// </summary>
     void SetUKnots(Macad::Occt::TColStd_Array1OfReal^ UK);
     /// <summary>
@@ -4106,7 +4381,7 @@ public:
     /// 
     /// Raised if there is an index such that VK (Index+1) <= VK (Index).
     /// 
-    /// Raised if  VK.Lower() < 1 or VK.Upper() > NbVKnots
+    /// Raised if VK.Lower() < 1 or VK.Upper() > NbVKnots
     /// </summary>
     void SetVKnots(Macad::Occt::TColStd_Array1OfReal^ VK);
     /// <summary>
@@ -4125,39 +4400,39 @@ public:
     /// Locates the parametric value U in the sequence of UKnots.
     /// If "WithKnotRepetition" is True we consider the knot's
     /// representation with repetition of multiple knot value,
-    /// otherwise  we consider the knot's representation with
+    /// otherwise we consider the knot's representation with
     /// no repetition of multiple knot values.
     /// UKnots (I1) <= U <= UKnots (I2)
-    /// . if I1 = I2  U is a knot value (the tolerance criterion
+    /// . if I1 = I2 U is a knot value (the tolerance criterion
     /// ParametricTolerance is used).
-    /// . if I1 < 1  => U < UKnots(1) - Abs(ParametricTolerance)
-    /// . if I2 > NbUKnots => U > UKnots(NbUKnots)+Abs(ParametricTolerance)
+    /// . if I1 < 1 => U < UKnots(1) - std::abs(ParametricTolerance)
+    /// . if I2 > NbUKnots => U > UKnots(NbUKnots)+std::abs(ParametricTolerance)
     /// </summary>
     void LocateU(double U, double ParametricTolerance, int% I1, int% I2, bool WithKnotRepetition);
     /// <summary>
     /// Locates the parametric value U in the sequence of UKnots.
     /// If "WithKnotRepetition" is True we consider the knot's
     /// representation with repetition of multiple knot value,
-    /// otherwise  we consider the knot's representation with
+    /// otherwise we consider the knot's representation with
     /// no repetition of multiple knot values.
     /// UKnots (I1) <= U <= UKnots (I2)
-    /// . if I1 = I2  U is a knot value (the tolerance criterion
+    /// . if I1 = I2 U is a knot value (the tolerance criterion
     /// ParametricTolerance is used).
-    /// . if I1 < 1  => U < UKnots(1) - Abs(ParametricTolerance)
-    /// . if I2 > NbUKnots => U > UKnots(NbUKnots)+Abs(ParametricTolerance)
+    /// . if I1 < 1 => U < UKnots(1) - std::abs(ParametricTolerance)
+    /// . if I2 > NbUKnots => U > UKnots(NbUKnots)+std::abs(ParametricTolerance)
     /// </summary>
     void LocateU(double U, double ParametricTolerance, int% I1, int% I2);
     /// <summary>
     /// Locates the parametric value V in the sequence of knots.
     /// If "WithKnotRepetition" is True we consider the knot's
     /// representation with repetition of multiple knot value,
-    /// otherwise  we consider the knot's representation with
+    /// otherwise we consider the knot's representation with
     /// no repetition of multiple knot values.
     /// VKnots (I1) <= V <= VKnots (I2)
-    /// . if I1 = I2  V is a knot value (the tolerance criterion
+    /// . if I1 = I2 V is a knot value (the tolerance criterion
     /// ParametricTolerance is used).
-    /// . if I1 < 1  => V < VKnots(1) - Abs(ParametricTolerance)
-    /// . if I2 > NbVKnots => V > VKnots(NbVKnots)+Abs(ParametricTolerance)
+    /// . if I1 < 1 => V < VKnots(1) - std::abs(ParametricTolerance)
+    /// . if I2 > NbVKnots => V > VKnots(NbVKnots)+std::abs(ParametricTolerance)
     /// poles insertion and removing
     /// The following methods are available only if the surface
     /// is Uniform or QuasiUniform in the considered direction
@@ -4168,13 +4443,13 @@ public:
     /// Locates the parametric value V in the sequence of knots.
     /// If "WithKnotRepetition" is True we consider the knot's
     /// representation with repetition of multiple knot value,
-    /// otherwise  we consider the knot's representation with
+    /// otherwise we consider the knot's representation with
     /// no repetition of multiple knot values.
     /// VKnots (I1) <= V <= VKnots (I2)
-    /// . if I1 = I2  V is a knot value (the tolerance criterion
+    /// . if I1 = I2 V is a knot value (the tolerance criterion
     /// ParametricTolerance is used).
-    /// . if I1 < 1  => V < VKnots(1) - Abs(ParametricTolerance)
-    /// . if I2 > NbVKnots => V > VKnots(NbVKnots)+Abs(ParametricTolerance)
+    /// . if I1 < 1 => V < VKnots(1) - std::abs(ParametricTolerance)
+    /// . if I2 > NbVKnots => V > VKnots(NbVKnots)+std::abs(ParametricTolerance)
     /// poles insertion and removing
     /// The following methods are available only if the surface
     /// is Uniform or QuasiUniform in the considered direction
@@ -4271,13 +4546,13 @@ public:
     /// 
     /// Raised if CPoleWeights.Lower() < 1 or
     /// CPoleWeights.Upper() > NbVPoles.
-    /// Raised  if a weight value is lower or equal to Resolution
+    /// Raised if a weight value is lower or equal to Resolution
     /// from package gp.
     /// </summary>
     void SetWeightRow(int UIndex, Macad::Occt::TColStd_Array1OfReal^ CPoleWeights);
     /// <summary>
     /// Move a point with parameter U and V to P.
-    /// given u,v  as parameters)  to  reach a  new position
+    /// given u,v as parameters) to reach a new position
     /// UIndex1, UIndex2, VIndex1, VIndex2:
     /// indicates the poles which can be moved
     /// if Problem in BSplineBasis calculation, no change
@@ -4307,13 +4582,13 @@ public:
     bool IsVClosed();
     /// <summary>
     /// Returns True if the order of continuity of the surface in the
-    /// U direction  is N.
+    /// U direction is N.
     /// Raised if N < 0.
     /// </summary>
     bool IsCNu(int N);
     /// <summary>
     /// Returns True if the order of continuity of the surface
-    /// in the V direction  is N.
+    /// in the V direction is N.
     /// Raised if N < 0.
     /// </summary>
     bool IsCNv(int N);
@@ -4448,7 +4723,7 @@ public:
     double UKnot(int UIndex);
     /// <summary>
     /// Returns NonUniform or Uniform or QuasiUniform or
-    /// PiecewiseBezier.  If all the knots differ by a
+    /// PiecewiseBezier. If all the knots differ by a
     /// positive constant from the preceding knot in the U
     /// direction the B-spline surface can be :
     /// - Uniform if all the knots are of multiplicity 1,
@@ -4528,7 +4803,7 @@ public:
     /// except for the first and last knot which are of
     /// multiplicity Degree + 1,
     /// - PiecewiseBezier if the first and last knots have
-    /// multiplicity  Degree + 1 and if interior knots have
+    /// multiplicity Degree + 1 and if interior knots have
     /// multiplicity Degree
     /// otherwise the surface is non uniform in the V direction.
     /// The tolerance criterion is Resolution from package gp.
@@ -4595,26 +4870,29 @@ public:
     /// </summary>
     void Weights(Macad::Occt::TColStd_Array2OfReal^ W);
     /// <summary>
+    /// Returns a const reference to the weights array.
+    /// For rational surfaces: the internal owning weights array.
+    /// For non-rational surfaces: a non-owning view of unit weights from BSplSLib.
+    /// The array is always sized to match NbUPoles() x NbVPoles().
+    /// </summary>
+    /// @warning Do NOT modify elements through the returned reference.
+    Macad::Occt::TColStd_Array2OfReal^ WeightsArray();
+    /// <summary>
     /// Returns the weights of the B-spline surface.
     /// value and derivatives computation
     /// </summary>
     Macad::Occt::TColStd_Array2OfReal^ Weights();
-    void D0(double U, double V, Macad::Occt::Pnt% P);
     /// <summary>
-    /// Raised if the continuity of the surface is not C1.
+    /// Computes the point of parameter (U, V) on the surface.
+    /// Raises an exception on failure.
     /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
     /// <summary>
-    /// Raised if the continuity of the surface is not C2.
-    /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
-    /// <summary>
-    /// Raised if the continuity of the surface is not C3.
-    /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
-    /// <summary>
-    /// Nu is the order of derivation in the U parametric direction and
-    /// Nv is the order of derivation in the V parametric direction.
+    /// Computes the derivative of order Nu in U and Nv in V at (U, V).
+    /// Raises an exception on failure.
     /// 
     /// Raised if the continuity of the surface is not CNu in the U
     /// direction and CNv in the V direction.
@@ -4625,7 +4903,7 @@ public:
     /// parametric values (U, V) and the derivatives at
     /// this point on the B-spline surface patch delimited
     /// with the knots FromUK1, FromVK1 and the knots ToUK2,
-    /// ToVK2.  (U, V) can be out of these parametric bounds
+    /// ToVK2. (U, V) can be out of these parametric bounds
     /// but for the computation we only use the definition
     /// of the surface between these knots. This method is
     /// useful to compute local derivative, if the order of
@@ -4635,7 +4913,7 @@ public:
     /// definition of the surface. Of course the evaluations are
     /// different outside this parametric domain.
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Raised if FromUK1 = ToUK2 or FromVK1 = ToVK2.
     /// </summary>
@@ -4669,7 +4947,7 @@ public:
     /// Computes the point of parameter U, V on the BSpline surface patch
     /// defines between the knots UK1 UK2, VK1, VK2. U can be out of the
     /// bounds [Knot UK1, Knot UK2] and V can be outof the bounds
-    /// [Knot VK1, Knot VK2]  but for the computation we only use the
+    /// [Knot VK1, Knot VK2] but for the computation we only use the
     /// definition of the surface between these knot values.
     /// Raises if FromUK1 = ToUK2 or FromVK1 = ToVK2.
     /// </summary>
@@ -4789,7 +5067,7 @@ public:
     /// </summary>
     double X();
     /// <summary>
-    /// returns  the Y coordinate of <me>.
+    /// returns the Y coordinate of <me>.
     /// </summary>
     double Y();
     /// <summary>
@@ -4859,15 +5137,15 @@ public:
     /// </summary>
     void SetPnt(Macad::Occt::Pnt P);
     /// <summary>
-    /// Changes the X coordinate of me.
+    /// Changes the X coordinate of <me>.
     /// </summary>
     void SetX(double X);
     /// <summary>
-    /// Changes the Y coordinate of me.
+    /// Changes the Y coordinate of <me>.
     /// </summary>
     void SetY(double Y);
     /// <summary>
-    /// Changes the Z coordinate of me.
+    /// Changes the Z coordinate of <me>.
     /// </summary>
     void SetZ(double Z);
     /// <summary>
@@ -5000,7 +5278,7 @@ public:
     /// <summary>
     /// Returns the eccentricity value of the conic e.
     /// e = 0 for a circle
-    /// 0 < e < 1 for an ellipse  (e = 0 if MajorRadius = MinorRadius)
+    /// 0 < e < 1 for an ellipse (e = 0 if MajorRadius = MinorRadius)
     /// e > 1 for a hyperbola
     /// e = 1 for a parabola
     /// Exceptions
@@ -5027,7 +5305,7 @@ public:
     /// </summary>
     void Reverse();
     /// <summary>
-    /// Returns the  parameter on the  reversed  curve for
+    /// Returns the parameter on the reversed curve for
     /// the point of parameter U on <me>.
     /// </summary>
     double ReversedParameter(double U);
@@ -5074,7 +5352,7 @@ public:
 /// the trigonometric sense), determining the direction in
 /// which the parameter increases along the circle.
 /// The Geom_Circle circle is parameterized by an angle:
-/// P(U) = O + R*Cos(U)*XDir + R*Sin(U)*YDir, where:
+/// P(U) = O + R*std::cos(U)*XDir + R*Sin(U)*YDir, where:
 /// - P is the point of parameter U,
 /// - O, XDir and YDir are respectively the origin, "X
 /// Direction" and "Y Direction" of its local coordinate system,
@@ -5153,12 +5431,12 @@ public:
     /// </summary>
     double ReversedParameter(double U);
     /// <summary>
-    /// Returns the eccentricity  e = 0 for a circle.
+    /// Returns the eccentricity e = 0 for a circle.
     /// </summary>
     double Eccentricity();
     /// <summary>
     /// Returns the value of the first parameter of this
-    /// circle. This is  0.0, which gives the start point of this circle, or
+    /// circle. This is 0.0, which gives the start point of this circle, or
     /// The start point and end point of a circle are coincident.
     /// </summary>
     double FirstParameter();
@@ -5177,32 +5455,21 @@ public:
     /// </summary>
     bool IsPeriodic();
     /// <summary>
-    /// Returns in P the point of parameter U.
+    /// Returns the point of parameter U.
     /// P = C + R * Cos (U) * XDir + R * Sin (U) * YDir
     /// where C is the center of the circle , XDir the XDirection and
     /// YDir the YDirection of the circle's local coordinate system.
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
+    Macad::Occt::Pnt EvalD0(double U);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, ) */
     /// <summary>
-    /// Returns the point P of parameter U and the first derivative V1.
-    /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
-    /// <summary>
-    /// Returns the point P of parameter U, the first and second
-    /// derivatives V1 and V2.
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// Returns the point P of parameter u, the first second and third
-    /// derivatives V1 V2 and V3.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
-    /// <summary>
-    /// The returned vector gives the value of the derivative for the
+    /// Returns the vector corresponding to the derivative for the
     /// order of derivation N.
     /// Raised if N < 1.
     /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
+    Macad::Occt::Vec EvalDN(double U, int N);
     /// <summary>
     /// Applies the transformation T to this circle.
     /// </summary>
@@ -5331,7 +5598,7 @@ public:
     /// </summary>
     void UReverse();
     /// <summary>
-    /// Return the  parameter on the  Ureversed surface for
+    /// Return the parameter on the Ureversed surface for
     /// the point of parameter U on <me>.
     /// 
     /// me->UReversed()->Value(me->UReversedParameter(U),V)
@@ -5344,7 +5611,7 @@ public:
     /// </summary>
     void VReverse();
     /// <summary>
-    /// Return the  parameter on the  Vreversed surface for
+    /// Return the parameter on the Vreversed surface for
     /// the point of parameter V on <me>.
     /// 
     /// me->VReversed()->Value(U,me->VReversedParameter(V))
@@ -5416,7 +5683,7 @@ public:
 /// - O, XDir, YDir and ZDir are respectively
 /// the origin, the "X Direction", the "Y Direction" and
 /// the "Z Direction" of the cone's local coordinate system,
-/// - Ang is the half-angle at the apex of the cone,   and
+/// - Ang is the half-angle at the apex of the cone, and
 /// - R is the reference radius.
 public ref class Geom_ConicalSurface sealed
     : public Macad::Occt::Geom_ElementarySurface
@@ -5459,8 +5726,8 @@ public:
     /// such that the normal Vector (N = D1U ^ D1V) is oriented towards
     /// the "outside region" of the surface.
     /// 
-    /// Raised if Radius < 0.0 or Abs(Ang) < Resolution from gp or
-    /// Abs(Ang) >= PI/2 - Resolution
+    /// Raised if Radius < 0.0 or std::abs(Ang) < Resolution from gp or
+    /// std::abs(Ang) >= PI/2 - Resolution
     /// </summary>
     Geom_ConicalSurface(Macad::Occt::Ax3 A3, double Ang, double Radius);
     /// <summary>
@@ -5480,9 +5747,9 @@ public:
     /// <summary>
     /// Changes the semi angle of the conical surface.
     /// Semi-angle can be negative. Its absolute value
-    /// Abs(Ang) is in range ]0,PI/2[.
-    /// Raises ConstructionError if Abs(Ang) < Resolution from gp or
-    /// Abs(Ang) >= PI/2 - Resolution
+    /// std::abs(Ang) is in range ]0,PI/2[.
+    /// Raises ConstructionError if std::abs(Ang) < Resolution from gp or
+    /// std::abs(Ang) >= PI/2 - Resolution
     /// </summary>
     void SetSemiAngle(double Ang);
     /// <summary>
@@ -5628,20 +5895,10 @@ public:
     /// @endcode
     /// where Loc is the origin of the placement plane (XAxis, YAxis)
     /// XDir is the direction of the XAxis and YDir the direction of the YAxis.
-    void D0(double U, double V, Macad::Occt::Pnt% P);
-    /// <summary>
-    /// Computes the current point and the first derivatives in the directions U and V.
-    /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
-    /// <summary>
-    /// Computes the current point, the first and the second derivatives in the directions U and V.
-    /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
-    /// <summary>
-    /// Computes the current point, the first,the second and the third
-    /// derivatives in the directions U and V.
-    /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
     /// <summary>
     /// Computes the derivative of order Nu in the u
     /// parametric direction, and Nv in the v parametric
@@ -5651,7 +5908,7 @@ public:
     /// - Nu + Nv is less than 1,
     /// - Nu or Nv is negative.
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Applies the transformation T to this cone.
     /// </summary>
@@ -5692,13 +5949,13 @@ public:
 /// 
 /// The parametrization range is :
 /// @code
-/// U [0, 2*PI],  V ]- infinite, + infinite[
+/// U [0, 2*PI], V ]- infinite, + infinite[
 /// @endcode
 /// 
 /// The "XAxis" and the "YAxis" define the placement plane of the
-/// surface (Z = 0, and parametric value V = 0)  perpendicular to
+/// surface (Z = 0, and parametric value V = 0) perpendicular to
 /// the symmetry axis. The "XAxis" defines the origin of the
-/// parameter U = 0.  The trigonometric sense gives the positive
+/// parameter U = 0. The trigonometric sense gives the positive
 /// orientation for the parameter U.
 /// 
 /// When you create a CylindricalSurface the U and V directions of
@@ -5764,19 +6021,19 @@ public:
     /// </summary>
     Macad::Occt::gp_Cylinder^ Cylinder();
     /// <summary>
-    /// Return the  parameter on the  Ureversed surface for
+    /// Return the parameter on the Ureversed surface for
     /// the point of parameter U on <me>.
     /// Return 2.PI - U.
     /// </summary>
     double UReversedParameter(double U);
     /// <summary>
-    /// Return the  parameter on the  Vreversed surface for
+    /// Return the parameter on the Vreversed surface for
     /// the point of parameter V on <me>.
     /// Return -V
     /// </summary>
     double VReversedParameter(double V);
     /// <summary>
-    /// Computes the  parameters on the  transformed  surface for
+    /// Computes the parameters on the transformed surface for
     /// the transform of the point of parameters U,V on <me>.
     /// </summary>
     /// @code
@@ -5857,35 +6114,23 @@ public:
     /// </summary>
     Macad::Occt::Geom_Curve^ VIso(double V);
     /// <summary>
-    /// Computes the  point P (U, V) on the surface.
+    /// Computes the point P (U, V) on the surface.
     /// P (U, V) = Loc + Radius * (cos (U) * XDir + sin (U) * YDir) +
     /// V * ZDir
     /// where Loc is the origin of the placement plane (XAxis, YAxis)
     /// XDir is the direction of the XAxis and YDir the direction of
     /// the YAxis.
     /// </summary>
-    void D0(double U, double V, Macad::Occt::Pnt% P);
-    /// <summary>
-    /// Computes the current point and the first derivatives in the
-    /// directions U and V.
-    /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
-    /// <summary>
-    /// Computes the current point, the first and the second derivatives
-    /// in the directions U and V.
-    /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
-    /// <summary>
-    /// Computes the current point, the first, the second and the
-    /// third   derivatives in the directions U and V.
-    /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
     /// <summary>
     /// Computes the derivative of order Nu in the direction u and Nv
     /// in the direction v.
     /// Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Applies the transformation T to this cylinder.
     /// </summary>
@@ -5988,7 +6233,7 @@ public:
     /// </summary>
     void Coord(double% X, double% Y, double% Z);
     /// <summary>
-    /// Returns the  Magnitude of <me>.
+    /// Returns the Magnitude of <me>.
     /// </summary>
     double Magnitude();
     /// <summary>
@@ -6025,10 +6270,10 @@ public:
     /// </summary>
     Macad::Occt::Geom_Vector^ Crossed(Macad::Occt::Geom_Vector^ Other);
     /// <summary>
-    /// Computes the triple vector product  <me> ^(V1 ^ V2).
+    /// Computes the triple vector product <me> ^(V1 ^ V2).
     /// 
     /// Raised if <me> is a "Direction" and if V1 and V2 are parallel
-    /// or <me> and (V1 ^ V2) are  parallel
+    /// or <me> and (V1 ^ V2) are parallel
     /// </summary>
     void CrossCross(Macad::Occt::Geom_Vector^ V1, Macad::Occt::Geom_Vector^ V2);
     /// <summary>
@@ -6090,7 +6335,7 @@ public:
     /// <summary>
     /// Creates a unit vector with it 3 cartesian coordinates.
     /// 
-    /// Raised if Sqrt( X*X + Y*Y + Z*Z) <= Resolution from gp.
+    /// Raised if std::sqrt( X*X + Y*Y + Z*Z) <= Resolution from gp.
     /// </summary>
     Geom_Direction(double X, double Y, double Z);
     /// <summary>
@@ -6100,7 +6345,7 @@ public:
     /// <summary>
     /// Sets <me> to X,Y,Z coordinates.
     /// 
-    /// Raised if Sqrt( X*X + Y*Y + Z*Z) <= Resolution from gp.
+    /// Raised if std::sqrt( X*X + Y*Y + Z*Z) <= Resolution from gp.
     /// </summary>
     void SetCoord(double X, double Y, double Z);
     /// <summary>
@@ -6110,19 +6355,19 @@ public:
     /// <summary>
     /// Changes the X coordinate of <me>.
     /// 
-    /// Raised if Sqrt( X*X + Y*Y + Z*Z) <= Resolution from gp.
+    /// Raised if std::sqrt( X*X + Y*Y + Z*Z) <= Resolution from gp.
     /// </summary>
     void SetX(double X);
     /// <summary>
     /// Changes the Y coordinate of <me>.
     /// 
-    /// Raised if Sqrt( X*X + Y*Y + Z*Z) <= Resolution from gp.
+    /// Raised if std::sqrt( X*X + Y*Y + Z*Z) <= Resolution from gp.
     /// </summary>
     void SetY(double Y);
     /// <summary>
     /// Changes the Z coordinate of <me>.
     /// 
-    /// Raised if Sqrt( X*X + Y*Y + Z*Z) <= Resolution from gp.
+    /// Raised if std::sqrt( X*X + Y*Y + Z*Z) <= Resolution from gp.
     /// </summary>
     void SetZ(double Z);
     /// <summary>
@@ -6146,7 +6391,7 @@ public:
     /// </summary>
     void Cross(Macad::Occt::Geom_Vector^ Other);
     /// <summary>
-    /// Computes the triple vector product  <me> ^(V1 ^ V2).
+    /// Computes the triple vector product <me> ^(V1 ^ V2).
     /// 
     /// Raised if V1 and V2 are parallel or <me> and (V1 ^ V2) are
     /// parallel
@@ -6202,7 +6447,7 @@ public:
 /// the trigonometric sense), determining the direction in
 /// which the parameter increases along the ellipse.
 /// The Geom_Ellipse ellipse is parameterized by an angle:
-/// P(U) = O + MajorRad*Cos(U)*XDir + MinorRad*Sin(U)*YDir
+/// P(U) = O + MajorRad*std::cos(U)*XDir + MinorRad*Sin(U)*YDir
 /// where:
 /// - P is the point of parameter U,
 /// - O, XDir and YDir are respectively the origin, "X
@@ -6312,7 +6557,7 @@ public:
     /// </summary>
     Macad::Occt::Ax1 Directrix2();
     /// <summary>
-    /// Returns the eccentricity of the ellipse  between 0.0 and 1.0
+    /// Returns the eccentricity of the ellipse between 0.0 and 1.0
     /// If f is the distance between the center of the ellipse and
     /// the Focus1 then the eccentricity e = f / MajorRadius.
     /// Returns 0 if MajorRadius = 0
@@ -6334,7 +6579,7 @@ public:
     /// </summary>
     Macad::Occt::Pnt Focus2();
     /// <summary>
-    /// Returns the major  radius of this ellipse.
+    /// Returns the major radius of this ellipse.
     /// </summary>
     double MajorRadius();
     /// <summary>
@@ -6355,7 +6600,7 @@ public:
     /// </summary>
     double FirstParameter();
     /// <summary>
-    /// Returns the value of the  last parameter of this
+    /// Returns the value of the last parameter of this
     /// ellipse. This is respectively:
     /// - 2.*Pi, which gives the end point of this ellipse.
     /// The start point and end point of an ellipse are coincident.
@@ -6370,29 +6615,21 @@ public:
     /// </summary>
     bool IsPeriodic();
     /// <summary>
-    /// Returns in P the point of parameter U.
+    /// Returns the point of parameter U.
     /// P = C + MajorRadius * Cos (U) * XDir + MinorRadius * Sin (U) * YDir
     /// where C is the center of the ellipse , XDir the direction of
     /// the "XAxis" and "YDir" the "YAxis" of the ellipse.
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
-    /// <summary>
-    /// Returns the point P of parameter U. The vectors V1 and V2
-    /// are the first and second derivatives at this point.
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// Returns the point P of parameter U, the first second and
-    /// third derivatives V1 V2 and V3.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
+    Macad::Occt::Pnt EvalD0(double U);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, ) */
     /// <summary>
     /// For the point of parameter U of this ellipse, computes
     /// the vector corresponding to the Nth derivative.
     /// Exceptions Standard_RangeError if N is less than 1.
     /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
+    Macad::Occt::Vec EvalDN(double U, int N);
     /// <summary>
     /// Applies the transformation T to this ellipse.
     /// </summary>
@@ -6411,107 +6648,6 @@ public:
     void DumpJson(System::IO::TextWriter^ theOStream);
     static Macad::Occt::Geom_Ellipse^ CreateDowncasted(::Geom_Ellipse* instance);
 }; // class Geom_Ellipse
-
-//---------------------------------------------------------------------
-//  Class  Geom_HSequenceOfBSplineSurface
-//---------------------------------------------------------------------
-public ref class Geom_HSequenceOfBSplineSurface sealed
-    : public Macad::Occt::Standard_Transient
-    , public IIndexEnumerable<Macad::Occt::Geom_BSplineSurface^>
-{
-
-#ifdef Include_Geom_HSequenceOfBSplineSurface_h
-public:
-    Include_Geom_HSequenceOfBSplineSurface_h
-#endif
-
-public:
-    Geom_HSequenceOfBSplineSurface(::Geom_HSequenceOfBSplineSurface* nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    Geom_HSequenceOfBSplineSurface(::Geom_HSequenceOfBSplineSurface& nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    property ::Geom_HSequenceOfBSplineSurface* NativeInstance
-    {
-        ::Geom_HSequenceOfBSplineSurface* get()
-        {
-            return static_cast<::Geom_HSequenceOfBSplineSurface*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Geom_HSequenceOfBSplineSurface::Iterator>
-    {
-
-#ifdef Include_Geom_HSequenceOfBSplineSurface_Iterator_h
-    public:
-        Include_Geom_HSequenceOfBSplineSurface_Iterator_h
-#endif
-
-    public:
-        Iterator(::Geom_HSequenceOfBSplineSurface::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Geom_HSequenceOfBSplineSurface::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Geom_HSequenceOfBSplineSurface::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Geom_HSequenceOfBSplineSurface::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Geom_HSequenceOfBSplineSurface::Iterator* NativeInstance
-        {
-            ::Geom_HSequenceOfBSplineSurface::Iterator* get()
-            {
-                return static_cast<::Geom_HSequenceOfBSplineSurface::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::Geom_BSplineSurface^ Value();
-        Macad::Occt::Geom_BSplineSurface^ ChangeValue();
-        bool IsEqual(Macad::Occt::Geom_HSequenceOfBSplineSurface::Iterator^ theOther);
-        bool Equals(System::Object^ obj) override;
-    }; // class Iterator
-
-    Geom_HSequenceOfBSplineSurface();
-    Geom_HSequenceOfBSplineSurface(Macad::Occt::Geom_SequenceOfBSplineSurface^ theOther);
-    Macad::Occt::Geom_SequenceOfBSplineSurface^ Sequence();
-    void Append(Macad::Occt::Geom_BSplineSurface^ theItem);
-    void Append(Macad::Occt::Geom_SequenceOfBSplineSurface^ theSequence);
-    Macad::Occt::Geom_SequenceOfBSplineSurface^ ChangeSequence();
-    int Size();
-    int Length();
-    int Lower();
-    int Upper();
-    bool IsEmpty();
-    void Reverse();
-    void Exchange(int I, int J);
-    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::Geom_HSequenceOfBSplineSurface^ Assign(Macad::Occt::Geom_HSequenceOfBSplineSurface^ theOther);
-    void Remove(Macad::Occt::Geom_HSequenceOfBSplineSurface::Iterator^ thePosition);
-    void Prepend(Macad::Occt::Geom_BSplineSurface^ theItem);
-    void InsertBefore(int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
-    void InsertAfter(Macad::Occt::Geom_HSequenceOfBSplineSurface::Iterator^ thePosition, Macad::Occt::Geom_BSplineSurface^ theItem);
-    void Split(int theIndex, Macad::Occt::Geom_HSequenceOfBSplineSurface^ theSeq);
-    Macad::Occt::Geom_BSplineSurface^ First();
-    Macad::Occt::Geom_BSplineSurface^ ChangeFirst();
-    Macad::Occt::Geom_BSplineSurface^ Last();
-    Macad::Occt::Geom_BSplineSurface^ ChangeLast();
-    virtual Macad::Occt::Geom_BSplineSurface^ Value(int theIndex);
-    Macad::Occt::Geom_BSplineSurface^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::Geom_BSplineSurface^ theItem);
-    static Macad::Occt::Geom_HSequenceOfBSplineSurface^ CreateDowncasted(::Geom_HSequenceOfBSplineSurface* instance);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::Geom_BSplineSurface^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class Geom_HSequenceOfBSplineSurface
 
 //---------------------------------------------------------------------
 //  Class  Geom_Hyperbola
@@ -6541,7 +6677,7 @@ public:
 /// determining the direction in which the parameter
 /// increases along the hyperbola.
 /// The Geom_Hyperbola hyperbola is parameterized as follows:
-/// P(U) = O + MajRad*Cosh(U)*XDir + MinRad*Sinh(U)*YDir, where:
+/// P(U) = O + MajRad*std::cosh(U)*XDir + MinRad*std::sinh(U)*YDir, where:
 /// - P is the point of parameter U,
 /// - O, XDir and YDir are respectively the origin, "X
 /// Direction" and "Y Direction" of its local coordinate system,
@@ -6610,7 +6746,7 @@ public:
     /// - the "Y Direction" of A2 defines the minor axis
     /// of the hyperbola, i.e. the minor radius
     /// MinorRadius is measured along this axis,
-    /// - A2 is the local coordinate system of the   hyperbola.
+    /// - A2 is the local coordinate system of the hyperbola.
     /// Exceptions
     /// Standard_ConstructionError if:
     /// - MajorRadius is less than 0.0,
@@ -6757,33 +6893,22 @@ public:
     /// </summary>
     double Parameter();
     /// <summary>
-    /// Returns in P the point of parameter U.
-    /// P = C + MajorRadius * Cosh (U) * XDir +
-    /// MinorRadius * Sinh (U) * YDir
+    /// Returns the point of parameter U.
+    /// P = C + MajorRadius * std::cosh(U) * XDir +
+    /// MinorRadius * std::sinh(U) * YDir
     /// where C is the center of the hyperbola , XDir the XDirection and
     /// YDir the YDirection of the hyperbola's local coordinate system.
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
+    Macad::Occt::Pnt EvalD0(double U);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, ) */
     /// <summary>
-    /// Returns the point P of parameter U and the first derivative V1.
-    /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
-    /// <summary>
-    /// Returns the point P of parameter U, the first and second
-    /// derivatives V1 and V2.
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// Returns the point P of parameter U, the first second and
-    /// third derivatives V1 V2 and V3.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
-    /// <summary>
-    /// The returned vector gives the value of the derivative for the
+    /// Returns the vector corresponding to the derivative for the
     /// order of derivation N.
     /// Raised if N < 1.
     /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
+    Macad::Occt::Vec EvalDN(double U, int N);
     /// <summary>
     /// Applies the transformation T to this hyperbola.
     /// </summary>
@@ -6898,12 +7023,12 @@ public:
     double ReversedParameter(double U);
     /// <summary>
     /// Returns the value of the first parameter of this
-    /// line. This is Standard_Real::RealFirst().
+    /// line. This is double::RealFirst().
     /// </summary>
     double FirstParameter();
     /// <summary>
     /// Returns the value of the last parameter of this
-    /// line. This is  Standard_Real::RealLast().
+    /// line. This is double::RealLast().
     /// </summary>
     double LastParameter();
     /// <summary>
@@ -6924,37 +7049,26 @@ public:
     /// </summary>
     bool IsCN(int N);
     /// <summary>
-    /// Returns in P the point of parameter U.
+    /// Returns the point of parameter U.
     /// P (U) = O + U * Dir where O is the "Location" point of the
     /// line and Dir the direction of the line.
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
+    Macad::Occt::Pnt EvalD0(double U);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, ) */
     /// <summary>
-    /// Returns the point P of parameter u and the first derivative V1.
-    /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
-    /// <summary>
-    /// Returns the point P of parameter U, the first and second
-    /// derivatives V1 and V2. V2 is a vector with null magnitude
-    /// for a line.
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// V2 and V3 are vectors with null magnitude for a line.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
-    /// <summary>
-    /// The returned vector gives the value of the derivative for the
+    /// Returns the vector corresponding to the derivative for the
     /// order of derivation N.
     /// Raised if N < 1.
     /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
+    Macad::Occt::Vec EvalDN(double U, int N);
     /// <summary>
     /// Applies the transformation T to this line.
     /// </summary>
     void Transform(Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns the  parameter on the  transformed  curve for
+    /// Returns the parameter on the transformed curve for
     /// the transform of the point of parameter U on <me>.
     /// 
     /// me->Transformed(T)->Value(me->TransformedParameter(U,T))
@@ -6967,8 +7081,8 @@ public:
     /// </summary>
     double TransformedParameter(double U, Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns a  coefficient to compute the parameter on
-    /// the transformed  curve  for  the transform  of the
+    /// Returns a coefficient to compute the parameter on
+    /// the transformed curve for the transform of the
     /// point on <me>.
     /// 
     /// Transformed(T)->Value(U * ParametricTransformation(T))
@@ -7008,7 +7122,7 @@ public:
 /// a basis curve in a reference direction V. The offset curve
 /// takes its parametrization from the basis curve.
 /// The Offset curve is in the direction of the normal N
-/// defined with the cross product  T^V, where the vector T
+/// defined with the cross product T^V, where the vector T
 /// is given by the first derivative on the basis curve with
 /// non zero length.
 /// The distance offset may be positive or negative to indicate the
@@ -7074,8 +7188,8 @@ public:
     /// direction (offset direction). If P is a point on the basis
     /// curve and T the first derivative with non zero length
     /// at this point, the corresponding point on the offset curve is
-    /// in the direction of the vector-product N = V ^ T   where
-    /// N is a unitary vector.
+    /// in the direction of the vector-product N = V ^ T
+    /// where N is a unitary vector.
     /// If isNotCheckC0 = TRUE checking if basis curve has C0-continuity
     /// is not made.
     /// Warnings :
@@ -7094,8 +7208,8 @@ public:
     /// direction (offset direction). If P is a point on the basis
     /// curve and T the first derivative with non zero length
     /// at this point, the corresponding point on the offset curve is
-    /// in the direction of the vector-product N = V ^ T   where
-    /// N is a unitary vector.
+    /// in the direction of the vector-product N = V ^ T
+    /// where N is a unitary vector.
     /// If isNotCheckC0 = TRUE checking if basis curve has C0-continuity
     /// is not made.
     /// Warnings :
@@ -7108,6 +7222,16 @@ public:
     /// No check is done to know if ||V^T|| != 0.0 at any point.
     /// </summary>
     Geom_OffsetCurve(Macad::Occt::Geom_Curve^ C, double Offset, Macad::Occt::Dir V);
+    /// <summary>
+    /// Returns true if an evaluation representation is attached.
+    /// </summary>
+    bool HasEvalRepresentation();
+    /* Method skipped due to unknown mapping: GeomEval_RepCurveDesc::Base EvalRepresentation() */
+    /* Method skipped due to unknown mapping: void SetEvalRepresentation(GeomEval_RepCurveDesc::Base theDesc, ) */
+    /// <summary>
+    /// Removes the evaluation representation.
+    /// </summary>
+    void ClearEvalRepresentation();
     /// <summary>
     /// Changes the orientation of this offset curve.
     /// As a result:
@@ -7194,22 +7318,10 @@ public:
     /// if the basis curve is not at least C1. Nevertheless
     /// if used on portion where the curve is C1, it is OK
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
-    /// <summary>
-    /// Warning! this should not be called
-    /// if the continuity of the basis curve is not C2.
-    /// Nevertheless, it's OK to use it  on portion
-    /// where the curve is C2
-    /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
-    /// <summary>
-    /// Warning! this should not be called
-    /// if the continuity of the basis curve is not C3.
-    /// Nevertheless, it's OK to use it  on portion
-    /// where the curve is C3
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
+    Macad::Occt::Pnt EvalD0(double U);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, ) */
     /// <summary>
     /// The returned vector gives the value of the derivative
     /// for the order of derivation N.
@@ -7226,7 +7338,7 @@ public:
     /// direction.
     /// Raised if N < 1.
     /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
+    Macad::Occt::Vec EvalDN(double U, int N);
     /// <summary>
     /// Returns the value of the first parameter of this
     /// offset curve. The first parameter corresponds to the
@@ -7257,7 +7369,7 @@ public:
     /// Returns true if the degree of continuity of the basis
     /// curve of this offset curve is at least N + 1.
     /// This method answer True if the continuity of the basis curve
-    /// is N + 1.  We suppose in this class that a normal direction
+    /// is N + 1. We suppose in this class that a normal direction
     /// to the basis curve (used to compute the offset curve) is
     /// defined at any point on the basis curve.
     /// Raised if N < 0.
@@ -7281,7 +7393,7 @@ public:
     /// </summary>
     void Transform(Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns the  parameter on the  transformed  curve for
+    /// Returns the parameter on the transformed curve for
     /// the transform of the point of parameter U on <me>.
     /// me->Transformed(T)->Value(me->TransformedParameter(U,T))
     /// is the same point as
@@ -7290,8 +7402,8 @@ public:
     /// </summary>
     double TransformedParameter(double U, Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns a  coefficient to compute the parameter on
-    /// the transformed  curve  for  the transform  of the
+    /// Returns a coefficient to compute the parameter on
+    /// the transformed curve for the transform of the
     /// point on <me>.
     /// 
     /// Transformed(T)->Value(U * ParametricTransformation(T))
@@ -7318,68 +7430,6 @@ public:
     void DumpJson(System::IO::TextWriter^ theOStream);
     static Macad::Occt::Geom_OffsetCurve^ CreateDowncasted(::Geom_OffsetCurve* instance);
 }; // class Geom_OffsetCurve
-
-//---------------------------------------------------------------------
-//  Class  Geom_OsculatingSurface
-//---------------------------------------------------------------------
-public ref class Geom_OsculatingSurface sealed
-    : public Macad::Occt::Standard_Transient
-{
-
-#ifdef Include_Geom_OsculatingSurface_h
-public:
-    Include_Geom_OsculatingSurface_h
-#endif
-
-public:
-    Geom_OsculatingSurface(::Geom_OsculatingSurface* nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    Geom_OsculatingSurface(::Geom_OsculatingSurface& nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    property ::Geom_OsculatingSurface* NativeInstance
-    {
-        ::Geom_OsculatingSurface* get()
-        {
-            return static_cast<::Geom_OsculatingSurface*>(_NativeInstance);
-        }
-    }
-
-public:
-    Geom_OsculatingSurface();
-    /// <summary>
-    /// detects if the  surface has punctual U  or  V
-    /// isoparametric  curve along on  the bounds of the surface
-    /// relatively to the tolerance Tol and Builds the corresponding
-    /// osculating surfaces.
-    /// </summary>
-    Geom_OsculatingSurface(Macad::Occt::Geom_Surface^ BS, double Tol);
-    void Init(Macad::Occt::Geom_Surface^ BS, double Tol);
-    Macad::Occt::Geom_Surface^ BasisSurface();
-    double Tolerance();
-    /// <summary>
-    /// if Standard_True, L is the local osculating surface
-    /// along U at the point U,V.
-    /// </summary>
-    bool UOscSurf(double U, double V, bool% t, Macad::Occt::Geom_BSplineSurface^ L);
-    /// <summary>
-    /// if Standard_True, L is the local osculating surface
-    /// along V at the point U,V.
-    /// </summary>
-    bool VOscSurf(double U, double V, bool% t, Macad::Occt::Geom_BSplineSurface^ L);
-    /// <summary>
-    /// Dumps the content of me into the stream
-    /// </summary>
-    void DumpJson(System::IO::TextWriter^ theOStream, int theDepth);
-    /// <summary>
-    /// Dumps the content of me into the stream
-    /// </summary>
-    void DumpJson(System::IO::TextWriter^ theOStream);
-    static Macad::Occt::Geom_OsculatingSurface^ CreateDowncasted(::Geom_OsculatingSurface* instance);
-}; // class Geom_OsculatingSurface
 
 //---------------------------------------------------------------------
 //  Class  Geom_OffsetSurface
@@ -7490,6 +7540,16 @@ public:
     /// </summary>
     Geom_OffsetSurface(Macad::Occt::Geom_Surface^ S, double Offset);
     /// <summary>
+    /// Returns true if an evaluation representation is attached.
+    /// </summary>
+    bool HasEvalRepresentation();
+    /* Method skipped due to unknown mapping: GeomEval_RepSurfaceDesc::Base EvalRepresentation() */
+    /* Method skipped due to unknown mapping: void SetEvalRepresentation(GeomEval_RepSurfaceDesc::Base theDesc, ) */
+    /// <summary>
+    /// Removes the evaluation representation.
+    /// </summary>
+    void ClearEvalRepresentation();
+    /// <summary>
     /// Raised if S is not at least C1.
     /// Warnings :
     /// No check is done to verify that a unique normal direction is
@@ -7527,20 +7587,16 @@ public:
     /// </summary>
     Macad::Occt::Geom_Surface^ BasisSurface();
     /// <summary>
-    /// Returns osculating surface if base surface is B-spline or Bezier
-    /// </summary>
-    Macad::Occt::Geom_OsculatingSurface^ OsculatingSurface();
-    /// <summary>
     /// Changes the orientation of this offset surface in the u
     /// parametric direction. The bounds of the surface
     /// are not changed but the given parametric direction is reversed.
     /// </summary>
     void UReverse();
     /// <summary>
-    /// Computes the u  parameter on the modified
+    /// Computes the u parameter on the modified
     /// surface, produced by reversing the u
     /// parametric direction of this offset surface, for any
-    /// point of u parameter U  on this offset surface.
+    /// point of u parameter U on this offset surface.
     /// </summary>
     double UReversedParameter(double U);
     /// <summary>
@@ -7549,18 +7605,18 @@ public:
     /// </summary>
     void VReverse();
     /// <summary>
-    /// Computes the  v parameter on the modified
+    /// Computes the v parameter on the modified
     /// surface, produced by reversing the or v
     /// parametric direction of this offset surface, for any
-    /// point of  v parameter V on this offset surface.
+    /// point of v parameter V on this offset surface.
     /// </summary>
     double VReversedParameter(double V);
     /// <summary>
     /// Returns the parametric bounds U1, U2, V1 and V2 of
     /// this offset surface.
     /// If the surface is infinite, this function can return:
-    /// - Standard_Real::RealFirst(), or
-    /// - Standard_Real::RealLast().
+    /// - double::RealFirst(), or
+    /// - double::RealLast().
     /// </summary>
     void Bounds(double% U1, double% U2, double% V1, double% V2);
     /// <summary>
@@ -7604,7 +7660,7 @@ public:
     /// the parametric bounds in the u parametric direction,
     /// the distance between the points P(uFirst,v)
     /// and P(uLast,v) is less than or equal to
-    /// gp::Resolution() for each value of the   parameter v.
+    /// gp::Resolution() for each value of the parameter v.
     /// </summary>
     bool IsUClosed();
     /// <summary>
@@ -7681,37 +7737,24 @@ public:
     /// Raised if the continuity of the basis surface is not C1.
     /// Raised if the order of derivation required to compute the
     /// normal direction is greater than the second order.
-    void D0(double U, double V, Macad::Occt::Pnt% P);
+    /// Raises an exception on failure.
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
     /// <summary>
-    /// Raised if the continuity of the basis surface is not C2.
-    /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
-    /// <summary>
-    /// Raised if the continuity of the basis surface is not C3.
-    /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
-    /// <summary>
-    /// Raised if the continuity of the basis surface is not C4.
-    /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
-    /// <summary>
-    /// Computes the derivative of order Nu in the direction u and Nv in the direction v.
+    /// Computes the derivative of order Nu in U and Nv in V at (U, V).
+    /// Raises an exception on failure.
     /// 
     /// Raised if the continuity of the basis surface is not CNu + 1
     /// in the U direction and CNv + 1 in the V direction.
     /// Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
     /// 
-    /// The following methods compute the value and derivatives
-    /// on the offset surface and returns the derivatives on the
-    /// basis surface too.
-    /// The computation of the value and derivatives on the basis
-    /// surface are used to evaluate the offset surface.
-    /// 
     /// Warnings:
     /// The exception UndefinedValue or UndefinedDerivative is
     /// raised if it is not possible to compute a unique offset direction.
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Applies the transformation T to this offset surface.
     /// Note: the basis surface is also modified.
@@ -7756,24 +7799,24 @@ public:
     /// </summary>
     Macad::Occt::Geom_Geometry^ Copy();
     /// <summary>
-    /// returns an  equivalent surface of the offset surface
-    /// when  the basis surface   is a canonic  surface or a
-    /// rectangular  limited surface on canonic surface or if
+    /// returns an equivalent surface of the offset surface
+    /// when the basis surface is a canonic surface or a
+    /// rectangular limited surface on canonic surface or if
     /// the offset is null.
     /// </summary>
     Macad::Occt::Geom_Surface^ Surface();
     /// <summary>
-    /// if Standard_True, L is  the local osculating surface
-    /// along U at  the point U,V.   It means that  DL/DU is
-    /// collinear to DS/DU .  If IsOpposite == Standard_True
+    /// if true, L is the local osculating surface
+    /// along U at the point U,V. It means that DL/DU is
+    /// collinear to DS/DU. If IsOpposite == true
     /// these vectors have opposite direction.
     /// </summary>
     bool UOsculatingSurface(double U, double V, bool% IsOpposite, Macad::Occt::Geom_BSplineSurface^ UOsculSurf);
     /// <summary>
-    /// if Standard_True, L is the local osculating surface
+    /// if true, L is the local osculating surface
     /// along V at the point U,V.
-    /// It means that  DL/DV is
-    /// collinear to DS/DV .  If IsOpposite == Standard_True
+    /// It means that DL/DV is collinear to DS/DV.
+    /// If IsOpposite == true
     /// these vectors have opposite direction.
     /// </summary>
     bool VOsculatingSurface(double U, double V, bool% IsOpposite, Macad::Occt::Geom_BSplineSurface^ VOsculSurf);
@@ -7905,15 +7948,15 @@ public:
     /// <summary>
     /// Returns the value of the first or last parameter of this
     /// parabola. This is, respectively:
-    /// - Standard_Real::RealFirst(), or
-    /// - Standard_Real::RealLast().
+    /// - double::RealFirst(), or
+    /// - double::RealLast().
     /// </summary>
     double FirstParameter();
     /// <summary>
     /// Returns the value of the first or last parameter of this
     /// parabola. This is, respectively:
-    /// - Standard_Real::RealFirst(), or
-    /// - Standard_Real::RealLast().
+    /// - double::RealFirst(), or
+    /// - double::RealLast().
     /// </summary>
     double LastParameter();
     /// <summary>
@@ -7959,40 +8002,29 @@ public:
     /// </summary>
     double Parameter();
     /// <summary>
-    /// Returns in P the point of parameter U.
+    /// Returns the point of parameter U.
     /// If U = 0 the returned point is the origin of the XAxis and
     /// the YAxis of the parabola and it is the vertex of the parabola.
-    /// P = S + F * (U * U * XDir +  * U * YDir)
+    /// P = S + F * (U * U * XDir + * U * YDir)
     /// where S is the vertex of the parabola, XDir the XDirection and
     /// YDir the YDirection of the parabola's local coordinate system.
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
-    /// <summary>
-    /// Returns the point P of parameter U and the first derivative V1.
-    /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
-    /// <summary>
-    /// Returns the point P of parameter U, the first and second
-    /// derivatives V1 and V2.
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// Returns the point P of parameter U, the first second and third
-    /// derivatives V1 V2 and V3.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
+    Macad::Occt::Pnt EvalD0(double U);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, ) */
     /// <summary>
     /// For the point of parameter U of this parabola,
     /// computes the vector corresponding to the Nth derivative.
     /// Exceptions Standard_RangeError if N is less than 1.
     /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
+    Macad::Occt::Vec EvalDN(double U, int N);
     /// <summary>
     /// Applies the transformation T to this parabola.
     /// </summary>
     void Transform(Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns the  parameter on the  transformed  curve for
+    /// Returns the parameter on the transformed curve for
     /// the transform of the point of parameter U on <me>.
     /// 
     /// me->Transformed(T)->Value(me->TransformedParameter(U,T))
@@ -8005,8 +8037,8 @@ public:
     /// </summary>
     double TransformedParameter(double U, Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns a  coefficient to compute the parameter on
-    /// the transformed  curve  for  the transform  of the
+    /// Returns a coefficient to compute the parameter on
+    /// the transformed curve for the transform of the
     /// point on <me>.
     /// 
     /// Transformed(T)->Value(U * ParametricTransformation(T))
@@ -8094,7 +8126,7 @@ public:
     /// <summary>
     /// Creates a plane located in 3D space with an axis placement three axis.
     /// The "ZDirection" of "A3" is the direction normal
-    /// to the plane.  The "Location" point of "A3" is the origin of the plane.
+    /// to the plane. The "Location" point of "A3" is the origin of the plane.
     /// The "XDirection" and "YDirection" of "A3" define
     /// the directions of the U isoparametric and V isoparametric curves.
     /// </summary>
@@ -8114,7 +8146,7 @@ public:
     /// @code
     /// Ax + By + Cz + D = 0.0
     /// @endcode
-    /// Raised if Sqrt (A*A + B*B + C*C) <= Resolution from gp
+    /// Raised if std::sqrt(A*A + B*B + C*C) <= Resolution from gp
     Geom_Plane(double A, double B, double C, double D);
     /// <summary>
     /// Set <me> so that <me> has the same geometric properties as Pl.
@@ -8131,7 +8163,7 @@ public:
     /// </summary>
     void UReverse();
     /// <summary>
-    /// Computes the u  parameter on the modified plane,
+    /// Computes the u parameter on the modified plane,
     /// produced when reversing the u parametric of this plane,
     /// for any point of u parameter U on this plane.
     /// In the case of a plane, these methods return - -U.
@@ -8178,7 +8210,7 @@ public:
     /// @code
     /// me->Value(U,V).Transformed(T)
     /// @endcode
-    /// Where U',V' are  obtained by transforming U,V with the 2d transformation returned by
+    /// Where U',V' are obtained by transforming U,V with the 2d transformation returned by
     /// @code
     /// me->ParametricTransformation(T)
     /// @endcode
@@ -8187,8 +8219,8 @@ public:
     /// <summary>
     /// Returns the parametric bounds U1, U2, V1 and V2 of this plane.
     /// Because a plane is an infinite surface, the following is always true:
-    /// - U1 = V1 =   Standard_Real::RealFirst()
-    /// - U2 = V2 =   Standard_Real::RealLast().
+    /// - U1 = V1 = double::RealFirst()
+    /// - U2 = V2 = double::RealLast().
     /// </summary>
     void Bounds(double% U1, double% U2, double% V1, double% V2);
     /// <summary>
@@ -8232,27 +8264,16 @@ public:
     /// @endcode
     /// where O is the "Location" point of the plane, XDir the
     /// "XDirection" and YDir the "YDirection" of the plane's local coordinate system.
-    void D0(double U, double V, Macad::Occt::Pnt% P);
-    /// <summary>
-    /// Computes the current point and the first derivatives in the directions U and V.
-    /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
-    /// <summary>
-    /// Computes the current point, the first and the second
-    /// derivatives in the directions U and V.
-    /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
-    /// <summary>
-    /// Computes the current point, the first,the second and the
-    /// third derivatives in the directions U and V.
-    /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
     /// <summary>
     /// Computes the derivative of order Nu in the direction u
     /// and Nv in the direction v.
     /// Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Applies the transformation T to this plane.
     /// </summary>
@@ -8291,9 +8312,9 @@ public:
 /// modified the trimmed surface is not changed.
 /// Consequently, the trimmed surface does not
 /// necessarily have the same orientation as the basis surface.
-/// Warning:  The  case of surface   being trimmed is  periodic and
+/// Warning: The case of surface being trimmed is periodic and
 /// parametrics values are outside the domain is possible.
-/// But, domain of the  trimmed surface can be translated
+/// But, domain of the trimmed surface can be translated
 /// by (n X) the period.
 /// </summary>
 public ref class Geom_RectangularTrimmedSurface sealed
@@ -8334,7 +8355,7 @@ public:
     /// surface. By default in this case the surface has the same
     /// orientation as the basis surface S.
     /// The returned surface is not closed and not periodic.
-    /// ConstructionError   Raised if
+    /// ConstructionError Raised if
     /// S is not periodic in the UDirection and U1 or U2 are out of the
     /// bounds of S.
     /// S is not periodic in the VDirection and V1 or V2 are out of the
@@ -8353,7 +8374,7 @@ public:
     /// surface. By default in this case the surface has the same
     /// orientation as the basis surface S.
     /// The returned surface is not closed and not periodic.
-    /// ConstructionError   Raised if
+    /// ConstructionError Raised if
     /// S is not periodic in the UDirection and U1 or U2 are out of the
     /// bounds of S.
     /// S is not periodic in the VDirection and V1 or V2 are out of the
@@ -8372,7 +8393,7 @@ public:
     /// surface. By default in this case the surface has the same
     /// orientation as the basis surface S.
     /// The returned surface is not closed and not periodic.
-    /// ConstructionError   Raised if
+    /// ConstructionError Raised if
     /// S is not periodic in the UDirection and U1 or U2 are out of the
     /// bounds of S.
     /// S is not periodic in the VDirection and V1 or V2 are out of the
@@ -8544,7 +8565,7 @@ public:
     /// </summary>
     void UReverse();
     /// <summary>
-    /// Computes the u  parameter on the modified
+    /// Computes the u parameter on the modified
     /// surface, produced by when reversing its u
     /// parametric direction, for any point of u parameter U on this patch.
     /// </summary>
@@ -8557,7 +8578,7 @@ public:
     /// </summary>
     void VReverse();
     /// <summary>
-    /// Computes the v  parameter on the modified
+    /// Computes the v parameter on the modified
     /// surface, produced by when reversing its v
     /// parametric direction, for any point of v parameter V on this patch.
     /// </summary>
@@ -8567,7 +8588,7 @@ public:
     /// </summary>
     void Bounds(double% U1, double% U2, double% V1, double% V2);
     /// <summary>
-    /// Returns  the continuity of the surface :
+    /// Returns the continuity of the surface :
     /// C0 : only geometric continuity,
     /// C1 : continuity of the first derivative all along the Surface,
     /// C2 : continuity of the second derivative all along the Surface,
@@ -8576,11 +8597,15 @@ public:
     /// </summary>
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// Returns true if this patch is closed in the given parametric direction.
+    /// Returns true if this patch is closed in U: either not trimmed in U
+    /// and the basis surface is U-closed, or trimmed with a length that is
+    /// an integer multiple of the U period of a U-periodic basis surface.
     /// </summary>
     bool IsUClosed();
     /// <summary>
-    /// Returns true if this patch is closed in the given parametric direction.
+    /// Returns true if this patch is closed in V: either not trimmed in V
+    /// and the basis surface is V-closed, or trimmed with a length that is
+    /// an integer multiple of the V period of a V-periodic basis surface.
     /// </summary>
     bool IsVClosed();
     /// <summary>
@@ -8596,8 +8621,8 @@ public:
     /// </summary>
     bool IsCNv(int N);
     /// <summary>
-    /// Returns true if this patch is periodic and not trimmed in the given
-    /// parametric direction.
+    /// Returns true if the basis surface is U-periodic and either not trimmed
+    /// in U, or the trim spans an integer multiple of the U period.
     /// </summary>
     bool IsUPeriodic();
     /// <summary>
@@ -8607,8 +8632,8 @@ public:
     /// </summary>
     double UPeriod();
     /// <summary>
-    /// Returns true if this patch is periodic and not trimmed in the given
-    /// parametric direction.
+    /// Returns true if the basis surface is V-periodic and either not trimmed
+    /// in V, or the trim spans an integer multiple of the V period.
     /// </summary>
     bool IsVPeriodic();
     /// <summary>
@@ -8627,39 +8652,23 @@ public:
     /// </summary>
     Macad::Occt::Geom_Curve^ VIso(double V);
     /// <summary>
+    /// Computes the point of parameter (U, V) on the surface.
     /// Can be raised if the basis surface is an OffsetSurface.
+    /// Raises an exception on failure.
     /// </summary>
-    void D0(double U, double V, Macad::Occt::Pnt% P);
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
     /// <summary>
-    /// The returned derivatives have the same orientation as the
-    /// derivatives of the basis surface even if the trimmed surface
-    /// has not the same parametric orientation.
-    /// Warning!  UndefinedDerivative  raised if the continuity of the surface is not C1.
-    /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
-    /// <summary>
-    /// The returned derivatives have the same orientation as the
-    /// derivatives of the basis surface even if the trimmed surface
-    /// has not the same parametric orientation.
-    /// Warning! UndefinedDerivative raised if the continuity of the surface is not C2.
-    /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
-    /// <summary>
-    /// The returned derivatives have the same orientation as the
-    /// derivatives of the basis surface even if the trimmed surface
-    /// has not the same parametric orientation.
-    /// Warning UndefinedDerivative raised if the continuity of the surface is not C3.
-    /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
-    /// <summary>
+    /// Computes the derivative of order Nu in U and Nv in V at (U, V).
     /// The returned derivative has the same orientation as the
     /// derivative of the basis surface even if the trimmed surface
     /// has not the same parametric orientation.
-    /// Warning!  UndefinedDerivative raised if the continuity of the surface is not CNu in the U
-    /// parametric direction and CNv in the V parametric direction.
+    /// Raises an exception on failure.
     /// RangeError Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Applies the transformation T to this patch.
     /// Warning
@@ -8668,7 +8677,7 @@ public:
     /// </summary>
     void Transform(Macad::Occt::Trsf T);
     /// <summary>
-    /// Computes the  parameters on the  transformed  surface for
+    /// Computes the parameters on the transformed surface for
     /// the transform of the point of parameters U,V on <me>.
     /// </summary>
     /// @code
@@ -8685,7 +8694,7 @@ public:
     /// This method calls the basis surface method.
     void TransformParameters(double% U, double% V, Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns a 2d transformation  used to find the  new
+    /// Returns a 2d transformation used to find the new
     /// parameters of a point on the transformed surface.
     /// </summary>
     /// @code
@@ -8695,7 +8704,7 @@ public:
     /// @code
     /// me->Value(U,V).Transformed(T)
     /// @endcode
-    /// Where U',V' are  obtained by transforming U,V with
+    /// Where U',V' are obtained by transforming U,V with
     /// the 2d transformation returned by
     /// @code
     /// me->ParametricTransformation(T)
@@ -8825,7 +8834,7 @@ public:
     Macad::Occt::gp_Sphere^ Sphere();
     /// <summary>
     /// Computes the u parameter on the modified
-    /// surface, when reversing its u  parametric
+    /// surface, when reversing its u parametric
     /// direction, for any point of u parameter U on this sphere.
     /// In the case of a sphere, these functions returns 2.PI - U.
     /// </summary>
@@ -8834,11 +8843,11 @@ public:
     /// Computes the v parameter on the modified
     /// surface, when reversing its v parametric
     /// direction, for any point of v parameter V on this sphere.
-    /// In the case of a sphere, these functions returns   -U.
+    /// In the case of a sphere, these functions returns -U.
     /// </summary>
     double VReversedParameter(double V);
     /// <summary>
-    /// Computes the aera of the spherical surface.
+    /// Computes the area of the spherical surface.
     /// </summary>
     double Area();
     /// <summary>
@@ -8895,11 +8904,11 @@ public:
     Macad::Occt::Geom_Curve^ UIso(double U);
     /// <summary>
     /// Computes the V isoparametric curve.
-    /// The V isoparametric curves of the surface  are defined by
+    /// The V isoparametric curves of the surface are defined by
     /// the section of the spherical surface with plane parallel to the
     /// plane (Location, XAxis, YAxis). This plane defines the origin of
     /// parametrization V.
-    /// Be careful if  V is close to PI/2 or 3*PI/2 the radius of the
+    /// Be careful if V is close to PI/2 or 3*PI/2 the radius of the
     /// circle becomes tiny. It is not forbidden in this toolkit to
     /// create circle with radius = 0.0
     /// For a SphericalSurface the VIso curve is a Circle.
@@ -8907,35 +8916,23 @@ public:
     /// </summary>
     Macad::Occt::Geom_Curve^ VIso(double V);
     /// <summary>
-    /// Computes the  point P (U, V) on the surface.
+    /// Computes the point P (U, V) on the surface.
     /// P (U, V) = Loc + Radius * Sin (V) * Zdir +
     /// Radius * Cos (V) * (cos (U) * XDir + sin (U) * YDir)
     /// where Loc is the origin of the placement plane (XAxis, YAxis)
     /// XDir is the direction of the XAxis and YDir the direction of
     /// the YAxis and ZDir the direction of the ZAxis.
     /// </summary>
-    void D0(double U, double V, Macad::Occt::Pnt% P);
-    /// <summary>
-    /// Computes the current point and the first derivatives in the
-    /// directions U and V.
-    /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
-    /// <summary>
-    /// Computes the current point, the first and the second derivatives
-    /// in the directions U and V.
-    /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
-    /// <summary>
-    /// Computes the current point, the first,the second and the third
-    /// derivatives in the directions U and V.
-    /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
     /// <summary>
     /// Computes the derivative of order Nu in the direction u
     /// and Nv in the direction v.
     /// Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Applies the transformation T to this sphere.
     /// </summary>
@@ -9108,6 +9105,16 @@ public:
     /// </summary>
     Geom_SurfaceOfLinearExtrusion(Macad::Occt::Geom_Curve^ C, Macad::Occt::Dir V);
     /// <summary>
+    /// Returns true if an evaluation representation is attached.
+    /// </summary>
+    bool HasEvalRepresentation();
+    /* Method skipped due to unknown mapping: GeomEval_RepSurfaceDesc::Base EvalRepresentation() */
+    /* Method skipped due to unknown mapping: void SetEvalRepresentation(GeomEval_RepSurfaceDesc::Base theDesc, ) */
+    /// <summary>
+    /// Removes the evaluation representation.
+    /// </summary>
+    void ClearEvalRepresentation();
+    /// <summary>
     /// Assigns V as the "direction of extrusion" for this
     /// surface of linear extrusion.
     /// </summary>
@@ -9119,7 +9126,7 @@ public:
     void SetBasisCurve(Macad::Occt::Geom_Curve^ C);
     /// <summary>
     /// Changes the orientation of this surface of linear
-    /// extrusion in the u  parametric direction. The
+    /// extrusion in the u parametric direction. The
     /// bounds of the surface are not changed, but the given
     /// parametric direction is reversed. Hence the
     /// orientation of the surface is reversed.
@@ -9130,12 +9137,12 @@ public:
     void UReverse();
     /// <summary>
     /// Computes the u parameter on the modified
-    /// surface, produced by reversing its u  parametric
-    /// direction, for any point of u parameter U  on this surface of linear extrusion.
+    /// surface, produced by reversing its u parametric
+    /// direction, for any point of u parameter U on this surface of linear extrusion.
     /// In the case of an extruded surface:
     /// - UReverseParameter returns the reversed
     /// parameter given by the function
-    /// ReversedParameter called with U on the basis   curve,
+    /// ReversedParameter called with U on the basis curve,
     /// </summary>
     double UReversedParameter(double U);
     /// <summary>
@@ -9161,8 +9168,8 @@ public:
     /// this surface of linear extrusion.
     /// A surface of linear extrusion is infinite in the v
     /// parametric direction, so:
-    /// - V1 = Standard_Real::RealFirst()
-    /// - V2 = Standard_Real::RealLast().
+    /// - V1 = double::RealFirst()
+    /// - V2 = double::RealLast().
     /// </summary>
     void Bounds(double% U1, double% U2, double% V1, double% V2);
     /// <summary>
@@ -9208,46 +9215,29 @@ public:
     /// </summary>
     Macad::Occt::Geom_Curve^ VIso(double V);
     /// <summary>
-    /// Computes the  point P (U, V) on the surface.
+    /// Computes the point P (U, V) on the surface.
     /// The parameter U is the parameter on the extruded curve.
     /// The parametrization V is a linear parametrization, and
     /// the direction of parametrization is the direction of
     /// extrusion. If the point is on the extruded curve, V = 0.0
+    /// Raises an exception on failure.
     /// </summary>
-    void D0(double U, double V, Macad::Occt::Pnt% P);
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
     /// <summary>
-    /// Computes the current point and the first derivatives in the
-    /// directions U and V.
-    /// Raises UndefinedDerivative if the continuity of the surface is not C1.
-    /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
-    /// <summary>
-    /// --- Purpose ;
-    /// Computes the current point, the first and the second derivatives
-    /// in the directions U and V.
-    /// Raises UndefinedDerivative if the continuity of the surface is not C2.
-    /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
-    /// <summary>
-    /// Computes the current point, the first,the second and the third
-    /// derivatives in the directions U and V.
-    /// Raises UndefinedDerivative if the continuity of the surface is not C3.
-    /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
-    /// <summary>
-    /// Computes the derivative of order Nu in the direction u
-    /// and Nv in the direction v.
-    /// Raises UndefinedDerivative if the continuity of the surface is not CNu in the u
-    /// direction and CNv in the v direction.
+    /// Computes the derivative of order Nu in U and Nv in V at (U, V).
+    /// Raises an exception on failure.
     /// Raises RangeError if Nu + Nv < 1 or Nu < 0 or Nv < 0.
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Applies the transformation T to this surface of linear extrusion.
     /// </summary>
     void Transform(Macad::Occt::Trsf T);
     /// <summary>
-    /// Computes the  parameters on the  transformed  surface for
+    /// Computes the parameters on the transformed surface for
     /// the transform of the point of parameters U,V on <me>.
     /// </summary>
     /// @code
@@ -9266,7 +9256,7 @@ public:
     /// V by T.ScaleFactor()
     void TransformParameters(double% U, double% V, Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns a 2d transformation  used to find the  new
+    /// Returns a 2d transformation used to find the new
     /// parameters of a point on the transformed surface.
     /// </summary>
     /// @code
@@ -9276,7 +9266,7 @@ public:
     /// @code
     /// me->Value(U,V).Transformed(T)
     /// @endcode
-    /// Where U',V' are  obtained by transforming U,V with
+    /// Where U',V' are obtained by transforming U,V with
     /// the 2d transformation returned by
     /// @code
     /// me->ParametricTransformation(T)
@@ -9370,7 +9360,7 @@ public:
 
 public:
     /// <summary>
-    /// C : is the meridian  or the referenced curve.
+    /// C : is the meridian or the referenced curve.
     /// A1 is the axis of revolution.
     /// The form of a SurfaceOfRevolution can be :
     /// . a general revolution surface (RevolutionForm),
@@ -9390,6 +9380,16 @@ public:
     /// self-intersects.
     /// </summary>
     Geom_SurfaceOfRevolution(Macad::Occt::Geom_Curve^ C, Macad::Occt::Ax1 A1);
+    /// <summary>
+    /// Returns true if an evaluation representation is attached.
+    /// </summary>
+    bool HasEvalRepresentation();
+    /* Method skipped due to unknown mapping: GeomEval_RepSurfaceDesc::Base EvalRepresentation() */
+    /* Method skipped due to unknown mapping: void SetEvalRepresentation(GeomEval_RepSurfaceDesc::Base theDesc, ) */
+    /// <summary>
+    /// Removes the evaluation representation.
+    /// </summary>
+    void ClearEvalRepresentation();
     /// <summary>
     /// Changes the axis of revolution.
     /// Warnings :
@@ -9444,7 +9444,7 @@ public:
     Macad::Occt::Ax2 ReferencePlane();
     /// <summary>
     /// Changes the orientation of this surface of revolution
-    /// in the u  parametric direction. The bounds of the
+    /// in the u parametric direction. The bounds of the
     /// surface are not changed but the given parametric
     /// direction is reversed. Hence the orientation of the
     /// surface is reversed.
@@ -9454,9 +9454,9 @@ public:
     /// </summary>
     void UReverse();
     /// <summary>
-    /// Computes the u  parameter on the modified
-    /// surface, when reversing its u  parametric
-    /// direction, for any point of u parameter U  on this surface of revolution.
+    /// Computes the u parameter on the modified
+    /// surface, when reversing its u parametric
+    /// direction, for any point of u parameter U on this surface of revolution.
     /// In the case of a revolved surface:
     /// - UReversedParameter returns 2.*Pi - U
     /// </summary>
@@ -9472,8 +9472,8 @@ public:
     /// </summary>
     void VReverse();
     /// <summary>
-    /// Computes the  v parameter on the modified
-    /// surface, when reversing its  v parametric
+    /// Computes the v parameter on the modified
+    /// surface, when reversing its v parametric
     /// direction, for any point of v parameter V on this surface of revolution.
     /// In the case of a revolved surface:
     /// - VReversedParameter returns the reversed
@@ -9482,7 +9482,7 @@ public:
     /// </summary>
     double VReversedParameter(double V);
     /// <summary>
-    /// Computes the  parameters on the  transformed  surface for
+    /// Computes the parameters on the transformed surface for
     /// the transform of the point of parameters U,V on <me>.
     /// </summary>
     /// @code
@@ -9499,7 +9499,7 @@ public:
     /// This method multiplies V by BasisCurve()->ParametricTransformation(T)
     void TransformParameters(double% U, double% V, Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns a 2d transformation  used to find the  new
+    /// Returns a 2d transformation used to find the new
     /// parameters of a point on the transformed surface.
     /// </summary>
     /// @code
@@ -9509,12 +9509,12 @@ public:
     /// @code
     /// me->Value(U,V).Transformed(T)
     /// @endcode
-    /// Where U',V' are  obtained by transforming U,V with
+    /// Where U',V' are obtained by transforming U,V with
     /// the 2d transformation returned by
     /// @code
     /// me->ParametricTransformation(T)
     /// @endcode
-    /// This  method  returns  a scale  centered  on  the
+    /// This method returns a scale centered on the
     /// U axis with BasisCurve()->ParametricTransformation(T)
     Macad::Occt::gp_GTrsf2d^ ParametricTransformation(Macad::Occt::Trsf T);
     /// <summary>
@@ -9563,47 +9563,25 @@ public:
     /// </summary>
     Macad::Occt::Geom_Curve^ VIso(double V);
     /// <summary>
-    /// Computes the  point P (U, V) on the surface.
+    /// Computes the point P (U, V) on the surface.
     /// U is the angle of the rotation around the revolution axis.
     /// The direction of this axis gives the sense of rotation.
     /// V is the parameter of the revolved curve.
+    /// Raises an exception on failure.
     /// </summary>
-    void D0(double U, double V, Macad::Occt::Pnt% P);
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
     /// <summary>
-    /// Computes the current point and the first derivatives
-    /// in the directions U and V.
-    /// Raised if the continuity of the surface is not C1.
-    /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
-    /// <summary>
-    /// Computes the current point, the first and the second derivatives
-    /// in the directions U and V.
-    /// Raised if the continuity of the surface is not C2.
-    /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
-    /// <summary>
-    /// Computes the current point, the first,the second and the third
-    /// derivatives in the directions U and V.
-    /// Raised if the continuity of the surface is not C3.
-    /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
-    /// <summary>
-    /// Computes the derivative of order Nu in the direction u and
-    /// Nv in the direction v.
+    /// Computes the derivative of order Nu in U and Nv in V at (U, V).
+    /// Raises an exception on failure.
     /// 
     /// Raised if the continuity of the surface is not CNu in the u
     /// direction and CNv in the v direction.
     /// Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
-    /// The following  functions  evaluates the  local
-    /// derivatives on surface. Useful to manage discontinuities
-    /// on the surface.
-    /// if    Side  =  1  ->  P  =  S( U+,V )
-    /// if    Side  = -1  ->  P  =  S( U-,V )
-    /// else  P  is betveen discontinuities
-    /// can be evaluated using methods  of
-    /// global evaluations    P  =  S( U ,V )
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Applies the transformation T to this surface of revolution.
     /// </summary>
@@ -9746,19 +9724,19 @@ public:
     /// </summary>
     Macad::Occt::gp_Torus^ Torus();
     /// <summary>
-    /// Return the  parameter on the  Ureversed surface for
+    /// Return the parameter on the Ureversed surface for
     /// the point of parameter U on <me>.
     /// Return 2.PI - U.
     /// </summary>
     double UReversedParameter(double U);
     /// <summary>
-    /// Return the  parameter on the  Ureversed surface for
+    /// Return the parameter on the Ureversed surface for
     /// the point of parameter U on <me>.
     /// Return 2.PI - U.
     /// </summary>
     double VReversedParameter(double U);
     /// <summary>
-    /// Computes the aera of the surface.
+    /// Computes the area of the surface.
     /// </summary>
     double Area();
     /// <summary>
@@ -9778,7 +9756,7 @@ public:
     /// Coef(18) * Y**2 * X + Coef(19) * Y**2 * Z + Coef(20) * Z**2 * X +
     /// Coef(21) * Z**2 * Y + Coef(22) * X**2 + Coef(23) * Y**2 +
     /// Coef(24) * Z**2 + Coef(25) * X * Y + Coef(26) * X * Z +
-    /// Coef(27) * Y * Z + Coef(28) * X + Coef(29) * Y + Coef(30) *  Z +
+    /// Coef(27) * Y * Z + Coef(28) * X + Coef(29) * Y + Coef(30) * Z +
     /// Coef(31) = 0.0
     /// Raised if the length of Coef is lower than 31.
     /// </summary>
@@ -9817,7 +9795,7 @@ public:
     /// For a toroidal surface the UIso curve is a circle.
     /// The center of the Uiso circle is at the distance MajorRadius
     /// from the location point of the toroidal surface.
-    /// Warnings :
+    /// Warnings:
     /// The radius of the circle can be zero if for the surface
     /// MinorRadius = 0.0
     /// </summary>
@@ -9827,43 +9805,31 @@ public:
     /// 
     /// For a ToroidalSurface the VIso curve is a circle.
     /// The axis of the circle is the main axis (ZAxis) of the
-    /// toroidal  surface.
-    /// Warnings :
+    /// toroidal surface.
+    /// Warnings:
     /// The radius of the circle can be zero if for the surface
     /// MajorRadius = MinorRadius
     /// </summary>
     Macad::Occt::Geom_Curve^ VIso(double V);
     /// <summary>
-    /// Computes the  point P (U, V) on the surface.
+    /// Computes the point P (U, V) on the surface.
     /// P (U, V) = Loc + MinorRadius * Sin (V) * Zdir +
-    /// (MajorRadius + MinorRadius * Cos(V)) *
+    /// (MajorRadius + MinorRadius * std::cos(V)) *
     /// (cos (U) * XDir + sin (U) * YDir)
     /// where Loc is the origin of the placement plane (XAxis, YAxis)
     /// XDir is the direction of the XAxis and YDir the direction of
     /// the YAxis and ZDir the direction of the ZAxis.
     /// </summary>
-    void D0(double U, double V, Macad::Occt::Pnt% P);
-    /// <summary>
-    /// Computes the current point and the first derivatives in
-    /// the directions U and V.
-    /// </summary>
-    void D1(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V);
-    /// <summary>
-    /// Computes the current point, the first and the second derivatives
-    /// in the directions U and V.
-    /// </summary>
-    void D2(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV);
-    /// <summary>
-    /// Computes the current point, the first,the second and the
-    /// third derivatives in the directions U and V.
-    /// </summary>
-    void D3(double U, double V, Macad::Occt::Pnt% P, Macad::Occt::Vec% D1U, Macad::Occt::Vec% D1V, Macad::Occt::Vec% D2U, Macad::Occt::Vec% D2V, Macad::Occt::Vec% D2UV, Macad::Occt::Vec% D3U, Macad::Occt::Vec% D3V, Macad::Occt::Vec% D3UUV, Macad::Occt::Vec% D3UVV);
+    Macad::Occt::Pnt EvalD0(double U, double V);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, double V, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, double V, ) */
     /// <summary>
     /// Computes the derivative of order Nu in the direction u and
     /// Nv in the direction v.
     /// Raised if Nu + Nv < 1 or Nu < 0 or Nv < 0.
     /// </summary>
-    Macad::Occt::Vec DN(double U, double V, int Nu, int Nv);
+    Macad::Occt::Vec EvalDN(double U, double V, int Nu, int Nv);
     /// <summary>
     /// Applies the transformation T to this torus.
     /// </summary>
@@ -9971,7 +9937,7 @@ public:
     void SetMirror(Macad::Occt::Ax1 theA1);
     /// <summary>
     /// Makes the transformation into a symmetrical transformation
-    /// with respect to a plane.  The plane of the symmetry is
+    /// with respect to a plane. The plane of the symmetry is
     /// defined with the axis placement A2. It is the plane
     /// (Location, XDirection, YDirection).
     /// </summary>
@@ -10049,7 +10015,7 @@ public:
     /// Returns the coefficients of the global matrix of transformation.
     /// It is a 3 rows X 4 columns matrix.
     /// 
-    /// Raised if  Row < 1 or Row > 3  or  Col < 1 or Col > 4
+    /// Raised if Row < 1 or Row > 3 or Col < 1 or Col > 4
     /// </summary>
     double Value(int theRow, int theCol);
     /// <summary>
@@ -10090,7 +10056,7 @@ public:
     Macad::Occt::Geom_Transformation^ Powered(int N);
     /// <summary>
     /// Computes the matrix of the transformation composed with
-    /// <me> and Other.     <me> = Other * <me>
+    /// <me> and Other. <me> = Other * <me>
     /// </summary>
     void PreMultiply(Macad::Occt::Geom_Transformation^ Other);
     /// <summary>
@@ -10391,12 +10357,14 @@ public:
     /// </summary>
     double FirstParameter();
     /// <summary>
-    /// Returns True if the distance between the StartPoint and
-    /// the EndPoint is lower or equal to Resolution from package gp.
+    /// Returns TRUE if the basis curve is periodic and the trim spans
+    /// exactly one full period, or if the distance between the StartPoint
+    /// and the EndPoint is within computational precision.
     /// </summary>
     bool IsClosed();
     /// <summary>
-    /// Always returns FALSE (independently of the type of basis curve).
+    /// Returns TRUE if the basis curve is periodic and the trim
+    /// spans exactly one full period. Returns FALSE otherwise.
     /// </summary>
     bool IsPeriodic();
     /// <summary>
@@ -10423,39 +10391,30 @@ public:
     /// </summary>
     Macad::Occt::Pnt StartPoint();
     /// <summary>
-    /// Returns in P the point of parameter U.
+    /// Returns the point of parameter U.
     /// 
     /// If the basis curve is an OffsetCurve sometimes it is not
     /// possible to do the evaluation of the curve at the parameter
     /// U (see class OffsetCurve).
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
-    /// <summary>
-    /// Raised if the continuity of the curve is not C1.
-    /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
-    /// <summary>
-    /// Raised if the continuity of the curve is not C2.
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// Raised if the continuity of the curve is not C3.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
+    Macad::Occt::Pnt EvalD0(double U);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double U, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double U, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double U, ) */
     /// <summary>
     /// N is the order of derivation.
     /// Raised if the continuity of the curve is not CN.
     /// Raised if N < 1.
     /// geometric transformations
     /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
+    Macad::Occt::Vec EvalDN(double U, int N);
     /// <summary>
     /// Applies the transformation T to this trimmed curve.
     /// Warning The basis curve is also modified.
     /// </summary>
     void Transform(Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns the  parameter on the  transformed  curve for
+    /// Returns the parameter on the transformed curve for
     /// the transform of the point of parameter U on <me>.
     /// 
     /// me->Transformed(T)->Value(me->TransformedParameter(U,T))
@@ -10468,8 +10427,8 @@ public:
     /// </summary>
     double TransformedParameter(double U, Macad::Occt::Trsf T);
     /// <summary>
-    /// Returns a  coefficient to compute the parameter on
-    /// the transformed  curve  for  the transform  of the
+    /// Returns a coefficient to compute the parameter on
+    /// the transformed curve for the transform of the
     /// point on <me>.
     /// 
     /// Transformed(T)->Value(U * ParametricTransformation(T))
@@ -10495,90 +10454,6 @@ public:
     void DumpJson(System::IO::TextWriter^ theOStream);
     static Macad::Occt::Geom_TrimmedCurve^ CreateDowncasted(::Geom_TrimmedCurve* instance);
 }; // class Geom_TrimmedCurve
-
-//---------------------------------------------------------------------
-//  Class  Geom_UndefinedDerivative
-//---------------------------------------------------------------------
-public ref class Geom_UndefinedDerivative sealed
-    : public Macad::Occt::Standard_DomainError
-{
-
-#ifdef Include_Geom_UndefinedDerivative_h
-public:
-    Include_Geom_UndefinedDerivative_h
-#endif
-
-public:
-    Geom_UndefinedDerivative(::Geom_UndefinedDerivative* nativeInstance)
-        : Macad::Occt::Standard_DomainError( nativeInstance )
-    {}
-
-    Geom_UndefinedDerivative(::Geom_UndefinedDerivative& nativeInstance)
-        : Macad::Occt::Standard_DomainError( nativeInstance )
-    {}
-
-    property ::Geom_UndefinedDerivative* NativeInstance
-    {
-        ::Geom_UndefinedDerivative* get()
-        {
-            return static_cast<::Geom_UndefinedDerivative*>(_NativeInstance);
-        }
-    }
-
-public:
-    Geom_UndefinedDerivative();
-    Geom_UndefinedDerivative(System::String^ theMessage);
-    Geom_UndefinedDerivative(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Geom_UndefinedDerivative^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Geom_UndefinedDerivative^ NewInstance();
-    static Macad::Occt::Geom_UndefinedDerivative^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Geom_UndefinedDerivative^ CreateDowncasted(::Geom_UndefinedDerivative* instance);
-}; // class Geom_UndefinedDerivative
-
-//---------------------------------------------------------------------
-//  Class  Geom_UndefinedValue
-//---------------------------------------------------------------------
-public ref class Geom_UndefinedValue sealed
-    : public Macad::Occt::Standard_DomainError
-{
-
-#ifdef Include_Geom_UndefinedValue_h
-public:
-    Include_Geom_UndefinedValue_h
-#endif
-
-public:
-    Geom_UndefinedValue(::Geom_UndefinedValue* nativeInstance)
-        : Macad::Occt::Standard_DomainError( nativeInstance )
-    {}
-
-    Geom_UndefinedValue(::Geom_UndefinedValue& nativeInstance)
-        : Macad::Occt::Standard_DomainError( nativeInstance )
-    {}
-
-    property ::Geom_UndefinedValue* NativeInstance
-    {
-        ::Geom_UndefinedValue* get()
-        {
-            return static_cast<::Geom_UndefinedValue*>(_NativeInstance);
-        }
-    }
-
-public:
-    Geom_UndefinedValue();
-    Geom_UndefinedValue(System::String^ theMessage);
-    Geom_UndefinedValue(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Geom_UndefinedValue^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Geom_UndefinedValue^ NewInstance();
-    static Macad::Occt::Geom_UndefinedValue^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Geom_UndefinedValue^ CreateDowncasted(::Geom_UndefinedValue* instance);
-}; // class Geom_UndefinedValue
 
 //---------------------------------------------------------------------
 //  Class  Geom_VectorWithMagnitude
@@ -10664,21 +10539,21 @@ public:
     /// </summary>
     Macad::Occt::Geom_VectorWithMagnitude^ Added(Macad::Occt::Geom_Vector^ Other);
     /// <summary>
-    /// Computes the cross product  between <me> and Other
+    /// Computes the cross product between <me> and Other
     /// <me> ^ Other.
     /// </summary>
     void Cross(Macad::Occt::Geom_Vector^ Other);
     /// <summary>
-    /// Computes the cross product  between <me> and Other
+    /// Computes the cross product between <me> and Other
     /// <me> ^ Other. A new vector is returned.
     /// </summary>
     Macad::Occt::Geom_Vector^ Crossed(Macad::Occt::Geom_Vector^ Other);
     /// <summary>
-    /// Computes the triple vector product  <me> ^ (V1 ^ V2).
+    /// Computes the triple vector product <me> ^ (V1 ^ V2).
     /// </summary>
     void CrossCross(Macad::Occt::Geom_Vector^ V1, Macad::Occt::Geom_Vector^ V2);
     /// <summary>
-    /// Computes the triple vector product  <me> ^ (V1 ^ V2).
+    /// Computes the triple vector product <me> ^ (V1 ^ V2).
     /// A new vector is returned.
     /// </summary>
     Macad::Occt::Geom_Vector^ CrossCrossed(Macad::Occt::Geom_Vector^ V1, Macad::Occt::Geom_Vector^ V2);

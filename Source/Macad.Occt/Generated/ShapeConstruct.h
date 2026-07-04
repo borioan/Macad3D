@@ -321,32 +321,21 @@ public:
 
 public:
     /// <summary>
-    /// Returns (modifiable) the build-curve-3d mode, by default False
-    /// If True, if the projected curve has been recomputed by
-    /// interpolation, the 3d curve is also rebuild by interpolation
-    /// </summary>
-    property bool BuildCurveMode {
-        bool get() {
-            return ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->BuildCurveMode();
-        }
-        void set(bool value) {
-            ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->BuildCurveMode() = value;
-        }
-    }
-
-    /// <summary>
     /// Returns (modifiable) the flag specifying to which side of
     /// parametrical space adjust part of pcurve which lies on seam.
     /// This is required in very rare case when 3d curve which is
     /// to be projected goes partly along the seam on the closed
     /// surface with singularity (e.g. sphere), goes through the
-    /// degenerated point and paerly lies on internal area of surface.
+    /// degenerated point and partly lies on internal area of surface.
     /// 
     /// If this flag is True, the seam part of such curve will be
     /// adjusted to the left side of parametric space (on sphere U=0),
     /// else to the right side (on sphere U=2*PI)
     /// Default value is True
     /// </summary>
+    /// <returns>
+    /// modifiable reference to the adjustment flag
+    /// </returns>
     property int AdjustOverDegenMode {
         int get() {
             return ((::ShapeConstruct_ProjectCurveOnSurface*)_NativeInstance)->AdjustOverDegenMode();
@@ -364,106 +353,139 @@ public:
     /// Initializes the object with all necessary parameters,
     /// i.e. surface and precision
     /// </summary>
-    void Init(Macad::Occt::Geom_Surface^ surf, double preci);
+    /// <param name="in]">
+    /// theSurf the surface to project on
+    /// </param>
+    /// <param name="in]">
+    /// thePreci the precision for projection
+    /// </param>
+    void Init(Macad::Occt::Geom_Surface^ theSurf, double thePreci);
     /// <summary>
     /// Initializes the object with all necessary parameters,
     /// i.e. surface and precision
     /// </summary>
-    void Init(Macad::Occt::ShapeAnalysis_Surface^ surf, double preci);
+    /// <param name="in]">
+    /// theSurf the surface to project on (ShapeAnalysis_Surface)
+    /// </param>
+    /// <param name="in]">
+    /// thePreci the precision for projection
+    /// </param>
+    void Init(Macad::Occt::ShapeAnalysis_Surface^ theSurf, double thePreci);
     /// <summary>
     /// Loads a surface (in the form of Geom_Surface) to project on
     /// </summary>
-    void SetSurface(Macad::Occt::Geom_Surface^ surf);
+    /// <param name="in]">
+    /// theSurf the surface to project on
+    /// </param>
+    void SetSurface(Macad::Occt::Geom_Surface^ theSurf);
     /// <summary>
     /// Loads a surface (in the form of ShapeAnalysis_Surface) to project on
     /// </summary>
-    void SetSurface(Macad::Occt::ShapeAnalysis_Surface^ surf);
+    /// <param name="in]">
+    /// theSurf the surface to project on
+    /// </param>
+    void SetSurface(Macad::Occt::ShapeAnalysis_Surface^ theSurf);
     /// <summary>
     /// Sets value for current precision
     /// </summary>
-    void SetPrecision(double preci);
+    /// <param name="in]">
+    /// thePreci the precision value
+    /// </param>
+    void SetPrecision(double thePreci);
     /* Method skipped due to unknown mapping: bool Status(ShapeExtend_Status theStatus, ) */
     /// <summary>
     /// Computes the projection of 3d curve onto a surface using the
     /// specialized algorithm. Returns False if projector fails,
     /// otherwise, if pcurve computed successfully, returns True.
     /// The output curve 2D is guaranteed to be same-parameter
-    /// with input curve 3D on the interval [First, Last]. If the output curve
+    /// with input curve 3D on the interval [theFirst, theLast]. If the output curve
     /// lies on a direct line the infinite line is returned, in the case
     /// same-parameter condition is satisfied.
-    /// TolFirst and TolLast are the tolerances at the ends of input curve 3D.
     /// </summary>
-    bool Perform(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d, double TolFirst, double TolLast);
+    /// <param name="in]">
+    /// theC3D the 3D curve to project
+    /// </param>
+    /// <param name="in]">
+    /// theFirst the first parameter of the curve
+    /// </param>
+    /// <param name="in]">
+    /// theLast the last parameter of the curve
+    /// </param>
+    /// <param name="out]">
+    /// theC2D the resulting 2D curve
+    /// </param>
+    /// <param name="in]">
+    /// theTolFirst the tolerance at the first point (default: Precision::Confusion())
+    /// </param>
+    /// <param name="in]">
+    /// theTolLast the tolerance at the last point (default: Precision::Confusion())
+    /// </param>
+    /// <returns>
+    /// true if projection succeeded
+    /// </returns>
+    bool Perform(Macad::Occt::Geom_Curve^ theC3D, double theFirst, double theLast, Macad::Occt::Geom2d_Curve^ theC2D, double theTolFirst, double theTolLast);
     /// <summary>
     /// Computes the projection of 3d curve onto a surface using the
     /// specialized algorithm. Returns False if projector fails,
     /// otherwise, if pcurve computed successfully, returns True.
     /// The output curve 2D is guaranteed to be same-parameter
-    /// with input curve 3D on the interval [First, Last]. If the output curve
+    /// with input curve 3D on the interval [theFirst, theLast]. If the output curve
     /// lies on a direct line the infinite line is returned, in the case
     /// same-parameter condition is satisfied.
-    /// TolFirst and TolLast are the tolerances at the ends of input curve 3D.
     /// </summary>
-    bool Perform(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d, double TolFirst);
+    /// <param name="in]">
+    /// theC3D the 3D curve to project
+    /// </param>
+    /// <param name="in]">
+    /// theFirst the first parameter of the curve
+    /// </param>
+    /// <param name="in]">
+    /// theLast the last parameter of the curve
+    /// </param>
+    /// <param name="out]">
+    /// theC2D the resulting 2D curve
+    /// </param>
+    /// <param name="in]">
+    /// theTolFirst the tolerance at the first point (default: Precision::Confusion())
+    /// </param>
+    /// <param name="in]">
+    /// theTolLast the tolerance at the last point (default: Precision::Confusion())
+    /// </param>
+    /// <returns>
+    /// true if projection succeeded
+    /// </returns>
+    bool Perform(Macad::Occt::Geom_Curve^ theC3D, double theFirst, double theLast, Macad::Occt::Geom2d_Curve^ theC2D, double theTolFirst);
     /// <summary>
     /// Computes the projection of 3d curve onto a surface using the
     /// specialized algorithm. Returns False if projector fails,
     /// otherwise, if pcurve computed successfully, returns True.
     /// The output curve 2D is guaranteed to be same-parameter
-    /// with input curve 3D on the interval [First, Last]. If the output curve
+    /// with input curve 3D on the interval [theFirst, theLast]. If the output curve
     /// lies on a direct line the infinite line is returned, in the case
     /// same-parameter condition is satisfied.
-    /// TolFirst and TolLast are the tolerances at the ends of input curve 3D.
     /// </summary>
-    bool Perform(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d);
-    /// <summary>
-    /// Computes the projection of 3d curve onto a surface using the
-    /// standard algorithm from ProjLib. Returns False if standard
-    /// projector fails or raises an exception or cuts the curve by
-    /// parametrical bounds of the surface. Else, if pcurve computed
-    /// successfully, returns True.
-    /// The continuity, maxdeg and nbinterval are parameters of call
-    /// to Approx_CurveOnSurface. If nbinterval is equal to -1
-    /// (default), this value is computed depending on source 3d curve
-    /// and surface.
-    /// </summary>
-    bool PerformByProjLib(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d, Macad::Occt::GeomAbs_Shape continuity, int maxdeg, int nbinterval);
-    /// <summary>
-    /// Computes the projection of 3d curve onto a surface using the
-    /// standard algorithm from ProjLib. Returns False if standard
-    /// projector fails or raises an exception or cuts the curve by
-    /// parametrical bounds of the surface. Else, if pcurve computed
-    /// successfully, returns True.
-    /// The continuity, maxdeg and nbinterval are parameters of call
-    /// to Approx_CurveOnSurface. If nbinterval is equal to -1
-    /// (default), this value is computed depending on source 3d curve
-    /// and surface.
-    /// </summary>
-    bool PerformByProjLib(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d, Macad::Occt::GeomAbs_Shape continuity, int maxdeg);
-    /// <summary>
-    /// Computes the projection of 3d curve onto a surface using the
-    /// standard algorithm from ProjLib. Returns False if standard
-    /// projector fails or raises an exception or cuts the curve by
-    /// parametrical bounds of the surface. Else, if pcurve computed
-    /// successfully, returns True.
-    /// The continuity, maxdeg and nbinterval are parameters of call
-    /// to Approx_CurveOnSurface. If nbinterval is equal to -1
-    /// (default), this value is computed depending on source 3d curve
-    /// and surface.
-    /// </summary>
-    bool PerformByProjLib(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d, Macad::Occt::GeomAbs_Shape continuity);
-    /// <summary>
-    /// Computes the projection of 3d curve onto a surface using the
-    /// standard algorithm from ProjLib. Returns False if standard
-    /// projector fails or raises an exception or cuts the curve by
-    /// parametrical bounds of the surface. Else, if pcurve computed
-    /// successfully, returns True.
-    /// The continuity, maxdeg and nbinterval are parameters of call
-    /// to Approx_CurveOnSurface. If nbinterval is equal to -1
-    /// (default), this value is computed depending on source 3d curve
-    /// and surface.
-    /// </summary>
-    bool PerformByProjLib(Macad::Occt::Geom_Curve^ c3d, double First, double Last, Macad::Occt::Geom2d_Curve^ c2d);
+    /// <param name="in]">
+    /// theC3D the 3D curve to project
+    /// </param>
+    /// <param name="in]">
+    /// theFirst the first parameter of the curve
+    /// </param>
+    /// <param name="in]">
+    /// theLast the last parameter of the curve
+    /// </param>
+    /// <param name="out]">
+    /// theC2D the resulting 2D curve
+    /// </param>
+    /// <param name="in]">
+    /// theTolFirst the tolerance at the first point (default: Precision::Confusion())
+    /// </param>
+    /// <param name="in]">
+    /// theTolLast the tolerance at the last point (default: Precision::Confusion())
+    /// </param>
+    /// <returns>
+    /// true if projection succeeded
+    /// </returns>
+    bool Perform(Macad::Occt::Geom_Curve^ theC3D, double theFirst, double theLast, Macad::Occt::Geom2d_Curve^ theC2D);
     static Macad::Occt::ShapeConstruct_ProjectCurveOnSurface^ CreateDowncasted(::ShapeConstruct_ProjectCurveOnSurface* instance);
 }; // class ShapeConstruct_ProjectCurveOnSurface
 

@@ -3,7 +3,6 @@
 #pragma once
 
 #include "Adaptor2d.h"
-#include "Standard.h"
 #include "Adaptor3d.h"
 
 namespace Macad
@@ -69,6 +68,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq, bool isStart);
+        Iterator(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq);
         bool More();
         void Next();
         Macad::Occt::TColgp_HSequenceOfPnt^ Value();
@@ -77,42 +78,186 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     ProjLib_SequenceOfHSequenceOfPnt();
     ProjLib_SequenceOfHSequenceOfPnt(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ Assign(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theOther);
     void Remove(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    void Append(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq);
     void Prepend(Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    void Prepend(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq);
     void InsertAfter(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Iterator^ thePosition, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq);
     void Split(int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq);
     Macad::Occt::TColgp_HSequenceOfPnt^ First();
     Macad::Occt::TColgp_HSequenceOfPnt^ ChangeFirst();
     Macad::Occt::TColgp_HSequenceOfPnt^ Last();
     Macad::Occt::TColgp_HSequenceOfPnt^ ChangeLast();
+    Macad::Occt::TColgp_HSequenceOfPnt^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::TColgp_HSequenceOfPnt^ Value(int theIndex);
+    Macad::Occt::TColgp_HSequenceOfPnt^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::TColgp_HSequenceOfPnt^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
     void SetValue(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    Macad::Occt::TColgp_HSequenceOfPnt^ At(long long unsigned int theIndex);
+    Macad::Occt::TColgp_HSequenceOfPnt^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HSequenceOfPnt^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class ProjLib_SequenceOfHSequenceOfPnt
 
 //---------------------------------------------------------------------
+//  Class  ProjLib_HSequenceOfHSequenceOfPnt
+//---------------------------------------------------------------------
+public ref class ProjLib_HSequenceOfHSequenceOfPnt sealed
+    : public Macad::Occt::Standard_Transient
+    , public IIndexEnumerable<Macad::Occt::TColgp_HSequenceOfPnt^>
+{
+
+#ifdef Include_ProjLib_HSequenceOfHSequenceOfPnt_h
+public:
+    Include_ProjLib_HSequenceOfHSequenceOfPnt_h
+#endif
+
+public:
+    ProjLib_HSequenceOfHSequenceOfPnt(::ProjLib_HSequenceOfHSequenceOfPnt* nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    ProjLib_HSequenceOfHSequenceOfPnt(::ProjLib_HSequenceOfHSequenceOfPnt& nativeInstance)
+        : Macad::Occt::Standard_Transient( nativeInstance )
+    {}
+
+    property ::ProjLib_HSequenceOfHSequenceOfPnt* NativeInstance
+    {
+        ::ProjLib_HSequenceOfHSequenceOfPnt* get()
+        {
+            return static_cast<::ProjLib_HSequenceOfHSequenceOfPnt*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::ProjLib_HSequenceOfHSequenceOfPnt::Iterator>
+    {
+
+#ifdef Include_ProjLib_HSequenceOfHSequenceOfPnt_Iterator_h
+    public:
+        Include_ProjLib_HSequenceOfHSequenceOfPnt_Iterator_h
+#endif
+
+    public:
+        Iterator(::ProjLib_HSequenceOfHSequenceOfPnt::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::ProjLib_HSequenceOfHSequenceOfPnt::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::ProjLib_HSequenceOfHSequenceOfPnt::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::ProjLib_HSequenceOfHSequenceOfPnt::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::ProjLib_HSequenceOfHSequenceOfPnt::Iterator* NativeInstance
+        {
+            ::ProjLib_HSequenceOfHSequenceOfPnt::Iterator* get()
+            {
+                return static_cast<::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        Iterator();
+        /* Method skipped due to unknown mapping: void Iterator(NCollection_HSequence<TI_0>::SequenceType theSeq, bool isStart, ) */
+        /* Method skipped due to unknown mapping: void Iterator(NCollection_HSequence<TI_0>::SequenceType theSeq, bool isStart, ) */
+        bool More();
+        void Next();
+        Macad::Occt::TColgp_HSequenceOfPnt^ Value();
+        Macad::Occt::TColgp_HSequenceOfPnt^ ChangeValue();
+        bool IsEqual(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ theOther);
+        bool Equals(System::Object^ obj) override;
+    }; // class Iterator
+
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
+    static int Lower();
+    int Upper();
+    bool IsEmpty();
+    void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
+    void Exchange(int I, int J);
+    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    void Clear();
+    /* Method skipped due to unknown mapping: NCollection_HSequence<TI_0>::SequenceType Assign(NCollection_HSequence<TI_0>::SequenceType theOther, ) */
+    void Remove(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
+    void Prepend(Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    /* Method skipped due to unknown mapping: void Prepend(NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    void InsertBefore(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    /* Method skipped due to unknown mapping: void InsertBefore(long long unsigned int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    /* Method skipped due to unknown mapping: void InsertBefore(int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    void InsertAfter(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ thePosition, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    /* Method skipped due to unknown mapping: void InsertAfter(long long unsigned int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    /* Method skipped due to unknown mapping: void InsertAfter(int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    /* Method skipped due to unknown mapping: void Split(long long unsigned int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    /* Method skipped due to unknown mapping: void Split(int theIndex, NCollection_HSequence<TI_0>::SequenceType theSeq, ) */
+    Macad::Occt::TColgp_HSequenceOfPnt^ First();
+    Macad::Occt::TColgp_HSequenceOfPnt^ ChangeFirst();
+    Macad::Occt::TColgp_HSequenceOfPnt^ Last();
+    Macad::Occt::TColgp_HSequenceOfPnt^ ChangeLast();
+    Macad::Occt::TColgp_HSequenceOfPnt^ Value(long long unsigned int theIndex);
+    virtual Macad::Occt::TColgp_HSequenceOfPnt^ Value(int theIndex);
+    Macad::Occt::TColgp_HSequenceOfPnt^ ChangeValue(long long unsigned int theIndex);
+    Macad::Occt::TColgp_HSequenceOfPnt^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    void SetValue(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    Macad::Occt::TColgp_HSequenceOfPnt^ At(long long unsigned int theIndex);
+    Macad::Occt::TColgp_HSequenceOfPnt^ ChangeAt(long long unsigned int theIndex);
+    ProjLib_HSequenceOfHSequenceOfPnt();
+    /* Method skipped due to unknown mapping: void ProjLib_HSequenceOfHSequenceOfPnt(SequenceType theOther, ) */
+    /* Method skipped due to unknown mapping: SequenceType Sequence() */
+    /* Method skipped due to unknown mapping: SequenceType ChangeSequence() */
+    void Append(Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    /* Method skipped due to unknown mapping: void Append(SequenceType theSequence, ) */
+    static Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt^ CreateDowncasted(::ProjLib_HSequenceOfHSequenceOfPnt* instance);
+    virtual System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HSequenceOfPnt^>^ GetEnumerator();
+    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
+}; // class ProjLib_HSequenceOfHSequenceOfPnt
+
+//---------------------------------------------------------------------
 //  Class  ProjLib_ProjectedCurve
 //---------------------------------------------------------------------
 /// <summary>
-/// Compute the 2d-curve.  Try to solve the particular
-/// case if possible.  Otherwise, an approximation  is
+/// Compute the 2d-curve. Try to solve the particular
+/// case if possible. Otherwise, an approximation is
 /// done. For approximation some parameters are used, including
 /// required tolerance of approximation.
 /// Tolerance is maximal possible value of 3d deviation of 3d projection of projected curve from
@@ -218,13 +363,13 @@ public:
     double LastParameter();
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// If necessary,  breaks the  curve in  intervals  of
-    /// continuity  <S>.    And  returns   the number   of
+    /// If necessary, breaks the curve in intervals of
+    /// continuity <S>. And returns the number of
     /// intervals.
     /// </summary>
     int NbIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals
+    /// Stores in <T> the parameters bounding the intervals
     /// of continuity <S>.
     /// 
     /// The array must provide enough room to accommodate
@@ -232,8 +377,8 @@ public:
     /// </summary>
     void Intervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  curve equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a curve equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -279,13 +424,13 @@ public:
     /// </summary>
     Macad::Occt::Vec2d DN(double U, int N);
     /// <summary>
-    /// Returns the parametric  resolution corresponding
+    /// Returns the parametric resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double Resolution(double R3d);
     /// <summary>
-    /// Returns  the  type of the   curve  in the  current
-    /// interval :   Line,   Circle,   Ellipse, Hyperbola,
+    /// Returns the type of the curve in the current
+    /// interval: Line, Circle, Ellipse, Hyperbola,
     /// Parabola, BezierCurve, BSplineCurve, OtherCurve.
     /// </summary>
     Macad::Occt::GeomAbs_CurveType GetCurveType();
@@ -299,17 +444,15 @@ public:
     int NbPoles();
     int NbKnots();
     /// <summary>
-    /// Warning ! This will  NOT make a copy  of the -- Bezier Curve -
-    /// If you want to modify -- the Curve  please make a copy
-    /// yourself --  Also it will  NOT trim the surface  to --
-    /// myFirst/Last.
+    /// Warning! This will NOT make a copy of the Bezier Curve
+    /// If you want to modify the Curve please make a copy
+    /// yourself. Also it will NOT trim the surface to myFirst/Last.
     /// </summary>
     Macad::Occt::Geom2d_BezierCurve^ Bezier();
     /// <summary>
-    /// Warning ! This will NOT make a copy of the BSpline Curve - If
-    /// you want to  modify the   Curve  please make a   copy
-    /// yourself Also it   will  NOT  trim   the surface   to
-    /// myFirst/Last.
+    /// Warning! This will NOT make a copy of the BSpline Curve
+    /// If you want to modify the Curve please make a copy
+    /// yourself. Also it will NOT trim the surface to myFirst/Last.
     /// </summary>
     Macad::Occt::Geom2d_BSplineCurve^ BSpline();
     static Macad::Occt::ProjLib_ProjectedCurve^ CreateDowncasted(::ProjLib_ProjectedCurve* instance);
@@ -386,7 +529,7 @@ public:
     static Macad::Occt::Pnt2d Project(Macad::Occt::gp_Torus^ To, Macad::Occt::Pnt P);
     static Macad::Occt::gp_Lin2d^ Project(Macad::Occt::gp_Torus^ To, Macad::Occt::gp_Circ^ Ci);
     /// <summary>
-    /// Make empty  P-Curve <aC> of relevant to <PC> type
+    /// Make empty P-Curve <aC> of relevant to <PC> type
     /// </summary>
     static void MakePCurveOfType(Macad::Occt::ProjLib_ProjectedCurve^ PC, Macad::Occt::Geom2d_Curve^ aC);
     /// <summary>
@@ -396,107 +539,6 @@ public:
     /// </summary>
     static bool IsAnaSurf(Macad::Occt::Adaptor3d_Surface^ theAS);
 }; // class ProjLib
-
-//---------------------------------------------------------------------
-//  Class  ProjLib_HSequenceOfHSequenceOfPnt
-//---------------------------------------------------------------------
-public ref class ProjLib_HSequenceOfHSequenceOfPnt sealed
-    : public Macad::Occt::Standard_Transient
-    , public IIndexEnumerable<Macad::Occt::TColgp_HSequenceOfPnt^>
-{
-
-#ifdef Include_ProjLib_HSequenceOfHSequenceOfPnt_h
-public:
-    Include_ProjLib_HSequenceOfHSequenceOfPnt_h
-#endif
-
-public:
-    ProjLib_HSequenceOfHSequenceOfPnt(::ProjLib_HSequenceOfHSequenceOfPnt* nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    ProjLib_HSequenceOfHSequenceOfPnt(::ProjLib_HSequenceOfHSequenceOfPnt& nativeInstance)
-        : Macad::Occt::Standard_Transient( nativeInstance )
-    {}
-
-    property ::ProjLib_HSequenceOfHSequenceOfPnt* NativeInstance
-    {
-        ::ProjLib_HSequenceOfHSequenceOfPnt* get()
-        {
-            return static_cast<::ProjLib_HSequenceOfHSequenceOfPnt*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::ProjLib_HSequenceOfHSequenceOfPnt::Iterator>
-    {
-
-#ifdef Include_ProjLib_HSequenceOfHSequenceOfPnt_Iterator_h
-    public:
-        Include_ProjLib_HSequenceOfHSequenceOfPnt_Iterator_h
-#endif
-
-    public:
-        Iterator(::ProjLib_HSequenceOfHSequenceOfPnt::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::ProjLib_HSequenceOfHSequenceOfPnt::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::ProjLib_HSequenceOfHSequenceOfPnt::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::ProjLib_HSequenceOfHSequenceOfPnt::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::ProjLib_HSequenceOfHSequenceOfPnt::Iterator* NativeInstance
-        {
-            ::ProjLib_HSequenceOfHSequenceOfPnt::Iterator* get()
-            {
-                return static_cast<::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::TColgp_HSequenceOfPnt^ Value();
-        Macad::Occt::TColgp_HSequenceOfPnt^ ChangeValue();
-        bool IsEqual(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ theOther);
-        bool Equals(System::Object^ obj) override;
-    }; // class Iterator
-
-    ProjLib_HSequenceOfHSequenceOfPnt();
-    ProjLib_HSequenceOfHSequenceOfPnt(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theOther);
-    Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ Sequence();
-    void Append(Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
-    void Append(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSequence);
-    Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ ChangeSequence();
-    int Size();
-    int Length();
-    int Lower();
-    int Upper();
-    bool IsEmpty();
-    void Reverse();
-    void Exchange(int I, int J);
-    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt^ Assign(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt^ theOther);
-    void Remove(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ thePosition);
-    void Prepend(Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
-    void InsertBefore(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
-    void InsertAfter(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ thePosition, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
-    void Split(int theIndex, Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt^ theSeq);
-    Macad::Occt::TColgp_HSequenceOfPnt^ First();
-    Macad::Occt::TColgp_HSequenceOfPnt^ ChangeFirst();
-    Macad::Occt::TColgp_HSequenceOfPnt^ Last();
-    Macad::Occt::TColgp_HSequenceOfPnt^ ChangeLast();
-    virtual Macad::Occt::TColgp_HSequenceOfPnt^ Value(int theIndex);
-    Macad::Occt::TColgp_HSequenceOfPnt^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
-    static Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt^ CreateDowncasted(::ProjLib_HSequenceOfHSequenceOfPnt* instance);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HSequenceOfPnt^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class ProjLib_HSequenceOfHSequenceOfPnt
 
 //---------------------------------------------------------------------
 //  Class  ProjLib_Projector
@@ -542,7 +584,7 @@ public:
     ProjLib_Projector();
     bool IsDone();
     /// <summary>
-    /// Set isDone = Standard_True;
+    /// Set isDone = true;
     /// </summary>
     void Done();
     Macad::Occt::GeomAbs_CurveType GetCurveType();
@@ -641,9 +683,9 @@ public:
     Macad::Occt::Adaptor2d_Curve2d^ ShallowCopy();
     /// <summary>
     /// computes a set of projected point and determine the
-    /// continuous parts of the projected  curves. The  points
+    /// continuous parts of the projected curves. The points
     /// corresponding to a projection on the bounds of the surface are
-    /// included  in this set of points.
+    /// included in this set of points.
     /// </summary>
     void Init();
     /// <summary>
@@ -687,7 +729,7 @@ public:
     /// </summary>
     void Load(Macad::Occt::Adaptor3d_Surface^ S);
     /// <summary>
-    /// Changes the  curve.
+    /// Changes the curve.
     /// </summary>
     void Load(Macad::Occt::Adaptor3d_Curve^ C);
     Macad::Occt::Adaptor3d_Surface^ GetSurface();
@@ -702,18 +744,18 @@ public:
     /// </summary>
     void Bounds(int Index, double% Udeb, double% Ufin);
     /// <summary>
-    /// returns  True  if  part  of  projection with  number  Index is  a  single  point  and  writes
-    /// its  coordinates in  P
+    /// returns True if part of projection with number Index is a single point and writes
+    /// its coordinates in P
     /// </summary>
     bool IsSinglePnt(int Index, Macad::Occt::Pnt2d% P);
     /// <summary>
-    /// returns  True  if  part  of  projection with  number  Index is  an  u-isoparametric curve  of
-    /// input  surface
+    /// returns True if part of projection with number Index is an u-isoparametric curve of
+    /// input surface
     /// </summary>
     bool IsUIso(int Index, double% U);
     /// <summary>
-    /// returns  True  if  part  of  projection with  number  Index is  an  v-isoparametric curve  of
-    /// input  surface
+    /// returns True if part of projection with number Index is an v-isoparametric curve of
+    /// input surface
     /// </summary>
     bool IsVIso(int Index, double% V);
     /// <summary>
@@ -746,13 +788,13 @@ public:
     /// </summary>
     Macad::Occt::Vec2d DN(double U, int N);
     /// <summary>
-    /// Returns  the  first  parameter of  the  curve  C
-    /// which  has  a  projection  on  S.
+    /// Returns the first parameter of the curve C
+    /// which has a projection on S.
     /// </summary>
     double FirstParameter();
     /// <summary>
-    /// Returns  the  last  parameter of  the  curve  C
-    /// which  has  a  projection  on  S.
+    /// Returns the last parameter of the curve C
+    /// which has a projection on S.
     /// </summary>
     double LastParameter();
     /// <summary>
@@ -760,34 +802,34 @@ public:
     /// </summary>
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// Returns  the number  of  intervals which  define
-    /// an  S  continuous  part  of  the  projected  curve
+    /// Returns the number of intervals which define
+    /// an S continuous part of the projected curve
     /// </summary>
     int NbIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  curve equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a curve equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 2d points confusion.
     /// If <First> >= <Last>
     /// </summary>
     Macad::Occt::Adaptor2d_Curve2d^ Trim(double FirstParam, double LastParam, double Tol);
     /// <summary>
-    /// Returns  the  parameters  corresponding  to
-    /// S  discontinuities.
+    /// Returns the parameters corresponding to
+    /// S discontinuities.
     /// 
-    /// The array must provide  enough room to  accommodate
+    /// The array must provide enough room to accommodate
     /// for the parameters. i.e. T.Length() > NbIntervals()
     /// </summary>
     void Intervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// returns  the  maximum  distance  between
-    /// curve  to  project  and  surface
+    /// returns the maximum distance between
+    /// curve to project and surface
     /// </summary>
     double MaxDistance(int Index);
     Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt^ GetSequence();
     /// <summary>
-    /// Returns  the  type of the   curve  in the  current
-    /// interval :   Line,   Circle,   Ellipse, Hyperbola,
+    /// Returns the type of the curve in the current
+    /// interval: Line, Circle, Ellipse, Hyperbola,
     /// Parabola, BezierCurve, BSplineCurve, OtherCurve.
     /// </summary>
     Macad::Occt::GeomAbs_CurveType GetCurveType();
@@ -846,7 +888,7 @@ public:
 //  Class  ProjLib_ComputeApprox
 //---------------------------------------------------------------------
 /// <summary>
-/// Approximate the  projection of  a 3d curve   on an
+/// Approximate the projection of a 3d curve on an
 /// analytic surface and stores the result in Approx.
 /// The result is a 2d curve.
 /// For approximation some parameters are used, including
@@ -889,8 +931,7 @@ public:
     /// </summary>
     ProjLib_ComputeApprox();
     /// <summary>
-    /// <Tol>    is   the   tolerance   with  which    the
-    /// approximation is performed.
+    /// <Tol> is the tolerance with which the approximation is performed.
     /// Other parameters for approximation have default values.
     /// </summary>
     ProjLib_ComputeApprox(Macad::Occt::Adaptor3d_Curve^ C, Macad::Occt::Adaptor3d_Surface^ S, double Tol);
@@ -930,11 +971,11 @@ public:
 //  Class  ProjLib_ComputeApproxOnPolarSurface
 //---------------------------------------------------------------------
 /// <summary>
-/// Approximate the  projection  of a  3d curve  on an
-/// polar  surface  and  stores the result  in  Approx.
-/// The result is a  2d curve.  The evaluation of  the
-/// current  point of the  2d  curve is done with  the
-/// evaluation of the extrema  P3d - Surface.
+/// Approximate the projection of a 3d curve on an
+/// polar surface and stores the result in Approx.
+/// The result is a 2d curve. The evaluation of the
+/// current point of the 2d curve is done with the
+/// evaluation of the extrema P3d - Surface.
 /// For approximation some parameters are used, including
 /// required tolerance of approximation.
 /// Tolerance is maximal possible value of 3d deviation of 3d projection of projected curve from
@@ -1273,21 +1314,21 @@ public:
 public:
     ProjLib_PrjResolve(Macad::Occt::Adaptor3d_Curve^ C, Macad::Occt::Adaptor3d_Surface^ S, int Fix);
     /// <summary>
-    /// Calculates the ort from  C(t)  to  S  with a close point.
+    /// Calculates the ort from C(t) to S with a close point.
     /// The close point is defined by the parameter values U0 and V0.
     /// The function F(u,v)=distance(S(u,v),C(t)) has an extremum when gradient(F)=0.
     /// The algorithm searches a zero near the close point.
     /// </summary>
     void Perform(double t, double U, double V, Macad::Occt::Pnt2d Tol, Macad::Occt::Pnt2d Inf, Macad::Occt::Pnt2d Sup, double FTol, bool StrictInside);
     /// <summary>
-    /// Calculates the ort from  C(t)  to  S  with a close point.
+    /// Calculates the ort from C(t) to S with a close point.
     /// The close point is defined by the parameter values U0 and V0.
     /// The function F(u,v)=distance(S(u,v),C(t)) has an extremum when gradient(F)=0.
     /// The algorithm searches a zero near the close point.
     /// </summary>
     void Perform(double t, double U, double V, Macad::Occt::Pnt2d Tol, Macad::Occt::Pnt2d Inf, Macad::Occt::Pnt2d Sup, double FTol);
     /// <summary>
-    /// Calculates the ort from  C(t)  to  S  with a close point.
+    /// Calculates the ort from C(t) to S with a close point.
     /// The close point is defined by the parameter values U0 and V0.
     /// The function F(u,v)=distance(S(u,v),C(t)) has an extremum when gradient(F)=0.
     /// The algorithm searches a zero near the close point.
@@ -1307,13 +1348,13 @@ public:
 //  Class  ProjLib_ProjectOnPlane
 //---------------------------------------------------------------------
 /// <summary>
-/// Class  used  to project  a 3d curve   on a plane.  The
+/// Class used to project a 3d curve on a plane. The
 /// result will be a 3d curve.
 /// 
-/// You  can ask   the projected curve  to  have  the same
+/// You can ask the projected curve to have the same
 /// parametrization as the original curve.
 /// 
-/// The projection can be done  along every direction  not
+/// The projection can be done along every direction not
 /// parallel to the plane.
 /// </summary>
 public ref class ProjLib_ProjectOnPlane sealed
@@ -1353,9 +1394,9 @@ public:
     /// </summary>
     ProjLib_ProjectOnPlane(Macad::Occt::Ax3 Pl);
     /// <summary>
-    /// The projection will be  along the direction <D> on
+    /// The projection will be along the direction <D> on
     /// the plane defined by the Ax3 <Pl>.
-    /// raises  if the direction  <D>  is parallel  to the
+    /// raises if the direction <D> is parallel to the
     /// plane <Pl>.
     /// </summary>
     ProjLib_ProjectOnPlane(Macad::Occt::Ax3 Pl, Macad::Occt::Dir D);
@@ -1364,19 +1405,19 @@ public:
     /// </summary>
     Macad::Occt::Adaptor3d_Curve^ ShallowCopy();
     /// <summary>
-    /// Sets the  Curve  and perform  the projection.
+    /// Sets the Curve and perform the projection.
     /// if <KeepParametrization> is true, the parametrization
-    /// of the Projected Curve <PC>  will  be the same  as
-    /// the parametrization of the initial  curve <C>.
+    /// of the Projected Curve <PC> will be the same as
+    /// the parametrization of the initial curve <C>.
     /// It means: proj(C(u)) = PC(u) for each u.
     /// Otherwise, the parametrization may change.
     /// </summary>
     void Load(Macad::Occt::Adaptor3d_Curve^ C, double Tolerance, bool KeepParametrization);
     /// <summary>
-    /// Sets the  Curve  and perform  the projection.
+    /// Sets the Curve and perform the projection.
     /// if <KeepParametrization> is true, the parametrization
-    /// of the Projected Curve <PC>  will  be the same  as
-    /// the parametrization of the initial  curve <C>.
+    /// of the Projected Curve <PC> will be the same as
+    /// the parametrization of the initial curve <C>.
     /// It means: proj(C(u)) = PC(u) for each u.
     /// Otherwise, the parametrization may change.
     /// </summary>
@@ -1389,21 +1430,21 @@ public:
     double LastParameter();
     Macad::Occt::GeomAbs_Shape Continuity();
     /// <summary>
-    /// If necessary,  breaks the  curve in  intervals  of
-    /// continuity  <S>.    And  returns   the number   of
+    /// If necessary, breaks the curve in intervals of
+    /// continuity <S>. And returns the number of
     /// intervals.
     /// </summary>
     int NbIntervals(Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Stores in <T> the  parameters bounding the intervals of continuity <S>.
+    /// Stores in <T> the parameters bounding the intervals of continuity <S>.
     /// 
     /// The array must provide enough room to accommodate
     /// for the parameters. i.e. T.Length() > NbIntervals()
     /// </summary>
     void Intervals(Macad::Occt::TColStd_Array1OfReal^ T, Macad::Occt::GeomAbs_Shape S);
     /// <summary>
-    /// Returns    a  curve equivalent   of  <me>  between
-    /// parameters <First>  and <Last>. <Tol>  is used  to
+    /// Returns a curve equivalent of <me> between
+    /// parameters <First> and <Last>. <Tol> is used to
     /// test for 3d points confusion.
     /// If <First> >= <Last>
     /// </summary>
@@ -1412,50 +1453,26 @@ public:
     bool IsPeriodic();
     double Period();
     /// <summary>
-    /// Computes the point of parameter U on the curve.
+    /// Computes the point of parameter theU on the curve.
     /// </summary>
-    Macad::Occt::Pnt Value(double U);
+    Macad::Occt::Pnt EvalD0(double theU);
+    /* Method skipped due to unknown mapping: ResD1 EvalD1(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD2 EvalD2(double theU, ) */
+    /* Method skipped due to unknown mapping: ResD3 EvalD3(double theU, ) */
     /// <summary>
-    /// Computes the point of parameter U on the curve.
+    /// Returns the derivative of order theN at parameter theU.
+    /// Raised if the continuity of the current interval is not CN.
+    /// Raised if theN < 1.
     /// </summary>
-    void D0(double U, Macad::Occt::Pnt% P);
+    Macad::Occt::Vec EvalDN(double theU, int theN);
     /// <summary>
-    /// Computes the point of parameter U on the curve with its
-    /// first derivative.
-    /// Raised if the continuity of the current interval
-    /// is not C1.
-    /// </summary>
-    void D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V);
-    /// <summary>
-    /// Returns the point P of parameter U, the first and second
-    /// derivatives V1 and V2.
-    /// Raised if the continuity of the current interval
-    /// is not C2.
-    /// </summary>
-    void D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2);
-    /// <summary>
-    /// Returns the point P of parameter U, the first, the second
-    /// and the third derivative.
-    /// Raised if the continuity of the current interval
-    /// is not C3.
-    /// </summary>
-    void D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3);
-    /// <summary>
-    /// The returned vector gives the value of the derivative for the
-    /// order of derivation N.
-    /// Raised if the continuity of the current interval
-    /// is not CN.
-    /// Raised if N < 1.
-    /// </summary>
-    Macad::Occt::Vec DN(double U, int N);
-    /// <summary>
-    /// Returns the parametric  resolution corresponding
+    /// Returns the parametric resolution corresponding
     /// to the real space resolution <R3d>.
     /// </summary>
     double Resolution(double R3d);
     /// <summary>
-    /// Returns  the  type of the   curve  in the  current
-    /// interval :   Line,   Circle,   Ellipse, Hyperbola,
+    /// Returns the type of the curve in the current
+    /// interval: Line, Circle, Ellipse, Hyperbola,
     /// Parabola, BezierCurve, BSplineCurve, OtherCurve.
     /// </summary>
     Macad::Occt::GeomAbs_CurveType GetCurveType();
@@ -1491,8 +1508,8 @@ public:
 //  Class  ProjLib_ProjectOnSurface
 //---------------------------------------------------------------------
 /// <summary>
-/// Project a curve on a  surface.  The result ( a  3D
-/// Curve)  will be an approximation
+/// Project a curve on a surface. The result
+/// (a 3D Curve) will be an approximation
 /// </summary>
 public ref class ProjLib_ProjectOnSurface sealed
     : public Macad::Occt::BaseClass<::ProjLib_ProjectOnSurface>

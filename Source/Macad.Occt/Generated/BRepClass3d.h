@@ -8,47 +8,6 @@ namespace Macad
 namespace Occt
 {
 //---------------------------------------------------------------------
-//  Class  BRepClass3d_BndBoxTree
-//---------------------------------------------------------------------
-public ref class BRepClass3d_BndBoxTree sealed
-    : public Macad::Occt::BaseClass<::BRepClass3d_BndBoxTree>
-{
-
-#ifdef Include_BRepClass3d_BndBoxTree_h
-public:
-    Include_BRepClass3d_BndBoxTree_h
-#endif
-
-public:
-    BRepClass3d_BndBoxTree(::BRepClass3d_BndBoxTree* nativeInstance)
-        : Macad::Occt::BaseClass<::BRepClass3d_BndBoxTree>( nativeInstance, true )
-    {}
-
-    BRepClass3d_BndBoxTree(::BRepClass3d_BndBoxTree& nativeInstance)
-        : Macad::Occt::BaseClass<::BRepClass3d_BndBoxTree>( &nativeInstance, false )
-    {}
-
-    property ::BRepClass3d_BndBoxTree* NativeInstance
-    {
-        ::BRepClass3d_BndBoxTree* get()
-        {
-            return static_cast<::BRepClass3d_BndBoxTree*>(_NativeInstance);
-        }
-    }
-
-public:
-    BRepClass3d_BndBoxTree();
-    BRepClass3d_BndBoxTree(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    bool Add(int theObj, Macad::Occt::Bnd_Box^ theBnd);
-    /* Method skipped due to unknown mapping: int Select(Selector theSelector, ) */
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ aNewAlloc);
-    void Clear();
-    bool IsEmpty();
-    /* Method skipped due to unknown mapping: TreeNode Root() */
-    Macad::Occt::NCollection_BaseAllocator^ Allocator();
-}; // class BRepClass3d_BndBoxTree
-
-//---------------------------------------------------------------------
 //  Class  BRepClass3d_MapOfInter
 //---------------------------------------------------------------------
 public ref class BRepClass3d_MapOfInter sealed
@@ -106,6 +65,7 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepClass3d_MapOfInter^ theMap);
         bool More();
         void Next();
         System::IntPtr Value();
@@ -113,23 +73,43 @@ public:
         Macad::Occt::TopoDS_Shape^ Key();
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepClass3d_MapOfInter();
+    BRepClass3d_MapOfInter(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepClass3d_MapOfInter(long long unsigned int theNbBuckets);
     BRepClass3d_MapOfInter(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     BRepClass3d_MapOfInter(int theNbBuckets);
+    BRepClass3d_MapOfInter(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepClass3d_MapOfInter(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets);
+    BRepClass3d_MapOfInter(Macad::Occt::TopTools_ShapeMapHasher^ theHasher);
+    BRepClass3d_MapOfInter(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepClass3d_MapOfInter(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets);
+    /* Method skipped due to unknown mapping: ItemsView Items() */
     void Exchange(Macad::Occt::BRepClass3d_MapOfInter^ theOther);
+    Macad::Occt::TopTools_ShapeMapHasher^ GetHasher();
     Macad::Occt::BRepClass3d_MapOfInter^ Assign(Macad::Occt::BRepClass3d_MapOfInter^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     bool Bind(Macad::Occt::TopoDS_Shape^ theKey, System::IntPtr theItem);
     System::IntPtr Bound(Macad::Occt::TopoDS_Shape^ theKey, System::IntPtr theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey, System::IntPtr theItem);
+    System::IntPtr TryBound(Macad::Occt::TopoDS_Shape^ theKey, System::IntPtr theItem);
     bool IsBound(Macad::Occt::TopoDS_Shape^ theKey);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<void *const>>> Contained(TopoDS_Shape theKey, ) */
     bool UnBind(Macad::Occt::TopoDS_Shape^ theKey);
     System::IntPtr Seek(Macad::Occt::TopoDS_Shape^ theKey);
     System::IntPtr Find(Macad::Occt::TopoDS_Shape^ theKey);
+    bool Find(Macad::Occt::TopoDS_Shape^ theKey, System::IntPtr theValue);
     System::IntPtr ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
     System::IntPtr ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class BRepClass3d_MapOfInter
 
 //---------------------------------------------------------------------
@@ -304,8 +284,8 @@ public:
     /// </summary>
     bool Reject(Macad::Occt::Pnt P);
     /// <summary>
-    /// compute a point P in the face  F. Param is a Real in
-    /// ]0,1[ and   is  used to  initialise  the algorithm. For
+    /// compute a point P in the face F. Param is a Real in
+    /// ]0,1[ and is used to initialise the algorithm. For
     /// different values , different points are returned.
     /// </summary>
     static bool FindAPointInTheFace(Macad::Occt::TopoDS_Face^ F, Macad::Occt::Pnt% P, double% Param);
@@ -317,7 +297,7 @@ public:
     bool PointInTheFace(Macad::Occt::TopoDS_Face^ F, Macad::Occt::Pnt% P, double% u, double% v, double% Param, int% Index);
     bool PointInTheFace(Macad::Occt::TopoDS_Face^ F, Macad::Occt::Pnt% P, double% u, double% v, double% Param, int% Index, Macad::Occt::BRepAdaptor_Surface^ surf, double u1, double v1, double u2, double v2);
     /// <summary>
-    /// <Index> gives point index  to  search from and returns
+    /// <Index> gives point index to search from and returns
     /// point index of succeseful search
     /// </summary>
     bool PointInTheFace(Macad::Occt::TopoDS_Face^ F, Macad::Occt::Pnt% P, double% u, double% v, double% Param, int% Index, Macad::Occt::BRepAdaptor_Surface^ surf, double u1, double v1, double u2, double v2, Macad::Occt::Vec% theVecD1U, Macad::Occt::Vec% theVecD1V);
@@ -362,15 +342,15 @@ public:
     /// </summary>
     bool RejectFace(Macad::Occt::gp_Lin^ L);
     /// <summary>
-    /// Returns  in <L>, <Par>  a segment having at least
-    /// one  intersection  with  the  shape  boundary  to
-    /// compute  intersections.
+    /// Returns in <L>, <Par> a segment having at least
+    /// one intersection with the shape boundary to
+    /// compute intersections.
     /// </summary>
     int Segment(Macad::Occt::Pnt P, Macad::Occt::gp_Lin^ L, double% Par);
     /// <summary>
-    /// Returns  in <L>, <Par>  a segment having at least
-    /// one  intersection  with  the  shape  boundary  to
-    /// compute  intersections.
+    /// Returns in <L>, <Par> a segment having at least
+    /// one intersection with the shape boundary to
+    /// compute intersections.
     /// 
     /// The First Call to this method returns a line which
     /// point to a point of the first face of the shape.
@@ -384,13 +364,9 @@ public:
     /// </summary>
     int GetFaceSegmentIndex();
     void DumpSegment(Macad::Occt::Pnt P, Macad::Occt::gp_Lin^ L, double Par, Macad::Occt::TopAbs_State S);
-    Macad::Occt::Bnd_Box^ Box();
     Macad::Occt::TopoDS_Shape^ GetShape();
     Macad::Occt::IntCurvesFace_Intersector^ Intersector(Macad::Occt::TopoDS_Face^ F);
-    /// <summary>
-    /// Return UB-tree instance which is used for edge / vertex checks.
-    /// </summary>
-    Macad::Occt::BRepClass3d_BndBoxTree^ GetTree();
+    /* Method skipped due to unknown mapping: NCollection_UBTree<int, Bnd_Box> GetTree() */
     /// <summary>
     /// Return edge/vertices map for current shape.
     /// </summary>
@@ -575,15 +551,15 @@ public:
     /// </summary>
     BRepClass3d_SolidPassiveClassifier();
     /// <summary>
-    /// Starts  a  classification process.   The  point to
-    /// classify is the origin of  the  line <L>.  <P>  is
-    /// the original length of the segment on <L>  used to
-    /// compute  intersections.   <Tol> is the   tolerance
+    /// Starts a classification process. The point to
+    /// classify is the origin of the line <L>. <P> is
+    /// the original length of the segment on <L> used to
+    /// compute intersections. <Tol> is the tolerance
     /// attached to the intersections.
     /// </summary>
     void Reset(Macad::Occt::gp_Lin^ L, double P, double Tol);
     /// <summary>
-    /// Updates  the classification process with  the face
+    /// Updates the classification process with the face
     /// <F> from the boundary.
     /// </summary>
     void Compare(Macad::Occt::TopoDS_Face^ F, Macad::Occt::TopAbs_Orientation Or);

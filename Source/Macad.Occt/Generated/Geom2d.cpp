@@ -245,6 +245,78 @@ Macad::Occt::Geom2d_AxisPlacement^ Macad::Occt::Geom2d_AxisPlacement::CreateDown
 
 
 //---------------------------------------------------------------------
+//  Class  Geom2d_UndefinedDerivative
+//---------------------------------------------------------------------
+
+Macad::Occt::Geom2d_UndefinedDerivative::Geom2d_UndefinedDerivative(System::String^ theMessage)
+    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
+{
+    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
+    _NativeInstance = new ::Geom2d_UndefinedDerivative(sz_theMessage);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+}
+
+Macad::Occt::Geom2d_UndefinedDerivative::Geom2d_UndefinedDerivative()
+    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Geom2d_UndefinedDerivative("");
+}
+
+Macad::Occt::Geom2d_UndefinedDerivative::Geom2d_UndefinedDerivative(System::String^ theMessage, System::String^ theStackTrace)
+    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
+{
+    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
+    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
+    _NativeInstance = new ::Geom2d_UndefinedDerivative(sz_theMessage, sz_theStackTrace);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
+}
+
+System::String^ Macad::Occt::Geom2d_UndefinedDerivative::ExceptionType()
+{
+    Standard_CString _result = ((::Geom2d_UndefinedDerivative*)_NativeInstance)->ExceptionType();
+    return gcnew System::String(_result);
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Geom2d_UndefinedValue
+//---------------------------------------------------------------------
+
+Macad::Occt::Geom2d_UndefinedValue::Geom2d_UndefinedValue(System::String^ theMessage)
+    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
+{
+    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
+    _NativeInstance = new ::Geom2d_UndefinedValue(sz_theMessage);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+}
+
+Macad::Occt::Geom2d_UndefinedValue::Geom2d_UndefinedValue()
+    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Geom2d_UndefinedValue("");
+}
+
+Macad::Occt::Geom2d_UndefinedValue::Geom2d_UndefinedValue(System::String^ theMessage, System::String^ theStackTrace)
+    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
+{
+    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
+    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
+    _NativeInstance = new ::Geom2d_UndefinedValue(sz_theMessage, sz_theStackTrace);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
+}
+
+System::String^ Macad::Occt::Geom2d_UndefinedValue::ExceptionType()
+{
+    Standard_CString _result = ((::Geom2d_UndefinedValue*)_NativeInstance)->ExceptionType();
+    return gcnew System::String(_result);
+}
+
+
+
+//---------------------------------------------------------------------
 //  Class  Geom2d_Curve
 //---------------------------------------------------------------------
 
@@ -325,6 +397,18 @@ bool Macad::Occt::Geom2d_Curve::IsCN(int N)
 {
     bool _result = ((::Geom2d_Curve*)_NativeInstance)->IsCN(N);
     return _result;
+}
+
+Macad::Occt::Pnt2d Macad::Occt::Geom2d_Curve::EvalD0(double U)
+{
+    ::gp_Pnt2d _nativeResult = ((::Geom2d_Curve*)_NativeInstance)->EvalD0(U);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::Geom2d_Curve::EvalDN(double U, int N)
+{
+    ::gp_Vec2d _nativeResult = ((::Geom2d_Curve*)_NativeInstance)->EvalDN(U, N);
+    return Macad::Occt::Vec2d(_nativeResult);
 }
 
 void Macad::Occt::Geom2d_Curve::D0(double U, Macad::Occt::Pnt2d% P)
@@ -471,6 +555,17 @@ Macad::Occt::Geom2d_BezierCurve::Geom2d_BezierCurve(Macad::Occt::TColgp_Array1Of
     NativeInstance = new ::Geom2d_BezierCurve(*(::TColgp_Array1OfPnt2d*)CurvePoles->NativeInstance, *(::TColStd_Array1OfReal*)PoleWeights->NativeInstance);
 }
 
+bool Macad::Occt::Geom2d_BezierCurve::HasEvalRepresentation()
+{
+    bool _result = ((::Geom2d_BezierCurve*)_NativeInstance)->HasEvalRepresentation();
+    return _result;
+}
+
+void Macad::Occt::Geom2d_BezierCurve::ClearEvalRepresentation()
+{
+    ((::Geom2d_BezierCurve*)_NativeInstance)->ClearEvalRepresentation();
+}
+
 void Macad::Occt::Geom2d_BezierCurve::Increase(int Degree)
 {
     ((::Geom2d_BezierCurve*)_NativeInstance)->Increase(Degree);
@@ -574,39 +669,15 @@ int Macad::Occt::Geom2d_BezierCurve::Degree()
     return _result;
 }
 
-void Macad::Occt::Geom2d_BezierCurve::D0(double U, Macad::Occt::Pnt2d% P)
+Macad::Occt::Pnt2d Macad::Occt::Geom2d_BezierCurve::EvalD0(double U)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    ((::Geom2d_BezierCurve*)_NativeInstance)->D0(U, *(gp_Pnt2d*)pp_P);
+    ::gp_Pnt2d _nativeResult = ((::Geom2d_BezierCurve*)_NativeInstance)->EvalD0(U);
+    return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-void Macad::Occt::Geom2d_BezierCurve::D1(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1)
+Macad::Occt::Vec2d Macad::Occt::Geom2d_BezierCurve::EvalDN(double U, int N)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    ((::Geom2d_BezierCurve*)_NativeInstance)->D1(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1);
-}
-
-void Macad::Occt::Geom2d_BezierCurve::D2(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    ((::Geom2d_BezierCurve*)_NativeInstance)->D2(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2);
-}
-
-void Macad::Occt::Geom2d_BezierCurve::D3(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2, Macad::Occt::Vec2d% V3)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec2d> pp_V3 = &V3;
-    ((::Geom2d_BezierCurve*)_NativeInstance)->D3(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2, *(gp_Vec2d*)pp_V3);
-}
-
-Macad::Occt::Vec2d Macad::Occt::Geom2d_BezierCurve::DN(double U, int N)
-{
-    ::gp_Vec2d _nativeResult = ((::Geom2d_BezierCurve*)_NativeInstance)->DN(U, N);
+    ::gp_Vec2d _nativeResult = ((::Geom2d_BezierCurve*)_NativeInstance)->EvalDN(U, N);
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
@@ -675,6 +746,13 @@ Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Geom2d_BezierCurve::Weights()
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal((::TColStd_Array1OfReal*)_result);
 }
 
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Geom2d_BezierCurve::WeightsArray()
+{
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = (::TColStd_Array1OfReal)((::Geom2d_BezierCurve*)_NativeInstance)->WeightsArray();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
+}
+
 void Macad::Occt::Geom2d_BezierCurve::Transform(Macad::Occt::Trsf2d T)
 {
     pin_ptr<Macad::Occt::Trsf2d> pp_T = &T;
@@ -713,6 +791,27 @@ void Macad::Occt::Geom2d_BezierCurve::DumpJson(System::IO::TextWriter^ theOStrea
     theOStream->Write(gcnew System::String(oss_theOStream.str().c_str()));
 }
 
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Geom2d_BezierCurve::Knots()
+{
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = (::TColStd_Array1OfReal)((::Geom2d_BezierCurve*)_NativeInstance)->Knots();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
+}
+
+Macad::Occt::TColStd_Array1OfInteger^ Macad::Occt::Geom2d_BezierCurve::Multiplicities()
+{
+    ::TColStd_Array1OfInteger* _result = new ::TColStd_Array1OfInteger();
+    *_result = (::TColStd_Array1OfInteger)((::Geom2d_BezierCurve*)_NativeInstance)->Multiplicities();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfInteger(_result);
+}
+
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Geom2d_BezierCurve::KnotSequence()
+{
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = (::TColStd_Array1OfReal)((::Geom2d_BezierCurve*)_NativeInstance)->KnotSequence();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
+}
+
 Macad::Occt::Geom2d_BezierCurve^ Macad::Occt::Geom2d_BezierCurve::CreateDowncasted(::Geom2d_BezierCurve* instance)
 {
     return gcnew Macad::Occt::Geom2d_BezierCurve( instance );
@@ -746,6 +845,17 @@ Macad::Occt::Geom2d_BSplineCurve::Geom2d_BSplineCurve(Macad::Occt::TColgp_Array1
     : Macad::Occt::Geom2d_BoundedCurve(BaseClass::InitMode::Uninitialized)
 {
     NativeInstance = new ::Geom2d_BSplineCurve(*(::TColgp_Array1OfPnt2d*)Poles->NativeInstance, *(::TColStd_Array1OfReal*)Weights->NativeInstance, *(::TColStd_Array1OfReal*)Knots->NativeInstance, *(::TColStd_Array1OfInteger*)Multiplicities->NativeInstance, Degree, false);
+}
+
+bool Macad::Occt::Geom2d_BSplineCurve::HasEvalRepresentation()
+{
+    bool _result = ((::Geom2d_BSplineCurve*)_NativeInstance)->HasEvalRepresentation();
+    return _result;
+}
+
+void Macad::Occt::Geom2d_BSplineCurve::ClearEvalRepresentation()
+{
+    ((::Geom2d_BSplineCurve*)_NativeInstance)->ClearEvalRepresentation();
 }
 
 void Macad::Occt::Geom2d_BSplineCurve::IncreaseDegree(int Degree)
@@ -965,39 +1075,15 @@ int Macad::Occt::Geom2d_BSplineCurve::Degree()
     return _result;
 }
 
-void Macad::Occt::Geom2d_BSplineCurve::D0(double U, Macad::Occt::Pnt2d% P)
+Macad::Occt::Pnt2d Macad::Occt::Geom2d_BSplineCurve::EvalD0(double U)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    ((::Geom2d_BSplineCurve*)_NativeInstance)->D0(U, *(gp_Pnt2d*)pp_P);
+    ::gp_Pnt2d _nativeResult = ((::Geom2d_BSplineCurve*)_NativeInstance)->EvalD0(U);
+    return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-void Macad::Occt::Geom2d_BSplineCurve::D1(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1)
+Macad::Occt::Vec2d Macad::Occt::Geom2d_BSplineCurve::EvalDN(double U, int N)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    ((::Geom2d_BSplineCurve*)_NativeInstance)->D1(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1);
-}
-
-void Macad::Occt::Geom2d_BSplineCurve::D2(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    ((::Geom2d_BSplineCurve*)_NativeInstance)->D2(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2);
-}
-
-void Macad::Occt::Geom2d_BSplineCurve::D3(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2, Macad::Occt::Vec2d% V3)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec2d> pp_V3 = &V3;
-    ((::Geom2d_BSplineCurve*)_NativeInstance)->D3(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2, *(gp_Vec2d*)pp_V3);
-}
-
-Macad::Occt::Vec2d Macad::Occt::Geom2d_BSplineCurve::DN(double U, int N)
-{
-    ::gp_Vec2d _nativeResult = ((::Geom2d_BSplineCurve*)_NativeInstance)->DN(U, N);
+    ::gp_Vec2d _nativeResult = ((::Geom2d_BSplineCurve*)_NativeInstance)->EvalDN(U, N);
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
@@ -1192,6 +1278,13 @@ Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Geom2d_BSplineCurve::Weights()
 {
     const ::TColStd_Array1OfReal* _result = ((::Geom2d_BSplineCurve*)_NativeInstance)->Weights();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal((::TColStd_Array1OfReal*)_result);
+}
+
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Geom2d_BSplineCurve::WeightsArray()
+{
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = (::TColStd_Array1OfReal)((::Geom2d_BSplineCurve*)_NativeInstance)->WeightsArray();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
 }
 
 void Macad::Occt::Geom2d_BSplineCurve::Transform(Macad::Occt::Trsf2d T)
@@ -1619,39 +1712,15 @@ bool Macad::Occt::Geom2d_Circle::IsPeriodic()
     return _result;
 }
 
-void Macad::Occt::Geom2d_Circle::D0(double U, Macad::Occt::Pnt2d% P)
+Macad::Occt::Pnt2d Macad::Occt::Geom2d_Circle::EvalD0(double U)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    ((::Geom2d_Circle*)_NativeInstance)->D0(U, *(gp_Pnt2d*)pp_P);
+    ::gp_Pnt2d _nativeResult = ((::Geom2d_Circle*)_NativeInstance)->EvalD0(U);
+    return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-void Macad::Occt::Geom2d_Circle::D1(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1)
+Macad::Occt::Vec2d Macad::Occt::Geom2d_Circle::EvalDN(double U, int N)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    ((::Geom2d_Circle*)_NativeInstance)->D1(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1);
-}
-
-void Macad::Occt::Geom2d_Circle::D2(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    ((::Geom2d_Circle*)_NativeInstance)->D2(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2);
-}
-
-void Macad::Occt::Geom2d_Circle::D3(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2, Macad::Occt::Vec2d% V3)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec2d> pp_V3 = &V3;
-    ((::Geom2d_Circle*)_NativeInstance)->D3(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2, *(gp_Vec2d*)pp_V3);
-}
-
-Macad::Occt::Vec2d Macad::Occt::Geom2d_Circle::DN(double U, int N)
-{
-    ::gp_Vec2d _nativeResult = ((::Geom2d_Circle*)_NativeInstance)->DN(U, N);
+    ::gp_Vec2d _nativeResult = ((::Geom2d_Circle*)_NativeInstance)->EvalDN(U, N);
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
@@ -1997,39 +2066,15 @@ bool Macad::Occt::Geom2d_Ellipse::IsPeriodic()
     return _result;
 }
 
-void Macad::Occt::Geom2d_Ellipse::D0(double U, Macad::Occt::Pnt2d% P)
+Macad::Occt::Pnt2d Macad::Occt::Geom2d_Ellipse::EvalD0(double U)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    ((::Geom2d_Ellipse*)_NativeInstance)->D0(U, *(gp_Pnt2d*)pp_P);
+    ::gp_Pnt2d _nativeResult = ((::Geom2d_Ellipse*)_NativeInstance)->EvalD0(U);
+    return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-void Macad::Occt::Geom2d_Ellipse::D1(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1)
+Macad::Occt::Vec2d Macad::Occt::Geom2d_Ellipse::EvalDN(double U, int N)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    ((::Geom2d_Ellipse*)_NativeInstance)->D1(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1);
-}
-
-void Macad::Occt::Geom2d_Ellipse::D2(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    ((::Geom2d_Ellipse*)_NativeInstance)->D2(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2);
-}
-
-void Macad::Occt::Geom2d_Ellipse::D3(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2, Macad::Occt::Vec2d% V3)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec2d> pp_V3 = &V3;
-    ((::Geom2d_Ellipse*)_NativeInstance)->D3(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2, *(gp_Vec2d*)pp_V3);
-}
-
-Macad::Occt::Vec2d Macad::Occt::Geom2d_Ellipse::DN(double U, int N)
-{
-    ::gp_Vec2d _nativeResult = ((::Geom2d_Ellipse*)_NativeInstance)->DN(U, N);
+    ::gp_Vec2d _nativeResult = ((::Geom2d_Ellipse*)_NativeInstance)->EvalDN(U, N);
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
@@ -2236,39 +2281,15 @@ double Macad::Occt::Geom2d_Hyperbola::Parameter()
     return _result;
 }
 
-void Macad::Occt::Geom2d_Hyperbola::D0(double U, Macad::Occt::Pnt2d% P)
+Macad::Occt::Pnt2d Macad::Occt::Geom2d_Hyperbola::EvalD0(double U)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    ((::Geom2d_Hyperbola*)_NativeInstance)->D0(U, *(gp_Pnt2d*)pp_P);
+    ::gp_Pnt2d _nativeResult = ((::Geom2d_Hyperbola*)_NativeInstance)->EvalD0(U);
+    return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-void Macad::Occt::Geom2d_Hyperbola::D1(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1)
+Macad::Occt::Vec2d Macad::Occt::Geom2d_Hyperbola::EvalDN(double U, int N)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    ((::Geom2d_Hyperbola*)_NativeInstance)->D1(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1);
-}
-
-void Macad::Occt::Geom2d_Hyperbola::D2(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    ((::Geom2d_Hyperbola*)_NativeInstance)->D2(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2);
-}
-
-void Macad::Occt::Geom2d_Hyperbola::D3(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2, Macad::Occt::Vec2d% V3)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec2d> pp_V3 = &V3;
-    ((::Geom2d_Hyperbola*)_NativeInstance)->D3(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2, *(gp_Vec2d*)pp_V3);
-}
-
-Macad::Occt::Vec2d Macad::Occt::Geom2d_Hyperbola::DN(double U, int N)
-{
-    ::gp_Vec2d _nativeResult = ((::Geom2d_Hyperbola*)_NativeInstance)->DN(U, N);
+    ::gp_Vec2d _nativeResult = ((::Geom2d_Hyperbola*)_NativeInstance)->EvalDN(U, N);
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
@@ -2432,39 +2453,15 @@ bool Macad::Occt::Geom2d_Line::IsCN(int N)
     return _result;
 }
 
-void Macad::Occt::Geom2d_Line::D0(double U, Macad::Occt::Pnt2d% P)
+Macad::Occt::Pnt2d Macad::Occt::Geom2d_Line::EvalD0(double U)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    ((::Geom2d_Line*)_NativeInstance)->D0(U, *(gp_Pnt2d*)pp_P);
+    ::gp_Pnt2d _nativeResult = ((::Geom2d_Line*)_NativeInstance)->EvalD0(U);
+    return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-void Macad::Occt::Geom2d_Line::D1(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1)
+Macad::Occt::Vec2d Macad::Occt::Geom2d_Line::EvalDN(double U, int N)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    ((::Geom2d_Line*)_NativeInstance)->D1(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1);
-}
-
-void Macad::Occt::Geom2d_Line::D2(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    ((::Geom2d_Line*)_NativeInstance)->D2(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2);
-}
-
-void Macad::Occt::Geom2d_Line::D3(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2, Macad::Occt::Vec2d% V3)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec2d> pp_V3 = &V3;
-    ((::Geom2d_Line*)_NativeInstance)->D3(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2, *(gp_Vec2d*)pp_V3);
-}
-
-Macad::Occt::Vec2d Macad::Occt::Geom2d_Line::DN(double U, int N)
-{
-    ::gp_Vec2d _nativeResult = ((::Geom2d_Line*)_NativeInstance)->DN(U, N);
+    ::gp_Vec2d _nativeResult = ((::Geom2d_Line*)_NativeInstance)->EvalDN(U, N);
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
@@ -2531,6 +2528,17 @@ Macad::Occt::Geom2d_OffsetCurve::Geom2d_OffsetCurve(Macad::Occt::Geom2d_Curve^ C
     NativeInstance = new ::Geom2d_OffsetCurve(Handle(::Geom2d_Curve)(C->NativeInstance), Offset, false);
 }
 
+bool Macad::Occt::Geom2d_OffsetCurve::HasEvalRepresentation()
+{
+    bool _result = ((::Geom2d_OffsetCurve*)_NativeInstance)->HasEvalRepresentation();
+    return _result;
+}
+
+void Macad::Occt::Geom2d_OffsetCurve::ClearEvalRepresentation()
+{
+    ((::Geom2d_OffsetCurve*)_NativeInstance)->ClearEvalRepresentation();
+}
+
 void Macad::Occt::Geom2d_OffsetCurve::Reverse()
 {
     ((::Geom2d_OffsetCurve*)_NativeInstance)->Reverse();
@@ -2569,39 +2577,15 @@ Macad::Occt::GeomAbs_Shape Macad::Occt::Geom2d_OffsetCurve::Continuity()
     return (Macad::Occt::GeomAbs_Shape)_result;
 }
 
-void Macad::Occt::Geom2d_OffsetCurve::D0(double U, Macad::Occt::Pnt2d% P)
+Macad::Occt::Pnt2d Macad::Occt::Geom2d_OffsetCurve::EvalD0(double U)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    ((::Geom2d_OffsetCurve*)_NativeInstance)->D0(U, *(gp_Pnt2d*)pp_P);
+    ::gp_Pnt2d _nativeResult = ((::Geom2d_OffsetCurve*)_NativeInstance)->EvalD0(U);
+    return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-void Macad::Occt::Geom2d_OffsetCurve::D1(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1)
+Macad::Occt::Vec2d Macad::Occt::Geom2d_OffsetCurve::EvalDN(double U, int N)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    ((::Geom2d_OffsetCurve*)_NativeInstance)->D1(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1);
-}
-
-void Macad::Occt::Geom2d_OffsetCurve::D2(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    ((::Geom2d_OffsetCurve*)_NativeInstance)->D2(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2);
-}
-
-void Macad::Occt::Geom2d_OffsetCurve::D3(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2, Macad::Occt::Vec2d% V3)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec2d> pp_V3 = &V3;
-    ((::Geom2d_OffsetCurve*)_NativeInstance)->D3(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2, *(gp_Vec2d*)pp_V3);
-}
-
-Macad::Occt::Vec2d Macad::Occt::Geom2d_OffsetCurve::DN(double U, int N)
-{
-    ::gp_Vec2d _nativeResult = ((::Geom2d_OffsetCurve*)_NativeInstance)->DN(U, N);
+    ::gp_Vec2d _nativeResult = ((::Geom2d_OffsetCurve*)_NativeInstance)->EvalDN(U, N);
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
@@ -2816,39 +2800,15 @@ double Macad::Occt::Geom2d_Parabola::Parameter()
     return _result;
 }
 
-void Macad::Occt::Geom2d_Parabola::D0(double U, Macad::Occt::Pnt2d% P)
+Macad::Occt::Pnt2d Macad::Occt::Geom2d_Parabola::EvalD0(double U)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    ((::Geom2d_Parabola*)_NativeInstance)->D0(U, *(gp_Pnt2d*)pp_P);
+    ::gp_Pnt2d _nativeResult = ((::Geom2d_Parabola*)_NativeInstance)->EvalD0(U);
+    return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-void Macad::Occt::Geom2d_Parabola::D1(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1)
+Macad::Occt::Vec2d Macad::Occt::Geom2d_Parabola::EvalDN(double U, int N)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    ((::Geom2d_Parabola*)_NativeInstance)->D1(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1);
-}
-
-void Macad::Occt::Geom2d_Parabola::D2(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    ((::Geom2d_Parabola*)_NativeInstance)->D2(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2);
-}
-
-void Macad::Occt::Geom2d_Parabola::D3(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2, Macad::Occt::Vec2d% V3)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec2d> pp_V3 = &V3;
-    ((::Geom2d_Parabola*)_NativeInstance)->D3(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2, *(gp_Vec2d*)pp_V3);
-}
-
-Macad::Occt::Vec2d Macad::Occt::Geom2d_Parabola::DN(double U, int N)
-{
-    ::gp_Vec2d _nativeResult = ((::Geom2d_Parabola*)_NativeInstance)->DN(U, N);
+    ::gp_Vec2d _nativeResult = ((::Geom2d_Parabola*)_NativeInstance)->EvalDN(U, N);
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
@@ -3168,39 +3128,15 @@ Macad::Occt::Pnt2d Macad::Occt::Geom2d_TrimmedCurve::StartPoint()
     return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-void Macad::Occt::Geom2d_TrimmedCurve::D0(double U, Macad::Occt::Pnt2d% P)
+Macad::Occt::Pnt2d Macad::Occt::Geom2d_TrimmedCurve::EvalD0(double U)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    ((::Geom2d_TrimmedCurve*)_NativeInstance)->D0(U, *(gp_Pnt2d*)pp_P);
+    ::gp_Pnt2d _nativeResult = ((::Geom2d_TrimmedCurve*)_NativeInstance)->EvalD0(U);
+    return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-void Macad::Occt::Geom2d_TrimmedCurve::D1(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1)
+Macad::Occt::Vec2d Macad::Occt::Geom2d_TrimmedCurve::EvalDN(double U, int N)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    ((::Geom2d_TrimmedCurve*)_NativeInstance)->D1(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1);
-}
-
-void Macad::Occt::Geom2d_TrimmedCurve::D2(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    ((::Geom2d_TrimmedCurve*)_NativeInstance)->D2(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2);
-}
-
-void Macad::Occt::Geom2d_TrimmedCurve::D3(double U, Macad::Occt::Pnt2d% P, Macad::Occt::Vec2d% V1, Macad::Occt::Vec2d% V2, Macad::Occt::Vec2d% V3)
-{
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec2d> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec2d> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec2d> pp_V3 = &V3;
-    ((::Geom2d_TrimmedCurve*)_NativeInstance)->D3(U, *(gp_Pnt2d*)pp_P, *(gp_Vec2d*)pp_V1, *(gp_Vec2d*)pp_V2, *(gp_Vec2d*)pp_V3);
-}
-
-Macad::Occt::Vec2d Macad::Occt::Geom2d_TrimmedCurve::DN(double U, int N)
-{
-    ::gp_Vec2d _nativeResult = ((::Geom2d_TrimmedCurve*)_NativeInstance)->DN(U, N);
+    ::gp_Vec2d _nativeResult = ((::Geom2d_TrimmedCurve*)_NativeInstance)->EvalDN(U, N);
     return Macad::Occt::Vec2d(_nativeResult);
 }
 
@@ -3247,148 +3183,6 @@ void Macad::Occt::Geom2d_TrimmedCurve::DumpJson(System::IO::TextWriter^ theOStre
 Macad::Occt::Geom2d_TrimmedCurve^ Macad::Occt::Geom2d_TrimmedCurve::CreateDowncasted(::Geom2d_TrimmedCurve* instance)
 {
     return gcnew Macad::Occt::Geom2d_TrimmedCurve( instance );
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Geom2d_UndefinedDerivative
-//---------------------------------------------------------------------
-
-Macad::Occt::Geom2d_UndefinedDerivative::Geom2d_UndefinedDerivative()
-    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Geom2d_UndefinedDerivative();
-}
-
-Macad::Occt::Geom2d_UndefinedDerivative::Geom2d_UndefinedDerivative(System::String^ theMessage)
-    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    NativeInstance = new ::Geom2d_UndefinedDerivative(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-Macad::Occt::Geom2d_UndefinedDerivative::Geom2d_UndefinedDerivative(System::String^ theMessage, System::String^ theStackTrace)
-    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    NativeInstance = new ::Geom2d_UndefinedDerivative(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-}
-
-void Macad::Occt::Geom2d_UndefinedDerivative::Raise(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    ::Geom2d_UndefinedDerivative::Raise(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-void Macad::Occt::Geom2d_UndefinedDerivative::Raise()
-{
-    ::Geom2d_UndefinedDerivative::Raise("");
-}
-
-Macad::Occt::Geom2d_UndefinedDerivative^ Macad::Occt::Geom2d_UndefinedDerivative::NewInstance(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    Handle(::Geom2d_UndefinedDerivative) _result = ::Geom2d_UndefinedDerivative::NewInstance(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    return _result.IsNull() ? nullptr : Macad::Occt::Geom2d_UndefinedDerivative::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Geom2d_UndefinedDerivative^ Macad::Occt::Geom2d_UndefinedDerivative::NewInstance()
-{
-    Handle(::Geom2d_UndefinedDerivative) _result = ::Geom2d_UndefinedDerivative::NewInstance("");
-    return _result.IsNull() ? nullptr : Macad::Occt::Geom2d_UndefinedDerivative::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Geom2d_UndefinedDerivative^ Macad::Occt::Geom2d_UndefinedDerivative::NewInstance(System::String^ theMessage, System::String^ theStackTrace)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    Handle(::Geom2d_UndefinedDerivative) _result = ::Geom2d_UndefinedDerivative::NewInstance(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-    return _result.IsNull() ? nullptr : Macad::Occt::Geom2d_UndefinedDerivative::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Geom2d_UndefinedDerivative^ Macad::Occt::Geom2d_UndefinedDerivative::CreateDowncasted(::Geom2d_UndefinedDerivative* instance)
-{
-    return gcnew Macad::Occt::Geom2d_UndefinedDerivative( instance );
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Geom2d_UndefinedValue
-//---------------------------------------------------------------------
-
-Macad::Occt::Geom2d_UndefinedValue::Geom2d_UndefinedValue()
-    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Geom2d_UndefinedValue();
-}
-
-Macad::Occt::Geom2d_UndefinedValue::Geom2d_UndefinedValue(System::String^ theMessage)
-    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    NativeInstance = new ::Geom2d_UndefinedValue(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-Macad::Occt::Geom2d_UndefinedValue::Geom2d_UndefinedValue(System::String^ theMessage, System::String^ theStackTrace)
-    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    NativeInstance = new ::Geom2d_UndefinedValue(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-}
-
-void Macad::Occt::Geom2d_UndefinedValue::Raise(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    ::Geom2d_UndefinedValue::Raise(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-void Macad::Occt::Geom2d_UndefinedValue::Raise()
-{
-    ::Geom2d_UndefinedValue::Raise("");
-}
-
-Macad::Occt::Geom2d_UndefinedValue^ Macad::Occt::Geom2d_UndefinedValue::NewInstance(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    Handle(::Geom2d_UndefinedValue) _result = ::Geom2d_UndefinedValue::NewInstance(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    return _result.IsNull() ? nullptr : Macad::Occt::Geom2d_UndefinedValue::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Geom2d_UndefinedValue^ Macad::Occt::Geom2d_UndefinedValue::NewInstance()
-{
-    Handle(::Geom2d_UndefinedValue) _result = ::Geom2d_UndefinedValue::NewInstance("");
-    return _result.IsNull() ? nullptr : Macad::Occt::Geom2d_UndefinedValue::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Geom2d_UndefinedValue^ Macad::Occt::Geom2d_UndefinedValue::NewInstance(System::String^ theMessage, System::String^ theStackTrace)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    Handle(::Geom2d_UndefinedValue) _result = ::Geom2d_UndefinedValue::NewInstance(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-    return _result.IsNull() ? nullptr : Macad::Occt::Geom2d_UndefinedValue::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Geom2d_UndefinedValue^ Macad::Occt::Geom2d_UndefinedValue::CreateDowncasted(::Geom2d_UndefinedValue* instance)
-{
-    return gcnew Macad::Occt::Geom2d_UndefinedValue( instance );
 }
 
 

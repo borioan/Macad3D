@@ -490,11 +490,23 @@ void Macad::Occt::BRepGProp_Face::Load(bool IsFirstParam, Macad::Occt::GeomAbs_I
     ((::BRepGProp_Face*)_NativeInstance)->Load(IsFirstParam, (::GeomAbs_IsoType)theIsoType);
 }
 
+Macad::Occt::TColStd_HArray1OfReal^ Macad::Occt::BRepGProp_Face::GetUKnots(double theUMin, double theUMax)
+{
+    Handle(::TColStd_HArray1OfReal) _result = ((::BRepGProp_Face*)_NativeInstance)->GetUKnots(theUMin, theUMax);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColStd_HArray1OfReal::CreateDowncasted(_result.get());
+}
+
 void Macad::Occt::BRepGProp_Face::GetUKnots(double theUMin, double theUMax, Macad::Occt::TColStd_HArray1OfReal^ theUKnots)
 {
     Handle(::TColStd_HArray1OfReal) h_theUKnots = theUKnots->NativeInstance;
     ((::BRepGProp_Face*)_NativeInstance)->GetUKnots(theUMin, theUMax, h_theUKnots);
     theUKnots->NativeInstance = h_theUKnots.get();
+}
+
+Macad::Occt::TColStd_HArray1OfReal^ Macad::Occt::BRepGProp_Face::GetTKnots(double theTMin, double theTMax)
+{
+    Handle(::TColStd_HArray1OfReal) _result = ((::BRepGProp_Face*)_NativeInstance)->GetTKnots(theTMin, theTMax);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColStd_HArray1OfReal::CreateDowncasted(_result.get());
 }
 
 void Macad::Occt::BRepGProp_Face::GetTKnots(double theTMin, double theTMax, Macad::Occt::TColStd_HArray1OfReal^ theTKnots)
@@ -596,6 +608,12 @@ void Macad::Occt::BRepGProp_MeshCinert::SetLocation(Macad::Occt::Pnt CLocation)
 void Macad::Occt::BRepGProp_MeshCinert::Perform(Macad::Occt::TColgp_Array1OfPnt^ theNodes)
 {
     ((::BRepGProp_MeshCinert*)_NativeInstance)->Perform(*(::TColgp_Array1OfPnt*)theNodes->NativeInstance);
+}
+
+Macad::Occt::TColgp_HArray1OfPnt^ Macad::Occt::BRepGProp_MeshCinert::PreparePolygon(Macad::Occt::TopoDS_Edge^ theE)
+{
+    Handle(::TColgp_HArray1OfPnt) _result = ::BRepGProp_MeshCinert::PreparePolygon(*(::TopoDS_Edge*)theE->NativeInstance);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt::CreateDowncasted(_result.get());
 }
 
 void Macad::Occt::BRepGProp_MeshCinert::PreparePolygon(Macad::Occt::TopoDS_Edge^ theE, Macad::Occt::TColgp_HArray1OfPnt^ thePolyg)

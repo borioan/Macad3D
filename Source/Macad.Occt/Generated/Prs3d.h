@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "NCollection.h"
 #include "Graphic3d.h"
 #include "Standard.h"
 
@@ -204,7 +203,7 @@ public enum class Prs3d_TypeOfLinePicking
 //  Class  Prs3d_NListOfSequenceOfPnt
 //---------------------------------------------------------------------
 public ref class Prs3d_NListOfSequenceOfPnt sealed
-    : public Macad::Occt::NCollection_BaseList
+    : public Macad::Occt::BaseClass<::Prs3d_NListOfSequenceOfPnt>
 {
 
 #ifdef Include_Prs3d_NListOfSequenceOfPnt_h
@@ -214,11 +213,11 @@ public:
 
 public:
     Prs3d_NListOfSequenceOfPnt(::Prs3d_NListOfSequenceOfPnt* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::Prs3d_NListOfSequenceOfPnt>( nativeInstance, true )
     {}
 
     Prs3d_NListOfSequenceOfPnt(::Prs3d_NListOfSequenceOfPnt& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::Prs3d_NListOfSequenceOfPnt>( &nativeInstance, false )
     {}
 
     property ::Prs3d_NListOfSequenceOfPnt* NativeInstance
@@ -258,27 +257,40 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::NCollection_BaseList^ theList);
         bool More();
         void Next();
         Macad::Occt::TColgp_HSequenceOfPnt^ Value();
         Macad::Occt::TColgp_HSequenceOfPnt^ ChangeValue();
     }; // class Iterator
 
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     Prs3d_NListOfSequenceOfPnt();
     Prs3d_NListOfSequenceOfPnt(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
+    /* Method skipped due to unknown mapping: void Prs3d_NListOfSequenceOfPnt(initializer_list<opencascade::handle<NCollection_HSequence<gp_Pnt>>> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void Prs3d_NListOfSequenceOfPnt(initializer_list<opencascade::handle<NCollection_HSequence<gp_Pnt>>> theInitList, NCollection_BaseAllocator theAllocator, ) */
     Macad::Occt::Prs3d_NListOfSequenceOfPnt^ Assign(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther);
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::TColgp_HSequenceOfPnt^ First();
     Macad::Occt::TColgp_HSequenceOfPnt^ Last();
     Macad::Occt::TColgp_HSequenceOfPnt^ Append(Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    void Append(Macad::Occt::TColgp_HSequenceOfPnt^ theItem, Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator^ theIter);
+    void Append(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther);
     Macad::Occt::TColgp_HSequenceOfPnt^ Prepend(Macad::Occt::TColgp_HSequenceOfPnt^ theItem);
+    void Prepend(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther);
     void RemoveFirst();
     void Remove(Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator^ theIter);
     Macad::Occt::TColgp_HSequenceOfPnt^ InsertBefore(Macad::Occt::TColgp_HSequenceOfPnt^ theItem, Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator^ theIter);
+    void InsertBefore(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther, Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator^ theIter);
     Macad::Occt::TColgp_HSequenceOfPnt^ InsertAfter(Macad::Occt::TColgp_HSequenceOfPnt^ theItem, Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator^ theIter);
+    void InsertAfter(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther, Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator^ theIter);
     void Reverse();
+    void Exchange(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther);
 }; // class Prs3d_NListOfSequenceOfPnt
 
 //---------------------------------------------------------------------
@@ -720,7 +732,7 @@ public:
 //  Class  Prs3d_PointAspect
 //---------------------------------------------------------------------
 /// <summary>
-/// This  class  defines  attributes for the points
+/// This class defines attributes for the points
 /// The points are drawn using markers, whose size does not depend on
 /// the zoom value of the views.
 /// </summary>
@@ -1286,7 +1298,7 @@ public:
     /// </summary>
     double ArrowTailSize();
     /// <summary>
-    /// Sets "sprintf"-syntax format for formatting dimension value labels.
+    /// Sets "Sprintf"-syntax format for formatting dimension value labels.
     /// </summary>
     void SetValueStringFormat(Macad::Occt::TCollection_AsciiString^ theFormat);
     /// <summary>
@@ -1473,7 +1485,7 @@ public:
     void UnsetOwnDiscretisation();
     /// <summary>
     /// Sets the deviation coefficient theCoefficient.
-    /// Also sets the hasOwnDeviationCoefficient flag to Standard_True and
+    /// Also sets the hasOwnDeviationCoefficient flag to true and
     /// myPreviousDeviationCoefficient
     /// </summary>
     void SetDeviationCoefficient(double theCoefficient);
@@ -1487,7 +1499,7 @@ public:
     /// object. The triangles are formed from chords of the
     /// curves in the shape. The deviation coefficient gives
     /// the highest value of the angle with which a chord can
-    /// deviate from a tangent to a   curve. If this limit is
+    /// deviate from a tangent to a curve. If this limit is
     /// reached, a new triangle is begun.
     /// This deviation is absolute and is set through the
     /// method: SetMaximalChordialDeviation. The default value is 0.001.
@@ -1516,7 +1528,7 @@ public:
     void UpdatePreviousDeviationCoefficient();
     /// <summary>
     /// Sets the deviation angle theAngle.
-    /// Also sets the hasOwnDeviationAngle flag to Standard_True, and myPreviousDeviationAngle.
+    /// Also sets the hasOwnDeviationAngle flag to true, and myPreviousDeviationAngle.
     /// </summary>
     void SetDeviationAngle(double theAngle);
     /// <summary>
@@ -1805,7 +1817,7 @@ public:
     /// </summary>
     bool HasOwnHiddenLineAspect();
     /// <summary>
-    /// Returns Standard_True if the hidden lines are to be drawn.
+    /// Returns true if the hidden lines are to be drawn.
     /// By default the hidden lines are not drawn.
     /// </summary>
     bool DrawHiddenLine();
@@ -2220,7 +2232,7 @@ public:
 /// as color, width, and type of line are displayed;
 /// these are generic objects, whereas those in
 /// StdPrs are specific geometries and topologies.
-/// -   generic   algorithms providing default settings for
+/// -   generic algorithms providing default settings for
 /// objects such as points, curves, surfaces and shapes
 /// -   a root object which provides the abstract
 /// framework for the DsgPrs definitions at work in
@@ -2259,24 +2271,7 @@ public:
     /// to a given direction.
     /// </summary>
     static bool MatchSegment(double X, double Y, double Z, double aDistance, Macad::Occt::Pnt p1, Macad::Occt::Pnt p2, double% dist);
-    /// <summary>
-    /// Computes the absolute deflection value based on relative deflection
-    /// Prs3d_Drawer::DeviationCoefficient().
-    /// </summary>
-    /// <param name="in]">
-    /// theBndMin  bounding box min corner
-    /// </param>
-    /// <param name="in]">
-    /// theBndMax  bounding box max corner
-    /// </param>
-    /// <param name="in]">
-    /// theDeviationCoefficient  relative deflection coefficient from
-    /// Prs3d_Drawer::DeviationCoefficient()
-    /// </param>
-    /// <returns>
-    /// absolute deflection coefficient based on bounding box dimensions
-    /// </returns>
-    static double GetDeflection(Macad::Occt::Graphic3d_Vec3d^ theBndMin, Macad::Occt::Graphic3d_Vec3d^ theBndMax, double theDeviationCoefficient);
+    /* Method skipped due to unknown mapping: double GetDeflection(Graphic3d_Vec3d theBndMin, Graphic3d_Vec3d theBndMax, double theDeviationCoefficient, ) */
     /// <summary>
     /// Computes the absolute deflection value based on relative deflection
     /// Prs3d_Drawer::DeviationCoefficient().
@@ -2453,7 +2448,7 @@ public:
     /// -   the color attribute aColor
     /// -   the type of line aType
     /// -   the width value aWidth
-    /// -   aNumber, the number of isoparameters to be   displayed.
+    /// -   aNumber, the number of isoparameters to be displayed.
     /// </summary>
     Prs3d_IsoAspect(Macad::Occt::Quantity_Color^ theColor, Macad::Occt::Aspect_TypeOfLine theType, double theWidth, int theNumber);
     /// <summary>
@@ -2651,16 +2646,10 @@ public:
     }
 
 public:
-    Prs3d_InvalidAngle();
     Prs3d_InvalidAngle(System::String^ theMessage);
+    Prs3d_InvalidAngle();
     Prs3d_InvalidAngle(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::Prs3d_InvalidAngle^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::Prs3d_InvalidAngle^ NewInstance();
-    static Macad::Occt::Prs3d_InvalidAngle^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::Prs3d_InvalidAngle^ CreateDowncasted(::Prs3d_InvalidAngle* instance);
+    System::String^ ExceptionType();
 }; // class Prs3d_InvalidAngle
 
 //---------------------------------------------------------------------

@@ -72,7 +72,146 @@ namespace Macad
 			//--------------------------------------------------------------------------------------------------
 			//--------------------------------------------------------------------------------------------------
 
-			
+#pragma managed(push, off)
+			// The OCCT-only computation below (mesh generation + walking the shape's faces
+			// via TopExp_Explorer/BRep_Tool) is kept entirely native. Under OCCT 8, compiling
+			// this same logic directly inside a __clrcall managed function (interleaved with
+			// gcnew/pin_ptr) trips the /clr compiler (C2711 "cannot be compiled as managed") -
+			// so the managed wrapper below only allocates arrays and calls into native code.
+
+			static bool EnsureTriangulation(const ::TopoDS_Shape& shape)
+			{
+				if (::BRepTools::Triangulation(shape, ::Precision::Infinite()) == Standard_False)
+				{
+					::BRepMesh_IncrementalMesh aMesher(shape, 0.1);
+					return aMesher.IsDone();
+				}
+				return true;
+			}
+
+			//--------------------------------------------------------------------------------------------------
+
+			static void CountElements(const ::TopoDS_Shape& shape, bool getNormals, int& triangleCount, int& vertexCount, bool& hasNormals)
+			{
+				triangleCount = 0;
+				vertexCount = 0;
+				hasNormals = true;
+				for(::TopExp_Explorer exp(shape, TopAbs_FACE); exp.More(); exp.Next())
+				{
+					::TopLoc_Location location;
+					auto triangulation = ::BRep_Tool::Triangulation(::TopoDS::Face(exp.Current()), location);
+					if (triangulation.IsNull())
+						continue;
+
+					if(getNormals && !triangulation->HasNormals())
+					{
+					    Poly::ComputeNormals( triangulation );
+					}
+
+					triangleCount += triangulation->NbTriangles();
+					vertexCount += triangulation->NbNodes();
+					hasNormals &= triangulation->HasNormals();
+				}
+			}
+
+			//--------------------------------------------------------------------------------------------------
+
+			static void CopyElements(const ::TopoDS_Shape& shape, bool getNormals, bool hasNormals, gp_Pnt* vertices, gp_Dir* normals, int* indices)
+			{
+				int indexOffset = 0;
+
+				for (::TopExp_Explorer exp(shape, TopAbs_FACE); exp.More(); exp.Next())
+				{
+					::TopLoc_Location location;
+					auto triangulation = ::BRep_Tool::Triangulation(::TopoDS::Face(exp.Current()), location);
+					if (triangulation.IsNull())
+						continue;
+					const auto trsf = location.Transformation();
+					auto orientation = exp.Current().Orientation();
+
+					// Copy Vertices
+					for (int nodeIndex = 1; nodeIndex <= triangulation->NbNodes(); nodeIndex++)
+					{
+						*vertices = triangulation->Node(nodeIndex).Transformed(trsf);
+						vertices++;
+					}
+
+					if(getNormals && hasNormals)
+					{
+					    // Copy Normals
+					    const auto trsf = location.Transformation();
+					    for (int nrmlIndex = 1; nrmlIndex <= triangulation->NbNodes(); nrmlIndex++)
+					    {
+						    *normals = triangulation->Normal(nrmlIndex);
+							normals->Transform(trsf);
+							if(orientation == ::TopAbs_Orientation::TopAbs_REVERSED)
+							{
+							    normals->Reverse();
+							}
+						    normals++;
+					    }
+					}
+
+					// Copy Indices
+					const auto correctedIndexOffset = indexOffset - 1; // Correct lower bound, this is not 0!
+					int triIndices[3];
+					for (int triangleIndex = 1; triangleIndex <= triangulation->NbTriangles(); triangleIndex++)
+					{
+						const ::Poly_Triangle triangle = triangulation->Triangle(triangleIndex);
+						if (exp.Current().Orientation() == TopAbs_REVERSED)
+						{
+							triangle.Get(triIndices[0], triIndices[2], triIndices[1]);
+						}
+						else
+						{
+							triangle.Get(triIndices[0], triIndices[1], triIndices[2]);
+						}
+
+						// Copy with face offset
+						indices[0] = triIndices[0] + correctedIndexOffset;
+						indices[1] = triIndices[1] + correctedIndexOffset;
+						indices[2] = triIndices[2] + correctedIndexOffset;
+						indices += 3;
+					}
+
+					indexOffset += triangulation->NbNodes();
+				}
+			}
+
+			//--------------------------------------------------------------------------------------------------
+
+			static bool BuildShapeOnTriangulation(const ::TopoDS_Shape& shape, ::TopoDS_Compound& compound)
+			{
+				bool hasAny = false;
+				::BRep_Builder builder;
+				builder.MakeCompound(compound);
+
+				for (::TopExp_Explorer exp(shape, TopAbs_FACE); exp.More(); exp.Next())
+				{
+					::TopLoc_Location location;
+					auto triangulation = ::BRep_Tool::Triangulation(::TopoDS::Face(exp.Current()), location);
+					if (triangulation.IsNull())
+						continue;
+
+					::BRepBuilderAPI_MakeShapeOnMesh makeShape(triangulation);
+					makeShape.Build();
+					if(!makeShape.IsDone())
+						continue;
+
+					::TopoDS_Shape faceShape = makeShape.Shape();
+					if(faceShape.IsNull())
+						continue;
+
+					builder.Add(compound, faceShape);
+					hasAny = true;
+				}
+
+				return hasAny;
+			}
+#pragma managed(pop)
+
+			//--------------------------------------------------------------------------------------------------
+
 			public ref class TriangulationHelper sealed
 			{
 			public:
@@ -81,33 +220,14 @@ namespace Macad
 					auto shape = *brepShape->NativeInstance;
 
 					// Ensure that all shapes have a mesh
-					if (::BRepTools::Triangulation(shape, Precision::Infinite()) == Standard_False)
-					{
-						::BRepMesh_IncrementalMesh aMesher(shape, 0.1);
-						if(!aMesher.IsDone())
-							return nullptr;
-					}
+					if (!EnsureTriangulation(shape))
+						return nullptr;
 
 					// Count elements
-					bool hasNormals = true;
-					int triangleCount = 0;
-					int vertexCount = 0;
-					for(::TopExp_Explorer exp(shape, TopAbs_FACE); exp.More(); exp.Next())
-					{
-						::TopLoc_Location location;
-						auto triangulation = ::BRep_Tool::Triangulation(::TopoDS::Face(exp.Current()), location);
-						if (triangulation.IsNull())
-							continue;
-
-						if(getNormals && !triangulation->HasNormals())
-						{
-						    Poly::ComputeNormals( triangulation );
-						}
-
-						triangleCount += triangulation->NbTriangles();
-						vertexCount += triangulation->NbNodes();
-						hasNormals &= triangulation->HasNormals();
-					}
+					bool hasNormals;
+					int triangleCount;
+					int vertexCount;
+					CountElements(shape, getNormals, triangleCount, vertexCount, hasNormals);
 
 					if(triangleCount == 0 || vertexCount == 0)
 						return nullptr;
@@ -131,65 +251,8 @@ namespace Macad
 					pin_ptr<int> indices_pinnedptr = &indexArray[0];
 					int* indices = indices_pinnedptr;
 
-					int indexOffset = 0;
-
 					// Copy elements
-					for (::TopExp_Explorer exp(shape, TopAbs_FACE); exp.More(); exp.Next())
-					{
-						::TopLoc_Location location;
-						auto triangulation = ::BRep_Tool::Triangulation(::TopoDS::Face(exp.Current()), location);
-						if (triangulation.IsNull())
-							continue;
-						const auto trsf = location.Transformation();
-						auto orientation = exp.Current().Orientation();
-
-						// Copy Vertices
-						for (int nodeIndex = 1; nodeIndex <= triangulation->NbNodes(); nodeIndex++)
-						{
-							*vertices = triangulation->Node(nodeIndex).Transformed(trsf);
-							vertices++;
-						}
-
-						if(getNormals && hasNormals)
-						{
-						    // Copy Normals
-						    const auto trsf = location.Transformation();
-						    for (int nrmlIndex = 1; nrmlIndex <= triangulation->NbNodes(); nrmlIndex++)
-						    {
-							    *normals = triangulation->Normal(nrmlIndex);
-								normals->Transform(trsf);
-								if(orientation == ::TopAbs_Orientation::TopAbs_REVERSED)
-								{
-								    normals->Reverse();
-								}
-							    normals++;
-						    }
-						}
-
-						// Copy Indices
-						const auto correctedIndexOffset = indexOffset - 1; // Correct lower bound, this is not 0!
-						int triIndices[3];
-						for (int triangleIndex = 1; triangleIndex <= triangulation->NbTriangles(); triangleIndex++)
-						{
-							const ::Poly_Triangle triangle = triangulation->Triangle(triangleIndex);
-							if (exp.Current().Orientation() == TopAbs_REVERSED)
-							{
-								triangle.Get(triIndices[0], triIndices[2], triIndices[1]);
-							} 
-							else 
-							{
-								triangle.Get(triIndices[0], triIndices[1], triIndices[2]);
-							}
-
-							// Copy with face offset
-							indices[0] = triIndices[0] + correctedIndexOffset;
-							indices[1] = triIndices[1] + correctedIndexOffset;
-							indices[2] = triIndices[2] + correctedIndexOffset;
-							indices += 3;
-						}
-
-						indexOffset += triangulation->NbNodes();
-					}
+					CopyElements(shape, getNormals, hasNormals, vertices, normals, indices);
 
 					// Return
 					return gcnew TriangulationData(indexArray, vertexArray, normalsArray);
@@ -244,33 +307,12 @@ namespace Macad
 
 				static Macad::Occt::TopoDS_Compound^ MakeShapeOnTriangulation(Macad::Occt::TopoDS_Shape^ brepShape)
 				{
-					bool hasAny = false;
-					::BRep_Builder builder;
-					::TopoDS_Compound compound;
-					builder.MakeCompound(compound);
 					auto shape = *brepShape->NativeInstance;
+					::TopoDS_Compound compound;
+					if (!BuildShapeOnTriangulation(shape, compound))
+						return nullptr;
 
-					for (::TopExp_Explorer exp(shape, TopAbs_FACE); exp.More(); exp.Next())
-					{
-						::TopLoc_Location location;
-						auto triangulation = ::BRep_Tool::Triangulation(::TopoDS::Face(exp.Current()), location);
-						if (triangulation.IsNull())
-							continue;
-
-						::BRepBuilderAPI_MakeShapeOnMesh makeShape(triangulation);
-						makeShape.Build();
-						if(!makeShape.IsDone())
-							continue;
-
-						::TopoDS_Shape shape = makeShape.Shape();
-						if(shape.IsNull())
-							continue;
-
-						builder.Add(compound, shape);
-						hasAny = true;
-					}
-
-					return hasAny ? gcnew Macad::Occt::TopoDS_Compound(new ::TopoDS_Compound(compound)) : nullptr;
+					return gcnew Macad::Occt::TopoDS_Compound(new ::TopoDS_Compound(compound));
 				}
 			};
 

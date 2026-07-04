@@ -54,7 +54,7 @@ public class ClipPlane
             _HatchTexture = new Graphic3d_Texture2D(pixmap);
             _HatchTexture.EnableModulate();
             _HatchTexture.EnableRepeat();
-            _HatchTexture.GetParams().SetScale(new Graphic3d_Vec2(0.05f));
+            _HatchTexture.GetParams().SetScale(new gp_Vec2f(0.05f));
         }
 
         _OcClipPlane.SetCapping(true);

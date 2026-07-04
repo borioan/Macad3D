@@ -24,25 +24,319 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 
 
 //---------------------------------------------------------------------
+//  Class  SelectMgr_IndexedDataMapOfOwnerCriterion
+//---------------------------------------------------------------------
+
+long long unsigned int Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::NbBuckets()
+{
+    long long unsigned int _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Extent()
+{
+    int _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Length()
+{
+    int _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Size()
+{
+    long long unsigned int _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::IsEmpty()
+{
+    bool _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::SelectMgr_IndexedDataMapOfOwnerCriterion()
+    : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::SelectMgr_IndexedDataMapOfOwnerCriterion();
+}
+
+Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::SelectMgr_IndexedDataMapOfOwnerCriterion(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::SelectMgr_IndexedDataMapOfOwnerCriterion(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::SelectMgr_IndexedDataMapOfOwnerCriterion(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::SelectMgr_IndexedDataMapOfOwnerCriterion(theNbBuckets, nullptr);
+}
+
+Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::SelectMgr_IndexedDataMapOfOwnerCriterion(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::SelectMgr_IndexedDataMapOfOwnerCriterion(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::SelectMgr_IndexedDataMapOfOwnerCriterion(int theNbBuckets)
+    : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::SelectMgr_IndexedDataMapOfOwnerCriterion(theNbBuckets, nullptr);
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Exchange(Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ theOther)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Exchange(*(::SelectMgr_IndexedDataMapOfOwnerCriterion*)theOther->NativeInstance);
+}
+
+Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Assign(Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ theOther)
+{
+    ::SelectMgr_IndexedDataMapOfOwnerCriterion* _result = new ::SelectMgr_IndexedDataMapOfOwnerCriterion();
+    *_result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Assign(*(::SelectMgr_IndexedDataMapOfOwnerCriterion*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion(_result);
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::ReSize(long long unsigned int N)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->ReSize(N);
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::ReSize(int N)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->ReSize(N);
+}
+
+int Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Add(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem)
+{
+    int _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Add(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance), *(::SelectMgr_SortCriterion*)theItem->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::TryBound(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem)
+{
+    ::SelectMgr_SortCriterion* _result = new ::SelectMgr_SortCriterion();
+    *_result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->TryBound(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance), *(::SelectMgr_SortCriterion*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
+}
+
+bool Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::TryBind(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem)
+{
+    bool _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->TryBind(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance), *(::SelectMgr_SortCriterion*)theItem->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Bind(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem)
+{
+    bool _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Bind(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance), *(::SelectMgr_SortCriterion*)theItem->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Bound(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem)
+{
+    ::SelectMgr_SortCriterion* _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Bound(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance), *(::SelectMgr_SortCriterion*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
+}
+
+bool Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Contains(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
+{
+    bool _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Contains(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
+    return _result;
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Substitute(long long unsigned int theIndex, Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Substitute(theIndex, Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance), *(::SelectMgr_SortCriterion*)theItem->NativeInstance);
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Substitute(int theIndex, Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Substitute(theIndex, Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance), *(::SelectMgr_SortCriterion*)theItem->NativeInstance);
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Swap(long long unsigned int theIndex1, long long unsigned int theIndex2)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Swap(theIndex1, theIndex2);
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Swap(int theIndex1, int theIndex2)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Swap(theIndex1, theIndex2);
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::RemoveLast()
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->RemoveLast();
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::RemoveFromIndex(long long unsigned int theIndex)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->RemoveFromIndex(theIndex);
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::RemoveFromIndex(int theIndex)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->RemoveFromIndex(theIndex);
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::RemoveKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->RemoveKey(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
+}
+
+Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::FindKey(long long unsigned int theIndex)
+{
+    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->FindKey(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::FindKey(int theIndex)
+{
+    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->FindKey(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::FindFromIndex(long long unsigned int theIndex)
+{
+    ::SelectMgr_SortCriterion* _result = new ::SelectMgr_SortCriterion();
+    *_result = (::SelectMgr_SortCriterion)((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->FindFromIndex(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
+}
+
+Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::FindFromIndex(int theIndex)
+{
+    ::SelectMgr_SortCriterion* _result = new ::SelectMgr_SortCriterion();
+    *_result = (::SelectMgr_SortCriterion)((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->FindFromIndex(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
+}
+
+Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::ChangeFromIndex(long long unsigned int theIndex)
+{
+    ::SelectMgr_SortCriterion* _result = new ::SelectMgr_SortCriterion();
+    *_result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->ChangeFromIndex(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
+}
+
+Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::ChangeFromIndex(int theIndex)
+{
+    ::SelectMgr_SortCriterion* _result = new ::SelectMgr_SortCriterion();
+    *_result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->ChangeFromIndex(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
+}
+
+int Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::FindIndex(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
+{
+    int _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->FindIndex(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
+    return _result;
+}
+
+Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::FindFromKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
+{
+    ::SelectMgr_SortCriterion* _result = new ::SelectMgr_SortCriterion();
+    *_result = (::SelectMgr_SortCriterion)((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->FindFromKey(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
+}
+
+Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::ChangeFromKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
+{
+    ::SelectMgr_SortCriterion* _result = new ::SelectMgr_SortCriterion();
+    *_result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->ChangeFromKey(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
+}
+
+Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Seek(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
+{
+    const ::SelectMgr_SortCriterion* _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Seek(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion((::SelectMgr_SortCriterion*)_result);
+}
+
+Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::ChangeSeek(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
+{
+    ::SelectMgr_SortCriterion* _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->ChangeSeek(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
+}
+
+bool Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::FindFromKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theValue)
+{
+    bool _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->FindFromKey(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance), *(::SelectMgr_SortCriterion*)theValue->NativeInstance);
+    return _result;
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Clear(bool doReleaseMemory)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Clear(doReleaseMemory);
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Clear()
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Clear(false);
+}
+
+void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator
+//---------------------------------------------------------------------
+
+
+
+//---------------------------------------------------------------------
 //  Class  SelectMgr_ListOfFilter
 //---------------------------------------------------------------------
 
+int Macad::Occt::SelectMgr_ListOfFilter::Extent()
+{
+    int _result = ((::SelectMgr_ListOfFilter*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::SelectMgr_ListOfFilter::Length()
+{
+    int _result = ((::SelectMgr_ListOfFilter*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::SelectMgr_ListOfFilter::Size()
+{
+    long long unsigned int _result = ((::SelectMgr_ListOfFilter*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::SelectMgr_ListOfFilter::IsEmpty()
+{
+    bool _result = ((::SelectMgr_ListOfFilter*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::SelectMgr_ListOfFilter::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::SelectMgr_ListOfFilter*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::SelectMgr_ListOfFilter::SelectMgr_ListOfFilter()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::SelectMgr_ListOfFilter>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::SelectMgr_ListOfFilter();
 }
 
 Macad::Occt::SelectMgr_ListOfFilter::SelectMgr_ListOfFilter(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::SelectMgr_ListOfFilter>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::SelectMgr_ListOfFilter(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::SelectMgr_ListOfFilter::Size()
-{
-    int _result = ((::SelectMgr_ListOfFilter*)_NativeInstance)->Size();
-    return _result;
 }
 
 Macad::Occt::SelectMgr_ListOfFilter^ Macad::Occt::SelectMgr_ListOfFilter::Assign(Macad::Occt::SelectMgr_ListOfFilter^ theOther)
@@ -59,7 +353,7 @@ void Macad::Occt::SelectMgr_ListOfFilter::Clear(Macad::Occt::NCollection_BaseAll
 
 void Macad::Occt::SelectMgr_ListOfFilter::Clear()
 {
-    ((::SelectMgr_ListOfFilter*)_NativeInstance)->Clear(0L);
+    ((::SelectMgr_ListOfFilter*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::SelectMgr_Filter^ Macad::Occt::SelectMgr_ListOfFilter::First()
@@ -80,10 +374,25 @@ Macad::Occt::SelectMgr_Filter^ Macad::Occt::SelectMgr_ListOfFilter::Append(Macad
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_Filter::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::SelectMgr_ListOfFilter::Append(Macad::Occt::SelectMgr_Filter^ theItem, Macad::Occt::SelectMgr_ListOfFilter::Iterator^ theIter)
+{
+    ((::SelectMgr_ListOfFilter*)_NativeInstance)->Append(Handle(::SelectMgr_Filter)(theItem->NativeInstance), *(::SelectMgr_ListOfFilter::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::SelectMgr_ListOfFilter::Append(Macad::Occt::SelectMgr_ListOfFilter^ theOther)
+{
+    ((::SelectMgr_ListOfFilter*)_NativeInstance)->Append(*(::SelectMgr_ListOfFilter*)theOther->NativeInstance);
+}
+
 Macad::Occt::SelectMgr_Filter^ Macad::Occt::SelectMgr_ListOfFilter::Prepend(Macad::Occt::SelectMgr_Filter^ theItem)
 {
     Handle(::SelectMgr_Filter) _result = ((::SelectMgr_ListOfFilter*)_NativeInstance)->Prepend(Handle(::SelectMgr_Filter)(theItem->NativeInstance));
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_Filter::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::SelectMgr_ListOfFilter::Prepend(Macad::Occt::SelectMgr_ListOfFilter^ theOther)
+{
+    ((::SelectMgr_ListOfFilter*)_NativeInstance)->Prepend(*(::SelectMgr_ListOfFilter*)theOther->NativeInstance);
 }
 
 void Macad::Occt::SelectMgr_ListOfFilter::RemoveFirst()
@@ -102,15 +411,30 @@ Macad::Occt::SelectMgr_Filter^ Macad::Occt::SelectMgr_ListOfFilter::InsertBefore
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_Filter::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::SelectMgr_ListOfFilter::InsertBefore(Macad::Occt::SelectMgr_ListOfFilter^ theOther, Macad::Occt::SelectMgr_ListOfFilter::Iterator^ theIter)
+{
+    ((::SelectMgr_ListOfFilter*)_NativeInstance)->InsertBefore(*(::SelectMgr_ListOfFilter*)theOther->NativeInstance, *(::SelectMgr_ListOfFilter::Iterator*)theIter->NativeInstance);
+}
+
 Macad::Occt::SelectMgr_Filter^ Macad::Occt::SelectMgr_ListOfFilter::InsertAfter(Macad::Occt::SelectMgr_Filter^ theItem, Macad::Occt::SelectMgr_ListOfFilter::Iterator^ theIter)
 {
     Handle(::SelectMgr_Filter) _result = ((::SelectMgr_ListOfFilter*)_NativeInstance)->InsertAfter(Handle(::SelectMgr_Filter)(theItem->NativeInstance), *(::SelectMgr_ListOfFilter::Iterator*)theIter->NativeInstance);
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_Filter::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::SelectMgr_ListOfFilter::InsertAfter(Macad::Occt::SelectMgr_ListOfFilter^ theOther, Macad::Occt::SelectMgr_ListOfFilter::Iterator^ theIter)
+{
+    ((::SelectMgr_ListOfFilter*)_NativeInstance)->InsertAfter(*(::SelectMgr_ListOfFilter*)theOther->NativeInstance, *(::SelectMgr_ListOfFilter::Iterator*)theIter->NativeInstance);
+}
+
 void Macad::Occt::SelectMgr_ListOfFilter::Reverse()
 {
     ((::SelectMgr_ListOfFilter*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::SelectMgr_ListOfFilter::Exchange(Macad::Occt::SelectMgr_ListOfFilter^ theOther)
+{
+    ((::SelectMgr_ListOfFilter*)_NativeInstance)->Exchange(*(::SelectMgr_ListOfFilter*)theOther->NativeInstance);
 }
 
 
@@ -123,6 +447,12 @@ Macad::Occt::SelectMgr_ListOfFilter::Iterator::Iterator()
     : Macad::Occt::BaseClass<::SelectMgr_ListOfFilter::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::SelectMgr_ListOfFilter::Iterator();
+}
+
+Macad::Occt::SelectMgr_ListOfFilter::Iterator::Iterator(Macad::Occt::NCollection_BaseList^ theList)
+    : Macad::Occt::BaseClass<::SelectMgr_ListOfFilter::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::SelectMgr_ListOfFilter::Iterator(*(::NCollection_BaseList*)theList->NativeInstance);
 }
 
 bool Macad::Occt::SelectMgr_ListOfFilter::Iterator::More()
@@ -151,1051 +481,26 @@ Macad::Occt::SelectMgr_Filter^ Macad::Occt::SelectMgr_ListOfFilter::Iterator::Ch
 
 
 //---------------------------------------------------------------------
-//  Class  SelectMgr_Vec3
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_Vec3::SelectMgr_Vec3()
-    : Macad::Occt::BaseClass<::SelectMgr_Vec3>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Vec3();
-}
-
-Macad::Occt::SelectMgr_Vec3::SelectMgr_Vec3(double theValue)
-    : Macad::Occt::BaseClass<::SelectMgr_Vec3>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Vec3(theValue);
-}
-
-Macad::Occt::SelectMgr_Vec3::SelectMgr_Vec3(double theX, double theY, double theZ)
-    : Macad::Occt::BaseClass<::SelectMgr_Vec3>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Vec3(theX, theY, theZ);
-}
-
-Macad::Occt::SelectMgr_Vec3::SelectMgr_Vec3(Macad::Occt::Graphic3d_Vec2d^ theVec2, double theZ)
-    : Macad::Occt::BaseClass<::SelectMgr_Vec3>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Vec3(*(::Graphic3d_Vec2d*)theVec2->NativeInstance, theZ);
-}
-
-Macad::Occt::SelectMgr_Vec3::SelectMgr_Vec3(Macad::Occt::Graphic3d_Vec2d^ theVec2)
-    : Macad::Occt::BaseClass<::SelectMgr_Vec3>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Vec3(*(::Graphic3d_Vec2d*)theVec2->NativeInstance, 0.0);
-}
-
-int Macad::Occt::SelectMgr_Vec3::Length()
-{
-    int _result = ::SelectMgr_Vec3::Length();
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_Vec3::SetValues(double theX, double theY, double theZ)
-{
-    ((::SelectMgr_Vec3*)_NativeInstance)->SetValues(theX, theY, theZ);
-}
-
-double Macad::Occt::SelectMgr_Vec3::x()
-{
-    double _result = ((::SelectMgr_Vec3*)_NativeInstance)->x();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec3::r()
-{
-    double _result = ((::SelectMgr_Vec3*)_NativeInstance)->r();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec3::y()
-{
-    double _result = ((::SelectMgr_Vec3*)_NativeInstance)->y();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec3::g()
-{
-    double _result = ((::SelectMgr_Vec3*)_NativeInstance)->g();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec3::z()
-{
-    double _result = ((::SelectMgr_Vec3*)_NativeInstance)->z();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec3::b()
-{
-    double _result = ((::SelectMgr_Vec3*)_NativeInstance)->b();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec3::xy()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec3*)_NativeInstance)->xy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec3::yx()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec3*)_NativeInstance)->yx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec3::xz()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec3*)_NativeInstance)->xz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec3::zx()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec3*)_NativeInstance)->zx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec3::yz()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec3*)_NativeInstance)->yz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec3::zy()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec3*)_NativeInstance)->zy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::xyz()
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = (::SelectMgr_Vec3)((::SelectMgr_Vec3*)_NativeInstance)->xyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::xzy()
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = (::SelectMgr_Vec3)((::SelectMgr_Vec3*)_NativeInstance)->xzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::yxz()
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = (::SelectMgr_Vec3)((::SelectMgr_Vec3*)_NativeInstance)->yxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::yzx()
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = (::SelectMgr_Vec3)((::SelectMgr_Vec3*)_NativeInstance)->yzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::zyx()
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = (::SelectMgr_Vec3)((::SelectMgr_Vec3*)_NativeInstance)->zyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::zxy()
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = (::SelectMgr_Vec3)((::SelectMgr_Vec3*)_NativeInstance)->zxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-bool Macad::Occt::SelectMgr_Vec3::IsEqual(Macad::Occt::SelectMgr_Vec3^ theOther)
-{
-    bool _result = ((::SelectMgr_Vec3*)_NativeInstance)->IsEqual(*(::SelectMgr_Vec3*)theOther->NativeInstance);
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec3::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-double Macad::Occt::SelectMgr_Vec3::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-void Macad::Occt::SelectMgr_Vec3::Multiply(double theFactor)
-{
-    ((::SelectMgr_Vec3*)_NativeInstance)->Multiply(theFactor);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::Multiplied(double theFactor)
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = ((::SelectMgr_Vec3*)_NativeInstance)->Multiplied(theFactor);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::cwiseMin(Macad::Occt::SelectMgr_Vec3^ theVec)
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = ((::SelectMgr_Vec3*)_NativeInstance)->cwiseMin(*(::SelectMgr_Vec3*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::cwiseMax(Macad::Occt::SelectMgr_Vec3^ theVec)
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = ((::SelectMgr_Vec3*)_NativeInstance)->cwiseMax(*(::SelectMgr_Vec3*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::cwiseAbs()
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = ((::SelectMgr_Vec3*)_NativeInstance)->cwiseAbs();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-double Macad::Occt::SelectMgr_Vec3::maxComp()
-{
-    double _result = ((::SelectMgr_Vec3*)_NativeInstance)->maxComp();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec3::minComp()
-{
-    double _result = ((::SelectMgr_Vec3*)_NativeInstance)->minComp();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec3::Dot(Macad::Occt::SelectMgr_Vec3^ theOther)
-{
-    double _result = ((::SelectMgr_Vec3*)_NativeInstance)->Dot(*(::SelectMgr_Vec3*)theOther->NativeInstance);
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec3::Modulus()
-{
-    double _result = ((::SelectMgr_Vec3*)_NativeInstance)->Modulus();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec3::SquareModulus()
-{
-    double _result = ((::SelectMgr_Vec3*)_NativeInstance)->SquareModulus();
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_Vec3::Normalize()
-{
-    ((::SelectMgr_Vec3*)_NativeInstance)->Normalize();
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::Normalized()
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = ((::SelectMgr_Vec3*)_NativeInstance)->Normalized();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::Cross(Macad::Occt::SelectMgr_Vec3^ theVec1, Macad::Occt::SelectMgr_Vec3^ theVec2)
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = ::SelectMgr_Vec3::Cross(*(::SelectMgr_Vec3*)theVec1->NativeInstance, *(::SelectMgr_Vec3*)theVec2->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::GetLERP(Macad::Occt::SelectMgr_Vec3^ theFrom, Macad::Occt::SelectMgr_Vec3^ theTo, double theT)
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = ::SelectMgr_Vec3::GetLERP(*(::SelectMgr_Vec3*)theFrom->NativeInstance, *(::SelectMgr_Vec3*)theTo->NativeInstance, theT);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::DX()
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = ::SelectMgr_Vec3::DX();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::DY()
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = ::SelectMgr_Vec3::DY();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-Macad::Occt::SelectMgr_Vec3^ Macad::Occt::SelectMgr_Vec3::DZ()
-{
-    ::SelectMgr_Vec3* _result = new ::SelectMgr_Vec3();
-    *_result = ::SelectMgr_Vec3::DZ();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec3(_result);
-}
-
-bool Macad::Occt::SelectMgr_Vec3::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::SelectMgr_Vec3::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((SelectMgr_Vec3^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_Vec4
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_Vec4::SelectMgr_Vec4()
-    : Macad::Occt::BaseClass<::SelectMgr_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Vec4();
-}
-
-Macad::Occt::SelectMgr_Vec4::SelectMgr_Vec4(double theValue)
-    : Macad::Occt::BaseClass<::SelectMgr_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Vec4(theValue);
-}
-
-Macad::Occt::SelectMgr_Vec4::SelectMgr_Vec4(double theX, double theY, double theZ, double theW)
-    : Macad::Occt::BaseClass<::SelectMgr_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Vec4(theX, theY, theZ, theW);
-}
-
-Macad::Occt::SelectMgr_Vec4::SelectMgr_Vec4(Macad::Occt::Graphic3d_Vec2d^ theVec2)
-    : Macad::Occt::BaseClass<::SelectMgr_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Vec4(*(::Graphic3d_Vec2d*)theVec2->NativeInstance);
-}
-
-Macad::Occt::SelectMgr_Vec4::SelectMgr_Vec4(Macad::Occt::Graphic3d_Vec3d^ theVec3, double theW)
-    : Macad::Occt::BaseClass<::SelectMgr_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Vec4(*(::Graphic3d_Vec3d*)theVec3->NativeInstance, theW);
-}
-
-Macad::Occt::SelectMgr_Vec4::SelectMgr_Vec4(Macad::Occt::Graphic3d_Vec3d^ theVec3)
-    : Macad::Occt::BaseClass<::SelectMgr_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Vec4(*(::Graphic3d_Vec3d*)theVec3->NativeInstance, 0.0);
-}
-
-int Macad::Occt::SelectMgr_Vec4::Length()
-{
-    int _result = ::SelectMgr_Vec4::Length();
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_Vec4::SetValues(double theX, double theY, double theZ, double theW)
-{
-    ((::SelectMgr_Vec4*)_NativeInstance)->SetValues(theX, theY, theZ, theW);
-}
-
-double Macad::Occt::SelectMgr_Vec4::x()
-{
-    double _result = ((::SelectMgr_Vec4*)_NativeInstance)->x();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec4::r()
-{
-    double _result = ((::SelectMgr_Vec4*)_NativeInstance)->r();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec4::y()
-{
-    double _result = ((::SelectMgr_Vec4*)_NativeInstance)->y();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec4::g()
-{
-    double _result = ((::SelectMgr_Vec4*)_NativeInstance)->g();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec4::z()
-{
-    double _result = ((::SelectMgr_Vec4*)_NativeInstance)->z();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec4::b()
-{
-    double _result = ((::SelectMgr_Vec4*)_NativeInstance)->b();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec4::w()
-{
-    double _result = ((::SelectMgr_Vec4*)_NativeInstance)->w();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec4::a()
-{
-    double _result = ((::SelectMgr_Vec4*)_NativeInstance)->a();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::xy()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->xy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::yx()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->yx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::xz()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->xz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::zx()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->zx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::xw()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->xw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::wx()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->wx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::yz()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->yz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::zy()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->zy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::yw()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->yw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::wy()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->wy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::zw()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->zw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::SelectMgr_Vec4::wz()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::SelectMgr_Vec4*)_NativeInstance)->wz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::xyz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->xyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::xzy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->xzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::yxz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->yxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::yzx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->yzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::zyx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->zyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::zxy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->zxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::xyw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->xyw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::xwy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->xwy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::yxw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->yxw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::ywx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->ywx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::wyx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->wyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::wxy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->wxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::xzw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->xzw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::xwz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->xwz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::zxw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->zxw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::zwx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->zwx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::wzx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->wzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::wxz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->wxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::yzw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->yzw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::ywz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->ywz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::zyw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->zyw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::zwy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->zwy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::wzy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->wzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::wyz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->wyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::rgb()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->rgb();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::rbg()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->rbg();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::grb()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->grb();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::gbr()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->gbr();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::bgr()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->bgr();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::SelectMgr_Vec4::brg()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::SelectMgr_Vec4*)_NativeInstance)->brg();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-bool Macad::Occt::SelectMgr_Vec4::IsEqual(Macad::Occt::SelectMgr_Vec4^ theOther)
-{
-    bool _result = ((::SelectMgr_Vec4*)_NativeInstance)->IsEqual(*(::SelectMgr_Vec4*)theOther->NativeInstance);
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec4::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-double Macad::Occt::SelectMgr_Vec4::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-void Macad::Occt::SelectMgr_Vec4::Multiply(double theFactor)
-{
-    ((::SelectMgr_Vec4*)_NativeInstance)->Multiply(theFactor);
-}
-
-Macad::Occt::SelectMgr_Vec4^ Macad::Occt::SelectMgr_Vec4::Multiplied(double theFactor)
-{
-    ::SelectMgr_Vec4* _result = new ::SelectMgr_Vec4();
-    *_result = ((::SelectMgr_Vec4*)_NativeInstance)->Multiplied(theFactor);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec4(_result);
-}
-
-Macad::Occt::SelectMgr_Vec4^ Macad::Occt::SelectMgr_Vec4::cwiseMin(Macad::Occt::SelectMgr_Vec4^ theVec)
-{
-    ::SelectMgr_Vec4* _result = new ::SelectMgr_Vec4();
-    *_result = ((::SelectMgr_Vec4*)_NativeInstance)->cwiseMin(*(::SelectMgr_Vec4*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec4(_result);
-}
-
-Macad::Occt::SelectMgr_Vec4^ Macad::Occt::SelectMgr_Vec4::cwiseMax(Macad::Occt::SelectMgr_Vec4^ theVec)
-{
-    ::SelectMgr_Vec4* _result = new ::SelectMgr_Vec4();
-    *_result = ((::SelectMgr_Vec4*)_NativeInstance)->cwiseMax(*(::SelectMgr_Vec4*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec4(_result);
-}
-
-Macad::Occt::SelectMgr_Vec4^ Macad::Occt::SelectMgr_Vec4::cwiseAbs()
-{
-    ::SelectMgr_Vec4* _result = new ::SelectMgr_Vec4();
-    *_result = ((::SelectMgr_Vec4*)_NativeInstance)->cwiseAbs();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Vec4(_result);
-}
-
-double Macad::Occt::SelectMgr_Vec4::maxComp()
-{
-    double _result = ((::SelectMgr_Vec4*)_NativeInstance)->maxComp();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec4::minComp()
-{
-    double _result = ((::SelectMgr_Vec4*)_NativeInstance)->minComp();
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Vec4::Dot(Macad::Occt::SelectMgr_Vec4^ theOther)
-{
-    double _result = ((::SelectMgr_Vec4*)_NativeInstance)->Dot(*(::SelectMgr_Vec4*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_Vec4::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::SelectMgr_Vec4::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((SelectMgr_Vec4^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_Mat4
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_Mat4::SelectMgr_Mat4()
-    : Macad::Occt::BaseClass<::SelectMgr_Mat4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_Mat4();
-}
-
-long long unsigned int Macad::Occt::SelectMgr_Mat4::Rows()
-{
-    long long unsigned int _result = ::SelectMgr_Mat4::Rows();
-    return _result;
-}
-
-long long unsigned int Macad::Occt::SelectMgr_Mat4::Cols()
-{
-    long long unsigned int _result = ::SelectMgr_Mat4::Cols();
-    return _result;
-}
-
-Macad::Occt::SelectMgr_Mat4^ Macad::Occt::SelectMgr_Mat4::Identity()
-{
-    ::SelectMgr_Mat4* _result = new ::SelectMgr_Mat4();
-    *_result = ::SelectMgr_Mat4::Identity();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Mat4(_result);
-}
-
-Macad::Occt::SelectMgr_Mat4^ Macad::Occt::SelectMgr_Mat4::Zero()
-{
-    ::SelectMgr_Mat4* _result = new ::SelectMgr_Mat4();
-    *_result = ::SelectMgr_Mat4::Zero();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Mat4(_result);
-}
-
-double Macad::Occt::SelectMgr_Mat4::GetValue(long long unsigned int theRow, long long unsigned int theCol)
-{
-    double _result = ((::SelectMgr_Mat4*)_NativeInstance)->GetValue(theRow, theCol);
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Mat4::ChangeValue(long long unsigned int theRow, long long unsigned int theCol)
-{
-    double _result = ((::SelectMgr_Mat4*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_Mat4::SetValue(long long unsigned int theRow, long long unsigned int theCol, double theValue)
-{
-    ((::SelectMgr_Mat4*)_NativeInstance)->SetValue(theRow, theCol, theValue);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::SelectMgr_Mat4::GetRow(long long unsigned int theRow)
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = ((::SelectMgr_Mat4*)_NativeInstance)->GetRow(theRow);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
-}
-
-void Macad::Occt::SelectMgr_Mat4::SetRow(long long unsigned int theRow, Macad::Occt::Graphic3d_Vec3d^ theVec)
-{
-    ((::SelectMgr_Mat4*)_NativeInstance)->SetRow(theRow, *(::Graphic3d_Vec3d*)theVec->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::SelectMgr_Mat4::GetColumn(long long unsigned int theCol)
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = ((::SelectMgr_Mat4*)_NativeInstance)->GetColumn(theCol);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
-}
-
-void Macad::Occt::SelectMgr_Mat4::SetColumn(long long unsigned int theCol, Macad::Occt::Graphic3d_Vec3d^ theVec)
-{
-    ((::SelectMgr_Mat4*)_NativeInstance)->SetColumn(theCol, *(::Graphic3d_Vec3d*)theVec->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::SelectMgr_Mat4::GetDiagonal()
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = ((::SelectMgr_Mat4*)_NativeInstance)->GetDiagonal();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
-}
-
-void Macad::Occt::SelectMgr_Mat4::SetDiagonal(Macad::Occt::Graphic3d_Vec3d^ theVec)
-{
-    ((::SelectMgr_Mat4*)_NativeInstance)->SetDiagonal(*(::Graphic3d_Vec3d*)theVec->NativeInstance);
-}
-
-void Macad::Occt::SelectMgr_Mat4::InitZero()
-{
-    ((::SelectMgr_Mat4*)_NativeInstance)->InitZero();
-}
-
-bool Macad::Occt::SelectMgr_Mat4::IsZero()
-{
-    bool _result = ((::SelectMgr_Mat4*)_NativeInstance)->IsZero();
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_Mat4::InitIdentity()
-{
-    ((::SelectMgr_Mat4*)_NativeInstance)->InitIdentity();
-}
-
-bool Macad::Occt::SelectMgr_Mat4::IsIdentity()
-{
-    bool _result = ((::SelectMgr_Mat4*)_NativeInstance)->IsIdentity();
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_Mat4::IsEqual(Macad::Occt::SelectMgr_Mat4^ theOther)
-{
-    bool _result = ((::SelectMgr_Mat4*)_NativeInstance)->IsEqual(*(::SelectMgr_Mat4*)theOther->NativeInstance);
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Mat4::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-double Macad::Occt::SelectMgr_Mat4::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::SelectMgr_Mat4^ Macad::Occt::SelectMgr_Mat4::Multiply(Macad::Occt::SelectMgr_Mat4^ theMatA, Macad::Occt::SelectMgr_Mat4^ theMatB)
-{
-    ::SelectMgr_Mat4* _result = new ::SelectMgr_Mat4();
-    *_result = ::SelectMgr_Mat4::Multiply(*(::SelectMgr_Mat4*)theMatA->NativeInstance, *(::SelectMgr_Mat4*)theMatB->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Mat4(_result);
-}
-
-Macad::Occt::SelectMgr_Mat4^ Macad::Occt::SelectMgr_Mat4::Multiplied(Macad::Occt::SelectMgr_Mat4^ theMat)
-{
-    ::SelectMgr_Mat4* _result = new ::SelectMgr_Mat4();
-    *_result = ((::SelectMgr_Mat4*)_NativeInstance)->Multiplied(*(::SelectMgr_Mat4*)theMat->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Mat4(_result);
-}
-
-void Macad::Occt::SelectMgr_Mat4::Divide(double theFactor)
-{
-    ((::SelectMgr_Mat4*)_NativeInstance)->Divide(theFactor);
-}
-
-Macad::Occt::SelectMgr_Mat4^ Macad::Occt::SelectMgr_Mat4::Divided(double theScalar)
-{
-    ::SelectMgr_Mat4* _result = new ::SelectMgr_Mat4();
-    *_result = ((::SelectMgr_Mat4*)_NativeInstance)->Divided(theScalar);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Mat4(_result);
-}
-
-void Macad::Occt::SelectMgr_Mat4::Add(Macad::Occt::SelectMgr_Mat4^ theMat)
-{
-    ((::SelectMgr_Mat4*)_NativeInstance)->Add(*(::SelectMgr_Mat4*)theMat->NativeInstance);
-}
-
-void Macad::Occt::SelectMgr_Mat4::Subtract(Macad::Occt::SelectMgr_Mat4^ theMat)
-{
-    ((::SelectMgr_Mat4*)_NativeInstance)->Subtract(*(::SelectMgr_Mat4*)theMat->NativeInstance);
-}
-
-Macad::Occt::SelectMgr_Mat4^ Macad::Occt::SelectMgr_Mat4::Added(Macad::Occt::SelectMgr_Mat4^ theMat)
-{
-    ::SelectMgr_Mat4* _result = new ::SelectMgr_Mat4();
-    *_result = ((::SelectMgr_Mat4*)_NativeInstance)->Added(*(::SelectMgr_Mat4*)theMat->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Mat4(_result);
-}
-
-Macad::Occt::SelectMgr_Mat4^ Macad::Occt::SelectMgr_Mat4::Subtracted(Macad::Occt::SelectMgr_Mat4^ theMat)
-{
-    ::SelectMgr_Mat4* _result = new ::SelectMgr_Mat4();
-    *_result = ((::SelectMgr_Mat4*)_NativeInstance)->Subtracted(*(::SelectMgr_Mat4*)theMat->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Mat4(_result);
-}
-
-Macad::Occt::SelectMgr_Mat4^ Macad::Occt::SelectMgr_Mat4::Negated()
-{
-    ::SelectMgr_Mat4* _result = new ::SelectMgr_Mat4();
-    *_result = ((::SelectMgr_Mat4*)_NativeInstance)->Negated();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Mat4(_result);
-}
-
-void Macad::Occt::SelectMgr_Mat4::Translate(Macad::Occt::Graphic3d_Vec3d^ theVec)
-{
-    ((::SelectMgr_Mat4*)_NativeInstance)->Translate(*(::Graphic3d_Vec3d*)theVec->NativeInstance);
-}
-
-Macad::Occt::SelectMgr_Mat4^ Macad::Occt::SelectMgr_Mat4::Transposed()
-{
-    ::SelectMgr_Mat4* _result = new ::SelectMgr_Mat4();
-    *_result = ((::SelectMgr_Mat4*)_NativeInstance)->Transposed();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Mat4(_result);
-}
-
-void Macad::Occt::SelectMgr_Mat4::Transpose()
-{
-    ((::SelectMgr_Mat4*)_NativeInstance)->Transpose();
-}
-
-bool Macad::Occt::SelectMgr_Mat4::Inverted(Macad::Occt::SelectMgr_Mat4^ theOutMx, double% theDet)
-{
-    pin_ptr<double> pp_theDet = &theDet;
-    bool _result = ((::SelectMgr_Mat4*)_NativeInstance)->Inverted(*(::SelectMgr_Mat4*)theOutMx->NativeInstance, *(double*)pp_theDet);
-    return _result;
-}
-
-double Macad::Occt::SelectMgr_Mat4::DeterminantMat3()
-{
-    double _result = ((::SelectMgr_Mat4*)_NativeInstance)->DeterminantMat3();
-    return _result;
-}
-
-Macad::Occt::SelectMgr_Mat4^ Macad::Occt::SelectMgr_Mat4::Adjoint()
-{
-    ::SelectMgr_Mat4* _result = new ::SelectMgr_Mat4();
-    *_result = ((::SelectMgr_Mat4*)_NativeInstance)->Adjoint();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Mat4(_result);
-}
-
-Macad::Occt::SelectMgr_Mat4^ Macad::Occt::SelectMgr_Mat4::Map(double% theData)
-{
-    ::SelectMgr_Mat4* _result = new ::SelectMgr_Mat4();
-    pin_ptr<double> pp_theData = &theData;
-    *_result = ::SelectMgr_Mat4::Map((double*)pp_theData);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_Mat4(_result);
-}
-
-bool Macad::Occt::SelectMgr_Mat4::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::SelectMgr_Mat4::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((SelectMgr_Mat4^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
 //  Class  SelectMgr_SequenceOfSelection
 //---------------------------------------------------------------------
+
+int Macad::Occt::SelectMgr_SequenceOfSelection::Length()
+{
+    int _result = ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::SelectMgr_SequenceOfSelection::Size()
+{
+    long long unsigned int _result = ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::SelectMgr_SequenceOfSelection::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
 
 Macad::Occt::SelectMgr_SequenceOfSelection::SelectMgr_SequenceOfSelection()
     : Macad::Occt::BaseClass<::SelectMgr_SequenceOfSelection>(BaseClass::InitMode::Uninitialized)
@@ -1209,21 +514,9 @@ Macad::Occt::SelectMgr_SequenceOfSelection::SelectMgr_SequenceOfSelection(Macad:
     _NativeInstance = new ::SelectMgr_SequenceOfSelection(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
-int Macad::Occt::SelectMgr_SequenceOfSelection::Size()
-{
-    int _result = ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::SelectMgr_SequenceOfSelection::Length()
-{
-    int _result = ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Length();
-    return _result;
-}
-
 int Macad::Occt::SelectMgr_SequenceOfSelection::Lower()
 {
-    int _result = ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Lower();
+    int _result = ::SelectMgr_SequenceOfSelection::Lower();
     return _result;
 }
 
@@ -1244,6 +537,11 @@ void Macad::Occt::SelectMgr_SequenceOfSelection::Reverse()
     ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::SelectMgr_SequenceOfSelection::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::SelectMgr_SequenceOfSelection::Exchange(int I, int J)
 {
     ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Exchange(I, J);
@@ -1256,7 +554,7 @@ void Macad::Occt::SelectMgr_SequenceOfSelection::Clear(Macad::Occt::NCollection_
 
 void Macad::Occt::SelectMgr_SequenceOfSelection::Clear()
 {
-    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Clear(0L);
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::SelectMgr_SequenceOfSelection^ Macad::Occt::SelectMgr_SequenceOfSelection::Assign(Macad::Occt::SelectMgr_SequenceOfSelection^ theOther)
@@ -1271,9 +569,34 @@ void Macad::Occt::SelectMgr_SequenceOfSelection::Remove(Macad::Occt::SelectMgr_S
     ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Remove(*(::SelectMgr_SequenceOfSelection::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::SelectMgr_SequenceOfSelection::Remove(long long unsigned int theIndex)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::SelectMgr_SequenceOfSelection::Remove(int theIndex)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::SelectMgr_SequenceOfSelection::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::SelectMgr_SequenceOfSelection::Remove(int theFromIndex, int theToIndex)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::SelectMgr_SequenceOfSelection::Append(Macad::Occt::SelectMgr_Selection^ theItem)
 {
     ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Append(Handle(::SelectMgr_Selection)(theItem->NativeInstance));
+}
+
+void Macad::Occt::SelectMgr_SequenceOfSelection::Append(Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Append(*(::SelectMgr_SequenceOfSelection*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::SelectMgr_SequenceOfSelection::Prepend(Macad::Occt::SelectMgr_Selection^ theItem)
@@ -1281,14 +604,59 @@ void Macad::Occt::SelectMgr_SequenceOfSelection::Prepend(Macad::Occt::SelectMgr_
     ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Prepend(Handle(::SelectMgr_Selection)(theItem->NativeInstance));
 }
 
+void Macad::Occt::SelectMgr_SequenceOfSelection::Prepend(Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Prepend(*(::SelectMgr_SequenceOfSelection*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::SelectMgr_SequenceOfSelection::InsertBefore(long long unsigned int theIndex, Macad::Occt::SelectMgr_Selection^ theItem)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->InsertBefore(theIndex, Handle(::SelectMgr_Selection)(theItem->NativeInstance));
+}
+
 void Macad::Occt::SelectMgr_SequenceOfSelection::InsertBefore(int theIndex, Macad::Occt::SelectMgr_Selection^ theItem)
 {
     ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->InsertBefore(theIndex, Handle(::SelectMgr_Selection)(theItem->NativeInstance));
 }
 
+void Macad::Occt::SelectMgr_SequenceOfSelection::InsertBefore(long long unsigned int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->InsertBefore(theIndex, *(::SelectMgr_SequenceOfSelection*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::SelectMgr_SequenceOfSelection::InsertBefore(int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->InsertBefore(theIndex, *(::SelectMgr_SequenceOfSelection*)theSeq->NativeInstance);
+}
+
 void Macad::Occt::SelectMgr_SequenceOfSelection::InsertAfter(Macad::Occt::SelectMgr_SequenceOfSelection::Iterator^ thePosition, Macad::Occt::SelectMgr_Selection^ theItem)
 {
     ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->InsertAfter(*(::SelectMgr_SequenceOfSelection::Iterator*)thePosition->NativeInstance, Handle(::SelectMgr_Selection)(theItem->NativeInstance));
+}
+
+void Macad::Occt::SelectMgr_SequenceOfSelection::InsertAfter(long long unsigned int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->InsertAfter(theIndex, *(::SelectMgr_SequenceOfSelection*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::SelectMgr_SequenceOfSelection::InsertAfter(int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->InsertAfter(theIndex, *(::SelectMgr_SequenceOfSelection*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::SelectMgr_SequenceOfSelection::InsertAfter(long long unsigned int theIndex, Macad::Occt::SelectMgr_Selection^ theItem)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->InsertAfter(theIndex, Handle(::SelectMgr_Selection)(theItem->NativeInstance));
+}
+
+void Macad::Occt::SelectMgr_SequenceOfSelection::InsertAfter(int theIndex, Macad::Occt::SelectMgr_Selection^ theItem)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->InsertAfter(theIndex, Handle(::SelectMgr_Selection)(theItem->NativeInstance));
+}
+
+void Macad::Occt::SelectMgr_SequenceOfSelection::Split(long long unsigned int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Split(theIndex, *(::SelectMgr_SequenceOfSelection*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::SelectMgr_SequenceOfSelection::Split(int theIndex, Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq)
@@ -1320,9 +688,21 @@ Macad::Occt::SelectMgr_Selection^ Macad::Occt::SelectMgr_SequenceOfSelection::Ch
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_Selection::CreateDowncasted(_result.get());
 }
 
+Macad::Occt::SelectMgr_Selection^ Macad::Occt::SelectMgr_SequenceOfSelection::Value(long long unsigned int theIndex)
+{
+    Handle(::SelectMgr_Selection) _result = ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_Selection::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::SelectMgr_Selection^ Macad::Occt::SelectMgr_SequenceOfSelection::Value(int theIndex)
 {
     Handle(::SelectMgr_Selection) _result = ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_Selection::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::SelectMgr_Selection^ Macad::Occt::SelectMgr_SequenceOfSelection::ChangeValue(long long unsigned int theIndex)
+{
+    Handle(::SelectMgr_Selection) _result = ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->ChangeValue(theIndex);
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_Selection::CreateDowncasted(_result.get());
 }
 
@@ -1332,9 +712,26 @@ Macad::Occt::SelectMgr_Selection^ Macad::Occt::SelectMgr_SequenceOfSelection::Ch
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_Selection::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::SelectMgr_SequenceOfSelection::SetValue(long long unsigned int theIndex, Macad::Occt::SelectMgr_Selection^ theItem)
+{
+    ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->SetValue(theIndex, Handle(::SelectMgr_Selection)(theItem->NativeInstance));
+}
+
 void Macad::Occt::SelectMgr_SequenceOfSelection::SetValue(int theIndex, Macad::Occt::SelectMgr_Selection^ theItem)
 {
     ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->SetValue(theIndex, Handle(::SelectMgr_Selection)(theItem->NativeInstance));
+}
+
+Macad::Occt::SelectMgr_Selection^ Macad::Occt::SelectMgr_SequenceOfSelection::At(long long unsigned int theIndex)
+{
+    Handle(::SelectMgr_Selection) _result = ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->At(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_Selection::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::SelectMgr_Selection^ Macad::Occt::SelectMgr_SequenceOfSelection::ChangeAt(long long unsigned int theIndex)
+{
+    Handle(::SelectMgr_Selection) _result = ((::SelectMgr_SequenceOfSelection*)_NativeInstance)->ChangeAt(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_Selection::CreateDowncasted(_result.get());
 }
 
 System::Collections::Generic::IEnumerator<Macad::Occt::SelectMgr_Selection^>^ Macad::Occt::SelectMgr_SequenceOfSelection::GetEnumerator()
@@ -1357,6 +754,18 @@ Macad::Occt::SelectMgr_SequenceOfSelection::Iterator::Iterator()
     : Macad::Occt::BaseClass<::SelectMgr_SequenceOfSelection::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::SelectMgr_SequenceOfSelection::Iterator();
+}
+
+Macad::Occt::SelectMgr_SequenceOfSelection::Iterator::Iterator(Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::SelectMgr_SequenceOfSelection::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::SelectMgr_SequenceOfSelection::Iterator(*(::SelectMgr_SequenceOfSelection*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::SelectMgr_SequenceOfSelection::Iterator::Iterator(Macad::Occt::SelectMgr_SequenceOfSelection^ theSeq)
+    : Macad::Occt::BaseClass<::SelectMgr_SequenceOfSelection::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::SelectMgr_SequenceOfSelection::Iterator(*(::SelectMgr_SequenceOfSelection*)theSeq->NativeInstance, true);
 }
 
 bool Macad::Occt::SelectMgr_SequenceOfSelection::Iterator::More()
@@ -1405,850 +814,6 @@ bool Macad::Occt::SelectMgr_SequenceOfSelection::Iterator::Equals(System::Object
         return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
     }
     return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_SequenceOfOwner
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_SequenceOfOwner::SelectMgr_SequenceOfOwner()
-    : Macad::Occt::BaseClass<::SelectMgr_SequenceOfOwner>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_SequenceOfOwner();
-}
-
-Macad::Occt::SelectMgr_SequenceOfOwner::SelectMgr_SequenceOfOwner(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::SelectMgr_SequenceOfOwner>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_SequenceOfOwner(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::SelectMgr_SequenceOfOwner::Size()
-{
-    int _result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::SelectMgr_SequenceOfOwner::Length()
-{
-    int _result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::SelectMgr_SequenceOfOwner::Lower()
-{
-    int _result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::SelectMgr_SequenceOfOwner::Upper()
-{
-    int _result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_SequenceOfOwner::IsEmpty()
-{
-    bool _result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::Reverse()
-{
-    ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::Exchange(int I, int J)
-{
-    ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::Clear()
-{
-    ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::SelectMgr_SequenceOfOwner^ Macad::Occt::SelectMgr_SequenceOfOwner::Assign(Macad::Occt::SelectMgr_SequenceOfOwner^ theOther)
-{
-    ::SelectMgr_SequenceOfOwner* _result = new ::SelectMgr_SequenceOfOwner();
-    *_result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Assign(*(::SelectMgr_SequenceOfOwner*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SequenceOfOwner(_result);
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::Remove(Macad::Occt::SelectMgr_SequenceOfOwner::Iterator^ thePosition)
-{
-    ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Remove(*(::SelectMgr_SequenceOfOwner::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::Append(Macad::Occt::SelectMgr_EntityOwner^ theItem)
-{
-    ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Append(Handle(::SelectMgr_EntityOwner)(theItem->NativeInstance));
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::Prepend(Macad::Occt::SelectMgr_EntityOwner^ theItem)
-{
-    ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Prepend(Handle(::SelectMgr_EntityOwner)(theItem->NativeInstance));
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::InsertBefore(int theIndex, Macad::Occt::SelectMgr_EntityOwner^ theItem)
-{
-    ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->InsertBefore(theIndex, Handle(::SelectMgr_EntityOwner)(theItem->NativeInstance));
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::InsertAfter(Macad::Occt::SelectMgr_SequenceOfOwner::Iterator^ thePosition, Macad::Occt::SelectMgr_EntityOwner^ theItem)
-{
-    ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->InsertAfter(*(::SelectMgr_SequenceOfOwner::Iterator*)thePosition->NativeInstance, Handle(::SelectMgr_EntityOwner)(theItem->NativeInstance));
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::Split(int theIndex, Macad::Occt::SelectMgr_SequenceOfOwner^ theSeq)
-{
-    ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Split(theIndex, *(::SelectMgr_SequenceOfOwner*)theSeq->NativeInstance);
-}
-
-Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_SequenceOfOwner::First()
-{
-    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_SequenceOfOwner::ChangeFirst()
-{
-    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->ChangeFirst();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_SequenceOfOwner::Last()
-{
-    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_SequenceOfOwner::ChangeLast()
-{
-    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->ChangeLast();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_SequenceOfOwner::Value(int theIndex)
-{
-    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->Value(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_SequenceOfOwner::ChangeValue(int theIndex)
-{
-    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->ChangeValue(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::SetValue(int theIndex, Macad::Occt::SelectMgr_EntityOwner^ theItem)
-{
-    ((::SelectMgr_SequenceOfOwner*)_NativeInstance)->SetValue(theIndex, Handle(::SelectMgr_EntityOwner)(theItem->NativeInstance));
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::SelectMgr_EntityOwner^>^ Macad::Occt::SelectMgr_SequenceOfOwner::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::SelectMgr_EntityOwner^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::SelectMgr_SequenceOfOwner::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::SelectMgr_EntityOwner^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_SequenceOfOwner::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_SequenceOfOwner::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::SelectMgr_SequenceOfOwner::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_SequenceOfOwner::Iterator();
-}
-
-bool Macad::Occt::SelectMgr_SequenceOfOwner::Iterator::More()
-{
-    bool _result = ((::SelectMgr_SequenceOfOwner::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_SequenceOfOwner::Iterator::Next()
-{
-    ((::SelectMgr_SequenceOfOwner::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_SequenceOfOwner::Iterator::Value()
-{
-    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_SequenceOfOwner::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_SequenceOfOwner::Iterator::ChangeValue()
-{
-    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_SequenceOfOwner::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::SelectMgr_SequenceOfOwner::Iterator::IsEqual(Macad::Occt::SelectMgr_SequenceOfOwner::Iterator^ theOther)
-{
-    bool _result = ((::SelectMgr_SequenceOfOwner::Iterator*)_NativeInstance)->IsEqual(*(::SelectMgr_SequenceOfOwner::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_SequenceOfOwner::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::SelectMgr_SequenceOfOwner::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_IndexedDataMapOfOwnerCriterion
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::SelectMgr_IndexedDataMapOfOwnerCriterion()
-    : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_IndexedDataMapOfOwnerCriterion();
-}
-
-Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::SelectMgr_IndexedDataMapOfOwnerCriterion(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_IndexedDataMapOfOwnerCriterion(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::SelectMgr_IndexedDataMapOfOwnerCriterion(int theNbBuckets)
-    : Macad::Occt::BaseClass<::SelectMgr_IndexedDataMapOfOwnerCriterion>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_IndexedDataMapOfOwnerCriterion(theNbBuckets, 0L);
-}
-
-void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Exchange(Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ theOther)
-{
-    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Exchange(*(::SelectMgr_IndexedDataMapOfOwnerCriterion*)theOther->NativeInstance);
-}
-
-Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Assign(Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion^ theOther)
-{
-    ::SelectMgr_IndexedDataMapOfOwnerCriterion* _result = new ::SelectMgr_IndexedDataMapOfOwnerCriterion();
-    *_result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Assign(*(::SelectMgr_IndexedDataMapOfOwnerCriterion*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion(_result);
-}
-
-void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::ReSize(int N)
-{
-    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->ReSize(N);
-}
-
-int Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Add(Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem)
-{
-    int _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Add(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance), *(::SelectMgr_SortCriterion*)theItem->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Contains(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
-{
-    bool _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Contains(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Substitute(int theIndex, Macad::Occt::SelectMgr_EntityOwner^ theKey1, Macad::Occt::SelectMgr_SortCriterion^ theItem)
-{
-    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Substitute(theIndex, Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance), *(::SelectMgr_SortCriterion*)theItem->NativeInstance);
-}
-
-void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Swap(int theIndex1, int theIndex2)
-{
-    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Swap(theIndex1, theIndex2);
-}
-
-void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::RemoveLast()
-{
-    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->RemoveLast();
-}
-
-void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::RemoveFromIndex(int theIndex)
-{
-    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->RemoveFromIndex(theIndex);
-}
-
-void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::RemoveKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
-{
-    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->RemoveKey(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
-}
-
-Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::FindKey(int theIndex)
-{
-    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->FindKey(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::FindFromIndex(int theIndex)
-{
-    ::SelectMgr_SortCriterion* _result = new ::SelectMgr_SortCriterion();
-    *_result = (::SelectMgr_SortCriterion)((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->FindFromIndex(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
-}
-
-Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::ChangeFromIndex(int theIndex)
-{
-    ::SelectMgr_SortCriterion* _result = new ::SelectMgr_SortCriterion();
-    *_result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->ChangeFromIndex(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
-}
-
-int Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::FindIndex(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
-{
-    int _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->FindIndex(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
-    return _result;
-}
-
-Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::FindFromKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
-{
-    ::SelectMgr_SortCriterion* _result = new ::SelectMgr_SortCriterion();
-    *_result = (::SelectMgr_SortCriterion)((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->FindFromKey(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
-}
-
-Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::ChangeFromKey(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
-{
-    ::SelectMgr_SortCriterion* _result = new ::SelectMgr_SortCriterion();
-    *_result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->ChangeFromKey(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
-}
-
-Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Seek(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
-{
-    const ::SelectMgr_SortCriterion* _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Seek(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion((::SelectMgr_SortCriterion*)_result);
-}
-
-Macad::Occt::SelectMgr_SortCriterion^ Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::ChangeSeek(Macad::Occt::SelectMgr_EntityOwner^ theKey1)
-{
-    ::SelectMgr_SortCriterion* _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->ChangeSeek(Handle(::SelectMgr_EntityOwner)(theKey1->NativeInstance));
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SortCriterion(_result);
-}
-
-void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Clear(bool doReleaseMemory)
-{
-    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Clear()
-{
-    ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::SelectMgr_IndexedDataMapOfOwnerCriterion::Size()
-{
-    int _result = ((::SelectMgr_IndexedDataMapOfOwnerCriterion*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_IndexedDataMapOfOwnerCriterion::Iterator
-//---------------------------------------------------------------------
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_MapOfObjectSensitives
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_MapOfObjectSensitives::SelectMgr_MapOfObjectSensitives()
-    : Macad::Occt::BaseClass<::SelectMgr_MapOfObjectSensitives>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_MapOfObjectSensitives();
-}
-
-Macad::Occt::SelectMgr_MapOfObjectSensitives::SelectMgr_MapOfObjectSensitives(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::SelectMgr_MapOfObjectSensitives>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_MapOfObjectSensitives(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::SelectMgr_MapOfObjectSensitives::SelectMgr_MapOfObjectSensitives(int theNbBuckets)
-    : Macad::Occt::BaseClass<::SelectMgr_MapOfObjectSensitives>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_MapOfObjectSensitives(theNbBuckets, 0L);
-}
-
-void Macad::Occt::SelectMgr_MapOfObjectSensitives::Exchange(Macad::Occt::SelectMgr_MapOfObjectSensitives^ theOther)
-{
-    ((::SelectMgr_MapOfObjectSensitives*)_NativeInstance)->Exchange(*(::SelectMgr_MapOfObjectSensitives*)theOther->NativeInstance);
-}
-
-Macad::Occt::SelectMgr_MapOfObjectSensitives^ Macad::Occt::SelectMgr_MapOfObjectSensitives::Assign(Macad::Occt::SelectMgr_MapOfObjectSensitives^ theOther)
-{
-    ::SelectMgr_MapOfObjectSensitives* _result = new ::SelectMgr_MapOfObjectSensitives();
-    *_result = ((::SelectMgr_MapOfObjectSensitives*)_NativeInstance)->Assign(*(::SelectMgr_MapOfObjectSensitives*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_MapOfObjectSensitives(_result);
-}
-
-void Macad::Occt::SelectMgr_MapOfObjectSensitives::ReSize(int N)
-{
-    ((::SelectMgr_MapOfObjectSensitives*)_NativeInstance)->ReSize(N);
-}
-
-bool Macad::Occt::SelectMgr_MapOfObjectSensitives::IsBound(Macad::Occt::SelectMgr_SelectableObject^ theKey)
-{
-    bool _result = ((::SelectMgr_MapOfObjectSensitives*)_NativeInstance)->IsBound(Handle(::SelectMgr_SelectableObject)(theKey->NativeInstance));
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_MapOfObjectSensitives::UnBind(Macad::Occt::SelectMgr_SelectableObject^ theKey)
-{
-    bool _result = ((::SelectMgr_MapOfObjectSensitives*)_NativeInstance)->UnBind(Handle(::SelectMgr_SelectableObject)(theKey->NativeInstance));
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_MapOfObjectSensitives::Clear(bool doReleaseMemory)
-{
-    ((::SelectMgr_MapOfObjectSensitives*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::SelectMgr_MapOfObjectSensitives::Clear()
-{
-    ((::SelectMgr_MapOfObjectSensitives*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::SelectMgr_MapOfObjectSensitives::Size()
-{
-    int _result = ((::SelectMgr_MapOfObjectSensitives*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_MapOfObjectSensitives::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_MapOfObjectSensitives::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::SelectMgr_MapOfObjectSensitives::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_MapOfObjectSensitives::Iterator();
-}
-
-bool Macad::Occt::SelectMgr_MapOfObjectSensitives::Iterator::More()
-{
-    bool _result = ((::SelectMgr_MapOfObjectSensitives::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_MapOfObjectSensitives::Iterator::Next()
-{
-    ((::SelectMgr_MapOfObjectSensitives::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::SelectMgr_SelectableObject^ Macad::Occt::SelectMgr_MapOfObjectSensitives::Iterator::Key()
-{
-    Handle(::SelectMgr_SelectableObject) _result = ((::SelectMgr_MapOfObjectSensitives::Iterator*)_NativeInstance)->Key();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_SelectableObject::CreateDowncasted(_result.get());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_IndexedMapOfHSensitive
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_IndexedMapOfHSensitive::SelectMgr_IndexedMapOfHSensitive()
-    : Macad::Occt::BaseClass<::SelectMgr_IndexedMapOfHSensitive>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_IndexedMapOfHSensitive();
-}
-
-Macad::Occt::SelectMgr_IndexedMapOfHSensitive::SelectMgr_IndexedMapOfHSensitive(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::SelectMgr_IndexedMapOfHSensitive>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_IndexedMapOfHSensitive(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::SelectMgr_IndexedMapOfHSensitive::SelectMgr_IndexedMapOfHSensitive(int theNbBuckets)
-    : Macad::Occt::BaseClass<::SelectMgr_IndexedMapOfHSensitive>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_IndexedMapOfHSensitive(theNbBuckets, 0L);
-}
-
-void Macad::Occt::SelectMgr_IndexedMapOfHSensitive::Exchange(Macad::Occt::SelectMgr_IndexedMapOfHSensitive^ theOther)
-{
-    ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->Exchange(*(::SelectMgr_IndexedMapOfHSensitive*)theOther->NativeInstance);
-}
-
-Macad::Occt::SelectMgr_IndexedMapOfHSensitive^ Macad::Occt::SelectMgr_IndexedMapOfHSensitive::Assign(Macad::Occt::SelectMgr_IndexedMapOfHSensitive^ theOther)
-{
-    ::SelectMgr_IndexedMapOfHSensitive* _result = new ::SelectMgr_IndexedMapOfHSensitive();
-    *_result = ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->Assign(*(::SelectMgr_IndexedMapOfHSensitive*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_IndexedMapOfHSensitive(_result);
-}
-
-void Macad::Occt::SelectMgr_IndexedMapOfHSensitive::ReSize(int theExtent)
-{
-    ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->ReSize(theExtent);
-}
-
-int Macad::Occt::SelectMgr_IndexedMapOfHSensitive::Add(Macad::Occt::SelectMgr_SensitiveEntity^ theKey1)
-{
-    int _result = ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->Add(Handle(::SelectMgr_SensitiveEntity)(theKey1->NativeInstance));
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_IndexedMapOfHSensitive::Contains(Macad::Occt::SelectMgr_SensitiveEntity^ theKey1)
-{
-    bool _result = ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->Contains(Handle(::SelectMgr_SensitiveEntity)(theKey1->NativeInstance));
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_IndexedMapOfHSensitive::Substitute(int theIndex, Macad::Occt::SelectMgr_SensitiveEntity^ theKey1)
-{
-    ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->Substitute(theIndex, Handle(::SelectMgr_SensitiveEntity)(theKey1->NativeInstance));
-}
-
-void Macad::Occt::SelectMgr_IndexedMapOfHSensitive::Swap(int theIndex1, int theIndex2)
-{
-    ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->Swap(theIndex1, theIndex2);
-}
-
-void Macad::Occt::SelectMgr_IndexedMapOfHSensitive::RemoveLast()
-{
-    ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->RemoveLast();
-}
-
-void Macad::Occt::SelectMgr_IndexedMapOfHSensitive::RemoveFromIndex(int theIndex)
-{
-    ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->RemoveFromIndex(theIndex);
-}
-
-bool Macad::Occt::SelectMgr_IndexedMapOfHSensitive::RemoveKey(Macad::Occt::SelectMgr_SensitiveEntity^ theKey1)
-{
-    bool _result = ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->RemoveKey(Handle(::SelectMgr_SensitiveEntity)(theKey1->NativeInstance));
-    return _result;
-}
-
-Macad::Occt::SelectMgr_SensitiveEntity^ Macad::Occt::SelectMgr_IndexedMapOfHSensitive::FindKey(int theIndex)
-{
-    Handle(::SelectMgr_SensitiveEntity) _result = ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->FindKey(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_SensitiveEntity::CreateDowncasted(_result.get());
-}
-
-int Macad::Occt::SelectMgr_IndexedMapOfHSensitive::FindIndex(Macad::Occt::SelectMgr_SensitiveEntity^ theKey1)
-{
-    int _result = ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->FindIndex(Handle(::SelectMgr_SensitiveEntity)(theKey1->NativeInstance));
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_IndexedMapOfHSensitive::Clear(bool doReleaseMemory)
-{
-    ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::SelectMgr_IndexedMapOfHSensitive::Clear()
-{
-    ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::SelectMgr_IndexedMapOfHSensitive::Size()
-{
-    int _result = ((::SelectMgr_IndexedMapOfHSensitive*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_IndexedMapOfHSensitive::Iterator
-//---------------------------------------------------------------------
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_MapOfOwners
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_MapOfOwners::SelectMgr_MapOfOwners()
-    : Macad::Occt::BaseClass<::SelectMgr_MapOfOwners>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_MapOfOwners();
-}
-
-Macad::Occt::SelectMgr_MapOfOwners::SelectMgr_MapOfOwners(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::SelectMgr_MapOfOwners>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_MapOfOwners(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::SelectMgr_MapOfOwners::SelectMgr_MapOfOwners(int theNbBuckets)
-    : Macad::Occt::BaseClass<::SelectMgr_MapOfOwners>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_MapOfOwners(theNbBuckets, 0L);
-}
-
-void Macad::Occt::SelectMgr_MapOfOwners::Exchange(Macad::Occt::SelectMgr_MapOfOwners^ theOther)
-{
-    ((::SelectMgr_MapOfOwners*)_NativeInstance)->Exchange(*(::SelectMgr_MapOfOwners*)theOther->NativeInstance);
-}
-
-Macad::Occt::SelectMgr_MapOfOwners^ Macad::Occt::SelectMgr_MapOfOwners::Assign(Macad::Occt::SelectMgr_MapOfOwners^ theOther)
-{
-    ::SelectMgr_MapOfOwners* _result = new ::SelectMgr_MapOfOwners();
-    *_result = ((::SelectMgr_MapOfOwners*)_NativeInstance)->Assign(*(::SelectMgr_MapOfOwners*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_MapOfOwners(_result);
-}
-
-void Macad::Occt::SelectMgr_MapOfOwners::ReSize(int N)
-{
-    ((::SelectMgr_MapOfOwners*)_NativeInstance)->ReSize(N);
-}
-
-bool Macad::Occt::SelectMgr_MapOfOwners::Bind(Macad::Occt::SelectMgr_EntityOwner^ theKey, int theItem)
-{
-    pin_ptr<int> pp_theItem = &theItem;
-    bool _result = ((::SelectMgr_MapOfOwners*)_NativeInstance)->Bind(Handle(::SelectMgr_EntityOwner)(theKey->NativeInstance), *(int*)pp_theItem);
-    return _result;
-}
-
-int Macad::Occt::SelectMgr_MapOfOwners::Bound(Macad::Occt::SelectMgr_EntityOwner^ theKey, int theItem)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-bool Macad::Occt::SelectMgr_MapOfOwners::IsBound(Macad::Occt::SelectMgr_EntityOwner^ theKey)
-{
-    bool _result = ((::SelectMgr_MapOfOwners*)_NativeInstance)->IsBound(Handle(::SelectMgr_EntityOwner)(theKey->NativeInstance));
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_MapOfOwners::UnBind(Macad::Occt::SelectMgr_EntityOwner^ theKey)
-{
-    bool _result = ((::SelectMgr_MapOfOwners*)_NativeInstance)->UnBind(Handle(::SelectMgr_EntityOwner)(theKey->NativeInstance));
-    return _result;
-}
-
-int Macad::Occt::SelectMgr_MapOfOwners::Seek(Macad::Occt::SelectMgr_EntityOwner^ theKey)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-int Macad::Occt::SelectMgr_MapOfOwners::Find(Macad::Occt::SelectMgr_EntityOwner^ theKey)
-{
-    int _result = ((::SelectMgr_MapOfOwners*)_NativeInstance)->Find(Handle(::SelectMgr_EntityOwner)(theKey->NativeInstance));
-    return _result;
-}
-
-int Macad::Occt::SelectMgr_MapOfOwners::ChangeSeek(Macad::Occt::SelectMgr_EntityOwner^ theKey)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-int Macad::Occt::SelectMgr_MapOfOwners::ChangeFind(Macad::Occt::SelectMgr_EntityOwner^ theKey)
-{
-    int _result = ((::SelectMgr_MapOfOwners*)_NativeInstance)->ChangeFind(Handle(::SelectMgr_EntityOwner)(theKey->NativeInstance));
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_MapOfOwners::Clear(bool doReleaseMemory)
-{
-    ((::SelectMgr_MapOfOwners*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::SelectMgr_MapOfOwners::Clear()
-{
-    ((::SelectMgr_MapOfOwners*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::SelectMgr_MapOfOwners::Size()
-{
-    int _result = ((::SelectMgr_MapOfOwners*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_MapOfOwners::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_MapOfOwners::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::SelectMgr_MapOfOwners::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_MapOfOwners::Iterator();
-}
-
-bool Macad::Occt::SelectMgr_MapOfOwners::Iterator::More()
-{
-    bool _result = ((::SelectMgr_MapOfOwners::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_MapOfOwners::Iterator::Next()
-{
-    ((::SelectMgr_MapOfOwners::Iterator*)_NativeInstance)->Next();
-}
-
-int Macad::Occt::SelectMgr_MapOfOwners::Iterator::Value()
-{
-    int _result = ((::SelectMgr_MapOfOwners::Iterator*)_NativeInstance)->Value();
-    return _result;
-}
-
-Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::SelectMgr_MapOfOwners::Iterator::Key()
-{
-    Handle(::SelectMgr_EntityOwner) _result = ((::SelectMgr_MapOfOwners::Iterator*)_NativeInstance)->Key();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_TriangFrustums
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_TriangFrustums::SelectMgr_TriangFrustums()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_TriangFrustums();
-}
-
-Macad::Occt::SelectMgr_TriangFrustums::SelectMgr_TriangFrustums(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_TriangFrustums(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::SelectMgr_TriangFrustums::Size()
-{
-    int _result = ((::SelectMgr_TriangFrustums*)_NativeInstance)->Size();
-    return _result;
-}
-
-Macad::Occt::SelectMgr_TriangFrustums^ Macad::Occt::SelectMgr_TriangFrustums::Assign(Macad::Occt::SelectMgr_TriangFrustums^ theOther)
-{
-    ::SelectMgr_TriangFrustums* _result = new ::SelectMgr_TriangFrustums();
-    *_result = ((::SelectMgr_TriangFrustums*)_NativeInstance)->Assign(*(::SelectMgr_TriangFrustums*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_TriangFrustums(_result);
-}
-
-void Macad::Occt::SelectMgr_TriangFrustums::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::SelectMgr_TriangFrustums*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::SelectMgr_TriangFrustums::Clear()
-{
-    ((::SelectMgr_TriangFrustums*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::SelectMgr_TriangularFrustum^ Macad::Occt::SelectMgr_TriangFrustums::First()
-{
-    Handle(::SelectMgr_TriangularFrustum) _result = ((::SelectMgr_TriangFrustums*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_TriangularFrustum::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_TriangularFrustum^ Macad::Occt::SelectMgr_TriangFrustums::Last()
-{
-    Handle(::SelectMgr_TriangularFrustum) _result = ((::SelectMgr_TriangFrustums*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_TriangularFrustum::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_TriangularFrustum^ Macad::Occt::SelectMgr_TriangFrustums::Append(Macad::Occt::SelectMgr_TriangularFrustum^ theItem)
-{
-    Handle(::SelectMgr_TriangularFrustum) _result = ((::SelectMgr_TriangFrustums*)_NativeInstance)->Append(Handle(::SelectMgr_TriangularFrustum)(theItem->NativeInstance));
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_TriangularFrustum::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_TriangularFrustum^ Macad::Occt::SelectMgr_TriangFrustums::Prepend(Macad::Occt::SelectMgr_TriangularFrustum^ theItem)
-{
-    Handle(::SelectMgr_TriangularFrustum) _result = ((::SelectMgr_TriangFrustums*)_NativeInstance)->Prepend(Handle(::SelectMgr_TriangularFrustum)(theItem->NativeInstance));
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_TriangularFrustum::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::SelectMgr_TriangFrustums::RemoveFirst()
-{
-    ((::SelectMgr_TriangFrustums*)_NativeInstance)->RemoveFirst();
-}
-
-void Macad::Occt::SelectMgr_TriangFrustums::Remove(Macad::Occt::SelectMgr_TriangFrustums::Iterator^ theIter)
-{
-    ((::SelectMgr_TriangFrustums*)_NativeInstance)->Remove(*(::SelectMgr_TriangFrustums::Iterator*)theIter->NativeInstance);
-}
-
-Macad::Occt::SelectMgr_TriangularFrustum^ Macad::Occt::SelectMgr_TriangFrustums::InsertBefore(Macad::Occt::SelectMgr_TriangularFrustum^ theItem, Macad::Occt::SelectMgr_TriangFrustums::Iterator^ theIter)
-{
-    Handle(::SelectMgr_TriangularFrustum) _result = ((::SelectMgr_TriangFrustums*)_NativeInstance)->InsertBefore(Handle(::SelectMgr_TriangularFrustum)(theItem->NativeInstance), *(::SelectMgr_TriangFrustums::Iterator*)theIter->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_TriangularFrustum::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_TriangularFrustum^ Macad::Occt::SelectMgr_TriangFrustums::InsertAfter(Macad::Occt::SelectMgr_TriangularFrustum^ theItem, Macad::Occt::SelectMgr_TriangFrustums::Iterator^ theIter)
-{
-    Handle(::SelectMgr_TriangularFrustum) _result = ((::SelectMgr_TriangFrustums*)_NativeInstance)->InsertAfter(Handle(::SelectMgr_TriangularFrustum)(theItem->NativeInstance), *(::SelectMgr_TriangFrustums::Iterator*)theIter->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_TriangularFrustum::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::SelectMgr_TriangFrustums::Reverse()
-{
-    ((::SelectMgr_TriangFrustums*)_NativeInstance)->Reverse();
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  SelectMgr_TriangFrustums::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::SelectMgr_TriangFrustums::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::SelectMgr_TriangFrustums::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::SelectMgr_TriangFrustums::Iterator();
-}
-
-bool Macad::Occt::SelectMgr_TriangFrustums::Iterator::More()
-{
-    bool _result = ((::SelectMgr_TriangFrustums::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::SelectMgr_TriangFrustums::Iterator::Next()
-{
-    ((::SelectMgr_TriangFrustums::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::SelectMgr_TriangularFrustum^ Macad::Occt::SelectMgr_TriangFrustums::Iterator::Value()
-{
-    Handle(::SelectMgr_TriangularFrustum) _result = ((::SelectMgr_TriangFrustums::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_TriangularFrustum::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::SelectMgr_TriangularFrustum^ Macad::Occt::SelectMgr_TriangFrustums::Iterator::ChangeValue()
-{
-    Handle(::SelectMgr_TriangularFrustum) _result = ((::SelectMgr_TriangFrustums::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_TriangularFrustum::CreateDowncasted(_result.get());
 }
 
 
@@ -2834,12 +1399,6 @@ void Macad::Occt::SelectMgr_FrustumBuilder::WindowSize(int% theWidth, int% theHe
     ((::SelectMgr_FrustumBuilder*)_NativeInstance)->WindowSize(*(int*)pp_theWidth, *(int*)pp_theHeight);
 }
 
-double Macad::Occt::SelectMgr_FrustumBuilder::SignedPlanePntDist(Macad::Occt::SelectMgr_Vec3^ theEq, Macad::Occt::SelectMgr_Vec3^ thePnt)
-{
-    double _result = ((::SelectMgr_FrustumBuilder*)_NativeInstance)->SignedPlanePntDist(*(::SelectMgr_Vec3*)theEq->NativeInstance, *(::SelectMgr_Vec3*)thePnt->NativeInstance);
-    return _result;
-}
-
 Macad::Occt::Pnt Macad::Occt::SelectMgr_FrustumBuilder::ProjectPntOnViewPlane(double theX, double theY, double theZ)
 {
     pin_ptr<double> pp_theX = &theX;
@@ -3012,25 +1571,6 @@ Macad::Occt::Pnt2d Macad::Occt::SelectMgr_BaseIntersector::GetMousePosition()
 {
     ::gp_Pnt2d _nativeResult = ((::SelectMgr_BaseIntersector*)_NativeInstance)->GetMousePosition();
     return Macad::Occt::Pnt2d(_nativeResult);
-}
-
-bool Macad::Occt::SelectMgr_BaseIntersector::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult)
-{
-    bool _result = ((::SelectMgr_BaseIntersector*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theBoxMin->NativeInstance, *(::SelectMgr_Vec3*)theBoxMax->NativeInstance, *(::SelectMgr_ViewClipRange*)theClipRange->NativeInstance, *(::SelectBasics_PickResult*)thePickResult->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_BaseIntersector::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, bool% theInside)
-{
-    pin_ptr<bool> pp_theInside = &theInside;
-    bool _result = ((::SelectMgr_BaseIntersector*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theBoxMin->NativeInstance, *(::SelectMgr_Vec3*)theBoxMax->NativeInstance, (bool*)pp_theInside);
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_BaseIntersector::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax)
-{
-    bool _result = ((::SelectMgr_BaseIntersector*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theBoxMin->NativeInstance, *(::SelectMgr_Vec3*)theBoxMax->NativeInstance, nullptr);
-    return _result;
 }
 
 bool Macad::Occt::SelectMgr_BaseIntersector::OverlapsPoint(Macad::Occt::Pnt thePnt, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult)
@@ -3235,19 +1775,6 @@ Macad::Occt::SelectMgr_BaseIntersector^ Macad::Occt::SelectMgr_AxisIntersector::
 {
     Handle(::SelectMgr_BaseIntersector) _result = ((::SelectMgr_AxisIntersector*)_NativeInstance)->CopyWithBuilder(Handle(::SelectMgr_FrustumBuilder)(theBuilder->NativeInstance));
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_BaseIntersector::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::SelectMgr_AxisIntersector::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult)
-{
-    bool _result = ((::SelectMgr_AxisIntersector*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theBoxMin->NativeInstance, *(::SelectMgr_Vec3*)theBoxMax->NativeInstance, *(::SelectMgr_ViewClipRange*)theClipRange->NativeInstance, *(::SelectBasics_PickResult*)thePickResult->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_AxisIntersector::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, bool% theInside)
-{
-    pin_ptr<bool> pp_theInside = &theInside;
-    bool _result = ((::SelectMgr_AxisIntersector*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theBoxMin->NativeInstance, *(::SelectMgr_Vec3*)theBoxMax->NativeInstance, (bool*)pp_theInside);
-    return _result;
 }
 
 bool Macad::Occt::SelectMgr_AxisIntersector::OverlapsPoint(Macad::Occt::Pnt thePnt, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult)
@@ -3457,14 +1984,6 @@ void Macad::Occt::SelectMgr_BaseFrustum::DumpJson(System::IO::TextWriter^ theOSt
 
 Macad::Occt::SelectMgr_BaseFrustum^ Macad::Occt::SelectMgr_BaseFrustum::CreateDowncasted(::SelectMgr_BaseFrustum* instance)
 {
-    if( instance == nullptr )
-        return nullptr;
-    
-    if (instance->IsKind(STANDARD_TYPE(::SelectMgr_RectangularFrustum)))
-        return Macad::Occt::SelectMgr_RectangularFrustum::CreateDowncasted((::SelectMgr_RectangularFrustum*)instance);
-    if (instance->IsKind(STANDARD_TYPE(::SelectMgr_TriangularFrustum)))
-        return Macad::Occt::SelectMgr_TriangularFrustum::CreateDowncasted((::SelectMgr_TriangularFrustum*)instance);
-    
     return gcnew Macad::Occt::SelectMgr_BaseFrustum( instance );
 }
 
@@ -3477,7 +1996,7 @@ Macad::Occt::SelectMgr_BaseFrustum^ Macad::Occt::SelectMgr_BaseFrustum::CreateDo
 Macad::Occt::SelectMgr_SelectingVolumeManager::SelectMgr_SelectingVolumeManager()
     : Macad::Occt::SelectBasics_SelectingVolumeManager(BaseClass::InitMode::Uninitialized)
 {
-    	throw gcnew System::NotImplementedException("Native class is abstract");
+    _NativeInstance = new ::SelectMgr_SelectingVolumeManager();
 }
 
 void Macad::Occt::SelectMgr_SelectingVolumeManager::InitPointSelectingVolume(Macad::Occt::Pnt2d thePoint)
@@ -3528,12 +2047,16 @@ int Macad::Occt::SelectMgr_SelectingVolumeManager::GetActiveSelectionType()
 
 Macad::Occt::SelectMgr_SelectingVolumeManager^ Macad::Occt::SelectMgr_SelectingVolumeManager::ScaleAndTransform(int theScaleFactor, Macad::Occt::gp_GTrsf^ theTrsf, Macad::Occt::SelectMgr_FrustumBuilder^ theBuilder)
 {
-    throw gcnew System::NotImplementedException();
+    ::SelectMgr_SelectingVolumeManager* _result = new ::SelectMgr_SelectingVolumeManager();
+    *_result = ((::SelectMgr_SelectingVolumeManager*)_NativeInstance)->ScaleAndTransform(theScaleFactor, *(::gp_GTrsf*)theTrsf->NativeInstance, Handle(::SelectMgr_FrustumBuilder)(theBuilder->NativeInstance));
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SelectingVolumeManager(_result);
 }
 
 Macad::Occt::SelectMgr_SelectingVolumeManager^ Macad::Occt::SelectMgr_SelectingVolumeManager::CopyWithBuilder(Macad::Occt::SelectMgr_FrustumBuilder^ theBuilder)
 {
-    throw gcnew System::NotImplementedException();
+    ::SelectMgr_SelectingVolumeManager* _result = new ::SelectMgr_SelectingVolumeManager();
+    *_result = ((::SelectMgr_SelectingVolumeManager*)_NativeInstance)->CopyWithBuilder(Handle(::SelectMgr_FrustumBuilder)(theBuilder->NativeInstance));
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SelectingVolumeManager(_result);
 }
 
 Macad::Occt::Graphic3d_Camera^ Macad::Occt::SelectMgr_SelectingVolumeManager::Camera()
@@ -3567,25 +2090,6 @@ void Macad::Occt::SelectMgr_SelectingVolumeManager::WindowSize(int% theWidth, in
 void Macad::Occt::SelectMgr_SelectingVolumeManager::SetWindowSize(int theWidth, int theHeight)
 {
     ((::SelectMgr_SelectingVolumeManager*)_NativeInstance)->SetWindowSize(theWidth, theHeight);
-}
-
-bool Macad::Occt::SelectMgr_SelectingVolumeManager::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, Macad::Occt::SelectBasics_PickResult^ thePickResult)
-{
-    bool _result = ((::SelectMgr_SelectingVolumeManager*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theBoxMin->NativeInstance, *(::SelectMgr_Vec3*)theBoxMax->NativeInstance, *(::SelectBasics_PickResult*)thePickResult->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_SelectingVolumeManager::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, bool% theInside)
-{
-    pin_ptr<bool> pp_theInside = &theInside;
-    bool _result = ((::SelectMgr_SelectingVolumeManager*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theBoxMin->NativeInstance, *(::SelectMgr_Vec3*)theBoxMax->NativeInstance, (bool*)pp_theInside);
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_SelectingVolumeManager::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax)
-{
-    bool _result = ((::SelectMgr_SelectingVolumeManager*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theBoxMin->NativeInstance, *(::SelectMgr_Vec3*)theBoxMax->NativeInstance, nullptr);
-    return _result;
 }
 
 bool Macad::Occt::SelectMgr_SelectingVolumeManager::OverlapsPoint(Macad::Occt::Pnt thePnt, Macad::Occt::SelectBasics_PickResult^ thePickResult)
@@ -3967,11 +2471,6 @@ void Macad::Occt::SelectMgr_SelectableObject::UpdateTransformations(Macad::Occt:
     ((::SelectMgr_SelectableObject*)_NativeInstance)->UpdateTransformations(Handle(::SelectMgr_Selection)(aSelection->NativeInstance));
 }
 
-void Macad::Occt::SelectMgr_SelectableObject::HilightSelected(Macad::Occt::PrsMgr_PresentationManager^ thePrsMgr, Macad::Occt::SelectMgr_SequenceOfOwner^ theSeq)
-{
-    ((::SelectMgr_SelectableObject*)_NativeInstance)->HilightSelected(Handle(::PrsMgr_PresentationManager)(thePrsMgr->NativeInstance), *(::SelectMgr_SequenceOfOwner*)theSeq->NativeInstance);
-}
-
 void Macad::Occt::SelectMgr_SelectableObject::ClearSelected()
 {
     ((::SelectMgr_SelectableObject*)_NativeInstance)->ClearSelected();
@@ -4137,7 +2636,7 @@ Macad::Occt::SelectMgr_OrFilter^ Macad::Occt::SelectMgr_OrFilter::CreateDowncast
 //---------------------------------------------------------------------
 
 Macad::Occt::SelectMgr_RectangularFrustum::SelectMgr_RectangularFrustum()
-    : Macad::Occt::SelectMgr_BaseFrustum(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
     NativeInstance = new ::SelectMgr_RectangularFrustum();
 }
@@ -4153,24 +2652,6 @@ void Macad::Occt::SelectMgr_RectangularFrustum::Init(Macad::Occt::Pnt2d theMinPn
     pin_ptr<Macad::Occt::Pnt2d> pp_theMinPnt = &theMinPnt;
     pin_ptr<Macad::Occt::Pnt2d> pp_theMaxPnt = &theMaxPnt;
     ((::SelectMgr_RectangularFrustum*)_NativeInstance)->Init(*(gp_Pnt2d*)pp_theMinPnt, *(gp_Pnt2d*)pp_theMaxPnt);
-}
-
-bool Macad::Occt::SelectMgr_RectangularFrustum::isIntersectCircle(double theRadius, Macad::Occt::Pnt theCenter, Macad::Occt::Trsf theTrsf, Macad::Occt::TColgp_Array1OfPnt^ theVertices)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theCenter = &theCenter;
-    pin_ptr<Macad::Occt::Trsf> pp_theTrsf = &theTrsf;
-    bool _result = ((::SelectMgr_RectangularFrustum*)_NativeInstance)->isIntersectCircle(theRadius, *(gp_Pnt*)pp_theCenter, *(gp_Trsf*)pp_theTrsf, *(::TColgp_Array1OfPnt*)theVertices->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_RectangularFrustum::isSegmentsIntersect(Macad::Occt::Pnt thePnt1Seg1, Macad::Occt::Pnt thePnt2Seg1, Macad::Occt::Pnt thePnt1Seg2, Macad::Occt::Pnt thePnt2Seg2)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_thePnt1Seg1 = &thePnt1Seg1;
-    pin_ptr<Macad::Occt::Pnt> pp_thePnt2Seg1 = &thePnt2Seg1;
-    pin_ptr<Macad::Occt::Pnt> pp_thePnt1Seg2 = &thePnt1Seg2;
-    pin_ptr<Macad::Occt::Pnt> pp_thePnt2Seg2 = &thePnt2Seg2;
-    bool _result = ((::SelectMgr_RectangularFrustum*)_NativeInstance)->isSegmentsIntersect(*(gp_Pnt*)pp_thePnt1Seg1, *(gp_Pnt*)pp_thePnt2Seg1, *(gp_Pnt*)pp_thePnt1Seg2, *(gp_Pnt*)pp_thePnt2Seg2);
-    return _result;
 }
 
 void Macad::Occt::SelectMgr_RectangularFrustum::Build()
@@ -4194,19 +2675,6 @@ Macad::Occt::SelectMgr_BaseIntersector^ Macad::Occt::SelectMgr_RectangularFrustu
 {
     Handle(::SelectMgr_BaseIntersector) _result = ((::SelectMgr_RectangularFrustum*)_NativeInstance)->CopyWithBuilder(Handle(::SelectMgr_FrustumBuilder)(theBuilder->NativeInstance));
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_BaseIntersector::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::SelectMgr_RectangularFrustum::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult)
-{
-    bool _result = ((::SelectMgr_RectangularFrustum*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theBoxMin->NativeInstance, *(::SelectMgr_Vec3*)theBoxMax->NativeInstance, *(::SelectMgr_ViewClipRange*)theClipRange->NativeInstance, *(::SelectBasics_PickResult*)thePickResult->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_RectangularFrustum::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theBoxMin, Macad::Occt::SelectMgr_Vec3^ theBoxMax, bool% theInside)
-{
-    pin_ptr<bool> pp_theInside = &theInside;
-    bool _result = ((::SelectMgr_RectangularFrustum*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theBoxMin->NativeInstance, *(::SelectMgr_Vec3*)theBoxMax->NativeInstance, (bool*)pp_theInside);
-    return _result;
 }
 
 bool Macad::Occt::SelectMgr_RectangularFrustum::OverlapsPoint(Macad::Occt::Pnt thePnt, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult)
@@ -4334,18 +2802,87 @@ Macad::Occt::Pnt2d Macad::Occt::SelectMgr_RectangularFrustum::GetMousePosition()
     return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-void Macad::Occt::SelectMgr_RectangularFrustum::DumpJson(System::IO::TextWriter^ theOStream, int theDepth)
+Macad::Occt::SelectMgr_SelectionType Macad::Occt::SelectMgr_RectangularFrustum::GetSelectionType()
 {
-    std::ostringstream oss_theOStream;
-    ((::SelectMgr_RectangularFrustum*)_NativeInstance)->DumpJson(oss_theOStream, theDepth);
-    theOStream->Write(gcnew System::String(oss_theOStream.str().c_str()));
+    ::SelectMgr_SelectionType _result = ((::SelectMgr_RectangularFrustum*)_NativeInstance)->GetSelectionType();
+    return (Macad::Occt::SelectMgr_SelectionType)_result;
 }
 
-void Macad::Occt::SelectMgr_RectangularFrustum::DumpJson(System::IO::TextWriter^ theOStream)
+Macad::Occt::Graphic3d_Camera^ Macad::Occt::SelectMgr_RectangularFrustum::Camera()
 {
-    std::ostringstream oss_theOStream;
-    ((::SelectMgr_RectangularFrustum*)_NativeInstance)->DumpJson(oss_theOStream, -1);
-    theOStream->Write(gcnew System::String(oss_theOStream.str().c_str()));
+    Handle(::Graphic3d_Camera) _result = ((::SelectMgr_RectangularFrustum*)_NativeInstance)->Camera();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Camera::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::SelectMgr_RectangularFrustum::RaySphereIntersection(Macad::Occt::Pnt theCenter, double theRadius, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, double% theTimeEnter, double% theTimeLeave)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theCenter = &theCenter;
+    pin_ptr<Macad::Occt::Pnt> pp_theLoc = &theLoc;
+    pin_ptr<Macad::Occt::Dir> pp_theRayDir = &theRayDir;
+    pin_ptr<double> pp_theTimeEnter = &theTimeEnter;
+    pin_ptr<double> pp_theTimeLeave = &theTimeLeave;
+    bool _result = ((::SelectMgr_RectangularFrustum*)_NativeInstance)->RaySphereIntersection(*(gp_Pnt*)pp_theCenter, theRadius, *(gp_Pnt*)pp_theLoc, *(gp_Dir*)pp_theRayDir, *(double*)pp_theTimeEnter, *(double*)pp_theTimeLeave);
+    return _result;
+}
+
+bool Macad::Occt::SelectMgr_RectangularFrustum::RayCylinderIntersection(double theBottomRadius, double theTopRadius, double theHeight, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, bool theIsHollow, double% theTimeEnter, double% theTimeLeave)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theLoc = &theLoc;
+    pin_ptr<Macad::Occt::Dir> pp_theRayDir = &theRayDir;
+    pin_ptr<double> pp_theTimeEnter = &theTimeEnter;
+    pin_ptr<double> pp_theTimeLeave = &theTimeLeave;
+    bool _result = ((::SelectMgr_RectangularFrustum*)_NativeInstance)->RayCylinderIntersection(theBottomRadius, theTopRadius, theHeight, *(gp_Pnt*)pp_theLoc, *(gp_Dir*)pp_theRayDir, theIsHollow, *(double*)pp_theTimeEnter, *(double*)pp_theTimeLeave);
+    return _result;
+}
+
+bool Macad::Occt::SelectMgr_RectangularFrustum::RayCircleIntersection(double theRadius, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, bool theIsFilled, double% theTime)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theLoc = &theLoc;
+    pin_ptr<Macad::Occt::Dir> pp_theRayDir = &theRayDir;
+    pin_ptr<double> pp_theTime = &theTime;
+    bool _result = ((::SelectMgr_RectangularFrustum*)_NativeInstance)->RayCircleIntersection(theRadius, *(gp_Pnt*)pp_theLoc, *(gp_Dir*)pp_theRayDir, theIsFilled, *(double*)pp_theTime);
+    return _result;
+}
+
+void Macad::Occt::SelectMgr_RectangularFrustum::SetBuilder(Macad::Occt::SelectMgr_FrustumBuilder^ theBuilder)
+{
+    ((::SelectMgr_RectangularFrustum*)_NativeInstance)->SetBuilder(Handle(::SelectMgr_FrustumBuilder)(theBuilder->NativeInstance));
+}
+
+void Macad::Occt::SelectMgr_RectangularFrustum::SetCamera(Macad::Occt::Graphic3d_Camera^ theCamera)
+{
+    ((::SelectMgr_RectangularFrustum*)_NativeInstance)->SetCamera(Handle(::Graphic3d_Camera)(theCamera->NativeInstance));
+}
+
+void Macad::Occt::SelectMgr_RectangularFrustum::SetPixelTolerance(int theTol)
+{
+    ((::SelectMgr_RectangularFrustum*)_NativeInstance)->SetPixelTolerance(theTol);
+}
+
+void Macad::Occt::SelectMgr_RectangularFrustum::SetWindowSize(int theWidth, int theHeight)
+{
+    ((::SelectMgr_RectangularFrustum*)_NativeInstance)->SetWindowSize(theWidth, theHeight);
+}
+
+void Macad::Occt::SelectMgr_RectangularFrustum::WindowSize(int% theWidth, int% theHeight)
+{
+    pin_ptr<int> pp_theWidth = &theWidth;
+    pin_ptr<int> pp_theHeight = &theHeight;
+    ((::SelectMgr_RectangularFrustum*)_NativeInstance)->WindowSize(*(int*)pp_theWidth, *(int*)pp_theHeight);
+}
+
+void Macad::Occt::SelectMgr_RectangularFrustum::SetViewport(double theX, double theY, double theWidth, double theHeight)
+{
+    ((::SelectMgr_RectangularFrustum*)_NativeInstance)->SetViewport(theX, theY, theWidth, theHeight);
+}
+
+bool Macad::Occt::SelectMgr_RectangularFrustum::IsBoundaryIntersectSphere(Macad::Occt::Pnt theCenter, double theRadius, Macad::Occt::Dir thePlaneNormal, Macad::Occt::TColgp_Array1OfPnt^ theBoundaries, bool% theBoundaryInside)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theCenter = &theCenter;
+    pin_ptr<Macad::Occt::Dir> pp_thePlaneNormal = &thePlaneNormal;
+    pin_ptr<bool> pp_theBoundaryInside = &theBoundaryInside;
+    bool _result = ((::SelectMgr_RectangularFrustum*)_NativeInstance)->IsBoundaryIntersectSphere(*(gp_Pnt*)pp_theCenter, theRadius, *(gp_Dir*)pp_thePlaneNormal, *(::TColgp_Array1OfPnt*)theBoundaries->NativeInstance, *(bool*)pp_theBoundaryInside);
+    return _result;
 }
 
 Macad::Occt::SelectMgr_RectangularFrustum^ Macad::Occt::SelectMgr_RectangularFrustum::CreateDowncasted(::SelectMgr_RectangularFrustum* instance)
@@ -4680,7 +3217,9 @@ void Macad::Occt::SelectMgr_ViewerSelector::RebuildSensitivesTree(Macad::Occt::S
 
 Macad::Occt::SelectMgr_SelectingVolumeManager^ Macad::Occt::SelectMgr_ViewerSelector::GetManager()
 {
-    throw gcnew System::NotImplementedException();
+    ::SelectMgr_SelectingVolumeManager* _result = new ::SelectMgr_SelectingVolumeManager();
+    *_result = ((::SelectMgr_ViewerSelector*)_NativeInstance)->GetManager();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::SelectMgr_SelectingVolumeManager(_result);
 }
 
 Macad::Occt::SelectMgr_SelectableObjectSet^ Macad::Occt::SelectMgr_ViewerSelector::SelectableObjects()
@@ -5025,19 +3564,6 @@ Macad::Occt::SelectMgr_BaseIntersector^ Macad::Occt::SelectMgr_TriangularFrustum
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_BaseIntersector::CreateDowncasted(_result.get());
 }
 
-bool Macad::Occt::SelectMgr_TriangularFrustum::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theMinPnt, Macad::Occt::SelectMgr_Vec3^ theMaxPnt, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult)
-{
-    bool _result = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theMinPnt->NativeInstance, *(::SelectMgr_Vec3*)theMaxPnt->NativeInstance, *(::SelectMgr_ViewClipRange*)theClipRange->NativeInstance, *(::SelectBasics_PickResult*)thePickResult->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::SelectMgr_TriangularFrustum::OverlapsBox(Macad::Occt::SelectMgr_Vec3^ theMinPt, Macad::Occt::SelectMgr_Vec3^ theMaxPt, bool% theInside)
-{
-    pin_ptr<bool> pp_theInside = &theInside;
-    bool _result = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->OverlapsBox(*(::SelectMgr_Vec3*)theMinPt->NativeInstance, *(::SelectMgr_Vec3*)theMaxPt->NativeInstance, (bool*)pp_theInside);
-    return _result;
-}
-
 bool Macad::Occt::SelectMgr_TriangularFrustum::OverlapsPoint(Macad::Occt::Pnt thePnt, Macad::Occt::SelectMgr_ViewClipRange^ theClipRange, Macad::Occt::SelectBasics_PickResult^ thePickResult)
 {
     pin_ptr<Macad::Occt::Pnt> pp_thePnt = &thePnt;
@@ -5131,18 +3657,124 @@ void Macad::Occt::SelectMgr_TriangularFrustum::Clear()
     ((::SelectMgr_TriangularFrustum*)_NativeInstance)->Clear();
 }
 
-void Macad::Occt::SelectMgr_TriangularFrustum::DumpJson(System::IO::TextWriter^ theOStream, int theDepth)
+Macad::Occt::SelectMgr_SelectionType Macad::Occt::SelectMgr_TriangularFrustum::GetSelectionType()
 {
-    std::ostringstream oss_theOStream;
-    ((::SelectMgr_TriangularFrustum*)_NativeInstance)->DumpJson(oss_theOStream, theDepth);
-    theOStream->Write(gcnew System::String(oss_theOStream.str().c_str()));
+    ::SelectMgr_SelectionType _result = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->GetSelectionType();
+    return (Macad::Occt::SelectMgr_SelectionType)_result;
 }
 
-void Macad::Occt::SelectMgr_TriangularFrustum::DumpJson(System::IO::TextWriter^ theOStream)
+Macad::Occt::Graphic3d_Camera^ Macad::Occt::SelectMgr_TriangularFrustum::Camera()
 {
-    std::ostringstream oss_theOStream;
-    ((::SelectMgr_TriangularFrustum*)_NativeInstance)->DumpJson(oss_theOStream, -1);
-    theOStream->Write(gcnew System::String(oss_theOStream.str().c_str()));
+    Handle(::Graphic3d_Camera) _result = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->Camera();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Camera::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Pnt Macad::Occt::SelectMgr_TriangularFrustum::GetNearPnt()
+{
+    ::gp_Pnt _nativeResult = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->GetNearPnt();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Pnt Macad::Occt::SelectMgr_TriangularFrustum::GetFarPnt()
+{
+    ::gp_Pnt _nativeResult = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->GetFarPnt();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Dir Macad::Occt::SelectMgr_TriangularFrustum::GetViewRayDirection()
+{
+    ::gp_Dir _nativeResult = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->GetViewRayDirection();
+    return Macad::Occt::Dir(_nativeResult);
+}
+
+Macad::Occt::Pnt2d Macad::Occt::SelectMgr_TriangularFrustum::GetMousePosition()
+{
+    ::gp_Pnt2d _nativeResult = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->GetMousePosition();
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+double Macad::Occt::SelectMgr_TriangularFrustum::DistToGeometryCenter(Macad::Occt::Pnt theCOG)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theCOG = &theCOG;
+    double _result = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->DistToGeometryCenter(*(gp_Pnt*)pp_theCOG);
+    return _result;
+}
+
+Macad::Occt::Pnt Macad::Occt::SelectMgr_TriangularFrustum::DetectedPoint(double theDepth)
+{
+    ::gp_Pnt _nativeResult = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->DetectedPoint(theDepth);
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+bool Macad::Occt::SelectMgr_TriangularFrustum::RaySphereIntersection(Macad::Occt::Pnt theCenter, double theRadius, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, double% theTimeEnter, double% theTimeLeave)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theCenter = &theCenter;
+    pin_ptr<Macad::Occt::Pnt> pp_theLoc = &theLoc;
+    pin_ptr<Macad::Occt::Dir> pp_theRayDir = &theRayDir;
+    pin_ptr<double> pp_theTimeEnter = &theTimeEnter;
+    pin_ptr<double> pp_theTimeLeave = &theTimeLeave;
+    bool _result = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->RaySphereIntersection(*(gp_Pnt*)pp_theCenter, theRadius, *(gp_Pnt*)pp_theLoc, *(gp_Dir*)pp_theRayDir, *(double*)pp_theTimeEnter, *(double*)pp_theTimeLeave);
+    return _result;
+}
+
+bool Macad::Occt::SelectMgr_TriangularFrustum::RayCylinderIntersection(double theBottomRadius, double theTopRadius, double theHeight, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, bool theIsHollow, double% theTimeEnter, double% theTimeLeave)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theLoc = &theLoc;
+    pin_ptr<Macad::Occt::Dir> pp_theRayDir = &theRayDir;
+    pin_ptr<double> pp_theTimeEnter = &theTimeEnter;
+    pin_ptr<double> pp_theTimeLeave = &theTimeLeave;
+    bool _result = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->RayCylinderIntersection(theBottomRadius, theTopRadius, theHeight, *(gp_Pnt*)pp_theLoc, *(gp_Dir*)pp_theRayDir, theIsHollow, *(double*)pp_theTimeEnter, *(double*)pp_theTimeLeave);
+    return _result;
+}
+
+bool Macad::Occt::SelectMgr_TriangularFrustum::RayCircleIntersection(double theRadius, Macad::Occt::Pnt theLoc, Macad::Occt::Dir theRayDir, bool theIsFilled, double% theTime)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theLoc = &theLoc;
+    pin_ptr<Macad::Occt::Dir> pp_theRayDir = &theRayDir;
+    pin_ptr<double> pp_theTime = &theTime;
+    bool _result = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->RayCircleIntersection(theRadius, *(gp_Pnt*)pp_theLoc, *(gp_Dir*)pp_theRayDir, theIsFilled, *(double*)pp_theTime);
+    return _result;
+}
+
+void Macad::Occt::SelectMgr_TriangularFrustum::SetBuilder(Macad::Occt::SelectMgr_FrustumBuilder^ theBuilder)
+{
+    ((::SelectMgr_TriangularFrustum*)_NativeInstance)->SetBuilder(Handle(::SelectMgr_FrustumBuilder)(theBuilder->NativeInstance));
+}
+
+void Macad::Occt::SelectMgr_TriangularFrustum::SetCamera(Macad::Occt::Graphic3d_Camera^ theCamera)
+{
+    ((::SelectMgr_TriangularFrustum*)_NativeInstance)->SetCamera(Handle(::Graphic3d_Camera)(theCamera->NativeInstance));
+}
+
+void Macad::Occt::SelectMgr_TriangularFrustum::SetPixelTolerance(int theTol)
+{
+    ((::SelectMgr_TriangularFrustum*)_NativeInstance)->SetPixelTolerance(theTol);
+}
+
+void Macad::Occt::SelectMgr_TriangularFrustum::SetWindowSize(int theWidth, int theHeight)
+{
+    ((::SelectMgr_TriangularFrustum*)_NativeInstance)->SetWindowSize(theWidth, theHeight);
+}
+
+void Macad::Occt::SelectMgr_TriangularFrustum::WindowSize(int% theWidth, int% theHeight)
+{
+    pin_ptr<int> pp_theWidth = &theWidth;
+    pin_ptr<int> pp_theHeight = &theHeight;
+    ((::SelectMgr_TriangularFrustum*)_NativeInstance)->WindowSize(*(int*)pp_theWidth, *(int*)pp_theHeight);
+}
+
+void Macad::Occt::SelectMgr_TriangularFrustum::SetViewport(double theX, double theY, double theWidth, double theHeight)
+{
+    ((::SelectMgr_TriangularFrustum*)_NativeInstance)->SetViewport(theX, theY, theWidth, theHeight);
+}
+
+bool Macad::Occt::SelectMgr_TriangularFrustum::IsBoundaryIntersectSphere(Macad::Occt::Pnt theCenter, double theRadius, Macad::Occt::Dir thePlaneNormal, Macad::Occt::TColgp_Array1OfPnt^ theBoundaries, bool% theBoundaryInside)
+{
+    pin_ptr<Macad::Occt::Pnt> pp_theCenter = &theCenter;
+    pin_ptr<Macad::Occt::Dir> pp_thePlaneNormal = &thePlaneNormal;
+    pin_ptr<bool> pp_theBoundaryInside = &theBoundaryInside;
+    bool _result = ((::SelectMgr_TriangularFrustum*)_NativeInstance)->IsBoundaryIntersectSphere(*(gp_Pnt*)pp_theCenter, theRadius, *(gp_Dir*)pp_thePlaneNormal, *(::TColgp_Array1OfPnt*)theBoundaries->NativeInstance, *(bool*)pp_theBoundaryInside);
+    return _result;
 }
 
 Macad::Occt::SelectMgr_TriangularFrustum^ Macad::Occt::SelectMgr_TriangularFrustum::CreateDowncasted(::SelectMgr_TriangularFrustum* instance)

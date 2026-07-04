@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "NCollection.h"
 #include "TopoDS.h"
 
 namespace Macad
@@ -10,91 +9,10 @@ namespace Macad
 namespace Occt
 {
 //---------------------------------------------------------------------
-//  Class  BRep_ListOfPointRepresentation
-//---------------------------------------------------------------------
-public ref class BRep_ListOfPointRepresentation sealed
-    : public Macad::Occt::NCollection_BaseList
-{
-
-#ifdef Include_BRep_ListOfPointRepresentation_h
-public:
-    Include_BRep_ListOfPointRepresentation_h
-#endif
-
-public:
-    BRep_ListOfPointRepresentation(::BRep_ListOfPointRepresentation* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
-    {}
-
-    BRep_ListOfPointRepresentation(::BRep_ListOfPointRepresentation& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
-    {}
-
-    property ::BRep_ListOfPointRepresentation* NativeInstance
-    {
-        ::BRep_ListOfPointRepresentation* get()
-        {
-            return static_cast<::BRep_ListOfPointRepresentation*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation::Iterator>
-    {
-
-#ifdef Include_BRep_ListOfPointRepresentation_Iterator_h
-    public:
-        Include_BRep_ListOfPointRepresentation_Iterator_h
-#endif
-
-    public:
-        Iterator(::BRep_ListOfPointRepresentation::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::BRep_ListOfPointRepresentation::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::BRep_ListOfPointRepresentation::Iterator* NativeInstance
-        {
-            ::BRep_ListOfPointRepresentation::Iterator* get()
-            {
-                return static_cast<::BRep_ListOfPointRepresentation::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::BRep_PointRepresentation^ Value();
-        Macad::Occt::BRep_PointRepresentation^ ChangeValue();
-    }; // class Iterator
-
-    BRep_ListOfPointRepresentation();
-    BRep_ListOfPointRepresentation(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    Macad::Occt::BRep_ListOfPointRepresentation^ Assign(Macad::Occt::BRep_ListOfPointRepresentation^ theOther);
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::BRep_PointRepresentation^ First();
-    Macad::Occt::BRep_PointRepresentation^ Last();
-    Macad::Occt::BRep_PointRepresentation^ Append(Macad::Occt::BRep_PointRepresentation^ theItem);
-    Macad::Occt::BRep_PointRepresentation^ Prepend(Macad::Occt::BRep_PointRepresentation^ theItem);
-    void RemoveFirst();
-    void Remove(Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter);
-    Macad::Occt::BRep_PointRepresentation^ InsertBefore(Macad::Occt::BRep_PointRepresentation^ theItem, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter);
-    Macad::Occt::BRep_PointRepresentation^ InsertAfter(Macad::Occt::BRep_PointRepresentation^ theItem, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter);
-    void Reverse();
-}; // class BRep_ListOfPointRepresentation
-
-//---------------------------------------------------------------------
 //  Class  BRep_ListOfCurveRepresentation
 //---------------------------------------------------------------------
 public ref class BRep_ListOfCurveRepresentation sealed
-    : public Macad::Occt::NCollection_BaseList
+    : public Macad::Occt::BaseClass<::BRep_ListOfCurveRepresentation>
 {
 
 #ifdef Include_BRep_ListOfCurveRepresentation_h
@@ -104,11 +22,11 @@ public:
 
 public:
     BRep_ListOfCurveRepresentation(::BRep_ListOfCurveRepresentation* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::BRep_ListOfCurveRepresentation>( nativeInstance, true )
     {}
 
     BRep_ListOfCurveRepresentation(::BRep_ListOfCurveRepresentation& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::BRep_ListOfCurveRepresentation>( &nativeInstance, false )
     {}
 
     property ::BRep_ListOfCurveRepresentation* NativeInstance
@@ -148,28 +66,135 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::NCollection_BaseList^ theList);
         bool More();
         void Next();
         Macad::Occt::BRep_CurveRepresentation^ Value();
         Macad::Occt::BRep_CurveRepresentation^ ChangeValue();
     }; // class Iterator
 
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRep_ListOfCurveRepresentation();
     BRep_ListOfCurveRepresentation(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
+    /* Method skipped due to unknown mapping: void BRep_ListOfCurveRepresentation(initializer_list<opencascade::handle<BRep_CurveRepresentation>> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRep_ListOfCurveRepresentation(initializer_list<opencascade::handle<BRep_CurveRepresentation>> theInitList, NCollection_BaseAllocator theAllocator, ) */
     Macad::Occt::BRep_ListOfCurveRepresentation^ Assign(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther);
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::BRep_CurveRepresentation^ First();
     Macad::Occt::BRep_CurveRepresentation^ Last();
     Macad::Occt::BRep_CurveRepresentation^ Append(Macad::Occt::BRep_CurveRepresentation^ theItem);
+    void Append(Macad::Occt::BRep_CurveRepresentation^ theItem, Macad::Occt::BRep_ListOfCurveRepresentation::Iterator^ theIter);
+    void Append(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther);
     Macad::Occt::BRep_CurveRepresentation^ Prepend(Macad::Occt::BRep_CurveRepresentation^ theItem);
+    void Prepend(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther);
     void RemoveFirst();
     void Remove(Macad::Occt::BRep_ListOfCurveRepresentation::Iterator^ theIter);
     Macad::Occt::BRep_CurveRepresentation^ InsertBefore(Macad::Occt::BRep_CurveRepresentation^ theItem, Macad::Occt::BRep_ListOfCurveRepresentation::Iterator^ theIter);
+    void InsertBefore(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther, Macad::Occt::BRep_ListOfCurveRepresentation::Iterator^ theIter);
     Macad::Occt::BRep_CurveRepresentation^ InsertAfter(Macad::Occt::BRep_CurveRepresentation^ theItem, Macad::Occt::BRep_ListOfCurveRepresentation::Iterator^ theIter);
+    void InsertAfter(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther, Macad::Occt::BRep_ListOfCurveRepresentation::Iterator^ theIter);
     void Reverse();
+    void Exchange(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther);
 }; // class BRep_ListOfCurveRepresentation
+
+//---------------------------------------------------------------------
+//  Class  BRep_ListOfPointRepresentation
+//---------------------------------------------------------------------
+public ref class BRep_ListOfPointRepresentation sealed
+    : public Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation>
+{
+
+#ifdef Include_BRep_ListOfPointRepresentation_h
+public:
+    Include_BRep_ListOfPointRepresentation_h
+#endif
+
+public:
+    BRep_ListOfPointRepresentation(::BRep_ListOfPointRepresentation* nativeInstance)
+        : Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation>( nativeInstance, true )
+    {}
+
+    BRep_ListOfPointRepresentation(::BRep_ListOfPointRepresentation& nativeInstance)
+        : Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation>( &nativeInstance, false )
+    {}
+
+    property ::BRep_ListOfPointRepresentation* NativeInstance
+    {
+        ::BRep_ListOfPointRepresentation* get()
+        {
+            return static_cast<::BRep_ListOfPointRepresentation*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation::Iterator>
+    {
+
+#ifdef Include_BRep_ListOfPointRepresentation_Iterator_h
+    public:
+        Include_BRep_ListOfPointRepresentation_Iterator_h
+#endif
+
+    public:
+        Iterator(::BRep_ListOfPointRepresentation::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::BRep_ListOfPointRepresentation::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::BRep_ListOfPointRepresentation::Iterator* NativeInstance
+        {
+            ::BRep_ListOfPointRepresentation::Iterator* get()
+            {
+                return static_cast<::BRep_ListOfPointRepresentation::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        Iterator();
+        Iterator(Macad::Occt::NCollection_BaseList^ theList);
+        bool More();
+        void Next();
+        Macad::Occt::BRep_PointRepresentation^ Value();
+        Macad::Occt::BRep_PointRepresentation^ ChangeValue();
+    }; // class Iterator
+
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
+    BRep_ListOfPointRepresentation();
+    BRep_ListOfPointRepresentation(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    /* Method skipped due to unknown mapping: void BRep_ListOfPointRepresentation(initializer_list<opencascade::handle<BRep_PointRepresentation>> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRep_ListOfPointRepresentation(initializer_list<opencascade::handle<BRep_PointRepresentation>> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    Macad::Occt::BRep_ListOfPointRepresentation^ Assign(Macad::Occt::BRep_ListOfPointRepresentation^ theOther);
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    void Clear();
+    Macad::Occt::BRep_PointRepresentation^ First();
+    Macad::Occt::BRep_PointRepresentation^ Last();
+    Macad::Occt::BRep_PointRepresentation^ Append(Macad::Occt::BRep_PointRepresentation^ theItem);
+    void Append(Macad::Occt::BRep_PointRepresentation^ theItem, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter);
+    void Append(Macad::Occt::BRep_ListOfPointRepresentation^ theOther);
+    Macad::Occt::BRep_PointRepresentation^ Prepend(Macad::Occt::BRep_PointRepresentation^ theItem);
+    void Prepend(Macad::Occt::BRep_ListOfPointRepresentation^ theOther);
+    void RemoveFirst();
+    void Remove(Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter);
+    Macad::Occt::BRep_PointRepresentation^ InsertBefore(Macad::Occt::BRep_PointRepresentation^ theItem, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter);
+    void InsertBefore(Macad::Occt::BRep_ListOfPointRepresentation^ theOther, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter);
+    Macad::Occt::BRep_PointRepresentation^ InsertAfter(Macad::Occt::BRep_PointRepresentation^ theItem, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter);
+    void InsertAfter(Macad::Occt::BRep_ListOfPointRepresentation^ theOther, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter);
+    void Reverse();
+    void Exchange(Macad::Occt::BRep_ListOfPointRepresentation^ theOther);
+}; // class BRep_ListOfPointRepresentation
 
 //---------------------------------------------------------------------
 //  Class  BRep_Builder
@@ -233,8 +258,8 @@ public:
     /// </summary>
     void MakeFace(Macad::Occt::TopoDS_Face^ F, Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L, double Tol);
     /* Method skipped due to unknown mapping: void MakeFace(TopoDS_Face theFace, Poly_Triangulation theTriangulation, ) */
-    /* Method skipped due to unknown mapping: void MakeFace(TopoDS_Face theFace, Poly_ListOfTriangulation theTriangulations, Poly_Triangulation theActiveTriangulation, ) */
-    /* Method skipped due to unknown mapping: void MakeFace(TopoDS_Face theFace, Poly_ListOfTriangulation theTriangulations, Poly_Triangulation theActiveTriangulation, ) */
+    /* Method skipped due to unknown mapping: void MakeFace(TopoDS_Face theFace, NCollection_List<opencascade::handle<Poly_Triangulation>> theTriangulations, Poly_Triangulation theActiveTriangulation, ) */
+    /* Method skipped due to unknown mapping: void MakeFace(TopoDS_Face theFace, NCollection_List<opencascade::handle<Poly_Triangulation>> theTriangulations, Poly_Triangulation theActiveTriangulation, ) */
     /// <summary>
     /// Updates the face F using the tolerance value Tol,
     /// surface S and location Location.
@@ -247,7 +272,7 @@ public:
     /// </summary>
     void UpdateFace(Macad::Occt::TopoDS_Face^ F, double Tol);
     /// <summary>
-    /// Sets the  NaturalRestriction flag of  the face.
+    /// Sets the NaturalRestriction flag of the face.
     /// </summary>
     void NaturalRestriction(Macad::Occt::TopoDS_Face^ F, bool N);
     /// <summary>
@@ -281,7 +306,7 @@ public:
     /// </summary>
     void UpdateEdge(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom2d_Curve^ C, Macad::Occt::TopoDS_Face^ F, double Tol);
     /// <summary>
-    /// Sets pcurves for the edge on the  closed face.  If
+    /// Sets pcurves for the edge on the closed face. If
     /// <C1> or <C2> is a null handle, remove any existing
     /// pcurve.
     /// </summary>
@@ -355,7 +380,7 @@ public:
     /// </summary>
     void Range(Macad::Occt::TopoDS_Edge^ E, double First, double Last);
     /// <summary>
-    /// Sets the range  of the edge  on the pcurve on  the
+    /// Sets the range of the edge on the pcurve on the
     /// surface.
     /// </summary>
     void Range(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L, double First, double Last);
@@ -364,8 +389,7 @@ public:
     /// </summary>
     void Range(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F, double First, double Last);
     /// <summary>
-    /// Add  to <Eout>  the  geometric representations  of
-    /// <Ein>.
+    /// Add to <Eout> the geometric representations of <Ein>.
     /// </summary>
     void Transfert(Macad::Occt::TopoDS_Edge^ Ein, Macad::Occt::TopoDS_Edge^ Eout);
     /// <summary>
@@ -381,18 +405,17 @@ public:
     /// </summary>
     void UpdateVertex(Macad::Occt::TopoDS_Vertex^ V, Macad::Occt::Pnt P, double Tol);
     /// <summary>
-    /// Sets  the parameter  for the   vertex on the  edge
-    /// curves.
+    /// Sets the parameter for the vertex on the edge curves.
     /// </summary>
     void UpdateVertex(Macad::Occt::TopoDS_Vertex^ V, double P, Macad::Occt::TopoDS_Edge^ E, double Tol);
     /// <summary>
-    /// Sets  the parameter  for the  vertex  on the  edge
-    /// pcurve  on the face.
+    /// Sets the parameter for the vertex on the edge
+    /// pcurve on the face.
     /// </summary>
     void UpdateVertex(Macad::Occt::TopoDS_Vertex^ V, double P, Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F, double Tol);
     /// <summary>
-    /// Sets  the parameter  for the  vertex  on the  edge
-    /// pcurve  on the surface.
+    /// Sets the parameter for the vertex on the edge
+    /// pcurve on the surface.
     /// </summary>
     void UpdateVertex(Macad::Occt::TopoDS_Vertex^ V, double P, Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L, double Tol);
     /// <summary>
@@ -404,7 +427,7 @@ public:
     /// </summary>
     void UpdateVertex(Macad::Occt::TopoDS_Vertex^ V, double Tol);
     /// <summary>
-    /// Transfert the parameters  of   Vin on  Ein as  the
+    /// Transfert the parameters of Vin on Ein as the
     /// parameter of Vout on Eout.
     /// </summary>
     void Transfert(Macad::Occt::TopoDS_Edge^ Ein, Macad::Occt::TopoDS_Edge^ Eout, Macad::Occt::TopoDS_Vertex^ Vin, Macad::Occt::TopoDS_Vertex^ Vout);
@@ -414,28 +437,28 @@ public:
 //  Class  BRep_TFace
 //---------------------------------------------------------------------
 /// <summary>
-/// The Tface from BRep  is  based  on the TFace  from
-/// TopoDS. The TFace contains :
+/// The Tface from BRep is based on the TFace from
+/// TopoDS. The TFace contains:
 /// 
 /// * A surface, a tolerance and a Location.
 /// 
-/// * A NaturalRestriction flag,   when this  flag  is
-/// True the  boundary of the  face is known to be the
+/// * A NaturalRestriction flag, when this flag is
+/// True the boundary of the face is known to be the
 /// parametric space (Umin, UMax, VMin, VMax).
 /// 
 /// * An optional list of triangulations. If there are any
 /// triangulations the surface can be absent.
 /// 
-/// The  Location is  used   for the Surface.
+/// The Location is used for the Surface.
 /// 
-/// The triangulation  is in the same reference system
-/// than the TFace.     A point on mySurface must   be
-/// transformed with myLocation,  but  not a point  on
+/// The triangulation is in the same reference system
+/// than the TFace. A point on mySurface must be
+/// transformed with myLocation, but not a point on
 /// the triangulation.
 /// 
-/// The Surface may  be shared by different TFaces but
-/// not the  Triangulation, because the  Triangulation
-/// may be modified by  the edges.
+/// The Surface may be shared by different TFaces but
+/// not the Triangulation, because the Triangulation
+/// may be modified by the edges.
 /// </summary>
 public ref class BRep_TFace sealed
     : public Macad::Occt::TopoDS_TFace
@@ -506,7 +529,7 @@ public:
     /* Method skipped due to unknown mapping: void Triangulation(Poly_Triangulation theTriangulation, bool theToReset, ) */
     /* Method skipped due to unknown mapping: void Triangulation(Poly_Triangulation theTriangulation, bool theToReset, ) */
     /// <summary>
-    /// Returns a copy  of the  TShape  with no sub-shapes.
+    /// Returns a copy of the TShape with no sub-shapes.
     /// The new Face has no triangulation.
     /// </summary>
     Macad::Occt::TopoDS_TShape^ EmptyCopy();
@@ -518,8 +541,8 @@ public:
     /// Dumps the content of me into the stream
     /// </summary>
     void DumpJson(System::IO::TextWriter^ theOStream);
-    /* Method skipped due to unknown mapping: Poly_ListOfTriangulation Triangulations() */
-    /* Method skipped due to unknown mapping: void Triangulations(Poly_ListOfTriangulation theTriangulations, Poly_Triangulation theActiveTriangulation, ) */
+    /* Method skipped due to unknown mapping: NCollection_List<opencascade::handle<Poly_Triangulation>> Triangulations() */
+    /* Method skipped due to unknown mapping: void Triangulations(NCollection_List<opencascade::handle<Poly_Triangulation>> theTriangulations, Poly_Triangulation theActiveTriangulation, ) */
     /// <summary>
     /// Returns number of available face triangulations.
     /// </summary>
@@ -532,7 +555,7 @@ public:
 //  Class  BRep_PointRepresentation
 //---------------------------------------------------------------------
 /// <summary>
-/// Root  class     for   the points  representations.
+/// Root class for the points representations.
 /// Contains a location and a parameter.
 /// </summary>
 public ref class BRep_PointRepresentation
@@ -618,10 +641,10 @@ public:
 //  Class  BRep_TVertex
 //---------------------------------------------------------------------
 /// <summary>
-/// The TVertex from  BRep inherits  from  the TVertex
+/// The TVertex from BRep inherits from the TVertex
 /// from TopoDS. It contains the geometric data.
 /// 
-/// The  TVertex contains a 3d point, location and a tolerance.
+/// The TVertex contains a 3d point, location and a tolerance.
 /// </summary>
 public ref class BRep_TVertex sealed
     : public Macad::Occt::TopoDS_TVertex
@@ -654,8 +677,8 @@ public:
     double Tolerance();
     void Tolerance(double T);
     /// <summary>
-    /// Sets the tolerance  to the   max  of <T>  and  the
-    /// current  tolerance.
+    /// Sets the tolerance to the max of <T> and the
+    /// current tolerance.
     /// </summary>
     void UpdateTolerance(double T);
     Macad::Occt::Pnt Pnt();
@@ -663,7 +686,7 @@ public:
     Macad::Occt::BRep_ListOfPointRepresentation^ Points();
     Macad::Occt::BRep_ListOfPointRepresentation^ ChangePoints();
     /// <summary>
-    /// Returns a copy  of the  TShape  with no sub-shapes.
+    /// Returns a copy of the TShape with no sub-shapes.
     /// </summary>
     Macad::Occt::TopoDS_TShape^ EmptyCopy();
     /// <summary>
@@ -681,7 +704,7 @@ public:
 //  Class  BRep_Tool
 //---------------------------------------------------------------------
 /// <summary>
-/// Provides class methods  to  access to the geometry
+/// Provides class methods to access to the geometry
 /// of BRep shapes.
 /// </summary>
 public ref class BRep_Tool sealed
@@ -732,13 +755,13 @@ public:
     static Macad::Occt::Geom_Surface^ Surface(Macad::Occt::TopoDS_Face^ F);
     /* Method skipped due to unknown mapping: Poly_Triangulation Triangulation(TopoDS_Face theFace, TopLoc_Location theLocation, unsigned int theMeshPurpose, ) */
     /* Method skipped due to unknown mapping: Poly_Triangulation Triangulation(TopoDS_Face theFace, TopLoc_Location theLocation, unsigned int theMeshPurpose, ) */
-    /* Method skipped due to unknown mapping: Poly_ListOfTriangulation Triangulations(TopoDS_Face theFace, TopLoc_Location theLocation, ) */
+    /* Method skipped due to unknown mapping: NCollection_List<opencascade::handle<Poly_Triangulation>> Triangulations(TopoDS_Face theFace, TopLoc_Location theLocation, ) */
     /// <summary>
     /// Returns the tolerance of the face.
     /// </summary>
     static double Tolerance(Macad::Occt::TopoDS_Face^ F);
     /// <summary>
-    /// Returns the  NaturalRestriction  flag of the  face.
+    /// Returns the NaturalRestriction flag of the face.
     /// </summary>
     static bool NaturalRestriction(Macad::Occt::TopoDS_Face^ F);
     /// <summary>
@@ -746,27 +769,26 @@ public:
     /// </summary>
     static bool IsGeometric(Macad::Occt::TopoDS_Face^ F);
     /// <summary>
-    /// Returns True if <E> is a 3d curve or a curve on
-    /// surface.
+    /// Returns True if <E> is a 3d curve or a curve on surface.
     /// </summary>
     static bool IsGeometric(Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
-    /// Returns the 3D curve  of the edge.  May be  a Null
+    /// Returns the 3D curve of the edge. May be a Null
     /// handle. Returns in <L> the location for the curve.
     /// In <First> and <Last> the parameter range.
     /// </summary>
     static Macad::Occt::Geom_Curve^ Curve(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopLoc_Location^ L, double% First, double% Last);
     /// <summary>
-    /// Returns the 3D curve  of the edge. May be a Null handle.
+    /// Returns the 3D curve of the edge. May be a Null handle.
     /// In <First> and <Last> the parameter range.
     /// It can be a copy if there is a Location.
     /// </summary>
     static Macad::Occt::Geom_Curve^ Curve(Macad::Occt::TopoDS_Edge^ E, double% First, double% Last);
     /* Method skipped due to unknown mapping: Poly_Polygon3D Polygon3D(TopoDS_Edge E, TopLoc_Location L, ) */
     /// <summary>
-    /// Returns the curve  associated to the  edge in  the
-    /// parametric  space of  the  face.  Returns   a NULL
-    /// handle  if this curve  does not exist.  Returns in
+    /// Returns the curve associated to the edge in the
+    /// parametric space of the face. Returns a NULL
+    /// handle if this curve does not exist. Returns in
     /// <First> and <Last> the parameter range.
     /// If the surface is a plane the curve can be not stored but created a new
     /// each time. The flag pointed by <theIsStored> serves to indicate storage status.
@@ -774,9 +796,9 @@ public:
     /// </summary>
     static Macad::Occt::Geom2d_Curve^ CurveOnSurface(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F, double% First, double% Last, bool% theIsStored);
     /// <summary>
-    /// Returns the curve  associated to the  edge in  the
-    /// parametric  space of  the  face.  Returns   a NULL
-    /// handle  if this curve  does not exist.  Returns in
+    /// Returns the curve associated to the edge in the
+    /// parametric space of the face. Returns a NULL
+    /// handle if this curve does not exist. Returns in
     /// <First> and <Last> the parameter range.
     /// If the surface is a plane the curve can be not stored but created a new
     /// each time. The flag pointed by <theIsStored> serves to indicate storage status.
@@ -784,9 +806,9 @@ public:
     /// </summary>
     static Macad::Occt::Geom2d_Curve^ CurveOnSurface(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F, double% First, double% Last);
     /// <summary>
-    /// Returns the  curve associated to   the edge in the
-    /// parametric  space of the   surface. Returns a NULL
-    /// handle  if this curve does  not exist.  Returns in
+    /// Returns the curve associated to the edge in the
+    /// parametric space of the surface. Returns a NULL
+    /// handle if this curve does not exist. Returns in
     /// <First> and <Last> the parameter range.
     /// If the surface is a plane the curve can be not stored but created a new
     /// each time. The flag pointed by <theIsStored> serves to indicate storage status.
@@ -794,9 +816,9 @@ public:
     /// </summary>
     static Macad::Occt::Geom2d_Curve^ CurveOnSurface(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L, double% First, double% Last, bool% theIsStored);
     /// <summary>
-    /// Returns the  curve associated to   the edge in the
-    /// parametric  space of the   surface. Returns a NULL
-    /// handle  if this curve does  not exist.  Returns in
+    /// Returns the curve associated to the edge in the
+    /// parametric space of the surface. Returns a NULL
+    /// handle if this curve does not exist. Returns in
     /// <First> and <Last> the parameter range.
     /// If the surface is a plane the curve can be not stored but created a new
     /// each time. The flag pointed by <theIsStored> serves to indicate storage status.
@@ -812,8 +834,8 @@ public:
     static Macad::Occt::Geom2d_Curve^ CurveOnPlane(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L, double% First, double% Last);
     /// <summary>
     /// Returns in <C>, <S>, <L> a 2d curve, a surface and
-    /// a location for the edge <E>. <C> and <S>  are null
-    /// if the  edge has no curve on  surface.  Returns in
+    /// a location for the edge <E>. <C> and <S> are null
+    /// if the edge has no curve on surface. Returns in
     /// <First> and <Last> the parameter range.
     /// </summary>
     static void CurveOnSurface(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom2d_Curve^ C, Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L, double% First, double% Last);
@@ -832,14 +854,14 @@ public:
     /* Method skipped due to unknown mapping: void PolygonOnTriangulation(TopoDS_Edge E, Poly_PolygonOnTriangulation P, Poly_Triangulation T, TopLoc_Location L, ) */
     /* Method skipped due to unknown mapping: void PolygonOnTriangulation(TopoDS_Edge E, Poly_PolygonOnTriangulation P, Poly_Triangulation T, TopLoc_Location L, int Index, ) */
     /// <summary>
-    /// Returns  True  if  <E>  has  two  PCurves  in  the
-    /// parametric space of <F>. i.e.  <F>  is on a closed
+    /// Returns True if <E> has two PCurves in the
+    /// parametric space of <F>. i.e. <F> is on a closed
     /// surface and <E> is on the closing curve.
     /// </summary>
     static bool IsClosed(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F);
     /// <summary>
-    /// Returns  True  if  <E>  has  two  PCurves  in  the
-    /// parametric space  of <S>.  i.e.   <S>  is a closed
+    /// Returns True if <E> has two PCurves in the
+    /// parametric space of <S>. i.e. <S> is a closed
     /// surface and <E> is on the closing curve.
     /// </summary>
     static bool IsClosed(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L);
@@ -857,7 +879,7 @@ public:
     /// </summary>
     static bool SameRange(Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
-    /// Returns True  if the edge is degenerated.
+    /// Returns True if the edge is degenerated.
     /// </summary>
     static bool Degenerated(Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
@@ -865,8 +887,7 @@ public:
     /// </summary>
     static void Range(Macad::Occt::TopoDS_Edge^ E, double% First, double% Last);
     /// <summary>
-    /// Gets the range  of the edge  on the pcurve on  the
-    /// surface.
+    /// Gets the range of the edge on the pcurve on the surface.
     /// </summary>
     static void Range(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L, double% First, double% Last);
     /// <summary>
@@ -907,13 +928,12 @@ public:
     /// </summary>
     static Macad::Occt::GeomAbs_Shape Continuity(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom_Surface^ S1, Macad::Occt::Geom_Surface^ S2, Macad::Occt::TopLoc_Location^ L1, Macad::Occt::TopLoc_Location^ L2);
     /// <summary>
-    /// Returns True if the edge has regularity on some
-    /// two surfaces
+    /// Returns True if the edge has regularity on some two surfaces.
     /// </summary>
     static bool HasContinuity(Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
-    /// Returns the max continuity of edge between some surfaces or GeomAbs_C0 if there no such
-    /// surfaces.
+    /// Returns the max continuity of edge between some surfaces or GeomAbs_C0
+    /// if there are no such surfaces.
     /// </summary>
     static Macad::Occt::GeomAbs_Shape MaxContinuity(Macad::Occt::TopoDS_Edge^ theEdge);
     /// <summary>
@@ -946,12 +966,12 @@ public:
     /// </summary>
     static double Parameter(Macad::Occt::TopoDS_Vertex^ V, Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
-    /// Returns the  parameters  of   the  vertex   on the
+    /// Returns the parameters of the vertex on the
     /// pcurve of the edge on the face.
     /// </summary>
     static double Parameter(Macad::Occt::TopoDS_Vertex^ V, Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F);
     /// <summary>
-    /// Returns the  parameters  of   the  vertex   on the
+    /// Returns the parameters of the vertex on the
     /// pcurve of the edge on the surface.
     /// </summary>
     static double Parameter(Macad::Occt::TopoDS_Vertex^ V, Macad::Occt::TopoDS_Edge^ E, Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L);
@@ -1014,17 +1034,17 @@ public:
     /// </summary>
     bool IsRegularity();
     /// <summary>
-    /// A curve with two parametric   curves  on the  same
+    /// A curve with two parametric curves on the same
     /// surface.
     /// </summary>
     bool IsCurveOnClosedSurface();
     /// <summary>
-    /// Is it a curve in the parametric space  of <S> with
+    /// Is it a curve in the parametric space of <S> with
     /// location <L>.
     /// </summary>
     bool IsCurveOnSurface(Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L);
     /// <summary>
-    /// Is it  a  regularity between  <S1> and   <S2> with
+    /// Is it a regularity between <S1> and <S2> with
     /// location <L1> and <L2>.
     /// </summary>
     bool IsRegularity(Macad::Occt::Geom_Surface^ S1, Macad::Occt::Geom_Surface^ S2, Macad::Occt::TopLoc_Location^ L1, Macad::Occt::TopLoc_Location^ L2);
@@ -1048,12 +1068,12 @@ public:
     /// </summary>
     bool IsPolygonOnSurface();
     /// <summary>
-    /// Is it a polygon in the parametric space  of <S> with
+    /// Is it a polygon in the parametric space of <S> with
     /// location <L>.
     /// </summary>
     bool IsPolygonOnSurface(Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L);
     /// <summary>
-    /// Two   2D polygon  representations  in the  parametric
+    /// Two 2D polygon representations in the parametric
     /// space of a surface.
     /// </summary>
     bool IsPolygonOnClosedSurface();
@@ -1100,7 +1120,7 @@ public:
 //  Class  BRep_GCurve
 //---------------------------------------------------------------------
 /// <summary>
-/// Root   class    for    the    geometric     curves
+/// Root class for the geometric curves
 /// representation. Contains a range.
 /// Contains a first and a last parameter.
 /// </summary>
@@ -1291,7 +1311,7 @@ public:
 //  Class  BRep_CurveOnSurface
 //---------------------------------------------------------------------
 /// <summary>
-/// Representation  of a  curve   by a   curve  in the
+/// Representation of a curve by a curve in the
 /// parametric space of a surface.
 /// </summary>
 public ref class BRep_CurveOnSurface
@@ -1368,7 +1388,7 @@ public:
 //  Class  BRep_CurveOnClosedSurface
 //---------------------------------------------------------------------
 /// <summary>
-/// Representation  of a    curve by two  pcurves   on
+/// Representation of a curve by two pcurves on
 /// a closed surface.
 /// </summary>
 public ref class BRep_CurveOnClosedSurface sealed
@@ -1552,7 +1572,7 @@ public:
 //  Class  BRep_PointOnCurveOnSurface
 //---------------------------------------------------------------------
 /// <summary>
-/// Representation by   a parameter on  a curve   on a
+/// Representation by a parameter on a curve on a
 /// surface.
 /// </summary>
 public ref class BRep_PointOnCurveOnSurface sealed
@@ -1738,12 +1758,12 @@ public:
 public:
     /* Method skipped due to unknown mapping: void BRep_PolygonOnSurface(Poly_Polygon2D P, Geom_Surface S, TopLoc_Location L, ) */
     /// <summary>
-    /// A   2D polygon  representation  in the  parametric
+    /// A 2D polygon representation in the parametric
     /// space of a surface.
     /// </summary>
     bool IsPolygonOnSurface();
     /// <summary>
-    /// A   2D polygon  representation  in the  parametric
+    /// A 2D polygon representation in the parametric
     /// space of a surface.
     /// </summary>
     bool IsPolygonOnSurface(Macad::Occt::Geom_Surface^ S, Macad::Occt::TopLoc_Location^ L);
@@ -1944,20 +1964,16 @@ public:
 //  Class  BRep_TEdge
 //---------------------------------------------------------------------
 /// <summary>
-/// The TEdge from BRep is  inherited from  the  TEdge
+/// The TEdge from BRep is inherited from the TEdge
 /// from TopoDS. It contains the geometric data.
 /// 
-/// The TEdge contains :
+/// The TEdge contains a:
 /// 
-/// * A tolerance.
-/// 
-/// * A same parameter flag.
-/// 
-/// * A same range flag.
-/// 
-/// * A Degenerated flag.
-/// 
-/// *  A  list   of curve representation.
+/// * tolerance.
+/// * same parameter flag.
+/// * same range flag.
+/// * Degenerated flag.
+/// * list of curve representation.
 /// </summary>
 public ref class BRep_TEdge sealed
     : public Macad::Occt::TopoDS_TEdge
@@ -1993,8 +2009,8 @@ public:
     double Tolerance();
     void Tolerance(double T);
     /// <summary>
-    /// Sets the tolerance  to the   max  of <T>  and  the
-    /// current  tolerance.
+    /// Sets the tolerance to the max of <T> and the
+    /// current tolerance.
     /// </summary>
     void UpdateTolerance(double T);
     bool SameParameter();
@@ -2006,7 +2022,7 @@ public:
     Macad::Occt::BRep_ListOfCurveRepresentation^ Curves();
     Macad::Occt::BRep_ListOfCurveRepresentation^ ChangeCurves();
     /// <summary>
-    /// Returns a copy  of the  TShape  with no sub-shapes.
+    /// Returns a copy of the TShape with no sub-shapes.
     /// </summary>
     Macad::Occt::TopoDS_TShape^ EmptyCopy();
     /// <summary>

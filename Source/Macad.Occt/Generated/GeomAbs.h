@@ -8,22 +8,6 @@ namespace Macad
 namespace Occt
 {
 //---------------------------------------------------------------------
-//  Enum  GeomAbs_BSplKnotDistribution
-//---------------------------------------------------------------------
-/// <summary>
-/// This enumeration is used in the classes BSplineCurve and
-/// BSplineSurface to describe the repartition of set of knots.
-/// (comments in classes BSplineCurve and BSplineSurface)
-/// </summary>
-public enum class GeomAbs_BSplKnotDistribution
-{
-    NonUniform = 0,
-    Uniform = 1,
-    QuasiUniform = 2,
-    PiecewiseBezier = 3
-}; // enum  class GeomAbs_BSplKnotDistribution
-
-//---------------------------------------------------------------------
 //  Enum  GeomAbs_CurveType
 //---------------------------------------------------------------------
 /// <summary>
@@ -41,6 +25,22 @@ public enum class GeomAbs_CurveType
     OffsetCurve = 7,
     OtherCurve = 8
 }; // enum  class GeomAbs_CurveType
+
+//---------------------------------------------------------------------
+//  Enum  GeomAbs_BSplKnotDistribution
+//---------------------------------------------------------------------
+/// <summary>
+/// This enumeration is used in the classes BSplineCurve and
+/// BSplineSurface to describe the repartition of set of knots.
+/// (comments in classes BSplineCurve and BSplineSurface)
+/// </summary>
+public enum class GeomAbs_BSplKnotDistribution
+{
+    NonUniform = 0,
+    Uniform = 1,
+    QuasiUniform = 2,
+    PiecewiseBezier = 3
+}; // enum  class GeomAbs_BSplKnotDistribution
 
 //---------------------------------------------------------------------
 //  Enum  GeomAbs_IsoType

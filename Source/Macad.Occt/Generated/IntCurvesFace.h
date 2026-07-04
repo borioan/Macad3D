@@ -90,7 +90,7 @@ public:
     /// segment L and the loaded face.
     /// 
     /// PInf is the smallest parameter on the line
-    /// PSup is the highest  parameter on the line
+    /// PSup is the highest parameter on the line
     /// 
     /// For an infinite line PInf and PSup can be
     /// +/- RealLast.
@@ -200,7 +200,7 @@ public:
     /// segment L and the loaded shape.
     /// 
     /// PInf is the smallest parameter on the line
-    /// PSup is the highest  parameter on the line
+    /// PSup is the highest parameter on the line
     /// 
     /// For an infinite line PInf and PSup can be
     /// +/- RealLast.
@@ -211,7 +211,7 @@ public:
     /// segment L and the loaded shape.
     /// 
     /// PInf is the smallest parameter on the line
-    /// PSup is the highest  parameter on the line
+    /// PSup is the highest parameter on the line
     /// 
     /// For an infinite line PInf and PSup can be
     /// +/- RealLast.

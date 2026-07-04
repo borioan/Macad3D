@@ -39,7 +39,7 @@ public enum class GeomConvert_ConvType
 /// References :
 /// . Generating the Bezier Points of B-spline curves and surfaces
 /// (Wolfgang Bohm) CAGD volume 13 number 6 november 1981
-/// . On NURBS: A Survey  (Leslie Piegl) IEEE Computer Graphics and
+/// . On NURBS: A Survey (Leslie Piegl) IEEE Computer Graphics and
 /// Application January 1991
 /// . Curve and surface construction using rational B-splines
 /// (Leslie Piegl and Wayne Tiller) CAD Volume 19 number 9 november
@@ -79,12 +79,12 @@ public:
     /// Convert a curve from Geom by an approximation method
     /// 
     /// This method computes the arc of B-spline curve between the two
-    /// knots FromK1 and ToK2.  If C is periodic the arc has the same
-    /// orientation as C if SameOrientation = Standard_True.
-    /// If C is not periodic  SameOrientation is not used for the
+    /// knots FromK1 and ToK2. If C is periodic the arc has the same
+    /// orientation as C if SameOrientation = true.
+    /// If C is not periodic SameOrientation is not used for the
     /// computation and C is oriented from the knot fromK1 to the knot toK2.
     /// We just keep the local definition of C between the knots
-    /// FromK1 and ToK2.  The returned B-spline curve has its first
+    /// FromK1 and ToK2. The returned B-spline curve has its first
     /// and last knots with a multiplicity equal to degree + 1, where
     /// degree is the polynomial degree of C.
     /// The indexes of the knots FromK1 and ToK2 doesn't include the
@@ -98,12 +98,12 @@ public:
     /// Convert a curve from Geom by an approximation method
     /// 
     /// This method computes the arc of B-spline curve between the two
-    /// knots FromK1 and ToK2.  If C is periodic the arc has the same
-    /// orientation as C if SameOrientation = Standard_True.
-    /// If C is not periodic  SameOrientation is not used for the
+    /// knots FromK1 and ToK2. If C is periodic the arc has the same
+    /// orientation as C if SameOrientation = true.
+    /// If C is not periodic SameOrientation is not used for the
     /// computation and C is oriented from the knot fromK1 to the knot toK2.
     /// We just keep the local definition of C between the knots
-    /// FromK1 and ToK2.  The returned B-spline curve has its first
+    /// FromK1 and ToK2. The returned B-spline curve has its first
     /// and last knots with a multiplicity equal to degree + 1, where
     /// degree is the polynomial degree of C.
     /// The indexes of the knots FromK1 and ToK2 doesn't include the
@@ -122,7 +122,7 @@ public:
     /// computation and C is oriented fromU1 toU2.
     /// If U1 and U2 and two parametric values we consider that
     /// U1 = U2 if Abs (U1 - U2) <= ParametricTolerance and
-    /// ParametricTolerance must  be greater or equal to Resolution
+    /// ParametricTolerance must be greater or equal to Resolution
     /// from package gp.
     /// 
     /// Raised if FromU1 or ToU2 are out of the parametric bounds of the
@@ -140,7 +140,7 @@ public:
     /// computation and C is oriented fromU1 toU2.
     /// If U1 and U2 and two parametric values we consider that
     /// U1 = U2 if Abs (U1 - U2) <= ParametricTolerance and
-    /// ParametricTolerance must  be greater or equal to Resolution
+    /// ParametricTolerance must be greater or equal to Resolution
     /// from package gp.
     /// 
     /// Raised if FromU1 or ToU2 are out of the parametric bounds of the
@@ -335,19 +335,19 @@ public:
     static Macad::Occt::Geom_BSplineSurface^ SplitBSplineSurface(Macad::Occt::Geom_BSplineSurface^ S, double FromParam1, double ToParam2, bool USplit, double ParametricTolerance);
     /// <summary>
     /// This function converts a non infinite curve from
-    /// Geom into a  B-spline curve.  C must be   an ellipse or  a
-    /// circle  or a trimmed conic  or a trimmed  line or a Bezier
-    /// curve or a trimmed  Bezier curve or a  BSpline curve or  a
-    /// trimmed  BSpline curve or  an  OffsetCurve.  The returned  B-spline is
-    /// not periodic except  if C is a Circle  or an  Ellipse.  If
-    /// the  Parameterisation is  QuasiAngular than  the returned
-    /// curve is NOT periodic  in case a  periodic Geom_Circle or
-    /// Geom_Ellipse.  For TgtThetaOver2_1 and TgtThetaOver2_2 the
-    /// method   raises  an exception  in    case  of a  periodic
+    /// Geom into a B-spline curve. C must be an ellipse or a
+    /// circle or a trimmed conic or a trimmed line or a Bezier
+    /// curve or a trimmed Bezier curve or a BSpline curve or a
+    /// trimmed BSpline curve or an OffsetCurve. The returned B-spline is
+    /// not periodic except if C is a Circle or an Ellipse. If
+    /// the Parameterisation is QuasiAngular than the returned
+    /// curve is NOT periodic in case a periodic Geom_Circle or
+    /// Geom_Ellipse. For TgtThetaOver2_1 and TgtThetaOver2_2 the
+    /// method raises an exception in case of a periodic
     /// Geom_Circle or a Geom_Ellipse ParameterisationType applies
-    /// only    if  the curve  is   a  Circle  or  an   ellipse :
-    /// TgtThetaOver2,  -- TgtThetaOver2_1, -- TgtThetaOver2_2, --
-    /// TgtThetaOver2_3, -- TgtThetaOver2_4,
+    /// only if the curve is a Circle or an ellipse:
+    /// TgtThetaOver2, TgtThetaOver2_1, TgtThetaOver2_2,
+    /// TgtThetaOver2_3, TgtThetaOver2_4,
     /// 
     /// Purpose: this is the classical rational parameterisation
     /// 2
@@ -363,9 +363,9 @@ public:
     /// 
     /// t = tan (theta/2)
     /// 
-    /// with TgtThetaOver2  the routine will compute the number of spans
+    /// with TgtThetaOver2 the routine will compute the number of spans
     /// using the rule num_spans = [ (ULast - UFirst) / 1.2 ] + 1
-    /// with TgtThetaOver2_N, N  spans will be forced: an error will
+    /// with TgtThetaOver2_N, N spans will be forced: an error will
     /// be raized if (ULast - UFirst) >= PI and N = 1,
     /// ULast - UFirst >= 2 PI and N = 2
     /// 
@@ -403,19 +403,19 @@ public:
     static Macad::Occt::Geom_BSplineCurve^ CurveToBSplineCurve(Macad::Occt::Geom_Curve^ C, Macad::Occt::Convert_ParameterisationType Parameterisation);
     /// <summary>
     /// This function converts a non infinite curve from
-    /// Geom into a  B-spline curve.  C must be   an ellipse or  a
-    /// circle  or a trimmed conic  or a trimmed  line or a Bezier
-    /// curve or a trimmed  Bezier curve or a  BSpline curve or  a
-    /// trimmed  BSpline curve or  an  OffsetCurve.  The returned  B-spline is
-    /// not periodic except  if C is a Circle  or an  Ellipse.  If
-    /// the  Parameterisation is  QuasiAngular than  the returned
-    /// curve is NOT periodic  in case a  periodic Geom_Circle or
-    /// Geom_Ellipse.  For TgtThetaOver2_1 and TgtThetaOver2_2 the
-    /// method   raises  an exception  in    case  of a  periodic
+    /// Geom into a B-spline curve. C must be an ellipse or a
+    /// circle or a trimmed conic or a trimmed line or a Bezier
+    /// curve or a trimmed Bezier curve or a BSpline curve or a
+    /// trimmed BSpline curve or an OffsetCurve. The returned B-spline is
+    /// not periodic except if C is a Circle or an Ellipse. If
+    /// the Parameterisation is QuasiAngular than the returned
+    /// curve is NOT periodic in case a periodic Geom_Circle or
+    /// Geom_Ellipse. For TgtThetaOver2_1 and TgtThetaOver2_2 the
+    /// method raises an exception in case of a periodic
     /// Geom_Circle or a Geom_Ellipse ParameterisationType applies
-    /// only    if  the curve  is   a  Circle  or  an   ellipse :
-    /// TgtThetaOver2,  -- TgtThetaOver2_1, -- TgtThetaOver2_2, --
-    /// TgtThetaOver2_3, -- TgtThetaOver2_4,
+    /// only if the curve is a Circle or an ellipse:
+    /// TgtThetaOver2, TgtThetaOver2_1, TgtThetaOver2_2,
+    /// TgtThetaOver2_3, TgtThetaOver2_4,
     /// 
     /// Purpose: this is the classical rational parameterisation
     /// 2
@@ -431,9 +431,9 @@ public:
     /// 
     /// t = tan (theta/2)
     /// 
-    /// with TgtThetaOver2  the routine will compute the number of spans
+    /// with TgtThetaOver2 the routine will compute the number of spans
     /// using the rule num_spans = [ (ULast - UFirst) / 1.2 ] + 1
-    /// with TgtThetaOver2_N, N  spans will be forced: an error will
+    /// with TgtThetaOver2_N, N spans will be forced: an error will
     /// be raized if (ULast - UFirst) >= PI and N = 1,
     /// ULast - UFirst >= 2 PI and N = 2
     /// 
@@ -476,35 +476,35 @@ public:
     /// or a trimmed sphere or a trimmed torus or a sphere or a torus or
     /// a Bezier surface of a trimmed Bezier surface or a trimmed swept
     /// surface with a corresponding basis curve which can be turned into
-    /// a B-spline curve   (see the method CurveToBSplineCurve).
+    /// a B-spline curve (see the method CurveToBSplineCurve).
     /// Raises DomainError if the type of the surface is not previously defined.
     /// </summary>
     static Macad::Occt::Geom_BSplineSurface^ SurfaceToBSplineSurface(Macad::Occt::Geom_Surface^ S);
-    /* Method skipped due to unknown mapping: void ConcatG1(TColGeom_Array1OfBSplineCurve ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, TColGeom_HArray1OfBSplineCurve ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, ) */
-    /* Method skipped due to unknown mapping: void ConcatC1(TColGeom_Array1OfBSplineCurve ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, TColStd_HArray1OfInteger ArrayOfIndices, TColGeom_HArray1OfBSplineCurve ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, ) */
-    /* Method skipped due to unknown mapping: void ConcatC1(TColGeom_Array1OfBSplineCurve ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, TColStd_HArray1OfInteger ArrayOfIndices, TColGeom_HArray1OfBSplineCurve ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, double AngularTolerance, ) */
+    /* Method skipped due to unknown mapping: void ConcatG1(NCollection_Array1<opencascade::handle<Geom_BSplineCurve>> ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, NCollection_HArray1<opencascade::handle<Geom_BSplineCurve>> ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, ) */
+    /* Method skipped due to unknown mapping: void ConcatC1(NCollection_Array1<opencascade::handle<Geom_BSplineCurve>> ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, TColStd_HArray1OfInteger ArrayOfIndices, NCollection_HArray1<opencascade::handle<Geom_BSplineCurve>> ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, ) */
+    /* Method skipped due to unknown mapping: void ConcatC1(NCollection_Array1<opencascade::handle<Geom_BSplineCurve>> ArrayOfCurves, TColStd_Array1OfReal ArrayOfToler, TColStd_HArray1OfInteger ArrayOfIndices, NCollection_HArray1<opencascade::handle<Geom_BSplineCurve>> ArrayOfConcatenated, bool ClosedFlag, double ClosedTolerance, double AngularTolerance, ) */
     /// <summary>
-    /// This  Method reduces as far as   it is possible the
-    /// multiplicities of  the  knots of  the BSpline BS.(keeping  the
-    /// geometry).  It returns a new BSpline which  could still be C0.
-    /// tolerance is a  geometrical tolerance.
-    /// The  Angular toleranceis in radians  and measures  the angle of
-    /// the tangents  on  the left and on  the right  to decide if  the
+    /// This Method reduces as far as it is possible the
+    /// multiplicities of the knots of the BSpline BS.(keeping the
+    /// geometry). It returns a new BSpline which could still be C0.
+    /// tolerance is a geometrical tolerance.
+    /// The Angular toleranceis in radians and measures the angle of
+    /// the tangents on the left and on the right to decide if the
     /// curve is G1 or not at a given point
     /// </summary>
     static void C0BSplineToC1BSplineCurve(Macad::Occt::Geom_BSplineCurve^ BS, double tolerance, double AngularTolerance);
     /// <summary>
-    /// This  Method reduces as far as   it is possible the
-    /// multiplicities of  the  knots of  the BSpline BS.(keeping  the
-    /// geometry).  It returns a new BSpline which  could still be C0.
-    /// tolerance is a  geometrical tolerance.
-    /// The  Angular toleranceis in radians  and measures  the angle of
-    /// the tangents  on  the left and on  the right  to decide if  the
+    /// This Method reduces as far as it is possible the
+    /// multiplicities of the knots of the BSpline BS.(keeping the
+    /// geometry). It returns a new BSpline which could still be C0.
+    /// tolerance is a geometrical tolerance.
+    /// The Angular toleranceis in radians and measures the angle of
+    /// the tangents on the left and on the right to decide if the
     /// curve is G1 or not at a given point
     /// </summary>
     static void C0BSplineToC1BSplineCurve(Macad::Occt::Geom_BSplineCurve^ BS, double tolerance);
-    /* Method skipped due to unknown mapping: void C0BSplineToArrayOfC1BSplineCurve(Geom_BSplineCurve BS, TColGeom_HArray1OfBSplineCurve tabBS, double tolerance, ) */
-    /* Method skipped due to unknown mapping: void C0BSplineToArrayOfC1BSplineCurve(Geom_BSplineCurve BS, TColGeom_HArray1OfBSplineCurve tabBS, double AngularTolerance, double tolerance, ) */
+    /* Method skipped due to unknown mapping: void C0BSplineToArrayOfC1BSplineCurve(Geom_BSplineCurve BS, NCollection_HArray1<opencascade::handle<Geom_BSplineCurve>> tabBS, double tolerance, ) */
+    /* Method skipped due to unknown mapping: void C0BSplineToArrayOfC1BSplineCurve(Geom_BSplineCurve BS, NCollection_HArray1<opencascade::handle<Geom_BSplineCurve>> tabBS, double AngularTolerance, double tolerance, ) */
 }; // class GeomConvert
 
 //---------------------------------------------------------------------
@@ -568,24 +568,24 @@ public:
     /// </summary>
     Macad::Occt::Geom_BSplineCurve^ Curve();
     /// <summary>
-    /// returns  Standard_True  if  the  approximation  has
-    /// been  done  within  required tolerance
+    /// returns true if the approximation has
+    /// been done within required tolerance
     /// </summary>
     bool IsDone();
     /// <summary>
-    /// Returns  Standard_True if the approximation did come out
-    /// with a result that  is not NECESSARELY within the required tolerance
+    /// Returns true if the approximation did come out
+    /// with a result that is not NECESSARELY within the required tolerance
     /// </summary>
     bool HasResult();
     /// <summary>
     /// Returns the greatest distance between a point on the
     /// source conic and the BSpline curve resulting from the
     /// approximation. (>0 when an approximation
-    /// has  been  done, 0  if  no  approximation)
+    /// has been done, 0 if no approximation)
     /// </summary>
     double MaxError();
     /// <summary>
-    /// Print on the stream  o  information about the object
+    /// Print on the stream o information about the object
     /// </summary>
     void Dump(System::IO::TextWriter^ o);
 }; // class GeomConvert_ApproxCurve
@@ -658,7 +658,7 @@ public:
     /// </summary>
     Macad::Occt::Geom_BSplineSurface^ Surface();
     /// <summary>
-    /// Returns Standard_True if the approximation has be done
+    /// Returns true if the approximation has be done
     /// </summary>
     bool IsDone();
     /// <summary>
@@ -865,12 +865,12 @@ public:
     /// computed by this algorithm.
     /// </summary>
     Macad::Occt::Geom_BezierCurve^ Arc(int Index);
-    /* Method skipped due to unknown mapping: void Arcs(TColGeom_Array1OfBezierCurve Curves, ) */
+    /* Method skipped due to unknown mapping: void Arcs(NCollection_Array1<opencascade::handle<Geom_BezierCurve>> Curves, ) */
     /// <summary>
     /// This methode returns the bspline's knots associated to
     /// the converted arcs
-    /// Raised  if the length  of Curves is not equal to
-    /// NbArcs +  1.
+    /// Raised if the length of Curves is not equal to
+    /// NbArcs + 1
     /// </summary>
     void Knots(Macad::Occt::TColStd_Array1OfReal^ TKnots);
     /// <summary>
@@ -898,9 +898,9 @@ public:
 /// SplitBSplineSurface.
 /// For a B-spline surface the discontinuities are localised at
 /// the knot values. Between two knots values the B-spline is
-/// infinitely continuously differentiable.  For each parametric
+/// infinitely continuously differentiable. For each parametric
 /// direction at a knot of range index the continuity in this
-/// direction is equal to :  Degree - Mult (Index)   where  Degree
+/// direction is equal to: Degree - Mult (Index) where Degree
 /// is the degree of the basis B-spline functions and Mult the
 /// multiplicity of the knot of range Index in the given direction.
 /// If for your computation you need to have B-spline surface with a
@@ -1014,7 +1014,7 @@ public:
     void Splitting(Macad::Occt::TColStd_Array1OfInteger^ USplit, Macad::Occt::TColStd_Array1OfInteger^ VSplit);
     /// <summary>
     /// Returns the split knot of index UIndex
-    /// to the split knots table for the u  parametric direction
+    /// to the split knots table for the u parametric direction
     /// computed in this framework. The returned value is
     /// an index in the knots table relative to the u
     /// parametric direction of the BSpline surface analysed by this algorithm.
@@ -1023,13 +1023,13 @@ public:
     /// this framework, the corresponding knot gives the
     /// parameter of one of the bounding curves of the surface.
     /// Exceptions
-    /// Standard_RangeError if UIndex  is less than 1 or greater than the number
+    /// Standard_RangeError if UIndex is less than 1 or greater than the number
     /// of split knots for the u parametric direction computed in this framework.
     /// </summary>
     int USplitValue(int UIndex);
     /// <summary>
     /// Returns the split knot of index VIndex
-    /// to the split knots table for the v  parametric direction
+    /// to the split knots table for the v parametric direction
     /// computed in this framework. The returned value is
     /// an index in the knots table relative to the v
     /// parametric direction of the BSpline surface analysed by this algorithm.
@@ -1038,7 +1038,7 @@ public:
     /// this framework, the corresponding knot gives the
     /// parameter of one of the bounding curves of the surface.
     /// Exceptions
-    /// Standard_RangeError if VIndex  is less than 1 or greater than the number
+    /// Standard_RangeError if VIndex is less than 1 or greater than the number
     /// of split knots for the v parametric direction computed in this framework.
     /// </summary>
     int VSplitValue(int VIndex);
@@ -1120,7 +1120,7 @@ public:
     /// Use the available interrogation functions to ascertain
     /// the number of computed Bezier patches, and then to
     /// construct each individual Bezier surface (or all Bezier surfaces).
-    /// Note: ParametricTolerance is not used.  Raises DomainError
+    /// Note: ParametricTolerance is not used. Raises DomainError
     /// if U1 or U2 or V1 or V2 are out of the parametric bounds
     /// of the basis surface [FirstUKnotIndex, LastUKnotIndex] ,
     /// [FirstVKnotIndex, LastVKnotIndex] The tolerance criterion is
@@ -1155,19 +1155,19 @@ public:
     /// returned by the function NbVPatches).
     /// </summary>
     Macad::Occt::Geom_BezierSurface^ Patch(int UIndex, int VIndex);
-    /* Method skipped due to unknown mapping: void Patches(TColGeom_Array2OfBezierSurface Surfaces, ) */
+    /* Method skipped due to unknown mapping: void Patches(NCollection_Array2<opencascade::handle<Geom_BezierSurface>> Surfaces, ) */
     /// <summary>
     /// This methode returns the bspline's u-knots associated to
     /// the converted Patches
-    /// Raised  if the length  of Curves is not equal to
-    /// NbUPatches +  1.
+    /// Raised if the length of Curves is not equal to
+    /// NbUPatches + 1
     /// </summary>
     void UKnots(Macad::Occt::TColStd_Array1OfReal^ TKnots);
     /// <summary>
     /// This methode returns the bspline's v-knots associated to
     /// the converted Patches
-    /// Raised  if the length  of Curves is not equal to
-    /// NbVPatches +  1.
+    /// Raised if the length of Curves is not equal to
+    /// NbVPatches + 1
     /// </summary>
     void VKnots(Macad::Occt::TColStd_Array1OfReal^ TKnots);
     /// <summary>
@@ -1218,7 +1218,7 @@ public:
 /// -----------------------
 /// 3    |    |    |    |      |
 /// -----------------------
-/// UIndex [1, NbUPatches]  Udirection
+/// UIndex [1, NbUPatches] Udirection
 /// 
 /// Warning! Patches must have compatible parametrization
 /// </summary>
@@ -1249,13 +1249,13 @@ public:
     }
 
 public:
-    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(TColGeom_Array2OfBezierSurface Beziers, ) */
-    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(TColGeom_Array2OfBezierSurface Beziers, double Tolerance, bool RemoveKnots, ) */
-    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(TColGeom_Array2OfBezierSurface Beziers, double Tolerance, bool RemoveKnots, ) */
-    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(TColGeom_Array2OfBezierSurface Beziers, TColStd_Array1OfReal UKnots, TColStd_Array1OfReal VKnots, GeomAbs_Shape UContinuity, GeomAbs_Shape VContinuity, double Tolerance, ) */
-    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(TColGeom_Array2OfBezierSurface Beziers, TColStd_Array1OfReal UKnots, TColStd_Array1OfReal VKnots, GeomAbs_Shape UContinuity, GeomAbs_Shape VContinuity, double Tolerance, ) */
-    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(TColGeom_Array2OfBezierSurface Beziers, TColStd_Array1OfReal UKnots, TColStd_Array1OfReal VKnots, GeomAbs_Shape UContinuity, GeomAbs_Shape VContinuity, double Tolerance, ) */
-    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(TColGeom_Array2OfBezierSurface Beziers, TColStd_Array1OfReal UKnots, TColStd_Array1OfReal VKnots, GeomAbs_Shape UContinuity, GeomAbs_Shape VContinuity, double Tolerance, ) */
+    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(NCollection_Array2<opencascade::handle<Geom_BezierSurface>> Beziers, ) */
+    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(NCollection_Array2<opencascade::handle<Geom_BezierSurface>> Beziers, double Tolerance, bool RemoveKnots, ) */
+    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(NCollection_Array2<opencascade::handle<Geom_BezierSurface>> Beziers, double Tolerance, bool RemoveKnots, ) */
+    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(NCollection_Array2<opencascade::handle<Geom_BezierSurface>> Beziers, TColStd_Array1OfReal UKnots, TColStd_Array1OfReal VKnots, GeomAbs_Shape UContinuity, GeomAbs_Shape VContinuity, double Tolerance, ) */
+    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(NCollection_Array2<opencascade::handle<Geom_BezierSurface>> Beziers, TColStd_Array1OfReal UKnots, TColStd_Array1OfReal VKnots, GeomAbs_Shape UContinuity, GeomAbs_Shape VContinuity, double Tolerance, ) */
+    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(NCollection_Array2<opencascade::handle<Geom_BezierSurface>> Beziers, TColStd_Array1OfReal UKnots, TColStd_Array1OfReal VKnots, GeomAbs_Shape UContinuity, GeomAbs_Shape VContinuity, double Tolerance, ) */
+    /* Method skipped due to unknown mapping: void GeomConvert_CompBezierSurfacesToBSplineSurface(NCollection_Array2<opencascade::handle<Geom_BezierSurface>> Beziers, TColStd_Array1OfReal UKnots, TColStd_Array1OfReal VKnots, GeomAbs_Shape UContinuity, GeomAbs_Shape VContinuity, double Tolerance, ) */
     /// <summary>
     /// Returns the number of knots in the U direction
     /// of the BSpline surface whose data is computed in this framework.
@@ -1287,7 +1287,7 @@ public:
     /// </summary>
     Macad::Occt::TColStd_HArray1OfReal^ UKnots();
     /// <summary>
-    /// Returns the degree for the u  parametric
+    /// Returns the degree for the u parametric
     /// direction of the BSpline surface whose data is computed in this framework.
     /// </summary>
     int UDegree();
@@ -1297,7 +1297,7 @@ public:
     /// </summary>
     Macad::Occt::TColStd_HArray1OfReal^ VKnots();
     /// <summary>
-    /// Returns the degree for the v  parametric
+    /// Returns the degree for the v parametric
     /// direction of the BSpline surface whose data is computed in this framework.
     /// </summary>
     int VDegree();
@@ -1363,73 +1363,73 @@ public:
 
 public:
     /// <summary>
-    /// Initialize the algorithme
+    /// Initialize the algorithm
     /// - Parameterisation is used to convert
     /// </summary>
     GeomConvert_CompCurveToBSplineCurve(Macad::Occt::Convert_ParameterisationType Parameterisation);
     /// <summary>
-    /// Initialize the algorithme
+    /// Initialize the algorithm
     /// - Parameterisation is used to convert
     /// </summary>
     GeomConvert_CompCurveToBSplineCurve();
     /// <summary>
-    /// Initialize the algorithme with one curve
+    /// Initialize the algorithm with one curve
     /// - Parameterisation is used to convert
     /// </summary>
     GeomConvert_CompCurveToBSplineCurve(Macad::Occt::Geom_BoundedCurve^ BasisCurve, Macad::Occt::Convert_ParameterisationType Parameterisation);
     /// <summary>
-    /// Initialize the algorithme with one curve
+    /// Initialize the algorithm with one curve
     /// - Parameterisation is used to convert
     /// </summary>
     GeomConvert_CompCurveToBSplineCurve(Macad::Occt::Geom_BoundedCurve^ BasisCurve);
     /// <summary>
-    /// Append a curve in  the BSpline Return False if the
-    /// curve is not G0  with the BSplineCurve.  Tolerance
-    /// is   used to   check   continuity  and decrease
+    /// Append a curve in the BSpline Return False if the
+    /// curve is not G0 with the BSplineCurve. Tolerance
+    /// is used to check continuity and decrease
     /// Multiplicity at the common Knot until MinM
     /// if MinM = 0, the common Knot can be removed
     /// 
     /// WithRatio defines whether the resulting curve should have a uniform
-    /// parameterization. Setting WithRatio to Standard_False may greatly
+    /// parameterization. Setting WithRatio to false may greatly
     /// decrease the speed of algorithms like CPnts_AbscissaPoint::AdvPerform
     /// when applied to the resulting curve.
     /// </summary>
     bool Add(Macad::Occt::Geom_BoundedCurve^ NewCurve, double Tolerance, bool After, bool WithRatio, int MinM);
     /// <summary>
-    /// Append a curve in  the BSpline Return False if the
-    /// curve is not G0  with the BSplineCurve.  Tolerance
-    /// is   used to   check   continuity  and decrease
+    /// Append a curve in the BSpline Return False if the
+    /// curve is not G0 with the BSplineCurve. Tolerance
+    /// is used to check continuity and decrease
     /// Multiplicity at the common Knot until MinM
     /// if MinM = 0, the common Knot can be removed
     /// 
     /// WithRatio defines whether the resulting curve should have a uniform
-    /// parameterization. Setting WithRatio to Standard_False may greatly
+    /// parameterization. Setting WithRatio to false may greatly
     /// decrease the speed of algorithms like CPnts_AbscissaPoint::AdvPerform
     /// when applied to the resulting curve.
     /// </summary>
     bool Add(Macad::Occt::Geom_BoundedCurve^ NewCurve, double Tolerance, bool After, bool WithRatio);
     /// <summary>
-    /// Append a curve in  the BSpline Return False if the
-    /// curve is not G0  with the BSplineCurve.  Tolerance
-    /// is   used to   check   continuity  and decrease
+    /// Append a curve in the BSpline Return False if the
+    /// curve is not G0 with the BSplineCurve. Tolerance
+    /// is used to check continuity and decrease
     /// Multiplicity at the common Knot until MinM
     /// if MinM = 0, the common Knot can be removed
     /// 
     /// WithRatio defines whether the resulting curve should have a uniform
-    /// parameterization. Setting WithRatio to Standard_False may greatly
+    /// parameterization. Setting WithRatio to false may greatly
     /// decrease the speed of algorithms like CPnts_AbscissaPoint::AdvPerform
     /// when applied to the resulting curve.
     /// </summary>
     bool Add(Macad::Occt::Geom_BoundedCurve^ NewCurve, double Tolerance, bool After);
     /// <summary>
-    /// Append a curve in  the BSpline Return False if the
-    /// curve is not G0  with the BSplineCurve.  Tolerance
-    /// is   used to   check   continuity  and decrease
+    /// Append a curve in the BSpline Return False if the
+    /// curve is not G0 with the BSplineCurve. Tolerance
+    /// is used to check continuity and decrease
     /// Multiplicity at the common Knot until MinM
     /// if MinM = 0, the common Knot can be removed
     /// 
     /// WithRatio defines whether the resulting curve should have a uniform
-    /// parameterization. Setting WithRatio to Standard_False may greatly
+    /// parameterization. Setting WithRatio to false may greatly
     /// decrease the speed of algorithms like CPnts_AbscissaPoint::AdvPerform
     /// when applied to the resulting curve.
     /// </summary>

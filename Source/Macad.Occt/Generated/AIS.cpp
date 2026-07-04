@@ -6,11 +6,12 @@
 using namespace System::Runtime::InteropServices; // for class Marshal
 
 #include "NCollection.h"
-#include "SelectMgr.h"
+#include "TopTools.h"
 #include "TopoDS.h"
+#include "SelectMgr.h"
+#include "TCollection.h"
 #include "V3d.h"
 #include "PrsMgr.h"
-#include "TCollection.h"
 #include "Prs3d.h"
 #include "Graphic3d.h"
 #include "TopLoc.h"
@@ -30,10 +31,58 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 //  Class  AIS_DataMapOfIOStatus
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::AIS_DataMapOfIOStatus::NbBuckets()
+{
+    long long unsigned int _result = ((::AIS_DataMapOfIOStatus*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::AIS_DataMapOfIOStatus::Extent()
+{
+    int _result = ((::AIS_DataMapOfIOStatus*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::AIS_DataMapOfIOStatus::Length()
+{
+    int _result = ((::AIS_DataMapOfIOStatus*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::AIS_DataMapOfIOStatus::Size()
+{
+    long long unsigned int _result = ((::AIS_DataMapOfIOStatus*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::AIS_DataMapOfIOStatus::IsEmpty()
+{
+    bool _result = ((::AIS_DataMapOfIOStatus*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::AIS_DataMapOfIOStatus::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::AIS_DataMapOfIOStatus*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::AIS_DataMapOfIOStatus::AIS_DataMapOfIOStatus()
     : Macad::Occt::BaseClass<::AIS_DataMapOfIOStatus>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::AIS_DataMapOfIOStatus();
+}
+
+Macad::Occt::AIS_DataMapOfIOStatus::AIS_DataMapOfIOStatus(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfIOStatus>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfIOStatus(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::AIS_DataMapOfIOStatus::AIS_DataMapOfIOStatus(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfIOStatus>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfIOStatus(theNbBuckets, nullptr);
 }
 
 Macad::Occt::AIS_DataMapOfIOStatus::AIS_DataMapOfIOStatus(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -45,7 +94,7 @@ Macad::Occt::AIS_DataMapOfIOStatus::AIS_DataMapOfIOStatus(int theNbBuckets, Maca
 Macad::Occt::AIS_DataMapOfIOStatus::AIS_DataMapOfIOStatus(int theNbBuckets)
     : Macad::Occt::BaseClass<::AIS_DataMapOfIOStatus>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::AIS_DataMapOfIOStatus(theNbBuckets, 0L);
+    _NativeInstance = new ::AIS_DataMapOfIOStatus(theNbBuckets, nullptr);
 }
 
 void Macad::Occt::AIS_DataMapOfIOStatus::Exchange(Macad::Occt::AIS_DataMapOfIOStatus^ theOther)
@@ -58,6 +107,11 @@ Macad::Occt::AIS_DataMapOfIOStatus^ Macad::Occt::AIS_DataMapOfIOStatus::Assign(M
     ::AIS_DataMapOfIOStatus* _result = new ::AIS_DataMapOfIOStatus();
     *_result = ((::AIS_DataMapOfIOStatus*)_NativeInstance)->Assign(*(::AIS_DataMapOfIOStatus*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_DataMapOfIOStatus(_result);
+}
+
+void Macad::Occt::AIS_DataMapOfIOStatus::ReSize(long long unsigned int N)
+{
+    ((::AIS_DataMapOfIOStatus*)_NativeInstance)->ReSize(N);
 }
 
 void Macad::Occt::AIS_DataMapOfIOStatus::ReSize(int N)
@@ -74,6 +128,18 @@ bool Macad::Occt::AIS_DataMapOfIOStatus::Bind(Macad::Occt::AIS_InteractiveObject
 Macad::Occt::AIS_GlobalStatus^ Macad::Occt::AIS_DataMapOfIOStatus::Bound(Macad::Occt::AIS_InteractiveObject^ theKey, Macad::Occt::AIS_GlobalStatus^ theItem)
 {
     throw gcnew System::NotImplementedException();
+}
+
+bool Macad::Occt::AIS_DataMapOfIOStatus::TryBind(Macad::Occt::AIS_InteractiveObject^ theKey, Macad::Occt::AIS_GlobalStatus^ theItem)
+{
+    bool _result = ((::AIS_DataMapOfIOStatus*)_NativeInstance)->TryBind(Handle(::AIS_InteractiveObject)(theKey->NativeInstance), Handle(::AIS_GlobalStatus)(theItem->NativeInstance));
+    return _result;
+}
+
+Macad::Occt::AIS_GlobalStatus^ Macad::Occt::AIS_DataMapOfIOStatus::TryBound(Macad::Occt::AIS_InteractiveObject^ theKey, Macad::Occt::AIS_GlobalStatus^ theItem)
+{
+    Handle(::AIS_GlobalStatus) _result = ((::AIS_DataMapOfIOStatus*)_NativeInstance)->TryBound(Handle(::AIS_InteractiveObject)(theKey->NativeInstance), Handle(::AIS_GlobalStatus)(theItem->NativeInstance));
+    return _result.IsNull() ? nullptr : Macad::Occt::AIS_GlobalStatus::CreateDowncasted(_result.get());
 }
 
 bool Macad::Occt::AIS_DataMapOfIOStatus::IsBound(Macad::Occt::AIS_InteractiveObject^ theKey)
@@ -99,6 +165,14 @@ Macad::Occt::AIS_GlobalStatus^ Macad::Occt::AIS_DataMapOfIOStatus::Find(Macad::O
     return _result.IsNull() ? nullptr : Macad::Occt::AIS_GlobalStatus::CreateDowncasted(_result.get());
 }
 
+bool Macad::Occt::AIS_DataMapOfIOStatus::Find(Macad::Occt::AIS_InteractiveObject^ theKey, Macad::Occt::AIS_GlobalStatus^ theValue)
+{
+    Handle(::AIS_GlobalStatus) h_theValue = theValue->NativeInstance;
+    bool _result = ((::AIS_DataMapOfIOStatus*)_NativeInstance)->Find(Handle(::AIS_InteractiveObject)(theKey->NativeInstance), h_theValue);
+    theValue->NativeInstance = h_theValue.get();
+    return _result;
+}
+
 Macad::Occt::AIS_GlobalStatus^ Macad::Occt::AIS_DataMapOfIOStatus::ChangeSeek(Macad::Occt::AIS_InteractiveObject^ theKey)
 {
     throw gcnew System::NotImplementedException();
@@ -120,10 +194,9 @@ void Macad::Occt::AIS_DataMapOfIOStatus::Clear()
     ((::AIS_DataMapOfIOStatus*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::AIS_DataMapOfIOStatus::Size()
+void Macad::Occt::AIS_DataMapOfIOStatus::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::AIS_DataMapOfIOStatus*)_NativeInstance)->Size();
-    return _result;
+    ((::AIS_DataMapOfIOStatus*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -136,6 +209,12 @@ Macad::Occt::AIS_DataMapOfIOStatus::Iterator::Iterator()
     : Macad::Occt::BaseClass<::AIS_DataMapOfIOStatus::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::AIS_DataMapOfIOStatus::Iterator();
+}
+
+Macad::Occt::AIS_DataMapOfIOStatus::Iterator::Iterator(Macad::Occt::AIS_DataMapOfIOStatus^ theMap)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfIOStatus::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfIOStatus::Iterator(*(::AIS_DataMapOfIOStatus*)theMap->NativeInstance);
 }
 
 bool Macad::Occt::AIS_DataMapOfIOStatus::Iterator::More()
@@ -170,25 +249,308 @@ Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_DataMapOfIOStatus::Iterator
 
 
 //---------------------------------------------------------------------
+//  Class  AIS_DataMapOfShapeDrawer
+//---------------------------------------------------------------------
+
+long long unsigned int Macad::Occt::AIS_DataMapOfShapeDrawer::NbBuckets()
+{
+    long long unsigned int _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::AIS_DataMapOfShapeDrawer::Extent()
+{
+    int _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::AIS_DataMapOfShapeDrawer::Length()
+{
+    int _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::AIS_DataMapOfShapeDrawer::Size()
+{
+    long long unsigned int _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::AIS_DataMapOfShapeDrawer::IsEmpty()
+{
+    bool _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::AIS_DataMapOfShapeDrawer::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer()
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer();
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer(theNbBuckets, nullptr);
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer(int theNbBuckets)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer(theNbBuckets, nullptr);
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer(Macad::Occt::TopTools_ShapeMapHasher^ theHasher)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, 1, nullptr);
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
+}
+
+void Macad::Occt::AIS_DataMapOfShapeDrawer::Exchange(Macad::Occt::AIS_DataMapOfShapeDrawer^ theOther)
+{
+    ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Exchange(*(::AIS_DataMapOfShapeDrawer*)theOther->NativeInstance);
+}
+
+Macad::Occt::TopTools_ShapeMapHasher^ Macad::Occt::AIS_DataMapOfShapeDrawer::GetHasher()
+{
+    ::TopTools_ShapeMapHasher* _result = new ::TopTools_ShapeMapHasher();
+    *_result = (::TopTools_ShapeMapHasher)((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->GetHasher();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ShapeMapHasher(_result);
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Assign(Macad::Occt::AIS_DataMapOfShapeDrawer^ theOther)
+{
+    ::AIS_DataMapOfShapeDrawer* _result = new ::AIS_DataMapOfShapeDrawer();
+    *_result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Assign(*(::AIS_DataMapOfShapeDrawer*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_DataMapOfShapeDrawer(_result);
+}
+
+void Macad::Occt::AIS_DataMapOfShapeDrawer::ReSize(long long unsigned int N)
+{
+    ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->ReSize(N);
+}
+
+void Macad::Occt::AIS_DataMapOfShapeDrawer::ReSize(int N)
+{
+    ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->ReSize(N);
+}
+
+bool Macad::Occt::AIS_DataMapOfShapeDrawer::Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::AIS_ColoredDrawer^ theItem)
+{
+    bool _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Bind(*(::TopoDS_Shape*)theKey->NativeInstance, Handle(::AIS_ColoredDrawer)(theItem->NativeInstance));
+    return _result;
+}
+
+Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::AIS_ColoredDrawer^ theItem)
+{
+    throw gcnew System::NotImplementedException();
+}
+
+bool Macad::Occt::AIS_DataMapOfShapeDrawer::TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::AIS_ColoredDrawer^ theItem)
+{
+    bool _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey->NativeInstance, Handle(::AIS_ColoredDrawer)(theItem->NativeInstance));
+    return _result;
+}
+
+Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::AIS_ColoredDrawer^ theItem)
+{
+    Handle(::AIS_ColoredDrawer) _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey->NativeInstance, Handle(::AIS_ColoredDrawer)(theItem->NativeInstance));
+    return _result.IsNull() ? nullptr : Macad::Occt::AIS_ColoredDrawer::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::AIS_DataMapOfShapeDrawer::IsBound(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    bool _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->IsBound(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::AIS_DataMapOfShapeDrawer::UnBind(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    bool _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->UnBind(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Seek(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    throw gcnew System::NotImplementedException();
+}
+
+Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Find(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    Handle(::AIS_ColoredDrawer) _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result.IsNull() ? nullptr : Macad::Occt::AIS_ColoredDrawer::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::AIS_DataMapOfShapeDrawer::Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::AIS_ColoredDrawer^ theValue)
+{
+    Handle(::AIS_ColoredDrawer) h_theValue = theValue->NativeInstance;
+    bool _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance, h_theValue);
+    theValue->NativeInstance = h_theValue.get();
+    return _result;
+}
+
+Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    throw gcnew System::NotImplementedException();
+}
+
+Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::ChangeFind(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    Handle(::AIS_ColoredDrawer) _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->ChangeFind(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result.IsNull() ? nullptr : Macad::Occt::AIS_ColoredDrawer::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::AIS_DataMapOfShapeDrawer::Clear(bool doReleaseMemory)
+{
+    ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Clear(doReleaseMemory);
+}
+
+void Macad::Occt::AIS_DataMapOfShapeDrawer::Clear()
+{
+    ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Clear(false);
+}
+
+void Macad::Occt::AIS_DataMapOfShapeDrawer::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  AIS_DataMapOfShapeDrawer::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer::Iterator();
+}
+
+Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::Iterator(Macad::Occt::AIS_DataMapOfShapeDrawer^ theMap)
+    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_DataMapOfShapeDrawer::Iterator(*(::AIS_DataMapOfShapeDrawer*)theMap->NativeInstance);
+}
+
+bool Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::More()
+{
+    bool _result = ((::AIS_DataMapOfShapeDrawer::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::Next()
+{
+    ((::AIS_DataMapOfShapeDrawer::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::Value()
+{
+    Handle(::AIS_ColoredDrawer) _result = ((::AIS_DataMapOfShapeDrawer::Iterator*)_NativeInstance)->Value();
+    return _result.IsNull() ? nullptr : Macad::Occt::AIS_ColoredDrawer::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::ChangeValue()
+{
+    Handle(::AIS_ColoredDrawer) _result = ((::AIS_DataMapOfShapeDrawer::Iterator*)_NativeInstance)->ChangeValue();
+    return _result.IsNull() ? nullptr : Macad::Occt::AIS_ColoredDrawer::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TopoDS_Shape^ Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::Key()
+{
+    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
+    *_result = (::TopoDS_Shape)((::AIS_DataMapOfShapeDrawer::Iterator*)_NativeInstance)->Key();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
+}
+
+
+
+//---------------------------------------------------------------------
 //  Class  AIS_ListOfInteractive
 //---------------------------------------------------------------------
 
+int Macad::Occt::AIS_ListOfInteractive::Extent()
+{
+    int _result = ((::AIS_ListOfInteractive*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::AIS_ListOfInteractive::Length()
+{
+    int _result = ((::AIS_ListOfInteractive*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::AIS_ListOfInteractive::Size()
+{
+    long long unsigned int _result = ((::AIS_ListOfInteractive*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::AIS_ListOfInteractive::IsEmpty()
+{
+    bool _result = ((::AIS_ListOfInteractive*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::AIS_ListOfInteractive::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::AIS_ListOfInteractive*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::AIS_ListOfInteractive::AIS_ListOfInteractive()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::AIS_ListOfInteractive>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::AIS_ListOfInteractive();
 }
 
 Macad::Occt::AIS_ListOfInteractive::AIS_ListOfInteractive(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::AIS_ListOfInteractive>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::AIS_ListOfInteractive(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::AIS_ListOfInteractive::Size()
-{
-    int _result = ((::AIS_ListOfInteractive*)_NativeInstance)->Size();
-    return _result;
 }
 
 Macad::Occt::AIS_ListOfInteractive^ Macad::Occt::AIS_ListOfInteractive::Assign(Macad::Occt::AIS_ListOfInteractive^ theOther)
@@ -205,7 +567,7 @@ void Macad::Occt::AIS_ListOfInteractive::Clear(Macad::Occt::NCollection_BaseAllo
 
 void Macad::Occt::AIS_ListOfInteractive::Clear()
 {
-    ((::AIS_ListOfInteractive*)_NativeInstance)->Clear(0L);
+    ((::AIS_ListOfInteractive*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ListOfInteractive::First()
@@ -226,10 +588,25 @@ Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ListOfInteractive::Append(M
     return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::AIS_ListOfInteractive::Append(Macad::Occt::AIS_InteractiveObject^ theItem, Macad::Occt::AIS_ListOfInteractive::Iterator^ theIter)
+{
+    ((::AIS_ListOfInteractive*)_NativeInstance)->Append(Handle(::AIS_InteractiveObject)(theItem->NativeInstance), *(::AIS_ListOfInteractive::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::AIS_ListOfInteractive::Append(Macad::Occt::AIS_ListOfInteractive^ theOther)
+{
+    ((::AIS_ListOfInteractive*)_NativeInstance)->Append(*(::AIS_ListOfInteractive*)theOther->NativeInstance);
+}
+
 Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ListOfInteractive::Prepend(Macad::Occt::AIS_InteractiveObject^ theItem)
 {
     Handle(::AIS_InteractiveObject) _result = ((::AIS_ListOfInteractive*)_NativeInstance)->Prepend(Handle(::AIS_InteractiveObject)(theItem->NativeInstance));
     return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::AIS_ListOfInteractive::Prepend(Macad::Occt::AIS_ListOfInteractive^ theOther)
+{
+    ((::AIS_ListOfInteractive*)_NativeInstance)->Prepend(*(::AIS_ListOfInteractive*)theOther->NativeInstance);
 }
 
 void Macad::Occt::AIS_ListOfInteractive::RemoveFirst()
@@ -248,15 +625,30 @@ Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ListOfInteractive::InsertBe
     return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::AIS_ListOfInteractive::InsertBefore(Macad::Occt::AIS_ListOfInteractive^ theOther, Macad::Occt::AIS_ListOfInteractive::Iterator^ theIter)
+{
+    ((::AIS_ListOfInteractive*)_NativeInstance)->InsertBefore(*(::AIS_ListOfInteractive*)theOther->NativeInstance, *(::AIS_ListOfInteractive::Iterator*)theIter->NativeInstance);
+}
+
 Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ListOfInteractive::InsertAfter(Macad::Occt::AIS_InteractiveObject^ theItem, Macad::Occt::AIS_ListOfInteractive::Iterator^ theIter)
 {
     Handle(::AIS_InteractiveObject) _result = ((::AIS_ListOfInteractive*)_NativeInstance)->InsertAfter(Handle(::AIS_InteractiveObject)(theItem->NativeInstance), *(::AIS_ListOfInteractive::Iterator*)theIter->NativeInstance);
     return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::AIS_ListOfInteractive::InsertAfter(Macad::Occt::AIS_ListOfInteractive^ theOther, Macad::Occt::AIS_ListOfInteractive::Iterator^ theIter)
+{
+    ((::AIS_ListOfInteractive*)_NativeInstance)->InsertAfter(*(::AIS_ListOfInteractive*)theOther->NativeInstance, *(::AIS_ListOfInteractive::Iterator*)theIter->NativeInstance);
+}
+
 void Macad::Occt::AIS_ListOfInteractive::Reverse()
 {
     ((::AIS_ListOfInteractive*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::AIS_ListOfInteractive::Exchange(Macad::Occt::AIS_ListOfInteractive^ theOther)
+{
+    ((::AIS_ListOfInteractive*)_NativeInstance)->Exchange(*(::AIS_ListOfInteractive*)theOther->NativeInstance);
 }
 
 
@@ -269,6 +661,12 @@ Macad::Occt::AIS_ListOfInteractive::Iterator::Iterator()
     : Macad::Occt::BaseClass<::AIS_ListOfInteractive::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::AIS_ListOfInteractive::Iterator();
+}
+
+Macad::Occt::AIS_ListOfInteractive::Iterator::Iterator(Macad::Occt::NCollection_BaseList^ theList)
+    : Macad::Occt::BaseClass<::AIS_ListOfInteractive::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_ListOfInteractive::Iterator(*(::NCollection_BaseList*)theList->NativeInstance);
 }
 
 bool Macad::Occt::AIS_ListOfInteractive::Iterator::More()
@@ -324,14 +722,20 @@ Macad::Occt::AIS_NArray1OfEntityOwner::AIS_NArray1OfEntityOwner(Macad::Occt::Sel
     _NativeInstance = new ::AIS_NArray1OfEntityOwner(Handle(::SelectMgr_EntityOwner)(theBegin->NativeInstance), theLower, theUpper, true);
 }
 
+Macad::Occt::AIS_NArray1OfEntityOwner::AIS_NArray1OfEntityOwner(long long unsigned int theSize)
+    : Macad::Occt::BaseClass<::AIS_NArray1OfEntityOwner>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_NArray1OfEntityOwner(theSize);
+}
+
 void Macad::Occt::AIS_NArray1OfEntityOwner::Init(Macad::Occt::SelectMgr_EntityOwner^ theValue)
 {
     ((::AIS_NArray1OfEntityOwner*)_NativeInstance)->Init(Handle(::SelectMgr_EntityOwner)(theValue->NativeInstance));
 }
 
-int Macad::Occt::AIS_NArray1OfEntityOwner::Size()
+long long unsigned int Macad::Occt::AIS_NArray1OfEntityOwner::Size()
 {
-    int _result = ((::AIS_NArray1OfEntityOwner*)_NativeInstance)->Size();
+    long long unsigned int _result = ((::AIS_NArray1OfEntityOwner*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -363,6 +767,13 @@ Macad::Occt::AIS_NArray1OfEntityOwner^ Macad::Occt::AIS_NArray1OfEntityOwner::As
 {
     ::AIS_NArray1OfEntityOwner* _result = new ::AIS_NArray1OfEntityOwner();
     *_result = ((::AIS_NArray1OfEntityOwner*)_NativeInstance)->Assign(*(::AIS_NArray1OfEntityOwner*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_NArray1OfEntityOwner(_result);
+}
+
+Macad::Occt::AIS_NArray1OfEntityOwner^ Macad::Occt::AIS_NArray1OfEntityOwner::CopyValues(Macad::Occt::AIS_NArray1OfEntityOwner^ theOther)
+{
+    ::AIS_NArray1OfEntityOwner* _result = new ::AIS_NArray1OfEntityOwner();
+    *_result = ((::AIS_NArray1OfEntityOwner*)_NativeInstance)->CopyValues(*(::AIS_NArray1OfEntityOwner*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_NArray1OfEntityOwner(_result);
 }
 
@@ -409,6 +820,18 @@ Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::AIS_NArray1OfEntityOwner::Chang
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
 }
 
+Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::AIS_NArray1OfEntityOwner::At(long long unsigned int theIndex)
+{
+    Handle(::SelectMgr_EntityOwner) _result = ((::AIS_NArray1OfEntityOwner*)_NativeInstance)->At(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::AIS_NArray1OfEntityOwner::ChangeAt(long long unsigned int theIndex)
+{
+    Handle(::SelectMgr_EntityOwner) _result = ((::AIS_NArray1OfEntityOwner*)_NativeInstance)->ChangeAt(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
+}
+
 void Macad::Occt::AIS_NArray1OfEntityOwner::SetValue(int theIndex, Macad::Occt::SelectMgr_EntityOwner^ theItem)
 {
     ((::AIS_NArray1OfEntityOwner*)_NativeInstance)->SetValue(theIndex, Handle(::SelectMgr_EntityOwner)(theItem->NativeInstance));
@@ -427,6 +850,11 @@ void Macad::Occt::AIS_NArray1OfEntityOwner::UpdateUpperBound(int theUpper)
 void Macad::Occt::AIS_NArray1OfEntityOwner::Resize(int theLower, int theUpper, bool theToCopyData)
 {
     ((::AIS_NArray1OfEntityOwner*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
+}
+
+void Macad::Occt::AIS_NArray1OfEntityOwner::Resize(long long unsigned int theSize, bool theToCopyData)
+{
+    ((::AIS_NArray1OfEntityOwner*)_NativeInstance)->Resize(theSize, theToCopyData);
 }
 
 bool Macad::Occt::AIS_NArray1OfEntityOwner::IsDeletable()
@@ -490,22 +918,46 @@ Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::AIS_NArray1OfEntityOwner::Itera
 //  Class  AIS_NListOfEntityOwner
 //---------------------------------------------------------------------
 
+int Macad::Occt::AIS_NListOfEntityOwner::Extent()
+{
+    int _result = ((::AIS_NListOfEntityOwner*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::AIS_NListOfEntityOwner::Length()
+{
+    int _result = ((::AIS_NListOfEntityOwner*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::AIS_NListOfEntityOwner::Size()
+{
+    long long unsigned int _result = ((::AIS_NListOfEntityOwner*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::AIS_NListOfEntityOwner::IsEmpty()
+{
+    bool _result = ((::AIS_NListOfEntityOwner*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::AIS_NListOfEntityOwner::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::AIS_NListOfEntityOwner*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::AIS_NListOfEntityOwner::AIS_NListOfEntityOwner()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::AIS_NListOfEntityOwner>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::AIS_NListOfEntityOwner();
 }
 
 Macad::Occt::AIS_NListOfEntityOwner::AIS_NListOfEntityOwner(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::AIS_NListOfEntityOwner>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::AIS_NListOfEntityOwner(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::AIS_NListOfEntityOwner::Size()
-{
-    int _result = ((::AIS_NListOfEntityOwner*)_NativeInstance)->Size();
-    return _result;
 }
 
 Macad::Occt::AIS_NListOfEntityOwner^ Macad::Occt::AIS_NListOfEntityOwner::Assign(Macad::Occt::AIS_NListOfEntityOwner^ theOther)
@@ -522,7 +974,7 @@ void Macad::Occt::AIS_NListOfEntityOwner::Clear(Macad::Occt::NCollection_BaseAll
 
 void Macad::Occt::AIS_NListOfEntityOwner::Clear()
 {
-    ((::AIS_NListOfEntityOwner*)_NativeInstance)->Clear(0L);
+    ((::AIS_NListOfEntityOwner*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::AIS_NListOfEntityOwner::First()
@@ -543,10 +995,25 @@ Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::AIS_NListOfEntityOwner::Append(
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::AIS_NListOfEntityOwner::Append(Macad::Occt::SelectMgr_EntityOwner^ theItem, Macad::Occt::AIS_NListOfEntityOwner::Iterator^ theIter)
+{
+    ((::AIS_NListOfEntityOwner*)_NativeInstance)->Append(Handle(::SelectMgr_EntityOwner)(theItem->NativeInstance), *(::AIS_NListOfEntityOwner::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::AIS_NListOfEntityOwner::Append(Macad::Occt::AIS_NListOfEntityOwner^ theOther)
+{
+    ((::AIS_NListOfEntityOwner*)_NativeInstance)->Append(*(::AIS_NListOfEntityOwner*)theOther->NativeInstance);
+}
+
 Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::AIS_NListOfEntityOwner::Prepend(Macad::Occt::SelectMgr_EntityOwner^ theItem)
 {
     Handle(::SelectMgr_EntityOwner) _result = ((::AIS_NListOfEntityOwner*)_NativeInstance)->Prepend(Handle(::SelectMgr_EntityOwner)(theItem->NativeInstance));
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::AIS_NListOfEntityOwner::Prepend(Macad::Occt::AIS_NListOfEntityOwner^ theOther)
+{
+    ((::AIS_NListOfEntityOwner*)_NativeInstance)->Prepend(*(::AIS_NListOfEntityOwner*)theOther->NativeInstance);
 }
 
 void Macad::Occt::AIS_NListOfEntityOwner::RemoveFirst()
@@ -565,15 +1032,30 @@ Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::AIS_NListOfEntityOwner::InsertB
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::AIS_NListOfEntityOwner::InsertBefore(Macad::Occt::AIS_NListOfEntityOwner^ theOther, Macad::Occt::AIS_NListOfEntityOwner::Iterator^ theIter)
+{
+    ((::AIS_NListOfEntityOwner*)_NativeInstance)->InsertBefore(*(::AIS_NListOfEntityOwner*)theOther->NativeInstance, *(::AIS_NListOfEntityOwner::Iterator*)theIter->NativeInstance);
+}
+
 Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::AIS_NListOfEntityOwner::InsertAfter(Macad::Occt::SelectMgr_EntityOwner^ theItem, Macad::Occt::AIS_NListOfEntityOwner::Iterator^ theIter)
 {
     Handle(::SelectMgr_EntityOwner) _result = ((::AIS_NListOfEntityOwner*)_NativeInstance)->InsertAfter(Handle(::SelectMgr_EntityOwner)(theItem->NativeInstance), *(::AIS_NListOfEntityOwner::Iterator*)theIter->NativeInstance);
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::AIS_NListOfEntityOwner::InsertAfter(Macad::Occt::AIS_NListOfEntityOwner^ theOther, Macad::Occt::AIS_NListOfEntityOwner::Iterator^ theIter)
+{
+    ((::AIS_NListOfEntityOwner*)_NativeInstance)->InsertAfter(*(::AIS_NListOfEntityOwner*)theOther->NativeInstance, *(::AIS_NListOfEntityOwner::Iterator*)theIter->NativeInstance);
+}
+
 void Macad::Occt::AIS_NListOfEntityOwner::Reverse()
 {
     ((::AIS_NListOfEntityOwner*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::AIS_NListOfEntityOwner::Exchange(Macad::Occt::AIS_NListOfEntityOwner^ theOther)
+{
+    ((::AIS_NListOfEntityOwner*)_NativeInstance)->Exchange(*(::AIS_NListOfEntityOwner*)theOther->NativeInstance);
 }
 
 
@@ -586,6 +1068,12 @@ Macad::Occt::AIS_NListOfEntityOwner::Iterator::Iterator()
     : Macad::Occt::BaseClass<::AIS_NListOfEntityOwner::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::AIS_NListOfEntityOwner::Iterator();
+}
+
+Macad::Occt::AIS_NListOfEntityOwner::Iterator::Iterator(Macad::Occt::NCollection_BaseList^ theList)
+    : Macad::Occt::BaseClass<::AIS_NListOfEntityOwner::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::AIS_NListOfEntityOwner::Iterator(*(::NCollection_BaseList*)theList->NativeInstance);
 }
 
 bool Macad::Occt::AIS_NListOfEntityOwner::Iterator::More()
@@ -609,462 +1097,6 @@ Macad::Occt::SelectMgr_EntityOwner^ Macad::Occt::AIS_NListOfEntityOwner::Iterato
 {
     Handle(::SelectMgr_EntityOwner) _result = ((::AIS_NListOfEntityOwner::Iterator*)_NativeInstance)->ChangeValue();
     return _result.IsNull() ? nullptr : Macad::Occt::SelectMgr_EntityOwner::CreateDowncasted(_result.get());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  AIS_DataMapOfShapeDrawer
-//---------------------------------------------------------------------
-
-Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer()
-    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_DataMapOfShapeDrawer();
-}
-
-Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_DataMapOfShapeDrawer(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::AIS_DataMapOfShapeDrawer::AIS_DataMapOfShapeDrawer(int theNbBuckets)
-    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_DataMapOfShapeDrawer(theNbBuckets, 0L);
-}
-
-void Macad::Occt::AIS_DataMapOfShapeDrawer::Exchange(Macad::Occt::AIS_DataMapOfShapeDrawer^ theOther)
-{
-    ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Exchange(*(::AIS_DataMapOfShapeDrawer*)theOther->NativeInstance);
-}
-
-Macad::Occt::AIS_DataMapOfShapeDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Assign(Macad::Occt::AIS_DataMapOfShapeDrawer^ theOther)
-{
-    ::AIS_DataMapOfShapeDrawer* _result = new ::AIS_DataMapOfShapeDrawer();
-    *_result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Assign(*(::AIS_DataMapOfShapeDrawer*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_DataMapOfShapeDrawer(_result);
-}
-
-void Macad::Occt::AIS_DataMapOfShapeDrawer::ReSize(int N)
-{
-    ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->ReSize(N);
-}
-
-bool Macad::Occt::AIS_DataMapOfShapeDrawer::Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::AIS_ColoredDrawer^ theItem)
-{
-    bool _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Bind(*(::TopoDS_Shape*)theKey->NativeInstance, Handle(::AIS_ColoredDrawer)(theItem->NativeInstance));
-    return _result;
-}
-
-Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::AIS_ColoredDrawer^ theItem)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-bool Macad::Occt::AIS_DataMapOfShapeDrawer::IsBound(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    bool _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->IsBound(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::AIS_DataMapOfShapeDrawer::UnBind(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    bool _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->UnBind(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result;
-}
-
-Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Seek(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Find(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    Handle(::AIS_ColoredDrawer) _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_ColoredDrawer::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::ChangeFind(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    Handle(::AIS_ColoredDrawer) _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->ChangeFind(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_ColoredDrawer::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::AIS_DataMapOfShapeDrawer::Clear(bool doReleaseMemory)
-{
-    ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::AIS_DataMapOfShapeDrawer::Clear()
-{
-    ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::AIS_DataMapOfShapeDrawer::Size()
-{
-    int _result = ((::AIS_DataMapOfShapeDrawer*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  AIS_DataMapOfShapeDrawer::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::AIS_DataMapOfShapeDrawer::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_DataMapOfShapeDrawer::Iterator();
-}
-
-bool Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::More()
-{
-    bool _result = ((::AIS_DataMapOfShapeDrawer::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::Next()
-{
-    ((::AIS_DataMapOfShapeDrawer::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::Value()
-{
-    Handle(::AIS_ColoredDrawer) _result = ((::AIS_DataMapOfShapeDrawer::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_ColoredDrawer::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::AIS_ColoredDrawer^ Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::ChangeValue()
-{
-    Handle(::AIS_ColoredDrawer) _result = ((::AIS_DataMapOfShapeDrawer::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_ColoredDrawer::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TopoDS_Shape^ Macad::Occt::AIS_DataMapOfShapeDrawer::Iterator::Key()
-{
-    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
-    *_result = (::TopoDS_Shape)((::AIS_DataMapOfShapeDrawer::Iterator*)_NativeInstance)->Key();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  AIS_MouseGestureMap
-//---------------------------------------------------------------------
-
-Macad::Occt::AIS_MouseGestureMap::AIS_MouseGestureMap()
-    : Macad::Occt::BaseClass<::AIS_MouseGestureMap>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_MouseGestureMap();
-}
-
-Macad::Occt::AIS_MouseGestureMap::AIS_MouseGestureMap(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::AIS_MouseGestureMap>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_MouseGestureMap(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::AIS_MouseGestureMap::AIS_MouseGestureMap(int theNbBuckets)
-    : Macad::Occt::BaseClass<::AIS_MouseGestureMap>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_MouseGestureMap(theNbBuckets, 0L);
-}
-
-void Macad::Occt::AIS_MouseGestureMap::Exchange(Macad::Occt::AIS_MouseGestureMap^ theOther)
-{
-    ((::AIS_MouseGestureMap*)_NativeInstance)->Exchange(*(::AIS_MouseGestureMap*)theOther->NativeInstance);
-}
-
-Macad::Occt::AIS_MouseGestureMap^ Macad::Occt::AIS_MouseGestureMap::Assign(Macad::Occt::AIS_MouseGestureMap^ theOther)
-{
-    ::AIS_MouseGestureMap* _result = new ::AIS_MouseGestureMap();
-    *_result = ((::AIS_MouseGestureMap*)_NativeInstance)->Assign(*(::AIS_MouseGestureMap*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_MouseGestureMap(_result);
-}
-
-void Macad::Occt::AIS_MouseGestureMap::ReSize(int N)
-{
-    ((::AIS_MouseGestureMap*)_NativeInstance)->ReSize(N);
-}
-
-bool Macad::Occt::AIS_MouseGestureMap::Bind(unsigned int theKey, Macad::Occt::AIS_MouseGesture theItem)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    pin_ptr<Macad::Occt::AIS_MouseGesture> pp_theItem = &theItem;
-    bool _result = ((::AIS_MouseGestureMap*)_NativeInstance)->Bind(*(unsigned int*)pp_theKey, *(::AIS_MouseGesture*)pp_theItem);
-    return _result;
-}
-
-Macad::Occt::AIS_MouseGesture Macad::Occt::AIS_MouseGestureMap::Bound(unsigned int theKey, Macad::Occt::AIS_MouseGesture theItem)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    pin_ptr<Macad::Occt::AIS_MouseGesture> pp_theItem = &theItem;
-    const ::AIS_MouseGesture* _result = ((::AIS_MouseGestureMap*)_NativeInstance)->Bound(*(unsigned int*)pp_theKey, *(::AIS_MouseGesture*)pp_theItem);
-    return (Macad::Occt::AIS_MouseGesture)*_result;
-}
-
-bool Macad::Occt::AIS_MouseGestureMap::IsBound(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    bool _result = ((::AIS_MouseGestureMap*)_NativeInstance)->IsBound(*(unsigned int*)pp_theKey);
-    return _result;
-}
-
-bool Macad::Occt::AIS_MouseGestureMap::UnBind(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    bool _result = ((::AIS_MouseGestureMap*)_NativeInstance)->UnBind(*(unsigned int*)pp_theKey);
-    return _result;
-}
-
-Macad::Occt::AIS_MouseGesture Macad::Occt::AIS_MouseGestureMap::Seek(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    const ::AIS_MouseGesture* _result = ((::AIS_MouseGestureMap*)_NativeInstance)->Seek(*(unsigned int*)pp_theKey);
-    return (Macad::Occt::AIS_MouseGesture)*_result;
-}
-
-Macad::Occt::AIS_MouseGesture Macad::Occt::AIS_MouseGestureMap::Find(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    ::AIS_MouseGesture _result = ((::AIS_MouseGestureMap*)_NativeInstance)->Find(*(unsigned int*)pp_theKey);
-    return (Macad::Occt::AIS_MouseGesture)_result;
-}
-
-Macad::Occt::AIS_MouseGesture Macad::Occt::AIS_MouseGestureMap::ChangeSeek(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    const ::AIS_MouseGesture* _result = ((::AIS_MouseGestureMap*)_NativeInstance)->ChangeSeek(*(unsigned int*)pp_theKey);
-    return (Macad::Occt::AIS_MouseGesture)*_result;
-}
-
-Macad::Occt::AIS_MouseGesture Macad::Occt::AIS_MouseGestureMap::ChangeFind(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    ::AIS_MouseGesture _result = ((::AIS_MouseGestureMap*)_NativeInstance)->ChangeFind(*(unsigned int*)pp_theKey);
-    return (Macad::Occt::AIS_MouseGesture)_result;
-}
-
-void Macad::Occt::AIS_MouseGestureMap::Clear(bool doReleaseMemory)
-{
-    ((::AIS_MouseGestureMap*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::AIS_MouseGestureMap::Clear()
-{
-    ((::AIS_MouseGestureMap*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::AIS_MouseGestureMap::Size()
-{
-    int _result = ((::AIS_MouseGestureMap*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  AIS_MouseGestureMap::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::AIS_MouseGestureMap::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::AIS_MouseGestureMap::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_MouseGestureMap::Iterator();
-}
-
-bool Macad::Occt::AIS_MouseGestureMap::Iterator::More()
-{
-    bool _result = ((::AIS_MouseGestureMap::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::AIS_MouseGestureMap::Iterator::Next()
-{
-    ((::AIS_MouseGestureMap::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::AIS_MouseGesture Macad::Occt::AIS_MouseGestureMap::Iterator::Value()
-{
-    ::AIS_MouseGesture _result = ((::AIS_MouseGestureMap::Iterator*)_NativeInstance)->Value();
-    return (Macad::Occt::AIS_MouseGesture)_result;
-}
-
-Macad::Occt::AIS_MouseGesture Macad::Occt::AIS_MouseGestureMap::Iterator::ChangeValue()
-{
-    ::AIS_MouseGesture _result = ((::AIS_MouseGestureMap::Iterator*)_NativeInstance)->ChangeValue();
-    return (Macad::Occt::AIS_MouseGesture)_result;
-}
-
-unsigned int Macad::Occt::AIS_MouseGestureMap::Iterator::Key()
-{
-    unsigned int _result = ((::AIS_MouseGestureMap::Iterator*)_NativeInstance)->Key();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  AIS_MouseSelectionSchemeMap
-//---------------------------------------------------------------------
-
-Macad::Occt::AIS_MouseSelectionSchemeMap::AIS_MouseSelectionSchemeMap()
-    : Macad::Occt::BaseClass<::AIS_MouseSelectionSchemeMap>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_MouseSelectionSchemeMap();
-}
-
-Macad::Occt::AIS_MouseSelectionSchemeMap::AIS_MouseSelectionSchemeMap(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::AIS_MouseSelectionSchemeMap>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_MouseSelectionSchemeMap(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::AIS_MouseSelectionSchemeMap::AIS_MouseSelectionSchemeMap(int theNbBuckets)
-    : Macad::Occt::BaseClass<::AIS_MouseSelectionSchemeMap>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_MouseSelectionSchemeMap(theNbBuckets, 0L);
-}
-
-void Macad::Occt::AIS_MouseSelectionSchemeMap::Exchange(Macad::Occt::AIS_MouseSelectionSchemeMap^ theOther)
-{
-    ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->Exchange(*(::AIS_MouseSelectionSchemeMap*)theOther->NativeInstance);
-}
-
-Macad::Occt::AIS_MouseSelectionSchemeMap^ Macad::Occt::AIS_MouseSelectionSchemeMap::Assign(Macad::Occt::AIS_MouseSelectionSchemeMap^ theOther)
-{
-    ::AIS_MouseSelectionSchemeMap* _result = new ::AIS_MouseSelectionSchemeMap();
-    *_result = ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->Assign(*(::AIS_MouseSelectionSchemeMap*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_MouseSelectionSchemeMap(_result);
-}
-
-void Macad::Occt::AIS_MouseSelectionSchemeMap::ReSize(int N)
-{
-    ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->ReSize(N);
-}
-
-bool Macad::Occt::AIS_MouseSelectionSchemeMap::Bind(unsigned int theKey, Macad::Occt::AIS_SelectionScheme theItem)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    pin_ptr<Macad::Occt::AIS_SelectionScheme> pp_theItem = &theItem;
-    bool _result = ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->Bind(*(unsigned int*)pp_theKey, *(::AIS_SelectionScheme*)pp_theItem);
-    return _result;
-}
-
-Macad::Occt::AIS_SelectionScheme Macad::Occt::AIS_MouseSelectionSchemeMap::Bound(unsigned int theKey, Macad::Occt::AIS_SelectionScheme theItem)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    pin_ptr<Macad::Occt::AIS_SelectionScheme> pp_theItem = &theItem;
-    const ::AIS_SelectionScheme* _result = ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->Bound(*(unsigned int*)pp_theKey, *(::AIS_SelectionScheme*)pp_theItem);
-    return (Macad::Occt::AIS_SelectionScheme)*_result;
-}
-
-bool Macad::Occt::AIS_MouseSelectionSchemeMap::IsBound(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    bool _result = ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->IsBound(*(unsigned int*)pp_theKey);
-    return _result;
-}
-
-bool Macad::Occt::AIS_MouseSelectionSchemeMap::UnBind(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    bool _result = ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->UnBind(*(unsigned int*)pp_theKey);
-    return _result;
-}
-
-Macad::Occt::AIS_SelectionScheme Macad::Occt::AIS_MouseSelectionSchemeMap::Seek(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    const ::AIS_SelectionScheme* _result = ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->Seek(*(unsigned int*)pp_theKey);
-    return (Macad::Occt::AIS_SelectionScheme)*_result;
-}
-
-Macad::Occt::AIS_SelectionScheme Macad::Occt::AIS_MouseSelectionSchemeMap::Find(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    ::AIS_SelectionScheme _result = ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->Find(*(unsigned int*)pp_theKey);
-    return (Macad::Occt::AIS_SelectionScheme)_result;
-}
-
-Macad::Occt::AIS_SelectionScheme Macad::Occt::AIS_MouseSelectionSchemeMap::ChangeSeek(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    const ::AIS_SelectionScheme* _result = ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->ChangeSeek(*(unsigned int*)pp_theKey);
-    return (Macad::Occt::AIS_SelectionScheme)*_result;
-}
-
-Macad::Occt::AIS_SelectionScheme Macad::Occt::AIS_MouseSelectionSchemeMap::ChangeFind(unsigned int theKey)
-{
-    pin_ptr<unsigned int> pp_theKey = &theKey;
-    ::AIS_SelectionScheme _result = ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->ChangeFind(*(unsigned int*)pp_theKey);
-    return (Macad::Occt::AIS_SelectionScheme)_result;
-}
-
-void Macad::Occt::AIS_MouseSelectionSchemeMap::Clear(bool doReleaseMemory)
-{
-    ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::AIS_MouseSelectionSchemeMap::Clear()
-{
-    ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::AIS_MouseSelectionSchemeMap::Size()
-{
-    int _result = ((::AIS_MouseSelectionSchemeMap*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  AIS_MouseSelectionSchemeMap::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::AIS_MouseSelectionSchemeMap::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::AIS_MouseSelectionSchemeMap::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_MouseSelectionSchemeMap::Iterator();
-}
-
-bool Macad::Occt::AIS_MouseSelectionSchemeMap::Iterator::More()
-{
-    bool _result = ((::AIS_MouseSelectionSchemeMap::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::AIS_MouseSelectionSchemeMap::Iterator::Next()
-{
-    ((::AIS_MouseSelectionSchemeMap::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::AIS_SelectionScheme Macad::Occt::AIS_MouseSelectionSchemeMap::Iterator::Value()
-{
-    ::AIS_SelectionScheme _result = ((::AIS_MouseSelectionSchemeMap::Iterator*)_NativeInstance)->Value();
-    return (Macad::Occt::AIS_SelectionScheme)_result;
-}
-
-Macad::Occt::AIS_SelectionScheme Macad::Occt::AIS_MouseSelectionSchemeMap::Iterator::ChangeValue()
-{
-    ::AIS_SelectionScheme _result = ((::AIS_MouseSelectionSchemeMap::Iterator*)_NativeInstance)->ChangeValue();
-    return (Macad::Occt::AIS_SelectionScheme)_result;
-}
-
-unsigned int Macad::Occt::AIS_MouseSelectionSchemeMap::Iterator::Key()
-{
-    unsigned int _result = ((::AIS_MouseSelectionSchemeMap::Iterator*)_NativeInstance)->Key();
-    return _result;
 }
 
 
@@ -1181,6 +1213,159 @@ Macad::Occt::AIS::AIS()
     : Macad::Occt::BaseClass<::AIS>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::AIS();
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  AIS_Animation
+//---------------------------------------------------------------------
+
+Macad::Occt::AIS_Animation::AIS_Animation(Macad::Occt::TCollection_AsciiString^ theAnimationName)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::AIS_Animation(*(::TCollection_AsciiString*)theAnimationName->NativeInstance);
+}
+
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::AIS_Animation::Name()
+{
+    ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
+    *_result = (::TCollection_AsciiString)((::AIS_Animation*)_NativeInstance)->Name();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
+}
+
+double Macad::Occt::AIS_Animation::StartPts()
+{
+    double _result = ((::AIS_Animation*)_NativeInstance)->StartPts();
+    return _result;
+}
+
+void Macad::Occt::AIS_Animation::SetStartPts(double thePtsStart)
+{
+    ((::AIS_Animation*)_NativeInstance)->SetStartPts(thePtsStart);
+}
+
+double Macad::Occt::AIS_Animation::Duration()
+{
+    double _result = ((::AIS_Animation*)_NativeInstance)->Duration();
+    return _result;
+}
+
+void Macad::Occt::AIS_Animation::UpdateTotalDuration()
+{
+    ((::AIS_Animation*)_NativeInstance)->UpdateTotalDuration();
+}
+
+bool Macad::Occt::AIS_Animation::HasOwnDuration()
+{
+    bool _result = ((::AIS_Animation*)_NativeInstance)->HasOwnDuration();
+    return _result;
+}
+
+double Macad::Occt::AIS_Animation::OwnDuration()
+{
+    double _result = ((::AIS_Animation*)_NativeInstance)->OwnDuration();
+    return _result;
+}
+
+void Macad::Occt::AIS_Animation::SetOwnDuration(double theDuration)
+{
+    ((::AIS_Animation*)_NativeInstance)->SetOwnDuration(theDuration);
+}
+
+void Macad::Occt::AIS_Animation::Add(Macad::Occt::AIS_Animation^ theAnimation)
+{
+    ((::AIS_Animation*)_NativeInstance)->Add(Handle(::AIS_Animation)(theAnimation->NativeInstance));
+}
+
+void Macad::Occt::AIS_Animation::Clear()
+{
+    ((::AIS_Animation*)_NativeInstance)->Clear();
+}
+
+Macad::Occt::AIS_Animation^ Macad::Occt::AIS_Animation::Find(Macad::Occt::TCollection_AsciiString^ theAnimationName)
+{
+    Handle(::AIS_Animation) _result = ((::AIS_Animation*)_NativeInstance)->Find(*(::TCollection_AsciiString*)theAnimationName->NativeInstance);
+    return _result.IsNull() ? nullptr : Macad::Occt::AIS_Animation::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::AIS_Animation::Remove(Macad::Occt::AIS_Animation^ theAnimation)
+{
+    bool _result = ((::AIS_Animation*)_NativeInstance)->Remove(Handle(::AIS_Animation)(theAnimation->NativeInstance));
+    return _result;
+}
+
+bool Macad::Occt::AIS_Animation::Replace(Macad::Occt::AIS_Animation^ theAnimationOld, Macad::Occt::AIS_Animation^ theAnimationNew)
+{
+    bool _result = ((::AIS_Animation*)_NativeInstance)->Replace(Handle(::AIS_Animation)(theAnimationOld->NativeInstance), Handle(::AIS_Animation)(theAnimationNew->NativeInstance));
+    return _result;
+}
+
+void Macad::Occt::AIS_Animation::CopyFrom(Macad::Occt::AIS_Animation^ theOther)
+{
+    ((::AIS_Animation*)_NativeInstance)->CopyFrom(Handle(::AIS_Animation)(theOther->NativeInstance));
+}
+
+void Macad::Occt::AIS_Animation::StartTimer(double theStartPts, double thePlaySpeed, bool theToUpdate, bool theToStopTimer)
+{
+    ((::AIS_Animation*)_NativeInstance)->StartTimer(theStartPts, thePlaySpeed, theToUpdate, theToStopTimer);
+}
+
+void Macad::Occt::AIS_Animation::StartTimer(double theStartPts, double thePlaySpeed, bool theToUpdate)
+{
+    ((::AIS_Animation*)_NativeInstance)->StartTimer(theStartPts, thePlaySpeed, theToUpdate, false);
+}
+
+double Macad::Occt::AIS_Animation::UpdateTimer()
+{
+    double _result = ((::AIS_Animation*)_NativeInstance)->UpdateTimer();
+    return _result;
+}
+
+double Macad::Occt::AIS_Animation::ElapsedTime()
+{
+    double _result = ((::AIS_Animation*)_NativeInstance)->ElapsedTime();
+    return _result;
+}
+
+void Macad::Occt::AIS_Animation::Start(bool theToUpdate)
+{
+    ((::AIS_Animation*)_NativeInstance)->Start(theToUpdate);
+}
+
+void Macad::Occt::AIS_Animation::Pause()
+{
+    ((::AIS_Animation*)_NativeInstance)->Pause();
+}
+
+void Macad::Occt::AIS_Animation::Stop()
+{
+    ((::AIS_Animation*)_NativeInstance)->Stop();
+}
+
+bool Macad::Occt::AIS_Animation::IsStopped()
+{
+    bool _result = ((::AIS_Animation*)_NativeInstance)->IsStopped();
+    return _result;
+}
+
+bool Macad::Occt::AIS_Animation::Update(double thePts)
+{
+    bool _result = ((::AIS_Animation*)_NativeInstance)->Update(thePts);
+    return _result;
+}
+
+Macad::Occt::AIS_Animation^ Macad::Occt::AIS_Animation::CreateDowncasted(::AIS_Animation* instance)
+{
+    if( instance == nullptr )
+        return nullptr;
+    
+    if (instance->IsKind(STANDARD_TYPE(::AIS_BaseAnimationObject)))
+        return Macad::Occt::AIS_BaseAnimationObject::CreateDowncasted((::AIS_BaseAnimationObject*)instance);
+    if (instance->IsKind(STANDARD_TYPE(::AIS_AnimationCamera)))
+        return Macad::Occt::AIS_AnimationCamera::CreateDowncasted((::AIS_AnimationCamera*)instance);
+    
+    return gcnew Macad::Occt::AIS_Animation( instance );
 }
 
 
@@ -2728,159 +2913,6 @@ Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_InteractiveObject::CreateDo
 
 
 //---------------------------------------------------------------------
-//  Class  AIS_Animation
-//---------------------------------------------------------------------
-
-Macad::Occt::AIS_Animation::AIS_Animation(Macad::Occt::TCollection_AsciiString^ theAnimationName)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::AIS_Animation(*(::TCollection_AsciiString*)theAnimationName->NativeInstance);
-}
-
-Macad::Occt::TCollection_AsciiString^ Macad::Occt::AIS_Animation::Name()
-{
-    ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
-    *_result = (::TCollection_AsciiString)((::AIS_Animation*)_NativeInstance)->Name();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
-}
-
-double Macad::Occt::AIS_Animation::StartPts()
-{
-    double _result = ((::AIS_Animation*)_NativeInstance)->StartPts();
-    return _result;
-}
-
-void Macad::Occt::AIS_Animation::SetStartPts(double thePtsStart)
-{
-    ((::AIS_Animation*)_NativeInstance)->SetStartPts(thePtsStart);
-}
-
-double Macad::Occt::AIS_Animation::Duration()
-{
-    double _result = ((::AIS_Animation*)_NativeInstance)->Duration();
-    return _result;
-}
-
-void Macad::Occt::AIS_Animation::UpdateTotalDuration()
-{
-    ((::AIS_Animation*)_NativeInstance)->UpdateTotalDuration();
-}
-
-bool Macad::Occt::AIS_Animation::HasOwnDuration()
-{
-    bool _result = ((::AIS_Animation*)_NativeInstance)->HasOwnDuration();
-    return _result;
-}
-
-double Macad::Occt::AIS_Animation::OwnDuration()
-{
-    double _result = ((::AIS_Animation*)_NativeInstance)->OwnDuration();
-    return _result;
-}
-
-void Macad::Occt::AIS_Animation::SetOwnDuration(double theDuration)
-{
-    ((::AIS_Animation*)_NativeInstance)->SetOwnDuration(theDuration);
-}
-
-void Macad::Occt::AIS_Animation::Add(Macad::Occt::AIS_Animation^ theAnimation)
-{
-    ((::AIS_Animation*)_NativeInstance)->Add(Handle(::AIS_Animation)(theAnimation->NativeInstance));
-}
-
-void Macad::Occt::AIS_Animation::Clear()
-{
-    ((::AIS_Animation*)_NativeInstance)->Clear();
-}
-
-Macad::Occt::AIS_Animation^ Macad::Occt::AIS_Animation::Find(Macad::Occt::TCollection_AsciiString^ theAnimationName)
-{
-    Handle(::AIS_Animation) _result = ((::AIS_Animation*)_NativeInstance)->Find(*(::TCollection_AsciiString*)theAnimationName->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_Animation::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::AIS_Animation::Remove(Macad::Occt::AIS_Animation^ theAnimation)
-{
-    bool _result = ((::AIS_Animation*)_NativeInstance)->Remove(Handle(::AIS_Animation)(theAnimation->NativeInstance));
-    return _result;
-}
-
-bool Macad::Occt::AIS_Animation::Replace(Macad::Occt::AIS_Animation^ theAnimationOld, Macad::Occt::AIS_Animation^ theAnimationNew)
-{
-    bool _result = ((::AIS_Animation*)_NativeInstance)->Replace(Handle(::AIS_Animation)(theAnimationOld->NativeInstance), Handle(::AIS_Animation)(theAnimationNew->NativeInstance));
-    return _result;
-}
-
-void Macad::Occt::AIS_Animation::CopyFrom(Macad::Occt::AIS_Animation^ theOther)
-{
-    ((::AIS_Animation*)_NativeInstance)->CopyFrom(Handle(::AIS_Animation)(theOther->NativeInstance));
-}
-
-void Macad::Occt::AIS_Animation::StartTimer(double theStartPts, double thePlaySpeed, bool theToUpdate, bool theToStopTimer)
-{
-    ((::AIS_Animation*)_NativeInstance)->StartTimer(theStartPts, thePlaySpeed, theToUpdate, theToStopTimer);
-}
-
-void Macad::Occt::AIS_Animation::StartTimer(double theStartPts, double thePlaySpeed, bool theToUpdate)
-{
-    ((::AIS_Animation*)_NativeInstance)->StartTimer(theStartPts, thePlaySpeed, theToUpdate, false);
-}
-
-double Macad::Occt::AIS_Animation::UpdateTimer()
-{
-    double _result = ((::AIS_Animation*)_NativeInstance)->UpdateTimer();
-    return _result;
-}
-
-double Macad::Occt::AIS_Animation::ElapsedTime()
-{
-    double _result = ((::AIS_Animation*)_NativeInstance)->ElapsedTime();
-    return _result;
-}
-
-void Macad::Occt::AIS_Animation::Start(bool theToUpdate)
-{
-    ((::AIS_Animation*)_NativeInstance)->Start(theToUpdate);
-}
-
-void Macad::Occt::AIS_Animation::Pause()
-{
-    ((::AIS_Animation*)_NativeInstance)->Pause();
-}
-
-void Macad::Occt::AIS_Animation::Stop()
-{
-    ((::AIS_Animation*)_NativeInstance)->Stop();
-}
-
-bool Macad::Occt::AIS_Animation::IsStopped()
-{
-    bool _result = ((::AIS_Animation*)_NativeInstance)->IsStopped();
-    return _result;
-}
-
-bool Macad::Occt::AIS_Animation::Update(double thePts)
-{
-    bool _result = ((::AIS_Animation*)_NativeInstance)->Update(thePts);
-    return _result;
-}
-
-Macad::Occt::AIS_Animation^ Macad::Occt::AIS_Animation::CreateDowncasted(::AIS_Animation* instance)
-{
-    if( instance == nullptr )
-        return nullptr;
-    
-    if (instance->IsKind(STANDARD_TYPE(::AIS_BaseAnimationObject)))
-        return Macad::Occt::AIS_BaseAnimationObject::CreateDowncasted((::AIS_BaseAnimationObject*)instance);
-    if (instance->IsKind(STANDARD_TYPE(::AIS_AnimationCamera)))
-        return Macad::Occt::AIS_AnimationCamera::CreateDowncasted((::AIS_AnimationCamera*)instance);
-    
-    return gcnew Macad::Occt::AIS_Animation( instance );
-}
-
-
-
-//---------------------------------------------------------------------
 //  Class  AIS_GlobalStatus
 //---------------------------------------------------------------------
 
@@ -4048,12 +4080,6 @@ Macad::Occt::AIS_ColorScale::AIS_ColorScale()
     NativeInstance = new ::AIS_ColorScale();
 }
 
-bool Macad::Occt::AIS_ColorScale::FindColor(double theValue, double theMin, double theMax, int theColorsCount, Macad::Occt::Graphic3d_Vec3d^ theColorHlsMin, Macad::Occt::Graphic3d_Vec3d^ theColorHlsMax, Macad::Occt::Quantity_Color^ theColor)
-{
-    bool _result = ::AIS_ColorScale::FindColor(theValue, theMin, theMax, theColorsCount, *(::Graphic3d_Vec3d*)theColorHlsMin->NativeInstance, *(::Graphic3d_Vec3d*)theColorHlsMax->NativeInstance, *(::Quantity_Color*)theColor->NativeInstance);
-    return _result;
-}
-
 bool Macad::Occt::AIS_ColorScale::FindColor(double theValue, double theMin, double theMax, int theColorsCount, Macad::Occt::Quantity_Color^ theColor)
 {
     bool _result = ::AIS_ColorScale::FindColor(theValue, theMin, theMax, theColorsCount, *(::Quantity_Color*)theColor->NativeInstance);
@@ -4946,6 +4972,18 @@ Macad::Occt::Geom_Line^ Macad::Occt::AIS_Line::Line()
     return _result.IsNull() ? nullptr : Macad::Occt::Geom_Line::CreateDowncasted(_result.get());
 }
 
+Macad::Occt::Geom_Point^ Macad::Occt::AIS_Line::StartPoint()
+{
+    Handle(::Geom_Point) _result = ((::AIS_Line*)_NativeInstance)->StartPoint();
+    return _result.IsNull() ? nullptr : Macad::Occt::Geom_Point::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Geom_Point^ Macad::Occt::AIS_Line::EndPoint()
+{
+    Handle(::Geom_Point) _result = ((::AIS_Line*)_NativeInstance)->EndPoint();
+    return _result.IsNull() ? nullptr : Macad::Occt::Geom_Point::CreateDowncasted(_result.get());
+}
+
 void Macad::Occt::AIS_Line::Points(Macad::Occt::Geom_Point^ thePStart, Macad::Occt::Geom_Point^ thePEnd)
 {
     Handle(::Geom_Point) h_thePStart = thePStart->NativeInstance;
@@ -4988,219 +5026,6 @@ void Macad::Occt::AIS_Line::UnsetWidth()
 Macad::Occt::AIS_Line^ Macad::Occt::AIS_Line::CreateDowncasted(::AIS_Line* instance)
 {
     return gcnew Macad::Occt::AIS_Line( instance );
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  AIS_ManipulatorObjectSequence
-//---------------------------------------------------------------------
-
-Macad::Occt::AIS_ManipulatorObjectSequence::AIS_ManipulatorObjectSequence()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::AIS_ManipulatorObjectSequence();
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::Append(Macad::Occt::AIS_InteractiveObject^ theItem)
-{
-    ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Append(Handle(::AIS_InteractiveObject)(theItem->NativeInstance));
-}
-
-int Macad::Occt::AIS_ManipulatorObjectSequence::Size()
-{
-    int _result = ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::AIS_ManipulatorObjectSequence::Length()
-{
-    int _result = ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::AIS_ManipulatorObjectSequence::Lower()
-{
-    int _result = ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::AIS_ManipulatorObjectSequence::Upper()
-{
-    int _result = ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::AIS_ManipulatorObjectSequence::IsEmpty()
-{
-    bool _result = ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::Reverse()
-{
-    ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::Exchange(int I, int J)
-{
-    ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::Clear()
-{
-    ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::AIS_ManipulatorObjectSequence^ Macad::Occt::AIS_ManipulatorObjectSequence::Assign(Macad::Occt::AIS_ManipulatorObjectSequence^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::Remove(Macad::Occt::AIS_ManipulatorObjectSequence::Iterator^ thePosition)
-{
-    ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Remove(*(::AIS_ManipulatorObjectSequence::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::Prepend(Macad::Occt::AIS_InteractiveObject^ theItem)
-{
-    ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Prepend(Handle(::AIS_InteractiveObject)(theItem->NativeInstance));
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::InsertBefore(int theIndex, Macad::Occt::AIS_InteractiveObject^ theItem)
-{
-    ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->InsertBefore(theIndex, Handle(::AIS_InteractiveObject)(theItem->NativeInstance));
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::InsertAfter(Macad::Occt::AIS_ManipulatorObjectSequence::Iterator^ thePosition, Macad::Occt::AIS_InteractiveObject^ theItem)
-{
-    ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->InsertAfter(*(::AIS_ManipulatorObjectSequence::Iterator*)thePosition->NativeInstance, Handle(::AIS_InteractiveObject)(theItem->NativeInstance));
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::Split(int theIndex, Macad::Occt::AIS_ManipulatorObjectSequence^ theSeq)
-{
-    ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Split(theIndex, *(::AIS_ManipulatorObjectSequence*)theSeq->NativeInstance);
-}
-
-Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ManipulatorObjectSequence::First()
-{
-    Handle(::AIS_InteractiveObject) _result = ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ManipulatorObjectSequence::ChangeFirst()
-{
-    Handle(::AIS_InteractiveObject) _result = ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->ChangeFirst();
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ManipulatorObjectSequence::Last()
-{
-    Handle(::AIS_InteractiveObject) _result = ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ManipulatorObjectSequence::ChangeLast()
-{
-    Handle(::AIS_InteractiveObject) _result = ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->ChangeLast();
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ManipulatorObjectSequence::Value(int theIndex)
-{
-    Handle(::AIS_InteractiveObject) _result = ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->Value(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ManipulatorObjectSequence::ChangeValue(int theIndex)
-{
-    Handle(::AIS_InteractiveObject) _result = ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->ChangeValue(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::SetValue(int theIndex, Macad::Occt::AIS_InteractiveObject^ theItem)
-{
-    ((::AIS_ManipulatorObjectSequence*)_NativeInstance)->SetValue(theIndex, Handle(::AIS_InteractiveObject)(theItem->NativeInstance));
-}
-
-Macad::Occt::AIS_ManipulatorObjectSequence^ Macad::Occt::AIS_ManipulatorObjectSequence::CreateDowncasted(::AIS_ManipulatorObjectSequence* instance)
-{
-    return gcnew Macad::Occt::AIS_ManipulatorObjectSequence( instance );
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::AIS_InteractiveObject^>^ Macad::Occt::AIS_ManipulatorObjectSequence::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::AIS_InteractiveObject^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::AIS_ManipulatorObjectSequence::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::AIS_InteractiveObject^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  AIS_ManipulatorObjectSequence::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::AIS_ManipulatorObjectSequence::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::AIS_ManipulatorObjectSequence::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::AIS_ManipulatorObjectSequence::Iterator();
-}
-
-bool Macad::Occt::AIS_ManipulatorObjectSequence::Iterator::More()
-{
-    bool _result = ((::AIS_ManipulatorObjectSequence::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::AIS_ManipulatorObjectSequence::Iterator::Next()
-{
-    ((::AIS_ManipulatorObjectSequence::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ManipulatorObjectSequence::Iterator::Value()
-{
-    Handle(::AIS_InteractiveObject) _result = ((::AIS_ManipulatorObjectSequence::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::AIS_InteractiveObject^ Macad::Occt::AIS_ManipulatorObjectSequence::Iterator::ChangeValue()
-{
-    Handle(::AIS_InteractiveObject) _result = ((::AIS_ManipulatorObjectSequence::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::AIS_InteractiveObject::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::AIS_ManipulatorObjectSequence::Iterator::IsEqual(Macad::Occt::AIS_ManipulatorObjectSequence::Iterator^ theOther)
-{
-    bool _result = ((::AIS_ManipulatorObjectSequence::Iterator*)_NativeInstance)->IsEqual(*(::AIS_ManipulatorObjectSequence::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::AIS_ManipulatorObjectSequence::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::AIS_ManipulatorObjectSequence::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
 }
 
 
@@ -6743,11 +6568,6 @@ void Macad::Occt::AIS_Trihedron::ClearSelected()
     ((::AIS_Trihedron*)_NativeInstance)->ClearSelected();
 }
 
-void Macad::Occt::AIS_Trihedron::HilightSelected(Macad::Occt::PrsMgr_PresentationManager^ thePM, Macad::Occt::SelectMgr_SequenceOfOwner^ theOwners)
-{
-    ((::AIS_Trihedron*)_NativeInstance)->HilightSelected(Handle(::PrsMgr_PresentationManager)(thePM->NativeInstance), *(::SelectMgr_SequenceOfOwner*)theOwners->NativeInstance);
-}
-
 void Macad::Occt::AIS_Trihedron::HilightOwnerWithColor(Macad::Occt::PrsMgr_PresentationManager^ thePM, Macad::Occt::Prs3d_Drawer^ theStyle, Macad::Occt::SelectMgr_EntityOwner^ theOwner)
 {
     ((::AIS_Trihedron*)_NativeInstance)->HilightOwnerWithColor(Handle(::PrsMgr_PresentationManager)(thePM->NativeInstance), Handle(::Prs3d_Drawer)(theStyle->NativeInstance), Handle(::SelectMgr_EntityOwner)(theOwner->NativeInstance));
@@ -7185,9 +7005,7 @@ bool Macad::Occt::AIS_ViewController::HasPreviousMoveTo()
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::AIS_ViewController::PreviousMoveTo()
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::AIS_ViewController*)_NativeInstance)->PreviousMoveTo();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 void Macad::Occt::AIS_ViewController::ResetPreviousMoveTo()
@@ -7242,34 +7060,6 @@ Macad::Occt::AIS_WalkDelta^ Macad::Occt::AIS_ViewController::FetchNavigationKeys
     ::AIS_WalkDelta* _result = new ::AIS_WalkDelta();
     *_result = ((::AIS_ViewController*)_NativeInstance)->FetchNavigationKeys(theCrouchRatio, theRunRatio);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_WalkDelta(_result);
-}
-
-Macad::Occt::AIS_MouseGestureMap^ Macad::Occt::AIS_ViewController::MouseGestureMap()
-{
-    ::AIS_MouseGestureMap* _result = new ::AIS_MouseGestureMap();
-    *_result = (::AIS_MouseGestureMap)((::AIS_ViewController*)_NativeInstance)->MouseGestureMap();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_MouseGestureMap(_result);
-}
-
-Macad::Occt::AIS_MouseGestureMap^ Macad::Occt::AIS_ViewController::ChangeMouseGestureMap()
-{
-    ::AIS_MouseGestureMap* _result = new ::AIS_MouseGestureMap();
-    *_result = ((::AIS_ViewController*)_NativeInstance)->ChangeMouseGestureMap();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_MouseGestureMap(_result);
-}
-
-Macad::Occt::AIS_MouseSelectionSchemeMap^ Macad::Occt::AIS_ViewController::MouseSelectionSchemes()
-{
-    ::AIS_MouseSelectionSchemeMap* _result = new ::AIS_MouseSelectionSchemeMap();
-    *_result = (::AIS_MouseSelectionSchemeMap)((::AIS_ViewController*)_NativeInstance)->MouseSelectionSchemes();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_MouseSelectionSchemeMap(_result);
-}
-
-Macad::Occt::AIS_MouseSelectionSchemeMap^ Macad::Occt::AIS_ViewController::ChangeMouseSelectionSchemes()
-{
-    ::AIS_MouseSelectionSchemeMap* _result = new ::AIS_MouseSelectionSchemeMap();
-    *_result = ((::AIS_ViewController*)_NativeInstance)->ChangeMouseSelectionSchemes();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::AIS_MouseSelectionSchemeMap(_result);
 }
 
 double Macad::Occt::AIS_ViewController::MouseDoubleClickInterval()
@@ -8120,11 +7910,6 @@ void Macad::Occt::AIS_ViewCube::ClearSelected()
 void Macad::Occt::AIS_ViewCube::HilightOwnerWithColor(Macad::Occt::PrsMgr_PresentationManager^ thePM, Macad::Occt::Prs3d_Drawer^ theStyle, Macad::Occt::SelectMgr_EntityOwner^ theOwner)
 {
     ((::AIS_ViewCube*)_NativeInstance)->HilightOwnerWithColor(Handle(::PrsMgr_PresentationManager)(thePM->NativeInstance), Handle(::Prs3d_Drawer)(theStyle->NativeInstance), Handle(::SelectMgr_EntityOwner)(theOwner->NativeInstance));
-}
-
-void Macad::Occt::AIS_ViewCube::HilightSelected(Macad::Occt::PrsMgr_PresentationManager^ thePM, Macad::Occt::SelectMgr_SequenceOfOwner^ theSeq)
-{
-    ((::AIS_ViewCube*)_NativeInstance)->HilightSelected(Handle(::PrsMgr_PresentationManager)(thePM->NativeInstance), *(::SelectMgr_SequenceOfOwner*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::AIS_ViewCube::UnsetAttributes()

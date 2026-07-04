@@ -46,7 +46,7 @@ Macad::Occt::StdSelect_Shape::StdSelect_Shape(Macad::Occt::TopoDS_Shape^ theShap
 Macad::Occt::StdSelect_Shape::StdSelect_Shape(Macad::Occt::TopoDS_Shape^ theShape)
     : Macad::Occt::PrsMgr_PresentableObject(BaseClass::InitMode::Uninitialized)
 {
-    NativeInstance = new ::StdSelect_Shape(*(::TopoDS_Shape*)theShape->NativeInstance, ::opencascade::handle<::Prs3d_Drawer>());
+    NativeInstance = new ::StdSelect_Shape(*(::TopoDS_Shape*)theShape->NativeInstance, ::occ::handle<::Prs3d_Drawer>());
 }
 
 void Macad::Occt::StdSelect_Shape::Compute(Macad::Occt::PrsMgr_PresentationManager^ thePrsMgr, Macad::Occt::Graphic3d_Structure^ thePrs, int theMode)

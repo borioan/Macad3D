@@ -17,60 +17,117 @@ Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString()
     _NativeInstance = new ::TCollection_ExtendedString();
 }
 
-Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(System::String^ astring, bool isMultiByte)
+Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(System::String^ theString)
     : Macad::Occt::BaseClass<::TCollection_ExtendedString>(BaseClass::InitMode::Uninitialized)
 {
-    const char* sz_astring = (char*)(void*)Marshal::StringToHGlobalAnsi(astring);
-    _NativeInstance = new ::TCollection_ExtendedString(sz_astring, isMultiByte);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_astring);
+    pin_ptr<const wchar_t> pp_theString = PtrToStringChars(theString);
+    _NativeInstance = new ::TCollection_ExtendedString((const char16_t*)pp_theString);
 }
 
-Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(System::String^ astring)
+Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(char theChar)
     : Macad::Occt::BaseClass<::TCollection_ExtendedString>(BaseClass::InitMode::Uninitialized)
 {
-    pin_ptr<const wchar_t> pp_astring = PtrToStringChars(astring);
-    _NativeInstance = new ::TCollection_ExtendedString((Standard_ExtString)pp_astring);
+    _NativeInstance = new ::TCollection_ExtendedString(theChar);
 }
 
-Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(char aChar)
+Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(int theValue)
     : Macad::Occt::BaseClass<::TCollection_ExtendedString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_ExtendedString(aChar);
+    _NativeInstance = new ::TCollection_ExtendedString(theValue);
 }
 
-Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(int value)
+Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(double theValue)
     : Macad::Occt::BaseClass<::TCollection_ExtendedString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_ExtendedString(value);
+    _NativeInstance = new ::TCollection_ExtendedString(theValue);
 }
 
-Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(double value)
+Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(Macad::Occt::TCollection_AsciiString^ theString, bool theIsMultiByte)
     : Macad::Occt::BaseClass<::TCollection_ExtendedString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_ExtendedString(value);
+    _NativeInstance = new ::TCollection_ExtendedString(*(::TCollection_AsciiString*)theString->NativeInstance, theIsMultiByte);
 }
 
-Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(Macad::Occt::TCollection_AsciiString^ astring, bool isMultiByte)
+Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(Macad::Occt::TCollection_AsciiString^ theString)
     : Macad::Occt::BaseClass<::TCollection_ExtendedString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_ExtendedString(*(::TCollection_AsciiString*)astring->NativeInstance, isMultiByte);
+    _NativeInstance = new ::TCollection_ExtendedString(*(::TCollection_AsciiString*)theString->NativeInstance, true);
 }
 
-Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(Macad::Occt::TCollection_AsciiString^ astring)
+Macad::Occt::TCollection_ExtendedString::TCollection_ExtendedString(System::String^ theString, int theLength)
     : Macad::Occt::BaseClass<::TCollection_ExtendedString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_ExtendedString(*(::TCollection_AsciiString*)astring->NativeInstance, true);
+    pin_ptr<const wchar_t> pp_theString = PtrToStringChars(theString);
+    _NativeInstance = new ::TCollection_ExtendedString((const char16_t*)pp_theString, theLength);
 }
 
-void Macad::Occt::TCollection_ExtendedString::AssignCat(Macad::Occt::TCollection_ExtendedString^ other)
+void Macad::Occt::TCollection_ExtendedString::AssignCat(Macad::Occt::TCollection_ExtendedString^ theOther)
 {
-    ((::TCollection_ExtendedString*)_NativeInstance)->AssignCat(*(::TCollection_ExtendedString*)other->NativeInstance);
+    ((::TCollection_ExtendedString*)_NativeInstance)->AssignCat(*(::TCollection_ExtendedString*)theOther->NativeInstance);
 }
 
-Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Cat(Macad::Occt::TCollection_ExtendedString^ other)
+void Macad::Occt::TCollection_ExtendedString::AssignCat(int theOther)
+{
+    ((::TCollection_ExtendedString*)_NativeInstance)->AssignCat(theOther);
+}
+
+void Macad::Occt::TCollection_ExtendedString::AssignCat(char theChar)
+{
+    ((::TCollection_ExtendedString*)_NativeInstance)->AssignCat(theChar);
+}
+
+void Macad::Occt::TCollection_ExtendedString::AssignCat(double theOther)
+{
+    ((::TCollection_ExtendedString*)_NativeInstance)->AssignCat(theOther);
+}
+
+void Macad::Occt::TCollection_ExtendedString::AssignCat(System::String^ theString, int theLength)
+{
+    pin_ptr<const wchar_t> pp_theString = PtrToStringChars(theString);
+    ((::TCollection_ExtendedString*)_NativeInstance)->AssignCat((const char16_t*)pp_theString, theLength);
+}
+
+Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Cat(System::String^ theOther, int theLength)
 {
     ::TCollection_ExtendedString* _result = new ::TCollection_ExtendedString();
-    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Cat(*(::TCollection_ExtendedString*)other->NativeInstance);
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Cat((const char16_t*)pp_theOther, theLength);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_ExtendedString(_result);
+}
+
+Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Cat(System::String^ theOther)
+{
+    ::TCollection_ExtendedString* _result = new ::TCollection_ExtendedString();
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Cat((const char16_t*)pp_theOther);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_ExtendedString(_result);
+}
+
+Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Cat(int theOther)
+{
+    ::TCollection_ExtendedString* _result = new ::TCollection_ExtendedString();
+    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Cat(theOther);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_ExtendedString(_result);
+}
+
+Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Cat(double theOther)
+{
+    ::TCollection_ExtendedString* _result = new ::TCollection_ExtendedString();
+    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Cat(theOther);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_ExtendedString(_result);
+}
+
+Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Cat(char theChar)
+{
+    ::TCollection_ExtendedString* _result = new ::TCollection_ExtendedString();
+    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Cat(theChar);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_ExtendedString(_result);
+}
+
+Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Cat(Macad::Occt::TCollection_ExtendedString^ theOther)
+{
+    ::TCollection_ExtendedString* _result = new ::TCollection_ExtendedString();
+    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Cat(*(::TCollection_ExtendedString*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_ExtendedString(_result);
 }
 
@@ -79,9 +136,21 @@ void Macad::Occt::TCollection_ExtendedString::Clear()
     ((::TCollection_ExtendedString*)_NativeInstance)->Clear();
 }
 
-void Macad::Occt::TCollection_ExtendedString::Copy(Macad::Occt::TCollection_ExtendedString^ fromwhere)
+void Macad::Occt::TCollection_ExtendedString::Copy(System::String^ theString, int theLength)
 {
-    ((::TCollection_ExtendedString*)_NativeInstance)->Copy(*(::TCollection_ExtendedString*)fromwhere->NativeInstance);
+    pin_ptr<const wchar_t> pp_theString = PtrToStringChars(theString);
+    ((::TCollection_ExtendedString*)_NativeInstance)->Copy((const char16_t*)pp_theString, theLength);
+}
+
+void Macad::Occt::TCollection_ExtendedString::Copy(System::String^ theString)
+{
+    pin_ptr<const wchar_t> pp_theString = PtrToStringChars(theString);
+    ((::TCollection_ExtendedString*)_NativeInstance)->Copy((const char16_t*)pp_theString);
+}
+
+void Macad::Occt::TCollection_ExtendedString::Copy(Macad::Occt::TCollection_ExtendedString^ theFromWhere)
+{
+    ((::TCollection_ExtendedString*)_NativeInstance)->Copy(*(::TCollection_ExtendedString*)theFromWhere->NativeInstance);
 }
 
 void Macad::Occt::TCollection_ExtendedString::Swap(Macad::Occt::TCollection_ExtendedString^ theOther)
@@ -89,9 +158,15 @@ void Macad::Occt::TCollection_ExtendedString::Swap(Macad::Occt::TCollection_Exte
     ((::TCollection_ExtendedString*)_NativeInstance)->Swap(*(::TCollection_ExtendedString*)theOther->NativeInstance);
 }
 
-void Macad::Occt::TCollection_ExtendedString::Insert(int where, Macad::Occt::TCollection_ExtendedString^ what)
+void Macad::Occt::TCollection_ExtendedString::Insert(int theWhere, System::String^ theWhat, int theLength)
 {
-    ((::TCollection_ExtendedString*)_NativeInstance)->Insert(where, *(::TCollection_ExtendedString*)what->NativeInstance);
+    pin_ptr<const wchar_t> pp_theWhat = PtrToStringChars(theWhat);
+    ((::TCollection_ExtendedString*)_NativeInstance)->Insert(theWhere, (const char16_t*)pp_theWhat, theLength);
+}
+
+void Macad::Occt::TCollection_ExtendedString::Insert(int theWhere, Macad::Occt::TCollection_ExtendedString^ theWhat)
+{
+    ((::TCollection_ExtendedString*)_NativeInstance)->Insert(theWhere, *(::TCollection_ExtendedString*)theWhat->NativeInstance);
 }
 
 bool Macad::Occt::TCollection_ExtendedString::IsEmpty()
@@ -100,61 +175,117 @@ bool Macad::Occt::TCollection_ExtendedString::IsEmpty()
     return _result;
 }
 
-bool Macad::Occt::TCollection_ExtendedString::IsEqual(System::String^ other)
+bool Macad::Occt::TCollection_ExtendedString::IsEqual(System::String^ theOther, int theLength)
 {
-    pin_ptr<const wchar_t> pp_other = PtrToStringChars(other);
-    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsEqual((Standard_ExtString)pp_other);
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsEqual((const char16_t*)pp_theOther, theLength);
     return _result;
 }
 
-bool Macad::Occt::TCollection_ExtendedString::IsEqual(Macad::Occt::TCollection_ExtendedString^ other)
+bool Macad::Occt::TCollection_ExtendedString::IsEqual(System::String^ theOther)
 {
-    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsEqual(*(::TCollection_ExtendedString*)other->NativeInstance);
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsEqual((const char16_t*)pp_theOther);
     return _result;
 }
 
-bool Macad::Occt::TCollection_ExtendedString::IsDifferent(System::String^ other)
+bool Macad::Occt::TCollection_ExtendedString::IsEqual(Macad::Occt::TCollection_ExtendedString^ theOther)
 {
-    pin_ptr<const wchar_t> pp_other = PtrToStringChars(other);
-    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsDifferent((Standard_ExtString)pp_other);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsEqual(*(::TCollection_ExtendedString*)theOther->NativeInstance);
     return _result;
 }
 
-bool Macad::Occt::TCollection_ExtendedString::IsDifferent(Macad::Occt::TCollection_ExtendedString^ other)
+bool Macad::Occt::TCollection_ExtendedString::IsDifferent(System::String^ theOther, int theLength)
 {
-    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsDifferent(*(::TCollection_ExtendedString*)other->NativeInstance);
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsDifferent((const char16_t*)pp_theOther, theLength);
     return _result;
 }
 
-bool Macad::Occt::TCollection_ExtendedString::IsLess(System::String^ other)
+bool Macad::Occt::TCollection_ExtendedString::IsDifferent(System::String^ theOther)
 {
-    pin_ptr<const wchar_t> pp_other = PtrToStringChars(other);
-    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsLess((Standard_ExtString)pp_other);
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsDifferent((const char16_t*)pp_theOther);
     return _result;
 }
 
-bool Macad::Occt::TCollection_ExtendedString::IsLess(Macad::Occt::TCollection_ExtendedString^ other)
+bool Macad::Occt::TCollection_ExtendedString::IsDifferent(Macad::Occt::TCollection_ExtendedString^ theOther)
 {
-    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsLess(*(::TCollection_ExtendedString*)other->NativeInstance);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsDifferent(*(::TCollection_ExtendedString*)theOther->NativeInstance);
     return _result;
 }
 
-bool Macad::Occt::TCollection_ExtendedString::IsGreater(System::String^ other)
+bool Macad::Occt::TCollection_ExtendedString::IsLess(System::String^ theOther, int theLength)
 {
-    pin_ptr<const wchar_t> pp_other = PtrToStringChars(other);
-    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsGreater((Standard_ExtString)pp_other);
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsLess((const char16_t*)pp_theOther, theLength);
     return _result;
 }
 
-bool Macad::Occt::TCollection_ExtendedString::IsGreater(Macad::Occt::TCollection_ExtendedString^ other)
+bool Macad::Occt::TCollection_ExtendedString::IsLess(System::String^ theOther)
 {
-    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsGreater(*(::TCollection_ExtendedString*)other->NativeInstance);
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsLess((const char16_t*)pp_theOther);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::IsLess(Macad::Occt::TCollection_ExtendedString^ theOther)
+{
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsLess(*(::TCollection_ExtendedString*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::IsGreater(System::String^ theOther, int theLength)
+{
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsGreater((const char16_t*)pp_theOther, theLength);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::IsGreater(System::String^ theOther)
+{
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsGreater((const char16_t*)pp_theOther);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::IsGreater(Macad::Occt::TCollection_ExtendedString^ theOther)
+{
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsGreater(*(::TCollection_ExtendedString*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::StartsWith(System::String^ theStartString, int theLength)
+{
+    pin_ptr<const wchar_t> pp_theStartString = PtrToStringChars(theStartString);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->StartsWith((const char16_t*)pp_theStartString, theLength);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::StartsWith(System::String^ theStartString)
+{
+    pin_ptr<const wchar_t> pp_theStartString = PtrToStringChars(theStartString);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->StartsWith((const char16_t*)pp_theStartString);
     return _result;
 }
 
 bool Macad::Occt::TCollection_ExtendedString::StartsWith(Macad::Occt::TCollection_ExtendedString^ theStartString)
 {
     bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->StartsWith(*(::TCollection_ExtendedString*)theStartString->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::EndsWith(System::String^ theEndString, int theLength)
+{
+    pin_ptr<const wchar_t> pp_theEndString = PtrToStringChars(theEndString);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->EndsWith((const char16_t*)pp_theEndString, theLength);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::EndsWith(System::String^ theEndString)
+{
+    pin_ptr<const wchar_t> pp_theEndString = PtrToStringChars(theEndString);
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->EndsWith((const char16_t*)pp_theEndString);
     return _result;
 }
 
@@ -176,78 +307,132 @@ int Macad::Occt::TCollection_ExtendedString::Length()
     return _result;
 }
 
-void Macad::Occt::TCollection_ExtendedString::Print(System::IO::TextWriter^ astream)
+void Macad::Occt::TCollection_ExtendedString::Print(System::IO::TextWriter^ theStream)
 {
-    std::ostringstream oss_astream;
-    ((::TCollection_ExtendedString*)_NativeInstance)->Print(oss_astream);
-    astream->Write(gcnew System::String(oss_astream.str().c_str()));
+    std::ostringstream oss_theStream;
+    ((::TCollection_ExtendedString*)_NativeInstance)->Print(oss_theStream);
+    theStream->Write(gcnew System::String(oss_theStream.str().c_str()));
 }
 
-void Macad::Occt::TCollection_ExtendedString::Remove(int where, int ahowmany)
+void Macad::Occt::TCollection_ExtendedString::Remove(int theWhere, int theHowMany)
 {
-    ((::TCollection_ExtendedString*)_NativeInstance)->Remove(where, ahowmany);
+    ((::TCollection_ExtendedString*)_NativeInstance)->Remove(theWhere, theHowMany);
 }
 
-void Macad::Occt::TCollection_ExtendedString::Remove(int where)
+void Macad::Occt::TCollection_ExtendedString::Remove(int theWhere)
 {
-    ((::TCollection_ExtendedString*)_NativeInstance)->Remove(where, 1);
+    ((::TCollection_ExtendedString*)_NativeInstance)->Remove(theWhere, 1);
 }
 
-int Macad::Occt::TCollection_ExtendedString::Search(Macad::Occt::TCollection_ExtendedString^ what)
+int Macad::Occt::TCollection_ExtendedString::Search(System::String^ theWhat, int theLength)
 {
-    int _result = ((::TCollection_ExtendedString*)_NativeInstance)->Search(*(::TCollection_ExtendedString*)what->NativeInstance);
+    pin_ptr<const wchar_t> pp_theWhat = PtrToStringChars(theWhat);
+    int _result = ((::TCollection_ExtendedString*)_NativeInstance)->Search((const char16_t*)pp_theWhat, theLength);
     return _result;
 }
 
-int Macad::Occt::TCollection_ExtendedString::SearchFromEnd(Macad::Occt::TCollection_ExtendedString^ what)
+int Macad::Occt::TCollection_ExtendedString::Search(System::String^ theWhat)
 {
-    int _result = ((::TCollection_ExtendedString*)_NativeInstance)->SearchFromEnd(*(::TCollection_ExtendedString*)what->NativeInstance);
+    pin_ptr<const wchar_t> pp_theWhat = PtrToStringChars(theWhat);
+    int _result = ((::TCollection_ExtendedString*)_NativeInstance)->Search((const char16_t*)pp_theWhat);
     return _result;
 }
 
-void Macad::Occt::TCollection_ExtendedString::SetValue(int where, Macad::Occt::TCollection_ExtendedString^ what)
+int Macad::Occt::TCollection_ExtendedString::Search(Macad::Occt::TCollection_ExtendedString^ theWhat)
 {
-    ((::TCollection_ExtendedString*)_NativeInstance)->SetValue(where, *(::TCollection_ExtendedString*)what->NativeInstance);
+    int _result = ((::TCollection_ExtendedString*)_NativeInstance)->Search(*(::TCollection_ExtendedString*)theWhat->NativeInstance);
+    return _result;
 }
 
-Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Split(int where)
+int Macad::Occt::TCollection_ExtendedString::SearchFromEnd(System::String^ theWhat, int theLength)
+{
+    pin_ptr<const wchar_t> pp_theWhat = PtrToStringChars(theWhat);
+    int _result = ((::TCollection_ExtendedString*)_NativeInstance)->SearchFromEnd((const char16_t*)pp_theWhat, theLength);
+    return _result;
+}
+
+int Macad::Occt::TCollection_ExtendedString::SearchFromEnd(System::String^ theWhat)
+{
+    pin_ptr<const wchar_t> pp_theWhat = PtrToStringChars(theWhat);
+    int _result = ((::TCollection_ExtendedString*)_NativeInstance)->SearchFromEnd((const char16_t*)pp_theWhat);
+    return _result;
+}
+
+int Macad::Occt::TCollection_ExtendedString::SearchFromEnd(Macad::Occt::TCollection_ExtendedString^ theWhat)
+{
+    int _result = ((::TCollection_ExtendedString*)_NativeInstance)->SearchFromEnd(*(::TCollection_ExtendedString*)theWhat->NativeInstance);
+    return _result;
+}
+
+void Macad::Occt::TCollection_ExtendedString::SetValue(int theWhere, System::String^ theWhat, int theLength)
+{
+    pin_ptr<const wchar_t> pp_theWhat = PtrToStringChars(theWhat);
+    ((::TCollection_ExtendedString*)_NativeInstance)->SetValue(theWhere, (const char16_t*)pp_theWhat, theLength);
+}
+
+void Macad::Occt::TCollection_ExtendedString::SetValue(int theWhere, Macad::Occt::TCollection_ExtendedString^ theWhat)
+{
+    ((::TCollection_ExtendedString*)_NativeInstance)->SetValue(theWhere, *(::TCollection_ExtendedString*)theWhat->NativeInstance);
+}
+
+Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::SubString(int theFromIndex, int theToIndex)
 {
     ::TCollection_ExtendedString* _result = new ::TCollection_ExtendedString();
-    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Split(where);
+    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->SubString(theFromIndex, theToIndex);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_ExtendedString(_result);
 }
 
-Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Token(System::String^ separators, int whichone)
+Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Split(int theWhere)
 {
     ::TCollection_ExtendedString* _result = new ::TCollection_ExtendedString();
-    pin_ptr<const wchar_t> pp_separators = PtrToStringChars(separators);
-    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Token((Standard_ExtString)pp_separators, whichone);
+    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Split(theWhere);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_ExtendedString(_result);
 }
 
-Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Token(System::String^ separators)
+Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Token(System::String^ theSeparators, int theWhichOne)
 {
     ::TCollection_ExtendedString* _result = new ::TCollection_ExtendedString();
-    pin_ptr<const wchar_t> pp_separators = PtrToStringChars(separators);
-    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Token((Standard_ExtString)pp_separators, 1);
+    pin_ptr<const wchar_t> pp_theSeparators = PtrToStringChars(theSeparators);
+    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Token((const char16_t*)pp_theSeparators, theWhichOne);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_ExtendedString(_result);
+}
+
+Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::Token(System::String^ theSeparators)
+{
+    ::TCollection_ExtendedString* _result = new ::TCollection_ExtendedString();
+    pin_ptr<const wchar_t> pp_theSeparators = PtrToStringChars(theSeparators);
+    *_result = ((::TCollection_ExtendedString*)_NativeInstance)->Token((const char16_t*)pp_theSeparators, 1);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_ExtendedString(_result);
 }
 
 System::String^ Macad::Occt::TCollection_ExtendedString::ToExtString()
 {
-    Standard_ExtString _result = ((::TCollection_ExtendedString*)_NativeInstance)->ToExtString();
+    const char16_t* _result = ((::TCollection_ExtendedString*)_NativeInstance)->ToExtString();
     return gcnew System::String((const wchar_t *)_result);
 }
 
-void Macad::Occt::TCollection_ExtendedString::Trunc(int ahowmany)
+System::String^ Macad::Occt::TCollection_ExtendedString::ToWideString()
 {
-    ((::TCollection_ExtendedString*)_NativeInstance)->Trunc(ahowmany);
+    const wchar_t* _result = ((::TCollection_ExtendedString*)_NativeInstance)->ToWideString();
+    return gcnew System::String((const wchar_t *)_result);
+}
+
+void Macad::Occt::TCollection_ExtendedString::Trunc(int theHowMany)
+{
+    ((::TCollection_ExtendedString*)_NativeInstance)->Trunc(theHowMany);
 }
 
 long long unsigned int Macad::Occt::TCollection_ExtendedString::HashCode()
 {
     long long unsigned int _result = ((::TCollection_ExtendedString*)_NativeInstance)->HashCode();
     return _result;
+}
+
+Macad::Occt::TCollection_ExtendedString^ Macad::Occt::TCollection_ExtendedString::EmptyString()
+{
+    ::TCollection_ExtendedString* _result = new ::TCollection_ExtendedString();
+    *_result = (::TCollection_ExtendedString)::TCollection_ExtendedString::EmptyString();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_ExtendedString(_result);
 }
 
 bool Macad::Occt::TCollection_ExtendedString::IsEqual(Macad::Occt::TCollection_ExtendedString^ theString1, Macad::Occt::TCollection_ExtendedString^ theString2)
@@ -270,6 +455,86 @@ int Macad::Occt::TCollection_ExtendedString::LengthOfCString()
     return _result;
 }
 
+void Macad::Occt::TCollection_ExtendedString::LeftAdjust()
+{
+    ((::TCollection_ExtendedString*)_NativeInstance)->LeftAdjust();
+}
+
+void Macad::Occt::TCollection_ExtendedString::RightAdjust()
+{
+    ((::TCollection_ExtendedString*)_NativeInstance)->RightAdjust();
+}
+
+void Macad::Occt::TCollection_ExtendedString::Capitalize()
+{
+    ((::TCollection_ExtendedString*)_NativeInstance)->Capitalize();
+}
+
+void Macad::Occt::TCollection_ExtendedString::Prepend(System::String^ theOther, int theLength)
+{
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    ((::TCollection_ExtendedString*)_NativeInstance)->Prepend((const char16_t*)pp_theOther, theLength);
+}
+
+void Macad::Occt::TCollection_ExtendedString::Prepend(System::String^ theOther)
+{
+    pin_ptr<const wchar_t> pp_theOther = PtrToStringChars(theOther);
+    ((::TCollection_ExtendedString*)_NativeInstance)->Prepend((const char16_t*)pp_theOther);
+}
+
+void Macad::Occt::TCollection_ExtendedString::Prepend(Macad::Occt::TCollection_ExtendedString^ theOther)
+{
+    ((::TCollection_ExtendedString*)_NativeInstance)->Prepend(*(::TCollection_ExtendedString*)theOther->NativeInstance);
+}
+
+int Macad::Occt::TCollection_ExtendedString::FirstLocationInSet(Macad::Occt::TCollection_ExtendedString^ theSet, int theFromIndex, int theToIndex)
+{
+    int _result = ((::TCollection_ExtendedString*)_NativeInstance)->FirstLocationInSet(*(::TCollection_ExtendedString*)theSet->NativeInstance, theFromIndex, theToIndex);
+    return _result;
+}
+
+int Macad::Occt::TCollection_ExtendedString::FirstLocationNotInSet(Macad::Occt::TCollection_ExtendedString^ theSet, int theFromIndex, int theToIndex)
+{
+    int _result = ((::TCollection_ExtendedString*)_NativeInstance)->FirstLocationNotInSet(*(::TCollection_ExtendedString*)theSet->NativeInstance, theFromIndex, theToIndex);
+    return _result;
+}
+
+int Macad::Occt::TCollection_ExtendedString::IntegerValue()
+{
+    int _result = ((::TCollection_ExtendedString*)_NativeInstance)->IntegerValue();
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::IsIntegerValue()
+{
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsIntegerValue();
+    return _result;
+}
+
+double Macad::Occt::TCollection_ExtendedString::RealValue()
+{
+    double _result = ((::TCollection_ExtendedString*)_NativeInstance)->RealValue();
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::IsRealValue(bool theToCheckFull)
+{
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsRealValue(theToCheckFull);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::IsRealValue()
+{
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsRealValue(false);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_ExtendedString::IsSameString(Macad::Occt::TCollection_ExtendedString^ theOther, bool theIsCaseSensitive)
+{
+    bool _result = ((::TCollection_ExtendedString*)_NativeInstance)->IsSameString(*(::TCollection_ExtendedString*)theOther->NativeInstance, theIsCaseSensitive);
+    return _result;
+}
+
 int Macad::Occt::TCollection_ExtendedString::GetHashCode()
 {
     return std::hash<::TCollection_ExtendedString>{}(*NativeInstance);
@@ -287,82 +552,104 @@ Macad::Occt::TCollection_AsciiString::TCollection_AsciiString()
     _NativeInstance = new ::TCollection_AsciiString();
 }
 
-Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(System::String^ message)
+Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(System::String^ theMessage, int theLength)
     : Macad::Occt::BaseClass<::TCollection_AsciiString>(BaseClass::InitMode::Uninitialized)
 {
-    const char* sz_message = (char*)(void*)Marshal::StringToHGlobalAnsi(message);
-    _NativeInstance = new ::TCollection_AsciiString(sz_message);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_message);
+    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
+    _NativeInstance = new ::TCollection_AsciiString(sz_theMessage, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
 }
 
-Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(System::String^ message, int aLen)
+Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(int theLength, char theFiller)
     : Macad::Occt::BaseClass<::TCollection_AsciiString>(BaseClass::InitMode::Uninitialized)
 {
-    const char* sz_message = (char*)(void*)Marshal::StringToHGlobalAnsi(message);
-    _NativeInstance = new ::TCollection_AsciiString(sz_message, aLen);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_message);
+    _NativeInstance = new ::TCollection_AsciiString(theLength, theFiller);
 }
 
-Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(int length, char filler)
+Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(int theValue)
     : Macad::Occt::BaseClass<::TCollection_AsciiString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_AsciiString(length, filler);
+    _NativeInstance = new ::TCollection_AsciiString(theValue);
 }
 
-Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(int value)
+Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(double theValue)
     : Macad::Occt::BaseClass<::TCollection_AsciiString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_AsciiString(value);
+    _NativeInstance = new ::TCollection_AsciiString(theValue);
 }
 
-Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(double value)
+Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(Macad::Occt::TCollection_AsciiString^ theString, char theChar)
     : Macad::Occt::BaseClass<::TCollection_AsciiString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_AsciiString(value);
+    _NativeInstance = new ::TCollection_AsciiString(*(::TCollection_AsciiString*)theString->NativeInstance, theChar);
 }
 
-Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(Macad::Occt::TCollection_AsciiString^ astring, char message)
+Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(Macad::Occt::TCollection_AsciiString^ theString, Macad::Occt::TCollection_AsciiString^ theOtherString)
     : Macad::Occt::BaseClass<::TCollection_AsciiString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_AsciiString(*(::TCollection_AsciiString*)astring->NativeInstance, message);
+    _NativeInstance = new ::TCollection_AsciiString(*(::TCollection_AsciiString*)theString->NativeInstance, *(::TCollection_AsciiString*)theOtherString->NativeInstance);
 }
 
-Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(Macad::Occt::TCollection_AsciiString^ astring, Macad::Occt::TCollection_AsciiString^ message)
+Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(Macad::Occt::TCollection_ExtendedString^ theExtendedString, char theReplaceNonAscii)
     : Macad::Occt::BaseClass<::TCollection_AsciiString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_AsciiString(*(::TCollection_AsciiString*)astring->NativeInstance, *(::TCollection_AsciiString*)message->NativeInstance);
+    _NativeInstance = new ::TCollection_AsciiString(*(::TCollection_ExtendedString*)theExtendedString->NativeInstance, theReplaceNonAscii);
 }
 
-Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(Macad::Occt::TCollection_ExtendedString^ astring, char replaceNonAscii)
+Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(Macad::Occt::TCollection_ExtendedString^ theExtendedString)
     : Macad::Occt::BaseClass<::TCollection_AsciiString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_AsciiString(*(::TCollection_ExtendedString*)astring->NativeInstance, replaceNonAscii);
+    _NativeInstance = new ::TCollection_AsciiString(*(::TCollection_ExtendedString*)theExtendedString->NativeInstance, 0);
 }
 
-Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(Macad::Occt::TCollection_ExtendedString^ astring)
+Macad::Occt::TCollection_AsciiString::TCollection_AsciiString(System::String^ theStringUtf)
     : Macad::Occt::BaseClass<::TCollection_AsciiString>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::TCollection_AsciiString(*(::TCollection_ExtendedString*)astring->NativeInstance, 0);
+    pin_ptr<const wchar_t> pp_theStringUtf = PtrToStringChars(theStringUtf);
+    _NativeInstance = new ::TCollection_AsciiString((const wchar_t*)pp_theStringUtf);
 }
 
-void Macad::Occt::TCollection_AsciiString::AssignCat(char other)
+void Macad::Occt::TCollection_AsciiString::AssignCat(char theOther)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat(other);
+    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat(theOther);
 }
 
-void Macad::Occt::TCollection_AsciiString::AssignCat(int other)
+void Macad::Occt::TCollection_AsciiString::AssignCat(int theOther)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat(other);
+    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat(theOther);
 }
 
-void Macad::Occt::TCollection_AsciiString::AssignCat(double other)
+void Macad::Occt::TCollection_AsciiString::AssignCat(double theOther)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat(other);
+    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat(theOther);
 }
 
-void Macad::Occt::TCollection_AsciiString::AssignCat(Macad::Occt::TCollection_AsciiString^ other)
+void Macad::Occt::TCollection_AsciiString::AssignCat(Macad::Occt::TCollection_ExtendedString^ theOther, char theReplaceNonAscii)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat(*(::TCollection_AsciiString*)other->NativeInstance);
+    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat(*(::TCollection_ExtendedString*)theOther->NativeInstance, theReplaceNonAscii);
+}
+
+void Macad::Occt::TCollection_AsciiString::AssignCat(Macad::Occt::TCollection_ExtendedString^ theOther)
+{
+    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat(*(::TCollection_ExtendedString*)theOther->NativeInstance, 0);
+}
+
+void Macad::Occt::TCollection_AsciiString::AssignCat(System::String^ theStringUtf)
+{
+    pin_ptr<const wchar_t> pp_theStringUtf = PtrToStringChars(theStringUtf);
+    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat((const wchar_t*)pp_theStringUtf);
+}
+
+void Macad::Occt::TCollection_AsciiString::AssignCat(System::String^ theString, int theLength)
+{
+    const char* sz_theString = (char*)(void*)Marshal::StringToHGlobalAnsi(theString);
+    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat(sz_theString, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString);
+}
+
+void Macad::Occt::TCollection_AsciiString::AssignCat(Macad::Occt::TCollection_AsciiString^ theOther)
+{
+    ((::TCollection_AsciiString*)_NativeInstance)->AssignCat(*(::TCollection_AsciiString*)theOther->NativeInstance);
 }
 
 void Macad::Occt::TCollection_AsciiString::Capitalize()
@@ -370,47 +657,78 @@ void Macad::Occt::TCollection_AsciiString::Capitalize()
     ((::TCollection_AsciiString*)_NativeInstance)->Capitalize();
 }
 
-Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(char other)
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(System::String^ theString, int theLength)
 {
     ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
-    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat(other);
+    const char* sz_theString = (char*)(void*)Marshal::StringToHGlobalAnsi(theString);
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat(sz_theString, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
-Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(int other)
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(char theOther)
 {
     ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
-    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat(other);
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat(theOther);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
-Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(double other)
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(int theOther)
 {
     ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
-    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat(other);
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat(theOther);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
-Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(Macad::Occt::TCollection_AsciiString^ other)
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(double theOther)
 {
     ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
-    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat(*(::TCollection_AsciiString*)other->NativeInstance);
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat(theOther);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
-void Macad::Occt::TCollection_AsciiString::Center(int Width, char Filler)
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(Macad::Occt::TCollection_ExtendedString^ theOther, char theReplaceNonAscii)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->Center(Width, Filler);
+    ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat(*(::TCollection_ExtendedString*)theOther->NativeInstance, theReplaceNonAscii);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
-void Macad::Occt::TCollection_AsciiString::ChangeAll(char aChar, char NewChar, bool CaseSensitive)
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(Macad::Occt::TCollection_ExtendedString^ theOther)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->ChangeAll(aChar, NewChar, CaseSensitive);
+    ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat(*(::TCollection_ExtendedString*)theOther->NativeInstance, 0);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
-void Macad::Occt::TCollection_AsciiString::ChangeAll(char aChar, char NewChar)
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(System::String^ theStringUtf)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->ChangeAll(aChar, NewChar, true);
+    ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
+    pin_ptr<const wchar_t> pp_theStringUtf = PtrToStringChars(theStringUtf);
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat((const wchar_t*)pp_theStringUtf);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
+}
+
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Cat(Macad::Occt::TCollection_AsciiString^ theOther)
+{
+    ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Cat(*(::TCollection_AsciiString*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
+}
+
+void Macad::Occt::TCollection_AsciiString::Center(int theWidth, char theFiller)
+{
+    ((::TCollection_AsciiString*)_NativeInstance)->Center(theWidth, theFiller);
+}
+
+void Macad::Occt::TCollection_AsciiString::ChangeAll(char theChar, char theNewChar, bool theCaseSensitive)
+{
+    ((::TCollection_AsciiString*)_NativeInstance)->ChangeAll(theChar, theNewChar, theCaseSensitive);
+}
+
+void Macad::Occt::TCollection_AsciiString::ChangeAll(char theChar, char theNewChar)
+{
+    ((::TCollection_AsciiString*)_NativeInstance)->ChangeAll(theChar, theNewChar, true);
 }
 
 void Macad::Occt::TCollection_AsciiString::Clear()
@@ -418,16 +736,23 @@ void Macad::Occt::TCollection_AsciiString::Clear()
     ((::TCollection_AsciiString*)_NativeInstance)->Clear();
 }
 
-void Macad::Occt::TCollection_AsciiString::Copy(System::String^ fromwhere)
+void Macad::Occt::TCollection_AsciiString::Copy(System::String^ theString, int theLength)
 {
-    const char* sz_fromwhere = (char*)(void*)Marshal::StringToHGlobalAnsi(fromwhere);
-    ((::TCollection_AsciiString*)_NativeInstance)->Copy(sz_fromwhere);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_fromwhere);
+    const char* sz_theString = (char*)(void*)Marshal::StringToHGlobalAnsi(theString);
+    ((::TCollection_AsciiString*)_NativeInstance)->Copy(sz_theString, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString);
 }
 
-void Macad::Occt::TCollection_AsciiString::Copy(Macad::Occt::TCollection_AsciiString^ fromwhere)
+void Macad::Occt::TCollection_AsciiString::Copy(System::String^ theCString)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->Copy(*(::TCollection_AsciiString*)fromwhere->NativeInstance);
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    ((::TCollection_AsciiString*)_NativeInstance)->Copy(sz_theCString);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
+}
+
+void Macad::Occt::TCollection_AsciiString::Copy(Macad::Occt::TCollection_AsciiString^ theFromWhere)
+{
+    ((::TCollection_AsciiString*)_NativeInstance)->Copy(*(::TCollection_AsciiString*)theFromWhere->NativeInstance);
 }
 
 void Macad::Occt::TCollection_AsciiString::Swap(Macad::Occt::TCollection_AsciiString^ theOther)
@@ -435,36 +760,87 @@ void Macad::Occt::TCollection_AsciiString::Swap(Macad::Occt::TCollection_AsciiSt
     ((::TCollection_AsciiString*)_NativeInstance)->Swap(*(::TCollection_AsciiString*)theOther->NativeInstance);
 }
 
-int Macad::Occt::TCollection_AsciiString::FirstLocationInSet(Macad::Occt::TCollection_AsciiString^ Set, int FromIndex, int ToIndex)
+int Macad::Occt::TCollection_AsciiString::FirstLocationInSet(System::String^ theSet, int theSetLength, int theFromIndex, int theToIndex)
 {
-    int _result = ((::TCollection_AsciiString*)_NativeInstance)->FirstLocationInSet(*(::TCollection_AsciiString*)Set->NativeInstance, FromIndex, ToIndex);
+    const char* sz_theSet = (char*)(void*)Marshal::StringToHGlobalAnsi(theSet);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->FirstLocationInSet(sz_theSet, theSetLength, theFromIndex, theToIndex);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theSet);
     return _result;
 }
 
-int Macad::Occt::TCollection_AsciiString::FirstLocationNotInSet(Macad::Occt::TCollection_AsciiString^ Set, int FromIndex, int ToIndex)
+int Macad::Occt::TCollection_AsciiString::FirstLocationInSet(Macad::Occt::TCollection_AsciiString^ theSet, int theFromIndex, int theToIndex)
 {
-    int _result = ((::TCollection_AsciiString*)_NativeInstance)->FirstLocationNotInSet(*(::TCollection_AsciiString*)Set->NativeInstance, FromIndex, ToIndex);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->FirstLocationInSet(*(::TCollection_AsciiString*)theSet->NativeInstance, theFromIndex, theToIndex);
     return _result;
 }
 
-void Macad::Occt::TCollection_AsciiString::Insert(int where, char what)
+int Macad::Occt::TCollection_AsciiString::FirstLocationNotInSet(System::String^ theSet, int theSetLength, int theFromIndex, int theToIndex)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->Insert(where, what);
+    const char* sz_theSet = (char*)(void*)Marshal::StringToHGlobalAnsi(theSet);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->FirstLocationNotInSet(sz_theSet, theSetLength, theFromIndex, theToIndex);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theSet);
+    return _result;
 }
 
-void Macad::Occt::TCollection_AsciiString::Insert(int where, Macad::Occt::TCollection_AsciiString^ what)
+int Macad::Occt::TCollection_AsciiString::FirstLocationNotInSet(Macad::Occt::TCollection_AsciiString^ theSet, int theFromIndex, int theToIndex)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->Insert(where, *(::TCollection_AsciiString*)what->NativeInstance);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->FirstLocationNotInSet(*(::TCollection_AsciiString*)theSet->NativeInstance, theFromIndex, theToIndex);
+    return _result;
 }
 
-void Macad::Occt::TCollection_AsciiString::InsertAfter(int Index, Macad::Occt::TCollection_AsciiString^ other)
+void Macad::Occt::TCollection_AsciiString::Insert(int theWhere, char theWhat)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->InsertAfter(Index, *(::TCollection_AsciiString*)other->NativeInstance);
+    ((::TCollection_AsciiString*)_NativeInstance)->Insert(theWhere, theWhat);
 }
 
-void Macad::Occt::TCollection_AsciiString::InsertBefore(int Index, Macad::Occt::TCollection_AsciiString^ other)
+void Macad::Occt::TCollection_AsciiString::Insert(int theWhere, System::String^ theString, int theLength)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->InsertBefore(Index, *(::TCollection_AsciiString*)other->NativeInstance);
+    const char* sz_theString = (char*)(void*)Marshal::StringToHGlobalAnsi(theString);
+    ((::TCollection_AsciiString*)_NativeInstance)->Insert(theWhere, sz_theString, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString);
+}
+
+void Macad::Occt::TCollection_AsciiString::Insert(int theWhere, Macad::Occt::TCollection_AsciiString^ theWhat)
+{
+    ((::TCollection_AsciiString*)_NativeInstance)->Insert(theWhere, *(::TCollection_AsciiString*)theWhat->NativeInstance);
+}
+
+void Macad::Occt::TCollection_AsciiString::InsertAfter(int theIndex, System::String^ theString, int theLength)
+{
+    const char* sz_theString = (char*)(void*)Marshal::StringToHGlobalAnsi(theString);
+    ((::TCollection_AsciiString*)_NativeInstance)->InsertAfter(theIndex, sz_theString, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString);
+}
+
+void Macad::Occt::TCollection_AsciiString::InsertAfter(int theIndex, Macad::Occt::TCollection_AsciiString^ theOther)
+{
+    ((::TCollection_AsciiString*)_NativeInstance)->InsertAfter(theIndex, *(::TCollection_AsciiString*)theOther->NativeInstance);
+}
+
+void Macad::Occt::TCollection_AsciiString::InsertAfter(int theIndex, System::String^ theCString)
+{
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    ((::TCollection_AsciiString*)_NativeInstance)->InsertAfter(theIndex, sz_theCString);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
+}
+
+void Macad::Occt::TCollection_AsciiString::InsertBefore(int theIndex, System::String^ theString, int theLength)
+{
+    const char* sz_theString = (char*)(void*)Marshal::StringToHGlobalAnsi(theString);
+    ((::TCollection_AsciiString*)_NativeInstance)->InsertBefore(theIndex, sz_theString, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString);
+}
+
+void Macad::Occt::TCollection_AsciiString::InsertBefore(int theIndex, Macad::Occt::TCollection_AsciiString^ theOther)
+{
+    ((::TCollection_AsciiString*)_NativeInstance)->InsertBefore(theIndex, *(::TCollection_AsciiString*)theOther->NativeInstance);
+}
+
+void Macad::Occt::TCollection_AsciiString::InsertBefore(int theIndex, System::String^ theCString)
+{
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    ((::TCollection_AsciiString*)_NativeInstance)->InsertBefore(theIndex, sz_theCString);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
 }
 
 bool Macad::Occt::TCollection_AsciiString::IsEmpty()
@@ -473,65 +849,121 @@ bool Macad::Occt::TCollection_AsciiString::IsEmpty()
     return _result;
 }
 
-bool Macad::Occt::TCollection_AsciiString::IsEqual(System::String^ other)
+bool Macad::Occt::TCollection_AsciiString::IsEqual(Macad::Occt::TCollection_AsciiString^ theOther)
 {
-    const char* sz_other = (char*)(void*)Marshal::StringToHGlobalAnsi(other);
-    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsEqual(sz_other);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_other);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsEqual(*(::TCollection_AsciiString*)theOther->NativeInstance);
     return _result;
 }
 
-bool Macad::Occt::TCollection_AsciiString::IsEqual(Macad::Occt::TCollection_AsciiString^ other)
+bool Macad::Occt::TCollection_AsciiString::IsEqual(System::String^ theString, int theLength)
 {
-    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsEqual(*(::TCollection_AsciiString*)other->NativeInstance);
+    const char* sz_theString = (char*)(void*)Marshal::StringToHGlobalAnsi(theString);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsEqual(sz_theString, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString);
     return _result;
 }
 
-bool Macad::Occt::TCollection_AsciiString::IsDifferent(System::String^ other)
+bool Macad::Occt::TCollection_AsciiString::IsEqual(System::String^ theCString)
 {
-    const char* sz_other = (char*)(void*)Marshal::StringToHGlobalAnsi(other);
-    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsDifferent(sz_other);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_other);
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsEqual(sz_theCString);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
     return _result;
 }
 
-bool Macad::Occt::TCollection_AsciiString::IsDifferent(Macad::Occt::TCollection_AsciiString^ other)
+bool Macad::Occt::TCollection_AsciiString::IsDifferent(Macad::Occt::TCollection_AsciiString^ theOther)
 {
-    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsDifferent(*(::TCollection_AsciiString*)other->NativeInstance);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsDifferent(*(::TCollection_AsciiString*)theOther->NativeInstance);
     return _result;
 }
 
-bool Macad::Occt::TCollection_AsciiString::IsLess(System::String^ other)
+bool Macad::Occt::TCollection_AsciiString::IsDifferent(System::String^ theString, int theLength)
 {
-    const char* sz_other = (char*)(void*)Marshal::StringToHGlobalAnsi(other);
-    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsLess(sz_other);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_other);
+    const char* sz_theString = (char*)(void*)Marshal::StringToHGlobalAnsi(theString);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsDifferent(sz_theString, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString);
     return _result;
 }
 
-bool Macad::Occt::TCollection_AsciiString::IsLess(Macad::Occt::TCollection_AsciiString^ other)
+bool Macad::Occt::TCollection_AsciiString::IsDifferent(System::String^ theCString)
 {
-    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsLess(*(::TCollection_AsciiString*)other->NativeInstance);
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsDifferent(sz_theCString);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
     return _result;
 }
 
-bool Macad::Occt::TCollection_AsciiString::IsGreater(System::String^ other)
+bool Macad::Occt::TCollection_AsciiString::IsLess(System::String^ theString, int theLength)
 {
-    const char* sz_other = (char*)(void*)Marshal::StringToHGlobalAnsi(other);
-    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsGreater(sz_other);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_other);
+    const char* sz_theString = (char*)(void*)Marshal::StringToHGlobalAnsi(theString);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsLess(sz_theString, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString);
     return _result;
 }
 
-bool Macad::Occt::TCollection_AsciiString::IsGreater(Macad::Occt::TCollection_AsciiString^ other)
+bool Macad::Occt::TCollection_AsciiString::IsLess(Macad::Occt::TCollection_AsciiString^ theOther)
 {
-    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsGreater(*(::TCollection_AsciiString*)other->NativeInstance);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsLess(*(::TCollection_AsciiString*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_AsciiString::IsLess(System::String^ theCString)
+{
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsLess(sz_theCString);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_AsciiString::IsGreater(System::String^ theString, int theLength)
+{
+    const char* sz_theString = (char*)(void*)Marshal::StringToHGlobalAnsi(theString);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsGreater(sz_theString, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_AsciiString::IsGreater(Macad::Occt::TCollection_AsciiString^ theOther)
+{
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsGreater(*(::TCollection_AsciiString*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_AsciiString::IsGreater(System::String^ theCString)
+{
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->IsGreater(sz_theCString);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_AsciiString::StartsWith(System::String^ theStartString, int theStartLength)
+{
+    const char* sz_theStartString = (char*)(void*)Marshal::StringToHGlobalAnsi(theStartString);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->StartsWith(sz_theStartString, theStartLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStartString);
     return _result;
 }
 
 bool Macad::Occt::TCollection_AsciiString::StartsWith(Macad::Occt::TCollection_AsciiString^ theStartString)
 {
     bool _result = ((::TCollection_AsciiString*)_NativeInstance)->StartsWith(*(::TCollection_AsciiString*)theStartString->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_AsciiString::StartsWith(System::String^ theCString)
+{
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->StartsWith(sz_theCString);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_AsciiString::EndsWith(System::String^ theEndString, int theEndLength)
+{
+    const char* sz_theEndString = (char*)(void*)Marshal::StringToHGlobalAnsi(theEndString);
+    bool _result = ((::TCollection_AsciiString*)_NativeInstance)->EndsWith(sz_theEndString, theEndLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theEndString);
     return _result;
 }
 
@@ -576,9 +1008,9 @@ void Macad::Occt::TCollection_AsciiString::LeftAdjust()
     ((::TCollection_AsciiString*)_NativeInstance)->LeftAdjust();
 }
 
-void Macad::Occt::TCollection_AsciiString::LeftJustify(int Width, char Filler)
+void Macad::Occt::TCollection_AsciiString::LeftJustify(int theWidth, char theFiller)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->LeftJustify(Width, Filler);
+    ((::TCollection_AsciiString*)_NativeInstance)->LeftJustify(theWidth, theFiller);
 }
 
 int Macad::Occt::TCollection_AsciiString::Length()
@@ -587,15 +1019,15 @@ int Macad::Occt::TCollection_AsciiString::Length()
     return _result;
 }
 
-int Macad::Occt::TCollection_AsciiString::Location(Macad::Occt::TCollection_AsciiString^ other, int FromIndex, int ToIndex)
+int Macad::Occt::TCollection_AsciiString::Location(Macad::Occt::TCollection_AsciiString^ theOther, int theFromIndex, int theToIndex)
 {
-    int _result = ((::TCollection_AsciiString*)_NativeInstance)->Location(*(::TCollection_AsciiString*)other->NativeInstance, FromIndex, ToIndex);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->Location(*(::TCollection_AsciiString*)theOther->NativeInstance, theFromIndex, theToIndex);
     return _result;
 }
 
-int Macad::Occt::TCollection_AsciiString::Location(int N, char C, int FromIndex, int ToIndex)
+int Macad::Occt::TCollection_AsciiString::Location(int theN, char theC, int theFromIndex, int theToIndex)
 {
-    int _result = ((::TCollection_AsciiString*)_NativeInstance)->Location(N, C, FromIndex, ToIndex);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->Location(theN, theC, theFromIndex, theToIndex);
     return _result;
 }
 
@@ -604,16 +1036,16 @@ void Macad::Occt::TCollection_AsciiString::LowerCase()
     ((::TCollection_AsciiString*)_NativeInstance)->LowerCase();
 }
 
-void Macad::Occt::TCollection_AsciiString::Prepend(Macad::Occt::TCollection_AsciiString^ other)
+void Macad::Occt::TCollection_AsciiString::Prepend(Macad::Occt::TCollection_AsciiString^ theOther)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->Prepend(*(::TCollection_AsciiString*)other->NativeInstance);
+    ((::TCollection_AsciiString*)_NativeInstance)->Prepend(*(::TCollection_AsciiString*)theOther->NativeInstance);
 }
 
-void Macad::Occt::TCollection_AsciiString::Print(System::IO::TextWriter^ astream)
+void Macad::Occt::TCollection_AsciiString::Print(System::IO::TextWriter^ theStream)
 {
-    std::ostringstream oss_astream;
-    ((::TCollection_AsciiString*)_NativeInstance)->Print(oss_astream);
-    astream->Write(gcnew System::String(oss_astream.str().c_str()));
+    std::ostringstream oss_theStream;
+    ((::TCollection_AsciiString*)_NativeInstance)->Print(oss_theStream);
+    theStream->Write(gcnew System::String(oss_theStream.str().c_str()));
 }
 
 double Macad::Occt::TCollection_AsciiString::RealValue()
@@ -622,24 +1054,24 @@ double Macad::Occt::TCollection_AsciiString::RealValue()
     return _result;
 }
 
-void Macad::Occt::TCollection_AsciiString::RemoveAll(char C, bool CaseSensitive)
+void Macad::Occt::TCollection_AsciiString::RemoveAll(char theC, bool theCaseSensitive)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->RemoveAll(C, CaseSensitive);
+    ((::TCollection_AsciiString*)_NativeInstance)->RemoveAll(theC, theCaseSensitive);
 }
 
-void Macad::Occt::TCollection_AsciiString::RemoveAll(char what)
+void Macad::Occt::TCollection_AsciiString::RemoveAll(char theWhat)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->RemoveAll(what);
+    ((::TCollection_AsciiString*)_NativeInstance)->RemoveAll(theWhat);
 }
 
-void Macad::Occt::TCollection_AsciiString::Remove(int where, int ahowmany)
+void Macad::Occt::TCollection_AsciiString::Remove(int theWhere, int theHowMany)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->Remove(where, ahowmany);
+    ((::TCollection_AsciiString*)_NativeInstance)->Remove(theWhere, theHowMany);
 }
 
-void Macad::Occt::TCollection_AsciiString::Remove(int where)
+void Macad::Occt::TCollection_AsciiString::Remove(int theWhere)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->Remove(where, 1);
+    ((::TCollection_AsciiString*)_NativeInstance)->Remove(theWhere, 1);
 }
 
 void Macad::Occt::TCollection_AsciiString::RightAdjust()
@@ -647,60 +1079,83 @@ void Macad::Occt::TCollection_AsciiString::RightAdjust()
     ((::TCollection_AsciiString*)_NativeInstance)->RightAdjust();
 }
 
-void Macad::Occt::TCollection_AsciiString::RightJustify(int Width, char Filler)
+void Macad::Occt::TCollection_AsciiString::RightJustify(int theWidth, char theFiller)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->RightJustify(Width, Filler);
+    ((::TCollection_AsciiString*)_NativeInstance)->RightJustify(theWidth, theFiller);
 }
 
-int Macad::Occt::TCollection_AsciiString::Search(System::String^ what)
+int Macad::Occt::TCollection_AsciiString::Search(System::String^ theWhat, int theWhatLength)
 {
-    const char* sz_what = (char*)(void*)Marshal::StringToHGlobalAnsi(what);
-    int _result = ((::TCollection_AsciiString*)_NativeInstance)->Search(sz_what);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_what);
+    const char* sz_theWhat = (char*)(void*)Marshal::StringToHGlobalAnsi(theWhat);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->Search(sz_theWhat, theWhatLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theWhat);
     return _result;
 }
 
-int Macad::Occt::TCollection_AsciiString::Search(Macad::Occt::TCollection_AsciiString^ what)
+int Macad::Occt::TCollection_AsciiString::Search(Macad::Occt::TCollection_AsciiString^ theWhat)
 {
-    int _result = ((::TCollection_AsciiString*)_NativeInstance)->Search(*(::TCollection_AsciiString*)what->NativeInstance);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->Search(*(::TCollection_AsciiString*)theWhat->NativeInstance);
     return _result;
 }
 
-int Macad::Occt::TCollection_AsciiString::SearchFromEnd(System::String^ what)
+int Macad::Occt::TCollection_AsciiString::Search(System::String^ theCString)
 {
-    const char* sz_what = (char*)(void*)Marshal::StringToHGlobalAnsi(what);
-    int _result = ((::TCollection_AsciiString*)_NativeInstance)->SearchFromEnd(sz_what);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_what);
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->Search(sz_theCString);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
     return _result;
 }
 
-int Macad::Occt::TCollection_AsciiString::SearchFromEnd(Macad::Occt::TCollection_AsciiString^ what)
+int Macad::Occt::TCollection_AsciiString::SearchFromEnd(System::String^ theWhat, int theWhatLength)
 {
-    int _result = ((::TCollection_AsciiString*)_NativeInstance)->SearchFromEnd(*(::TCollection_AsciiString*)what->NativeInstance);
+    const char* sz_theWhat = (char*)(void*)Marshal::StringToHGlobalAnsi(theWhat);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->SearchFromEnd(sz_theWhat, theWhatLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theWhat);
     return _result;
 }
 
-void Macad::Occt::TCollection_AsciiString::SetValue(int where, char what)
+int Macad::Occt::TCollection_AsciiString::SearchFromEnd(Macad::Occt::TCollection_AsciiString^ theWhat)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->SetValue(where, what);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->SearchFromEnd(*(::TCollection_AsciiString*)theWhat->NativeInstance);
+    return _result;
 }
 
-void Macad::Occt::TCollection_AsciiString::SetValue(int where, Macad::Occt::TCollection_AsciiString^ what)
+int Macad::Occt::TCollection_AsciiString::SearchFromEnd(System::String^ theCString)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->SetValue(where, *(::TCollection_AsciiString*)what->NativeInstance);
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    int _result = ((::TCollection_AsciiString*)_NativeInstance)->SearchFromEnd(sz_theCString);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
+    return _result;
 }
 
-Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Split(int where)
+void Macad::Occt::TCollection_AsciiString::SetValue(int theWhere, char theWhat)
+{
+    ((::TCollection_AsciiString*)_NativeInstance)->SetValue(theWhere, theWhat);
+}
+
+void Macad::Occt::TCollection_AsciiString::SetValue(int theWhere, System::String^ theString, int theLength)
+{
+    const char* sz_theString = (char*)(void*)Marshal::StringToHGlobalAnsi(theString);
+    ((::TCollection_AsciiString*)_NativeInstance)->SetValue(theWhere, sz_theString, theLength);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString);
+}
+
+void Macad::Occt::TCollection_AsciiString::SetValue(int theWhere, Macad::Occt::TCollection_AsciiString^ theWhat)
+{
+    ((::TCollection_AsciiString*)_NativeInstance)->SetValue(theWhere, *(::TCollection_AsciiString*)theWhat->NativeInstance);
+}
+
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Split(int theWhere)
 {
     ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
-    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Split(where);
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Split(theWhere);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
-Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::SubString(int FromIndex, int ToIndex)
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::SubString(int theFromIndex, int theToIndex)
 {
     ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
-    *_result = ((::TCollection_AsciiString*)_NativeInstance)->SubString(FromIndex, ToIndex);
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->SubString(theFromIndex, theToIndex);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
@@ -710,21 +1165,21 @@ System::String^ Macad::Occt::TCollection_AsciiString::ToCString()
     return gcnew System::String(_result);
 }
 
-Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Token(System::String^ separators, int whichone)
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Token(System::String^ theSeparators, int theWhichOne)
 {
     ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
-    const char* sz_separators = (char*)(void*)Marshal::StringToHGlobalAnsi(separators);
-    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Token(sz_separators, whichone);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_separators);
+    const char* sz_theSeparators = (char*)(void*)Marshal::StringToHGlobalAnsi(theSeparators);
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Token(sz_theSeparators, theWhichOne);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theSeparators);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
-Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Token(System::String^ separators)
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Token(System::String^ theSeparators)
 {
     ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
-    const char* sz_separators = (char*)(void*)Marshal::StringToHGlobalAnsi(separators);
-    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Token(sz_separators, 1);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_separators);
+    const char* sz_theSeparators = (char*)(void*)Marshal::StringToHGlobalAnsi(theSeparators);
+    *_result = ((::TCollection_AsciiString*)_NativeInstance)->Token(sz_theSeparators, 1);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theSeparators);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
@@ -735,9 +1190,9 @@ Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::Toke
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
-void Macad::Occt::TCollection_AsciiString::Trunc(int ahowmany)
+void Macad::Occt::TCollection_AsciiString::Trunc(int theHowMany)
 {
-    ((::TCollection_AsciiString*)_NativeInstance)->Trunc(ahowmany);
+    ((::TCollection_AsciiString*)_NativeInstance)->Trunc(theHowMany);
 }
 
 void Macad::Occt::TCollection_AsciiString::UpperCase()
@@ -751,9 +1206,9 @@ int Macad::Occt::TCollection_AsciiString::UsefullLength()
     return _result;
 }
 
-char Macad::Occt::TCollection_AsciiString::Value(int where)
+char Macad::Occt::TCollection_AsciiString::Value(int theWhere)
 {
-    char _result = ((::TCollection_AsciiString*)_NativeInstance)->Value(where);
+    char _result = ((::TCollection_AsciiString*)_NativeInstance)->Value(theWhere);
     return _result;
 }
 
@@ -763,17 +1218,26 @@ long long unsigned int Macad::Occt::TCollection_AsciiString::HashCode()
     return _result;
 }
 
+Macad::Occt::TCollection_AsciiString^ Macad::Occt::TCollection_AsciiString::EmptyString()
+{
+    ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
+    *_result = (::TCollection_AsciiString)::TCollection_AsciiString::EmptyString();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
+}
+
 bool Macad::Occt::TCollection_AsciiString::IsEqual(Macad::Occt::TCollection_AsciiString^ string1, Macad::Occt::TCollection_AsciiString^ string2)
 {
     bool _result = ::TCollection_AsciiString::IsEqual(*(::TCollection_AsciiString*)string1->NativeInstance, *(::TCollection_AsciiString*)string2->NativeInstance);
     return _result;
 }
 
-bool Macad::Occt::TCollection_AsciiString::IsEqual(Macad::Occt::TCollection_AsciiString^ string1, System::String^ string2)
+bool Macad::Occt::TCollection_AsciiString::IsSameString(System::String^ theString1, int theLength1, System::String^ theString2, int theLength2, bool theIsCaseSensitive)
 {
-    const char* sz_string2 = (char*)(void*)Marshal::StringToHGlobalAnsi(string2);
-    bool _result = ::TCollection_AsciiString::IsEqual(*(::TCollection_AsciiString*)string1->NativeInstance, sz_string2);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_string2);
+    const char* sz_theString1 = (char*)(void*)Marshal::StringToHGlobalAnsi(theString1);
+    const char* sz_theString2 = (char*)(void*)Marshal::StringToHGlobalAnsi(theString2);
+    bool _result = ::TCollection_AsciiString::IsSameString(sz_theString1, theLength1, sz_theString2, theLength2, theIsCaseSensitive);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString1);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theString2);
     return _result;
 }
 
@@ -781,6 +1245,51 @@ bool Macad::Occt::TCollection_AsciiString::IsSameString(Macad::Occt::TCollection
 {
     bool _result = ::TCollection_AsciiString::IsSameString(*(::TCollection_AsciiString*)theString1->NativeInstance, *(::TCollection_AsciiString*)theString2->NativeInstance, theIsCaseSensitive);
     return _result;
+}
+
+bool Macad::Occt::TCollection_AsciiString::IsSameString(Macad::Occt::TCollection_AsciiString^ theString1, System::String^ theCString, bool theIsCaseSensitive)
+{
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    bool _result = ::TCollection_AsciiString::IsSameString(*(::TCollection_AsciiString*)theString1->NativeInstance, sz_theCString, theIsCaseSensitive);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_AsciiString::IsSameString(System::String^ theCString, Macad::Occt::TCollection_AsciiString^ theString2, bool theIsCaseSensitive)
+{
+    const char* sz_theCString = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString);
+    bool _result = ::TCollection_AsciiString::IsSameString(sz_theCString, *(::TCollection_AsciiString*)theString2->NativeInstance, theIsCaseSensitive);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_AsciiString::IsSameString(System::String^ theCString1, System::String^ theCString2, bool theIsCaseSensitive)
+{
+    const char* sz_theCString1 = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString1);
+    const char* sz_theCString2 = (char*)(void*)Marshal::StringToHGlobalAnsi(theCString2);
+    bool _result = ::TCollection_AsciiString::IsSameString(sz_theCString1, sz_theCString2, theIsCaseSensitive);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString1);
+    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theCString2);
+    return _result;
+}
+
+bool Macad::Occt::TCollection_AsciiString::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::TCollection_AsciiString::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((TCollection_AsciiString^)obj)->NativeInstance);
+    }
+    return false;
 }
 
 
@@ -799,7 +1308,7 @@ Macad::Occt::TCollection_HExtendedString::TCollection_HExtendedString(System::St
     : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
     pin_ptr<const wchar_t> pp_message = PtrToStringChars(message);
-    NativeInstance = new ::TCollection_HExtendedString((Standard_ExtString)pp_message);
+    NativeInstance = new ::TCollection_HExtendedString((const char16_t*)pp_message);
 }
 
 Macad::Occt::TCollection_HExtendedString::TCollection_HExtendedString(Macad::Occt::TCollection_ExtendedString^ aString)
@@ -900,21 +1409,21 @@ int Macad::Occt::TCollection_HExtendedString::SearchFromEnd(Macad::Occt::TCollec
 
 System::String^ Macad::Occt::TCollection_HExtendedString::ToExtString()
 {
-    Standard_ExtString _result = ((::TCollection_HExtendedString*)_NativeInstance)->ToExtString();
+    const char16_t* _result = ((::TCollection_HExtendedString*)_NativeInstance)->ToExtString();
     return gcnew System::String((const wchar_t *)_result);
 }
 
 Macad::Occt::TCollection_HExtendedString^ Macad::Occt::TCollection_HExtendedString::Token(System::String^ separators, int whichone)
 {
     pin_ptr<const wchar_t> pp_separators = PtrToStringChars(separators);
-    Handle(::TCollection_HExtendedString) _result = ((::TCollection_HExtendedString*)_NativeInstance)->Token((Standard_ExtString)pp_separators, whichone);
+    Handle(::TCollection_HExtendedString) _result = ((::TCollection_HExtendedString*)_NativeInstance)->Token((const char16_t*)pp_separators, whichone);
     return _result.IsNull() ? nullptr : Macad::Occt::TCollection_HExtendedString::CreateDowncasted(_result.get());
 }
 
 Macad::Occt::TCollection_HExtendedString^ Macad::Occt::TCollection_HExtendedString::Token(System::String^ separators)
 {
     pin_ptr<const wchar_t> pp_separators = PtrToStringChars(separators);
-    Handle(::TCollection_HExtendedString) _result = ((::TCollection_HExtendedString*)_NativeInstance)->Token((Standard_ExtString)pp_separators, 1);
+    Handle(::TCollection_HExtendedString) _result = ((::TCollection_HExtendedString*)_NativeInstance)->Token((const char16_t*)pp_separators, 1);
     return _result.IsNull() ? nullptr : Macad::Occt::TCollection_HExtendedString::CreateDowncasted(_result.get());
 }
 

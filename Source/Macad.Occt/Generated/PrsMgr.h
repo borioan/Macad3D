@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "NCollection.h"
 #include "Graphic3d.h"
 
 namespace Macad
@@ -38,91 +37,10 @@ public enum class PrsMgr_TypeOfPresentation3d
 }; // enum  class PrsMgr_TypeOfPresentation3d
 
 //---------------------------------------------------------------------
-//  Class  PrsMgr_ListOfPresentableObjects
-//---------------------------------------------------------------------
-public ref class PrsMgr_ListOfPresentableObjects sealed
-    : public Macad::Occt::NCollection_BaseList
-{
-
-#ifdef Include_PrsMgr_ListOfPresentableObjects_h
-public:
-    Include_PrsMgr_ListOfPresentableObjects_h
-#endif
-
-public:
-    PrsMgr_ListOfPresentableObjects(::PrsMgr_ListOfPresentableObjects* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
-    {}
-
-    PrsMgr_ListOfPresentableObjects(::PrsMgr_ListOfPresentableObjects& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
-    {}
-
-    property ::PrsMgr_ListOfPresentableObjects* NativeInstance
-    {
-        ::PrsMgr_ListOfPresentableObjects* get()
-        {
-            return static_cast<::PrsMgr_ListOfPresentableObjects*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::PrsMgr_ListOfPresentableObjects::Iterator>
-    {
-
-#ifdef Include_PrsMgr_ListOfPresentableObjects_Iterator_h
-    public:
-        Include_PrsMgr_ListOfPresentableObjects_Iterator_h
-#endif
-
-    public:
-        Iterator(::PrsMgr_ListOfPresentableObjects::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::PrsMgr_ListOfPresentableObjects::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::PrsMgr_ListOfPresentableObjects::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::PrsMgr_ListOfPresentableObjects::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::PrsMgr_ListOfPresentableObjects::Iterator* NativeInstance
-        {
-            ::PrsMgr_ListOfPresentableObjects::Iterator* get()
-            {
-                return static_cast<::PrsMgr_ListOfPresentableObjects::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::PrsMgr_PresentableObject^ Value();
-        Macad::Occt::PrsMgr_PresentableObject^ ChangeValue();
-    }; // class Iterator
-
-    PrsMgr_ListOfPresentableObjects();
-    PrsMgr_ListOfPresentableObjects(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    Macad::Occt::PrsMgr_ListOfPresentableObjects^ Assign(Macad::Occt::PrsMgr_ListOfPresentableObjects^ theOther);
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::PrsMgr_PresentableObject^ First();
-    Macad::Occt::PrsMgr_PresentableObject^ Last();
-    Macad::Occt::PrsMgr_PresentableObject^ Append(Macad::Occt::PrsMgr_PresentableObject^ theItem);
-    Macad::Occt::PrsMgr_PresentableObject^ Prepend(Macad::Occt::PrsMgr_PresentableObject^ theItem);
-    void RemoveFirst();
-    void Remove(Macad::Occt::PrsMgr_ListOfPresentableObjects::Iterator^ theIter);
-    Macad::Occt::PrsMgr_PresentableObject^ InsertBefore(Macad::Occt::PrsMgr_PresentableObject^ theItem, Macad::Occt::PrsMgr_ListOfPresentableObjects::Iterator^ theIter);
-    Macad::Occt::PrsMgr_PresentableObject^ InsertAfter(Macad::Occt::PrsMgr_PresentableObject^ theItem, Macad::Occt::PrsMgr_ListOfPresentableObjects::Iterator^ theIter);
-    void Reverse();
-}; // class PrsMgr_ListOfPresentableObjects
-
-//---------------------------------------------------------------------
 //  Class  PrsMgr_ListOfPresentations
 //---------------------------------------------------------------------
 public ref class PrsMgr_ListOfPresentations sealed
-    : public Macad::Occt::NCollection_BaseList
+    : public Macad::Occt::BaseClass<::PrsMgr_ListOfPresentations>
 {
 
 #ifdef Include_PrsMgr_ListOfPresentations_h
@@ -132,11 +50,11 @@ public:
 
 public:
     PrsMgr_ListOfPresentations(::PrsMgr_ListOfPresentations* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::PrsMgr_ListOfPresentations>( nativeInstance, true )
     {}
 
     PrsMgr_ListOfPresentations(::PrsMgr_ListOfPresentations& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::PrsMgr_ListOfPresentations>( &nativeInstance, false )
     {}
 
     property ::PrsMgr_ListOfPresentations* NativeInstance
@@ -176,125 +94,41 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::NCollection_BaseList^ theList);
         bool More();
         void Next();
         Macad::Occt::Graphic3d_Structure^ Value();
         Macad::Occt::Graphic3d_Structure^ ChangeValue();
     }; // class Iterator
 
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     PrsMgr_ListOfPresentations();
     PrsMgr_ListOfPresentations(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
+    /* Method skipped due to unknown mapping: void PrsMgr_ListOfPresentations(initializer_list<opencascade::handle<Graphic3d_Structure>> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void PrsMgr_ListOfPresentations(initializer_list<opencascade::handle<Graphic3d_Structure>> theInitList, NCollection_BaseAllocator theAllocator, ) */
     Macad::Occt::PrsMgr_ListOfPresentations^ Assign(Macad::Occt::PrsMgr_ListOfPresentations^ theOther);
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::Graphic3d_Structure^ First();
     Macad::Occt::Graphic3d_Structure^ Last();
     Macad::Occt::Graphic3d_Structure^ Append(Macad::Occt::Graphic3d_Structure^ theItem);
+    void Append(Macad::Occt::Graphic3d_Structure^ theItem, Macad::Occt::PrsMgr_ListOfPresentations::Iterator^ theIter);
+    void Append(Macad::Occt::PrsMgr_ListOfPresentations^ theOther);
     Macad::Occt::Graphic3d_Structure^ Prepend(Macad::Occt::Graphic3d_Structure^ theItem);
+    void Prepend(Macad::Occt::PrsMgr_ListOfPresentations^ theOther);
     void RemoveFirst();
     void Remove(Macad::Occt::PrsMgr_ListOfPresentations::Iterator^ theIter);
     Macad::Occt::Graphic3d_Structure^ InsertBefore(Macad::Occt::Graphic3d_Structure^ theItem, Macad::Occt::PrsMgr_ListOfPresentations::Iterator^ theIter);
+    void InsertBefore(Macad::Occt::PrsMgr_ListOfPresentations^ theOther, Macad::Occt::PrsMgr_ListOfPresentations::Iterator^ theIter);
     Macad::Occt::Graphic3d_Structure^ InsertAfter(Macad::Occt::Graphic3d_Structure^ theItem, Macad::Occt::PrsMgr_ListOfPresentations::Iterator^ theIter);
+    void InsertAfter(Macad::Occt::PrsMgr_ListOfPresentations^ theOther, Macad::Occt::PrsMgr_ListOfPresentations::Iterator^ theIter);
     void Reverse();
+    void Exchange(Macad::Occt::PrsMgr_ListOfPresentations^ theOther);
 }; // class PrsMgr_ListOfPresentations
-
-//---------------------------------------------------------------------
-//  Class  PrsMgr_Presentations
-//---------------------------------------------------------------------
-public ref class PrsMgr_Presentations sealed
-    : public Macad::Occt::BaseClass<::PrsMgr_Presentations>
-    , public IIndexEnumerable<Macad::Occt::PrsMgr_Presentation^>
-{
-
-#ifdef Include_PrsMgr_Presentations_h
-public:
-    Include_PrsMgr_Presentations_h
-#endif
-
-public:
-    PrsMgr_Presentations(::PrsMgr_Presentations* nativeInstance)
-        : Macad::Occt::BaseClass<::PrsMgr_Presentations>( nativeInstance, true )
-    {}
-
-    PrsMgr_Presentations(::PrsMgr_Presentations& nativeInstance)
-        : Macad::Occt::BaseClass<::PrsMgr_Presentations>( &nativeInstance, false )
-    {}
-
-    property ::PrsMgr_Presentations* NativeInstance
-    {
-        ::PrsMgr_Presentations* get()
-        {
-            return static_cast<::PrsMgr_Presentations*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::PrsMgr_Presentations::Iterator>
-    {
-
-#ifdef Include_PrsMgr_Presentations_Iterator_h
-    public:
-        Include_PrsMgr_Presentations_Iterator_h
-#endif
-
-    public:
-        Iterator(::PrsMgr_Presentations::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::PrsMgr_Presentations::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::PrsMgr_Presentations::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::PrsMgr_Presentations::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::PrsMgr_Presentations::Iterator* NativeInstance
-        {
-            ::PrsMgr_Presentations::Iterator* get()
-            {
-                return static_cast<::PrsMgr_Presentations::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::PrsMgr_Presentation^ Value();
-        Macad::Occt::PrsMgr_Presentation^ ChangeValue();
-        bool IsEqual(Macad::Occt::PrsMgr_Presentations::Iterator^ theOther);
-        bool Equals(System::Object^ obj) override;
-    }; // class Iterator
-
-    PrsMgr_Presentations();
-    PrsMgr_Presentations(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
-    int Upper();
-    bool IsEmpty();
-    void Reverse();
-    void Exchange(int I, int J);
-    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::PrsMgr_Presentations^ Assign(Macad::Occt::PrsMgr_Presentations^ theOther);
-    void Remove(Macad::Occt::PrsMgr_Presentations::Iterator^ thePosition);
-    void Append(Macad::Occt::PrsMgr_Presentation^ theItem);
-    void Prepend(Macad::Occt::PrsMgr_Presentation^ theItem);
-    void InsertBefore(int theIndex, Macad::Occt::PrsMgr_Presentation^ theItem);
-    void InsertAfter(Macad::Occt::PrsMgr_Presentations::Iterator^ thePosition, Macad::Occt::PrsMgr_Presentation^ theItem);
-    void Split(int theIndex, Macad::Occt::PrsMgr_Presentations^ theSeq);
-    Macad::Occt::PrsMgr_Presentation^ First();
-    Macad::Occt::PrsMgr_Presentation^ ChangeFirst();
-    Macad::Occt::PrsMgr_Presentation^ Last();
-    Macad::Occt::PrsMgr_Presentation^ ChangeLast();
-    virtual Macad::Occt::PrsMgr_Presentation^ Value(int theIndex);
-    Macad::Occt::PrsMgr_Presentation^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::PrsMgr_Presentation^ theItem);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::PrsMgr_Presentation^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class PrsMgr_Presentations
 
 //---------------------------------------------------------------------
 //  Class  PrsMgr_PresentableObject
@@ -349,10 +183,7 @@ public:
     }
 
 public:
-    /// <summary>
-    /// Return presentations.
-    /// </summary>
-    Macad::Occt::PrsMgr_Presentations^ Presentations();
+    /* Method skipped due to unknown mapping: NCollection_Sequence<opencascade::handle<PrsMgr_Presentation>> Presentations() */
     /// <summary>
     /// Get ID of Z layer for main presentation.
     /// </summary>
@@ -660,10 +491,7 @@ public:
     /// @name parent/children properties
     /// Returns parent of current object in scene hierarchy.
     Macad::Occt::PrsMgr_PresentableObject^ Parent();
-    /// <summary>
-    /// Returns children of the current object.
-    /// </summary>
-    Macad::Occt::PrsMgr_ListOfPresentableObjects^ Children();
+    /* Method skipped due to unknown mapping: NCollection_List<opencascade::handle<PrsMgr_PresentableObject>> Children() */
     /// <summary>
     /// Makes theObject child of current object in scene hierarchy.
     /// </summary>
@@ -731,7 +559,7 @@ public:
     void SetColor(Macad::Occt::Quantity_Color^ theColor);
     /// <summary>
     /// Removes color settings. Only the Interactive Object
-    /// knows which Drawer attribute is   affected by the color
+    /// knows which Drawer attribute is affected by the color
     /// setting. For a wire, for example, wire aspect is the
     /// attribute affected. For a vertex, however, only point
     /// aspect is affected by the color setting.
@@ -802,7 +630,7 @@ public:
     /// </summary>
     void UnsetTransparency();
     /// <summary>
-    /// Returns Standard_True if <myDrawer> has non-null shading aspect
+    /// Returns true if <myDrawer> has non-null shading aspect
     /// </summary>
     bool HasPolygonOffsets();
     /// <summary>

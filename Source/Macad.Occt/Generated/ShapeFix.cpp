@@ -6,13 +6,13 @@
 using namespace System::Runtime::InteropServices; // for class Marshal
 
 #include "NCollection.h"
+#include "TopTools.h"
 #include "TopoDS.h"
 #include "Bnd.h"
 #include "Message.h"
 #include "ShapeBuild.h"
 #include "TopAbs.h"
 #include "TopLoc.h"
-#include "TopTools.h"
 #include "ShapeAnalysis.h"
 #include "ShapeConstruct.h"
 #include "Geom.h"
@@ -20,8 +20,291 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 
 
 //---------------------------------------------------------------------
+//  Class  ShapeFix_DataMapOfShapeBox2d
+//---------------------------------------------------------------------
+
+long long unsigned int Macad::Occt::ShapeFix_DataMapOfShapeBox2d::NbBuckets()
+{
+    long long unsigned int _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Extent()
+{
+    int _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Length()
+{
+    int _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Size()
+{
+    long long unsigned int _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::ShapeFix_DataMapOfShapeBox2d::IsEmpty()
+{
+    bool _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d()
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d();
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d(theNbBuckets, nullptr);
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d(int theNbBuckets)
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d(theNbBuckets, nullptr);
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher)
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, 1, nullptr);
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets)
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
+}
+
+void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Exchange(Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ theOther)
+{
+    ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Exchange(*(::ShapeFix_DataMapOfShapeBox2d*)theOther->NativeInstance);
+}
+
+Macad::Occt::TopTools_ShapeMapHasher^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::GetHasher()
+{
+    ::TopTools_ShapeMapHasher* _result = new ::TopTools_ShapeMapHasher();
+    *_result = (::TopTools_ShapeMapHasher)((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->GetHasher();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ShapeMapHasher(_result);
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Assign(Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ theOther)
+{
+    ::ShapeFix_DataMapOfShapeBox2d* _result = new ::ShapeFix_DataMapOfShapeBox2d();
+    *_result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Assign(*(::ShapeFix_DataMapOfShapeBox2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::ShapeFix_DataMapOfShapeBox2d(_result);
+}
+
+void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ReSize(long long unsigned int N)
+{
+    ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->ReSize(N);
+}
+
+void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ReSize(int N)
+{
+    ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->ReSize(N);
+}
+
+bool Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem)
+{
+    bool _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Bind(*(::TopoDS_Shape*)theKey->NativeInstance, *(::Bnd_Box2d*)theItem->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem)
+{
+    ::Bnd_Box2d* _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Bound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::Bnd_Box2d*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+bool Macad::Occt::ShapeFix_DataMapOfShapeBox2d::TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem)
+{
+    bool _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey->NativeInstance, *(::Bnd_Box2d*)theItem->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem)
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::Bnd_Box2d*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+bool Macad::Occt::ShapeFix_DataMapOfShapeBox2d::IsBound(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    bool _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->IsBound(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::ShapeFix_DataMapOfShapeBox2d::UnBind(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    bool _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->UnBind(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Seek(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    const ::Bnd_Box2d* _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Seek(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d((::Bnd_Box2d*)_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Find(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = (::Bnd_Box2d)((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+bool Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theValue)
+{
+    bool _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance, *(::Bnd_Box2d*)theValue->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    ::Bnd_Box2d* _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->ChangeSeek(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ChangeFind(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->ChangeFind(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Clear(bool doReleaseMemory)
+{
+    ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Clear(doReleaseMemory);
+}
+
+void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Clear()
+{
+    ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Clear(false);
+}
+
+void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  ShapeFix_DataMapOfShapeBox2d::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d::Iterator();
+}
+
+Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::Iterator(Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ theMap)
+    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d::Iterator(*(::ShapeFix_DataMapOfShapeBox2d*)theMap->NativeInstance);
+}
+
+bool Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::More()
+{
+    bool _result = ((::ShapeFix_DataMapOfShapeBox2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::Next()
+{
+    ((::ShapeFix_DataMapOfShapeBox2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::Value()
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = (::Bnd_Box2d)((::ShapeFix_DataMapOfShapeBox2d::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::ChangeValue()
+{
+    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
+    *_result = ((::ShapeFix_DataMapOfShapeBox2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
+}
+
+Macad::Occt::TopoDS_Shape^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::Key()
+{
+    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
+    *_result = (::TopoDS_Shape)((::ShapeFix_DataMapOfShapeBox2d::Iterator*)_NativeInstance)->Key();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
+}
+
+
+
+//---------------------------------------------------------------------
 //  Class  ShapeFix_SequenceOfWireSegment
 //---------------------------------------------------------------------
+
+int Macad::Occt::ShapeFix_SequenceOfWireSegment::Length()
+{
+    int _result = ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::ShapeFix_SequenceOfWireSegment::Size()
+{
+    long long unsigned int _result = ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::ShapeFix_SequenceOfWireSegment::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
 
 Macad::Occt::ShapeFix_SequenceOfWireSegment::ShapeFix_SequenceOfWireSegment()
     : Macad::Occt::BaseClass<::ShapeFix_SequenceOfWireSegment>(BaseClass::InitMode::Uninitialized)
@@ -35,21 +318,9 @@ Macad::Occt::ShapeFix_SequenceOfWireSegment::ShapeFix_SequenceOfWireSegment(Maca
     _NativeInstance = new ::ShapeFix_SequenceOfWireSegment(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
-int Macad::Occt::ShapeFix_SequenceOfWireSegment::Size()
-{
-    int _result = ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::ShapeFix_SequenceOfWireSegment::Length()
-{
-    int _result = ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Length();
-    return _result;
-}
-
 int Macad::Occt::ShapeFix_SequenceOfWireSegment::Lower()
 {
-    int _result = ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Lower();
+    int _result = ::ShapeFix_SequenceOfWireSegment::Lower();
     return _result;
 }
 
@@ -70,6 +341,11 @@ void Macad::Occt::ShapeFix_SequenceOfWireSegment::Reverse()
     ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::ShapeFix_SequenceOfWireSegment::Exchange(int I, int J)
 {
     ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Exchange(I, J);
@@ -82,7 +358,7 @@ void Macad::Occt::ShapeFix_SequenceOfWireSegment::Clear(Macad::Occt::NCollection
 
 void Macad::Occt::ShapeFix_SequenceOfWireSegment::Clear()
 {
-    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Clear(0L);
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::ShapeFix_SequenceOfWireSegment^ Macad::Occt::ShapeFix_SequenceOfWireSegment::Assign(Macad::Occt::ShapeFix_SequenceOfWireSegment^ theOther)
@@ -97,9 +373,34 @@ void Macad::Occt::ShapeFix_SequenceOfWireSegment::Remove(Macad::Occt::ShapeFix_S
     ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Remove(*(::ShapeFix_SequenceOfWireSegment::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::Remove(long long unsigned int theIndex)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::Remove(int theIndex)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::Remove(int theFromIndex, int theToIndex)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::ShapeFix_SequenceOfWireSegment::Append(Macad::Occt::ShapeFix_WireSegment^ theItem)
 {
     ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Append(*(::ShapeFix_WireSegment*)theItem->NativeInstance);
+}
+
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::Append(Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Append(*(::ShapeFix_SequenceOfWireSegment*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::ShapeFix_SequenceOfWireSegment::Prepend(Macad::Occt::ShapeFix_WireSegment^ theItem)
@@ -107,14 +408,59 @@ void Macad::Occt::ShapeFix_SequenceOfWireSegment::Prepend(Macad::Occt::ShapeFix_
     ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Prepend(*(::ShapeFix_WireSegment*)theItem->NativeInstance);
 }
 
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::Prepend(Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Prepend(*(::ShapeFix_SequenceOfWireSegment*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::InsertBefore(long long unsigned int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->InsertBefore(theIndex, *(::ShapeFix_WireSegment*)theItem->NativeInstance);
+}
+
 void Macad::Occt::ShapeFix_SequenceOfWireSegment::InsertBefore(int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem)
 {
     ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->InsertBefore(theIndex, *(::ShapeFix_WireSegment*)theItem->NativeInstance);
 }
 
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::InsertBefore(long long unsigned int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->InsertBefore(theIndex, *(::ShapeFix_SequenceOfWireSegment*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::InsertBefore(int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->InsertBefore(theIndex, *(::ShapeFix_SequenceOfWireSegment*)theSeq->NativeInstance);
+}
+
 void Macad::Occt::ShapeFix_SequenceOfWireSegment::InsertAfter(Macad::Occt::ShapeFix_SequenceOfWireSegment::Iterator^ thePosition, Macad::Occt::ShapeFix_WireSegment^ theItem)
 {
     ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->InsertAfter(*(::ShapeFix_SequenceOfWireSegment::Iterator*)thePosition->NativeInstance, *(::ShapeFix_WireSegment*)theItem->NativeInstance);
+}
+
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::InsertAfter(long long unsigned int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->InsertAfter(theIndex, *(::ShapeFix_SequenceOfWireSegment*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::InsertAfter(int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->InsertAfter(theIndex, *(::ShapeFix_SequenceOfWireSegment*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::InsertAfter(long long unsigned int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->InsertAfter(theIndex, *(::ShapeFix_WireSegment*)theItem->NativeInstance);
+}
+
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::InsertAfter(int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->InsertAfter(theIndex, *(::ShapeFix_WireSegment*)theItem->NativeInstance);
+}
+
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::Split(long long unsigned int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Split(theIndex, *(::ShapeFix_SequenceOfWireSegment*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::ShapeFix_SequenceOfWireSegment::Split(int theIndex, Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq)
@@ -150,10 +496,24 @@ Macad::Occt::ShapeFix_WireSegment^ Macad::Occt::ShapeFix_SequenceOfWireSegment::
     return _result==nullptr ? nullptr : gcnew Macad::Occt::ShapeFix_WireSegment(_result);
 }
 
+Macad::Occt::ShapeFix_WireSegment^ Macad::Occt::ShapeFix_SequenceOfWireSegment::Value(long long unsigned int theIndex)
+{
+    ::ShapeFix_WireSegment* _result = new ::ShapeFix_WireSegment();
+    *_result = (::ShapeFix_WireSegment)((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Value(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::ShapeFix_WireSegment(_result);
+}
+
 Macad::Occt::ShapeFix_WireSegment^ Macad::Occt::ShapeFix_SequenceOfWireSegment::Value(int theIndex)
 {
     ::ShapeFix_WireSegment* _result = new ::ShapeFix_WireSegment();
     *_result = (::ShapeFix_WireSegment)((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->Value(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::ShapeFix_WireSegment(_result);
+}
+
+Macad::Occt::ShapeFix_WireSegment^ Macad::Occt::ShapeFix_SequenceOfWireSegment::ChangeValue(long long unsigned int theIndex)
+{
+    ::ShapeFix_WireSegment* _result = new ::ShapeFix_WireSegment();
+    *_result = ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->ChangeValue(theIndex);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::ShapeFix_WireSegment(_result);
 }
 
@@ -164,9 +524,28 @@ Macad::Occt::ShapeFix_WireSegment^ Macad::Occt::ShapeFix_SequenceOfWireSegment::
     return _result==nullptr ? nullptr : gcnew Macad::Occt::ShapeFix_WireSegment(_result);
 }
 
+void Macad::Occt::ShapeFix_SequenceOfWireSegment::SetValue(long long unsigned int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem)
+{
+    ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->SetValue(theIndex, *(::ShapeFix_WireSegment*)theItem->NativeInstance);
+}
+
 void Macad::Occt::ShapeFix_SequenceOfWireSegment::SetValue(int theIndex, Macad::Occt::ShapeFix_WireSegment^ theItem)
 {
     ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->SetValue(theIndex, *(::ShapeFix_WireSegment*)theItem->NativeInstance);
+}
+
+Macad::Occt::ShapeFix_WireSegment^ Macad::Occt::ShapeFix_SequenceOfWireSegment::At(long long unsigned int theIndex)
+{
+    ::ShapeFix_WireSegment* _result = new ::ShapeFix_WireSegment();
+    *_result = (::ShapeFix_WireSegment)((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::ShapeFix_WireSegment(_result);
+}
+
+Macad::Occt::ShapeFix_WireSegment^ Macad::Occt::ShapeFix_SequenceOfWireSegment::ChangeAt(long long unsigned int theIndex)
+{
+    ::ShapeFix_WireSegment* _result = new ::ShapeFix_WireSegment();
+    *_result = ((::ShapeFix_SequenceOfWireSegment*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::ShapeFix_WireSegment(_result);
 }
 
 System::Collections::Generic::IEnumerator<Macad::Occt::ShapeFix_WireSegment^>^ Macad::Occt::ShapeFix_SequenceOfWireSegment::GetEnumerator()
@@ -189,6 +568,18 @@ Macad::Occt::ShapeFix_SequenceOfWireSegment::Iterator::Iterator()
     : Macad::Occt::BaseClass<::ShapeFix_SequenceOfWireSegment::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::ShapeFix_SequenceOfWireSegment::Iterator();
+}
+
+Macad::Occt::ShapeFix_SequenceOfWireSegment::Iterator::Iterator(Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::ShapeFix_SequenceOfWireSegment::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_SequenceOfWireSegment::Iterator(*(::ShapeFix_SequenceOfWireSegment*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::ShapeFix_SequenceOfWireSegment::Iterator::Iterator(Macad::Occt::ShapeFix_SequenceOfWireSegment^ theSeq)
+    : Macad::Occt::BaseClass<::ShapeFix_SequenceOfWireSegment::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ShapeFix_SequenceOfWireSegment::Iterator(*(::ShapeFix_SequenceOfWireSegment*)theSeq->NativeInstance, true);
 }
 
 bool Macad::Occt::ShapeFix_SequenceOfWireSegment::Iterator::More()
@@ -239,157 +630,6 @@ bool Macad::Occt::ShapeFix_SequenceOfWireSegment::Iterator::Equals(System::Objec
         return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
     }
     return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  ShapeFix_DataMapOfShapeBox2d
-//---------------------------------------------------------------------
-
-Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d()
-    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d();
-}
-
-Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ShapeFix_DataMapOfShapeBox2d(int theNbBuckets)
-    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d(theNbBuckets, 0L);
-}
-
-void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Exchange(Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ theOther)
-{
-    ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Exchange(*(::ShapeFix_DataMapOfShapeBox2d*)theOther->NativeInstance);
-}
-
-Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Assign(Macad::Occt::ShapeFix_DataMapOfShapeBox2d^ theOther)
-{
-    ::ShapeFix_DataMapOfShapeBox2d* _result = new ::ShapeFix_DataMapOfShapeBox2d();
-    *_result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Assign(*(::ShapeFix_DataMapOfShapeBox2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::ShapeFix_DataMapOfShapeBox2d(_result);
-}
-
-void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ReSize(int N)
-{
-    ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->ReSize(N);
-}
-
-bool Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem)
-{
-    bool _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Bind(*(::TopoDS_Shape*)theKey->NativeInstance, *(::Bnd_Box2d*)theItem->NativeInstance);
-    return _result;
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::Bnd_Box2d^ theItem)
-{
-    ::Bnd_Box2d* _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Bound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::Bnd_Box2d*)theItem->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-bool Macad::Occt::ShapeFix_DataMapOfShapeBox2d::IsBound(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    bool _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->IsBound(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::ShapeFix_DataMapOfShapeBox2d::UnBind(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    bool _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->UnBind(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result;
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Seek(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    const ::Bnd_Box2d* _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Seek(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d((::Bnd_Box2d*)_result);
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Find(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
-    *_result = (::Bnd_Box2d)((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    ::Bnd_Box2d* _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->ChangeSeek(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::ChangeFind(Macad::Occt::TopoDS_Shape^ theKey)
-{
-    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
-    *_result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->ChangeFind(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Clear(bool doReleaseMemory)
-{
-    ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Clear()
-{
-    ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Size()
-{
-    int _result = ((::ShapeFix_DataMapOfShapeBox2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  ShapeFix_DataMapOfShapeBox2d::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::ShapeFix_DataMapOfShapeBox2d::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::ShapeFix_DataMapOfShapeBox2d::Iterator();
-}
-
-bool Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::More()
-{
-    bool _result = ((::ShapeFix_DataMapOfShapeBox2d::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::Next()
-{
-    ((::ShapeFix_DataMapOfShapeBox2d::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::Value()
-{
-    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
-    *_result = (::Bnd_Box2d)((::ShapeFix_DataMapOfShapeBox2d::Iterator*)_NativeInstance)->Value();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-Macad::Occt::Bnd_Box2d^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::ChangeValue()
-{
-    ::Bnd_Box2d* _result = new ::Bnd_Box2d();
-    *_result = ((::ShapeFix_DataMapOfShapeBox2d::Iterator*)_NativeInstance)->ChangeValue();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box2d(_result);
-}
-
-Macad::Occt::TopoDS_Shape^ Macad::Occt::ShapeFix_DataMapOfShapeBox2d::Iterator::Key()
-{
-    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
-    *_result = (::TopoDS_Shape)((::ShapeFix_DataMapOfShapeBox2d::Iterator*)_NativeInstance)->Key();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
 }
 
 
@@ -1025,6 +1265,16 @@ void Macad::Occt::ShapeFix_Wire::SetFace(Macad::Occt::TopoDS_Face^ face)
     ((::ShapeFix_Wire*)_NativeInstance)->SetFace(*(::TopoDS_Face*)face->NativeInstance);
 }
 
+void Macad::Occt::ShapeFix_Wire::SetFace(Macad::Occt::TopoDS_Face^ theFace, Macad::Occt::ShapeAnalysis_Surface^ theSurfaceAnalysis)
+{
+    ((::ShapeFix_Wire*)_NativeInstance)->SetFace(*(::TopoDS_Face*)theFace->NativeInstance, Handle(::ShapeAnalysis_Surface)(theSurfaceAnalysis->NativeInstance));
+}
+
+void Macad::Occt::ShapeFix_Wire::SetSurface(Macad::Occt::ShapeAnalysis_Surface^ theSurfaceAnalysis)
+{
+    ((::ShapeFix_Wire*)_NativeInstance)->SetSurface(Handle(::ShapeAnalysis_Surface)(theSurfaceAnalysis->NativeInstance));
+}
+
 void Macad::Occt::ShapeFix_Wire::SetSurface(Macad::Occt::Geom_Surface^ surf)
 {
     ((::ShapeFix_Wire*)_NativeInstance)->SetSurface(Handle(::Geom_Surface)(surf->NativeInstance));
@@ -1095,9 +1345,15 @@ Macad::Occt::TopoDS_Face^ Macad::Occt::ShapeFix_Wire::Face()
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Face(_result);
 }
 
+bool Macad::Occt::ShapeFix_Wire::Perform(Macad::Occt::Message_ProgressRange^ theProgress)
+{
+    bool _result = ((::ShapeFix_Wire*)_NativeInstance)->Perform(*(::Message_ProgressRange*)theProgress->NativeInstance);
+    return _result;
+}
+
 bool Macad::Occt::ShapeFix_Wire::Perform()
 {
-    bool _result = ((::ShapeFix_Wire*)_NativeInstance)->Perform();
+    bool _result = ((::ShapeFix_Wire*)_NativeInstance)->Perform(::Message_ProgressRange());
     return _result;
 }
 
@@ -1203,9 +1459,15 @@ bool Macad::Occt::ShapeFix_Wire::FixSmall(int num, bool lockvtx, double precsmal
     return _result;
 }
 
+bool Macad::Occt::ShapeFix_Wire::FixConnected(int num, double prec, bool theUpdateWire)
+{
+    bool _result = ((::ShapeFix_Wire*)_NativeInstance)->FixConnected(num, prec, theUpdateWire);
+    return _result;
+}
+
 bool Macad::Occt::ShapeFix_Wire::FixConnected(int num, double prec)
 {
-    bool _result = ((::ShapeFix_Wire*)_NativeInstance)->FixConnected(num, prec);
+    bool _result = ((::ShapeFix_Wire*)_NativeInstance)->FixConnected(num, prec, true);
     return _result;
 }
 
@@ -1374,9 +1636,15 @@ void Macad::Occt::ShapeFix_Face::Add(Macad::Occt::TopoDS_Wire^ wire)
     ((::ShapeFix_Face*)_NativeInstance)->Add(*(::TopoDS_Wire*)wire->NativeInstance);
 }
 
+bool Macad::Occt::ShapeFix_Face::Perform(Macad::Occt::Message_ProgressRange^ theProgress)
+{
+    bool _result = ((::ShapeFix_Face*)_NativeInstance)->Perform(*(::Message_ProgressRange*)theProgress->NativeInstance);
+    return _result;
+}
+
 bool Macad::Occt::ShapeFix_Face::Perform()
 {
-    bool _result = ((::ShapeFix_Face*)_NativeInstance)->Perform();
+    bool _result = ((::ShapeFix_Face*)_NativeInstance)->Perform(::Message_ProgressRange());
     return _result;
 }
 

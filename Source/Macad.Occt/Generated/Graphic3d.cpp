@@ -5,10 +5,10 @@
 
 using namespace System::Runtime::InteropServices; // for class Marshal
 
-#include "gp.h"
 #include "NCollection.h"
 #include "Standard.h"
 #include "TCollection.h"
+#include "gp.h"
 #include "TopLoc.h"
 #include "Quantity.h"
 #include "Image.h"
@@ -18,6 +18,903 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 #include "V3d.h"
 #include "Prs3d.h"
 #include "PrsMgr.h"
+
+
+//---------------------------------------------------------------------
+//  Class  Graphic3d_MapOfObject
+//---------------------------------------------------------------------
+
+long long unsigned int Macad::Occt::Graphic3d_MapOfObject::NbBuckets()
+{
+    long long unsigned int _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::Graphic3d_MapOfObject::Extent()
+{
+    int _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::Graphic3d_MapOfObject::Length()
+{
+    int _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::Graphic3d_MapOfObject::Size()
+{
+    long long unsigned int _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::Graphic3d_MapOfObject::IsEmpty()
+{
+    bool _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::Graphic3d_MapOfObject::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_MapOfObject::Graphic3d_MapOfObject()
+    : Macad::Occt::BaseClass<::Graphic3d_MapOfObject>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_MapOfObject();
+}
+
+Macad::Occt::Graphic3d_MapOfObject::Graphic3d_MapOfObject(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::Graphic3d_MapOfObject>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_MapOfObject(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::Graphic3d_MapOfObject::Graphic3d_MapOfObject(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::Graphic3d_MapOfObject>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_MapOfObject(theNbBuckets, nullptr);
+}
+
+Macad::Occt::Graphic3d_MapOfObject::Graphic3d_MapOfObject(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::Graphic3d_MapOfObject>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_MapOfObject(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::Graphic3d_MapOfObject::Graphic3d_MapOfObject(int theNbBuckets)
+    : Macad::Occt::BaseClass<::Graphic3d_MapOfObject>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_MapOfObject(theNbBuckets, nullptr);
+}
+
+void Macad::Occt::Graphic3d_MapOfObject::Exchange(Macad::Occt::Graphic3d_MapOfObject^ theOther)
+{
+    ((::Graphic3d_MapOfObject*)_NativeInstance)->Exchange(*(::Graphic3d_MapOfObject*)theOther->NativeInstance);
+}
+
+Macad::Occt::Graphic3d_MapOfObject^ Macad::Occt::Graphic3d_MapOfObject::Assign(Macad::Occt::Graphic3d_MapOfObject^ theOther)
+{
+    ::Graphic3d_MapOfObject* _result = new ::Graphic3d_MapOfObject();
+    *_result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Assign(*(::Graphic3d_MapOfObject*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_MapOfObject(_result);
+}
+
+void Macad::Occt::Graphic3d_MapOfObject::ReSize(long long unsigned int N)
+{
+    ((::Graphic3d_MapOfObject*)_NativeInstance)->ReSize(N);
+}
+
+void Macad::Occt::Graphic3d_MapOfObject::ReSize(int N)
+{
+    ((::Graphic3d_MapOfObject*)_NativeInstance)->ReSize(N);
+}
+
+bool Macad::Occt::Graphic3d_MapOfObject::Bind(Macad::Occt::Standard_Transient^ theKey, Macad::Occt::Graphic3d_ViewAffinity^ theItem)
+{
+    bool _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Bind((::Standard_Transient*)theKey->NativeInstance, Handle(::Graphic3d_ViewAffinity)(theItem->NativeInstance));
+    return _result;
+}
+
+Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::Bound(Macad::Occt::Standard_Transient^ theKey, Macad::Occt::Graphic3d_ViewAffinity^ theItem)
+{
+    throw gcnew System::NotImplementedException();
+}
+
+bool Macad::Occt::Graphic3d_MapOfObject::TryBind(Macad::Occt::Standard_Transient^ theKey, Macad::Occt::Graphic3d_ViewAffinity^ theItem)
+{
+    bool _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->TryBind((::Standard_Transient*)theKey->NativeInstance, Handle(::Graphic3d_ViewAffinity)(theItem->NativeInstance));
+    return _result;
+}
+
+Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::TryBound(Macad::Occt::Standard_Transient^ theKey, Macad::Occt::Graphic3d_ViewAffinity^ theItem)
+{
+    Handle(::Graphic3d_ViewAffinity) _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->TryBound((::Standard_Transient*)theKey->NativeInstance, Handle(::Graphic3d_ViewAffinity)(theItem->NativeInstance));
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ViewAffinity::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::Graphic3d_MapOfObject::IsBound(Macad::Occt::Standard_Transient^ theKey)
+{
+    bool _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->IsBound((::Standard_Transient*)theKey->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::Graphic3d_MapOfObject::UnBind(Macad::Occt::Standard_Transient^ theKey)
+{
+    bool _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->UnBind((::Standard_Transient*)theKey->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::Seek(Macad::Occt::Standard_Transient^ theKey)
+{
+    throw gcnew System::NotImplementedException();
+}
+
+Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::Find(Macad::Occt::Standard_Transient^ theKey)
+{
+    Handle(::Graphic3d_ViewAffinity) _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Find((::Standard_Transient*)theKey->NativeInstance);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ViewAffinity::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::Graphic3d_MapOfObject::Find(Macad::Occt::Standard_Transient^ theKey, Macad::Occt::Graphic3d_ViewAffinity^ theValue)
+{
+    Handle(::Graphic3d_ViewAffinity) h_theValue = theValue->NativeInstance;
+    bool _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Find((::Standard_Transient*)theKey->NativeInstance, h_theValue);
+    theValue->NativeInstance = h_theValue.get();
+    return _result;
+}
+
+Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::ChangeSeek(Macad::Occt::Standard_Transient^ theKey)
+{
+    throw gcnew System::NotImplementedException();
+}
+
+Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::ChangeFind(Macad::Occt::Standard_Transient^ theKey)
+{
+    Handle(::Graphic3d_ViewAffinity) _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->ChangeFind((::Standard_Transient*)theKey->NativeInstance);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ViewAffinity::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::Graphic3d_MapOfObject::Clear(bool doReleaseMemory)
+{
+    ((::Graphic3d_MapOfObject*)_NativeInstance)->Clear(doReleaseMemory);
+}
+
+void Macad::Occt::Graphic3d_MapOfObject::Clear()
+{
+    ((::Graphic3d_MapOfObject*)_NativeInstance)->Clear(false);
+}
+
+void Macad::Occt::Graphic3d_MapOfObject::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::Graphic3d_MapOfObject*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Graphic3d_MapOfObject::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::Graphic3d_MapOfObject::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::Graphic3d_MapOfObject::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_MapOfObject::Iterator();
+}
+
+Macad::Occt::Graphic3d_MapOfObject::Iterator::Iterator(Macad::Occt::Graphic3d_MapOfObject^ theMap)
+    : Macad::Occt::BaseClass<::Graphic3d_MapOfObject::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_MapOfObject::Iterator(*(::Graphic3d_MapOfObject*)theMap->NativeInstance);
+}
+
+bool Macad::Occt::Graphic3d_MapOfObject::Iterator::More()
+{
+    bool _result = ((::Graphic3d_MapOfObject::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::Graphic3d_MapOfObject::Iterator::Next()
+{
+    ((::Graphic3d_MapOfObject::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::Iterator::Value()
+{
+    Handle(::Graphic3d_ViewAffinity) _result = ((::Graphic3d_MapOfObject::Iterator*)_NativeInstance)->Value();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ViewAffinity::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::Iterator::ChangeValue()
+{
+    Handle(::Graphic3d_ViewAffinity) _result = ((::Graphic3d_MapOfObject::Iterator*)_NativeInstance)->ChangeValue();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ViewAffinity::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Standard_Transient^ Macad::Occt::Graphic3d_MapOfObject::Iterator::Key()
+{
+    const ::Standard_Transient* _result = ((::Graphic3d_MapOfObject::Iterator*)_NativeInstance)->Key();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Standard_Transient((::Standard_Transient*)_result);
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Graphic3d_SequenceOfGroup
+//---------------------------------------------------------------------
+
+int Macad::Occt::Graphic3d_SequenceOfGroup::Length()
+{
+    int _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::Graphic3d_SequenceOfGroup::Size()
+{
+    long long unsigned int _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::Graphic3d_SequenceOfGroup::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_SequenceOfGroup::Graphic3d_SequenceOfGroup()
+    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfGroup>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_SequenceOfGroup();
+}
+
+Macad::Occt::Graphic3d_SequenceOfGroup::Graphic3d_SequenceOfGroup(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfGroup>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_SequenceOfGroup(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::Graphic3d_SequenceOfGroup::Lower()
+{
+    int _result = ::Graphic3d_SequenceOfGroup::Lower();
+    return _result;
+}
+
+int Macad::Occt::Graphic3d_SequenceOfGroup::Upper()
+{
+    int _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::Graphic3d_SequenceOfGroup::IsEmpty()
+{
+    bool _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Reverse()
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Exchange(int I, int J)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Clear()
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::Graphic3d_SequenceOfGroup^ Macad::Occt::Graphic3d_SequenceOfGroup::Assign(Macad::Occt::Graphic3d_SequenceOfGroup^ theOther)
+{
+    ::Graphic3d_SequenceOfGroup* _result = new ::Graphic3d_SequenceOfGroup();
+    *_result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Assign(*(::Graphic3d_SequenceOfGroup*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_SequenceOfGroup(_result);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Remove(Macad::Occt::Graphic3d_SequenceOfGroup::Iterator^ thePosition)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Remove(*(::Graphic3d_SequenceOfGroup::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Remove(long long unsigned int theIndex)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Remove(int theIndex)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Remove(int theFromIndex, int theToIndex)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Append(Macad::Occt::Graphic3d_Group^ theItem)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Append(Handle(::Graphic3d_Group)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Append(Macad::Occt::Graphic3d_SequenceOfGroup^ theSeq)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Append(*(::Graphic3d_SequenceOfGroup*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Prepend(Macad::Occt::Graphic3d_Group^ theItem)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Prepend(Handle(::Graphic3d_Group)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Prepend(Macad::Occt::Graphic3d_SequenceOfGroup^ theSeq)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Prepend(*(::Graphic3d_SequenceOfGroup*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::InsertBefore(long long unsigned int theIndex, Macad::Occt::Graphic3d_Group^ theItem)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->InsertBefore(theIndex, Handle(::Graphic3d_Group)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::InsertBefore(int theIndex, Macad::Occt::Graphic3d_Group^ theItem)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->InsertBefore(theIndex, Handle(::Graphic3d_Group)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::InsertBefore(long long unsigned int theIndex, Macad::Occt::Graphic3d_SequenceOfGroup^ theSeq)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->InsertBefore(theIndex, *(::Graphic3d_SequenceOfGroup*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::InsertBefore(int theIndex, Macad::Occt::Graphic3d_SequenceOfGroup^ theSeq)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->InsertBefore(theIndex, *(::Graphic3d_SequenceOfGroup*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::InsertAfter(Macad::Occt::Graphic3d_SequenceOfGroup::Iterator^ thePosition, Macad::Occt::Graphic3d_Group^ theItem)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->InsertAfter(*(::Graphic3d_SequenceOfGroup::Iterator*)thePosition->NativeInstance, Handle(::Graphic3d_Group)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::InsertAfter(long long unsigned int theIndex, Macad::Occt::Graphic3d_SequenceOfGroup^ theSeq)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->InsertAfter(theIndex, *(::Graphic3d_SequenceOfGroup*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::InsertAfter(int theIndex, Macad::Occt::Graphic3d_SequenceOfGroup^ theSeq)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->InsertAfter(theIndex, *(::Graphic3d_SequenceOfGroup*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::InsertAfter(long long unsigned int theIndex, Macad::Occt::Graphic3d_Group^ theItem)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->InsertAfter(theIndex, Handle(::Graphic3d_Group)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::InsertAfter(int theIndex, Macad::Occt::Graphic3d_Group^ theItem)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->InsertAfter(theIndex, Handle(::Graphic3d_Group)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Split(long long unsigned int theIndex, Macad::Occt::Graphic3d_SequenceOfGroup^ theSeq)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Split(theIndex, *(::Graphic3d_SequenceOfGroup*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Split(int theIndex, Macad::Occt::Graphic3d_SequenceOfGroup^ theSeq)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Split(theIndex, *(::Graphic3d_SequenceOfGroup*)theSeq->NativeInstance);
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::First()
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->First();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::ChangeFirst()
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->ChangeFirst();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::Last()
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Last();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::ChangeLast()
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->ChangeLast();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::Value(long long unsigned int theIndex)
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::Value(int theIndex)
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::ChangeValue(long long unsigned int theIndex)
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->ChangeValue(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::ChangeValue(int theIndex)
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->ChangeValue(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::SetValue(long long unsigned int theIndex, Macad::Occt::Graphic3d_Group^ theItem)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->SetValue(theIndex, Handle(::Graphic3d_Group)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::SetValue(int theIndex, Macad::Occt::Graphic3d_Group^ theItem)
+{
+    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->SetValue(theIndex, Handle(::Graphic3d_Group)(theItem->NativeInstance));
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::At(long long unsigned int theIndex)
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->At(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::ChangeAt(long long unsigned int theIndex)
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->ChangeAt(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Graphic3d_Group^>^ Macad::Occt::Graphic3d_SequenceOfGroup::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_Group^>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::Graphic3d_SequenceOfGroup::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_Group^>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Graphic3d_SequenceOfGroup::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfGroup::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_SequenceOfGroup::Iterator();
+}
+
+Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::Iterator(Macad::Occt::Graphic3d_SequenceOfGroup^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfGroup::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_SequenceOfGroup::Iterator(*(::Graphic3d_SequenceOfGroup*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::Iterator(Macad::Occt::Graphic3d_SequenceOfGroup^ theSeq)
+    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfGroup::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_SequenceOfGroup::Iterator(*(::Graphic3d_SequenceOfGroup*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::More()
+{
+    bool _result = ((::Graphic3d_SequenceOfGroup::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::Next()
+{
+    ((::Graphic3d_SequenceOfGroup::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::Value()
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup::Iterator*)_NativeInstance)->Value();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::ChangeValue()
+{
+    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup::Iterator*)_NativeInstance)->ChangeValue();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::IsEqual(Macad::Occt::Graphic3d_SequenceOfGroup::Iterator^ theOther)
+{
+    bool _result = ((::Graphic3d_SequenceOfGroup::Iterator*)_NativeInstance)->IsEqual(*(::Graphic3d_SequenceOfGroup::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Graphic3d_SequenceOfStructure
+//---------------------------------------------------------------------
+
+int Macad::Occt::Graphic3d_SequenceOfStructure::Length()
+{
+    int _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::Graphic3d_SequenceOfStructure::Size()
+{
+    long long unsigned int _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::Graphic3d_SequenceOfStructure::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_SequenceOfStructure::Graphic3d_SequenceOfStructure()
+    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfStructure>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_SequenceOfStructure();
+}
+
+Macad::Occt::Graphic3d_SequenceOfStructure::Graphic3d_SequenceOfStructure(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfStructure>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_SequenceOfStructure(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::Graphic3d_SequenceOfStructure::Lower()
+{
+    int _result = ::Graphic3d_SequenceOfStructure::Lower();
+    return _result;
+}
+
+int Macad::Occt::Graphic3d_SequenceOfStructure::Upper()
+{
+    int _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::Graphic3d_SequenceOfStructure::IsEmpty()
+{
+    bool _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Reverse()
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Exchange(int I, int J)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Clear()
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::Graphic3d_SequenceOfStructure^ Macad::Occt::Graphic3d_SequenceOfStructure::Assign(Macad::Occt::Graphic3d_SequenceOfStructure^ theOther)
+{
+    ::Graphic3d_SequenceOfStructure* _result = new ::Graphic3d_SequenceOfStructure();
+    *_result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Assign(*(::Graphic3d_SequenceOfStructure*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_SequenceOfStructure(_result);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Remove(Macad::Occt::Graphic3d_SequenceOfStructure::Iterator^ thePosition)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Remove(*(::Graphic3d_SequenceOfStructure::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Remove(long long unsigned int theIndex)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Remove(int theIndex)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Remove(int theFromIndex, int theToIndex)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Append(Macad::Occt::Graphic3d_Structure^ theItem)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Append(Handle(::Graphic3d_Structure)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Append(Macad::Occt::Graphic3d_SequenceOfStructure^ theSeq)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Append(*(::Graphic3d_SequenceOfStructure*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Prepend(Macad::Occt::Graphic3d_Structure^ theItem)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Prepend(Handle(::Graphic3d_Structure)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Prepend(Macad::Occt::Graphic3d_SequenceOfStructure^ theSeq)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Prepend(*(::Graphic3d_SequenceOfStructure*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::InsertBefore(long long unsigned int theIndex, Macad::Occt::Graphic3d_Structure^ theItem)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->InsertBefore(theIndex, Handle(::Graphic3d_Structure)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::InsertBefore(int theIndex, Macad::Occt::Graphic3d_Structure^ theItem)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->InsertBefore(theIndex, Handle(::Graphic3d_Structure)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::InsertBefore(long long unsigned int theIndex, Macad::Occt::Graphic3d_SequenceOfStructure^ theSeq)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->InsertBefore(theIndex, *(::Graphic3d_SequenceOfStructure*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::InsertBefore(int theIndex, Macad::Occt::Graphic3d_SequenceOfStructure^ theSeq)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->InsertBefore(theIndex, *(::Graphic3d_SequenceOfStructure*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::InsertAfter(Macad::Occt::Graphic3d_SequenceOfStructure::Iterator^ thePosition, Macad::Occt::Graphic3d_Structure^ theItem)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->InsertAfter(*(::Graphic3d_SequenceOfStructure::Iterator*)thePosition->NativeInstance, Handle(::Graphic3d_Structure)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::InsertAfter(long long unsigned int theIndex, Macad::Occt::Graphic3d_SequenceOfStructure^ theSeq)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->InsertAfter(theIndex, *(::Graphic3d_SequenceOfStructure*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::InsertAfter(int theIndex, Macad::Occt::Graphic3d_SequenceOfStructure^ theSeq)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->InsertAfter(theIndex, *(::Graphic3d_SequenceOfStructure*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::InsertAfter(long long unsigned int theIndex, Macad::Occt::Graphic3d_Structure^ theItem)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->InsertAfter(theIndex, Handle(::Graphic3d_Structure)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::InsertAfter(int theIndex, Macad::Occt::Graphic3d_Structure^ theItem)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->InsertAfter(theIndex, Handle(::Graphic3d_Structure)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Split(long long unsigned int theIndex, Macad::Occt::Graphic3d_SequenceOfStructure^ theSeq)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Split(theIndex, *(::Graphic3d_SequenceOfStructure*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Split(int theIndex, Macad::Occt::Graphic3d_SequenceOfStructure^ theSeq)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Split(theIndex, *(::Graphic3d_SequenceOfStructure*)theSeq->NativeInstance);
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::First()
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->First();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::ChangeFirst()
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->ChangeFirst();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::Last()
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Last();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::ChangeLast()
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->ChangeLast();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::Value(long long unsigned int theIndex)
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::Value(int theIndex)
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::ChangeValue(long long unsigned int theIndex)
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->ChangeValue(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::ChangeValue(int theIndex)
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->ChangeValue(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::SetValue(long long unsigned int theIndex, Macad::Occt::Graphic3d_Structure^ theItem)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->SetValue(theIndex, Handle(::Graphic3d_Structure)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::SetValue(int theIndex, Macad::Occt::Graphic3d_Structure^ theItem)
+{
+    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->SetValue(theIndex, Handle(::Graphic3d_Structure)(theItem->NativeInstance));
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::At(long long unsigned int theIndex)
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->At(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::ChangeAt(long long unsigned int theIndex)
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->ChangeAt(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::Graphic3d_Structure^>^ Macad::Occt::Graphic3d_SequenceOfStructure::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_Structure^>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::Graphic3d_SequenceOfStructure::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_Structure^>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Graphic3d_SequenceOfStructure::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfStructure::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_SequenceOfStructure::Iterator();
+}
+
+Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::Iterator(Macad::Occt::Graphic3d_SequenceOfStructure^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfStructure::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_SequenceOfStructure::Iterator(*(::Graphic3d_SequenceOfStructure*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::Iterator(Macad::Occt::Graphic3d_SequenceOfStructure^ theSeq)
+    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfStructure::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_SequenceOfStructure::Iterator(*(::Graphic3d_SequenceOfStructure*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::More()
+{
+    bool _result = ((::Graphic3d_SequenceOfStructure::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::Next()
+{
+    ((::Graphic3d_SequenceOfStructure::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::Value()
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure::Iterator*)_NativeInstance)->Value();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::ChangeValue()
+{
+    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure::Iterator*)_NativeInstance)->ChangeValue();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::IsEqual(Macad::Occt::Graphic3d_SequenceOfStructure::Iterator^ theOther)
+{
+    bool _result = ((::Graphic3d_SequenceOfStructure::Iterator*)_NativeInstance)->IsEqual(*(::Graphic3d_SequenceOfStructure::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
 
 
 //---------------------------------------------------------------------
@@ -175,12 +1072,6 @@ bool Macad::Occt::Graphic3d_Vec2::Equals(System::Object^ obj)
 //  Class  Graphic3d_Vec2d
 //---------------------------------------------------------------------
 
-Macad::Occt::Graphic3d_Vec2d::Graphic3d_Vec2d()
-    : Macad::Occt::BaseClass<::Graphic3d_Vec2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec2d();
-}
-
 Macad::Occt::Graphic3d_Vec2d::Graphic3d_Vec2d(double theXY)
     : Macad::Occt::BaseClass<::Graphic3d_Vec2d>(BaseClass::InitMode::Uninitialized)
 {
@@ -218,16 +1109,12 @@ double Macad::Occt::Graphic3d_Vec2d::y()
 
 Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec2d::xy()
 {
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec2d*)_NativeInstance)->xy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec2d::yx()
 {
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec2d*)_NativeInstance)->yx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 bool Macad::Occt::Graphic3d_Vec2d::IsEqual(Macad::Occt::Graphic3d_Vec2d^ theOther)
@@ -253,30 +1140,22 @@ void Macad::Occt::Graphic3d_Vec2d::Multiply(double theFactor)
 
 Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec2d::Multiplied(double theFactor)
 {
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = ((::Graphic3d_Vec2d*)_NativeInstance)->Multiplied(theFactor);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec2d::cwiseMin(Macad::Occt::Graphic3d_Vec2d^ theVec)
 {
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = ((::Graphic3d_Vec2d*)_NativeInstance)->cwiseMin(*(::Graphic3d_Vec2d*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec2d::cwiseMax(Macad::Occt::Graphic3d_Vec2d^ theVec)
 {
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = ((::Graphic3d_Vec2d*)_NativeInstance)->cwiseMax(*(::Graphic3d_Vec2d*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec2d::cwiseAbs()
 {
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = ((::Graphic3d_Vec2d*)_NativeInstance)->cwiseAbs();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 double Macad::Occt::Graphic3d_Vec2d::maxComp()
@@ -311,16 +1190,12 @@ double Macad::Occt::Graphic3d_Vec2d::SquareModulus()
 
 Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec2d::DX()
 {
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = ::Graphic3d_Vec2d::DX();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec2d::DY()
 {
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = ::Graphic3d_Vec2d::DY();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 bool Macad::Occt::Graphic3d_Vec2d::Equals(System::Object^ obj)
@@ -347,12 +1222,6 @@ bool Macad::Occt::Graphic3d_Vec2d::Equals(System::Object^ obj)
 //---------------------------------------------------------------------
 //  Class  Graphic3d_Vec2i
 //---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_Vec2i::Graphic3d_Vec2i()
-    : Macad::Occt::BaseClass<::Graphic3d_Vec2i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec2i();
-}
 
 Macad::Occt::Graphic3d_Vec2i::Graphic3d_Vec2i(int theXY)
     : Macad::Occt::BaseClass<::Graphic3d_Vec2i>(BaseClass::InitMode::Uninitialized)
@@ -391,16 +1260,12 @@ int Macad::Occt::Graphic3d_Vec2i::y()
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec2i::xy()
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec2i*)_NativeInstance)->xy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec2i::yx()
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec2i*)_NativeInstance)->yx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 bool Macad::Occt::Graphic3d_Vec2i::IsEqual(Macad::Occt::Graphic3d_Vec2i^ theOther)
@@ -426,30 +1291,22 @@ void Macad::Occt::Graphic3d_Vec2i::Multiply(int theFactor)
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec2i::Multiplied(int theFactor)
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = ((::Graphic3d_Vec2i*)_NativeInstance)->Multiplied(theFactor);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec2i::cwiseMin(Macad::Occt::Graphic3d_Vec2i^ theVec)
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = ((::Graphic3d_Vec2i*)_NativeInstance)->cwiseMin(*(::Graphic3d_Vec2i*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec2i::cwiseMax(Macad::Occt::Graphic3d_Vec2i^ theVec)
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = ((::Graphic3d_Vec2i*)_NativeInstance)->cwiseMax(*(::Graphic3d_Vec2i*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec2i::cwiseAbs()
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = ((::Graphic3d_Vec2i*)_NativeInstance)->cwiseAbs();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 int Macad::Occt::Graphic3d_Vec2i::maxComp()
@@ -484,16 +1341,12 @@ int Macad::Occt::Graphic3d_Vec2i::SquareModulus()
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec2i::DX()
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = ::Graphic3d_Vec2i::DX();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec2i::DY()
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = ::Graphic3d_Vec2i::DY();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 bool Macad::Occt::Graphic3d_Vec2i::Equals(System::Object^ obj)
@@ -971,5094 +1824,6 @@ bool Macad::Occt::Graphic3d_Vec2b::Equals(System::Object^ obj)
 
 
 //---------------------------------------------------------------------
-//  Class  Graphic3d_Vec3
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_Vec3::Graphic3d_Vec3()
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3();
-}
-
-Macad::Occt::Graphic3d_Vec3::Graphic3d_Vec3(float theValue)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3(theValue);
-}
-
-Macad::Occt::Graphic3d_Vec3::Graphic3d_Vec3(float theX, float theY, float theZ)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3(theX, theY, theZ);
-}
-
-Macad::Occt::Graphic3d_Vec3::Graphic3d_Vec3(Macad::Occt::gp_Vec2f^ theVec2, float theZ)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3(*(::gp_Vec2f*)theVec2->NativeInstance, theZ);
-}
-
-Macad::Occt::Graphic3d_Vec3::Graphic3d_Vec3(Macad::Occt::gp_Vec2f^ theVec2)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3(*(::gp_Vec2f*)theVec2->NativeInstance, 0.0f);
-}
-
-int Macad::Occt::Graphic3d_Vec3::Length()
-{
-    int _result = ::Graphic3d_Vec3::Length();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Vec3::SetValues(float theX, float theY, float theZ)
-{
-    ((::Graphic3d_Vec3*)_NativeInstance)->SetValues(theX, theY, theZ);
-}
-
-float Macad::Occt::Graphic3d_Vec3::x()
-{
-    float _result = ((::Graphic3d_Vec3*)_NativeInstance)->x();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec3::r()
-{
-    float _result = ((::Graphic3d_Vec3*)_NativeInstance)->r();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec3::y()
-{
-    float _result = ((::Graphic3d_Vec3*)_NativeInstance)->y();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec3::g()
-{
-    float _result = ((::Graphic3d_Vec3*)_NativeInstance)->g();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec3::z()
-{
-    float _result = ((::Graphic3d_Vec3*)_NativeInstance)->z();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec3::b()
-{
-    float _result = ((::Graphic3d_Vec3*)_NativeInstance)->b();
-    return _result;
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec3::xy()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec3::yx()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec3::xz()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec3::zx()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec3::yz()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec3::zy()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::xyz()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = (::Graphic3d_Vec3)((::Graphic3d_Vec3*)_NativeInstance)->xyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::xzy()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = (::Graphic3d_Vec3)((::Graphic3d_Vec3*)_NativeInstance)->xzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::yxz()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = (::Graphic3d_Vec3)((::Graphic3d_Vec3*)_NativeInstance)->yxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::yzx()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = (::Graphic3d_Vec3)((::Graphic3d_Vec3*)_NativeInstance)->yzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::zyx()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = (::Graphic3d_Vec3)((::Graphic3d_Vec3*)_NativeInstance)->zyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::zxy()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = (::Graphic3d_Vec3)((::Graphic3d_Vec3*)_NativeInstance)->zxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-bool Macad::Occt::Graphic3d_Vec3::IsEqual(Macad::Occt::Graphic3d_Vec3^ theOther)
-{
-    bool _result = ((::Graphic3d_Vec3*)_NativeInstance)->IsEqual(*(::Graphic3d_Vec3*)theOther->NativeInstance);
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec3::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-float Macad::Occt::Graphic3d_Vec3::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-void Macad::Occt::Graphic3d_Vec3::Multiply(float theFactor)
-{
-    ((::Graphic3d_Vec3*)_NativeInstance)->Multiply(theFactor);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::Multiplied(float theFactor)
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ((::Graphic3d_Vec3*)_NativeInstance)->Multiplied(theFactor);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::cwiseMin(Macad::Occt::Graphic3d_Vec3^ theVec)
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ((::Graphic3d_Vec3*)_NativeInstance)->cwiseMin(*(::Graphic3d_Vec3*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::cwiseMax(Macad::Occt::Graphic3d_Vec3^ theVec)
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ((::Graphic3d_Vec3*)_NativeInstance)->cwiseMax(*(::Graphic3d_Vec3*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::cwiseAbs()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ((::Graphic3d_Vec3*)_NativeInstance)->cwiseAbs();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-float Macad::Occt::Graphic3d_Vec3::maxComp()
-{
-    float _result = ((::Graphic3d_Vec3*)_NativeInstance)->maxComp();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec3::minComp()
-{
-    float _result = ((::Graphic3d_Vec3*)_NativeInstance)->minComp();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec3::Dot(Macad::Occt::Graphic3d_Vec3^ theOther)
-{
-    float _result = ((::Graphic3d_Vec3*)_NativeInstance)->Dot(*(::Graphic3d_Vec3*)theOther->NativeInstance);
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec3::Modulus()
-{
-    float _result = ((::Graphic3d_Vec3*)_NativeInstance)->Modulus();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec3::SquareModulus()
-{
-    float _result = ((::Graphic3d_Vec3*)_NativeInstance)->SquareModulus();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Vec3::Normalize()
-{
-    ((::Graphic3d_Vec3*)_NativeInstance)->Normalize();
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::Normalized()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ((::Graphic3d_Vec3*)_NativeInstance)->Normalized();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::Cross(Macad::Occt::Graphic3d_Vec3^ theVec1, Macad::Occt::Graphic3d_Vec3^ theVec2)
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ::Graphic3d_Vec3::Cross(*(::Graphic3d_Vec3*)theVec1->NativeInstance, *(::Graphic3d_Vec3*)theVec2->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::GetLERP(Macad::Occt::Graphic3d_Vec3^ theFrom, Macad::Occt::Graphic3d_Vec3^ theTo, float theT)
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ::Graphic3d_Vec3::GetLERP(*(::Graphic3d_Vec3*)theFrom->NativeInstance, *(::Graphic3d_Vec3*)theTo->NativeInstance, theT);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::DX()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ::Graphic3d_Vec3::DX();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::DY()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ::Graphic3d_Vec3::DY();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_Vec3::DZ()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ::Graphic3d_Vec3::DZ();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-bool Macad::Occt::Graphic3d_Vec3::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_Vec3::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Graphic3d_Vec3^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_Vec3d
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_Vec3d::Graphic3d_Vec3d()
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3d();
-}
-
-Macad::Occt::Graphic3d_Vec3d::Graphic3d_Vec3d(double theValue)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3d(theValue);
-}
-
-Macad::Occt::Graphic3d_Vec3d::Graphic3d_Vec3d(double theX, double theY, double theZ)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3d(theX, theY, theZ);
-}
-
-Macad::Occt::Graphic3d_Vec3d::Graphic3d_Vec3d(Macad::Occt::Graphic3d_Vec2d^ theVec2, double theZ)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3d(*(::Graphic3d_Vec2d*)theVec2->NativeInstance, theZ);
-}
-
-Macad::Occt::Graphic3d_Vec3d::Graphic3d_Vec3d(Macad::Occt::Graphic3d_Vec2d^ theVec2)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3d(*(::Graphic3d_Vec2d*)theVec2->NativeInstance, 0.0);
-}
-
-int Macad::Occt::Graphic3d_Vec3d::Length()
-{
-    int _result = ::Graphic3d_Vec3d::Length();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Vec3d::SetValues(double theX, double theY, double theZ)
-{
-    ((::Graphic3d_Vec3d*)_NativeInstance)->SetValues(theX, theY, theZ);
-}
-
-double Macad::Occt::Graphic3d_Vec3d::x()
-{
-    double _result = ((::Graphic3d_Vec3d*)_NativeInstance)->x();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec3d::r()
-{
-    double _result = ((::Graphic3d_Vec3d*)_NativeInstance)->r();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec3d::y()
-{
-    double _result = ((::Graphic3d_Vec3d*)_NativeInstance)->y();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec3d::g()
-{
-    double _result = ((::Graphic3d_Vec3d*)_NativeInstance)->g();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec3d::z()
-{
-    double _result = ((::Graphic3d_Vec3d*)_NativeInstance)->z();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec3d::b()
-{
-    double _result = ((::Graphic3d_Vec3d*)_NativeInstance)->b();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec3d::xy()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec3d*)_NativeInstance)->xy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec3d::yx()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec3d*)_NativeInstance)->yx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec3d::xz()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec3d*)_NativeInstance)->xz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec3d::zx()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec3d*)_NativeInstance)->zx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec3d::yz()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec3d*)_NativeInstance)->yz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec3d::zy()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec3d*)_NativeInstance)->zy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::xyz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec3d*)_NativeInstance)->xyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::xzy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec3d*)_NativeInstance)->xzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::yxz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec3d*)_NativeInstance)->yxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::yzx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec3d*)_NativeInstance)->yzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::zyx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec3d*)_NativeInstance)->zyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::zxy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec3d*)_NativeInstance)->zxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-bool Macad::Occt::Graphic3d_Vec3d::IsEqual(Macad::Occt::Graphic3d_Vec3d^ theOther)
-{
-    bool _result = ((::Graphic3d_Vec3d*)_NativeInstance)->IsEqual(*(::Graphic3d_Vec3d*)theOther->NativeInstance);
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec3d::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-double Macad::Occt::Graphic3d_Vec3d::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-void Macad::Occt::Graphic3d_Vec3d::Multiply(double theFactor)
-{
-    ((::Graphic3d_Vec3d*)_NativeInstance)->Multiply(theFactor);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::Multiplied(double theFactor)
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = ((::Graphic3d_Vec3d*)_NativeInstance)->Multiplied(theFactor);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::cwiseMin(Macad::Occt::Graphic3d_Vec3d^ theVec)
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = ((::Graphic3d_Vec3d*)_NativeInstance)->cwiseMin(*(::Graphic3d_Vec3d*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::cwiseMax(Macad::Occt::Graphic3d_Vec3d^ theVec)
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = ((::Graphic3d_Vec3d*)_NativeInstance)->cwiseMax(*(::Graphic3d_Vec3d*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::cwiseAbs()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = ((::Graphic3d_Vec3d*)_NativeInstance)->cwiseAbs();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-double Macad::Occt::Graphic3d_Vec3d::maxComp()
-{
-    double _result = ((::Graphic3d_Vec3d*)_NativeInstance)->maxComp();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec3d::minComp()
-{
-    double _result = ((::Graphic3d_Vec3d*)_NativeInstance)->minComp();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec3d::Dot(Macad::Occt::Graphic3d_Vec3d^ theOther)
-{
-    double _result = ((::Graphic3d_Vec3d*)_NativeInstance)->Dot(*(::Graphic3d_Vec3d*)theOther->NativeInstance);
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec3d::Modulus()
-{
-    double _result = ((::Graphic3d_Vec3d*)_NativeInstance)->Modulus();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec3d::SquareModulus()
-{
-    double _result = ((::Graphic3d_Vec3d*)_NativeInstance)->SquareModulus();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Vec3d::Normalize()
-{
-    ((::Graphic3d_Vec3d*)_NativeInstance)->Normalize();
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::Normalized()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = ((::Graphic3d_Vec3d*)_NativeInstance)->Normalized();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::Cross(Macad::Occt::Graphic3d_Vec3d^ theVec1, Macad::Occt::Graphic3d_Vec3d^ theVec2)
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = ::Graphic3d_Vec3d::Cross(*(::Graphic3d_Vec3d*)theVec1->NativeInstance, *(::Graphic3d_Vec3d*)theVec2->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::GetLERP(Macad::Occt::Graphic3d_Vec3d^ theFrom, Macad::Occt::Graphic3d_Vec3d^ theTo, double theT)
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = ::Graphic3d_Vec3d::GetLERP(*(::Graphic3d_Vec3d*)theFrom->NativeInstance, *(::Graphic3d_Vec3d*)theTo->NativeInstance, theT);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::DX()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = ::Graphic3d_Vec3d::DX();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::DY()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = ::Graphic3d_Vec3d::DY();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec3d::DZ()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = ::Graphic3d_Vec3d::DZ();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-bool Macad::Occt::Graphic3d_Vec3d::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_Vec3d::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Graphic3d_Vec3d^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_Vec3i
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_Vec3i::Graphic3d_Vec3i()
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3i();
-}
-
-Macad::Occt::Graphic3d_Vec3i::Graphic3d_Vec3i(int theValue)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3i(theValue);
-}
-
-Macad::Occt::Graphic3d_Vec3i::Graphic3d_Vec3i(int theX, int theY, int theZ)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3i(theX, theY, theZ);
-}
-
-Macad::Occt::Graphic3d_Vec3i::Graphic3d_Vec3i(Macad::Occt::Graphic3d_Vec2i^ theVec2, int theZ)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3i(*(::Graphic3d_Vec2i*)theVec2->NativeInstance, theZ);
-}
-
-Macad::Occt::Graphic3d_Vec3i::Graphic3d_Vec3i(Macad::Occt::Graphic3d_Vec2i^ theVec2)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3i(*(::Graphic3d_Vec2i*)theVec2->NativeInstance, 0);
-}
-
-Macad::Occt::Graphic3d_Vec3i::Graphic3d_Vec3i(Macad::Occt::gp_Vec3f^ theOtherVec3)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec3i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec3i(*(::gp_Vec3f*)theOtherVec3->NativeInstance);
-}
-
-int Macad::Occt::Graphic3d_Vec3i::Length()
-{
-    int _result = ::Graphic3d_Vec3i::Length();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Vec3i::SetValues(int theX, int theY, int theZ)
-{
-    ((::Graphic3d_Vec3i*)_NativeInstance)->SetValues(theX, theY, theZ);
-}
-
-int Macad::Occt::Graphic3d_Vec3i::x()
-{
-    int _result = ((::Graphic3d_Vec3i*)_NativeInstance)->x();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec3i::r()
-{
-    int _result = ((::Graphic3d_Vec3i*)_NativeInstance)->r();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec3i::y()
-{
-    int _result = ((::Graphic3d_Vec3i*)_NativeInstance)->y();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec3i::g()
-{
-    int _result = ((::Graphic3d_Vec3i*)_NativeInstance)->g();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec3i::z()
-{
-    int _result = ((::Graphic3d_Vec3i*)_NativeInstance)->z();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec3i::b()
-{
-    int _result = ((::Graphic3d_Vec3i*)_NativeInstance)->b();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec3i::xy()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec3i*)_NativeInstance)->xy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec3i::yx()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec3i*)_NativeInstance)->yx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec3i::xz()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec3i*)_NativeInstance)->xz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec3i::zx()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec3i*)_NativeInstance)->zx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec3i::yz()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec3i*)_NativeInstance)->yz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec3i::zy()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec3i*)_NativeInstance)->zy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::xyz()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec3i*)_NativeInstance)->xyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::xzy()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec3i*)_NativeInstance)->xzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::yxz()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec3i*)_NativeInstance)->yxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::yzx()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec3i*)_NativeInstance)->yzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::zyx()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec3i*)_NativeInstance)->zyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::zxy()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec3i*)_NativeInstance)->zxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-bool Macad::Occt::Graphic3d_Vec3i::IsEqual(Macad::Occt::Graphic3d_Vec3i^ theOther)
-{
-    bool _result = ((::Graphic3d_Vec3i*)_NativeInstance)->IsEqual(*(::Graphic3d_Vec3i*)theOther->NativeInstance);
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec3i::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-int Macad::Occt::Graphic3d_Vec3i::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-void Macad::Occt::Graphic3d_Vec3i::Multiply(int theFactor)
-{
-    ((::Graphic3d_Vec3i*)_NativeInstance)->Multiply(theFactor);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::Multiplied(int theFactor)
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = ((::Graphic3d_Vec3i*)_NativeInstance)->Multiplied(theFactor);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::cwiseMin(Macad::Occt::Graphic3d_Vec3i^ theVec)
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = ((::Graphic3d_Vec3i*)_NativeInstance)->cwiseMin(*(::Graphic3d_Vec3i*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::cwiseMax(Macad::Occt::Graphic3d_Vec3i^ theVec)
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = ((::Graphic3d_Vec3i*)_NativeInstance)->cwiseMax(*(::Graphic3d_Vec3i*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::cwiseAbs()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = ((::Graphic3d_Vec3i*)_NativeInstance)->cwiseAbs();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-int Macad::Occt::Graphic3d_Vec3i::maxComp()
-{
-    int _result = ((::Graphic3d_Vec3i*)_NativeInstance)->maxComp();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec3i::minComp()
-{
-    int _result = ((::Graphic3d_Vec3i*)_NativeInstance)->minComp();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec3i::Dot(Macad::Occt::Graphic3d_Vec3i^ theOther)
-{
-    int _result = ((::Graphic3d_Vec3i*)_NativeInstance)->Dot(*(::Graphic3d_Vec3i*)theOther->NativeInstance);
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec3i::Modulus()
-{
-    int _result = ((::Graphic3d_Vec3i*)_NativeInstance)->Modulus();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec3i::SquareModulus()
-{
-    int _result = ((::Graphic3d_Vec3i*)_NativeInstance)->SquareModulus();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Vec3i::Normalize()
-{
-    ((::Graphic3d_Vec3i*)_NativeInstance)->Normalize();
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::Normalized()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = ((::Graphic3d_Vec3i*)_NativeInstance)->Normalized();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::Cross(Macad::Occt::Graphic3d_Vec3i^ theVec1, Macad::Occt::Graphic3d_Vec3i^ theVec2)
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = ::Graphic3d_Vec3i::Cross(*(::Graphic3d_Vec3i*)theVec1->NativeInstance, *(::Graphic3d_Vec3i*)theVec2->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::GetLERP(Macad::Occt::Graphic3d_Vec3i^ theFrom, Macad::Occt::Graphic3d_Vec3i^ theTo, int theT)
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = ::Graphic3d_Vec3i::GetLERP(*(::Graphic3d_Vec3i*)theFrom->NativeInstance, *(::Graphic3d_Vec3i*)theTo->NativeInstance, theT);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::DX()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = ::Graphic3d_Vec3i::DX();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::DY()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = ::Graphic3d_Vec3i::DY();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec3i::DZ()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = ::Graphic3d_Vec3i::DZ();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-bool Macad::Occt::Graphic3d_Vec3i::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_Vec3i::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Graphic3d_Vec3i^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_Vec4
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_Vec4::Graphic3d_Vec4()
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4();
-}
-
-Macad::Occt::Graphic3d_Vec4::Graphic3d_Vec4(float theValue)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4(theValue);
-}
-
-Macad::Occt::Graphic3d_Vec4::Graphic3d_Vec4(float theX, float theY, float theZ, float theW)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4(theX, theY, theZ, theW);
-}
-
-Macad::Occt::Graphic3d_Vec4::Graphic3d_Vec4(Macad::Occt::gp_Vec2f^ theVec2)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4(*(::gp_Vec2f*)theVec2->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Vec4::Graphic3d_Vec4(Macad::Occt::gp_Vec3f^ theVec3, float theW)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4(*(::gp_Vec3f*)theVec3->NativeInstance, theW);
-}
-
-Macad::Occt::Graphic3d_Vec4::Graphic3d_Vec4(Macad::Occt::gp_Vec3f^ theVec3)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4(*(::gp_Vec3f*)theVec3->NativeInstance, 0.0f);
-}
-
-int Macad::Occt::Graphic3d_Vec4::Length()
-{
-    int _result = ::Graphic3d_Vec4::Length();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Vec4::SetValues(float theX, float theY, float theZ, float theW)
-{
-    ((::Graphic3d_Vec4*)_NativeInstance)->SetValues(theX, theY, theZ, theW);
-}
-
-float Macad::Occt::Graphic3d_Vec4::x()
-{
-    float _result = ((::Graphic3d_Vec4*)_NativeInstance)->x();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec4::r()
-{
-    float _result = ((::Graphic3d_Vec4*)_NativeInstance)->r();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec4::y()
-{
-    float _result = ((::Graphic3d_Vec4*)_NativeInstance)->y();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec4::g()
-{
-    float _result = ((::Graphic3d_Vec4*)_NativeInstance)->g();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec4::z()
-{
-    float _result = ((::Graphic3d_Vec4*)_NativeInstance)->z();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec4::b()
-{
-    float _result = ((::Graphic3d_Vec4*)_NativeInstance)->b();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec4::w()
-{
-    float _result = ((::Graphic3d_Vec4*)_NativeInstance)->w();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec4::a()
-{
-    float _result = ((::Graphic3d_Vec4*)_NativeInstance)->a();
-    return _result;
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::xy()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::yx()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::xz()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::zx()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::xw()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::wx()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::yz()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::zy()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::yw()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::wy()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::zw()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_Vec4::wz()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::xyz()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->xyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::xzy()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->xzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::yxz()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->yxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::yzx()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->yzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::zyx()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->zyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::zxy()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->zxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::xyw()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->xyw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::xwy()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->xwy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::yxw()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->yxw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::ywx()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->ywx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::wyx()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->wyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::wxy()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->wxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::xzw()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->xzw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::xwz()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->xwz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::zxw()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->zxw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::zwx()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->zwx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::wzx()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->wzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::wxz()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->wxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::yzw()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->yzw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::ywz()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->ywz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::zyw()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->zyw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::zwy()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->zwy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::wzy()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->wzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::wyz()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->wyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::rgb()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->rgb();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::rbg()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->rbg();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::grb()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->grb();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::gbr()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->gbr();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::bgr()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->bgr();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-Macad::Occt::gp_Vec3f^ Macad::Occt::Graphic3d_Vec4::brg()
-{
-    ::gp_Vec3f* _result = new ::gp_Vec3f();
-    *_result = (::gp_Vec3f)((::Graphic3d_Vec4*)_NativeInstance)->brg();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::gp_Vec3f(_result);
-}
-
-bool Macad::Occt::Graphic3d_Vec4::IsEqual(Macad::Occt::Graphic3d_Vec4^ theOther)
-{
-    bool _result = ((::Graphic3d_Vec4*)_NativeInstance)->IsEqual(*(::Graphic3d_Vec4*)theOther->NativeInstance);
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec4::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-float Macad::Occt::Graphic3d_Vec4::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-void Macad::Occt::Graphic3d_Vec4::Multiply(float theFactor)
-{
-    ((::Graphic3d_Vec4*)_NativeInstance)->Multiply(theFactor);
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_Vec4::Multiplied(float theFactor)
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = ((::Graphic3d_Vec4*)_NativeInstance)->Multiplied(theFactor);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_Vec4::cwiseMin(Macad::Occt::Graphic3d_Vec4^ theVec)
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = ((::Graphic3d_Vec4*)_NativeInstance)->cwiseMin(*(::Graphic3d_Vec4*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_Vec4::cwiseMax(Macad::Occt::Graphic3d_Vec4^ theVec)
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = ((::Graphic3d_Vec4*)_NativeInstance)->cwiseMax(*(::Graphic3d_Vec4*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_Vec4::cwiseAbs()
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = ((::Graphic3d_Vec4*)_NativeInstance)->cwiseAbs();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-float Macad::Occt::Graphic3d_Vec4::maxComp()
-{
-    float _result = ((::Graphic3d_Vec4*)_NativeInstance)->maxComp();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec4::minComp()
-{
-    float _result = ((::Graphic3d_Vec4*)_NativeInstance)->minComp();
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Vec4::Dot(Macad::Occt::Graphic3d_Vec4^ theOther)
-{
-    float _result = ((::Graphic3d_Vec4*)_NativeInstance)->Dot(*(::Graphic3d_Vec4*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_Vec4::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_Vec4::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Graphic3d_Vec4^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_Vec4d
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_Vec4d::Graphic3d_Vec4d()
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4d();
-}
-
-Macad::Occt::Graphic3d_Vec4d::Graphic3d_Vec4d(double theValue)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4d(theValue);
-}
-
-Macad::Occt::Graphic3d_Vec4d::Graphic3d_Vec4d(double theX, double theY, double theZ, double theW)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4d(theX, theY, theZ, theW);
-}
-
-Macad::Occt::Graphic3d_Vec4d::Graphic3d_Vec4d(Macad::Occt::Graphic3d_Vec2d^ theVec2)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4d(*(::Graphic3d_Vec2d*)theVec2->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Vec4d::Graphic3d_Vec4d(Macad::Occt::Graphic3d_Vec3d^ theVec3, double theW)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4d(*(::Graphic3d_Vec3d*)theVec3->NativeInstance, theW);
-}
-
-Macad::Occt::Graphic3d_Vec4d::Graphic3d_Vec4d(Macad::Occt::Graphic3d_Vec3d^ theVec3)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4d(*(::Graphic3d_Vec3d*)theVec3->NativeInstance, 0.0);
-}
-
-int Macad::Occt::Graphic3d_Vec4d::Length()
-{
-    int _result = ::Graphic3d_Vec4d::Length();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Vec4d::SetValues(double theX, double theY, double theZ, double theW)
-{
-    ((::Graphic3d_Vec4d*)_NativeInstance)->SetValues(theX, theY, theZ, theW);
-}
-
-double Macad::Occt::Graphic3d_Vec4d::x()
-{
-    double _result = ((::Graphic3d_Vec4d*)_NativeInstance)->x();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec4d::r()
-{
-    double _result = ((::Graphic3d_Vec4d*)_NativeInstance)->r();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec4d::y()
-{
-    double _result = ((::Graphic3d_Vec4d*)_NativeInstance)->y();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec4d::g()
-{
-    double _result = ((::Graphic3d_Vec4d*)_NativeInstance)->g();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec4d::z()
-{
-    double _result = ((::Graphic3d_Vec4d*)_NativeInstance)->z();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec4d::b()
-{
-    double _result = ((::Graphic3d_Vec4d*)_NativeInstance)->b();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec4d::w()
-{
-    double _result = ((::Graphic3d_Vec4d*)_NativeInstance)->w();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec4d::a()
-{
-    double _result = ((::Graphic3d_Vec4d*)_NativeInstance)->a();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::xy()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->xy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::yx()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->yx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::xz()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->xz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::zx()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->zx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::xw()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->xw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::wx()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->wx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::yz()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->yz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::zy()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->zy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::yw()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->yw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::wy()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->wy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::zw()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->zw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_Vec4d::wz()
-{
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_Vec4d*)_NativeInstance)->wz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::xyz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->xyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::xzy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->xzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::yxz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->yxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::yzx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->yzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::zyx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->zyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::zxy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->zxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::xyw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->xyw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::xwy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->xwy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::yxw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->yxw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::ywx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->ywx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::wyx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->wyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::wxy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->wxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::xzw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->xzw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::xwz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->xwz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::zxw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->zxw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::zwx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->zwx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::wzx()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->wzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::wxz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->wxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::yzw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->yzw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::ywz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->ywz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::zyw()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->zyw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::zwy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->zwy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::wzy()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->wzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::wyz()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->wyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::rgb()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->rgb();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::rbg()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->rbg();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::grb()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->grb();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::gbr()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->gbr();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::bgr()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->bgr();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_Vec4d::brg()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_Vec4d*)_NativeInstance)->brg();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-bool Macad::Occt::Graphic3d_Vec4d::IsEqual(Macad::Occt::Graphic3d_Vec4d^ theOther)
-{
-    bool _result = ((::Graphic3d_Vec4d*)_NativeInstance)->IsEqual(*(::Graphic3d_Vec4d*)theOther->NativeInstance);
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec4d::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-double Macad::Occt::Graphic3d_Vec4d::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-void Macad::Occt::Graphic3d_Vec4d::Multiply(double theFactor)
-{
-    ((::Graphic3d_Vec4d*)_NativeInstance)->Multiply(theFactor);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::Graphic3d_Vec4d::Multiplied(double theFactor)
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = ((::Graphic3d_Vec4d*)_NativeInstance)->Multiplied(theFactor);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::Graphic3d_Vec4d::cwiseMin(Macad::Occt::Graphic3d_Vec4d^ theVec)
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = ((::Graphic3d_Vec4d*)_NativeInstance)->cwiseMin(*(::Graphic3d_Vec4d*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::Graphic3d_Vec4d::cwiseMax(Macad::Occt::Graphic3d_Vec4d^ theVec)
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = ((::Graphic3d_Vec4d*)_NativeInstance)->cwiseMax(*(::Graphic3d_Vec4d*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::Graphic3d_Vec4d::cwiseAbs()
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = ((::Graphic3d_Vec4d*)_NativeInstance)->cwiseAbs();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
-}
-
-double Macad::Occt::Graphic3d_Vec4d::maxComp()
-{
-    double _result = ((::Graphic3d_Vec4d*)_NativeInstance)->maxComp();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec4d::minComp()
-{
-    double _result = ((::Graphic3d_Vec4d*)_NativeInstance)->minComp();
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Vec4d::Dot(Macad::Occt::Graphic3d_Vec4d^ theOther)
-{
-    double _result = ((::Graphic3d_Vec4d*)_NativeInstance)->Dot(*(::Graphic3d_Vec4d*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_Vec4d::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_Vec4d::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Graphic3d_Vec4d^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_Vec4i
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_Vec4i::Graphic3d_Vec4i()
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4i();
-}
-
-Macad::Occt::Graphic3d_Vec4i::Graphic3d_Vec4i(int theValue)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4i(theValue);
-}
-
-Macad::Occt::Graphic3d_Vec4i::Graphic3d_Vec4i(int theX, int theY, int theZ, int theW)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4i(theX, theY, theZ, theW);
-}
-
-Macad::Occt::Graphic3d_Vec4i::Graphic3d_Vec4i(Macad::Occt::Graphic3d_Vec2i^ theVec2)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4i(*(::Graphic3d_Vec2i*)theVec2->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Vec4i::Graphic3d_Vec4i(Macad::Occt::Graphic3d_Vec3i^ theVec3, int theW)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4i(*(::Graphic3d_Vec3i*)theVec3->NativeInstance, theW);
-}
-
-Macad::Occt::Graphic3d_Vec4i::Graphic3d_Vec4i(Macad::Occt::Graphic3d_Vec3i^ theVec3)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4i(*(::Graphic3d_Vec3i*)theVec3->NativeInstance, 0);
-}
-
-Macad::Occt::Graphic3d_Vec4i::Graphic3d_Vec4i(Macad::Occt::Graphic3d_Vec4^ theOtherVec4)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4i>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4i(*(::Graphic3d_Vec4*)theOtherVec4->NativeInstance);
-}
-
-int Macad::Occt::Graphic3d_Vec4i::Length()
-{
-    int _result = ::Graphic3d_Vec4i::Length();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Vec4i::SetValues(int theX, int theY, int theZ, int theW)
-{
-    ((::Graphic3d_Vec4i*)_NativeInstance)->SetValues(theX, theY, theZ, theW);
-}
-
-int Macad::Occt::Graphic3d_Vec4i::x()
-{
-    int _result = ((::Graphic3d_Vec4i*)_NativeInstance)->x();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec4i::r()
-{
-    int _result = ((::Graphic3d_Vec4i*)_NativeInstance)->r();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec4i::y()
-{
-    int _result = ((::Graphic3d_Vec4i*)_NativeInstance)->y();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec4i::g()
-{
-    int _result = ((::Graphic3d_Vec4i*)_NativeInstance)->g();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec4i::z()
-{
-    int _result = ((::Graphic3d_Vec4i*)_NativeInstance)->z();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec4i::b()
-{
-    int _result = ((::Graphic3d_Vec4i*)_NativeInstance)->b();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec4i::w()
-{
-    int _result = ((::Graphic3d_Vec4i*)_NativeInstance)->w();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec4i::a()
-{
-    int _result = ((::Graphic3d_Vec4i*)_NativeInstance)->a();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::xy()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->xy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::yx()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->yx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::xz()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->xz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::zx()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->zx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::xw()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->xw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::wx()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->wx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::yz()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->yz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::zy()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->zy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::yw()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->yw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::wy()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->wy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::zw()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->zw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_Vec4i::wz()
-{
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_Vec4i*)_NativeInstance)->wz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::xyz()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->xyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::xzy()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->xzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::yxz()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->yxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::yzx()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->yzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::zyx()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->zyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::zxy()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->zxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::xyw()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->xyw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::xwy()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->xwy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::yxw()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->yxw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::ywx()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->ywx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::wyx()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->wyx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::wxy()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->wxy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::xzw()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->xzw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::xwz()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->xwz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::zxw()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->zxw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::zwx()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->zwx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::wzx()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->wzx();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::wxz()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->wxz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::yzw()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->yzw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::ywz()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->ywz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::zyw()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->zyw();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::zwy()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->zwy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::wzy()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->wzy();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::wyz()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->wyz();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::rgb()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->rgb();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::rbg()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->rbg();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::grb()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->grb();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::gbr()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->gbr();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::bgr()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->bgr();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3i^ Macad::Occt::Graphic3d_Vec4i::brg()
-{
-    ::Graphic3d_Vec3i* _result = new ::Graphic3d_Vec3i();
-    *_result = (::Graphic3d_Vec3i)((::Graphic3d_Vec4i*)_NativeInstance)->brg();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3i(_result);
-}
-
-bool Macad::Occt::Graphic3d_Vec4i::IsEqual(Macad::Occt::Graphic3d_Vec4i^ theOther)
-{
-    bool _result = ((::Graphic3d_Vec4i*)_NativeInstance)->IsEqual(*(::Graphic3d_Vec4i*)theOther->NativeInstance);
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec4i::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-int Macad::Occt::Graphic3d_Vec4i::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-void Macad::Occt::Graphic3d_Vec4i::Multiply(int theFactor)
-{
-    ((::Graphic3d_Vec4i*)_NativeInstance)->Multiply(theFactor);
-}
-
-Macad::Occt::Graphic3d_Vec4i^ Macad::Occt::Graphic3d_Vec4i::Multiplied(int theFactor)
-{
-    ::Graphic3d_Vec4i* _result = new ::Graphic3d_Vec4i();
-    *_result = ((::Graphic3d_Vec4i*)_NativeInstance)->Multiplied(theFactor);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4i^ Macad::Occt::Graphic3d_Vec4i::cwiseMin(Macad::Occt::Graphic3d_Vec4i^ theVec)
-{
-    ::Graphic3d_Vec4i* _result = new ::Graphic3d_Vec4i();
-    *_result = ((::Graphic3d_Vec4i*)_NativeInstance)->cwiseMin(*(::Graphic3d_Vec4i*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4i^ Macad::Occt::Graphic3d_Vec4i::cwiseMax(Macad::Occt::Graphic3d_Vec4i^ theVec)
-{
-    ::Graphic3d_Vec4i* _result = new ::Graphic3d_Vec4i();
-    *_result = ((::Graphic3d_Vec4i*)_NativeInstance)->cwiseMax(*(::Graphic3d_Vec4i*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4i(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4i^ Macad::Occt::Graphic3d_Vec4i::cwiseAbs()
-{
-    ::Graphic3d_Vec4i* _result = new ::Graphic3d_Vec4i();
-    *_result = ((::Graphic3d_Vec4i*)_NativeInstance)->cwiseAbs();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4i(_result);
-}
-
-int Macad::Occt::Graphic3d_Vec4i::maxComp()
-{
-    int _result = ((::Graphic3d_Vec4i*)_NativeInstance)->maxComp();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec4i::minComp()
-{
-    int _result = ((::Graphic3d_Vec4i*)_NativeInstance)->minComp();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Vec4i::Dot(Macad::Occt::Graphic3d_Vec4i^ theOther)
-{
-    int _result = ((::Graphic3d_Vec4i*)_NativeInstance)->Dot(*(::Graphic3d_Vec4i*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_Vec4i::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_Vec4i::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Graphic3d_Vec4i^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_Vec4ub
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_Vec4ub::Graphic3d_Vec4ub()
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4ub>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4ub();
-}
-
-Macad::Occt::Graphic3d_Vec4ub::Graphic3d_Vec4ub(unsigned char theValue)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4ub>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4ub(theValue);
-}
-
-Macad::Occt::Graphic3d_Vec4ub::Graphic3d_Vec4ub(unsigned char theX, unsigned char theY, unsigned char theZ, unsigned char theW)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4ub>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4ub(theX, theY, theZ, theW);
-}
-
-Macad::Occt::Graphic3d_Vec4ub::Graphic3d_Vec4ub(Macad::Occt::Graphic3d_Vec2ub^ theVec2)
-    : Macad::Occt::BaseClass<::Graphic3d_Vec4ub>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Vec4ub(*(::Graphic3d_Vec2ub*)theVec2->NativeInstance);
-}
-
-int Macad::Occt::Graphic3d_Vec4ub::Length()
-{
-    int _result = ::Graphic3d_Vec4ub::Length();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Vec4ub::SetValues(unsigned char theX, unsigned char theY, unsigned char theZ, unsigned char theW)
-{
-    ((::Graphic3d_Vec4ub*)_NativeInstance)->SetValues(theX, theY, theZ, theW);
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::x()
-{
-    unsigned char _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->x();
-    return _result;
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::r()
-{
-    unsigned char _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->r();
-    return _result;
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::y()
-{
-    unsigned char _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->y();
-    return _result;
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::g()
-{
-    unsigned char _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->g();
-    return _result;
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::z()
-{
-    unsigned char _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->z();
-    return _result;
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::b()
-{
-    unsigned char _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->b();
-    return _result;
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::w()
-{
-    unsigned char _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->w();
-    return _result;
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::a()
-{
-    unsigned char _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->a();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::xy()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::yx()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::xz()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::zx()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::xw()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::wx()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::yz()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::zy()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::yw()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::wy()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::zw()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Vec2ub^ Macad::Occt::Graphic3d_Vec4ub::wz()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-bool Macad::Occt::Graphic3d_Vec4ub::IsEqual(Macad::Occt::Graphic3d_Vec4ub^ theOther)
-{
-    bool _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->IsEqual(*(::Graphic3d_Vec4ub*)theOther->NativeInstance);
-    return _result;
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-void Macad::Occt::Graphic3d_Vec4ub::Multiply(unsigned char theFactor)
-{
-    ((::Graphic3d_Vec4ub*)_NativeInstance)->Multiply(theFactor);
-}
-
-Macad::Occt::Graphic3d_Vec4ub^ Macad::Occt::Graphic3d_Vec4ub::Multiplied(unsigned char theFactor)
-{
-    ::Graphic3d_Vec4ub* _result = new ::Graphic3d_Vec4ub();
-    *_result = ((::Graphic3d_Vec4ub*)_NativeInstance)->Multiplied(theFactor);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4ub(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4ub^ Macad::Occt::Graphic3d_Vec4ub::cwiseMin(Macad::Occt::Graphic3d_Vec4ub^ theVec)
-{
-    ::Graphic3d_Vec4ub* _result = new ::Graphic3d_Vec4ub();
-    *_result = ((::Graphic3d_Vec4ub*)_NativeInstance)->cwiseMin(*(::Graphic3d_Vec4ub*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4ub(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4ub^ Macad::Occt::Graphic3d_Vec4ub::cwiseMax(Macad::Occt::Graphic3d_Vec4ub^ theVec)
-{
-    ::Graphic3d_Vec4ub* _result = new ::Graphic3d_Vec4ub();
-    *_result = ((::Graphic3d_Vec4ub*)_NativeInstance)->cwiseMax(*(::Graphic3d_Vec4ub*)theVec->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4ub(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4ub^ Macad::Occt::Graphic3d_Vec4ub::cwiseAbs()
-{
-    ::Graphic3d_Vec4ub* _result = new ::Graphic3d_Vec4ub();
-    *_result = ((::Graphic3d_Vec4ub*)_NativeInstance)->cwiseAbs();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4ub(_result);
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::maxComp()
-{
-    unsigned char _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->maxComp();
-    return _result;
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::minComp()
-{
-    unsigned char _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->minComp();
-    return _result;
-}
-
-unsigned char Macad::Occt::Graphic3d_Vec4ub::Dot(Macad::Occt::Graphic3d_Vec4ub^ theOther)
-{
-    unsigned char _result = ((::Graphic3d_Vec4ub*)_NativeInstance)->Dot(*(::Graphic3d_Vec4ub*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_Vec4ub::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_Vec4ub::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Graphic3d_Vec4ub^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_Mat4
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_Mat4::Graphic3d_Mat4()
-    : Macad::Occt::BaseClass<::Graphic3d_Mat4>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Mat4();
-}
-
-long long unsigned int Macad::Occt::Graphic3d_Mat4::Rows()
-{
-    long long unsigned int _result = ::Graphic3d_Mat4::Rows();
-    return _result;
-}
-
-long long unsigned int Macad::Occt::Graphic3d_Mat4::Cols()
-{
-    long long unsigned int _result = ::Graphic3d_Mat4::Cols();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Mat4::Identity()
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = ::Graphic3d_Mat4::Identity();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Mat4::Zero()
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = ::Graphic3d_Mat4::Zero();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-float Macad::Occt::Graphic3d_Mat4::GetValue(long long unsigned int theRow, long long unsigned int theCol)
-{
-    float _result = ((::Graphic3d_Mat4*)_NativeInstance)->GetValue(theRow, theCol);
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Mat4::ChangeValue(long long unsigned int theRow, long long unsigned int theCol)
-{
-    float _result = ((::Graphic3d_Mat4*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Mat4::SetValue(long long unsigned int theRow, long long unsigned int theCol, float theValue)
-{
-    ((::Graphic3d_Mat4*)_NativeInstance)->SetValue(theRow, theCol, theValue);
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_Mat4::GetRow(long long unsigned int theRow)
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = ((::Graphic3d_Mat4*)_NativeInstance)->GetRow(theRow);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4::SetRow(long long unsigned int theRow, Macad::Occt::gp_Vec3f^ theVec)
-{
-    ((::Graphic3d_Mat4*)_NativeInstance)->SetRow(theRow, *(::gp_Vec3f*)theVec->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_Mat4::GetColumn(long long unsigned int theCol)
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = ((::Graphic3d_Mat4*)_NativeInstance)->GetColumn(theCol);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4::SetColumn(long long unsigned int theCol, Macad::Occt::gp_Vec3f^ theVec)
-{
-    ((::Graphic3d_Mat4*)_NativeInstance)->SetColumn(theCol, *(::gp_Vec3f*)theVec->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_Mat4::GetDiagonal()
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = ((::Graphic3d_Mat4*)_NativeInstance)->GetDiagonal();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4::SetDiagonal(Macad::Occt::gp_Vec3f^ theVec)
-{
-    ((::Graphic3d_Mat4*)_NativeInstance)->SetDiagonal(*(::gp_Vec3f*)theVec->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_Mat4::InitZero()
-{
-    ((::Graphic3d_Mat4*)_NativeInstance)->InitZero();
-}
-
-bool Macad::Occt::Graphic3d_Mat4::IsZero()
-{
-    bool _result = ((::Graphic3d_Mat4*)_NativeInstance)->IsZero();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Mat4::InitIdentity()
-{
-    ((::Graphic3d_Mat4*)_NativeInstance)->InitIdentity();
-}
-
-bool Macad::Occt::Graphic3d_Mat4::IsIdentity()
-{
-    bool _result = ((::Graphic3d_Mat4*)_NativeInstance)->IsIdentity();
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_Mat4::IsEqual(Macad::Occt::Graphic3d_Mat4^ theOther)
-{
-    bool _result = ((::Graphic3d_Mat4*)_NativeInstance)->IsEqual(*(::Graphic3d_Mat4*)theOther->NativeInstance);
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Mat4::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-float Macad::Occt::Graphic3d_Mat4::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Mat4::Multiply(Macad::Occt::Graphic3d_Mat4^ theMatA, Macad::Occt::Graphic3d_Mat4^ theMatB)
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = ::Graphic3d_Mat4::Multiply(*(::Graphic3d_Mat4*)theMatA->NativeInstance, *(::Graphic3d_Mat4*)theMatB->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Mat4::Multiplied(Macad::Occt::Graphic3d_Mat4^ theMat)
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = ((::Graphic3d_Mat4*)_NativeInstance)->Multiplied(*(::Graphic3d_Mat4*)theMat->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4::Divide(float theFactor)
-{
-    ((::Graphic3d_Mat4*)_NativeInstance)->Divide(theFactor);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Mat4::Divided(float theScalar)
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = ((::Graphic3d_Mat4*)_NativeInstance)->Divided(theScalar);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4::Add(Macad::Occt::Graphic3d_Mat4^ theMat)
-{
-    ((::Graphic3d_Mat4*)_NativeInstance)->Add(*(::Graphic3d_Mat4*)theMat->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_Mat4::Subtract(Macad::Occt::Graphic3d_Mat4^ theMat)
-{
-    ((::Graphic3d_Mat4*)_NativeInstance)->Subtract(*(::Graphic3d_Mat4*)theMat->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Mat4::Added(Macad::Occt::Graphic3d_Mat4^ theMat)
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = ((::Graphic3d_Mat4*)_NativeInstance)->Added(*(::Graphic3d_Mat4*)theMat->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Mat4::Subtracted(Macad::Occt::Graphic3d_Mat4^ theMat)
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = ((::Graphic3d_Mat4*)_NativeInstance)->Subtracted(*(::Graphic3d_Mat4*)theMat->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Mat4::Negated()
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = ((::Graphic3d_Mat4*)_NativeInstance)->Negated();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4::Translate(Macad::Occt::gp_Vec3f^ theVec)
-{
-    ((::Graphic3d_Mat4*)_NativeInstance)->Translate(*(::gp_Vec3f*)theVec->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Mat4::Transposed()
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = ((::Graphic3d_Mat4*)_NativeInstance)->Transposed();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4::Transpose()
-{
-    ((::Graphic3d_Mat4*)_NativeInstance)->Transpose();
-}
-
-bool Macad::Occt::Graphic3d_Mat4::Inverted(Macad::Occt::Graphic3d_Mat4^ theOutMx, float% theDet)
-{
-    pin_ptr<float> pp_theDet = &theDet;
-    bool _result = ((::Graphic3d_Mat4*)_NativeInstance)->Inverted(*(::Graphic3d_Mat4*)theOutMx->NativeInstance, *(float*)pp_theDet);
-    return _result;
-}
-
-float Macad::Occt::Graphic3d_Mat4::DeterminantMat3()
-{
-    float _result = ((::Graphic3d_Mat4*)_NativeInstance)->DeterminantMat3();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Mat4::Adjoint()
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = ((::Graphic3d_Mat4*)_NativeInstance)->Adjoint();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Mat4::Map(float% theData)
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    pin_ptr<float> pp_theData = &theData;
-    *_result = ::Graphic3d_Mat4::Map((float*)pp_theData);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-bool Macad::Occt::Graphic3d_Mat4::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_Mat4::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Graphic3d_Mat4^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_Mat4d
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_Mat4d::Graphic3d_Mat4d()
-    : Macad::Occt::BaseClass<::Graphic3d_Mat4d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Mat4d();
-}
-
-long long unsigned int Macad::Occt::Graphic3d_Mat4d::Rows()
-{
-    long long unsigned int _result = ::Graphic3d_Mat4d::Rows();
-    return _result;
-}
-
-long long unsigned int Macad::Occt::Graphic3d_Mat4d::Cols()
-{
-    long long unsigned int _result = ::Graphic3d_Mat4d::Cols();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Mat4d::Identity()
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = ::Graphic3d_Mat4d::Identity();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Mat4d::Zero()
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = ::Graphic3d_Mat4d::Zero();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-double Macad::Occt::Graphic3d_Mat4d::GetValue(long long unsigned int theRow, long long unsigned int theCol)
-{
-    double _result = ((::Graphic3d_Mat4d*)_NativeInstance)->GetValue(theRow, theCol);
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Mat4d::ChangeValue(long long unsigned int theRow, long long unsigned int theCol)
-{
-    double _result = ((::Graphic3d_Mat4d*)_NativeInstance)->ChangeValue(theRow, theCol);
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Mat4d::SetValue(long long unsigned int theRow, long long unsigned int theCol, double theValue)
-{
-    ((::Graphic3d_Mat4d*)_NativeInstance)->SetValue(theRow, theCol, theValue);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::Graphic3d_Mat4d::GetRow(long long unsigned int theRow)
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = ((::Graphic3d_Mat4d*)_NativeInstance)->GetRow(theRow);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4d::SetRow(long long unsigned int theRow, Macad::Occt::Graphic3d_Vec3d^ theVec)
-{
-    ((::Graphic3d_Mat4d*)_NativeInstance)->SetRow(theRow, *(::Graphic3d_Vec3d*)theVec->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::Graphic3d_Mat4d::GetColumn(long long unsigned int theCol)
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = ((::Graphic3d_Mat4d*)_NativeInstance)->GetColumn(theCol);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4d::SetColumn(long long unsigned int theCol, Macad::Occt::Graphic3d_Vec3d^ theVec)
-{
-    ((::Graphic3d_Mat4d*)_NativeInstance)->SetColumn(theCol, *(::Graphic3d_Vec3d*)theVec->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::Graphic3d_Mat4d::GetDiagonal()
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = ((::Graphic3d_Mat4d*)_NativeInstance)->GetDiagonal();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4d::SetDiagonal(Macad::Occt::Graphic3d_Vec3d^ theVec)
-{
-    ((::Graphic3d_Mat4d*)_NativeInstance)->SetDiagonal(*(::Graphic3d_Vec3d*)theVec->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_Mat4d::InitZero()
-{
-    ((::Graphic3d_Mat4d*)_NativeInstance)->InitZero();
-}
-
-bool Macad::Occt::Graphic3d_Mat4d::IsZero()
-{
-    bool _result = ((::Graphic3d_Mat4d*)_NativeInstance)->IsZero();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_Mat4d::InitIdentity()
-{
-    ((::Graphic3d_Mat4d*)_NativeInstance)->InitIdentity();
-}
-
-bool Macad::Occt::Graphic3d_Mat4d::IsIdentity()
-{
-    bool _result = ((::Graphic3d_Mat4d*)_NativeInstance)->IsIdentity();
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_Mat4d::IsEqual(Macad::Occt::Graphic3d_Mat4d^ theOther)
-{
-    bool _result = ((::Graphic3d_Mat4d*)_NativeInstance)->IsEqual(*(::Graphic3d_Mat4d*)theOther->NativeInstance);
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Mat4d::GetData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-double Macad::Occt::Graphic3d_Mat4d::ChangeData()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Mat4d::Multiply(Macad::Occt::Graphic3d_Mat4d^ theMatA, Macad::Occt::Graphic3d_Mat4d^ theMatB)
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = ::Graphic3d_Mat4d::Multiply(*(::Graphic3d_Mat4d*)theMatA->NativeInstance, *(::Graphic3d_Mat4d*)theMatB->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Mat4d::Multiplied(Macad::Occt::Graphic3d_Mat4d^ theMat)
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = ((::Graphic3d_Mat4d*)_NativeInstance)->Multiplied(*(::Graphic3d_Mat4d*)theMat->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4d::Divide(double theFactor)
-{
-    ((::Graphic3d_Mat4d*)_NativeInstance)->Divide(theFactor);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Mat4d::Divided(double theScalar)
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = ((::Graphic3d_Mat4d*)_NativeInstance)->Divided(theScalar);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4d::Add(Macad::Occt::Graphic3d_Mat4d^ theMat)
-{
-    ((::Graphic3d_Mat4d*)_NativeInstance)->Add(*(::Graphic3d_Mat4d*)theMat->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_Mat4d::Subtract(Macad::Occt::Graphic3d_Mat4d^ theMat)
-{
-    ((::Graphic3d_Mat4d*)_NativeInstance)->Subtract(*(::Graphic3d_Mat4d*)theMat->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Mat4d::Added(Macad::Occt::Graphic3d_Mat4d^ theMat)
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = ((::Graphic3d_Mat4d*)_NativeInstance)->Added(*(::Graphic3d_Mat4d*)theMat->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Mat4d::Subtracted(Macad::Occt::Graphic3d_Mat4d^ theMat)
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = ((::Graphic3d_Mat4d*)_NativeInstance)->Subtracted(*(::Graphic3d_Mat4d*)theMat->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Mat4d::Negated()
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = ((::Graphic3d_Mat4d*)_NativeInstance)->Negated();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4d::Translate(Macad::Occt::Graphic3d_Vec3d^ theVec)
-{
-    ((::Graphic3d_Mat4d*)_NativeInstance)->Translate(*(::Graphic3d_Vec3d*)theVec->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Mat4d::Transposed()
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = ((::Graphic3d_Mat4d*)_NativeInstance)->Transposed();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-void Macad::Occt::Graphic3d_Mat4d::Transpose()
-{
-    ((::Graphic3d_Mat4d*)_NativeInstance)->Transpose();
-}
-
-bool Macad::Occt::Graphic3d_Mat4d::Inverted(Macad::Occt::Graphic3d_Mat4d^ theOutMx, double% theDet)
-{
-    pin_ptr<double> pp_theDet = &theDet;
-    bool _result = ((::Graphic3d_Mat4d*)_NativeInstance)->Inverted(*(::Graphic3d_Mat4d*)theOutMx->NativeInstance, *(double*)pp_theDet);
-    return _result;
-}
-
-double Macad::Occt::Graphic3d_Mat4d::DeterminantMat3()
-{
-    double _result = ((::Graphic3d_Mat4d*)_NativeInstance)->DeterminantMat3();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Mat4d::Adjoint()
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = ((::Graphic3d_Mat4d*)_NativeInstance)->Adjoint();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Mat4d::Map(double% theData)
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    pin_ptr<double> pp_theData = &theData;
-    *_result = ::Graphic3d_Mat4d::Map((double*)pp_theData);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-bool Macad::Occt::Graphic3d_Mat4d::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_Mat4d::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Graphic3d_Mat4d^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_Array1OfAttribute
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_Array1OfAttribute::Graphic3d_Array1OfAttribute()
-    : Macad::Occt::BaseClass<::Graphic3d_Array1OfAttribute>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Array1OfAttribute();
-}
-
-Macad::Occt::Graphic3d_Array1OfAttribute::Graphic3d_Array1OfAttribute(int theLower, int theUpper)
-    : Macad::Occt::BaseClass<::Graphic3d_Array1OfAttribute>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Array1OfAttribute(theLower, theUpper);
-}
-
-Macad::Occt::Graphic3d_Array1OfAttribute::Graphic3d_Array1OfAttribute(Macad::Occt::Graphic3d_Attribute^ theBegin, int theLower, int theUpper, bool theUseBuffer)
-    : Macad::Occt::BaseClass<::Graphic3d_Array1OfAttribute>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Array1OfAttribute(*(::Graphic3d_Attribute*)theBegin->NativeInstance, theLower, theUpper, theUseBuffer);
-}
-
-Macad::Occt::Graphic3d_Array1OfAttribute::Graphic3d_Array1OfAttribute(Macad::Occt::Graphic3d_Attribute^ theBegin, int theLower, int theUpper)
-    : Macad::Occt::BaseClass<::Graphic3d_Array1OfAttribute>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_Array1OfAttribute(*(::Graphic3d_Attribute*)theBegin->NativeInstance, theLower, theUpper, true);
-}
-
-void Macad::Occt::Graphic3d_Array1OfAttribute::Init(Macad::Occt::Graphic3d_Attribute^ theValue)
-{
-    ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->Init(*(::Graphic3d_Attribute*)theValue->NativeInstance);
-}
-
-int Macad::Occt::Graphic3d_Array1OfAttribute::Size()
-{
-    int _result = ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Array1OfAttribute::Length()
-{
-    int _result = ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->Length();
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_Array1OfAttribute::IsEmpty()
-{
-    bool _result = ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Array1OfAttribute::Lower()
-{
-    int _result = ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_Array1OfAttribute::Upper()
-{
-    int _result = ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->Upper();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Array1OfAttribute^ Macad::Occt::Graphic3d_Array1OfAttribute::Assign(Macad::Occt::Graphic3d_Array1OfAttribute^ theOther)
-{
-    ::Graphic3d_Array1OfAttribute* _result = new ::Graphic3d_Array1OfAttribute();
-    *_result = ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->Assign(*(::Graphic3d_Array1OfAttribute*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Array1OfAttribute(_result);
-}
-
-Macad::Occt::Graphic3d_Array1OfAttribute^ Macad::Occt::Graphic3d_Array1OfAttribute::Move(Macad::Occt::Graphic3d_Array1OfAttribute^ theOther)
-{
-    ::Graphic3d_Array1OfAttribute* _result = new ::Graphic3d_Array1OfAttribute();
-    *_result = ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->Move(*(::Graphic3d_Array1OfAttribute*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Array1OfAttribute(_result);
-}
-
-Macad::Occt::Graphic3d_Attribute^ Macad::Occt::Graphic3d_Array1OfAttribute::First()
-{
-    ::Graphic3d_Attribute* _result = new ::Graphic3d_Attribute();
-    *_result = (::Graphic3d_Attribute)((::Graphic3d_Array1OfAttribute*)_NativeInstance)->First();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Attribute(_result);
-}
-
-Macad::Occt::Graphic3d_Attribute^ Macad::Occt::Graphic3d_Array1OfAttribute::ChangeFirst()
-{
-    ::Graphic3d_Attribute* _result = new ::Graphic3d_Attribute();
-    *_result = ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->ChangeFirst();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Attribute(_result);
-}
-
-Macad::Occt::Graphic3d_Attribute^ Macad::Occt::Graphic3d_Array1OfAttribute::Last()
-{
-    ::Graphic3d_Attribute* _result = new ::Graphic3d_Attribute();
-    *_result = (::Graphic3d_Attribute)((::Graphic3d_Array1OfAttribute*)_NativeInstance)->Last();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Attribute(_result);
-}
-
-Macad::Occt::Graphic3d_Attribute^ Macad::Occt::Graphic3d_Array1OfAttribute::ChangeLast()
-{
-    ::Graphic3d_Attribute* _result = new ::Graphic3d_Attribute();
-    *_result = ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->ChangeLast();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Attribute(_result);
-}
-
-Macad::Occt::Graphic3d_Attribute^ Macad::Occt::Graphic3d_Array1OfAttribute::Value(int theIndex)
-{
-    ::Graphic3d_Attribute* _result = new ::Graphic3d_Attribute();
-    *_result = (::Graphic3d_Attribute)((::Graphic3d_Array1OfAttribute*)_NativeInstance)->Value(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Attribute(_result);
-}
-
-Macad::Occt::Graphic3d_Attribute^ Macad::Occt::Graphic3d_Array1OfAttribute::ChangeValue(int theIndex)
-{
-    ::Graphic3d_Attribute* _result = new ::Graphic3d_Attribute();
-    *_result = ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->ChangeValue(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Attribute(_result);
-}
-
-void Macad::Occt::Graphic3d_Array1OfAttribute::SetValue(int theIndex, Macad::Occt::Graphic3d_Attribute^ theItem)
-{
-    ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->SetValue(theIndex, *(::Graphic3d_Attribute*)theItem->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_Array1OfAttribute::UpdateLowerBound(int theLower)
-{
-    ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->UpdateLowerBound(theLower);
-}
-
-void Macad::Occt::Graphic3d_Array1OfAttribute::UpdateUpperBound(int theUpper)
-{
-    ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->UpdateUpperBound(theUpper);
-}
-
-void Macad::Occt::Graphic3d_Array1OfAttribute::Resize(int theLower, int theUpper, bool theToCopyData)
-{
-    ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->Resize(theLower, theUpper, theToCopyData);
-}
-
-bool Macad::Occt::Graphic3d_Array1OfAttribute::IsDeletable()
-{
-    bool _result = ((::Graphic3d_Array1OfAttribute*)_NativeInstance)->IsDeletable();
-    return _result;
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Graphic3d_Attribute^>^ Macad::Occt::Graphic3d_Array1OfAttribute::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_Attribute^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::Graphic3d_Array1OfAttribute::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_Attribute^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_Array1OfAttribute::Iterator
-//---------------------------------------------------------------------
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_ShaderObjectList
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_ShaderObjectList::Graphic3d_ShaderObjectList()
-    : Macad::Occt::BaseClass<::Graphic3d_ShaderObjectList>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_ShaderObjectList();
-}
-
-Macad::Occt::Graphic3d_ShaderObjectList::Graphic3d_ShaderObjectList(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::Graphic3d_ShaderObjectList>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_ShaderObjectList(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::Graphic3d_ShaderObjectList::Size()
-{
-    int _result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ShaderObjectList::Length()
-{
-    int _result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ShaderObjectList::Lower()
-{
-    int _result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ShaderObjectList::Upper()
-{
-    int _result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderObjectList::IsEmpty()
-{
-    bool _result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::Reverse()
-{
-    ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::Exchange(int I, int J)
-{
-    ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::Clear()
-{
-    ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::Graphic3d_ShaderObjectList^ Macad::Occt::Graphic3d_ShaderObjectList::Assign(Macad::Occt::Graphic3d_ShaderObjectList^ theOther)
-{
-    ::Graphic3d_ShaderObjectList* _result = new ::Graphic3d_ShaderObjectList();
-    *_result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Assign(*(::Graphic3d_ShaderObjectList*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderObjectList(_result);
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::Remove(Macad::Occt::Graphic3d_ShaderObjectList::Iterator^ thePosition)
-{
-    ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Remove(*(::Graphic3d_ShaderObjectList::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::Append(Macad::Occt::Graphic3d_ShaderObject^ theItem)
-{
-    ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Append(Handle(::Graphic3d_ShaderObject)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::Prepend(Macad::Occt::Graphic3d_ShaderObject^ theItem)
-{
-    ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Prepend(Handle(::Graphic3d_ShaderObject)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::InsertBefore(int theIndex, Macad::Occt::Graphic3d_ShaderObject^ theItem)
-{
-    ((::Graphic3d_ShaderObjectList*)_NativeInstance)->InsertBefore(theIndex, Handle(::Graphic3d_ShaderObject)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::InsertAfter(Macad::Occt::Graphic3d_ShaderObjectList::Iterator^ thePosition, Macad::Occt::Graphic3d_ShaderObject^ theItem)
-{
-    ((::Graphic3d_ShaderObjectList*)_NativeInstance)->InsertAfter(*(::Graphic3d_ShaderObjectList::Iterator*)thePosition->NativeInstance, Handle(::Graphic3d_ShaderObject)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::Split(int theIndex, Macad::Occt::Graphic3d_ShaderObjectList^ theSeq)
-{
-    ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Split(theIndex, *(::Graphic3d_ShaderObjectList*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_ShaderObject^ Macad::Occt::Graphic3d_ShaderObjectList::First()
-{
-    Handle(::Graphic3d_ShaderObject) _result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderObject^ Macad::Occt::Graphic3d_ShaderObjectList::ChangeFirst()
-{
-    Handle(::Graphic3d_ShaderObject) _result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->ChangeFirst();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderObject^ Macad::Occt::Graphic3d_ShaderObjectList::Last()
-{
-    Handle(::Graphic3d_ShaderObject) _result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderObject^ Macad::Occt::Graphic3d_ShaderObjectList::ChangeLast()
-{
-    Handle(::Graphic3d_ShaderObject) _result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->ChangeLast();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderObject^ Macad::Occt::Graphic3d_ShaderObjectList::Value(int theIndex)
-{
-    Handle(::Graphic3d_ShaderObject) _result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->Value(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderObject^ Macad::Occt::Graphic3d_ShaderObjectList::ChangeValue(int theIndex)
-{
-    Handle(::Graphic3d_ShaderObject) _result = ((::Graphic3d_ShaderObjectList*)_NativeInstance)->ChangeValue(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderObject::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::SetValue(int theIndex, Macad::Occt::Graphic3d_ShaderObject^ theItem)
-{
-    ((::Graphic3d_ShaderObjectList*)_NativeInstance)->SetValue(theIndex, Handle(::Graphic3d_ShaderObject)(theItem->NativeInstance));
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Graphic3d_ShaderObject^>^ Macad::Occt::Graphic3d_ShaderObjectList::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_ShaderObject^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::Graphic3d_ShaderObjectList::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_ShaderObject^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_ShaderObjectList::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_ShaderObjectList::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::Graphic3d_ShaderObjectList::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_ShaderObjectList::Iterator();
-}
-
-bool Macad::Occt::Graphic3d_ShaderObjectList::Iterator::More()
-{
-    bool _result = ((::Graphic3d_ShaderObjectList::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_ShaderObjectList::Iterator::Next()
-{
-    ((::Graphic3d_ShaderObjectList::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Graphic3d_ShaderObject^ Macad::Occt::Graphic3d_ShaderObjectList::Iterator::Value()
-{
-    Handle(::Graphic3d_ShaderObject) _result = ((::Graphic3d_ShaderObjectList::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderObject::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderObject^ Macad::Occt::Graphic3d_ShaderObjectList::Iterator::ChangeValue()
-{
-    Handle(::Graphic3d_ShaderObject) _result = ((::Graphic3d_ShaderObjectList::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderObject::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::Graphic3d_ShaderObjectList::Iterator::IsEqual(Macad::Occt::Graphic3d_ShaderObjectList::Iterator^ theOther)
-{
-    bool _result = ((::Graphic3d_ShaderObjectList::Iterator*)_NativeInstance)->IsEqual(*(::Graphic3d_ShaderObjectList::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderObjectList::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_ShaderObjectList::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_ShaderVariableList
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_ShaderVariableList::Graphic3d_ShaderVariableList()
-    : Macad::Occt::BaseClass<::Graphic3d_ShaderVariableList>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_ShaderVariableList();
-}
-
-Macad::Occt::Graphic3d_ShaderVariableList::Graphic3d_ShaderVariableList(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::Graphic3d_ShaderVariableList>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_ShaderVariableList(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::Graphic3d_ShaderVariableList::Size()
-{
-    int _result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ShaderVariableList::Length()
-{
-    int _result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ShaderVariableList::Lower()
-{
-    int _result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ShaderVariableList::Upper()
-{
-    int _result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderVariableList::IsEmpty()
-{
-    bool _result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::Reverse()
-{
-    ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::Exchange(int I, int J)
-{
-    ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::Clear()
-{
-    ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::Graphic3d_ShaderVariableList^ Macad::Occt::Graphic3d_ShaderVariableList::Assign(Macad::Occt::Graphic3d_ShaderVariableList^ theOther)
-{
-    ::Graphic3d_ShaderVariableList* _result = new ::Graphic3d_ShaderVariableList();
-    *_result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Assign(*(::Graphic3d_ShaderVariableList*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderVariableList(_result);
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::Remove(Macad::Occt::Graphic3d_ShaderVariableList::Iterator^ thePosition)
-{
-    ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Remove(*(::Graphic3d_ShaderVariableList::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::Append(Macad::Occt::Graphic3d_ShaderVariable^ theItem)
-{
-    ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Append(Handle(::Graphic3d_ShaderVariable)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::Prepend(Macad::Occt::Graphic3d_ShaderVariable^ theItem)
-{
-    ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Prepend(Handle(::Graphic3d_ShaderVariable)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::InsertBefore(int theIndex, Macad::Occt::Graphic3d_ShaderVariable^ theItem)
-{
-    ((::Graphic3d_ShaderVariableList*)_NativeInstance)->InsertBefore(theIndex, Handle(::Graphic3d_ShaderVariable)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::InsertAfter(Macad::Occt::Graphic3d_ShaderVariableList::Iterator^ thePosition, Macad::Occt::Graphic3d_ShaderVariable^ theItem)
-{
-    ((::Graphic3d_ShaderVariableList*)_NativeInstance)->InsertAfter(*(::Graphic3d_ShaderVariableList::Iterator*)thePosition->NativeInstance, Handle(::Graphic3d_ShaderVariable)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::Split(int theIndex, Macad::Occt::Graphic3d_ShaderVariableList^ theSeq)
-{
-    ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Split(theIndex, *(::Graphic3d_ShaderVariableList*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariableList::First()
-{
-    Handle(::Graphic3d_ShaderVariable) _result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderVariable::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariableList::ChangeFirst()
-{
-    Handle(::Graphic3d_ShaderVariable) _result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->ChangeFirst();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderVariable::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariableList::Last()
-{
-    Handle(::Graphic3d_ShaderVariable) _result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderVariable::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariableList::ChangeLast()
-{
-    Handle(::Graphic3d_ShaderVariable) _result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->ChangeLast();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderVariable::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariableList::Value(int theIndex)
-{
-    Handle(::Graphic3d_ShaderVariable) _result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->Value(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderVariable::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariableList::ChangeValue(int theIndex)
-{
-    Handle(::Graphic3d_ShaderVariable) _result = ((::Graphic3d_ShaderVariableList*)_NativeInstance)->ChangeValue(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderVariable::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::SetValue(int theIndex, Macad::Occt::Graphic3d_ShaderVariable^ theItem)
-{
-    ((::Graphic3d_ShaderVariableList*)_NativeInstance)->SetValue(theIndex, Handle(::Graphic3d_ShaderVariable)(theItem->NativeInstance));
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Graphic3d_ShaderVariable^>^ Macad::Occt::Graphic3d_ShaderVariableList::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_ShaderVariable^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::Graphic3d_ShaderVariableList::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_ShaderVariable^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_ShaderVariableList::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_ShaderVariableList::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::Graphic3d_ShaderVariableList::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_ShaderVariableList::Iterator();
-}
-
-bool Macad::Occt::Graphic3d_ShaderVariableList::Iterator::More()
-{
-    bool _result = ((::Graphic3d_ShaderVariableList::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_ShaderVariableList::Iterator::Next()
-{
-    ((::Graphic3d_ShaderVariableList::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariableList::Iterator::Value()
-{
-    Handle(::Graphic3d_ShaderVariable) _result = ((::Graphic3d_ShaderVariableList::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderVariable::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariableList::Iterator::ChangeValue()
-{
-    Handle(::Graphic3d_ShaderVariable) _result = ((::Graphic3d_ShaderVariableList::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderVariable::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::Graphic3d_ShaderVariableList::Iterator::IsEqual(Macad::Occt::Graphic3d_ShaderVariableList::Iterator^ theOther)
-{
-    bool _result = ((::Graphic3d_ShaderVariableList::Iterator*)_NativeInstance)->IsEqual(*(::Graphic3d_ShaderVariableList::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderVariableList::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_ShaderVariableList::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_ShaderAttributeList
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_ShaderAttributeList::Graphic3d_ShaderAttributeList()
-    : Macad::Occt::BaseClass<::Graphic3d_ShaderAttributeList>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_ShaderAttributeList();
-}
-
-Macad::Occt::Graphic3d_ShaderAttributeList::Graphic3d_ShaderAttributeList(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::Graphic3d_ShaderAttributeList>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_ShaderAttributeList(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::Graphic3d_ShaderAttributeList::Size()
-{
-    int _result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ShaderAttributeList::Length()
-{
-    int _result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ShaderAttributeList::Lower()
-{
-    int _result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ShaderAttributeList::Upper()
-{
-    int _result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderAttributeList::IsEmpty()
-{
-    bool _result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::Reverse()
-{
-    ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::Exchange(int I, int J)
-{
-    ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::Clear()
-{
-    ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::Graphic3d_ShaderAttributeList^ Macad::Occt::Graphic3d_ShaderAttributeList::Assign(Macad::Occt::Graphic3d_ShaderAttributeList^ theOther)
-{
-    ::Graphic3d_ShaderAttributeList* _result = new ::Graphic3d_ShaderAttributeList();
-    *_result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Assign(*(::Graphic3d_ShaderAttributeList*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderAttributeList(_result);
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::Remove(Macad::Occt::Graphic3d_ShaderAttributeList::Iterator^ thePosition)
-{
-    ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Remove(*(::Graphic3d_ShaderAttributeList::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::Append(Macad::Occt::Graphic3d_ShaderAttribute^ theItem)
-{
-    ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Append(Handle(::Graphic3d_ShaderAttribute)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::Prepend(Macad::Occt::Graphic3d_ShaderAttribute^ theItem)
-{
-    ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Prepend(Handle(::Graphic3d_ShaderAttribute)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::InsertBefore(int theIndex, Macad::Occt::Graphic3d_ShaderAttribute^ theItem)
-{
-    ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->InsertBefore(theIndex, Handle(::Graphic3d_ShaderAttribute)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::InsertAfter(Macad::Occt::Graphic3d_ShaderAttributeList::Iterator^ thePosition, Macad::Occt::Graphic3d_ShaderAttribute^ theItem)
-{
-    ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->InsertAfter(*(::Graphic3d_ShaderAttributeList::Iterator*)thePosition->NativeInstance, Handle(::Graphic3d_ShaderAttribute)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::Split(int theIndex, Macad::Occt::Graphic3d_ShaderAttributeList^ theSeq)
-{
-    ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Split(theIndex, *(::Graphic3d_ShaderAttributeList*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_ShaderAttribute^ Macad::Occt::Graphic3d_ShaderAttributeList::First()
-{
-    Handle(::Graphic3d_ShaderAttribute) _result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderAttribute::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderAttribute^ Macad::Occt::Graphic3d_ShaderAttributeList::ChangeFirst()
-{
-    Handle(::Graphic3d_ShaderAttribute) _result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->ChangeFirst();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderAttribute::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderAttribute^ Macad::Occt::Graphic3d_ShaderAttributeList::Last()
-{
-    Handle(::Graphic3d_ShaderAttribute) _result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderAttribute::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderAttribute^ Macad::Occt::Graphic3d_ShaderAttributeList::ChangeLast()
-{
-    Handle(::Graphic3d_ShaderAttribute) _result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->ChangeLast();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderAttribute::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderAttribute^ Macad::Occt::Graphic3d_ShaderAttributeList::Value(int theIndex)
-{
-    Handle(::Graphic3d_ShaderAttribute) _result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->Value(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderAttribute::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderAttribute^ Macad::Occt::Graphic3d_ShaderAttributeList::ChangeValue(int theIndex)
-{
-    Handle(::Graphic3d_ShaderAttribute) _result = ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->ChangeValue(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderAttribute::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::SetValue(int theIndex, Macad::Occt::Graphic3d_ShaderAttribute^ theItem)
-{
-    ((::Graphic3d_ShaderAttributeList*)_NativeInstance)->SetValue(theIndex, Handle(::Graphic3d_ShaderAttribute)(theItem->NativeInstance));
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Graphic3d_ShaderAttribute^>^ Macad::Occt::Graphic3d_ShaderAttributeList::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_ShaderAttribute^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::Graphic3d_ShaderAttributeList::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_ShaderAttribute^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_ShaderAttributeList::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_ShaderAttributeList::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::Graphic3d_ShaderAttributeList::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_ShaderAttributeList::Iterator();
-}
-
-bool Macad::Occt::Graphic3d_ShaderAttributeList::Iterator::More()
-{
-    bool _result = ((::Graphic3d_ShaderAttributeList::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_ShaderAttributeList::Iterator::Next()
-{
-    ((::Graphic3d_ShaderAttributeList::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Graphic3d_ShaderAttribute^ Macad::Occt::Graphic3d_ShaderAttributeList::Iterator::Value()
-{
-    Handle(::Graphic3d_ShaderAttribute) _result = ((::Graphic3d_ShaderAttributeList::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderAttribute::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ShaderAttribute^ Macad::Occt::Graphic3d_ShaderAttributeList::Iterator::ChangeValue()
-{
-    Handle(::Graphic3d_ShaderAttribute) _result = ((::Graphic3d_ShaderAttributeList::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ShaderAttribute::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::Graphic3d_ShaderAttributeList::Iterator::IsEqual(Macad::Occt::Graphic3d_ShaderAttributeList::Iterator^ theOther)
-{
-    bool _result = ((::Graphic3d_ShaderAttributeList::Iterator*)_NativeInstance)->IsEqual(*(::Graphic3d_ShaderAttributeList::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderAttributeList::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_ShaderAttributeList::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_CameraLerp
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_CameraLerp::Graphic3d_CameraLerp()
-    : Macad::Occt::BaseClass<::Graphic3d_CameraLerp>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_CameraLerp();
-}
-
-Macad::Occt::Graphic3d_CameraLerp::Graphic3d_CameraLerp(Macad::Occt::Graphic3d_Camera^ theStart, Macad::Occt::Graphic3d_Camera^ theEnd)
-    : Macad::Occt::BaseClass<::Graphic3d_CameraLerp>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_CameraLerp(Handle(::Graphic3d_Camera)(theStart->NativeInstance), Handle(::Graphic3d_Camera)(theEnd->NativeInstance));
-}
-
-Macad::Occt::Graphic3d_Camera^ Macad::Occt::Graphic3d_CameraLerp::Interpolate(Macad::Occt::Graphic3d_Camera^ theStart, Macad::Occt::Graphic3d_Camera^ theEnd, double theT)
-{
-    Handle(::Graphic3d_Camera) _result = ::Graphic3d_CameraLerp::Interpolate(Handle(::Graphic3d_Camera)(theStart->NativeInstance), Handle(::Graphic3d_Camera)(theEnd->NativeInstance), theT);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Camera::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::Graphic3d_CameraLerp::Init(Macad::Occt::Graphic3d_Camera^ theStart, Macad::Occt::Graphic3d_Camera^ theEnd)
-{
-    ((::Graphic3d_CameraLerp*)_NativeInstance)->Init(Handle(::Graphic3d_Camera)(theStart->NativeInstance), Handle(::Graphic3d_Camera)(theEnd->NativeInstance));
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_SequenceOfGroup
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_SequenceOfGroup::Graphic3d_SequenceOfGroup()
-    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfGroup>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_SequenceOfGroup();
-}
-
-Macad::Occt::Graphic3d_SequenceOfGroup::Graphic3d_SequenceOfGroup(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfGroup>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_SequenceOfGroup(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::Graphic3d_SequenceOfGroup::Size()
-{
-    int _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_SequenceOfGroup::Length()
-{
-    int _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_SequenceOfGroup::Lower()
-{
-    int _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_SequenceOfGroup::Upper()
-{
-    int _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_SequenceOfGroup::IsEmpty()
-{
-    bool _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::Reverse()
-{
-    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::Exchange(int I, int J)
-{
-    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::Clear()
-{
-    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::Graphic3d_SequenceOfGroup^ Macad::Occt::Graphic3d_SequenceOfGroup::Assign(Macad::Occt::Graphic3d_SequenceOfGroup^ theOther)
-{
-    ::Graphic3d_SequenceOfGroup* _result = new ::Graphic3d_SequenceOfGroup();
-    *_result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Assign(*(::Graphic3d_SequenceOfGroup*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_SequenceOfGroup(_result);
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::Remove(Macad::Occt::Graphic3d_SequenceOfGroup::Iterator^ thePosition)
-{
-    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Remove(*(::Graphic3d_SequenceOfGroup::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::Append(Macad::Occt::Graphic3d_Group^ theItem)
-{
-    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Append(Handle(::Graphic3d_Group)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::Prepend(Macad::Occt::Graphic3d_Group^ theItem)
-{
-    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Prepend(Handle(::Graphic3d_Group)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::InsertBefore(int theIndex, Macad::Occt::Graphic3d_Group^ theItem)
-{
-    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->InsertBefore(theIndex, Handle(::Graphic3d_Group)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::InsertAfter(Macad::Occt::Graphic3d_SequenceOfGroup::Iterator^ thePosition, Macad::Occt::Graphic3d_Group^ theItem)
-{
-    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->InsertAfter(*(::Graphic3d_SequenceOfGroup::Iterator*)thePosition->NativeInstance, Handle(::Graphic3d_Group)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::Split(int theIndex, Macad::Occt::Graphic3d_SequenceOfGroup^ theSeq)
-{
-    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Split(theIndex, *(::Graphic3d_SequenceOfGroup*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::First()
-{
-    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::ChangeFirst()
-{
-    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->ChangeFirst();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::Last()
-{
-    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::ChangeLast()
-{
-    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->ChangeLast();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::Value(int theIndex)
-{
-    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->Value(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::ChangeValue(int theIndex)
-{
-    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->ChangeValue(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::SetValue(int theIndex, Macad::Occt::Graphic3d_Group^ theItem)
-{
-    ((::Graphic3d_SequenceOfGroup*)_NativeInstance)->SetValue(theIndex, Handle(::Graphic3d_Group)(theItem->NativeInstance));
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Graphic3d_Group^>^ Macad::Occt::Graphic3d_SequenceOfGroup::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_Group^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::Graphic3d_SequenceOfGroup::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_Group^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_SequenceOfGroup::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfGroup::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_SequenceOfGroup::Iterator();
-}
-
-bool Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::More()
-{
-    bool _result = ((::Graphic3d_SequenceOfGroup::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::Next()
-{
-    ((::Graphic3d_SequenceOfGroup::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::Value()
-{
-    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Group^ Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::ChangeValue()
-{
-    Handle(::Graphic3d_Group) _result = ((::Graphic3d_SequenceOfGroup::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Group::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::IsEqual(Macad::Occt::Graphic3d_SequenceOfGroup::Iterator^ theOther)
-{
-    bool _result = ((::Graphic3d_SequenceOfGroup::Iterator*)_NativeInstance)->IsEqual(*(::Graphic3d_SequenceOfGroup::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_SequenceOfGroup::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_MapOfStructure
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_MapOfStructure::Graphic3d_MapOfStructure()
-    : Macad::Occt::BaseClass<::Graphic3d_MapOfStructure>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_MapOfStructure();
-}
-
-Macad::Occt::Graphic3d_MapOfStructure::Graphic3d_MapOfStructure(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::Graphic3d_MapOfStructure>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_MapOfStructure(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::Graphic3d_MapOfStructure::Graphic3d_MapOfStructure(int theNbBuckets)
-    : Macad::Occt::BaseClass<::Graphic3d_MapOfStructure>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_MapOfStructure(theNbBuckets, 0L);
-}
-
-void Macad::Occt::Graphic3d_MapOfStructure::Exchange(Macad::Occt::Graphic3d_MapOfStructure^ theOther)
-{
-    ((::Graphic3d_MapOfStructure*)_NativeInstance)->Exchange(*(::Graphic3d_MapOfStructure*)theOther->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_MapOfStructure^ Macad::Occt::Graphic3d_MapOfStructure::Assign(Macad::Occt::Graphic3d_MapOfStructure^ theOther)
-{
-    ::Graphic3d_MapOfStructure* _result = new ::Graphic3d_MapOfStructure();
-    *_result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->Assign(*(::Graphic3d_MapOfStructure*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_MapOfStructure(_result);
-}
-
-void Macad::Occt::Graphic3d_MapOfStructure::ReSize(int N)
-{
-    ((::Graphic3d_MapOfStructure*)_NativeInstance)->ReSize(N);
-}
-
-bool Macad::Occt::Graphic3d_MapOfStructure::Add(Macad::Occt::Graphic3d_Structure^ theKey)
-{
-    bool _result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->Add(Handle(::Graphic3d_Structure)(theKey->NativeInstance));
-    return _result;
-}
-
-Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_MapOfStructure::Added(Macad::Occt::Graphic3d_Structure^ theKey)
-{
-    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->Added(Handle(::Graphic3d_Structure)(theKey->NativeInstance));
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::Graphic3d_MapOfStructure::Contains(Macad::Occt::Graphic3d_Structure^ theKey)
-{
-    bool _result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->Contains(Handle(::Graphic3d_Structure)(theKey->NativeInstance));
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_MapOfStructure::Remove(Macad::Occt::Graphic3d_Structure^ K)
-{
-    bool _result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->Remove(Handle(::Graphic3d_Structure)(K->NativeInstance));
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_MapOfStructure::Clear(bool doReleaseMemory)
-{
-    ((::Graphic3d_MapOfStructure*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::Graphic3d_MapOfStructure::Clear()
-{
-    ((::Graphic3d_MapOfStructure*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::Graphic3d_MapOfStructure::Size()
-{
-    int _result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->Size();
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_MapOfStructure::IsEqual(Macad::Occt::Graphic3d_MapOfStructure^ theOther)
-{
-    bool _result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->IsEqual(*(::Graphic3d_MapOfStructure*)theOther->NativeInstance);
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_MapOfStructure::Union(Macad::Occt::Graphic3d_MapOfStructure^ theLeft, Macad::Occt::Graphic3d_MapOfStructure^ theRight)
-{
-    ((::Graphic3d_MapOfStructure*)_NativeInstance)->Union(*(::Graphic3d_MapOfStructure*)theLeft->NativeInstance, *(::Graphic3d_MapOfStructure*)theRight->NativeInstance);
-}
-
-bool Macad::Occt::Graphic3d_MapOfStructure::Unite(Macad::Occt::Graphic3d_MapOfStructure^ theOther)
-{
-    bool _result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->Unite(*(::Graphic3d_MapOfStructure*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_MapOfStructure::HasIntersection(Macad::Occt::Graphic3d_MapOfStructure^ theMap)
-{
-    bool _result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->HasIntersection(*(::Graphic3d_MapOfStructure*)theMap->NativeInstance);
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_MapOfStructure::Intersection(Macad::Occt::Graphic3d_MapOfStructure^ theLeft, Macad::Occt::Graphic3d_MapOfStructure^ theRight)
-{
-    ((::Graphic3d_MapOfStructure*)_NativeInstance)->Intersection(*(::Graphic3d_MapOfStructure*)theLeft->NativeInstance, *(::Graphic3d_MapOfStructure*)theRight->NativeInstance);
-}
-
-bool Macad::Occt::Graphic3d_MapOfStructure::Intersect(Macad::Occt::Graphic3d_MapOfStructure^ theOther)
-{
-    bool _result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->Intersect(*(::Graphic3d_MapOfStructure*)theOther->NativeInstance);
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_MapOfStructure::Subtraction(Macad::Occt::Graphic3d_MapOfStructure^ theLeft, Macad::Occt::Graphic3d_MapOfStructure^ theRight)
-{
-    ((::Graphic3d_MapOfStructure*)_NativeInstance)->Subtraction(*(::Graphic3d_MapOfStructure*)theLeft->NativeInstance, *(::Graphic3d_MapOfStructure*)theRight->NativeInstance);
-}
-
-bool Macad::Occt::Graphic3d_MapOfStructure::Subtract(Macad::Occt::Graphic3d_MapOfStructure^ theOther)
-{
-    bool _result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->Subtract(*(::Graphic3d_MapOfStructure*)theOther->NativeInstance);
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_MapOfStructure::Difference(Macad::Occt::Graphic3d_MapOfStructure^ theLeft, Macad::Occt::Graphic3d_MapOfStructure^ theRight)
-{
-    ((::Graphic3d_MapOfStructure*)_NativeInstance)->Difference(*(::Graphic3d_MapOfStructure*)theLeft->NativeInstance, *(::Graphic3d_MapOfStructure*)theRight->NativeInstance);
-}
-
-bool Macad::Occt::Graphic3d_MapOfStructure::Differ(Macad::Occt::Graphic3d_MapOfStructure^ theOther)
-{
-    bool _result = ((::Graphic3d_MapOfStructure*)_NativeInstance)->Differ(*(::Graphic3d_MapOfStructure*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_MapOfStructure::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_MapOfStructure::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Graphic3d_MapOfStructure^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_MapOfStructure::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_MapOfStructure::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::Graphic3d_MapOfStructure::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_MapOfStructure::Iterator();
-}
-
-bool Macad::Occt::Graphic3d_MapOfStructure::Iterator::More()
-{
-    bool _result = ((::Graphic3d_MapOfStructure::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_MapOfStructure::Iterator::Next()
-{
-    ((::Graphic3d_MapOfStructure::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_MapOfStructure::Iterator::Value()
-{
-    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_MapOfStructure::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_MapOfStructure::Iterator::Key()
-{
-    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_MapOfStructure::Iterator*)_NativeInstance)->Key();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_SequenceOfStructure
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_SequenceOfStructure::Graphic3d_SequenceOfStructure()
-    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfStructure>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_SequenceOfStructure();
-}
-
-Macad::Occt::Graphic3d_SequenceOfStructure::Graphic3d_SequenceOfStructure(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfStructure>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_SequenceOfStructure(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::Graphic3d_SequenceOfStructure::Size()
-{
-    int _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_SequenceOfStructure::Length()
-{
-    int _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_SequenceOfStructure::Lower()
-{
-    int _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_SequenceOfStructure::Upper()
-{
-    int _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_SequenceOfStructure::IsEmpty()
-{
-    bool _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::Reverse()
-{
-    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::Exchange(int I, int J)
-{
-    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::Clear()
-{
-    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::Graphic3d_SequenceOfStructure^ Macad::Occt::Graphic3d_SequenceOfStructure::Assign(Macad::Occt::Graphic3d_SequenceOfStructure^ theOther)
-{
-    ::Graphic3d_SequenceOfStructure* _result = new ::Graphic3d_SequenceOfStructure();
-    *_result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Assign(*(::Graphic3d_SequenceOfStructure*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_SequenceOfStructure(_result);
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::Remove(Macad::Occt::Graphic3d_SequenceOfStructure::Iterator^ thePosition)
-{
-    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Remove(*(::Graphic3d_SequenceOfStructure::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::Append(Macad::Occt::Graphic3d_Structure^ theItem)
-{
-    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Append(Handle(::Graphic3d_Structure)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::Prepend(Macad::Occt::Graphic3d_Structure^ theItem)
-{
-    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Prepend(Handle(::Graphic3d_Structure)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::InsertBefore(int theIndex, Macad::Occt::Graphic3d_Structure^ theItem)
-{
-    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->InsertBefore(theIndex, Handle(::Graphic3d_Structure)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::InsertAfter(Macad::Occt::Graphic3d_SequenceOfStructure::Iterator^ thePosition, Macad::Occt::Graphic3d_Structure^ theItem)
-{
-    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->InsertAfter(*(::Graphic3d_SequenceOfStructure::Iterator*)thePosition->NativeInstance, Handle(::Graphic3d_Structure)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::Split(int theIndex, Macad::Occt::Graphic3d_SequenceOfStructure^ theSeq)
-{
-    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Split(theIndex, *(::Graphic3d_SequenceOfStructure*)theSeq->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::First()
-{
-    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::ChangeFirst()
-{
-    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->ChangeFirst();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::Last()
-{
-    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::ChangeLast()
-{
-    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->ChangeLast();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::Value(int theIndex)
-{
-    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->Value(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::ChangeValue(int theIndex)
-{
-    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->ChangeValue(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::SetValue(int theIndex, Macad::Occt::Graphic3d_Structure^ theItem)
-{
-    ((::Graphic3d_SequenceOfStructure*)_NativeInstance)->SetValue(theIndex, Handle(::Graphic3d_Structure)(theItem->NativeInstance));
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::Graphic3d_Structure^>^ Macad::Occt::Graphic3d_SequenceOfStructure::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_Structure^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::Graphic3d_SequenceOfStructure::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::Graphic3d_Structure^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_SequenceOfStructure::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::Graphic3d_SequenceOfStructure::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_SequenceOfStructure::Iterator();
-}
-
-bool Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::More()
-{
-    bool _result = ((::Graphic3d_SequenceOfStructure::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::Next()
-{
-    ((::Graphic3d_SequenceOfStructure::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::Value()
-{
-    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Structure^ Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::ChangeValue()
-{
-    Handle(::Graphic3d_Structure) _result = ((::Graphic3d_SequenceOfStructure::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Structure::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::IsEqual(Macad::Occt::Graphic3d_SequenceOfStructure::Iterator^ theOther)
-{
-    bool _result = ((::Graphic3d_SequenceOfStructure::Iterator*)_NativeInstance)->IsEqual(*(::Graphic3d_SequenceOfStructure::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_SequenceOfStructure::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_GraphicDriverFactoryList
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_GraphicDriverFactoryList::Graphic3d_GraphicDriverFactoryList()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_GraphicDriverFactoryList();
-}
-
-Macad::Occt::Graphic3d_GraphicDriverFactoryList::Graphic3d_GraphicDriverFactoryList(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_GraphicDriverFactoryList(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::Graphic3d_GraphicDriverFactoryList::Size()
-{
-    int _result = ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->Size();
-    return _result;
-}
-
-Macad::Occt::Graphic3d_GraphicDriverFactoryList^ Macad::Occt::Graphic3d_GraphicDriverFactoryList::Assign(Macad::Occt::Graphic3d_GraphicDriverFactoryList^ theOther)
-{
-    ::Graphic3d_GraphicDriverFactoryList* _result = new ::Graphic3d_GraphicDriverFactoryList();
-    *_result = ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->Assign(*(::Graphic3d_GraphicDriverFactoryList*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_GraphicDriverFactoryList(_result);
-}
-
-void Macad::Occt::Graphic3d_GraphicDriverFactoryList::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_GraphicDriverFactoryList::Clear()
-{
-    ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::Graphic3d_GraphicDriverFactory^ Macad::Occt::Graphic3d_GraphicDriverFactoryList::First()
-{
-    Handle(::Graphic3d_GraphicDriverFactory) _result = ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GraphicDriverFactory::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_GraphicDriverFactory^ Macad::Occt::Graphic3d_GraphicDriverFactoryList::Last()
-{
-    Handle(::Graphic3d_GraphicDriverFactory) _result = ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GraphicDriverFactory::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_GraphicDriverFactory^ Macad::Occt::Graphic3d_GraphicDriverFactoryList::Append(Macad::Occt::Graphic3d_GraphicDriverFactory^ theItem)
-{
-    Handle(::Graphic3d_GraphicDriverFactory) _result = ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->Append(Handle(::Graphic3d_GraphicDriverFactory)(theItem->NativeInstance));
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GraphicDriverFactory::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_GraphicDriverFactory^ Macad::Occt::Graphic3d_GraphicDriverFactoryList::Prepend(Macad::Occt::Graphic3d_GraphicDriverFactory^ theItem)
-{
-    Handle(::Graphic3d_GraphicDriverFactory) _result = ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->Prepend(Handle(::Graphic3d_GraphicDriverFactory)(theItem->NativeInstance));
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GraphicDriverFactory::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::Graphic3d_GraphicDriverFactoryList::RemoveFirst()
-{
-    ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->RemoveFirst();
-}
-
-void Macad::Occt::Graphic3d_GraphicDriverFactoryList::Remove(Macad::Occt::Graphic3d_GraphicDriverFactoryList::Iterator^ theIter)
-{
-    ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->Remove(*(::Graphic3d_GraphicDriverFactoryList::Iterator*)theIter->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_GraphicDriverFactory^ Macad::Occt::Graphic3d_GraphicDriverFactoryList::InsertBefore(Macad::Occt::Graphic3d_GraphicDriverFactory^ theItem, Macad::Occt::Graphic3d_GraphicDriverFactoryList::Iterator^ theIter)
-{
-    Handle(::Graphic3d_GraphicDriverFactory) _result = ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->InsertBefore(Handle(::Graphic3d_GraphicDriverFactory)(theItem->NativeInstance), *(::Graphic3d_GraphicDriverFactoryList::Iterator*)theIter->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GraphicDriverFactory::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_GraphicDriverFactory^ Macad::Occt::Graphic3d_GraphicDriverFactoryList::InsertAfter(Macad::Occt::Graphic3d_GraphicDriverFactory^ theItem, Macad::Occt::Graphic3d_GraphicDriverFactoryList::Iterator^ theIter)
-{
-    Handle(::Graphic3d_GraphicDriverFactory) _result = ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->InsertAfter(Handle(::Graphic3d_GraphicDriverFactory)(theItem->NativeInstance), *(::Graphic3d_GraphicDriverFactoryList::Iterator*)theIter->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GraphicDriverFactory::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::Graphic3d_GraphicDriverFactoryList::Reverse()
-{
-    ((::Graphic3d_GraphicDriverFactoryList*)_NativeInstance)->Reverse();
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_GraphicDriverFactoryList::Iterator
-//---------------------------------------------------------------------
-
-bool Macad::Occt::Graphic3d_GraphicDriverFactoryList::Iterator::More()
-{
-    bool _result = ((::Graphic3d_GraphicDriverFactoryList::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_GraphicDriverFactoryList::Iterator::Next()
-{
-    ((::Graphic3d_GraphicDriverFactoryList::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Graphic3d_GraphicDriverFactory^ Macad::Occt::Graphic3d_GraphicDriverFactoryList::Iterator::Value()
-{
-    Handle(::Graphic3d_GraphicDriverFactory) _result = ((::Graphic3d_GraphicDriverFactoryList::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GraphicDriverFactory::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_GraphicDriverFactory^ Macad::Occt::Graphic3d_GraphicDriverFactoryList::Iterator::ChangeValue()
-{
-    Handle(::Graphic3d_GraphicDriverFactory) _result = ((::Graphic3d_GraphicDriverFactoryList::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GraphicDriverFactory::CreateDowncasted(_result.get());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_IndexedMapOfStructure
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_IndexedMapOfStructure::Graphic3d_IndexedMapOfStructure()
-    : Macad::Occt::BaseClass<::Graphic3d_IndexedMapOfStructure>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_IndexedMapOfStructure();
-}
-
-Macad::Occt::Graphic3d_IndexedMapOfStructure::Graphic3d_IndexedMapOfStructure(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::Graphic3d_IndexedMapOfStructure>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_IndexedMapOfStructure(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::Graphic3d_IndexedMapOfStructure::Graphic3d_IndexedMapOfStructure(int theNbBuckets)
-    : Macad::Occt::BaseClass<::Graphic3d_IndexedMapOfStructure>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_IndexedMapOfStructure(theNbBuckets, 0L);
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfStructure::Exchange(Macad::Occt::Graphic3d_IndexedMapOfStructure^ theOther)
-{
-    ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->Exchange(*(::Graphic3d_IndexedMapOfStructure*)theOther->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_IndexedMapOfStructure^ Macad::Occt::Graphic3d_IndexedMapOfStructure::Assign(Macad::Occt::Graphic3d_IndexedMapOfStructure^ theOther)
-{
-    ::Graphic3d_IndexedMapOfStructure* _result = new ::Graphic3d_IndexedMapOfStructure();
-    *_result = ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->Assign(*(::Graphic3d_IndexedMapOfStructure*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_IndexedMapOfStructure(_result);
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfStructure::ReSize(int theExtent)
-{
-    ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->ReSize(theExtent);
-}
-
-int Macad::Occt::Graphic3d_IndexedMapOfStructure::Add(Macad::Occt::Graphic3d_CStructure^ theKey1)
-{
-    int _result = ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->Add((::Graphic3d_CStructure*)theKey1->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_IndexedMapOfStructure::Contains(Macad::Occt::Graphic3d_CStructure^ theKey1)
-{
-    bool _result = ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->Contains((::Graphic3d_CStructure*)theKey1->NativeInstance);
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfStructure::Substitute(int theIndex, Macad::Occt::Graphic3d_CStructure^ theKey1)
-{
-    ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->Substitute(theIndex, (::Graphic3d_CStructure*)theKey1->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfStructure::Swap(int theIndex1, int theIndex2)
-{
-    ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->Swap(theIndex1, theIndex2);
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfStructure::RemoveLast()
-{
-    ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->RemoveLast();
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfStructure::RemoveFromIndex(int theIndex)
-{
-    ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->RemoveFromIndex(theIndex);
-}
-
-bool Macad::Occt::Graphic3d_IndexedMapOfStructure::RemoveKey(Macad::Occt::Graphic3d_CStructure^ theKey1)
-{
-    bool _result = ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->RemoveKey((::Graphic3d_CStructure*)theKey1->NativeInstance);
-    return _result;
-}
-
-Macad::Occt::Graphic3d_CStructure^ Macad::Occt::Graphic3d_IndexedMapOfStructure::FindKey(int theIndex)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-int Macad::Occt::Graphic3d_IndexedMapOfStructure::FindIndex(Macad::Occt::Graphic3d_CStructure^ theKey1)
-{
-    int _result = ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->FindIndex((::Graphic3d_CStructure*)theKey1->NativeInstance);
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfStructure::Clear(bool doReleaseMemory)
-{
-    ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfStructure::Clear()
-{
-    ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::Graphic3d_IndexedMapOfStructure::Size()
-{
-    int _result = ((::Graphic3d_IndexedMapOfStructure*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_IndexedMapOfStructure::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_IndexedMapOfStructure::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::Graphic3d_IndexedMapOfStructure::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_IndexedMapOfStructure::Iterator();
-}
-
-bool Macad::Occt::Graphic3d_IndexedMapOfStructure::Iterator::More()
-{
-    bool _result = ((::Graphic3d_IndexedMapOfStructure::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfStructure::Iterator::Next()
-{
-    ((::Graphic3d_IndexedMapOfStructure::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Graphic3d_CStructure^ Macad::Occt::Graphic3d_IndexedMapOfStructure::Iterator::Value()
-{
-    throw gcnew System::NotImplementedException();
-}
-
-bool Macad::Occt::Graphic3d_IndexedMapOfStructure::Iterator::IsEqual(Macad::Occt::Graphic3d_IndexedMapOfStructure::Iterator^ theOther)
-{
-    bool _result = ((::Graphic3d_IndexedMapOfStructure::Iterator*)_NativeInstance)->IsEqual(*(::Graphic3d_IndexedMapOfStructure::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_IndexedMapOfStructure::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Graphic3d_IndexedMapOfStructure::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_MapOfObject
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_MapOfObject::Graphic3d_MapOfObject()
-    : Macad::Occt::BaseClass<::Graphic3d_MapOfObject>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_MapOfObject();
-}
-
-Macad::Occt::Graphic3d_MapOfObject::Graphic3d_MapOfObject(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::Graphic3d_MapOfObject>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_MapOfObject(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::Graphic3d_MapOfObject::Graphic3d_MapOfObject(int theNbBuckets)
-    : Macad::Occt::BaseClass<::Graphic3d_MapOfObject>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_MapOfObject(theNbBuckets, 0L);
-}
-
-void Macad::Occt::Graphic3d_MapOfObject::Exchange(Macad::Occt::Graphic3d_MapOfObject^ theOther)
-{
-    ((::Graphic3d_MapOfObject*)_NativeInstance)->Exchange(*(::Graphic3d_MapOfObject*)theOther->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_MapOfObject^ Macad::Occt::Graphic3d_MapOfObject::Assign(Macad::Occt::Graphic3d_MapOfObject^ theOther)
-{
-    ::Graphic3d_MapOfObject* _result = new ::Graphic3d_MapOfObject();
-    *_result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Assign(*(::Graphic3d_MapOfObject*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_MapOfObject(_result);
-}
-
-void Macad::Occt::Graphic3d_MapOfObject::ReSize(int N)
-{
-    ((::Graphic3d_MapOfObject*)_NativeInstance)->ReSize(N);
-}
-
-bool Macad::Occt::Graphic3d_MapOfObject::Bind(Macad::Occt::Standard_Transient^ theKey, Macad::Occt::Graphic3d_ViewAffinity^ theItem)
-{
-    bool _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Bind((::Standard_Transient*)theKey->NativeInstance, Handle(::Graphic3d_ViewAffinity)(theItem->NativeInstance));
-    return _result;
-}
-
-Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::Bound(Macad::Occt::Standard_Transient^ theKey, Macad::Occt::Graphic3d_ViewAffinity^ theItem)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-bool Macad::Occt::Graphic3d_MapOfObject::IsBound(Macad::Occt::Standard_Transient^ theKey)
-{
-    bool _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->IsBound((::Standard_Transient*)theKey->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_MapOfObject::UnBind(Macad::Occt::Standard_Transient^ theKey)
-{
-    bool _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->UnBind((::Standard_Transient*)theKey->NativeInstance);
-    return _result;
-}
-
-Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::Seek(Macad::Occt::Standard_Transient^ theKey)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::Find(Macad::Occt::Standard_Transient^ theKey)
-{
-    Handle(::Graphic3d_ViewAffinity) _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Find((::Standard_Transient*)theKey->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ViewAffinity::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::ChangeSeek(Macad::Occt::Standard_Transient^ theKey)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::ChangeFind(Macad::Occt::Standard_Transient^ theKey)
-{
-    Handle(::Graphic3d_ViewAffinity) _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->ChangeFind((::Standard_Transient*)theKey->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ViewAffinity::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::Graphic3d_MapOfObject::Clear(bool doReleaseMemory)
-{
-    ((::Graphic3d_MapOfObject*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::Graphic3d_MapOfObject::Clear()
-{
-    ((::Graphic3d_MapOfObject*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::Graphic3d_MapOfObject::Size()
-{
-    int _result = ((::Graphic3d_MapOfObject*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_MapOfObject::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_MapOfObject::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::Graphic3d_MapOfObject::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_MapOfObject::Iterator();
-}
-
-bool Macad::Occt::Graphic3d_MapOfObject::Iterator::More()
-{
-    bool _result = ((::Graphic3d_MapOfObject::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_MapOfObject::Iterator::Next()
-{
-    ((::Graphic3d_MapOfObject::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::Iterator::Value()
-{
-    Handle(::Graphic3d_ViewAffinity) _result = ((::Graphic3d_MapOfObject::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ViewAffinity::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_ViewAffinity^ Macad::Occt::Graphic3d_MapOfObject::Iterator::ChangeValue()
-{
-    Handle(::Graphic3d_ViewAffinity) _result = ((::Graphic3d_MapOfObject::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_ViewAffinity::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Standard_Transient^ Macad::Occt::Graphic3d_MapOfObject::Iterator::Key()
-{
-    const ::Standard_Transient* _result = ((::Graphic3d_MapOfObject::Iterator*)_NativeInstance)->Key();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Standard_Transient((::Standard_Transient*)_result);
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_IndexedMapOfView
-//---------------------------------------------------------------------
-
-Macad::Occt::Graphic3d_IndexedMapOfView::Graphic3d_IndexedMapOfView()
-    : Macad::Occt::BaseClass<::Graphic3d_IndexedMapOfView>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_IndexedMapOfView();
-}
-
-Macad::Occt::Graphic3d_IndexedMapOfView::Graphic3d_IndexedMapOfView(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::Graphic3d_IndexedMapOfView>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_IndexedMapOfView(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::Graphic3d_IndexedMapOfView::Graphic3d_IndexedMapOfView(int theNbBuckets)
-    : Macad::Occt::BaseClass<::Graphic3d_IndexedMapOfView>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Graphic3d_IndexedMapOfView(theNbBuckets, 0L);
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfView::Exchange(Macad::Occt::Graphic3d_IndexedMapOfView^ theOther)
-{
-    ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->Exchange(*(::Graphic3d_IndexedMapOfView*)theOther->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_IndexedMapOfView^ Macad::Occt::Graphic3d_IndexedMapOfView::Assign(Macad::Occt::Graphic3d_IndexedMapOfView^ theOther)
-{
-    ::Graphic3d_IndexedMapOfView* _result = new ::Graphic3d_IndexedMapOfView();
-    *_result = ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->Assign(*(::Graphic3d_IndexedMapOfView*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_IndexedMapOfView(_result);
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfView::ReSize(int theExtent)
-{
-    ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->ReSize(theExtent);
-}
-
-int Macad::Occt::Graphic3d_IndexedMapOfView::Add(Macad::Occt::Graphic3d_CView^ theKey1)
-{
-    int _result = ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->Add((::Graphic3d_CView*)theKey1->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_IndexedMapOfView::Contains(Macad::Occt::Graphic3d_CView^ theKey1)
-{
-    bool _result = ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->Contains((::Graphic3d_CView*)theKey1->NativeInstance);
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfView::Substitute(int theIndex, Macad::Occt::Graphic3d_CView^ theKey1)
-{
-    ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->Substitute(theIndex, (::Graphic3d_CView*)theKey1->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfView::Swap(int theIndex1, int theIndex2)
-{
-    ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->Swap(theIndex1, theIndex2);
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfView::RemoveLast()
-{
-    ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->RemoveLast();
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfView::RemoveFromIndex(int theIndex)
-{
-    ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->RemoveFromIndex(theIndex);
-}
-
-bool Macad::Occt::Graphic3d_IndexedMapOfView::RemoveKey(Macad::Occt::Graphic3d_CView^ theKey1)
-{
-    bool _result = ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->RemoveKey((::Graphic3d_CView*)theKey1->NativeInstance);
-    return _result;
-}
-
-Macad::Occt::Graphic3d_CView^ Macad::Occt::Graphic3d_IndexedMapOfView::FindKey(int theIndex)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-int Macad::Occt::Graphic3d_IndexedMapOfView::FindIndex(Macad::Occt::Graphic3d_CView^ theKey1)
-{
-    int _result = ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->FindIndex((::Graphic3d_CView*)theKey1->NativeInstance);
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfView::Clear(bool doReleaseMemory)
-{
-    ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::Graphic3d_IndexedMapOfView::Clear()
-{
-    ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::Graphic3d_IndexedMapOfView::Size()
-{
-    int _result = ((::Graphic3d_IndexedMapOfView*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Graphic3d_IndexedMapOfView::Iterator
-//---------------------------------------------------------------------
-
-
-
-//---------------------------------------------------------------------
 //  Class  Graphic3d_BufferRange
 //---------------------------------------------------------------------
 
@@ -6357,17 +2122,6 @@ void Macad::Occt::Graphic3d_ZLayerSettings::SetDepthOffsetNegative()
     ((::Graphic3d_ZLayerSettings*)_NativeInstance)->SetDepthOffsetNegative();
 }
 
-bool Macad::Occt::Graphic3d_ZLayerSettings::IsVisible()
-{
-    bool _result = ((::Graphic3d_ZLayerSettings*)_NativeInstance)->IsVisible();
-    return _result;
-}
-
-void Macad::Occt::Graphic3d_ZLayerSettings::SetVisible(bool theVisible)
-{
-    ((::Graphic3d_ZLayerSettings*)_NativeInstance)->SetVisible(theVisible);
-}
-
 void Macad::Occt::Graphic3d_ZLayerSettings::DumpJson(System::IO::TextWriter^ theOStream, int theDepth)
 {
     std::ostringstream oss_theOStream;
@@ -6498,12 +2252,6 @@ int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddVertex(Macad::Occt::Pnt theVert
     return _result;
 }
 
-int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddVertex(Macad::Occt::Graphic3d_Vec3^ theVertex)
-{
-    int _result = ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->AddVertex(*(::Graphic3d_Vec3*)theVertex->NativeInstance);
-    return _result;
-}
-
 int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddVertex(double theX, double theY, double theZ)
 {
     int _result = ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->AddVertex(theX, theY, theZ);
@@ -6527,13 +2275,6 @@ int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddVertex(Macad::Occt::Pnt theVert
 {
     pin_ptr<Macad::Occt::Pnt> pp_theVertex = &theVertex;
     int _result = ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->AddVertex(*(gp_Pnt*)pp_theVertex, theColor32);
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddVertex(Macad::Occt::Pnt theVertex, Macad::Occt::Graphic3d_Vec4ub^ theColor)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_theVertex = &theVertex;
-    int _result = ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->AddVertex(*(gp_Pnt*)pp_theVertex, *(::Graphic3d_Vec4ub*)theColor->NativeInstance);
     return _result;
 }
 
@@ -6635,11 +2376,6 @@ void Macad::Occt::Graphic3d_ArrayOfPrimitives::SetVertexColor(int theIndex, doub
     ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->SetVertexColor(theIndex, theR, theG, theB);
 }
 
-void Macad::Occt::Graphic3d_ArrayOfPrimitives::SetVertexColor(int theIndex, Macad::Occt::Graphic3d_Vec4ub^ theColor)
-{
-    ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->SetVertexColor(theIndex, *(::Graphic3d_Vec4ub*)theColor->NativeInstance);
-}
-
 void Macad::Occt::Graphic3d_ArrayOfPrimitives::SetVertexColor(int theIndex, int theColor32)
 {
     ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->SetVertexColor(theIndex, theColor32);
@@ -6686,11 +2422,6 @@ Macad::Occt::Quantity_Color^ Macad::Occt::Graphic3d_ArrayOfPrimitives::VertexCol
     ::Quantity_Color* _result = new ::Quantity_Color();
     *_result = ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->VertexColor(theRank);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Quantity_Color(_result);
-}
-
-void Macad::Occt::Graphic3d_ArrayOfPrimitives::VertexColor(int theIndex, Macad::Occt::Graphic3d_Vec4ub^ theColor)
-{
-    ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->VertexColor(theIndex, *(::Graphic3d_Vec4ub*)theColor->NativeInstance);
 }
 
 void Macad::Occt::Graphic3d_ArrayOfPrimitives::VertexColor(int theRank, double% theR, double% theG, double% theB)
@@ -6782,18 +2513,6 @@ int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddTriangleEdges(int theVertexInde
     return _result;
 }
 
-int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddTriangleEdges(Macad::Occt::Graphic3d_Vec3i^ theIndexes)
-{
-    int _result = ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->AddTriangleEdges(*(::Graphic3d_Vec3i*)theIndexes->NativeInstance);
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddTriangleEdges(Macad::Occt::Graphic3d_Vec4i^ theIndexes)
-{
-    int _result = ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->AddTriangleEdges(*(::Graphic3d_Vec4i*)theIndexes->NativeInstance);
-    return _result;
-}
-
 int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddEdges(int theVertexIndex1, int theVertexIndex2, int theVertexIndex3, int theVertexIndex4)
 {
     int _result = ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->AddEdges(theVertexIndex1, theVertexIndex2, theVertexIndex3, theVertexIndex4);
@@ -6809,12 +2528,6 @@ int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddQuadEdges(int theVertexIndex1, 
 int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddQuadTriangleEdges(int theVertexIndex1, int theVertexIndex2, int theVertexIndex3, int theVertexIndex4)
 {
     int _result = ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->AddQuadTriangleEdges(theVertexIndex1, theVertexIndex2, theVertexIndex3, theVertexIndex4);
-    return _result;
-}
-
-int Macad::Occt::Graphic3d_ArrayOfPrimitives::AddQuadTriangleEdges(Macad::Occt::Graphic3d_Vec4i^ theIndexes)
-{
-    int _result = ((::Graphic3d_ArrayOfPrimitives*)_NativeInstance)->AddQuadTriangleEdges(*(::Graphic3d_Vec4i*)theIndexes->NativeInstance);
     return _result;
 }
 
@@ -7377,19 +3090,13 @@ Macad::Occt::Graphic3d_MarkerImage::Graphic3d_MarkerImage(Macad::Occt::Image_Pix
 Macad::Occt::Graphic3d_MarkerImage::Graphic3d_MarkerImage(Macad::Occt::Image_PixMap^ theImage)
     : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
-    NativeInstance = new ::Graphic3d_MarkerImage(Handle(::Image_PixMap)(theImage->NativeInstance), ::opencascade::handle<::Image_PixMap>());
+    NativeInstance = new ::Graphic3d_MarkerImage(Handle(::Image_PixMap)(theImage->NativeInstance), ::occ::handle<::Image_PixMap>());
 }
 
 Macad::Occt::Graphic3d_MarkerImage::Graphic3d_MarkerImage(Macad::Occt::TColStd_HArray1OfByte^ theBitMap, int theWidth, int theHeight)
     : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
     NativeInstance = new ::Graphic3d_MarkerImage(Handle(::TColStd_HArray1OfByte)(theBitMap->NativeInstance), theWidth, theHeight);
-}
-
-Macad::Occt::Graphic3d_MarkerImage^ Macad::Occt::Graphic3d_MarkerImage::StandardMarker(Macad::Occt::Aspect_TypeOfMarker theMarkerType, float theScale, Macad::Occt::Graphic3d_Vec4^ theColor)
-{
-    Handle(::Graphic3d_MarkerImage) _result = ::Graphic3d_MarkerImage::StandardMarker((::Aspect_TypeOfMarker)theMarkerType, theScale, *(::Graphic3d_Vec4*)theColor->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_MarkerImage::CreateDowncasted(_result.get());
 }
 
 Macad::Occt::Image_PixMap^ Macad::Occt::Graphic3d_MarkerImage::GetImage()
@@ -7545,18 +3252,6 @@ void Macad::Occt::Graphic3d_PBRMaterial::SetAlpha(float theAlpha)
     ((::Graphic3d_PBRMaterial*)_NativeInstance)->SetAlpha(theAlpha);
 }
 
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_PBRMaterial::Emission()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ((::Graphic3d_PBRMaterial*)_NativeInstance)->Emission();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
-void Macad::Occt::Graphic3d_PBRMaterial::SetEmission(Macad::Occt::Graphic3d_Vec3^ theEmission)
-{
-    ((::Graphic3d_PBRMaterial*)_NativeInstance)->SetEmission(*(::Graphic3d_Vec3*)theEmission->NativeInstance);
-}
-
 void Macad::Occt::Graphic3d_PBRMaterial::SetBSDF(Macad::Occt::Graphic3d_BSDF^ theBSDF)
 {
     ((::Graphic3d_PBRMaterial*)_NativeInstance)->SetBSDF(*(::Graphic3d_BSDF*)theBSDF->NativeInstance);
@@ -7622,13 +3317,6 @@ Macad::Occt::Graphic3d_Fresnel::Graphic3d_Fresnel()
     _NativeInstance = new ::Graphic3d_Fresnel();
 }
 
-Macad::Occt::Graphic3d_Fresnel^ Macad::Occt::Graphic3d_Fresnel::CreateSchlick(Macad::Occt::Graphic3d_Vec3^ theSpecularColor)
-{
-    ::Graphic3d_Fresnel* _result = new ::Graphic3d_Fresnel();
-    *_result = ::Graphic3d_Fresnel::CreateSchlick(*(::Graphic3d_Vec3*)theSpecularColor->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Fresnel(_result);
-}
-
 Macad::Occt::Graphic3d_Fresnel^ Macad::Occt::Graphic3d_Fresnel::CreateConstant(float theReflection)
 {
     ::Graphic3d_Fresnel* _result = new ::Graphic3d_Fresnel();
@@ -7648,20 +3336,6 @@ Macad::Occt::Graphic3d_Fresnel^ Macad::Occt::Graphic3d_Fresnel::CreateConductor(
     ::Graphic3d_Fresnel* _result = new ::Graphic3d_Fresnel();
     *_result = ::Graphic3d_Fresnel::CreateConductor(theRefractionIndex, theAbsorptionIndex);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Fresnel(_result);
-}
-
-Macad::Occt::Graphic3d_Fresnel^ Macad::Occt::Graphic3d_Fresnel::CreateConductor(Macad::Occt::Graphic3d_Vec3^ theRefractionIndex, Macad::Occt::Graphic3d_Vec3^ theAbsorptionIndex)
-{
-    ::Graphic3d_Fresnel* _result = new ::Graphic3d_Fresnel();
-    *_result = ::Graphic3d_Fresnel::CreateConductor(*(::Graphic3d_Vec3*)theRefractionIndex->NativeInstance, *(::Graphic3d_Vec3*)theAbsorptionIndex->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Fresnel(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_Fresnel::Serialize()
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = ((::Graphic3d_Fresnel*)_NativeInstance)->Serialize();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
 }
 
 Macad::Occt::Graphic3d_FresnelModel Macad::Occt::Graphic3d_Fresnel::FresnelType()
@@ -7694,34 +3368,6 @@ Macad::Occt::Graphic3d_BSDF::Graphic3d_BSDF()
     : Macad::Occt::BaseClass<::Graphic3d_BSDF>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::Graphic3d_BSDF();
-}
-
-Macad::Occt::Graphic3d_BSDF^ Macad::Occt::Graphic3d_BSDF::CreateDiffuse(Macad::Occt::Graphic3d_Vec3^ theWeight)
-{
-    ::Graphic3d_BSDF* _result = new ::Graphic3d_BSDF();
-    *_result = ::Graphic3d_BSDF::CreateDiffuse(*(::Graphic3d_Vec3*)theWeight->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_BSDF(_result);
-}
-
-Macad::Occt::Graphic3d_BSDF^ Macad::Occt::Graphic3d_BSDF::CreateMetallic(Macad::Occt::Graphic3d_Vec3^ theWeight, Macad::Occt::Graphic3d_Fresnel^ theFresnel, float theRoughness)
-{
-    ::Graphic3d_BSDF* _result = new ::Graphic3d_BSDF();
-    *_result = ::Graphic3d_BSDF::CreateMetallic(*(::Graphic3d_Vec3*)theWeight->NativeInstance, *(::Graphic3d_Fresnel*)theFresnel->NativeInstance, theRoughness);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_BSDF(_result);
-}
-
-Macad::Occt::Graphic3d_BSDF^ Macad::Occt::Graphic3d_BSDF::CreateTransparent(Macad::Occt::Graphic3d_Vec3^ theWeight, Macad::Occt::Graphic3d_Vec3^ theAbsorptionColor, float theAbsorptionCoeff)
-{
-    ::Graphic3d_BSDF* _result = new ::Graphic3d_BSDF();
-    *_result = ::Graphic3d_BSDF::CreateTransparent(*(::Graphic3d_Vec3*)theWeight->NativeInstance, *(::Graphic3d_Vec3*)theAbsorptionColor->NativeInstance, theAbsorptionCoeff);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_BSDF(_result);
-}
-
-Macad::Occt::Graphic3d_BSDF^ Macad::Occt::Graphic3d_BSDF::CreateGlass(Macad::Occt::Graphic3d_Vec3^ theWeight, Macad::Occt::Graphic3d_Vec3^ theAbsorptionColor, float theAbsorptionCoeff, float theRefractionIndex)
-{
-    ::Graphic3d_BSDF* _result = new ::Graphic3d_BSDF();
-    *_result = ::Graphic3d_BSDF::CreateGlass(*(::Graphic3d_Vec3*)theWeight->NativeInstance, *(::Graphic3d_Vec3*)theAbsorptionColor->NativeInstance, theAbsorptionCoeff, theRefractionIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_BSDF(_result);
 }
 
 Macad::Occt::Graphic3d_BSDF^ Macad::Occt::Graphic3d_BSDF::CreateMetallicRoughness(Macad::Occt::Graphic3d_PBRMaterial^ thePbr)
@@ -8209,18 +3855,6 @@ Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariable::Cr
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderVariable(_result);
 }
 
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariable::Create(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::gp_Vec3f^ theValue)
-{
-    ::Graphic3d_ShaderVariable* _result = ::Graphic3d_ShaderVariable::Create(*(::TCollection_AsciiString*)theName->NativeInstance, *(::gp_Vec3f*)theValue->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderVariable(_result);
-}
-
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariable::Create(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec4^ theValue)
-{
-    ::Graphic3d_ShaderVariable* _result = ::Graphic3d_ShaderVariable::Create(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec4*)theValue->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderVariable(_result);
-}
-
 Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariable::Create(Macad::Occt::TCollection_AsciiString^ theName, int theValue)
 {
     pin_ptr<int> pp_theValue = &theValue;
@@ -8231,18 +3865,6 @@ Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariable::Cr
 Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariable::Create(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec2i^ theValue)
 {
     ::Graphic3d_ShaderVariable* _result = ::Graphic3d_ShaderVariable::Create(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec2i*)theValue->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderVariable(_result);
-}
-
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariable::Create(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec3i^ theValue)
-{
-    ::Graphic3d_ShaderVariable* _result = ::Graphic3d_ShaderVariable::Create(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec3i*)theValue->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderVariable(_result);
-}
-
-Macad::Occt::Graphic3d_ShaderVariable^ Macad::Occt::Graphic3d_ShaderVariable::Create(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec4i^ theValue)
-{
-    ::Graphic3d_ShaderVariable* _result = ::Graphic3d_ShaderVariable::Create(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec4i*)theValue->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderVariable(_result);
 }
 
@@ -8329,49 +3951,30 @@ void Macad::Occt::Graphic3d_TextureParams::SetRotation(float theAngleDegrees)
     ((::Graphic3d_TextureParams*)_NativeInstance)->SetRotation(theAngleDegrees);
 }
 
-Macad::Occt::Graphic3d_Vec2^ Macad::Occt::Graphic3d_TextureParams::Scale()
+Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_TextureParams::Scale()
 {
     throw gcnew System::NotImplementedException();
 }
 
-void Macad::Occt::Graphic3d_TextureParams::SetScale(Macad::Occt::Graphic3d_Vec2^ theScale)
+void Macad::Occt::Graphic3d_TextureParams::SetScale(Macad::Occt::gp_Vec2f^ theScale)
 {
-    ((::Graphic3d_TextureParams*)_NativeInstance)->SetScale(*(::Graphic3d_Vec2*)theScale->NativeInstance);
+    ((::Graphic3d_TextureParams*)_NativeInstance)->SetScale(*(::gp_Vec2f*)theScale->NativeInstance);
 }
 
-Macad::Occt::Graphic3d_Vec2^ Macad::Occt::Graphic3d_TextureParams::Translation()
+Macad::Occt::gp_Vec2f^ Macad::Occt::Graphic3d_TextureParams::Translation()
 {
     throw gcnew System::NotImplementedException();
 }
 
-void Macad::Occt::Graphic3d_TextureParams::SetTranslation(Macad::Occt::Graphic3d_Vec2^ theVec)
+void Macad::Occt::Graphic3d_TextureParams::SetTranslation(Macad::Occt::gp_Vec2f^ theVec)
 {
-    ((::Graphic3d_TextureParams*)_NativeInstance)->SetTranslation(*(::Graphic3d_Vec2*)theVec->NativeInstance);
+    ((::Graphic3d_TextureParams*)_NativeInstance)->SetTranslation(*(::gp_Vec2f*)theVec->NativeInstance);
 }
 
 Macad::Occt::Graphic3d_TypeOfTextureMode Macad::Occt::Graphic3d_TextureParams::GenMode()
 {
     ::Graphic3d_TypeOfTextureMode _result = ((::Graphic3d_TextureParams*)_NativeInstance)->GenMode();
     return (Macad::Occt::Graphic3d_TypeOfTextureMode)_result;
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_TextureParams::GenPlaneS()
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = (::Graphic3d_Vec4)((::Graphic3d_TextureParams*)_NativeInstance)->GenPlaneS();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_TextureParams::GenPlaneT()
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = (::Graphic3d_Vec4)((::Graphic3d_TextureParams*)_NativeInstance)->GenPlaneT();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-void Macad::Occt::Graphic3d_TextureParams::SetGenMode(Macad::Occt::Graphic3d_TypeOfTextureMode theMode, Macad::Occt::Graphic3d_Vec4^ thePlaneS, Macad::Occt::Graphic3d_Vec4^ thePlaneT)
-{
-    ((::Graphic3d_TextureParams*)_NativeInstance)->SetGenMode((::Graphic3d_TypeOfTextureMode)theMode, *(::Graphic3d_Vec4*)thePlaneS->NativeInstance, *(::Graphic3d_Vec4*)thePlaneT->NativeInstance);
 }
 
 int Macad::Occt::Graphic3d_TextureParams::BaseLevel()
@@ -8499,32 +4102,6 @@ bool Macad::Occt::Graphic3d_ShaderProgram::DetachShader(Macad::Occt::Graphic3d_S
     return _result;
 }
 
-Macad::Occt::Graphic3d_ShaderObjectList^ Macad::Occt::Graphic3d_ShaderProgram::ShaderObjects()
-{
-    ::Graphic3d_ShaderObjectList* _result = new ::Graphic3d_ShaderObjectList();
-    *_result = (::Graphic3d_ShaderObjectList)((::Graphic3d_ShaderProgram*)_NativeInstance)->ShaderObjects();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderObjectList(_result);
-}
-
-Macad::Occt::Graphic3d_ShaderVariableList^ Macad::Occt::Graphic3d_ShaderProgram::Variables()
-{
-    ::Graphic3d_ShaderVariableList* _result = new ::Graphic3d_ShaderVariableList();
-    *_result = (::Graphic3d_ShaderVariableList)((::Graphic3d_ShaderProgram*)_NativeInstance)->Variables();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderVariableList(_result);
-}
-
-Macad::Occt::Graphic3d_ShaderAttributeList^ Macad::Occt::Graphic3d_ShaderProgram::VertexAttributes()
-{
-    ::Graphic3d_ShaderAttributeList* _result = new ::Graphic3d_ShaderAttributeList();
-    *_result = (::Graphic3d_ShaderAttributeList)((::Graphic3d_ShaderProgram*)_NativeInstance)->VertexAttributes();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_ShaderAttributeList(_result);
-}
-
-void Macad::Occt::Graphic3d_ShaderProgram::SetVertexAttributes(Macad::Occt::Graphic3d_ShaderAttributeList^ theAttributes)
-{
-    ((::Graphic3d_ShaderProgram*)_NativeInstance)->SetVertexAttributes(*(::Graphic3d_ShaderAttributeList*)theAttributes->NativeInstance);
-}
-
 int Macad::Occt::Graphic3d_ShaderProgram::NbFragmentOutputs()
 {
     int _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->NbFragmentOutputs();
@@ -8604,18 +4181,6 @@ bool Macad::Occt::Graphic3d_ShaderProgram::PushVariable(Macad::Occt::TCollection
     return _result;
 }
 
-bool Macad::Occt::Graphic3d_ShaderProgram::PushVariable(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::gp_Vec3f^ theValue)
-{
-    bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariable(*(::TCollection_AsciiString*)theName->NativeInstance, *(::gp_Vec3f*)theValue->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderProgram::PushVariable(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec4^ theValue)
-{
-    bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariable(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec4*)theValue->NativeInstance);
-    return _result;
-}
-
 bool Macad::Occt::Graphic3d_ShaderProgram::PushVariable(Macad::Occt::TCollection_AsciiString^ theName, int theValue)
 {
     pin_ptr<int> pp_theValue = &theValue;
@@ -8626,18 +4191,6 @@ bool Macad::Occt::Graphic3d_ShaderProgram::PushVariable(Macad::Occt::TCollection
 bool Macad::Occt::Graphic3d_ShaderProgram::PushVariable(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec2i^ theValue)
 {
     bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariable(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec2i*)theValue->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderProgram::PushVariable(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec3i^ theValue)
-{
-    bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariable(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec3i*)theValue->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderProgram::PushVariable(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec4i^ theValue)
-{
-    bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariable(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec4i*)theValue->NativeInstance);
     return _result;
 }
 
@@ -8652,21 +4205,9 @@ bool Macad::Occt::Graphic3d_ShaderProgram::PushVariableFloat(Macad::Occt::TColle
     return _result;
 }
 
-bool Macad::Occt::Graphic3d_ShaderProgram::PushVariableVec2(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec2^ theValue)
+bool Macad::Occt::Graphic3d_ShaderProgram::PushVariableVec2(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::gp_Vec2f^ theValue)
 {
-    bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariableVec2(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec2*)theValue->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderProgram::PushVariableVec3(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec3^ theValue)
-{
-    bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariableVec3(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec3*)theValue->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderProgram::PushVariableVec4(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec4^ theValue)
-{
-    bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariableVec4(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec4*)theValue->NativeInstance);
+    bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariableVec2(*(::TCollection_AsciiString*)theName->NativeInstance, *(::gp_Vec2f*)theValue->NativeInstance);
     return _result;
 }
 
@@ -8679,18 +4220,6 @@ bool Macad::Occt::Graphic3d_ShaderProgram::PushVariableInt(Macad::Occt::TCollect
 bool Macad::Occt::Graphic3d_ShaderProgram::PushVariableVec2i(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec2i^ theValue)
 {
     bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariableVec2i(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec2i*)theValue->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderProgram::PushVariableVec3i(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec3i^ theValue)
-{
-    bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariableVec3i(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec3i*)theValue->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_ShaderProgram::PushVariableVec4i(Macad::Occt::TCollection_AsciiString^ theName, Macad::Occt::Graphic3d_Vec4i^ theValue)
-{
-    bool _result = ((::Graphic3d_ShaderProgram*)_NativeInstance)->PushVariableVec4i(*(::TCollection_AsciiString*)theName->NativeInstance, *(::Graphic3d_Vec4i*)theValue->NativeInstance);
     return _result;
 }
 
@@ -9973,6 +5502,17 @@ void Macad::Occt::Graphic3d_CStructure::SetGroupTransformPersistence(bool theVal
     ((::Graphic3d_CStructure*)_NativeInstance)->SetGroupTransformPersistence(theValue);
 }
 
+bool Macad::Occt::Graphic3d_CStructure::HasGroupFlipping()
+{
+    bool _result = ((::Graphic3d_CStructure*)_NativeInstance)->HasGroupFlipping();
+    return _result;
+}
+
+void Macad::Occt::Graphic3d_CStructure::SetGroupFlipping(bool theValue)
+{
+    ((::Graphic3d_CStructure*)_NativeInstance)->SetGroupFlipping(theValue);
+}
+
 Macad::Occt::Graphic3d_SequenceOfHClipPlane^ Macad::Occt::Graphic3d_CStructure::ClipPlanes()
 {
     Handle(::Graphic3d_SequenceOfHClipPlane) _result = ((::Graphic3d_CStructure*)_NativeInstance)->ClipPlanes();
@@ -10639,62 +6179,6 @@ long long unsigned int Macad::Occt::Graphic3d_Camera::WorldViewState()
     return _result;
 }
 
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Camera::OrientationMatrix()
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = (::Graphic3d_Mat4d)((::Graphic3d_Camera*)_NativeInstance)->OrientationMatrix();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Camera::OrientationMatrixF()
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = (::Graphic3d_Mat4)((::Graphic3d_Camera*)_NativeInstance)->OrientationMatrixF();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Camera::ProjectionMatrix()
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = (::Graphic3d_Mat4d)((::Graphic3d_Camera*)_NativeInstance)->ProjectionMatrix();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Camera::ProjectionMatrixF()
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = (::Graphic3d_Mat4)((::Graphic3d_Camera*)_NativeInstance)->ProjectionMatrixF();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Camera::ProjectionStereoLeft()
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = (::Graphic3d_Mat4d)((::Graphic3d_Camera*)_NativeInstance)->ProjectionStereoLeft();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Camera::ProjectionStereoLeftF()
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = (::Graphic3d_Mat4)((::Graphic3d_Camera*)_NativeInstance)->ProjectionStereoLeftF();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_Camera::ProjectionStereoRight()
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = (::Graphic3d_Mat4d)((::Graphic3d_Camera*)_NativeInstance)->ProjectionStereoRight();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4^ Macad::Occt::Graphic3d_Camera::ProjectionStereoRightF()
-{
-    ::Graphic3d_Mat4* _result = new ::Graphic3d_Mat4();
-    *_result = (::Graphic3d_Mat4)((::Graphic3d_Camera*)_NativeInstance)->ProjectionStereoRightF();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4(_result);
-}
-
 void Macad::Occt::Graphic3d_Camera::InvalidateProjection()
 {
     ((::Graphic3d_Camera*)_NativeInstance)->InvalidateProjection();
@@ -10703,16 +6187,6 @@ void Macad::Occt::Graphic3d_Camera::InvalidateProjection()
 void Macad::Occt::Graphic3d_Camera::InvalidateOrientation()
 {
     ((::Graphic3d_Camera*)_NativeInstance)->InvalidateOrientation();
-}
-
-void Macad::Occt::Graphic3d_Camera::StereoProjection(Macad::Occt::Graphic3d_Mat4d^ theProjL, Macad::Occt::Graphic3d_Mat4d^ theHeadToEyeL, Macad::Occt::Graphic3d_Mat4d^ theProjR, Macad::Occt::Graphic3d_Mat4d^ theHeadToEyeR)
-{
-    ((::Graphic3d_Camera*)_NativeInstance)->StereoProjection(*(::Graphic3d_Mat4d*)theProjL->NativeInstance, *(::Graphic3d_Mat4d*)theHeadToEyeL->NativeInstance, *(::Graphic3d_Mat4d*)theProjR->NativeInstance, *(::Graphic3d_Mat4d*)theHeadToEyeR->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_Camera::StereoProjectionF(Macad::Occt::Graphic3d_Mat4^ theProjL, Macad::Occt::Graphic3d_Mat4^ theHeadToEyeL, Macad::Occt::Graphic3d_Mat4^ theProjR, Macad::Occt::Graphic3d_Mat4^ theHeadToEyeR)
-{
-    ((::Graphic3d_Camera*)_NativeInstance)->StereoProjectionF(*(::Graphic3d_Mat4*)theProjL->NativeInstance, *(::Graphic3d_Mat4*)theHeadToEyeL->NativeInstance, *(::Graphic3d_Mat4*)theProjR->NativeInstance, *(::Graphic3d_Mat4*)theHeadToEyeR->NativeInstance);
 }
 
 void Macad::Occt::Graphic3d_Camera::ResetCustomProjection()
@@ -10732,20 +6206,10 @@ bool Macad::Occt::Graphic3d_Camera::IsCustomStereoProjection()
     return _result;
 }
 
-void Macad::Occt::Graphic3d_Camera::SetCustomStereoProjection(Macad::Occt::Graphic3d_Mat4d^ theProjL, Macad::Occt::Graphic3d_Mat4d^ theHeadToEyeL, Macad::Occt::Graphic3d_Mat4d^ theProjR, Macad::Occt::Graphic3d_Mat4d^ theHeadToEyeR)
-{
-    ((::Graphic3d_Camera*)_NativeInstance)->SetCustomStereoProjection(*(::Graphic3d_Mat4d*)theProjL->NativeInstance, *(::Graphic3d_Mat4d*)theHeadToEyeL->NativeInstance, *(::Graphic3d_Mat4d*)theProjR->NativeInstance, *(::Graphic3d_Mat4d*)theHeadToEyeR->NativeInstance);
-}
-
 bool Macad::Occt::Graphic3d_Camera::IsCustomMonoProjection()
 {
     bool _result = ((::Graphic3d_Camera*)_NativeInstance)->IsCustomMonoProjection();
     return _result;
-}
-
-void Macad::Occt::Graphic3d_Camera::SetCustomMonoProjection(Macad::Occt::Graphic3d_Mat4d^ theProj)
-{
-    ((::Graphic3d_Camera*)_NativeInstance)->SetCustomMonoProjection(*(::Graphic3d_Mat4d*)theProj->NativeInstance);
 }
 
 void Macad::Occt::Graphic3d_Camera::DumpJson(System::IO::TextWriter^ theOStream, int theDepth)
@@ -10787,9 +6251,7 @@ bool Macad::Occt::Graphic3d_CameraTile::IsValid()
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_CameraTile::OffsetLowerLeft()
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = ((::Graphic3d_CameraTile*)_NativeInstance)->OffsetLowerLeft();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 Macad::Occt::Graphic3d_CameraTile^ Macad::Occt::Graphic3d_CameraTile::Cropped()
@@ -11058,34 +6520,6 @@ Macad::Occt::TCollection_AsciiString^ Macad::Occt::Graphic3d_CLight::GetId()
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TCollection_AsciiString(_result);
 }
 
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_CLight::PackedParams()
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = (::Graphic3d_Vec4)((::Graphic3d_CLight*)_NativeInstance)->PackedParams();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_CLight::PackedColor()
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = (::Graphic3d_Vec4)((::Graphic3d_CLight*)_NativeInstance)->PackedColor();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_CLight::PackedDirectionRange()
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = (::Graphic3d_Vec4)((::Graphic3d_CLight*)_NativeInstance)->PackedDirectionRange();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3^ Macad::Occt::Graphic3d_CLight::PackedDirection()
-{
-    ::Graphic3d_Vec3* _result = new ::Graphic3d_Vec3();
-    *_result = ((::Graphic3d_CLight*)_NativeInstance)->PackedDirection();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3(_result);
-}
-
 long long unsigned int Macad::Occt::Graphic3d_CLight::Revision()
 {
     long long unsigned int _result = ((::Graphic3d_CLight*)_NativeInstance)->Revision();
@@ -11131,12 +6565,6 @@ Macad::Occt::Graphic3d_ClipPlane::Graphic3d_ClipPlane()
     NativeInstance = new ::Graphic3d_ClipPlane();
 }
 
-Macad::Occt::Graphic3d_ClipPlane::Graphic3d_ClipPlane(Macad::Occt::Graphic3d_Vec4d^ theEquation)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Graphic3d_ClipPlane(*(::Graphic3d_Vec4d*)theEquation->NativeInstance);
-}
-
 Macad::Occt::Graphic3d_ClipPlane::Graphic3d_ClipPlane(Macad::Occt::Pln thePlane)
     : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
@@ -11148,25 +6576,6 @@ void Macad::Occt::Graphic3d_ClipPlane::SetEquation(Macad::Occt::Pln thePlane)
 {
     pin_ptr<Macad::Occt::Pln> pp_thePlane = &thePlane;
     ((::Graphic3d_ClipPlane*)_NativeInstance)->SetEquation(*(gp_Pln*)pp_thePlane);
-}
-
-void Macad::Occt::Graphic3d_ClipPlane::SetEquation(Macad::Occt::Graphic3d_Vec4d^ theEquation)
-{
-    ((::Graphic3d_ClipPlane*)_NativeInstance)->SetEquation(*(::Graphic3d_Vec4d*)theEquation->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::Graphic3d_ClipPlane::GetEquation()
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = (::Graphic3d_Vec4d)((::Graphic3d_ClipPlane*)_NativeInstance)->GetEquation();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec4d^ Macad::Occt::Graphic3d_ClipPlane::ReversedEquation()
-{
-    ::Graphic3d_Vec4d* _result = new ::Graphic3d_Vec4d();
-    *_result = (::Graphic3d_Vec4d)((::Graphic3d_ClipPlane*)_NativeInstance)->ReversedEquation();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4d(_result);
 }
 
 bool Macad::Occt::Graphic3d_ClipPlane::IsOn()
@@ -11362,24 +6771,6 @@ bool Macad::Occt::Graphic3d_ClipPlane::ToUseObjectProperties()
     return _result;
 }
 
-Macad::Occt::Graphic3d_ClipState Macad::Occt::Graphic3d_ClipPlane::ProbePoint(Macad::Occt::Graphic3d_Vec4d^ thePoint)
-{
-    ::Graphic3d_ClipState _result = ((::Graphic3d_ClipPlane*)_NativeInstance)->ProbePoint(*(::Graphic3d_Vec4d*)thePoint->NativeInstance);
-    return (Macad::Occt::Graphic3d_ClipState)_result;
-}
-
-Macad::Occt::Graphic3d_ClipState Macad::Occt::Graphic3d_ClipPlane::ProbePointHalfspace(Macad::Occt::Graphic3d_Vec4d^ thePoint)
-{
-    ::Graphic3d_ClipState _result = ((::Graphic3d_ClipPlane*)_NativeInstance)->ProbePointHalfspace(*(::Graphic3d_Vec4d*)thePoint->NativeInstance);
-    return (Macad::Occt::Graphic3d_ClipState)_result;
-}
-
-bool Macad::Occt::Graphic3d_ClipPlane::IsPointOutHalfspace(Macad::Occt::Graphic3d_Vec4d^ thePoint)
-{
-    bool _result = ((::Graphic3d_ClipPlane*)_NativeInstance)->IsPointOutHalfspace(*(::Graphic3d_Vec4d*)thePoint->NativeInstance);
-    return _result;
-}
-
 void Macad::Occt::Graphic3d_ClipPlane::DumpJson(System::IO::TextWriter^ theOStream, int theDepth)
 {
     std::ostringstream oss_theOStream;
@@ -11525,6 +6916,50 @@ Macad::Occt::Graphic3d_PresentationAttributes^ Macad::Occt::Graphic3d_Presentati
 
 
 //---------------------------------------------------------------------
+//  Class  Graphic3d_Flipper
+//---------------------------------------------------------------------
+
+Macad::Occt::Graphic3d_Flipper::Graphic3d_Flipper(Macad::Occt::Ax2 theRefPlane)
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    pin_ptr<Macad::Occt::Ax2> pp_theRefPlane = &theRefPlane;
+    NativeInstance = new ::Graphic3d_Flipper(*(gp_Ax2*)pp_theRefPlane);
+}
+
+Macad::Occt::Ax2 Macad::Occt::Graphic3d_Flipper::RefPlane()
+{
+    ::gp_Ax2 _nativeResult = ((::Graphic3d_Flipper*)_NativeInstance)->RefPlane();
+    return Macad::Occt::Ax2(_nativeResult);
+}
+
+void Macad::Occt::Graphic3d_Flipper::SetRefPlane(Macad::Occt::Ax2 theValue)
+{
+    pin_ptr<Macad::Occt::Ax2> pp_theValue = &theValue;
+    ((::Graphic3d_Flipper*)_NativeInstance)->SetRefPlane(*(gp_Ax2*)pp_theValue);
+}
+
+void Macad::Occt::Graphic3d_Flipper::DumpJson(System::IO::TextWriter^ theOStream, int theDepth)
+{
+    std::ostringstream oss_theOStream;
+    ((::Graphic3d_Flipper*)_NativeInstance)->DumpJson(oss_theOStream, theDepth);
+    theOStream->Write(gcnew System::String(oss_theOStream.str().c_str()));
+}
+
+void Macad::Occt::Graphic3d_Flipper::DumpJson(System::IO::TextWriter^ theOStream)
+{
+    std::ostringstream oss_theOStream;
+    ((::Graphic3d_Flipper*)_NativeInstance)->DumpJson(oss_theOStream, -1);
+    theOStream->Write(gcnew System::String(oss_theOStream.str().c_str()));
+}
+
+Macad::Occt::Graphic3d_Flipper^ Macad::Occt::Graphic3d_Flipper::CreateDowncasted(::Graphic3d_Flipper* instance)
+{
+    return gcnew Macad::Occt::Graphic3d_Flipper( instance );
+}
+
+
+
+//---------------------------------------------------------------------
 //  Class  Graphic3d_Vertex
 //---------------------------------------------------------------------
 
@@ -11625,7 +7060,7 @@ Macad::Occt::Graphic3d_Structure::Graphic3d_Structure(Macad::Occt::Graphic3d_Str
 Macad::Occt::Graphic3d_Structure::Graphic3d_Structure(Macad::Occt::Graphic3d_StructureManager^ theManager)
     : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
-    NativeInstance = new ::Graphic3d_Structure(Handle(::Graphic3d_StructureManager)(theManager->NativeInstance), ::opencascade::handle<::Graphic3d_Structure>());
+    NativeInstance = new ::Graphic3d_Structure(Handle(::Graphic3d_StructureManager)(theManager->NativeInstance), ::occ::handle<::Graphic3d_Structure>());
 }
 
 void Macad::Occt::Graphic3d_Structure::Clear(bool WithDestruction)
@@ -11867,11 +7302,6 @@ bool Macad::Occt::Graphic3d_Structure::AcceptConnection(Macad::Occt::Graphic3d_S
     return _result;
 }
 
-void Macad::Occt::Graphic3d_Structure::Ancestors(Macad::Occt::Graphic3d_MapOfStructure^ SG)
-{
-    ((::Graphic3d_Structure*)_NativeInstance)->Ancestors(*(::Graphic3d_MapOfStructure*)SG->NativeInstance);
-}
-
 void Macad::Occt::Graphic3d_Structure::Connect(Macad::Occt::Graphic3d_Structure^ theStructure, Macad::Occt::Graphic3d_TypeOfConnection theType, bool theWithCheck)
 {
     ((::Graphic3d_Structure*)_NativeInstance)->Connect((::Graphic3d_Structure*)theStructure->NativeInstance, (::Graphic3d_TypeOfConnection)theType, theWithCheck);
@@ -11885,11 +7315,6 @@ void Macad::Occt::Graphic3d_Structure::Connect(Macad::Occt::Graphic3d_Structure^
 void Macad::Occt::Graphic3d_Structure::Connect(Macad::Occt::Graphic3d_Structure^ thePrs)
 {
     ((::Graphic3d_Structure*)_NativeInstance)->Connect(Handle(::Graphic3d_Structure)(thePrs->NativeInstance));
-}
-
-void Macad::Occt::Graphic3d_Structure::Descendants(Macad::Occt::Graphic3d_MapOfStructure^ SG)
-{
-    ((::Graphic3d_Structure*)_NativeInstance)->Descendants(*(::Graphic3d_MapOfStructure*)SG->NativeInstance);
 }
 
 void Macad::Occt::Graphic3d_Structure::Disconnect(Macad::Occt::Graphic3d_Structure^ theStructure)
@@ -12012,15 +7437,6 @@ void Macad::Occt::Graphic3d_Structure::Remove(Macad::Occt::Graphic3d_Structure^ 
 void Macad::Occt::Graphic3d_Structure::SetComputeVisual(Macad::Occt::Graphic3d_TypeOfStructure theVisual)
 {
     ((::Graphic3d_Structure*)_NativeInstance)->SetComputeVisual((::Graphic3d_TypeOfStructure)theVisual);
-}
-
-void Macad::Occt::Graphic3d_Structure::Transforms(Macad::Occt::Trsf theTrsf, double theX, double theY, double theZ, double% theNewX, double% theNewY, double% theNewZ)
-{
-    pin_ptr<Macad::Occt::Trsf> pp_theTrsf = &theTrsf;
-    pin_ptr<double> pp_theNewX = &theNewX;
-    pin_ptr<double> pp_theNewY = &theNewY;
-    pin_ptr<double> pp_theNewZ = &theNewZ;
-    ::Graphic3d_Structure::Transforms(*(gp_Trsf*)pp_theTrsf, theX, theY, theZ, *(double*)pp_theNewX, *(double*)pp_theNewY, *(double*)pp_theNewZ);
 }
 
 Macad::Occt::Graphic3d_CStructure^ Macad::Occt::Graphic3d_Structure::CStructure()
@@ -12192,7 +7608,7 @@ Macad::Occt::Graphic3d_TransformPers::Graphic3d_TransformPers(Macad::Occt::Graph
 Macad::Occt::Graphic3d_TransformPers::Graphic3d_TransformPers(Macad::Occt::Graphic3d_TransModeFlags theMode, Macad::Occt::Aspect_TypeOfTriedronPosition theCorner)
     : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
 {
-    NativeInstance = new ::Graphic3d_TransformPers((::Graphic3d_TransModeFlags)theMode, (::Aspect_TypeOfTriedronPosition)theCorner, ::Graphic3d_Vec2i(0, 0));
+    NativeInstance = new ::Graphic3d_TransformPers((::Graphic3d_TransModeFlags)theMode, (::Aspect_TypeOfTriedronPosition)theCorner, ::NCollection_Vec2<int>(0, 0));
 }
 
 bool Macad::Occt::Graphic3d_TransformPers::IsZoomOrRotate(Macad::Occt::Graphic3d_TransModeFlags theMode)
@@ -12291,9 +7707,7 @@ void Macad::Occt::Graphic3d_TransformPers::SetCorner2d(Macad::Occt::Aspect_TypeO
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_TransformPers::Offset2d()
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = ((::Graphic3d_TransformPers*)_NativeInstance)->Offset2d();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 void Macad::Occt::Graphic3d_TransformPers::SetOffset2d(Macad::Occt::Graphic3d_Vec2i^ theOffset)
@@ -12305,25 +7719,6 @@ double Macad::Occt::Graphic3d_TransformPers::persistentScale(Macad::Occt::Graphi
 {
     double _result = ((::Graphic3d_TransformPers*)_NativeInstance)->persistentScale(Handle(::Graphic3d_Camera)(theCamera->NativeInstance), theViewportWidth, theViewportHeight);
     return _result;
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_TransformPers::ComputeApply(Macad::Occt::Graphic3d_Camera^ theCamera, int theViewportWidth, int theViewportHeight, Macad::Occt::Pnt theAnchor)
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    Handle(::Graphic3d_Camera) h_theCamera = theCamera->NativeInstance;
-    pin_ptr<Macad::Occt::Pnt> pp_theAnchor = &theAnchor;
-    *_result = ((::Graphic3d_TransformPers*)_NativeInstance)->ComputeApply(h_theCamera, theViewportWidth, theViewportHeight, (gp_Pnt*)pp_theAnchor);
-    theCamera->NativeInstance = h_theCamera.get();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_TransformPers::ComputeApply(Macad::Occt::Graphic3d_Camera^ theCamera, int theViewportWidth, int theViewportHeight)
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    Handle(::Graphic3d_Camera) h_theCamera = theCamera->NativeInstance;
-    *_result = ((::Graphic3d_TransformPers*)_NativeInstance)->ComputeApply(h_theCamera, theViewportWidth, theViewportHeight, nullptr);
-    theCamera->NativeInstance = h_theCamera.get();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
 }
 
 void Macad::Occt::Graphic3d_TransformPers::DumpJson(System::IO::TextWriter^ theOStream, int theDepth)
@@ -12422,6 +7817,12 @@ void Macad::Occt::Graphic3d_Group::SetFlippingOptions(bool theIsEnabled, Macad::
 {
     pin_ptr<Macad::Occt::Ax2> pp_theRefPlane = &theRefPlane;
     ((::Graphic3d_Group*)_NativeInstance)->SetFlippingOptions(theIsEnabled, *(gp_Ax2*)pp_theRefPlane);
+}
+
+Macad::Occt::Graphic3d_Flipper^ Macad::Occt::Graphic3d_Group::Flipper()
+{
+    Handle(::Graphic3d_Flipper) _result = ((::Graphic3d_Group*)_NativeInstance)->Flipper();
+    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Flipper::CreateDowncasted(_result.get());
 }
 
 Macad::Occt::Trsf Macad::Occt::Graphic3d_Group::Transformation()
@@ -12930,16 +8331,6 @@ void Macad::Occt::Graphic3d_StructureManager::Erase()
     ((::Graphic3d_StructureManager*)_NativeInstance)->Erase();
 }
 
-void Macad::Occt::Graphic3d_StructureManager::DisplayedStructures(Macad::Occt::Graphic3d_MapOfStructure^ SG)
-{
-    ((::Graphic3d_StructureManager*)_NativeInstance)->DisplayedStructures(*(::Graphic3d_MapOfStructure*)SG->NativeInstance);
-}
-
-void Macad::Occt::Graphic3d_StructureManager::HighlightedStructures(Macad::Occt::Graphic3d_MapOfStructure^ SG)
-{
-    ((::Graphic3d_StructureManager*)_NativeInstance)->HighlightedStructures(*(::Graphic3d_MapOfStructure*)SG->NativeInstance);
-}
-
 void Macad::Occt::Graphic3d_StructureManager::ReCompute(Macad::Occt::Graphic3d_Structure^ theStructure)
 {
     ((::Graphic3d_StructureManager*)_NativeInstance)->ReCompute(Handle(::Graphic3d_Structure)(theStructure->NativeInstance));
@@ -13010,13 +8401,6 @@ int Macad::Occt::Graphic3d_StructureManager::Identification(Macad::Occt::Graphic
 void Macad::Occt::Graphic3d_StructureManager::UnIdentification(Macad::Occt::Graphic3d_CView^ theView)
 {
     ((::Graphic3d_StructureManager*)_NativeInstance)->UnIdentification((::Graphic3d_CView*)theView->NativeInstance);
-}
-
-Macad::Occt::Graphic3d_IndexedMapOfView^ Macad::Occt::Graphic3d_StructureManager::DefinedViews()
-{
-    ::Graphic3d_IndexedMapOfView* _result = new ::Graphic3d_IndexedMapOfView();
-    *_result = (::Graphic3d_IndexedMapOfView)((::Graphic3d_StructureManager*)_NativeInstance)->DefinedViews();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_IndexedMapOfView(_result);
 }
 
 int Macad::Occt::Graphic3d_StructureManager::MaxNumOfViews()
@@ -13423,14 +8807,9 @@ Macad::Occt::Graphic3d_CullingTool::Graphic3d_CullingTool()
     _NativeInstance = new ::Graphic3d_CullingTool();
 }
 
-void Macad::Occt::Graphic3d_CullingTool::SetViewVolume(Macad::Occt::Graphic3d_Camera^ theCamera, Macad::Occt::Graphic3d_Mat4d^ theModelWorld)
-{
-    ((::Graphic3d_CullingTool*)_NativeInstance)->SetViewVolume(Handle(::Graphic3d_Camera)(theCamera->NativeInstance), *(::Graphic3d_Mat4d*)theModelWorld->NativeInstance);
-}
-
 void Macad::Occt::Graphic3d_CullingTool::SetViewVolume(Macad::Occt::Graphic3d_Camera^ theCamera)
 {
-    ((::Graphic3d_CullingTool*)_NativeInstance)->SetViewVolume(Handle(::Graphic3d_Camera)(theCamera->NativeInstance), ::Graphic3d_Mat4d());
+    ((::Graphic3d_CullingTool*)_NativeInstance)->SetViewVolume(Handle(::Graphic3d_Camera)(theCamera->NativeInstance), ::NCollection_Mat4<double>());
 }
 
 void Macad::Occt::Graphic3d_CullingTool::SetViewportSize(int theViewportWidth, int theViewportHeight, double theResolutionRatio)
@@ -13447,20 +8826,6 @@ Macad::Occt::Graphic3d_Camera^ Macad::Occt::Graphic3d_CullingTool::Camera()
 {
     Handle(::Graphic3d_Camera) _result = ((::Graphic3d_CullingTool*)_NativeInstance)->Camera();
     return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_Camera::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_CullingTool::ProjectionMatrix()
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = (::Graphic3d_Mat4d)((::Graphic3d_CullingTool*)_NativeInstance)->ProjectionMatrix();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
-}
-
-Macad::Occt::Graphic3d_Mat4d^ Macad::Occt::Graphic3d_CullingTool::WorldViewMatrix()
-{
-    ::Graphic3d_Mat4d* _result = new ::Graphic3d_Mat4d();
-    *_result = (::Graphic3d_Mat4d)((::Graphic3d_CullingTool*)_NativeInstance)->WorldViewMatrix();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Mat4d(_result);
 }
 
 int Macad::Occt::Graphic3d_CullingTool::ViewportWidth()
@@ -13480,39 +8845,6 @@ Macad::Occt::Graphic3d_WorldViewProjState^ Macad::Occt::Graphic3d_CullingTool::W
     ::Graphic3d_WorldViewProjState* _result = new ::Graphic3d_WorldViewProjState();
     *_result = (::Graphic3d_WorldViewProjState)((::Graphic3d_CullingTool*)_NativeInstance)->WorldViewProjState();
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_WorldViewProjState(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_CullingTool::CameraEye()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_CullingTool*)_NativeInstance)->CameraEye();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-Macad::Occt::Graphic3d_Vec3d^ Macad::Occt::Graphic3d_CullingTool::CameraDirection()
-{
-    ::Graphic3d_Vec3d* _result = new ::Graphic3d_Vec3d();
-    *_result = (::Graphic3d_Vec3d)((::Graphic3d_CullingTool*)_NativeInstance)->CameraDirection();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec3d(_result);
-}
-
-double Macad::Occt::Graphic3d_CullingTool::SignedPlanePointDistance(Macad::Occt::Graphic3d_Vec4d^ theNormal, Macad::Occt::Graphic3d_Vec4d^ thePnt)
-{
-    double _result = ((::Graphic3d_CullingTool*)_NativeInstance)->SignedPlanePointDistance(*(::Graphic3d_Vec4d*)theNormal->NativeInstance, *(::Graphic3d_Vec4d*)thePnt->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_CullingTool::IsOutFrustum(Macad::Occt::Graphic3d_Vec3d^ theMinPnt, Macad::Occt::Graphic3d_Vec3d^ theMaxPnt, bool% theIsInside)
-{
-    pin_ptr<bool> pp_theIsInside = &theIsInside;
-    bool _result = ((::Graphic3d_CullingTool*)_NativeInstance)->IsOutFrustum(*(::Graphic3d_Vec3d*)theMinPnt->NativeInstance, *(::Graphic3d_Vec3d*)theMaxPnt->NativeInstance, (bool*)pp_theIsInside);
-    return _result;
-}
-
-bool Macad::Occt::Graphic3d_CullingTool::IsOutFrustum(Macad::Occt::Graphic3d_Vec3d^ theMinPnt, Macad::Occt::Graphic3d_Vec3d^ theMaxPnt)
-{
-    bool _result = ((::Graphic3d_CullingTool*)_NativeInstance)->IsOutFrustum(*(::Graphic3d_Vec3d*)theMinPnt->NativeInstance, *(::Graphic3d_Vec3d*)theMaxPnt->NativeInstance, nullptr);
-    return _result;
 }
 
 
@@ -13685,11 +9017,6 @@ void Macad::Occt::Graphic3d_CView::Compute()
     ((::Graphic3d_CView*)_NativeInstance)->Compute();
 }
 
-void Macad::Occt::Graphic3d_CView::DisplayedStructures(Macad::Occt::Graphic3d_MapOfStructure^ theStructures)
-{
-    ((::Graphic3d_CView*)_NativeInstance)->DisplayedStructures(*(::Graphic3d_MapOfStructure*)theStructures->NativeInstance);
-}
-
 int Macad::Occt::Graphic3d_CView::NumberOfDisplayedStructures()
 {
     int _result = ((::Graphic3d_CView*)_NativeInstance)->NumberOfDisplayedStructures();
@@ -13715,20 +9042,6 @@ Macad::Occt::Bnd_Box^ Macad::Occt::Graphic3d_CView::MinMaxValues()
 {
     ::Bnd_Box* _result = new ::Bnd_Box();
     *_result = ((::Graphic3d_CView*)_NativeInstance)->MinMaxValues(false);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
-}
-
-Macad::Occt::Bnd_Box^ Macad::Occt::Graphic3d_CView::MinMaxValues(Macad::Occt::Graphic3d_MapOfStructure^ theSet, bool theToIncludeAuxiliary)
-{
-    ::Bnd_Box* _result = new ::Bnd_Box();
-    *_result = ((::Graphic3d_CView*)_NativeInstance)->MinMaxValues(*(::Graphic3d_MapOfStructure*)theSet->NativeInstance, theToIncludeAuxiliary);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
-}
-
-Macad::Occt::Bnd_Box^ Macad::Occt::Graphic3d_CView::MinMaxValues(Macad::Occt::Graphic3d_MapOfStructure^ theSet)
-{
-    ::Bnd_Box* _result = new ::Bnd_Box();
-    *_result = ((::Graphic3d_CView*)_NativeInstance)->MinMaxValues(*(::Graphic3d_MapOfStructure*)theSet->NativeInstance, false);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
 }
 
@@ -13995,6 +9308,17 @@ void Macad::Occt::Graphic3d_CView::SetImageBasedLighting(bool theToEnableIBL)
     ((::Graphic3d_CView*)_NativeInstance)->SetImageBasedLighting(theToEnableIBL);
 }
 
+void Macad::Occt::Graphic3d_CView::GridDisplay(Macad::Occt::Aspect_GridParams^ theParams, Macad::Occt::Ax3 thePlane)
+{
+    pin_ptr<Macad::Occt::Ax3> pp_thePlane = &thePlane;
+    ((::Graphic3d_CView*)_NativeInstance)->GridDisplay(*(::Aspect_GridParams*)theParams->NativeInstance, *(gp_Ax3*)pp_thePlane);
+}
+
+void Macad::Occt::Graphic3d_CView::GridErase()
+{
+    ((::Graphic3d_CView*)_NativeInstance)->GridErase();
+}
+
 Macad::Occt::Graphic3d_TextureEnv^ Macad::Occt::Graphic3d_CView::TextureEnv()
 {
     Handle(::Graphic3d_TextureEnv) _result = ((::Graphic3d_CView*)_NativeInstance)->TextureEnv();
@@ -14170,11 +9494,6 @@ void Macad::Occt::Graphic3d_CView::GraduatedTrihedronErase()
     ((::Graphic3d_CView*)_NativeInstance)->GraduatedTrihedronErase();
 }
 
-void Macad::Occt::Graphic3d_CView::GraduatedTrihedronMinMaxValues(Macad::Occt::Graphic3d_Vec3^ theMin, Macad::Occt::Graphic3d_Vec3^ theMax)
-{
-    ((::Graphic3d_CView*)_NativeInstance)->GraduatedTrihedronMinMaxValues(*(::Graphic3d_Vec3*)theMin->NativeInstance, *(::Graphic3d_Vec3*)theMax->NativeInstance);
-}
-
 void Macad::Occt::Graphic3d_CView::DumpJson(System::IO::TextWriter^ theOStream, int theDepth)
 {
     std::ostringstream oss_theOStream;
@@ -14236,9 +9555,7 @@ void Macad::Occt::Graphic3d_CView::SetSubviewCorner(Macad::Occt::Aspect_TypeOfTr
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_CView::SubviewTopLeft()
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_CView*)_NativeInstance)->SubviewTopLeft();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 bool Macad::Occt::Graphic3d_CView::IsSubViewRelativeSize()
@@ -14249,9 +9566,7 @@ bool Macad::Occt::Graphic3d_CView::IsSubViewRelativeSize()
 
 Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_CView::SubviewSize()
 {
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_CView*)_NativeInstance)->SubviewSize();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 void Macad::Occt::Graphic3d_CView::SetSubviewSize(Macad::Occt::Graphic3d_Vec2d^ theSize)
@@ -14261,9 +9576,7 @@ void Macad::Occt::Graphic3d_CView::SetSubviewSize(Macad::Occt::Graphic3d_Vec2d^ 
 
 Macad::Occt::Graphic3d_Vec2d^ Macad::Occt::Graphic3d_CView::SubviewOffset()
 {
-    ::Graphic3d_Vec2d* _result = new ::Graphic3d_Vec2d();
-    *_result = (::Graphic3d_Vec2d)((::Graphic3d_CView*)_NativeInstance)->SubviewOffset();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2d(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 void Macad::Occt::Graphic3d_CView::SetSubviewOffset(Macad::Occt::Graphic3d_Vec2d^ theOffset)
@@ -14273,9 +9586,7 @@ void Macad::Occt::Graphic3d_CView::SetSubviewOffset(Macad::Occt::Graphic3d_Vec2d
 
 Macad::Occt::Graphic3d_Vec2i^ Macad::Occt::Graphic3d_CView::SubviewMargins()
 {
-    ::Graphic3d_Vec2i* _result = new ::Graphic3d_Vec2i();
-    *_result = (::Graphic3d_Vec2i)((::Graphic3d_CView*)_NativeInstance)->SubviewMargins();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec2i(_result);
+    throw gcnew System::NotImplementedException();
 }
 
 void Macad::Occt::Graphic3d_CView::SetSubviewMargins(Macad::Occt::Graphic3d_Vec2i^ theMargins)
@@ -14820,13 +10131,6 @@ int Macad::Occt::Graphic3d_LightSet::NbCastShadows()
     return _result;
 }
 
-Macad::Occt::Graphic3d_Vec4^ Macad::Occt::Graphic3d_LightSet::AmbientColor()
-{
-    ::Graphic3d_Vec4* _result = new ::Graphic3d_Vec4();
-    *_result = (::Graphic3d_Vec4)((::Graphic3d_LightSet*)_NativeInstance)->AmbientColor();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_Vec4(_result);
-}
-
 Macad::Occt::TCollection_AsciiString^ Macad::Occt::Graphic3d_LightSet::KeyEnabledLong()
 {
     ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
@@ -15146,13 +10450,6 @@ Macad::Occt::Graphic3d_GraphicDriverFactory^ Macad::Occt::Graphic3d_GraphicDrive
     return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GraphicDriverFactory::CreateDowncasted(_result.get());
 }
 
-Macad::Occt::Graphic3d_GraphicDriverFactoryList^ Macad::Occt::Graphic3d_GraphicDriverFactory::DriverFactories()
-{
-    ::Graphic3d_GraphicDriverFactoryList* _result = new ::Graphic3d_GraphicDriverFactoryList();
-    *_result = (::Graphic3d_GraphicDriverFactoryList)::Graphic3d_GraphicDriverFactory::DriverFactories();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Graphic3d_GraphicDriverFactoryList(_result);
-}
-
 Macad::Occt::TCollection_AsciiString^ Macad::Occt::Graphic3d_GraphicDriverFactory::Name()
 {
     ::TCollection_AsciiString* _result = new ::TCollection_AsciiString();
@@ -15171,18 +10468,18 @@ Macad::Occt::Graphic3d_GraphicDriverFactory^ Macad::Occt::Graphic3d_GraphicDrive
 //  Class  Graphic3d_GroupDefinitionError
 //---------------------------------------------------------------------
 
-Macad::Occt::Graphic3d_GroupDefinitionError::Graphic3d_GroupDefinitionError()
-    : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Graphic3d_GroupDefinitionError();
-}
-
 Macad::Occt::Graphic3d_GroupDefinitionError::Graphic3d_GroupDefinitionError(System::String^ theMessage)
     : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    NativeInstance = new ::Graphic3d_GroupDefinitionError(sz_theMessage);
+    _NativeInstance = new ::Graphic3d_GroupDefinitionError(sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+}
+
+Macad::Occt::Graphic3d_GroupDefinitionError::Graphic3d_GroupDefinitionError()
+    : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_GroupDefinitionError("");
 }
 
 Macad::Occt::Graphic3d_GroupDefinitionError::Graphic3d_GroupDefinitionError(System::String^ theMessage, System::String^ theStackTrace)
@@ -15190,50 +10487,15 @@ Macad::Occt::Graphic3d_GroupDefinitionError::Graphic3d_GroupDefinitionError(Syst
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
     const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    NativeInstance = new ::Graphic3d_GroupDefinitionError(sz_theMessage, sz_theStackTrace);
+    _NativeInstance = new ::Graphic3d_GroupDefinitionError(sz_theMessage, sz_theStackTrace);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
 }
 
-void Macad::Occt::Graphic3d_GroupDefinitionError::Raise(System::String^ theMessage)
+System::String^ Macad::Occt::Graphic3d_GroupDefinitionError::ExceptionType()
 {
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    ::Graphic3d_GroupDefinitionError::Raise(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-void Macad::Occt::Graphic3d_GroupDefinitionError::Raise()
-{
-    ::Graphic3d_GroupDefinitionError::Raise("");
-}
-
-Macad::Occt::Graphic3d_GroupDefinitionError^ Macad::Occt::Graphic3d_GroupDefinitionError::NewInstance(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    Handle(::Graphic3d_GroupDefinitionError) _result = ::Graphic3d_GroupDefinitionError::NewInstance(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GroupDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_GroupDefinitionError^ Macad::Occt::Graphic3d_GroupDefinitionError::NewInstance()
-{
-    Handle(::Graphic3d_GroupDefinitionError) _result = ::Graphic3d_GroupDefinitionError::NewInstance("");
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GroupDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_GroupDefinitionError^ Macad::Occt::Graphic3d_GroupDefinitionError::NewInstance(System::String^ theMessage, System::String^ theStackTrace)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    Handle(::Graphic3d_GroupDefinitionError) _result = ::Graphic3d_GroupDefinitionError::NewInstance(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_GroupDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_GroupDefinitionError^ Macad::Occt::Graphic3d_GroupDefinitionError::CreateDowncasted(::Graphic3d_GroupDefinitionError* instance)
-{
-    return gcnew Macad::Occt::Graphic3d_GroupDefinitionError( instance );
+    Standard_CString _result = ((::Graphic3d_GroupDefinitionError*)_NativeInstance)->ExceptionType();
+    return gcnew System::String(_result);
 }
 
 
@@ -15242,18 +10504,18 @@ Macad::Occt::Graphic3d_GroupDefinitionError^ Macad::Occt::Graphic3d_GroupDefinit
 //  Class  Graphic3d_MaterialDefinitionError
 //---------------------------------------------------------------------
 
-Macad::Occt::Graphic3d_MaterialDefinitionError::Graphic3d_MaterialDefinitionError()
-    : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Graphic3d_MaterialDefinitionError();
-}
-
 Macad::Occt::Graphic3d_MaterialDefinitionError::Graphic3d_MaterialDefinitionError(System::String^ theMessage)
     : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    NativeInstance = new ::Graphic3d_MaterialDefinitionError(sz_theMessage);
+    _NativeInstance = new ::Graphic3d_MaterialDefinitionError(sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+}
+
+Macad::Occt::Graphic3d_MaterialDefinitionError::Graphic3d_MaterialDefinitionError()
+    : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_MaterialDefinitionError("");
 }
 
 Macad::Occt::Graphic3d_MaterialDefinitionError::Graphic3d_MaterialDefinitionError(System::String^ theMessage, System::String^ theStackTrace)
@@ -15261,50 +10523,15 @@ Macad::Occt::Graphic3d_MaterialDefinitionError::Graphic3d_MaterialDefinitionErro
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
     const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    NativeInstance = new ::Graphic3d_MaterialDefinitionError(sz_theMessage, sz_theStackTrace);
+    _NativeInstance = new ::Graphic3d_MaterialDefinitionError(sz_theMessage, sz_theStackTrace);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
 }
 
-void Macad::Occt::Graphic3d_MaterialDefinitionError::Raise(System::String^ theMessage)
+System::String^ Macad::Occt::Graphic3d_MaterialDefinitionError::ExceptionType()
 {
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    ::Graphic3d_MaterialDefinitionError::Raise(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-void Macad::Occt::Graphic3d_MaterialDefinitionError::Raise()
-{
-    ::Graphic3d_MaterialDefinitionError::Raise("");
-}
-
-Macad::Occt::Graphic3d_MaterialDefinitionError^ Macad::Occt::Graphic3d_MaterialDefinitionError::NewInstance(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    Handle(::Graphic3d_MaterialDefinitionError) _result = ::Graphic3d_MaterialDefinitionError::NewInstance(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_MaterialDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_MaterialDefinitionError^ Macad::Occt::Graphic3d_MaterialDefinitionError::NewInstance()
-{
-    Handle(::Graphic3d_MaterialDefinitionError) _result = ::Graphic3d_MaterialDefinitionError::NewInstance("");
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_MaterialDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_MaterialDefinitionError^ Macad::Occt::Graphic3d_MaterialDefinitionError::NewInstance(System::String^ theMessage, System::String^ theStackTrace)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    Handle(::Graphic3d_MaterialDefinitionError) _result = ::Graphic3d_MaterialDefinitionError::NewInstance(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_MaterialDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_MaterialDefinitionError^ Macad::Occt::Graphic3d_MaterialDefinitionError::CreateDowncasted(::Graphic3d_MaterialDefinitionError* instance)
-{
-    return gcnew Macad::Occt::Graphic3d_MaterialDefinitionError( instance );
+    Standard_CString _result = ((::Graphic3d_MaterialDefinitionError*)_NativeInstance)->ExceptionType();
+    return gcnew System::String(_result);
 }
 
 
@@ -15396,18 +10623,18 @@ Macad::Occt::Graphic3d_MediaTexture^ Macad::Occt::Graphic3d_MediaTexture::Create
 //  Class  Graphic3d_PriorityDefinitionError
 //---------------------------------------------------------------------
 
-Macad::Occt::Graphic3d_PriorityDefinitionError::Graphic3d_PriorityDefinitionError()
-    : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Graphic3d_PriorityDefinitionError();
-}
-
 Macad::Occt::Graphic3d_PriorityDefinitionError::Graphic3d_PriorityDefinitionError(System::String^ theMessage)
     : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    NativeInstance = new ::Graphic3d_PriorityDefinitionError(sz_theMessage);
+    _NativeInstance = new ::Graphic3d_PriorityDefinitionError(sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+}
+
+Macad::Occt::Graphic3d_PriorityDefinitionError::Graphic3d_PriorityDefinitionError()
+    : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_PriorityDefinitionError("");
 }
 
 Macad::Occt::Graphic3d_PriorityDefinitionError::Graphic3d_PriorityDefinitionError(System::String^ theMessage, System::String^ theStackTrace)
@@ -15415,50 +10642,15 @@ Macad::Occt::Graphic3d_PriorityDefinitionError::Graphic3d_PriorityDefinitionErro
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
     const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    NativeInstance = new ::Graphic3d_PriorityDefinitionError(sz_theMessage, sz_theStackTrace);
+    _NativeInstance = new ::Graphic3d_PriorityDefinitionError(sz_theMessage, sz_theStackTrace);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
 }
 
-void Macad::Occt::Graphic3d_PriorityDefinitionError::Raise(System::String^ theMessage)
+System::String^ Macad::Occt::Graphic3d_PriorityDefinitionError::ExceptionType()
 {
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    ::Graphic3d_PriorityDefinitionError::Raise(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-void Macad::Occt::Graphic3d_PriorityDefinitionError::Raise()
-{
-    ::Graphic3d_PriorityDefinitionError::Raise("");
-}
-
-Macad::Occt::Graphic3d_PriorityDefinitionError^ Macad::Occt::Graphic3d_PriorityDefinitionError::NewInstance(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    Handle(::Graphic3d_PriorityDefinitionError) _result = ::Graphic3d_PriorityDefinitionError::NewInstance(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_PriorityDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_PriorityDefinitionError^ Macad::Occt::Graphic3d_PriorityDefinitionError::NewInstance()
-{
-    Handle(::Graphic3d_PriorityDefinitionError) _result = ::Graphic3d_PriorityDefinitionError::NewInstance("");
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_PriorityDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_PriorityDefinitionError^ Macad::Occt::Graphic3d_PriorityDefinitionError::NewInstance(System::String^ theMessage, System::String^ theStackTrace)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    Handle(::Graphic3d_PriorityDefinitionError) _result = ::Graphic3d_PriorityDefinitionError::NewInstance(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_PriorityDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_PriorityDefinitionError^ Macad::Occt::Graphic3d_PriorityDefinitionError::CreateDowncasted(::Graphic3d_PriorityDefinitionError* instance)
-{
-    return gcnew Macad::Occt::Graphic3d_PriorityDefinitionError( instance );
+    Standard_CString _result = ((::Graphic3d_PriorityDefinitionError*)_NativeInstance)->ExceptionType();
+    return gcnew System::String(_result);
 }
 
 
@@ -15562,18 +10754,18 @@ Macad::Occt::Graphic3d_ShaderManager^ Macad::Occt::Graphic3d_ShaderManager::Crea
 //  Class  Graphic3d_StructureDefinitionError
 //---------------------------------------------------------------------
 
-Macad::Occt::Graphic3d_StructureDefinitionError::Graphic3d_StructureDefinitionError()
-    : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Graphic3d_StructureDefinitionError();
-}
-
 Macad::Occt::Graphic3d_StructureDefinitionError::Graphic3d_StructureDefinitionError(System::String^ theMessage)
     : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    NativeInstance = new ::Graphic3d_StructureDefinitionError(sz_theMessage);
+    _NativeInstance = new ::Graphic3d_StructureDefinitionError(sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+}
+
+Macad::Occt::Graphic3d_StructureDefinitionError::Graphic3d_StructureDefinitionError()
+    : Macad::Occt::Standard_OutOfRange(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Graphic3d_StructureDefinitionError("");
 }
 
 Macad::Occt::Graphic3d_StructureDefinitionError::Graphic3d_StructureDefinitionError(System::String^ theMessage, System::String^ theStackTrace)
@@ -15581,50 +10773,15 @@ Macad::Occt::Graphic3d_StructureDefinitionError::Graphic3d_StructureDefinitionEr
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
     const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    NativeInstance = new ::Graphic3d_StructureDefinitionError(sz_theMessage, sz_theStackTrace);
+    _NativeInstance = new ::Graphic3d_StructureDefinitionError(sz_theMessage, sz_theStackTrace);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
 }
 
-void Macad::Occt::Graphic3d_StructureDefinitionError::Raise(System::String^ theMessage)
+System::String^ Macad::Occt::Graphic3d_StructureDefinitionError::ExceptionType()
 {
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    ::Graphic3d_StructureDefinitionError::Raise(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-void Macad::Occt::Graphic3d_StructureDefinitionError::Raise()
-{
-    ::Graphic3d_StructureDefinitionError::Raise("");
-}
-
-Macad::Occt::Graphic3d_StructureDefinitionError^ Macad::Occt::Graphic3d_StructureDefinitionError::NewInstance(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    Handle(::Graphic3d_StructureDefinitionError) _result = ::Graphic3d_StructureDefinitionError::NewInstance(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_StructureDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_StructureDefinitionError^ Macad::Occt::Graphic3d_StructureDefinitionError::NewInstance()
-{
-    Handle(::Graphic3d_StructureDefinitionError) _result = ::Graphic3d_StructureDefinitionError::NewInstance("");
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_StructureDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_StructureDefinitionError^ Macad::Occt::Graphic3d_StructureDefinitionError::NewInstance(System::String^ theMessage, System::String^ theStackTrace)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    Handle(::Graphic3d_StructureDefinitionError) _result = ::Graphic3d_StructureDefinitionError::NewInstance(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-    return _result.IsNull() ? nullptr : Macad::Occt::Graphic3d_StructureDefinitionError::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Graphic3d_StructureDefinitionError^ Macad::Occt::Graphic3d_StructureDefinitionError::CreateDowncasted(::Graphic3d_StructureDefinitionError* instance)
-{
-    return gcnew Macad::Occt::Graphic3d_StructureDefinitionError( instance );
+    Standard_CString _result = ((::Graphic3d_StructureDefinitionError*)_NativeInstance)->ExceptionType();
+    return gcnew System::String(_result);
 }
 
 

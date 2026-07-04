@@ -74,6 +74,14 @@ public class BuildInheritancePass : Pass
         {
             cd.IsTransient = true;
         }
+        else if (cd.BaseClassName == "exception")
+        {
+            // OCCT 8: Standard_Failure now derives from std::exception instead of
+            // Standard_Transient. We don't wrap std::exception, so treat this like a
+            // root type with no wrappable base (as if NativeBaseClasses were empty) -
+            // this only ever applies to Standard_Failure itself.
+            cd.BaseClassName = $"BaseClass<::{cd.FullNativeName}>";
+        }
         else
         {
             cd.BaseClass = Context.Classes.FirstOrDefault(ci => ci.Name.Equals(cd.BaseClassName));

@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "NCollection.h"
 
 namespace Macad
 {
@@ -56,7 +55,7 @@ public enum class BRepCheck_Status
 //  Class  BRepCheck_ListOfStatus
 //---------------------------------------------------------------------
 public ref class BRepCheck_ListOfStatus sealed
-    : public Macad::Occt::NCollection_BaseList
+    : public Macad::Occt::BaseClass<::BRepCheck_ListOfStatus>
     , public IEnumerable<Macad::Occt::BRepCheck_Status>
 {
 
@@ -67,11 +66,11 @@ public:
 
 public:
     BRepCheck_ListOfStatus(::BRepCheck_ListOfStatus* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::BRepCheck_ListOfStatus>( nativeInstance, true )
     {}
 
     BRepCheck_ListOfStatus(::BRepCheck_ListOfStatus& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::BRepCheck_ListOfStatus>( &nativeInstance, false )
     {}
 
     property ::BRepCheck_ListOfStatus* NativeInstance
@@ -111,27 +110,40 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::NCollection_BaseList^ theList);
         bool More() override;
         void Next() override;
         Macad::Occt::BRepCheck_Status Value() override;
         Macad::Occt::BRepCheck_Status ChangeValue();
     }; // class Iterator
 
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepCheck_ListOfStatus();
     BRepCheck_ListOfStatus(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
+    /* Method skipped due to unknown mapping: void BRepCheck_ListOfStatus(initializer_list<BRepCheck_Status> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepCheck_ListOfStatus(initializer_list<BRepCheck_Status> theInitList, NCollection_BaseAllocator theAllocator, ) */
     Macad::Occt::BRepCheck_ListOfStatus^ Assign(Macad::Occt::BRepCheck_ListOfStatus^ theOther);
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::BRepCheck_Status First();
     Macad::Occt::BRepCheck_Status Last();
     Macad::Occt::BRepCheck_Status Append(Macad::Occt::BRepCheck_Status theItem);
+    void Append(Macad::Occt::BRepCheck_Status theItem, Macad::Occt::BRepCheck_ListOfStatus::Iterator^ theIter);
+    void Append(Macad::Occt::BRepCheck_ListOfStatus^ theOther);
     Macad::Occt::BRepCheck_Status Prepend(Macad::Occt::BRepCheck_Status theItem);
+    void Prepend(Macad::Occt::BRepCheck_ListOfStatus^ theOther);
     void RemoveFirst();
     void Remove(Macad::Occt::BRepCheck_ListOfStatus::Iterator^ theIter);
     Macad::Occt::BRepCheck_Status InsertBefore(Macad::Occt::BRepCheck_Status theItem, Macad::Occt::BRepCheck_ListOfStatus::Iterator^ theIter);
+    void InsertBefore(Macad::Occt::BRepCheck_ListOfStatus^ theOther, Macad::Occt::BRepCheck_ListOfStatus::Iterator^ theIter);
     Macad::Occt::BRepCheck_Status InsertAfter(Macad::Occt::BRepCheck_Status theItem, Macad::Occt::BRepCheck_ListOfStatus::Iterator^ theIter);
+    void InsertAfter(Macad::Occt::BRepCheck_ListOfStatus^ theOther, Macad::Occt::BRepCheck_ListOfStatus::Iterator^ theIter);
     void Reverse();
+    void Exchange(Macad::Occt::BRepCheck_ListOfStatus^ theOther);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::BRepCheck_Status>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class BRepCheck_ListOfStatus
@@ -194,25 +206,36 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::NCollection_BaseList^ theList);
         bool More();
         void Next();
         Macad::Occt::BRepCheck_Status Value();
         Macad::Occt::BRepCheck_Status ChangeValue();
     }; // class Iterator
 
-    int Size();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     Macad::Occt::BRepCheck_ListOfStatus^ Assign(Macad::Occt::BRepCheck_ListOfStatus^ theOther);
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::BRepCheck_Status First();
     Macad::Occt::BRepCheck_Status Last();
     Macad::Occt::BRepCheck_Status Append(Macad::Occt::BRepCheck_Status theItem);
+    void Append(Macad::Occt::BRepCheck_Status theItem, Macad::Occt::BRepCheck_HListOfStatus::Iterator^ theIter);
+    void Append(Macad::Occt::BRepCheck_ListOfStatus^ theOther);
     Macad::Occt::BRepCheck_Status Prepend(Macad::Occt::BRepCheck_Status theItem);
+    void Prepend(Macad::Occt::BRepCheck_ListOfStatus^ theOther);
     void RemoveFirst();
     void Remove(Macad::Occt::BRepCheck_HListOfStatus::Iterator^ theIter);
     Macad::Occt::BRepCheck_Status InsertBefore(Macad::Occt::BRepCheck_Status theItem, Macad::Occt::BRepCheck_HListOfStatus::Iterator^ theIter);
+    void InsertBefore(Macad::Occt::BRepCheck_ListOfStatus^ theOther, Macad::Occt::BRepCheck_HListOfStatus::Iterator^ theIter);
     Macad::Occt::BRepCheck_Status InsertAfter(Macad::Occt::BRepCheck_Status theItem, Macad::Occt::BRepCheck_HListOfStatus::Iterator^ theIter);
+    void InsertAfter(Macad::Occt::BRepCheck_ListOfStatus^ theOther, Macad::Occt::BRepCheck_HListOfStatus::Iterator^ theIter);
     void Reverse();
+    void Exchange(Macad::Occt::BRepCheck_ListOfStatus^ theOther);
     BRepCheck_HListOfStatus();
     static Macad::Occt::BRepCheck_HListOfStatus^ CreateDowncasted(::BRepCheck_HListOfStatus* instance);
 }; // class BRepCheck_HListOfStatus
@@ -275,30 +298,51 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus^ theMap);
         bool More();
         void Next();
-        /* Method skipped due to unknown mapping: NCollection_Shared<NCollection_List<BRepCheck_Status Value() */
-        /* Method skipped due to unknown mapping: NCollection_Shared<NCollection_List<BRepCheck_Status ChangeValue() */
+        Macad::Occt::BRepCheck_HListOfStatus^ Value();
+        Macad::Occt::BRepCheck_HListOfStatus^ ChangeValue();
         Macad::Occt::TopoDS_Shape^ Key();
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepCheck_DataMapOfShapeListOfStatus();
+    BRepCheck_DataMapOfShapeListOfStatus(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepCheck_DataMapOfShapeListOfStatus(long long unsigned int theNbBuckets);
     BRepCheck_DataMapOfShapeListOfStatus(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     BRepCheck_DataMapOfShapeListOfStatus(int theNbBuckets);
+    BRepCheck_DataMapOfShapeListOfStatus(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepCheck_DataMapOfShapeListOfStatus(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets);
+    BRepCheck_DataMapOfShapeListOfStatus(Macad::Occt::TopTools_ShapeMapHasher^ theHasher);
+    BRepCheck_DataMapOfShapeListOfStatus(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepCheck_DataMapOfShapeListOfStatus(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets);
+    /* Method skipped due to unknown mapping: ItemsView Items() */
     void Exchange(Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus^ theOther);
+    Macad::Occt::TopTools_ShapeMapHasher^ GetHasher();
     Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus^ Assign(Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
-    /* Method skipped due to unknown mapping: bool Bind(TopoDS_Shape theKey, NCollection_Shared<NCollection_List<BRepCheck_Status theItem, ) */
-    /* Method skipped due to unknown mapping: NCollection_Shared<NCollection_List<BRepCheck_Status Bound(TopoDS_Shape theKey, NCollection_Shared<NCollection_List<BRepCheck_Status theItem, ) */
+    bool Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::BRepCheck_HListOfStatus^ theItem);
+    Macad::Occt::BRepCheck_HListOfStatus^ Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::BRepCheck_HListOfStatus^ theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::BRepCheck_HListOfStatus^ theItem);
+    Macad::Occt::BRepCheck_HListOfStatus^ TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::BRepCheck_HListOfStatus^ theItem);
     bool IsBound(Macad::Occt::TopoDS_Shape^ theKey);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<const opencascade::handle<NCollection_Shared<NCollection_List<BRepCheck_Status>>>>>> Contained(TopoDS_Shape theKey, ) */
     bool UnBind(Macad::Occt::TopoDS_Shape^ theKey);
-    /* Method skipped due to unknown mapping: NCollection_Shared<NCollection_List<BRepCheck_Status Seek(TopoDS_Shape theKey, ) */
-    /* Method skipped due to unknown mapping: NCollection_Shared<NCollection_List<BRepCheck_Status Find(TopoDS_Shape theKey, ) */
-    /* Method skipped due to unknown mapping: NCollection_Shared<NCollection_List<BRepCheck_Status ChangeSeek(TopoDS_Shape theKey, ) */
-    /* Method skipped due to unknown mapping: NCollection_Shared<NCollection_List<BRepCheck_Status ChangeFind(TopoDS_Shape theKey, ) */
+    Macad::Occt::BRepCheck_HListOfStatus^ Seek(Macad::Occt::TopoDS_Shape^ theKey);
+    Macad::Occt::BRepCheck_HListOfStatus^ Find(Macad::Occt::TopoDS_Shape^ theKey);
+    bool Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::BRepCheck_HListOfStatus^ theValue);
+    Macad::Occt::BRepCheck_HListOfStatus^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
+    Macad::Occt::BRepCheck_HListOfStatus^ ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class BRepCheck_DataMapOfShapeListOfStatus
 
 //---------------------------------------------------------------------
@@ -360,37 +404,66 @@ public:
     public:
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepCheck_IndexedDataMapOfShapeResult();
+    BRepCheck_IndexedDataMapOfShapeResult(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepCheck_IndexedDataMapOfShapeResult(long long unsigned int theNbBuckets);
     BRepCheck_IndexedDataMapOfShapeResult(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     BRepCheck_IndexedDataMapOfShapeResult(int theNbBuckets);
+    /* Method skipped due to unknown mapping: void BRepCheck_IndexedDataMapOfShapeResult(NCollection_DefaultHasher<TopoDS_Shape> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepCheck_IndexedDataMapOfShapeResult(NCollection_DefaultHasher<TopoDS_Shape> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepCheck_IndexedDataMapOfShapeResult(NCollection_DefaultHasher<TopoDS_Shape> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepCheck_IndexedDataMapOfShapeResult(NCollection_DefaultHasher<TopoDS_Shape> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepCheck_IndexedDataMapOfShapeResult(NCollection_DefaultHasher<TopoDS_Shape> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: ItemsView Items() */
+    /* Method skipped due to unknown mapping: IndexedItemsView IndexedItems() */
     void Exchange(Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult^ theOther);
+    /* Method skipped due to unknown mapping: NCollection_DefaultHasher<TopoDS_Shape> GetHasher() */
     Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult^ Assign(Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     int Add(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem);
+    Macad::Occt::BRepCheck_Result^ TryBound(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem);
+    bool Bind(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem);
+    Macad::Occt::BRepCheck_Result^ Bound(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem);
     bool Contains(Macad::Occt::TopoDS_Shape^ theKey1);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<const opencascade::handle<BRepCheck_Result>>>> Contained(TopoDS_Shape theKey1, ) */
+    void Substitute(long long unsigned int theIndex, Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem);
     void Substitute(int theIndex, Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem);
+    void Swap(long long unsigned int theIndex1, long long unsigned int theIndex2);
     void Swap(int theIndex1, int theIndex2);
     void RemoveLast();
+    void RemoveFromIndex(long long unsigned int theIndex);
     void RemoveFromIndex(int theIndex);
     void RemoveKey(Macad::Occt::TopoDS_Shape^ theKey1);
+    Macad::Occt::TopoDS_Shape^ FindKey(long long unsigned int theIndex);
     Macad::Occt::TopoDS_Shape^ FindKey(int theIndex);
+    Macad::Occt::BRepCheck_Result^ FindFromIndex(long long unsigned int theIndex);
     Macad::Occt::BRepCheck_Result^ FindFromIndex(int theIndex);
+    Macad::Occt::BRepCheck_Result^ ChangeFromIndex(long long unsigned int theIndex);
     Macad::Occt::BRepCheck_Result^ ChangeFromIndex(int theIndex);
     int FindIndex(Macad::Occt::TopoDS_Shape^ theKey1);
     Macad::Occt::BRepCheck_Result^ FindFromKey(Macad::Occt::TopoDS_Shape^ theKey1);
     Macad::Occt::BRepCheck_Result^ ChangeFromKey(Macad::Occt::TopoDS_Shape^ theKey1);
     Macad::Occt::BRepCheck_Result^ Seek(Macad::Occt::TopoDS_Shape^ theKey1);
     Macad::Occt::BRepCheck_Result^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey1);
+    bool FindFromKey(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theValue);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class BRepCheck_IndexedDataMapOfShapeResult
 
 //---------------------------------------------------------------------
 //  Class  BRepCheck
 //---------------------------------------------------------------------
 /// <summary>
-/// This package  provides tools to check the validity
+/// This package provides tools to check the validity
 /// of the BRep.
 /// </summary>
 public ref class BRepCheck sealed
@@ -482,7 +555,14 @@ public:
     Macad::Occt::TopoDS_Shape^ ContextualShape();
     Macad::Occt::BRepCheck_ListOfStatus^ StatusOnShape();
     void NextShapeInContext();
+    /// <summary>
+    /// Sets the parallel execution flag for sub-algorithms.
+    /// </summary>
     void SetParallel(bool theIsParallel);
+    /// <summary>
+    /// Returns TRUE if sub-algorithms should use parallel execution.
+    /// </summary>
+    bool IsParallel();
     bool IsStatusOnShape(Macad::Occt::TopoDS_Shape^ theShape);
     Macad::Occt::BRepCheck_ListOfStatus^ StatusOnShape(Macad::Occt::TopoDS_Shape^ theShape);
     static Macad::Occt::BRepCheck_Result^ CreateDowncasted(::BRepCheck_Result* instance);
@@ -529,119 +609,119 @@ public:
 public:
     /// <summary>
     /// Constructs a shape validation object defined by the shape S.
-    /// <S> is the  shape  to control.  <GeomControls>  If
-    /// False   only topological informaions  are checked.
+    /// <S> is the shape to control. <GeomControls> If
+    /// False only topological informaions are checked.
     /// The geometricals controls are
-    /// For a Vertex :
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For an Edge :
+    /// For a Vertex:
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For an Edge:
     /// BRepCheck_InvalidCurveOnClosedSurface,
     /// BRepCheck_InvalidCurveOnSurface,
     /// BRepCheck_InvalidSameParameterFlag,
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For a face :
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For a face:
     /// BRepCheck_UnorientableShape,
     /// BRepCheck_IntersectingWires,
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For a wire :
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For a wire:
     /// BRepCheck_SelfIntersectingWire
     /// </summary>
     BRepCheck_Analyzer(Macad::Occt::TopoDS_Shape^ S, bool GeomControls, bool theIsParallel, bool theIsExact);
     /// <summary>
     /// Constructs a shape validation object defined by the shape S.
-    /// <S> is the  shape  to control.  <GeomControls>  If
-    /// False   only topological informaions  are checked.
+    /// <S> is the shape to control. <GeomControls> If
+    /// False only topological informaions are checked.
     /// The geometricals controls are
-    /// For a Vertex :
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For an Edge :
+    /// For a Vertex:
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For an Edge:
     /// BRepCheck_InvalidCurveOnClosedSurface,
     /// BRepCheck_InvalidCurveOnSurface,
     /// BRepCheck_InvalidSameParameterFlag,
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For a face :
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For a face:
     /// BRepCheck_UnorientableShape,
     /// BRepCheck_IntersectingWires,
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For a wire :
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For a wire:
     /// BRepCheck_SelfIntersectingWire
     /// </summary>
     BRepCheck_Analyzer(Macad::Occt::TopoDS_Shape^ S, bool GeomControls, bool theIsParallel);
     /// <summary>
     /// Constructs a shape validation object defined by the shape S.
-    /// <S> is the  shape  to control.  <GeomControls>  If
-    /// False   only topological informaions  are checked.
+    /// <S> is the shape to control. <GeomControls> If
+    /// False only topological informaions are checked.
     /// The geometricals controls are
-    /// For a Vertex :
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For an Edge :
+    /// For a Vertex:
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For an Edge:
     /// BRepCheck_InvalidCurveOnClosedSurface,
     /// BRepCheck_InvalidCurveOnSurface,
     /// BRepCheck_InvalidSameParameterFlag,
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For a face :
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For a face:
     /// BRepCheck_UnorientableShape,
     /// BRepCheck_IntersectingWires,
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For a wire :
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For a wire:
     /// BRepCheck_SelfIntersectingWire
     /// </summary>
     BRepCheck_Analyzer(Macad::Occt::TopoDS_Shape^ S, bool GeomControls);
     /// <summary>
     /// Constructs a shape validation object defined by the shape S.
-    /// <S> is the  shape  to control.  <GeomControls>  If
-    /// False   only topological informaions  are checked.
+    /// <S> is the shape to control. <GeomControls> If
+    /// False only topological informaions are checked.
     /// The geometricals controls are
-    /// For a Vertex :
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For an Edge :
+    /// For a Vertex:
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For an Edge:
     /// BRepCheck_InvalidCurveOnClosedSurface,
     /// BRepCheck_InvalidCurveOnSurface,
     /// BRepCheck_InvalidSameParameterFlag,
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For a face :
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For a face:
     /// BRepCheck_UnorientableShape,
     /// BRepCheck_IntersectingWires,
-    /// BRepCheck_InvalidToleranceValue  NYI
-    /// For a wire :
+    /// BRepCheck_InvalidToleranceValue NYI
+    /// For a wire:
     /// BRepCheck_SelfIntersectingWire
     /// </summary>
     BRepCheck_Analyzer(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// <S> is the  shape  to control.  <GeomControls>  If
-    /// False   only topological informaions  are checked.
+    /// <S> is the shape to control. <GeomControls> If
+    /// False only topological informaions are checked.
     /// The geometricals controls are
-    /// For a Vertex :
-    /// BRepCheck_InvalidTolerance  NYI
-    /// For an Edge :
+    /// For a Vertex:
+    /// BRepCheck_InvalidTolerance NYI
+    /// For an Edge:
     /// BRepCheck_InvalidCurveOnClosedSurface,
     /// BRepCheck_InvalidCurveOnSurface,
     /// BRepCheck_InvalidSameParameterFlag,
-    /// BRepCheck_InvalidTolerance  NYI
-    /// For a face :
+    /// BRepCheck_InvalidTolerance NYI
+    /// For a face:
     /// BRepCheck_UnorientableShape,
     /// BRepCheck_IntersectingWires,
-    /// BRepCheck_InvalidTolerance  NYI
-    /// For a wire :
+    /// BRepCheck_InvalidTolerance NYI
+    /// For a wire:
     /// BRepCheck_SelfIntersectingWire
     /// </summary>
     void Init(Macad::Occt::TopoDS_Shape^ S, bool GeomControls);
     /// <summary>
-    /// <S> is the  shape  to control.  <GeomControls>  If
-    /// False   only topological informaions  are checked.
+    /// <S> is the shape to control. <GeomControls> If
+    /// False only topological informaions are checked.
     /// The geometricals controls are
-    /// For a Vertex :
-    /// BRepCheck_InvalidTolerance  NYI
-    /// For an Edge :
+    /// For a Vertex:
+    /// BRepCheck_InvalidTolerance NYI
+    /// For an Edge:
     /// BRepCheck_InvalidCurveOnClosedSurface,
     /// BRepCheck_InvalidCurveOnSurface,
     /// BRepCheck_InvalidSameParameterFlag,
-    /// BRepCheck_InvalidTolerance  NYI
-    /// For a face :
+    /// BRepCheck_InvalidTolerance NYI
+    /// For a face:
     /// BRepCheck_UnorientableShape,
     /// BRepCheck_IntersectingWires,
-    /// BRepCheck_InvalidTolerance  NYI
-    /// For a wire :
+    /// BRepCheck_InvalidTolerance NYI
+    /// For a wire:
     /// BRepCheck_SelfIntersectingWire
     /// </summary>
     void Init(Macad::Occt::TopoDS_Shape^ S);
@@ -666,7 +746,7 @@ public:
     /// </summary>
     bool IsParallel();
     /// <summary>
-    /// <S> is a  subshape of the  original shape. Returns
+    /// <S> is a subshape of the original shape. Returns
     /// <STandard_True> if no default has been detected on
     /// <S> and any of its subshape.
     /// </summary>
@@ -695,15 +775,15 @@ public:
     /// the edge?s contextual situation.
     /// -      if the edge is either single, or it is in the context
     /// of a wire or a compound, its parameterization is defined by
-    /// the parameterization of its 3D curve and is considered as    valid.
+    /// the parameterization of its 3D curve and is considered as valid.
     /// -      If the edge is in the context of a face, it should
-    /// have SameParameter and SameRange flags set to Standard_True. To
+    /// have SameParameter and SameRange flags set to true. To
     /// check these flags, you should call the function
     /// BRep_Tool::SameParameter and BRep_Tool::SameRange for an
-    /// edge. If at least one of these flags is set to Standard_False,
+    /// edge. If at least one of these flags is set to false,
     /// the edge is considered as invalid without any additional check.
     /// If the edge is contained by a face, and it has SameParameter and
-    /// SameRange flags set to Standard_True, IsValid checks
+    /// SameRange flags set to true, IsValid checks
     /// whether representation of the edge on face, in context of which the
     /// edge is considered, has the same parameterization up to the
     /// tolerance value coded on the edge. For a given parameter t on the edge
@@ -863,31 +943,31 @@ public:
     void Minimum();
     void Blind();
     /// <summary>
-    /// Checks if the oriented  faces of the shell  give a
-    /// closed shell.    If the  wire is  closed,  returns
-    /// BRepCheck_NoError.If      <Update>     is  set  to
-    /// Standard_True, registers the status in the list.
+    /// Checks if the oriented faces of the shell give a
+    /// closed shell. If the wire is closed, returns
+    /// BRepCheck_NoError. If <Update> is set to
+    /// true, registers the status in the list.
     /// </summary>
     Macad::Occt::BRepCheck_Status Closed(bool Update);
     /// <summary>
-    /// Checks if the oriented  faces of the shell  give a
-    /// closed shell.    If the  wire is  closed,  returns
-    /// BRepCheck_NoError.If      <Update>     is  set  to
-    /// Standard_True, registers the status in the list.
+    /// Checks if the oriented faces of the shell give a
+    /// closed shell. If the wire is closed, returns
+    /// BRepCheck_NoError. If <Update> is set to
+    /// true, registers the status in the list.
     /// </summary>
     Macad::Occt::BRepCheck_Status Closed();
     /// <summary>
-    /// Checks if the   oriented faces  of  the shell  are
-    /// correctly oriented.  An internal  call is  made to
-    /// the  method  Closed.   If  <Update>    is set   to
-    /// Standard_True, registers the status in the list.
+    /// Checks if the oriented faces of the shell are
+    /// correctly oriented. An internal call is made to
+    /// the method Closed. If <Update> is set to
+    /// true, registers the status in the list.
     /// </summary>
     Macad::Occt::BRepCheck_Status Orientation(bool Update);
     /// <summary>
-    /// Checks if the   oriented faces  of  the shell  are
-    /// correctly oriented.  An internal  call is  made to
-    /// the  method  Closed.   If  <Update>    is set   to
-    /// Standard_True, registers the status in the list.
+    /// Checks if the oriented faces of the shell are
+    /// correctly oriented. An internal call is made to
+    /// the method Closed. If <Update> is set to
+    /// true, registers the status in the list.
     /// </summary>
     Macad::Occt::BRepCheck_Status Orientation();
     void SetUnorientable();
@@ -951,7 +1031,7 @@ public:
     /// Status:  BRepCheck_BadOrientationOfSubshape
     /// 
     /// 3.  For closed, non-internal shells:
-    /// 3.1 Shells containing entities  of the solid that
+    /// 3.1 Shells containing entities of the solid that
     /// are outside towards the shells
     /// Status:  BRepCheck_SubshapeNotInShape
     /// 
@@ -1037,13 +1117,13 @@ public:
 public:
     BRepCheck_Wire(Macad::Occt::TopoDS_Wire^ W);
     /// <summary>
-    /// if <ContextShape> is  a  face, consequently checks
-    /// SelfIntersect(),   Closed(),   Orientation()   and
+    /// if <ContextShape> is a face, consequently checks
+    /// SelfIntersect(), Closed(), Orientation() and
     /// Closed2d until faulty is found
     /// </summary>
     void InContext(Macad::Occt::TopoDS_Shape^ ContextShape);
     /// <summary>
-    /// checks that the  wire  is  not empty and "connex".
+    /// checks that the wire is not empty and "connex".
     /// Called by constructor
     /// </summary>
     void Minimum();
@@ -1052,59 +1132,59 @@ public:
     /// </summary>
     void Blind();
     /// <summary>
-    /// Checks if the  oriented  edges of the wire  give a
-    /// closed  wire.   If the  wire   is closed,  returns
-    /// BRepCheck_NoError.    Warning :  if the first  and
-    /// last  edge   are  infinite,   the  wire   will  be
-    /// considered as a closed one.  If <Update> is set to
-    /// Standard_True, registers the status in the list.
+    /// Checks if the oriented edges of the wire give a
+    /// closed wire. If the wire is closed, returns
+    /// BRepCheck_NoError. Warning: if the first and
+    /// last edge are infinite, the wire will be
+    /// considered as a closed one. If <Update> is set to
+    /// true, registers the status in the list.
     /// May return (and registers):
-    /// **BRepCheck_NotConnected,   if    wire    is   not
+    /// **BRepCheck_NotConnected, if wire is not
     /// topologically closed
-    /// **BRepCheck_RedundantEdge, if an  edge  is in wire
-    /// more than 3 times  or  in  case of 2 occurrences if
+    /// **BRepCheck_RedundantEdge, if an edge is in wire
+    /// more than 3 times or in case of 2 occurrences if
     /// not with FORWARD and REVERSED orientation.
     /// **BRepCheck_NoError
     /// </summary>
     Macad::Occt::BRepCheck_Status Closed(bool Update);
     /// <summary>
-    /// Checks if the  oriented  edges of the wire  give a
-    /// closed  wire.   If the  wire   is closed,  returns
-    /// BRepCheck_NoError.    Warning :  if the first  and
-    /// last  edge   are  infinite,   the  wire   will  be
-    /// considered as a closed one.  If <Update> is set to
-    /// Standard_True, registers the status in the list.
+    /// Checks if the oriented edges of the wire give a
+    /// closed wire. If the wire is closed, returns
+    /// BRepCheck_NoError. Warning: if the first and
+    /// last edge are infinite, the wire will be
+    /// considered as a closed one. If <Update> is set to
+    /// true, registers the status in the list.
     /// May return (and registers):
-    /// **BRepCheck_NotConnected,   if    wire    is   not
+    /// **BRepCheck_NotConnected, if wire is not
     /// topologically closed
-    /// **BRepCheck_RedundantEdge, if an  edge  is in wire
-    /// more than 3 times  or  in  case of 2 occurrences if
+    /// **BRepCheck_RedundantEdge, if an edge is in wire
+    /// more than 3 times or in case of 2 occurrences if
     /// not with FORWARD and REVERSED orientation.
     /// **BRepCheck_NoError
     /// </summary>
     Macad::Occt::BRepCheck_Status Closed();
     /// <summary>
-    /// Checks if edges of the  wire give a wire closed in
+    /// Checks if edges of the wire give a wire closed in
     /// 2d space.
-    /// Returns BRepCheck_NoError,  or BRepCheck_NotClosed
-    /// If <Update> is set to Standard_True, registers the
+    /// Returns BRepCheck_NoError, or BRepCheck_NotClosed
+    /// If <Update> is set to true, registers the
     /// status in the list.
     /// </summary>
     Macad::Occt::BRepCheck_Status Closed2d(Macad::Occt::TopoDS_Face^ F, bool Update);
     /// <summary>
-    /// Checks if edges of the  wire give a wire closed in
+    /// Checks if edges of the wire give a wire closed in
     /// 2d space.
-    /// Returns BRepCheck_NoError,  or BRepCheck_NotClosed
-    /// If <Update> is set to Standard_True, registers the
+    /// Returns BRepCheck_NoError, or BRepCheck_NotClosed
+    /// If <Update> is set to true, registers the
     /// status in the list.
     /// </summary>
     Macad::Occt::BRepCheck_Status Closed2d(Macad::Occt::TopoDS_Face^ F);
     /// <summary>
-    /// Checks   if  the oriented edges   of  the wire are
-    /// correctly oriented.  An  internal call is made  to
-    /// the  method Closed.   If no face  exists, call the
-    /// method with   a  null  face  (TopoDS_face()).   If
-    /// <Update> is  set  to Standard_True,  registers the
+    /// Checks if the oriented edges of the wire are
+    /// correctly oriented. An internal call is made to
+    /// the method Closed. If no face exists, call the
+    /// method with a null face (TopoDS_face()). If
+    /// <Update> is set to true, registers the
     /// status in the list.
     /// May return (and registers):
     /// BRepCheck_InvalidDegeneratedFlag,
@@ -1114,11 +1194,11 @@ public:
     /// </summary>
     Macad::Occt::BRepCheck_Status Orientation(Macad::Occt::TopoDS_Face^ F, bool Update);
     /// <summary>
-    /// Checks   if  the oriented edges   of  the wire are
-    /// correctly oriented.  An  internal call is made  to
-    /// the  method Closed.   If no face  exists, call the
-    /// method with   a  null  face  (TopoDS_face()).   If
-    /// <Update> is  set  to Standard_True,  registers the
+    /// Checks if the oriented edges of the wire are
+    /// correctly oriented. An internal call is made to
+    /// the method Closed. If no face exists, call the
+    /// method with a null face (TopoDS_face()). If
+    /// <Update> is set to true, registers the
     /// status in the list.
     /// May return (and registers):
     /// BRepCheck_InvalidDegeneratedFlag,
@@ -1128,11 +1208,11 @@ public:
     /// </summary>
     Macad::Occt::BRepCheck_Status Orientation(Macad::Occt::TopoDS_Face^ F);
     /// <summary>
-    /// Checks if  the wire intersect   itself on the face
-    /// <F>.  <E1>  and <E2>   are the first  intersecting
-    /// edges  found.  <E2>  may  be a  null  edge when  a
+    /// Checks if the wire intersect itself on the face
+    /// <F>. <E1> and <E2> are the first intersecting
+    /// edges found. <E2> may be a null edge when a
     /// self-intersecting edge is found.If <Update> is set
-    /// to Standard_True,   registers  the  status in  the
+    /// to true, registers the status in the
     /// list.
     /// May return (and register):
     /// BRepCheck_EmptyWire,
@@ -1142,11 +1222,11 @@ public:
     /// </summary>
     Macad::Occt::BRepCheck_Status SelfIntersect(Macad::Occt::TopoDS_Face^ F, Macad::Occt::TopoDS_Edge^ E1, Macad::Occt::TopoDS_Edge^ E2, bool Update);
     /// <summary>
-    /// Checks if  the wire intersect   itself on the face
-    /// <F>.  <E1>  and <E2>   are the first  intersecting
-    /// edges  found.  <E2>  may  be a  null  edge when  a
+    /// Checks if the wire intersect itself on the face
+    /// <F>. <E1> and <E2> are the first intersecting
+    /// edges found. <E2> may be a null edge when a
     /// self-intersecting edge is found.If <Update> is set
-    /// to Standard_True,   registers  the  status in  the
+    /// to true, registers the status in the
     /// list.
     /// May return (and register):
     /// BRepCheck_EmptyWire,

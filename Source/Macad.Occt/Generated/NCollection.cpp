@@ -5,72 +5,18 @@
 
 using namespace System::Runtime::InteropServices; // for class Marshal
 
-#include "gp.h"
-#include "TColStd.h"
-#include "Message.h"
-#include "IntAna.h"
-#include "TopoDS.h"
-#include "BRep.h"
-#include "TopTools.h"
-#include "BRepCheck.h"
-#include "BRepFill.h"
-#include "Graphic3d.h"
-#include "PrsMgr.h"
-#include "SelectMgr.h"
-#include "Prs3d.h"
-#include "AIS.h"
-#include "V3d.h"
 #include "Image.h"
+#include "Graphic3d.h"
 
 
 //---------------------------------------------------------------------
-//  Class  NCollection_CellFilter_InspectorXYZ
+//  Class  NCollection_ForwardRangeSentinel
 //---------------------------------------------------------------------
 
-Macad::Occt::NCollection_CellFilter_InspectorXYZ::NCollection_CellFilter_InspectorXYZ()
-    : Macad::Occt::BaseClass<::NCollection_CellFilter_InspectorXYZ>(BaseClass::InitMode::Uninitialized)
+Macad::Occt::NCollection_ForwardRangeSentinel::NCollection_ForwardRangeSentinel()
+    : Macad::Occt::BaseClass<::NCollection_ForwardRangeSentinel>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::NCollection_CellFilter_InspectorXYZ();
-}
-
-double Macad::Occt::NCollection_CellFilter_InspectorXYZ::Coord(int i, Macad::Occt::XYZ thePnt)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_thePnt = &thePnt;
-    double _result = ::NCollection_CellFilter_InspectorXYZ::Coord(i, *(gp_XYZ*)pp_thePnt);
-    return _result;
-}
-
-Macad::Occt::XYZ Macad::Occt::NCollection_CellFilter_InspectorXYZ::Shift(Macad::Occt::XYZ thePnt, double theTol)
-{
-    pin_ptr<Macad::Occt::XYZ> pp_thePnt = &thePnt;
-    ::gp_XYZ _nativeResult = ((::NCollection_CellFilter_InspectorXYZ*)_NativeInstance)->Shift(*(gp_XYZ*)pp_thePnt, theTol);
-    return Macad::Occt::XYZ(_nativeResult);
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  NCollection_CellFilter_InspectorXY
-//---------------------------------------------------------------------
-
-Macad::Occt::NCollection_CellFilter_InspectorXY::NCollection_CellFilter_InspectorXY()
-    : Macad::Occt::BaseClass<::NCollection_CellFilter_InspectorXY>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::NCollection_CellFilter_InspectorXY();
-}
-
-double Macad::Occt::NCollection_CellFilter_InspectorXY::Coord(int i, Macad::Occt::XY thePnt)
-{
-    pin_ptr<Macad::Occt::XY> pp_thePnt = &thePnt;
-    double _result = ::NCollection_CellFilter_InspectorXY::Coord(i, *(gp_XY*)pp_thePnt);
-    return _result;
-}
-
-Macad::Occt::XY Macad::Occt::NCollection_CellFilter_InspectorXY::Shift(Macad::Occt::XY thePnt, double theTol)
-{
-    pin_ptr<Macad::Occt::XY> pp_thePnt = &thePnt;
-    ::gp_XY _nativeResult = ((::NCollection_CellFilter_InspectorXY*)_NativeInstance)->Shift(*(gp_XY*)pp_thePnt, theTol);
-    return Macad::Occt::XY(_nativeResult);
+    _NativeInstance = new ::NCollection_ForwardRangeSentinel();
 }
 
 
@@ -130,6 +76,18 @@ Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::NCollection_BaseAllocator::
 int Macad::Occt::NCollection_BaseList::Extent()
 {
     int _result = ((::NCollection_BaseList*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::NCollection_BaseList::Length()
+{
+    int _result = ((::NCollection_BaseList*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::NCollection_BaseList::Size()
+{
+    long long unsigned int _result = ((::NCollection_BaseList*)_NativeInstance)->Size();
     return _result;
 }
 
@@ -202,73 +160,6 @@ bool Macad::Occt::NCollection_BaseList::Iterator::Equals(System::Object^ obj)
         return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
     }
     return false;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  NCollection_BasePointerVector
-//---------------------------------------------------------------------
-
-Macad::Occt::NCollection_BasePointerVector::NCollection_BasePointerVector()
-    : Macad::Occt::BaseClass<::NCollection_BasePointerVector>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::NCollection_BasePointerVector();
-}
-
-bool Macad::Occt::NCollection_BasePointerVector::IsEmpty()
-{
-    bool _result = ((::NCollection_BasePointerVector*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-long long unsigned int Macad::Occt::NCollection_BasePointerVector::Size()
-{
-    long long unsigned int _result = ((::NCollection_BasePointerVector*)_NativeInstance)->Size();
-    return _result;
-}
-
-long long unsigned int Macad::Occt::NCollection_BasePointerVector::Capacity()
-{
-    long long unsigned int _result = ((::NCollection_BasePointerVector*)_NativeInstance)->Capacity();
-    return _result;
-}
-
-void Macad::Occt::NCollection_BasePointerVector::RemoveLast()
-{
-    ((::NCollection_BasePointerVector*)_NativeInstance)->RemoveLast();
-}
-
-void Macad::Occt::NCollection_BasePointerVector::Clear(bool theReleaseMemory)
-{
-    ((::NCollection_BasePointerVector*)_NativeInstance)->Clear(theReleaseMemory);
-}
-
-void Macad::Occt::NCollection_BasePointerVector::Clear()
-{
-    ((::NCollection_BasePointerVector*)_NativeInstance)->Clear(false);
-}
-
-System::IntPtr Macad::Occt::NCollection_BasePointerVector::GetArray()
-{
-    void* _result = ((::NCollection_BasePointerVector*)_NativeInstance)->GetArray();
-    return System::IntPtr(_result);
-}
-
-System::IntPtr Macad::Occt::NCollection_BasePointerVector::Value(long long unsigned int theInd)
-{
-    void* _result = ((::NCollection_BasePointerVector*)_NativeInstance)->Value(theInd);
-    return System::IntPtr(_result);
-}
-
-void Macad::Occt::NCollection_BasePointerVector::Append(System::IntPtr thePnt)
-{
-    ((::NCollection_BasePointerVector*)_NativeInstance)->Append(thePnt.ToPointer());
-}
-
-void Macad::Occt::NCollection_BasePointerVector::SetValue(long long unsigned int theInd, System::IntPtr thePnt)
-{
-    ((::NCollection_BasePointerVector*)_NativeInstance)->SetValue(theInd, thePnt.ToPointer());
 }
 
 

@@ -20,10 +20,58 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 //  Class  BRepFill_DataMapOfNodeDataMapOfShapeShape
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfNodeDataMapOfShapeShape*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::Extent()
+{
+    int _result = ((::BRepFill_DataMapOfNodeDataMapOfShapeShape*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::Length()
+{
+    int _result = ((::BRepFill_DataMapOfNodeDataMapOfShapeShape*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::Size()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfNodeDataMapOfShapeShape*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::IsEmpty()
+{
+    bool _result = ((::BRepFill_DataMapOfNodeDataMapOfShapeShape*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_DataMapOfNodeDataMapOfShapeShape*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::BRepFill_DataMapOfNodeDataMapOfShapeShape()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeDataMapOfShapeShape>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfNodeDataMapOfShapeShape();
+}
+
+Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::BRepFill_DataMapOfNodeDataMapOfShapeShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeDataMapOfShapeShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfNodeDataMapOfShapeShape(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::BRepFill_DataMapOfNodeDataMapOfShapeShape(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeDataMapOfShapeShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfNodeDataMapOfShapeShape(theNbBuckets, nullptr);
 }
 
 Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::BRepFill_DataMapOfNodeDataMapOfShapeShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -35,7 +83,7 @@ Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::BRepFill_DataMapOfNodeDa
 Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::BRepFill_DataMapOfNodeDataMapOfShapeShape(int theNbBuckets)
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeDataMapOfShapeShape>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::BRepFill_DataMapOfNodeDataMapOfShapeShape(theNbBuckets, 0L);
+    _NativeInstance = new ::BRepFill_DataMapOfNodeDataMapOfShapeShape(theNbBuckets, nullptr);
 }
 
 void Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::Exchange(Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape^ theOther)
@@ -48,6 +96,11 @@ Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape^ Macad::Occt::BRepFill_Da
     ::BRepFill_DataMapOfNodeDataMapOfShapeShape* _result = new ::BRepFill_DataMapOfNodeDataMapOfShapeShape();
     *_result = ((::BRepFill_DataMapOfNodeDataMapOfShapeShape*)_NativeInstance)->Assign(*(::BRepFill_DataMapOfNodeDataMapOfShapeShape*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape(_result);
+}
+
+void Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::ReSize(long long unsigned int N)
+{
+    ((::BRepFill_DataMapOfNodeDataMapOfShapeShape*)_NativeInstance)->ReSize(N);
 }
 
 void Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::ReSize(int N)
@@ -65,10 +118,9 @@ void Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::Clear()
     ((::BRepFill_DataMapOfNodeDataMapOfShapeShape*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::Size()
+void Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::BRepFill_DataMapOfNodeDataMapOfShapeShape*)_NativeInstance)->Size();
-    return _result;
+    ((::BRepFill_DataMapOfNodeDataMapOfShapeShape*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -81,6 +133,12 @@ Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeDataMapOfShapeShape::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfNodeDataMapOfShapeShape::Iterator();
+}
+
+Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::Iterator::Iterator(Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape^ theMap)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeDataMapOfShapeShape::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfNodeDataMapOfShapeShape::Iterator(*(::BRepFill_DataMapOfNodeDataMapOfShapeShape*)theMap->NativeInstance);
 }
 
 bool Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape::Iterator::More()
@@ -114,10 +172,58 @@ Macad::Occt::TopTools_DataMapOfShapeShape^ Macad::Occt::BRepFill_DataMapOfNodeDa
 //  Class  BRepFill_DataMapOfNodeShape
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::BRepFill_DataMapOfNodeShape::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfNodeShape*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfNodeShape::Extent()
+{
+    int _result = ((::BRepFill_DataMapOfNodeShape*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfNodeShape::Length()
+{
+    int _result = ((::BRepFill_DataMapOfNodeShape*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_DataMapOfNodeShape::Size()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfNodeShape*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepFill_DataMapOfNodeShape::IsEmpty()
+{
+    bool _result = ((::BRepFill_DataMapOfNodeShape*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_DataMapOfNodeShape::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_DataMapOfNodeShape*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepFill_DataMapOfNodeShape::BRepFill_DataMapOfNodeShape()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeShape>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfNodeShape();
+}
+
+Macad::Occt::BRepFill_DataMapOfNodeShape::BRepFill_DataMapOfNodeShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfNodeShape(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfNodeShape::BRepFill_DataMapOfNodeShape(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfNodeShape(theNbBuckets, nullptr);
 }
 
 Macad::Occt::BRepFill_DataMapOfNodeShape::BRepFill_DataMapOfNodeShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -129,7 +235,7 @@ Macad::Occt::BRepFill_DataMapOfNodeShape::BRepFill_DataMapOfNodeShape(int theNbB
 Macad::Occt::BRepFill_DataMapOfNodeShape::BRepFill_DataMapOfNodeShape(int theNbBuckets)
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeShape>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::BRepFill_DataMapOfNodeShape(theNbBuckets, 0L);
+    _NativeInstance = new ::BRepFill_DataMapOfNodeShape(theNbBuckets, nullptr);
 }
 
 void Macad::Occt::BRepFill_DataMapOfNodeShape::Exchange(Macad::Occt::BRepFill_DataMapOfNodeShape^ theOther)
@@ -142,6 +248,11 @@ Macad::Occt::BRepFill_DataMapOfNodeShape^ Macad::Occt::BRepFill_DataMapOfNodeSha
     ::BRepFill_DataMapOfNodeShape* _result = new ::BRepFill_DataMapOfNodeShape();
     *_result = ((::BRepFill_DataMapOfNodeShape*)_NativeInstance)->Assign(*(::BRepFill_DataMapOfNodeShape*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_DataMapOfNodeShape(_result);
+}
+
+void Macad::Occt::BRepFill_DataMapOfNodeShape::ReSize(long long unsigned int N)
+{
+    ((::BRepFill_DataMapOfNodeShape*)_NativeInstance)->ReSize(N);
 }
 
 void Macad::Occt::BRepFill_DataMapOfNodeShape::ReSize(int N)
@@ -159,10 +270,9 @@ void Macad::Occt::BRepFill_DataMapOfNodeShape::Clear()
     ((::BRepFill_DataMapOfNodeShape*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::BRepFill_DataMapOfNodeShape::Size()
+void Macad::Occt::BRepFill_DataMapOfNodeShape::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::BRepFill_DataMapOfNodeShape*)_NativeInstance)->Size();
-    return _result;
+    ((::BRepFill_DataMapOfNodeShape*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -175,6 +285,12 @@ Macad::Occt::BRepFill_DataMapOfNodeShape::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeShape::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfNodeShape::Iterator();
+}
+
+Macad::Occt::BRepFill_DataMapOfNodeShape::Iterator::Iterator(Macad::Occt::BRepFill_DataMapOfNodeShape^ theMap)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfNodeShape::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfNodeShape::Iterator(*(::BRepFill_DataMapOfNodeShape*)theMap->NativeInstance);
 }
 
 bool Macad::Occt::BRepFill_DataMapOfNodeShape::Iterator::More()
@@ -208,10 +324,58 @@ Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepFill_DataMapOfNodeShape::Iterator::C
 //  Class  BRepFill_DataMapOfOrientedShapeListOfShape
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Extent()
+{
+    int _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Length()
+{
+    int _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Size()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::IsEmpty()
+{
+    bool _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::BRepFill_DataMapOfOrientedShapeListOfShape()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfOrientedShapeListOfShape();
+}
+
+Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::BRepFill_DataMapOfOrientedShapeListOfShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfOrientedShapeListOfShape(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::BRepFill_DataMapOfOrientedShapeListOfShape(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfOrientedShapeListOfShape(theNbBuckets, nullptr);
 }
 
 Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::BRepFill_DataMapOfOrientedShapeListOfShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -223,7 +387,7 @@ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::BRepFill_DataMapOfOrien
 Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::BRepFill_DataMapOfOrientedShapeListOfShape(int theNbBuckets)
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::BRepFill_DataMapOfOrientedShapeListOfShape(theNbBuckets, 0L);
+    _NativeInstance = new ::BRepFill_DataMapOfOrientedShapeListOfShape(theNbBuckets, nullptr);
 }
 
 void Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Exchange(Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape^ theOther)
@@ -238,21 +402,39 @@ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape^ Macad::Occt::BRepFill_D
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape(_result);
 }
 
+void Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::ReSize(long long unsigned int N)
+{
+    ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->ReSize(N);
+}
+
 void Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::ReSize(int N)
 {
     ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->ReSize(N);
 }
 
-bool Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopoDS_ListOfShape^ theItem)
+bool Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_ListOfShape^ theItem)
 {
-    bool _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Bind(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TopoDS_ListOfShape*)theItem->NativeInstance);
+    bool _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Bind(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TopTools_ListOfShape*)theItem->NativeInstance);
     return _result;
 }
 
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopoDS_ListOfShape^ theItem)
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_ListOfShape^ theItem)
 {
-    ::TopoDS_ListOfShape* _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Bound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TopoDS_ListOfShape*)theItem->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
+    ::TopTools_ListOfShape* _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Bound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TopTools_ListOfShape*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
+}
+
+bool Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_ListOfShape^ theItem)
+{
+    bool _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TopTools_ListOfShape*)theItem->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_ListOfShape^ theItem)
+{
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
+    *_result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TopTools_ListOfShape*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
 }
 
 bool Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::IsBound(Macad::Occt::TopoDS_Shape^ theKey)
@@ -267,30 +449,36 @@ bool Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::UnBind(Macad::Occt
     return _result;
 }
 
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Seek(Macad::Occt::TopoDS_Shape^ theKey)
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Seek(Macad::Occt::TopoDS_Shape^ theKey)
 {
-    const ::TopoDS_ListOfShape* _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Seek(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape((::TopoDS_ListOfShape*)_result);
+    const ::TopTools_ListOfShape* _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Seek(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape((::TopTools_ListOfShape*)_result);
 }
 
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Find(Macad::Occt::TopoDS_Shape^ theKey)
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Find(Macad::Occt::TopoDS_Shape^ theKey)
 {
-    ::TopoDS_ListOfShape* _result = new ::TopoDS_ListOfShape();
-    *_result = (::TopoDS_ListOfShape)((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
+    *_result = (::TopTools_ListOfShape)((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
 }
 
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
+bool Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_ListOfShape^ theValue)
 {
-    ::TopoDS_ListOfShape* _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->ChangeSeek(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
+    bool _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TopTools_ListOfShape*)theValue->NativeInstance);
+    return _result;
 }
 
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::ChangeFind(Macad::Occt::TopoDS_Shape^ theKey)
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
 {
-    ::TopoDS_ListOfShape* _result = new ::TopoDS_ListOfShape();
+    ::TopTools_ListOfShape* _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->ChangeSeek(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::ChangeFind(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
     *_result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->ChangeFind(*(::TopoDS_Shape*)theKey->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
 }
 
 void Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Clear(bool doReleaseMemory)
@@ -303,10 +491,9 @@ void Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Clear()
     ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Size()
+void Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Size();
-    return _result;
+    ((::BRepFill_DataMapOfOrientedShapeListOfShape*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -321,6 +508,12 @@ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator::Iterator()
     _NativeInstance = new ::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator();
 }
 
+Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator::Iterator(Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape^ theMap)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator(*(::BRepFill_DataMapOfOrientedShapeListOfShape*)theMap->NativeInstance);
+}
+
 bool Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator::More()
 {
     bool _result = ((::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator*)_NativeInstance)->More();
@@ -332,18 +525,18 @@ void Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator::Next()
     ((::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator*)_NativeInstance)->Next();
 }
 
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator::Value()
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator::Value()
 {
-    ::TopoDS_ListOfShape* _result = new ::TopoDS_ListOfShape();
-    *_result = (::TopoDS_ListOfShape)((::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator*)_NativeInstance)->Value();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
+    *_result = (::TopTools_ListOfShape)((::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
 }
 
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator::ChangeValue()
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator::ChangeValue()
 {
-    ::TopoDS_ListOfShape* _result = new ::TopoDS_ListOfShape();
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
     *_result = ((::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator*)_NativeInstance)->ChangeValue();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
 }
 
 Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape::Iterator::Key()
@@ -359,10 +552,58 @@ Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfSha
 //  Class  BRepFill_DataMapOfShapeDataMapOfShapeListOfShape
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Extent()
+{
+    int _result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Length()
+{
+    int _result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Size()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::IsEmpty()
+{
+    bool _result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape();
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(theNbBuckets, nullptr);
 }
 
 Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -374,7 +615,37 @@ Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::BRepFill_DataMapO
 Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(int theNbBuckets)
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(theNbBuckets, 0L);
+    _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, 1, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
 }
 
 void Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Exchange(Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape^ theOther)
@@ -382,11 +653,23 @@ void Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Exchange(Mac
     ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->Exchange(*(::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)theOther->NativeInstance);
 }
 
+Macad::Occt::TopTools_ShapeMapHasher^ Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::GetHasher()
+{
+    ::TopTools_ShapeMapHasher* _result = new ::TopTools_ShapeMapHasher();
+    *_result = (::TopTools_ShapeMapHasher)((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->GetHasher();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ShapeMapHasher(_result);
+}
+
 Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape^ Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Assign(Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape^ theOther)
 {
     ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape* _result = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape();
     *_result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->Assign(*(::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(_result);
+}
+
+void Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::ReSize(long long unsigned int N)
+{
+    ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->ReSize(N);
 }
 
 void Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::ReSize(int N)
@@ -403,6 +686,19 @@ bool Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Bind(Macad::
 Macad::Occt::TopTools_DataMapOfShapeListOfShape^ Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theItem)
 {
     ::TopTools_DataMapOfShapeListOfShape* _result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->Bound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TopTools_DataMapOfShapeListOfShape*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_DataMapOfShapeListOfShape(_result);
+}
+
+bool Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theItem)
+{
+    bool _result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TopTools_DataMapOfShapeListOfShape*)theItem->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::TopTools_DataMapOfShapeListOfShape^ Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theItem)
+{
+    ::TopTools_DataMapOfShapeListOfShape* _result = new ::TopTools_DataMapOfShapeListOfShape();
+    *_result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TopTools_DataMapOfShapeListOfShape*)theItem->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_DataMapOfShapeListOfShape(_result);
 }
 
@@ -431,6 +727,12 @@ Macad::Occt::TopTools_DataMapOfShapeListOfShape^ Macad::Occt::BRepFill_DataMapOf
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_DataMapOfShapeListOfShape(_result);
 }
 
+bool Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theValue)
+{
+    bool _result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TopTools_DataMapOfShapeListOfShape*)theValue->NativeInstance);
+    return _result;
+}
+
 Macad::Occt::TopTools_DataMapOfShapeListOfShape^ Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
 {
     ::TopTools_DataMapOfShapeListOfShape* _result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->ChangeSeek(*(::TopoDS_Shape*)theKey->NativeInstance);
@@ -454,10 +756,9 @@ void Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Clear()
     ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Size()
+void Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->Size();
-    return _result;
+    ((::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -470,6 +771,12 @@ Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Iterator::Iterato
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Iterator();
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Iterator::Iterator(Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape^ theMap)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Iterator(*(::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape*)theMap->NativeInstance);
 }
 
 bool Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape::Iterator::More()
@@ -510,10 +817,58 @@ Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeLis
 //  Class  BRepFill_DataMapOfShapeHArray2OfShape
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Extent()
+{
+    int _result = ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Length()
+{
+    int _result = ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Size()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::IsEmpty()
+{
+    bool _result = ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::BRepFill_DataMapOfShapeHArray2OfShape()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeHArray2OfShape>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape();
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::BRepFill_DataMapOfShapeHArray2OfShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeHArray2OfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::BRepFill_DataMapOfShapeHArray2OfShape(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeHArray2OfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape(theNbBuckets, nullptr);
 }
 
 Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::BRepFill_DataMapOfShapeHArray2OfShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -525,7 +880,37 @@ Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::BRepFill_DataMapOfShapeHArra
 Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::BRepFill_DataMapOfShapeHArray2OfShape(int theNbBuckets)
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeHArray2OfShape>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape(theNbBuckets, 0L);
+    _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape(theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::BRepFill_DataMapOfShapeHArray2OfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeHArray2OfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::BRepFill_DataMapOfShapeHArray2OfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeHArray2OfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::BRepFill_DataMapOfShapeHArray2OfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeHArray2OfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, 1, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::BRepFill_DataMapOfShapeHArray2OfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeHArray2OfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::BRepFill_DataMapOfShapeHArray2OfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeHArray2OfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
 }
 
 void Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Exchange(Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape^ theOther)
@@ -533,11 +918,23 @@ void Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Exchange(Macad::Occt::B
     ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->Exchange(*(::BRepFill_DataMapOfShapeHArray2OfShape*)theOther->NativeInstance);
 }
 
+Macad::Occt::TopTools_ShapeMapHasher^ Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::GetHasher()
+{
+    ::TopTools_ShapeMapHasher* _result = new ::TopTools_ShapeMapHasher();
+    *_result = (::TopTools_ShapeMapHasher)((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->GetHasher();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ShapeMapHasher(_result);
+}
+
 Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape^ Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Assign(Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape^ theOther)
 {
     ::BRepFill_DataMapOfShapeHArray2OfShape* _result = new ::BRepFill_DataMapOfShapeHArray2OfShape();
     *_result = ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->Assign(*(::BRepFill_DataMapOfShapeHArray2OfShape*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape(_result);
+}
+
+void Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::ReSize(long long unsigned int N)
+{
+    ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->ReSize(N);
 }
 
 void Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::ReSize(int N)
@@ -554,6 +951,18 @@ bool Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Bind(Macad::Occt::TopoD
 Macad::Occt::TopTools_HArray2OfShape^ Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_HArray2OfShape^ theItem)
 {
     throw gcnew System::NotImplementedException();
+}
+
+bool Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_HArray2OfShape^ theItem)
+{
+    bool _result = ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey->NativeInstance, Handle(::TopTools_HArray2OfShape)(theItem->NativeInstance));
+    return _result;
+}
+
+Macad::Occt::TopTools_HArray2OfShape^ Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_HArray2OfShape^ theItem)
+{
+    Handle(::TopTools_HArray2OfShape) _result = ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey->NativeInstance, Handle(::TopTools_HArray2OfShape)(theItem->NativeInstance));
+    return _result.IsNull() ? nullptr : Macad::Occt::TopTools_HArray2OfShape::CreateDowncasted(_result.get());
 }
 
 bool Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::IsBound(Macad::Occt::TopoDS_Shape^ theKey)
@@ -579,6 +988,14 @@ Macad::Occt::TopTools_HArray2OfShape^ Macad::Occt::BRepFill_DataMapOfShapeHArray
     return _result.IsNull() ? nullptr : Macad::Occt::TopTools_HArray2OfShape::CreateDowncasted(_result.get());
 }
 
+bool Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_HArray2OfShape^ theValue)
+{
+    Handle(::TopTools_HArray2OfShape) h_theValue = theValue->NativeInstance;
+    bool _result = ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance, h_theValue);
+    theValue->NativeInstance = h_theValue.get();
+    return _result;
+}
+
 Macad::Occt::TopTools_HArray2OfShape^ Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
 {
     throw gcnew System::NotImplementedException();
@@ -600,10 +1017,9 @@ void Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Clear()
     ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Size()
+void Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->Size();
-    return _result;
+    ((::BRepFill_DataMapOfShapeHArray2OfShape*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -616,6 +1032,12 @@ Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeHArray2OfShape::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape::Iterator();
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Iterator::Iterator(Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape^ theMap)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeHArray2OfShape::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeHArray2OfShape::Iterator(*(::BRepFill_DataMapOfShapeHArray2OfShape*)theMap->NativeInstance);
 }
 
 bool Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::Iterator::More()
@@ -654,10 +1076,58 @@ Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape::I
 //  Class  BRepFill_DataMapOfShapeSequenceOfPnt
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Extent()
+{
+    int _result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Length()
+{
+    int _result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Size()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::IsEmpty()
+{
+    bool _result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::BRepFill_DataMapOfShapeSequenceOfPnt()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt();
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::BRepFill_DataMapOfShapeSequenceOfPnt(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::BRepFill_DataMapOfShapeSequenceOfPnt(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt(theNbBuckets, nullptr);
 }
 
 Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::BRepFill_DataMapOfShapeSequenceOfPnt(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -669,7 +1139,37 @@ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::BRepFill_DataMapOfShapeSequen
 Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::BRepFill_DataMapOfShapeSequenceOfPnt(int theNbBuckets)
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt(theNbBuckets, 0L);
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt(theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::BRepFill_DataMapOfShapeSequenceOfPnt(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::BRepFill_DataMapOfShapeSequenceOfPnt(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::BRepFill_DataMapOfShapeSequenceOfPnt(Macad::Occt::TopTools_ShapeMapHasher^ theHasher)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, 1, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::BRepFill_DataMapOfShapeSequenceOfPnt(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::BRepFill_DataMapOfShapeSequenceOfPnt(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
 }
 
 void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Exchange(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt^ theOther)
@@ -677,11 +1177,23 @@ void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Exchange(Macad::Occt::BR
     ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->Exchange(*(::BRepFill_DataMapOfShapeSequenceOfPnt*)theOther->NativeInstance);
 }
 
+Macad::Occt::TopTools_ShapeMapHasher^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::GetHasher()
+{
+    ::TopTools_ShapeMapHasher* _result = new ::TopTools_ShapeMapHasher();
+    *_result = (::TopTools_ShapeMapHasher)((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->GetHasher();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ShapeMapHasher(_result);
+}
+
 Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Assign(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt^ theOther)
 {
     ::BRepFill_DataMapOfShapeSequenceOfPnt* _result = new ::BRepFill_DataMapOfShapeSequenceOfPnt();
     *_result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->Assign(*(::BRepFill_DataMapOfShapeSequenceOfPnt*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt(_result);
+}
+
+void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::ReSize(long long unsigned int N)
+{
+    ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->ReSize(N);
 }
 
 void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::ReSize(int N)
@@ -698,6 +1210,19 @@ bool Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Bind(Macad::Occt::TopoDS
 Macad::Occt::TColgp_SequenceOfPnt^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt^ theItem)
 {
     ::TColgp_SequenceOfPnt* _result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->Bound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColgp_SequenceOfPnt*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt(_result);
+}
+
+bool Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt^ theItem)
+{
+    bool _result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColgp_SequenceOfPnt*)theItem->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::TColgp_SequenceOfPnt^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt^ theItem)
+{
+    ::TColgp_SequenceOfPnt* _result = new ::TColgp_SequenceOfPnt();
+    *_result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColgp_SequenceOfPnt*)theItem->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt(_result);
 }
 
@@ -726,6 +1251,12 @@ Macad::Occt::TColgp_SequenceOfPnt^ Macad::Occt::BRepFill_DataMapOfShapeSequenceO
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_SequenceOfPnt(_result);
 }
 
+bool Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt^ theValue)
+{
+    bool _result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColgp_SequenceOfPnt*)theValue->NativeInstance);
+    return _result;
+}
+
 Macad::Occt::TColgp_SequenceOfPnt^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
 {
     ::TColgp_SequenceOfPnt* _result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->ChangeSeek(*(::TopoDS_Shape*)theKey->NativeInstance);
@@ -749,10 +1280,9 @@ void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Clear()
     ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Size()
+void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->Size();
-    return _result;
+    ((::BRepFill_DataMapOfShapeSequenceOfPnt*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -765,6 +1295,12 @@ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt::Iterator();
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Iterator::Iterator(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt^ theMap)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfPnt::Iterator(*(::BRepFill_DataMapOfShapeSequenceOfPnt*)theMap->NativeInstance);
 }
 
 bool Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::Iterator::More()
@@ -805,10 +1341,58 @@ Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt::It
 //  Class  BRepFill_DataMapOfShapeSequenceOfReal
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Extent()
+{
+    int _result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Length()
+{
+    int _result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Size()
+{
+    long long unsigned int _result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::IsEmpty()
+{
+    bool _result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::BRepFill_DataMapOfShapeSequenceOfReal()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfReal>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal();
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::BRepFill_DataMapOfShapeSequenceOfReal(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfReal>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::BRepFill_DataMapOfShapeSequenceOfReal(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfReal>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal(theNbBuckets, nullptr);
 }
 
 Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::BRepFill_DataMapOfShapeSequenceOfReal(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -820,7 +1404,37 @@ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::BRepFill_DataMapOfShapeSeque
 Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::BRepFill_DataMapOfShapeSequenceOfReal(int theNbBuckets)
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfReal>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal(theNbBuckets, 0L);
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal(theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::BRepFill_DataMapOfShapeSequenceOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfReal>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::BRepFill_DataMapOfShapeSequenceOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfReal>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::BRepFill_DataMapOfShapeSequenceOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfReal>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, 1, nullptr);
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::BRepFill_DataMapOfShapeSequenceOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfReal>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::BRepFill_DataMapOfShapeSequenceOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfReal>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
 }
 
 void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Exchange(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal^ theOther)
@@ -828,11 +1442,23 @@ void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Exchange(Macad::Occt::B
     ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->Exchange(*(::BRepFill_DataMapOfShapeSequenceOfReal*)theOther->NativeInstance);
 }
 
+Macad::Occt::TopTools_ShapeMapHasher^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::GetHasher()
+{
+    ::TopTools_ShapeMapHasher* _result = new ::TopTools_ShapeMapHasher();
+    *_result = (::TopTools_ShapeMapHasher)((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->GetHasher();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ShapeMapHasher(_result);
+}
+
 Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Assign(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal^ theOther)
 {
     ::BRepFill_DataMapOfShapeSequenceOfReal* _result = new ::BRepFill_DataMapOfShapeSequenceOfReal();
     *_result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->Assign(*(::BRepFill_DataMapOfShapeSequenceOfReal*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal(_result);
+}
+
+void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::ReSize(long long unsigned int N)
+{
+    ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->ReSize(N);
 }
 
 void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::ReSize(int N)
@@ -849,6 +1475,19 @@ bool Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Bind(Macad::Occt::TopoD
 Macad::Occt::TColStd_SequenceOfReal^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_SequenceOfReal^ theItem)
 {
     ::TColStd_SequenceOfReal* _result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->Bound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColStd_SequenceOfReal*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_SequenceOfReal(_result);
+}
+
+bool Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_SequenceOfReal^ theItem)
+{
+    bool _result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColStd_SequenceOfReal*)theItem->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::TColStd_SequenceOfReal^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_SequenceOfReal^ theItem)
+{
+    ::TColStd_SequenceOfReal* _result = new ::TColStd_SequenceOfReal();
+    *_result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColStd_SequenceOfReal*)theItem->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_SequenceOfReal(_result);
 }
 
@@ -877,6 +1516,12 @@ Macad::Occt::TColStd_SequenceOfReal^ Macad::Occt::BRepFill_DataMapOfShapeSequenc
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_SequenceOfReal(_result);
 }
 
+bool Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_SequenceOfReal^ theValue)
+{
+    bool _result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance, *(::TColStd_SequenceOfReal*)theValue->NativeInstance);
+    return _result;
+}
+
 Macad::Occt::TColStd_SequenceOfReal^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
 {
     ::TColStd_SequenceOfReal* _result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->ChangeSeek(*(::TopoDS_Shape*)theKey->NativeInstance);
@@ -900,10 +1545,9 @@ void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Clear()
     ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Size()
+void Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->Size();
-    return _result;
+    ((::BRepFill_DataMapOfShapeSequenceOfReal*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -916,6 +1560,12 @@ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfReal::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal::Iterator();
+}
+
+Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Iterator::Iterator(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal^ theMap)
+    : Macad::Occt::BaseClass<::BRepFill_DataMapOfShapeSequenceOfReal::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_DataMapOfShapeSequenceOfReal::Iterator(*(::BRepFill_DataMapOfShapeSequenceOfReal*)theMap->NativeInstance);
 }
 
 bool Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::Iterator::More()
@@ -953,8 +1603,503 @@ Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal::I
 
 
 //---------------------------------------------------------------------
+//  Class  BRepFill_IndexedDataMapOfOrientedShapeListOfShape
+//---------------------------------------------------------------------
+
+long long unsigned int Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Extent()
+{
+    int _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Length()
+{
+    int _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Size()
+{
+    long long unsigned int _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::IsEmpty()
+{
+    bool _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::BRepFill_IndexedDataMapOfOrientedShapeListOfShape()
+    : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape();
+}
+
+Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(theNbBuckets, nullptr);
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Exchange(Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ theOther)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Exchange(*(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)theOther->NativeInstance);
+}
+
+Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Assign(Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ theOther)
+{
+    ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape* _result = new ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape();
+    *_result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Assign(*(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(_result);
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::ReSize(long long unsigned int N)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->ReSize(N);
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::ReSize(int N)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->ReSize(N);
+}
+
+int Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Add(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem)
+{
+    int _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Add(*(::TopoDS_Shape*)theKey1->NativeInstance, *(::TopTools_ListOfShape*)theItem->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::TryBound(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem)
+{
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
+    *_result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey1->NativeInstance, *(::TopTools_ListOfShape*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
+}
+
+bool Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::TryBind(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem)
+{
+    bool _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey1->NativeInstance, *(::TopTools_ListOfShape*)theItem->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Bind(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem)
+{
+    bool _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Bind(*(::TopoDS_Shape*)theKey1->NativeInstance, *(::TopTools_ListOfShape*)theItem->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Bound(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem)
+{
+    ::TopTools_ListOfShape* _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Bound(*(::TopoDS_Shape*)theKey1->NativeInstance, *(::TopTools_ListOfShape*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
+}
+
+bool Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Contains(Macad::Occt::TopoDS_Shape^ theKey1)
+{
+    bool _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Contains(*(::TopoDS_Shape*)theKey1->NativeInstance);
+    return _result;
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Substitute(long long unsigned int theIndex, Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Substitute(theIndex, *(::TopoDS_Shape*)theKey1->NativeInstance, *(::TopTools_ListOfShape*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Substitute(int theIndex, Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Substitute(theIndex, *(::TopoDS_Shape*)theKey1->NativeInstance, *(::TopTools_ListOfShape*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Swap(long long unsigned int theIndex1, long long unsigned int theIndex2)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Swap(theIndex1, theIndex2);
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Swap(int theIndex1, int theIndex2)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Swap(theIndex1, theIndex2);
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::RemoveLast()
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->RemoveLast();
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::RemoveFromIndex(long long unsigned int theIndex)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->RemoveFromIndex(theIndex);
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::RemoveFromIndex(int theIndex)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->RemoveFromIndex(theIndex);
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::RemoveKey(Macad::Occt::TopoDS_Shape^ theKey1)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->RemoveKey(*(::TopoDS_Shape*)theKey1->NativeInstance);
+}
+
+Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::FindKey(long long unsigned int theIndex)
+{
+    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
+    *_result = (::TopoDS_Shape)((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->FindKey(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
+}
+
+Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::FindKey(int theIndex)
+{
+    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
+    *_result = (::TopoDS_Shape)((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->FindKey(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::FindFromIndex(long long unsigned int theIndex)
+{
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
+    *_result = (::TopTools_ListOfShape)((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->FindFromIndex(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::FindFromIndex(int theIndex)
+{
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
+    *_result = (::TopTools_ListOfShape)((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->FindFromIndex(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::ChangeFromIndex(long long unsigned int theIndex)
+{
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
+    *_result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->ChangeFromIndex(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::ChangeFromIndex(int theIndex)
+{
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
+    *_result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->ChangeFromIndex(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
+}
+
+int Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::FindIndex(Macad::Occt::TopoDS_Shape^ theKey1)
+{
+    int _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->FindIndex(*(::TopoDS_Shape*)theKey1->NativeInstance);
+    return _result;
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::FindFromKey(Macad::Occt::TopoDS_Shape^ theKey1)
+{
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
+    *_result = (::TopTools_ListOfShape)((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->FindFromKey(*(::TopoDS_Shape*)theKey1->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::ChangeFromKey(Macad::Occt::TopoDS_Shape^ theKey1)
+{
+    ::TopTools_ListOfShape* _result = new ::TopTools_ListOfShape();
+    *_result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->ChangeFromKey(*(::TopoDS_Shape*)theKey1->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Seek(Macad::Occt::TopoDS_Shape^ theKey1)
+{
+    const ::TopTools_ListOfShape* _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Seek(*(::TopoDS_Shape*)theKey1->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape((::TopTools_ListOfShape*)_result);
+}
+
+Macad::Occt::TopTools_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey1)
+{
+    ::TopTools_ListOfShape* _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->ChangeSeek(*(::TopoDS_Shape*)theKey1->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ListOfShape(_result);
+}
+
+bool Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::FindFromKey(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theValue)
+{
+    bool _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->FindFromKey(*(::TopoDS_Shape*)theKey1->NativeInstance, *(::TopTools_ListOfShape*)theValue->NativeInstance);
+    return _result;
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Clear(bool doReleaseMemory)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Clear(doReleaseMemory);
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Clear()
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Clear(false);
+}
+
+void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator
+//---------------------------------------------------------------------
+
+
+
+//---------------------------------------------------------------------
+//  Class  BRepFill_ListOfOffsetWire
+//---------------------------------------------------------------------
+
+int Macad::Occt::BRepFill_ListOfOffsetWire::Extent()
+{
+    int _result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepFill_ListOfOffsetWire::Length()
+{
+    int _result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_ListOfOffsetWire::Size()
+{
+    long long unsigned int _result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepFill_ListOfOffsetWire::IsEmpty()
+{
+    bool _result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_ListOfOffsetWire::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::BRepFill_ListOfOffsetWire::BRepFill_ListOfOffsetWire()
+    : Macad::Occt::BaseClass<::BRepFill_ListOfOffsetWire>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_ListOfOffsetWire();
+}
+
+Macad::Occt::BRepFill_ListOfOffsetWire::BRepFill_ListOfOffsetWire(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepFill_ListOfOffsetWire>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_ListOfOffsetWire(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepFill_ListOfOffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Assign(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther)
+{
+    ::BRepFill_ListOfOffsetWire* _result = new ::BRepFill_ListOfOffsetWire();
+    *_result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Assign(*(::BRepFill_ListOfOffsetWire*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_ListOfOffsetWire(_result);
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::Clear()
+{
+    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::First()
+{
+    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
+    *_result = (::BRepFill_OffsetWire)((::BRepFill_ListOfOffsetWire*)_NativeInstance)->First();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
+}
+
+Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Last()
+{
+    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
+    *_result = (::BRepFill_OffsetWire)((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Last();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
+}
+
+Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Append(Macad::Occt::BRepFill_OffsetWire^ theItem)
+{
+    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
+    *_result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Append(*(::BRepFill_OffsetWire*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::Append(Macad::Occt::BRepFill_OffsetWire^ theItem, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter)
+{
+    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Append(*(::BRepFill_OffsetWire*)theItem->NativeInstance, *(::BRepFill_ListOfOffsetWire::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::Append(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther)
+{
+    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Append(*(::BRepFill_ListOfOffsetWire*)theOther->NativeInstance);
+}
+
+Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Prepend(Macad::Occt::BRepFill_OffsetWire^ theItem)
+{
+    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
+    *_result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Prepend(*(::BRepFill_OffsetWire*)theItem->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::Prepend(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther)
+{
+    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Prepend(*(::BRepFill_ListOfOffsetWire*)theOther->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::RemoveFirst()
+{
+    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->RemoveFirst();
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::Remove(Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter)
+{
+    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Remove(*(::BRepFill_ListOfOffsetWire::Iterator*)theIter->NativeInstance);
+}
+
+Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::InsertBefore(Macad::Occt::BRepFill_OffsetWire^ theItem, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter)
+{
+    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
+    *_result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->InsertBefore(*(::BRepFill_OffsetWire*)theItem->NativeInstance, *(::BRepFill_ListOfOffsetWire::Iterator*)theIter->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::InsertBefore(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter)
+{
+    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->InsertBefore(*(::BRepFill_ListOfOffsetWire*)theOther->NativeInstance, *(::BRepFill_ListOfOffsetWire::Iterator*)theIter->NativeInstance);
+}
+
+Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::InsertAfter(Macad::Occt::BRepFill_OffsetWire^ theItem, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter)
+{
+    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
+    *_result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->InsertAfter(*(::BRepFill_OffsetWire*)theItem->NativeInstance, *(::BRepFill_ListOfOffsetWire::Iterator*)theIter->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::InsertAfter(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter)
+{
+    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->InsertAfter(*(::BRepFill_ListOfOffsetWire*)theOther->NativeInstance, *(::BRepFill_ListOfOffsetWire::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::Reverse()
+{
+    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::Exchange(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther)
+{
+    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Exchange(*(::BRepFill_ListOfOffsetWire*)theOther->NativeInstance);
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::BRepFill_OffsetWire^>^ Macad::Occt::BRepFill_ListOfOffsetWire::GetEnumerator()
+{
+    return gcnew Macad::Occt::BRepFill_ListOfOffsetWire::Iterator(new ::BRepFill_ListOfOffsetWire::Iterator(*NativeInstance));
+}
+
+System::Collections::IEnumerator^ Macad::Occt::BRepFill_ListOfOffsetWire::GetEnumerator2()
+{
+    return gcnew Macad::Occt::BRepFill_ListOfOffsetWire::Iterator(new ::BRepFill_ListOfOffsetWire::Iterator(*NativeInstance));
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  BRepFill_ListOfOffsetWire::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::BRepFill_ListOfOffsetWire::Iterator::Iterator()
+    : Macad::Occt::IteratorEnumerator<Macad::Occt::BRepFill_OffsetWire^, ::BRepFill_ListOfOffsetWire::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_ListOfOffsetWire::Iterator();
+}
+
+Macad::Occt::BRepFill_ListOfOffsetWire::Iterator::Iterator(Macad::Occt::NCollection_BaseList^ theList)
+    : Macad::Occt::IteratorEnumerator<Macad::Occt::BRepFill_OffsetWire^, ::BRepFill_ListOfOffsetWire::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_ListOfOffsetWire::Iterator(*(::NCollection_BaseList*)theList->NativeInstance);
+}
+
+bool Macad::Occt::BRepFill_ListOfOffsetWire::Iterator::More()
+{
+    bool _result = ((::BRepFill_ListOfOffsetWire::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::BRepFill_ListOfOffsetWire::Iterator::Next()
+{
+    ((::BRepFill_ListOfOffsetWire::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Iterator::Value()
+{
+    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
+    *_result = (::BRepFill_OffsetWire)((::BRepFill_ListOfOffsetWire::Iterator*)_NativeInstance)->Value();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
+}
+
+Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Iterator::ChangeValue()
+{
+    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
+    *_result = ((::BRepFill_ListOfOffsetWire::Iterator*)_NativeInstance)->ChangeValue();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
+}
+
+
+
+//---------------------------------------------------------------------
 //  Class  BRepFill_SequenceOfEdgeFaceAndOrder
 //---------------------------------------------------------------------
+
+int Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Length()
+{
+    int _result = ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Size()
+{
+    long long unsigned int _result = ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
 
 Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::BRepFill_SequenceOfEdgeFaceAndOrder()
     : Macad::Occt::BaseClass<::BRepFill_SequenceOfEdgeFaceAndOrder>(BaseClass::InitMode::Uninitialized)
@@ -968,21 +2113,9 @@ Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::BRepFill_SequenceOfEdgeFaceAnd
     _NativeInstance = new ::BRepFill_SequenceOfEdgeFaceAndOrder(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
-int Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Size()
-{
-    int _result = ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Length()
-{
-    int _result = ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Length();
-    return _result;
-}
-
 int Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Lower()
 {
-    int _result = ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Lower();
+    int _result = ::BRepFill_SequenceOfEdgeFaceAndOrder::Lower();
     return _result;
 }
 
@@ -1003,6 +2136,11 @@ void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Reverse()
     ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Exchange(int I, int J)
 {
     ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Exchange(I, J);
@@ -1015,7 +2153,7 @@ void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Clear(Macad::Occt::NColle
 
 void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Clear()
 {
-    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Clear(0L);
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Assign(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theOther)
@@ -1030,9 +2168,34 @@ void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Remove(Macad::Occt::BRepF
     ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Remove(*(::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Remove(long long unsigned int theIndex)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Remove(int theIndex)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Remove(int theFromIndex, int theToIndex)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Append(Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem)
 {
     ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Append(*(::BRepFill_EdgeFaceAndOrder*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Append(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Append(*(::BRepFill_SequenceOfEdgeFaceAndOrder*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Prepend(Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem)
@@ -1040,14 +2203,59 @@ void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Prepend(Macad::Occt::BRep
     ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Prepend(*(::BRepFill_EdgeFaceAndOrder*)theItem->NativeInstance);
 }
 
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Prepend(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Prepend(*(::BRepFill_SequenceOfEdgeFaceAndOrder*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_EdgeFaceAndOrder*)theItem->NativeInstance);
+}
+
 void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::InsertBefore(int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem)
 {
     ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_EdgeFaceAndOrder*)theItem->NativeInstance);
 }
 
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_SequenceOfEdgeFaceAndOrder*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::InsertBefore(int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_SequenceOfEdgeFaceAndOrder*)theSeq->NativeInstance);
+}
+
 void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::InsertAfter(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator^ thePosition, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem)
 {
     ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->InsertAfter(*(::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator*)thePosition->NativeInstance, *(::BRepFill_EdgeFaceAndOrder*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_SequenceOfEdgeFaceAndOrder*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::InsertAfter(int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_SequenceOfEdgeFaceAndOrder*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_EdgeFaceAndOrder*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::InsertAfter(int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_EdgeFaceAndOrder*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Split(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Split(theIndex, *(::BRepFill_SequenceOfEdgeFaceAndOrder*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Split(int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq)
@@ -1083,10 +2291,24 @@ Macad::Occt::BRepFill_EdgeFaceAndOrder^ Macad::Occt::BRepFill_SequenceOfEdgeFace
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_EdgeFaceAndOrder(_result);
 }
 
+Macad::Occt::BRepFill_EdgeFaceAndOrder^ Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Value(long long unsigned int theIndex)
+{
+    ::BRepFill_EdgeFaceAndOrder* _result = new ::BRepFill_EdgeFaceAndOrder();
+    *_result = (::BRepFill_EdgeFaceAndOrder)((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Value(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_EdgeFaceAndOrder(_result);
+}
+
 Macad::Occt::BRepFill_EdgeFaceAndOrder^ Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Value(int theIndex)
 {
     ::BRepFill_EdgeFaceAndOrder* _result = new ::BRepFill_EdgeFaceAndOrder();
     *_result = (::BRepFill_EdgeFaceAndOrder)((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->Value(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_EdgeFaceAndOrder(_result);
+}
+
+Macad::Occt::BRepFill_EdgeFaceAndOrder^ Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::ChangeValue(long long unsigned int theIndex)
+{
+    ::BRepFill_EdgeFaceAndOrder* _result = new ::BRepFill_EdgeFaceAndOrder();
+    *_result = ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->ChangeValue(theIndex);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_EdgeFaceAndOrder(_result);
 }
 
@@ -1097,9 +2319,28 @@ Macad::Occt::BRepFill_EdgeFaceAndOrder^ Macad::Occt::BRepFill_SequenceOfEdgeFace
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_EdgeFaceAndOrder(_result);
 }
 
+void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::SetValue(long long unsigned int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem)
+{
+    ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->SetValue(theIndex, *(::BRepFill_EdgeFaceAndOrder*)theItem->NativeInstance);
+}
+
 void Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::SetValue(int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem)
 {
     ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->SetValue(theIndex, *(::BRepFill_EdgeFaceAndOrder*)theItem->NativeInstance);
+}
+
+Macad::Occt::BRepFill_EdgeFaceAndOrder^ Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::At(long long unsigned int theIndex)
+{
+    ::BRepFill_EdgeFaceAndOrder* _result = new ::BRepFill_EdgeFaceAndOrder();
+    *_result = (::BRepFill_EdgeFaceAndOrder)((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_EdgeFaceAndOrder(_result);
+}
+
+Macad::Occt::BRepFill_EdgeFaceAndOrder^ Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::ChangeAt(long long unsigned int theIndex)
+{
+    ::BRepFill_EdgeFaceAndOrder* _result = new ::BRepFill_EdgeFaceAndOrder();
+    *_result = ((::BRepFill_SequenceOfEdgeFaceAndOrder*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_EdgeFaceAndOrder(_result);
 }
 
 System::Collections::Generic::IEnumerator<Macad::Occt::BRepFill_EdgeFaceAndOrder^>^ Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::GetEnumerator()
@@ -1122,6 +2363,18 @@ Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator();
+}
+
+Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator::Iterator(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator(*(::BRepFill_SequenceOfEdgeFaceAndOrder*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator::Iterator(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq)
+    : Macad::Occt::BaseClass<::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator(*(::BRepFill_SequenceOfEdgeFaceAndOrder*)theSeq->NativeInstance, true);
 }
 
 bool Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator::More()
@@ -1180,6 +2433,24 @@ bool Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator::Equals(System::
 //  Class  BRepFill_SequenceOfFaceAndOrder
 //---------------------------------------------------------------------
 
+int Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Length()
+{
+    int _result = ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Size()
+{
+    long long unsigned int _result = ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepFill_SequenceOfFaceAndOrder::BRepFill_SequenceOfFaceAndOrder()
     : Macad::Occt::BaseClass<::BRepFill_SequenceOfFaceAndOrder>(BaseClass::InitMode::Uninitialized)
 {
@@ -1192,21 +2463,9 @@ Macad::Occt::BRepFill_SequenceOfFaceAndOrder::BRepFill_SequenceOfFaceAndOrder(Ma
     _NativeInstance = new ::BRepFill_SequenceOfFaceAndOrder(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
-int Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Size()
-{
-    int _result = ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Length()
-{
-    int _result = ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Length();
-    return _result;
-}
-
 int Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Lower()
 {
-    int _result = ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Lower();
+    int _result = ::BRepFill_SequenceOfFaceAndOrder::Lower();
     return _result;
 }
 
@@ -1227,6 +2486,11 @@ void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Reverse()
     ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Exchange(int I, int J)
 {
     ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Exchange(I, J);
@@ -1239,7 +2503,7 @@ void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Clear(Macad::Occt::NCollectio
 
 void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Clear()
 {
-    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Clear(0L);
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Assign(Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theOther)
@@ -1254,9 +2518,34 @@ void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Remove(Macad::Occt::BRepFill_
     ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Remove(*(::BRepFill_SequenceOfFaceAndOrder::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Remove(long long unsigned int theIndex)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Remove(int theIndex)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Remove(int theFromIndex, int theToIndex)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Append(Macad::Occt::BRepFill_FaceAndOrder^ theItem)
 {
     ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Append(*(::BRepFill_FaceAndOrder*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Append(Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Append(*(::BRepFill_SequenceOfFaceAndOrder*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Prepend(Macad::Occt::BRepFill_FaceAndOrder^ theItem)
@@ -1264,14 +2553,59 @@ void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Prepend(Macad::Occt::BRepFill
     ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Prepend(*(::BRepFill_FaceAndOrder*)theItem->NativeInstance);
 }
 
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Prepend(Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Prepend(*(::BRepFill_SequenceOfFaceAndOrder*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_FaceAndOrder*)theItem->NativeInstance);
+}
+
 void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::InsertBefore(int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem)
 {
     ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_FaceAndOrder*)theItem->NativeInstance);
 }
 
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_SequenceOfFaceAndOrder*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::InsertBefore(int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_SequenceOfFaceAndOrder*)theSeq->NativeInstance);
+}
+
 void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::InsertAfter(Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Iterator^ thePosition, Macad::Occt::BRepFill_FaceAndOrder^ theItem)
 {
     ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->InsertAfter(*(::BRepFill_SequenceOfFaceAndOrder::Iterator*)thePosition->NativeInstance, *(::BRepFill_FaceAndOrder*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_SequenceOfFaceAndOrder*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::InsertAfter(int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_SequenceOfFaceAndOrder*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_FaceAndOrder*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::InsertAfter(int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_FaceAndOrder*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Split(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Split(theIndex, *(::BRepFill_SequenceOfFaceAndOrder*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Split(int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq)
@@ -1307,10 +2641,24 @@ Macad::Occt::BRepFill_FaceAndOrder^ Macad::Occt::BRepFill_SequenceOfFaceAndOrder
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_FaceAndOrder(_result);
 }
 
+Macad::Occt::BRepFill_FaceAndOrder^ Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Value(long long unsigned int theIndex)
+{
+    ::BRepFill_FaceAndOrder* _result = new ::BRepFill_FaceAndOrder();
+    *_result = (::BRepFill_FaceAndOrder)((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Value(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_FaceAndOrder(_result);
+}
+
 Macad::Occt::BRepFill_FaceAndOrder^ Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Value(int theIndex)
 {
     ::BRepFill_FaceAndOrder* _result = new ::BRepFill_FaceAndOrder();
     *_result = (::BRepFill_FaceAndOrder)((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->Value(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_FaceAndOrder(_result);
+}
+
+Macad::Occt::BRepFill_FaceAndOrder^ Macad::Occt::BRepFill_SequenceOfFaceAndOrder::ChangeValue(long long unsigned int theIndex)
+{
+    ::BRepFill_FaceAndOrder* _result = new ::BRepFill_FaceAndOrder();
+    *_result = ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->ChangeValue(theIndex);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_FaceAndOrder(_result);
 }
 
@@ -1321,9 +2669,28 @@ Macad::Occt::BRepFill_FaceAndOrder^ Macad::Occt::BRepFill_SequenceOfFaceAndOrder
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_FaceAndOrder(_result);
 }
 
+void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::SetValue(long long unsigned int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem)
+{
+    ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->SetValue(theIndex, *(::BRepFill_FaceAndOrder*)theItem->NativeInstance);
+}
+
 void Macad::Occt::BRepFill_SequenceOfFaceAndOrder::SetValue(int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem)
 {
     ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->SetValue(theIndex, *(::BRepFill_FaceAndOrder*)theItem->NativeInstance);
+}
+
+Macad::Occt::BRepFill_FaceAndOrder^ Macad::Occt::BRepFill_SequenceOfFaceAndOrder::At(long long unsigned int theIndex)
+{
+    ::BRepFill_FaceAndOrder* _result = new ::BRepFill_FaceAndOrder();
+    *_result = (::BRepFill_FaceAndOrder)((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_FaceAndOrder(_result);
+}
+
+Macad::Occt::BRepFill_FaceAndOrder^ Macad::Occt::BRepFill_SequenceOfFaceAndOrder::ChangeAt(long long unsigned int theIndex)
+{
+    ::BRepFill_FaceAndOrder* _result = new ::BRepFill_FaceAndOrder();
+    *_result = ((::BRepFill_SequenceOfFaceAndOrder*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_FaceAndOrder(_result);
 }
 
 System::Collections::Generic::IEnumerator<Macad::Occt::BRepFill_FaceAndOrder^>^ Macad::Occt::BRepFill_SequenceOfFaceAndOrder::GetEnumerator()
@@ -1346,6 +2713,18 @@ Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRepFill_SequenceOfFaceAndOrder::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_SequenceOfFaceAndOrder::Iterator();
+}
+
+Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Iterator::Iterator(Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::BRepFill_SequenceOfFaceAndOrder::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_SequenceOfFaceAndOrder::Iterator(*(::BRepFill_SequenceOfFaceAndOrder*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Iterator::Iterator(Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq)
+    : Macad::Occt::BaseClass<::BRepFill_SequenceOfFaceAndOrder::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_SequenceOfFaceAndOrder::Iterator(*(::BRepFill_SequenceOfFaceAndOrder*)theSeq->NativeInstance, true);
 }
 
 bool Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Iterator::More()
@@ -1401,306 +2780,26 @@ bool Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Iterator::Equals(System::Obje
 
 
 //---------------------------------------------------------------------
-//  Class  BRepFill_IndexedDataMapOfOrientedShapeListOfShape
-//---------------------------------------------------------------------
-
-Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::BRepFill_IndexedDataMapOfOrientedShapeListOfShape()
-    : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape();
-}
-
-Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(int theNbBuckets)
-    : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(theNbBuckets, 0L);
-}
-
-void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Exchange(Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ theOther)
-{
-    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Exchange(*(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)theOther->NativeInstance);
-}
-
-Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Assign(Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ theOther)
-{
-    ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape* _result = new ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape();
-    *_result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Assign(*(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape(_result);
-}
-
-void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::ReSize(int N)
-{
-    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->ReSize(N);
-}
-
-int Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Add(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopoDS_ListOfShape^ theItem)
-{
-    int _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Add(*(::TopoDS_Shape*)theKey1->NativeInstance, *(::TopoDS_ListOfShape*)theItem->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Contains(Macad::Occt::TopoDS_Shape^ theKey1)
-{
-    bool _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Contains(*(::TopoDS_Shape*)theKey1->NativeInstance);
-    return _result;
-}
-
-void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Substitute(int theIndex, Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopoDS_ListOfShape^ theItem)
-{
-    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Substitute(theIndex, *(::TopoDS_Shape*)theKey1->NativeInstance, *(::TopoDS_ListOfShape*)theItem->NativeInstance);
-}
-
-void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Swap(int theIndex1, int theIndex2)
-{
-    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Swap(theIndex1, theIndex2);
-}
-
-void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::RemoveLast()
-{
-    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->RemoveLast();
-}
-
-void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::RemoveFromIndex(int theIndex)
-{
-    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->RemoveFromIndex(theIndex);
-}
-
-void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::RemoveKey(Macad::Occt::TopoDS_Shape^ theKey1)
-{
-    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->RemoveKey(*(::TopoDS_Shape*)theKey1->NativeInstance);
-}
-
-Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::FindKey(int theIndex)
-{
-    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
-    *_result = (::TopoDS_Shape)((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->FindKey(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
-}
-
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::FindFromIndex(int theIndex)
-{
-    ::TopoDS_ListOfShape* _result = new ::TopoDS_ListOfShape();
-    *_result = (::TopoDS_ListOfShape)((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->FindFromIndex(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
-}
-
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::ChangeFromIndex(int theIndex)
-{
-    ::TopoDS_ListOfShape* _result = new ::TopoDS_ListOfShape();
-    *_result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->ChangeFromIndex(theIndex);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
-}
-
-int Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::FindIndex(Macad::Occt::TopoDS_Shape^ theKey1)
-{
-    int _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->FindIndex(*(::TopoDS_Shape*)theKey1->NativeInstance);
-    return _result;
-}
-
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::FindFromKey(Macad::Occt::TopoDS_Shape^ theKey1)
-{
-    ::TopoDS_ListOfShape* _result = new ::TopoDS_ListOfShape();
-    *_result = (::TopoDS_ListOfShape)((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->FindFromKey(*(::TopoDS_Shape*)theKey1->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
-}
-
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::ChangeFromKey(Macad::Occt::TopoDS_Shape^ theKey1)
-{
-    ::TopoDS_ListOfShape* _result = new ::TopoDS_ListOfShape();
-    *_result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->ChangeFromKey(*(::TopoDS_Shape*)theKey1->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
-}
-
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Seek(Macad::Occt::TopoDS_Shape^ theKey1)
-{
-    const ::TopoDS_ListOfShape* _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Seek(*(::TopoDS_Shape*)theKey1->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape((::TopoDS_ListOfShape*)_result);
-}
-
-Macad::Occt::TopoDS_ListOfShape^ Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey1)
-{
-    ::TopoDS_ListOfShape* _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->ChangeSeek(*(::TopoDS_Shape*)theKey1->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_ListOfShape(_result);
-}
-
-void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Clear(bool doReleaseMemory)
-{
-    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Clear(doReleaseMemory);
-}
-
-void Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Clear()
-{
-    ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Clear(false);
-}
-
-int Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Size()
-{
-    int _result = ((::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*)_NativeInstance)->Size();
-    return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator
-//---------------------------------------------------------------------
-
-
-
-//---------------------------------------------------------------------
-//  Class  BRepFill_ListOfOffsetWire
-//---------------------------------------------------------------------
-
-Macad::Occt::BRepFill_ListOfOffsetWire::BRepFill_ListOfOffsetWire()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRepFill_ListOfOffsetWire();
-}
-
-Macad::Occt::BRepFill_ListOfOffsetWire::BRepFill_ListOfOffsetWire(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRepFill_ListOfOffsetWire(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::BRepFill_ListOfOffsetWire::Size()
-{
-    int _result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Size();
-    return _result;
-}
-
-Macad::Occt::BRepFill_ListOfOffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Assign(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther)
-{
-    ::BRepFill_ListOfOffsetWire* _result = new ::BRepFill_ListOfOffsetWire();
-    *_result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Assign(*(::BRepFill_ListOfOffsetWire*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_ListOfOffsetWire(_result);
-}
-
-void Macad::Occt::BRepFill_ListOfOffsetWire::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::BRepFill_ListOfOffsetWire::Clear()
-{
-    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::First()
-{
-    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
-    *_result = (::BRepFill_OffsetWire)((::BRepFill_ListOfOffsetWire*)_NativeInstance)->First();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
-}
-
-Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Last()
-{
-    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
-    *_result = (::BRepFill_OffsetWire)((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Last();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
-}
-
-Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Append(Macad::Occt::BRepFill_OffsetWire^ theItem)
-{
-    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
-    *_result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Append(*(::BRepFill_OffsetWire*)theItem->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
-}
-
-Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Prepend(Macad::Occt::BRepFill_OffsetWire^ theItem)
-{
-    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
-    *_result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Prepend(*(::BRepFill_OffsetWire*)theItem->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
-}
-
-void Macad::Occt::BRepFill_ListOfOffsetWire::RemoveFirst()
-{
-    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->RemoveFirst();
-}
-
-void Macad::Occt::BRepFill_ListOfOffsetWire::Remove(Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter)
-{
-    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Remove(*(::BRepFill_ListOfOffsetWire::Iterator*)theIter->NativeInstance);
-}
-
-Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::InsertBefore(Macad::Occt::BRepFill_OffsetWire^ theItem, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter)
-{
-    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
-    *_result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->InsertBefore(*(::BRepFill_OffsetWire*)theItem->NativeInstance, *(::BRepFill_ListOfOffsetWire::Iterator*)theIter->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
-}
-
-Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::InsertAfter(Macad::Occt::BRepFill_OffsetWire^ theItem, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter)
-{
-    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
-    *_result = ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->InsertAfter(*(::BRepFill_OffsetWire*)theItem->NativeInstance, *(::BRepFill_ListOfOffsetWire::Iterator*)theIter->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
-}
-
-void Macad::Occt::BRepFill_ListOfOffsetWire::Reverse()
-{
-    ((::BRepFill_ListOfOffsetWire*)_NativeInstance)->Reverse();
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::BRepFill_OffsetWire^>^ Macad::Occt::BRepFill_ListOfOffsetWire::GetEnumerator()
-{
-    return gcnew Macad::Occt::BRepFill_ListOfOffsetWire::Iterator(new ::BRepFill_ListOfOffsetWire::Iterator(*NativeInstance));
-}
-
-System::Collections::IEnumerator^ Macad::Occt::BRepFill_ListOfOffsetWire::GetEnumerator2()
-{
-    return gcnew Macad::Occt::BRepFill_ListOfOffsetWire::Iterator(new ::BRepFill_ListOfOffsetWire::Iterator(*NativeInstance));
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  BRepFill_ListOfOffsetWire::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::BRepFill_ListOfOffsetWire::Iterator::Iterator()
-    : Macad::Occt::IteratorEnumerator<Macad::Occt::BRepFill_OffsetWire^, ::BRepFill_ListOfOffsetWire::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRepFill_ListOfOffsetWire::Iterator();
-}
-
-bool Macad::Occt::BRepFill_ListOfOffsetWire::Iterator::More()
-{
-    bool _result = ((::BRepFill_ListOfOffsetWire::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::BRepFill_ListOfOffsetWire::Iterator::Next()
-{
-    ((::BRepFill_ListOfOffsetWire::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Iterator::Value()
-{
-    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
-    *_result = (::BRepFill_OffsetWire)((::BRepFill_ListOfOffsetWire::Iterator*)_NativeInstance)->Value();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
-}
-
-Macad::Occt::BRepFill_OffsetWire^ Macad::Occt::BRepFill_ListOfOffsetWire::Iterator::ChangeValue()
-{
-    ::BRepFill_OffsetWire* _result = new ::BRepFill_OffsetWire();
-    *_result = ((::BRepFill_ListOfOffsetWire::Iterator*)_NativeInstance)->ChangeValue();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_OffsetWire(_result);
-}
-
-
-
-//---------------------------------------------------------------------
 //  Class  BRepFill_SequenceOfSection
 //---------------------------------------------------------------------
+
+int Macad::Occt::BRepFill_SequenceOfSection::Length()
+{
+    int _result = ((::BRepFill_SequenceOfSection*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepFill_SequenceOfSection::Size()
+{
+    long long unsigned int _result = ((::BRepFill_SequenceOfSection*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepFill_SequenceOfSection::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepFill_SequenceOfSection*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
 
 Macad::Occt::BRepFill_SequenceOfSection::BRepFill_SequenceOfSection()
     : Macad::Occt::BaseClass<::BRepFill_SequenceOfSection>(BaseClass::InitMode::Uninitialized)
@@ -1714,21 +2813,9 @@ Macad::Occt::BRepFill_SequenceOfSection::BRepFill_SequenceOfSection(Macad::Occt:
     _NativeInstance = new ::BRepFill_SequenceOfSection(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
-int Macad::Occt::BRepFill_SequenceOfSection::Size()
-{
-    int _result = ((::BRepFill_SequenceOfSection*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::BRepFill_SequenceOfSection::Length()
-{
-    int _result = ((::BRepFill_SequenceOfSection*)_NativeInstance)->Length();
-    return _result;
-}
-
 int Macad::Occt::BRepFill_SequenceOfSection::Lower()
 {
-    int _result = ((::BRepFill_SequenceOfSection*)_NativeInstance)->Lower();
+    int _result = ::BRepFill_SequenceOfSection::Lower();
     return _result;
 }
 
@@ -1749,6 +2836,11 @@ void Macad::Occt::BRepFill_SequenceOfSection::Reverse()
     ((::BRepFill_SequenceOfSection*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::BRepFill_SequenceOfSection::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::BRepFill_SequenceOfSection::Exchange(int I, int J)
 {
     ((::BRepFill_SequenceOfSection*)_NativeInstance)->Exchange(I, J);
@@ -1761,7 +2853,7 @@ void Macad::Occt::BRepFill_SequenceOfSection::Clear(Macad::Occt::NCollection_Bas
 
 void Macad::Occt::BRepFill_SequenceOfSection::Clear()
 {
-    ((::BRepFill_SequenceOfSection*)_NativeInstance)->Clear(0L);
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::BRepFill_SequenceOfSection^ Macad::Occt::BRepFill_SequenceOfSection::Assign(Macad::Occt::BRepFill_SequenceOfSection^ theOther)
@@ -1776,9 +2868,34 @@ void Macad::Occt::BRepFill_SequenceOfSection::Remove(Macad::Occt::BRepFill_Seque
     ((::BRepFill_SequenceOfSection*)_NativeInstance)->Remove(*(::BRepFill_SequenceOfSection::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::BRepFill_SequenceOfSection::Remove(long long unsigned int theIndex)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::BRepFill_SequenceOfSection::Remove(int theIndex)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::BRepFill_SequenceOfSection::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::BRepFill_SequenceOfSection::Remove(int theFromIndex, int theToIndex)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::BRepFill_SequenceOfSection::Append(Macad::Occt::BRepFill_Section^ theItem)
 {
     ((::BRepFill_SequenceOfSection*)_NativeInstance)->Append(*(::BRepFill_Section*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfSection::Append(Macad::Occt::BRepFill_SequenceOfSection^ theSeq)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->Append(*(::BRepFill_SequenceOfSection*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::BRepFill_SequenceOfSection::Prepend(Macad::Occt::BRepFill_Section^ theItem)
@@ -1786,14 +2903,59 @@ void Macad::Occt::BRepFill_SequenceOfSection::Prepend(Macad::Occt::BRepFill_Sect
     ((::BRepFill_SequenceOfSection*)_NativeInstance)->Prepend(*(::BRepFill_Section*)theItem->NativeInstance);
 }
 
+void Macad::Occt::BRepFill_SequenceOfSection::Prepend(Macad::Occt::BRepFill_SequenceOfSection^ theSeq)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->Prepend(*(::BRepFill_SequenceOfSection*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfSection::InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_Section^ theItem)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_Section*)theItem->NativeInstance);
+}
+
 void Macad::Occt::BRepFill_SequenceOfSection::InsertBefore(int theIndex, Macad::Occt::BRepFill_Section^ theItem)
 {
     ((::BRepFill_SequenceOfSection*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_Section*)theItem->NativeInstance);
 }
 
+void Macad::Occt::BRepFill_SequenceOfSection::InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_SequenceOfSection*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfSection::InsertBefore(int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->InsertBefore(theIndex, *(::BRepFill_SequenceOfSection*)theSeq->NativeInstance);
+}
+
 void Macad::Occt::BRepFill_SequenceOfSection::InsertAfter(Macad::Occt::BRepFill_SequenceOfSection::Iterator^ thePosition, Macad::Occt::BRepFill_Section^ theItem)
 {
     ((::BRepFill_SequenceOfSection*)_NativeInstance)->InsertAfter(*(::BRepFill_SequenceOfSection::Iterator*)thePosition->NativeInstance, *(::BRepFill_Section*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfSection::InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_SequenceOfSection*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfSection::InsertAfter(int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_SequenceOfSection*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfSection::InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_Section^ theItem)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_Section*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfSection::InsertAfter(int theIndex, Macad::Occt::BRepFill_Section^ theItem)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->InsertAfter(theIndex, *(::BRepFill_Section*)theItem->NativeInstance);
+}
+
+void Macad::Occt::BRepFill_SequenceOfSection::Split(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->Split(theIndex, *(::BRepFill_SequenceOfSection*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::BRepFill_SequenceOfSection::Split(int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq)
@@ -1829,10 +2991,24 @@ Macad::Occt::BRepFill_Section^ Macad::Occt::BRepFill_SequenceOfSection::ChangeLa
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_Section(_result);
 }
 
+Macad::Occt::BRepFill_Section^ Macad::Occt::BRepFill_SequenceOfSection::Value(long long unsigned int theIndex)
+{
+    ::BRepFill_Section* _result = new ::BRepFill_Section();
+    *_result = (::BRepFill_Section)((::BRepFill_SequenceOfSection*)_NativeInstance)->Value(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_Section(_result);
+}
+
 Macad::Occt::BRepFill_Section^ Macad::Occt::BRepFill_SequenceOfSection::Value(int theIndex)
 {
     ::BRepFill_Section* _result = new ::BRepFill_Section();
     *_result = (::BRepFill_Section)((::BRepFill_SequenceOfSection*)_NativeInstance)->Value(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_Section(_result);
+}
+
+Macad::Occt::BRepFill_Section^ Macad::Occt::BRepFill_SequenceOfSection::ChangeValue(long long unsigned int theIndex)
+{
+    ::BRepFill_Section* _result = new ::BRepFill_Section();
+    *_result = ((::BRepFill_SequenceOfSection*)_NativeInstance)->ChangeValue(theIndex);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_Section(_result);
 }
 
@@ -1843,9 +3019,28 @@ Macad::Occt::BRepFill_Section^ Macad::Occt::BRepFill_SequenceOfSection::ChangeVa
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_Section(_result);
 }
 
+void Macad::Occt::BRepFill_SequenceOfSection::SetValue(long long unsigned int theIndex, Macad::Occt::BRepFill_Section^ theItem)
+{
+    ((::BRepFill_SequenceOfSection*)_NativeInstance)->SetValue(theIndex, *(::BRepFill_Section*)theItem->NativeInstance);
+}
+
 void Macad::Occt::BRepFill_SequenceOfSection::SetValue(int theIndex, Macad::Occt::BRepFill_Section^ theItem)
 {
     ((::BRepFill_SequenceOfSection*)_NativeInstance)->SetValue(theIndex, *(::BRepFill_Section*)theItem->NativeInstance);
+}
+
+Macad::Occt::BRepFill_Section^ Macad::Occt::BRepFill_SequenceOfSection::At(long long unsigned int theIndex)
+{
+    ::BRepFill_Section* _result = new ::BRepFill_Section();
+    *_result = (::BRepFill_Section)((::BRepFill_SequenceOfSection*)_NativeInstance)->At(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_Section(_result);
+}
+
+Macad::Occt::BRepFill_Section^ Macad::Occt::BRepFill_SequenceOfSection::ChangeAt(long long unsigned int theIndex)
+{
+    ::BRepFill_Section* _result = new ::BRepFill_Section();
+    *_result = ((::BRepFill_SequenceOfSection*)_NativeInstance)->ChangeAt(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepFill_Section(_result);
 }
 
 System::Collections::Generic::IEnumerator<Macad::Occt::BRepFill_Section^>^ Macad::Occt::BRepFill_SequenceOfSection::GetEnumerator()
@@ -1868,6 +3063,18 @@ Macad::Occt::BRepFill_SequenceOfSection::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRepFill_SequenceOfSection::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepFill_SequenceOfSection::Iterator();
+}
+
+Macad::Occt::BRepFill_SequenceOfSection::Iterator::Iterator(Macad::Occt::BRepFill_SequenceOfSection^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::BRepFill_SequenceOfSection::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_SequenceOfSection::Iterator(*(::BRepFill_SequenceOfSection*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::BRepFill_SequenceOfSection::Iterator::Iterator(Macad::Occt::BRepFill_SequenceOfSection^ theSeq)
+    : Macad::Occt::BaseClass<::BRepFill_SequenceOfSection::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepFill_SequenceOfSection::Iterator(*(::BRepFill_SequenceOfSection*)theSeq->NativeInstance, true);
 }
 
 bool Macad::Occt::BRepFill_SequenceOfSection::Iterator::More()
@@ -3716,6 +4923,17 @@ void Macad::Occt::BRepFill_PipeShell::SetMaxSegments(int NewMaxSegments)
 void Macad::Occt::BRepFill_PipeShell::SetForceApproxC1(bool ForceApproxC1)
 {
     ((::BRepFill_PipeShell*)_NativeInstance)->SetForceApproxC1(ForceApproxC1);
+}
+
+void Macad::Occt::BRepFill_PipeShell::SetIsBuildHistory(bool theIsBuildHistory)
+{
+    ((::BRepFill_PipeShell*)_NativeInstance)->SetIsBuildHistory(theIsBuildHistory);
+}
+
+bool Macad::Occt::BRepFill_PipeShell::IsBuildHistory()
+{
+    bool _result = ((::BRepFill_PipeShell*)_NativeInstance)->IsBuildHistory();
+    return _result;
 }
 
 void Macad::Occt::BRepFill_PipeShell::Add(Macad::Occt::TopoDS_Shape^ Profile, bool WithContact, bool WithCorrection)

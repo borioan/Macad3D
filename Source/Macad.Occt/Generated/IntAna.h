@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "NCollection.h"
 
 namespace Macad
 {
@@ -29,7 +28,7 @@ public enum class IntAna_ResultType
 //  Class  IntAna_ListOfCurve
 //---------------------------------------------------------------------
 public ref class IntAna_ListOfCurve sealed
-    : public Macad::Occt::NCollection_BaseList
+    : public Macad::Occt::BaseClass<::IntAna_ListOfCurve>
     , public IEnumerable<Macad::Occt::IntAna_Curve^>
 {
 
@@ -40,11 +39,11 @@ public:
 
 public:
     IntAna_ListOfCurve(::IntAna_ListOfCurve* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::IntAna_ListOfCurve>( nativeInstance, true )
     {}
 
     IntAna_ListOfCurve(::IntAna_ListOfCurve& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::IntAna_ListOfCurve>( &nativeInstance, false )
     {}
 
     property ::IntAna_ListOfCurve* NativeInstance
@@ -84,27 +83,40 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::NCollection_BaseList^ theList);
         bool More() override;
         void Next() override;
         Macad::Occt::IntAna_Curve^ Value() override;
         Macad::Occt::IntAna_Curve^ ChangeValue();
     }; // class Iterator
 
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     IntAna_ListOfCurve();
     IntAna_ListOfCurve(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
+    /* Method skipped due to unknown mapping: void IntAna_ListOfCurve(initializer_list<IntAna_Curve> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void IntAna_ListOfCurve(initializer_list<IntAna_Curve> theInitList, NCollection_BaseAllocator theAllocator, ) */
     Macad::Occt::IntAna_ListOfCurve^ Assign(Macad::Occt::IntAna_ListOfCurve^ theOther);
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::IntAna_Curve^ First();
     Macad::Occt::IntAna_Curve^ Last();
     Macad::Occt::IntAna_Curve^ Append(Macad::Occt::IntAna_Curve^ theItem);
+    void Append(Macad::Occt::IntAna_Curve^ theItem, Macad::Occt::IntAna_ListOfCurve::Iterator^ theIter);
+    void Append(Macad::Occt::IntAna_ListOfCurve^ theOther);
     Macad::Occt::IntAna_Curve^ Prepend(Macad::Occt::IntAna_Curve^ theItem);
+    void Prepend(Macad::Occt::IntAna_ListOfCurve^ theOther);
     void RemoveFirst();
     void Remove(Macad::Occt::IntAna_ListOfCurve::Iterator^ theIter);
     Macad::Occt::IntAna_Curve^ InsertBefore(Macad::Occt::IntAna_Curve^ theItem, Macad::Occt::IntAna_ListOfCurve::Iterator^ theIter);
+    void InsertBefore(Macad::Occt::IntAna_ListOfCurve^ theOther, Macad::Occt::IntAna_ListOfCurve::Iterator^ theIter);
     Macad::Occt::IntAna_Curve^ InsertAfter(Macad::Occt::IntAna_Curve^ theItem, Macad::Occt::IntAna_ListOfCurve::Iterator^ theIter);
+    void InsertAfter(Macad::Occt::IntAna_ListOfCurve^ theOther, Macad::Occt::IntAna_ListOfCurve::Iterator^ theIter);
     void Reverse();
+    void Exchange(Macad::Occt::IntAna_ListOfCurve^ theOther);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::IntAna_Curve^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class IntAna_ListOfCurve
@@ -153,12 +165,12 @@ public:
     /// </summary>
     void SetCylinderQuadValues(Macad::Occt::gp_Cylinder^ Cylinder, double Qxx, double Qyy, double Qzz, double Qxy, double Qxz, double Qyz, double Qx, double Qy, double Qz, double Q1, double Tol, double DomInf, double DomSup, bool TwoZForATheta, bool ZIsPositive);
     /// <summary>
-    /// Sets  the parameters used    to compute Points  and
+    /// Sets the parameters used to compute Points and
     /// Derivative on the curve.
     /// </summary>
     void SetConeQuadValues(Macad::Occt::gp_Cone^ Cone, double Qxx, double Qyy, double Qzz, double Qxy, double Qxz, double Qyz, double Qx, double Qy, double Qz, double Q1, double Tol, double DomInf, double DomSup, bool TwoZForATheta, bool ZIsPositive);
     /// <summary>
-    /// Returns TRUE if the curve is not  infinite  at the
+    /// Returns TRUE if the curve is not infinite at the
     /// last parameter or at the first parameter of the domain.
     /// </summary>
     bool IsOpen();
@@ -375,10 +387,10 @@ public:
 /// The result of the intersection are points (Pnt from
 /// gp), associated with the parameter on the conic.
 /// 
-/// A call to an Intersection  L:Lin from gp and
-/// SPH: Sphere from gp can be written either :
+/// A call to an Intersection L:Lin from gp and
+/// SPH: Sphere from gp can be written either:
 /// IntAna_IntConicQuad Inter(L,IntAna_Quadric(SPH))
-/// or :
+/// or:
 /// IntAna_IntConicQuad Inter(L,SPH) (it is necessary
 /// to include IntAna_Quadric.hxx in this case)
 /// </summary>
@@ -694,7 +706,7 @@ public:
     /// </summary>
     IntAna_IntQuadQuad();
     /// <summary>
-    /// Creates the intersection between a cylinder and a quadric .
+    /// Creates the intersection between a cylinder and a quadric.
     /// Tol est a definir plus precisemment.
     /// </summary>
     IntAna_IntQuadQuad(Macad::Occt::gp_Cylinder^ C, Macad::Occt::IntAna_Quadric^ Q, double Tol);
@@ -740,23 +752,23 @@ public:
     Macad::Occt::Pnt Point(int N);
     /// <summary>
     /// Returns the parameters on the "explicit quadric"
-    /// (i.e  the cylinder or the  cone, the first argument given to the constructor) of the point of
-    /// range N.
+    /// (i.e. the cylinder or the cone, the first argument given to the constructor)
+    /// of the point of range N.
     /// </summary>
     void Parameters(int N, double% U1, double% U2);
     /// <summary>
-    /// Returns True if the Curve I  shares its last bound
+    /// Returns True if the Curve I shares its last bound
     /// with another curve.
     /// </summary>
     bool HasNextCurve(int I);
     /// <summary>
-    /// If  HasNextCurve(I)  returns True,  this  function
-    /// returns  the  Index J  of the curve  which   has a
-    /// common bound  with the curve   I.  If  theOpposite ==
-    /// True , then the last parameter of the curve I, and
-    /// the last parameter of  the curve J  give  the same
-    /// point. Else the last  parameter of the curve I and
-    /// the first parameter  of  the curve J are  the same
+    /// If HasNextCurve(I) returns True, this function
+    /// returns the Index J of the curve which has a
+    /// common bound with the curve I. If theOpposite ==
+    /// True, then the last parameter of the curve I, and
+    /// the last parameter of the curve J give the same
+    /// point. Else the last parameter of the curve I and
+    /// the first parameter of the curve J are the same
     /// point.
     /// </summary>
     int NextCurve(int I, bool% theOpposite);
@@ -767,13 +779,13 @@ public:
     bool HasPreviousCurve(int I);
     /// <summary>
     /// if HasPreviousCurve(I) returns True, this function
-    /// returns the   Index  J of the   curve  which has a
-    /// common  bound with the  curve  I.  If theOpposite  ==
-    /// True  , then the  first parameter of  the curve I,
-    /// and the first parameter of the curve  J  give  the
-    /// same point. Else the first  parameter of the curve
-    /// I and the last  parameter  of the curve J  are the
-    /// same point.
+    /// returns the Index J of the curve which has a common
+    /// bound with the curve I. If theOpposite == True
+    /// then the first parameter of the curve I, and the
+    /// first parameter of the curve J give the same
+    /// point. Else the first parameter of the curve I and
+    /// the last parameter of the curve J are the same
+    /// point.
     /// </summary>
     int PreviousCurve(int I, bool% theOpposite);
 }; // class IntAna_IntQuadQuad
@@ -845,7 +857,7 @@ public:
     /// is a circle or an ellipse. If the maximum distance between
     /// the ellipse solution and the circle centered at the ellipse
     /// center is less than Tol, the result will be the circle.
-    /// H is the height of the cylinder <Cyl>. It is  used to check
+    /// H is the height of the cylinder <Cyl>. It is used to check
     /// whether the plane and cylinder are parallel.
     /// </summary>
     IntAna_QuadQuadGeo(Macad::Occt::Pln P, Macad::Occt::gp_Cylinder^ C, double Tolang, double Tol, double H);
@@ -857,7 +869,7 @@ public:
     /// is a circle or an ellipse. If the maximum distance between
     /// the ellipse solution and the circle centered at the ellipse
     /// center is less than Tol, the result will be the circle.
-    /// H is the height of the cylinder <Cyl>. It is  used to check
+    /// H is the height of the cylinder <Cyl>. It is used to check
     /// whether the plane and cylinder are parallel.
     /// </summary>
     IntAna_QuadQuadGeo(Macad::Occt::Pln P, Macad::Occt::gp_Cylinder^ C, double Tolang, double Tol);
@@ -935,7 +947,7 @@ public:
     /// is a circle or an ellipse. If the maximum distance between
     /// the ellipse solution and the circle centered at the ellipse
     /// center is less than Tol, the result will be the circle.
-    /// H is the height of the cylinder <Cyl>. It is  used to check
+    /// H is the height of the cylinder <Cyl>. It is used to check
     /// whether the plane and cylinder are parallel.
     /// </summary>
     void Perform(Macad::Occt::Pln P, Macad::Occt::gp_Cylinder^ C, double Tolang, double Tol, double H);
@@ -947,7 +959,7 @@ public:
     /// is a circle or an ellipse. If the maximum distance between
     /// the ellipse solution and the circle centered at the ellipse
     /// center is less than Tol, the result will be the circle.
-    /// H is the height of the cylinder <Cyl>. It is  used to check
+    /// H is the height of the cylinder <Cyl>. It is used to check
     /// whether the plane and cylinder are parallel.
     /// </summary>
     void Perform(Macad::Occt::Pln P, Macad::Occt::gp_Cylinder^ C, double Tolang, double Tol);
@@ -1010,7 +1022,7 @@ public:
     /// </summary>
     void Perform(Macad::Occt::gp_Torus^ Tor1, Macad::Occt::gp_Torus^ Tor2, double Tol);
     /// <summary>
-    /// Returns Standard_True if the computation was successful.
+    /// Returns true if the computation was successful.
     /// </summary>
     bool IsDone();
     /// <summary>

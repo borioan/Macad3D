@@ -356,7 +356,7 @@ public:
 /// <summary>
 /// Tool to create specific selections (sets of primitives)
 /// for Shapes from Topology.
-/// These Selections may be used  in dynamic selection
+/// These Selections may be used in dynamic selection
 /// Mechanism
 /// Given a Shape and a mode of selection
 /// (selection of vertices,
@@ -380,7 +380,7 @@ public:
 /// 
 /// ENTITY_OWNER -> Selectable() gives the selectableobject which
 /// was decomposed into pickable elements.
-/// Handle(StdSelect_BRepOwner)::DownCast(ENTITY_OWNER) -> Shape()
+/// occ::down_cast<StdSelect_BRepOwner>(ENTITY_OWNER) -> Shape()
 /// gives the real picked shape (edge,vertex,shape...)
 /// </summary>
 public ref class StdSelect_BRepSelectionTool sealed
@@ -487,8 +487,8 @@ public:
     /// </summary>
     static void Load(Macad::Occt::SelectMgr_Selection^ aSelection, Macad::Occt::TopoDS_Shape^ aShape, Macad::Occt::TopAbs_ShapeEnum aType, double theDeflection, double theDeviationAngle);
     /// <summary>
-    /// Same  functionalities  ; the  only
-    /// difference is that  the selectable object from which the
+    /// Same functionalities. The only
+    /// difference is that the selectable object from which the
     /// selection comes is stored in each Sensitive EntityOwner;
     /// decomposition of <aShape> into sensitive entities following
     /// a mode of decomposition <aType>. These entities are stored in <aSelection>
@@ -498,8 +498,8 @@ public:
     /// </summary>
     static void Load(Macad::Occt::SelectMgr_Selection^ aSelection, Macad::Occt::SelectMgr_SelectableObject^ Origin, Macad::Occt::TopoDS_Shape^ aShape, Macad::Occt::TopAbs_ShapeEnum aType, double theDeflection, double theDeviationAngle, bool AutoTriangulation, int aPriority, int NbPOnEdge, double MaximalParameter);
     /// <summary>
-    /// Same  functionalities  ; the  only
-    /// difference is that  the selectable object from which the
+    /// Same functionalities. The only
+    /// difference is that the selectable object from which the
     /// selection comes is stored in each Sensitive EntityOwner;
     /// decomposition of <aShape> into sensitive entities following
     /// a mode of decomposition <aType>. These entities are stored in <aSelection>
@@ -509,8 +509,8 @@ public:
     /// </summary>
     static void Load(Macad::Occt::SelectMgr_Selection^ aSelection, Macad::Occt::SelectMgr_SelectableObject^ Origin, Macad::Occt::TopoDS_Shape^ aShape, Macad::Occt::TopAbs_ShapeEnum aType, double theDeflection, double theDeviationAngle, bool AutoTriangulation, int aPriority, int NbPOnEdge);
     /// <summary>
-    /// Same  functionalities  ; the  only
-    /// difference is that  the selectable object from which the
+    /// Same functionalities. The only
+    /// difference is that the selectable object from which the
     /// selection comes is stored in each Sensitive EntityOwner;
     /// decomposition of <aShape> into sensitive entities following
     /// a mode of decomposition <aType>. These entities are stored in <aSelection>
@@ -520,8 +520,8 @@ public:
     /// </summary>
     static void Load(Macad::Occt::SelectMgr_Selection^ aSelection, Macad::Occt::SelectMgr_SelectableObject^ Origin, Macad::Occt::TopoDS_Shape^ aShape, Macad::Occt::TopAbs_ShapeEnum aType, double theDeflection, double theDeviationAngle, bool AutoTriangulation, int aPriority);
     /// <summary>
-    /// Same  functionalities  ; the  only
-    /// difference is that  the selectable object from which the
+    /// Same functionalities. The only
+    /// difference is that the selectable object from which the
     /// selection comes is stored in each Sensitive EntityOwner;
     /// decomposition of <aShape> into sensitive entities following
     /// a mode of decomposition <aType>. These entities are stored in <aSelection>
@@ -531,8 +531,8 @@ public:
     /// </summary>
     static void Load(Macad::Occt::SelectMgr_Selection^ aSelection, Macad::Occt::SelectMgr_SelectableObject^ Origin, Macad::Occt::TopoDS_Shape^ aShape, Macad::Occt::TopAbs_ShapeEnum aType, double theDeflection, double theDeviationAngle, bool AutoTriangulation);
     /// <summary>
-    /// Same  functionalities  ; the  only
-    /// difference is that  the selectable object from which the
+    /// Same functionalities. The only
+    /// difference is that the selectable object from which the
     /// selection comes is stored in each Sensitive EntityOwner;
     /// decomposition of <aShape> into sensitive entities following
     /// a mode of decomposition <aType>. These entities are stored in <aSelection>
@@ -609,11 +609,11 @@ public:
     /// theAutoTriang   flag to compute triangulation for the faces which have none
     /// </param>
     static void ComputeSensitive(Macad::Occt::TopoDS_Shape^ theShape, Macad::Occt::SelectMgr_EntityOwner^ theOwner, Macad::Occt::SelectMgr_Selection^ theSelection, double theDeflection, double theDeflAngle, int theNbPOnEdge, double theMaxiParam);
-    /* Method skipped due to unknown mapping: bool GetSensitiveForFace(TopoDS_Face theFace, SelectMgr_EntityOwner theOwner, Select3D_EntitySequence theOutList, bool theAutoTriang, int theNbPOnEdge, double theMaxiParam, bool theInteriorFlag, ) */
-    /* Method skipped due to unknown mapping: bool GetSensitiveForFace(TopoDS_Face theFace, SelectMgr_EntityOwner theOwner, Select3D_EntitySequence theOutList, bool theAutoTriang, int theNbPOnEdge, double theMaxiParam, bool theInteriorFlag, ) */
-    /* Method skipped due to unknown mapping: bool GetSensitiveForFace(TopoDS_Face theFace, SelectMgr_EntityOwner theOwner, Select3D_EntitySequence theOutList, bool theAutoTriang, int theNbPOnEdge, double theMaxiParam, bool theInteriorFlag, ) */
-    /* Method skipped due to unknown mapping: bool GetSensitiveForFace(TopoDS_Face theFace, SelectMgr_EntityOwner theOwner, Select3D_EntitySequence theOutList, bool theAutoTriang, int theNbPOnEdge, double theMaxiParam, bool theInteriorFlag, ) */
-    /* Method skipped due to unknown mapping: bool GetSensitiveForFace(TopoDS_Face theFace, SelectMgr_EntityOwner theOwner, Select3D_EntitySequence theOutList, bool theAutoTriang, int theNbPOnEdge, double theMaxiParam, bool theInteriorFlag, ) */
+    /* Method skipped due to unknown mapping: bool GetSensitiveForFace(TopoDS_Face theFace, SelectMgr_EntityOwner theOwner, NCollection_Sequence<opencascade::handle<Select3D_SensitiveEntity>> theOutList, bool theAutoTriang, int theNbPOnEdge, double theMaxiParam, bool theInteriorFlag, ) */
+    /* Method skipped due to unknown mapping: bool GetSensitiveForFace(TopoDS_Face theFace, SelectMgr_EntityOwner theOwner, NCollection_Sequence<opencascade::handle<Select3D_SensitiveEntity>> theOutList, bool theAutoTriang, int theNbPOnEdge, double theMaxiParam, bool theInteriorFlag, ) */
+    /* Method skipped due to unknown mapping: bool GetSensitiveForFace(TopoDS_Face theFace, SelectMgr_EntityOwner theOwner, NCollection_Sequence<opencascade::handle<Select3D_SensitiveEntity>> theOutList, bool theAutoTriang, int theNbPOnEdge, double theMaxiParam, bool theInteriorFlag, ) */
+    /* Method skipped due to unknown mapping: bool GetSensitiveForFace(TopoDS_Face theFace, SelectMgr_EntityOwner theOwner, NCollection_Sequence<opencascade::handle<Select3D_SensitiveEntity>> theOutList, bool theAutoTriang, int theNbPOnEdge, double theMaxiParam, bool theInteriorFlag, ) */
+    /* Method skipped due to unknown mapping: bool GetSensitiveForFace(TopoDS_Face theFace, SelectMgr_EntityOwner theOwner, NCollection_Sequence<opencascade::handle<Select3D_SensitiveEntity>> theOutList, bool theAutoTriang, int theNbPOnEdge, double theMaxiParam, bool theInteriorFlag, ) */
     /// <summary>
     /// Creates a sensitive cylinder.
     /// </summary>

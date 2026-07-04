@@ -60,15 +60,15 @@ public:
 public:
     ElCLib();
     /// <summary>
-    /// Return a value in   the  range <UFirst, ULast>  by
-    /// adding or removing the period <ULast -  UFirst> to
+    /// Return a value in the range <UFirst, ULast> by
+    /// adding or removing the period <ULast - UFirst> to
     /// <U>.
     /// ATTENTION!!!
     /// It is expected but not checked that (ULast > UFirst)
     /// </summary>
     static double InPeriod(double U, double UFirst, double ULast);
     /// <summary>
-    /// Adjust U1 and  U2 in the  parametric range  UFirst
+    /// Adjust U1 and U2 in the parametric range UFirst
     /// Ulast of a periodic curve, where ULast -
     /// UFirst is its period. To do this, this function:
     /// -   sets U1 in the range [ UFirst, ULast ] by
@@ -96,7 +96,7 @@ public:
     /// -   the point P of parameter U, and
     /// -   the first derivative vector V1 at this point.
     /// The results P and V1 are either:
-    /// -   a gp_Pnt point and a gp_Vec vector, for a curve in 3D  space, or
+    /// -   a gp_Pnt point and a gp_Vec vector, for a curve in 3D space, or
     /// -   a gp_Pnt2d point and a gp_Vec2d vector, for a curve in 2D space.
     /// </summary>
     static void D1(double U, Macad::Occt::gp_Lin^ L, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1);
@@ -242,8 +242,8 @@ public:
     /// equation of the curve is given by the following:
     /// -   for the line L: P(U) = Po + U*Vo
     /// where Po is the origin and Vo the unit vector of its positioning axis.
-    /// -   for the circle C: X(U) = Radius*Cos(U), Y(U) = Radius*Sin(U)
-    /// -   for the ellipse E: X(U) = MajorRadius*Cos(U). Y(U) = MinorRadius*Sin(U)
+    /// -   for the circle C: X(U) = Radius*std::cos(U), Y(U) = Radius*Sin(U)
+    /// -   for the ellipse E: X(U) = MajorRadius*std::cos(U). Y(U) = MinorRadius*Sin(U)
     /// -   for the hyperbola H: X(U) = MajorRadius*Ch(U), Y(U) = MinorRadius*Sh(U)
     /// -   for the parabola Prb:
     /// X(U) = U**2 / (2*p)
@@ -332,7 +332,7 @@ public:
     /// In the local coordinate system of the parabola
     /// Y**2 = (2*P) * X where P is the distance between the focus
     /// and the directrix.
-    /// The following functions build  a 3d curve from a
+    /// The following functions build a 3d curve from a
     /// 2d curve at a given position defined with an Ax2.
     /// </summary>
     static double ParabolaParameter(Macad::Occt::Ax22d Pos, Macad::Occt::Pnt2d P);

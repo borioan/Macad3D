@@ -213,6 +213,18 @@ Macad::Occt::Geom2d_BSplineCurve^ Macad::Occt::Adaptor2d_Curve2d::BSpline()
     return _result.IsNull() ? nullptr : Macad::Occt::Geom2d_BSplineCurve::CreateDowncasted(_result.get());
 }
 
+Macad::Occt::Pnt2d Macad::Occt::Adaptor2d_Curve2d::EvalD0(double theU)
+{
+    ::gp_Pnt2d _nativeResult = ((::Adaptor2d_Curve2d*)_NativeInstance)->EvalD0(theU);
+    return Macad::Occt::Pnt2d(_nativeResult);
+}
+
+Macad::Occt::Vec2d Macad::Occt::Adaptor2d_Curve2d::EvalDN(double theU, int theN)
+{
+    ::gp_Vec2d _nativeResult = ((::Adaptor2d_Curve2d*)_NativeInstance)->EvalDN(theU, theN);
+    return Macad::Occt::Vec2d(_nativeResult);
+}
+
 Macad::Occt::Adaptor2d_Curve2d^ Macad::Occt::Adaptor2d_Curve2d::CreateDowncasted(::Adaptor2d_Curve2d* instance)
 {
     if( instance == nullptr )

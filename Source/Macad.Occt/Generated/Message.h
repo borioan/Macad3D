@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "NCollection.h"
 
 namespace Macad
 {
@@ -55,7 +54,7 @@ public enum class Message_MetricType
 //  Class  Message_ListOfAlert
 //---------------------------------------------------------------------
 public ref class Message_ListOfAlert sealed
-    : public Macad::Occt::NCollection_BaseList
+    : public Macad::Occt::BaseClass<::Message_ListOfAlert>
 {
 
 #ifdef Include_Message_ListOfAlert_h
@@ -65,11 +64,11 @@ public:
 
 public:
     Message_ListOfAlert(::Message_ListOfAlert* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::Message_ListOfAlert>( nativeInstance, true )
     {}
 
     Message_ListOfAlert(::Message_ListOfAlert& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::Message_ListOfAlert>( &nativeInstance, false )
     {}
 
     property ::Message_ListOfAlert* NativeInstance
@@ -81,21 +80,33 @@ public:
     }
 
 public:
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     Message_ListOfAlert();
     Message_ListOfAlert(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
+    /* Method skipped due to unknown mapping: void Message_ListOfAlert(initializer_list<opencascade::handle<Message_Alert>> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void Message_ListOfAlert(initializer_list<opencascade::handle<Message_Alert>> theInitList, NCollection_BaseAllocator theAllocator, ) */
     Macad::Occt::Message_ListOfAlert^ Assign(Macad::Occt::Message_ListOfAlert^ theOther);
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     /* Method skipped due to unknown mapping: Message_Alert First() */
     /* Method skipped due to unknown mapping: Message_Alert Last() */
     /* Method skipped due to unknown mapping: Message_Alert Append(Message_Alert theItem, ) */
+    /* Method skipped due to unknown mapping: void Append(Message_Alert theItem, Iterator theIter, ) */
+    void Append(Macad::Occt::Message_ListOfAlert^ theOther);
     /* Method skipped due to unknown mapping: Message_Alert Prepend(Message_Alert theItem, ) */
+    void Prepend(Macad::Occt::Message_ListOfAlert^ theOther);
     void RemoveFirst();
     /* Method skipped due to unknown mapping: void Remove(Iterator theIter, ) */
     /* Method skipped due to unknown mapping: Message_Alert InsertBefore(Message_Alert theItem, Iterator theIter, ) */
+    /* Method skipped due to unknown mapping: void InsertBefore(Message_ListOfAlert theOther, Iterator theIter, ) */
     /* Method skipped due to unknown mapping: Message_Alert InsertAfter(Message_Alert theItem, Iterator theIter, ) */
+    /* Method skipped due to unknown mapping: void InsertAfter(Message_ListOfAlert theOther, Iterator theIter, ) */
     void Reverse();
+    void Exchange(Macad::Occt::Message_ListOfAlert^ theOther);
 }; // class Message_ListOfAlert
 
 //---------------------------------------------------------------------

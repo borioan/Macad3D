@@ -27,6 +27,9 @@ public partial class Configuration
     {
         new ("NCollection_Array1",         1, true),
         new ("NCollection_Array2",         1, true),
+        new ("NCollection_HArray1",        1, false),
+        new ("NCollection_HArray2",        1, false),
+        new ("NCollection_HSequence",      1, false),
         new ("NCollection_TListIterator",  1, false),
         new ("NCollection_List",           1, true),
         new ("NCollection_Map",            2, true),
@@ -37,6 +40,7 @@ public partial class Configuration
         new ("NCollection_Vec2",           1, false),
         new ("NCollection_DefaultHasher",  1, false),
         new ("NCollection_Lerp",           1, false),
-        new ("NCollection_Vector",         1, true)
+        new ("NCollection_Vector",         1, true),
+        new ("Extrema_GGExtPC",            8, false),
     };
 }

@@ -92,16 +92,8 @@ public:
     /// Set distance to geometry center.
     /// </summary>
     void SetDistToGeomCenter(double theDistToCenter);
-    /// <summary>
-    /// Return (unnormalized) surface normal at picked point or zero vector if undefined.
-    /// WARNING! Normal is defined in local coordinate system and should be translated into World
-    /// System before usage!
-    /// </summary>
-    Macad::Occt::gp_Vec3f^ SurfaceNormal();
-    /// <summary>
-    /// Set surface normal at picked point.
-    /// </summary>
-    void SetSurfaceNormal(Macad::Occt::gp_Vec3f^ theNormal);
+    /* Method skipped due to unknown mapping: gp_Vec3f SurfaceNormal() */
+    /* Method skipped due to unknown mapping: void SetSurfaceNormal(gp_Vec3f theNormal, ) */
     /// <summary>
     /// Set surface normal at picked point.
     /// </summary>
@@ -199,20 +191,9 @@ public:
     /// Return selection type.
     /// </summary>
     int GetActiveSelectionType();
-    /// <summary>
-    /// Returns true if selecting volume is overlapped by box theBox
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax, Macad::Occt::SelectBasics_PickResult^ thePickResult);
-    /// <summary>
-    /// Returns true if selecting volume is overlapped by axis-aligned bounding box with minimum
-    /// corner at point theMinPt and maximum at point theMaxPt
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax, bool% theInside);
-    /// <summary>
-    /// Returns true if selecting volume is overlapped by axis-aligned bounding box with minimum
-    /// corner at point theMinPt and maximum at point theMaxPt
-    /// </summary>
-    bool OverlapsBox(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax);
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, SelectBasics_PickResult thePickResult, ) */
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, bool theInside, ) */
+    /* Method skipped due to unknown mapping: bool OverlapsBox(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, bool theInside, ) */
     /// <summary>
     /// Returns true if selecting volume is overlapped by point thePnt
     /// </summary>
@@ -345,9 +326,9 @@ public:
     /// Dumps the content of me into the stream
     /// </summary>
     void DumpJson(System::IO::TextWriter^ theOStream);
-    bool Overlaps(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax, Macad::Occt::SelectBasics_PickResult^ thePickResult);
-    bool Overlaps(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax, bool% theInside);
-    bool Overlaps(Macad::Occt::Graphic3d_Vec3d^ theBoxMin, Macad::Occt::Graphic3d_Vec3d^ theBoxMax);
+    /* Method skipped due to unknown mapping: bool Overlaps(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, SelectBasics_PickResult thePickResult, ) */
+    /* Method skipped due to unknown mapping: bool Overlaps(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, bool theInside, ) */
+    /* Method skipped due to unknown mapping: bool Overlaps(Graphic3d_Vec3d theBoxMin, Graphic3d_Vec3d theBoxMax, bool theInside, ) */
     bool Overlaps(Macad::Occt::Pnt thePnt, Macad::Occt::SelectBasics_PickResult^ thePickResult);
     bool Overlaps(Macad::Occt::Pnt thePnt);
     bool Overlaps(Macad::Occt::TColgp_HArray1OfPnt^ theArrayOfPts, int theSensType, Macad::Occt::SelectBasics_PickResult^ thePickResult);

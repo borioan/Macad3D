@@ -26,41 +26,41 @@ public enum class BOPAlgo_Operation
 /// <summary>
 /// The Enumeration describes an additional option for the algorithms
 /// in the Boolean Component such as General Fuse, Boolean operations,
-/// Section, Maker Volume, Splitter and Cells Builder algorithms.<br>
+/// Section, Maker Volume, Splitter and Cells Builder algorithms.
 /// 
 /// The Gluing options have been designed to speed up the computation
 /// of the interference among arguments of the operations on special cases,
 /// in which the arguments may be overlapping but do not have real intersections
-/// between their sub-shapes.<br>
+/// between their sub-shapes.
 /// 
 /// This option cannot be used on the shapes having real intersections,
 /// like intersection vertex between edges, or intersection vertex between
-/// edge and a face or intersection line between faces.<br>
+/// edge and a face or intersection line between faces.
 /// 
-/// There are two possibilities of overlapping shapes:<br>
+/// There are two possibilities of overlapping shapes:
 /// 1. The shapes can be partially coinciding - the faces do not have
 /// intersection curves, but overlapping. The faces of such arguments will
-/// be split during the operation;<br>
+/// be split during the operation;
 /// 2. The shapes can be fully coinciding - there should be no partial
 /// overlapping of the faces, thus no intersection of type EDGE/FACE at all.
-/// In such cases the faces will not be split during the operation.<br>
+/// In such cases the faces will not be split during the operation.
 /// 
 /// Even though there are no real intersections on such cases without Gluing options the algorithm
-/// will still intersect the sub-shapes of the arguments with interfering bounding boxes.<br>
+/// will still intersect the sub-shapes of the arguments with interfering bounding boxes.
 /// 
 /// The performance improvement in gluing mode is achieved by excluding
-/// the most time consuming computations according to the given Gluing parameter:<br>
-/// 1. Computation of FACE/FACE intersections for partial coincidence;<br>
+/// the most time consuming computations according to the given Gluing parameter:
+/// 1. Computation of FACE/FACE intersections for partial coincidence;
 /// 2. And computation of VERTEX/FACE, EDGE/FACE and FACE/FACE intersections for full
-/// coincidence.<br>
+/// coincidence.
 /// 
 /// By setting the Gluing option for the operation user should guarantee
 /// that the arguments are really coinciding. The algorithms do not check this itself.
-/// Setting inappropriate option for the operation is likely to lead to incorrect result.<br>
+/// Setting inappropriate option for the operation is likely to lead to incorrect result.
 /// 
-/// There are following items in the enumeration:<br>
-/// **BOPAlgo_GlueOff** - default value for the algorithms, Gluing is switched off;<br>
-/// **BOPAlgo_GlueShift** - Glue option for shapes with partial coincidence;<br>
+/// There are following items in the enumeration:
+/// **BOPAlgo_GlueOff** - default value for the algorithms, Gluing is switched off;
+/// **BOPAlgo_GlueShift** - Glue option for shapes with partial coincidence;
 /// **BOPAlgo_GlueFull** - Glue option for shapes with full coincidence.
 /// 
 /// </summary>
@@ -204,7 +204,7 @@ public:
 //  Class  BOPAlgo_Algo
 //---------------------------------------------------------------------
 /// <summary>
-/// The class provides the root interface for the algorithms in Boolean Component.<br>
+/// The class provides the root interface for the algorithms in Boolean Component.
 /// </summary>
 public ref class BOPAlgo_Algo
     : public Macad::Occt::BOPAlgo_Options
@@ -348,16 +348,16 @@ public:
 /// The class is a General Fuse algorithm - base algorithm for the
 /// algorithms in the Boolean Component. Its main purpose is to build
 /// the split parts of the argument shapes from which the result of
-/// the operations is combined.<br>
+/// the operations is combined.
 /// The result of the General Fuse algorithm itself is a compound
-/// containing all split parts of the arguments. <br>
+/// containing all split parts of the arguments.
 /// 
 /// Additionally to the options of the base classes, the algorithm has
-/// the following options:<br>
+/// the following options:
 /// - *Safe processing mode* - allows to avoid modification of the input
-/// shapes during the operation (by default it is off);<br>
+/// shapes during the operation (by default it is off);
 /// - *Gluing options* - allows to speed up the calculation of the intersections
-/// on the special cases, in which some sub-shapes are coinciding.<br>
+/// on the special cases, in which some sub-shapes are coinciding.
 /// - *Disabling the check for inverted solids* - Disables/Enables the check of the input solids
 /// for inverted status (holes in the space). The default value is TRUE,
 /// i.e. the check is performed. Setting this flag to FALSE for inverted
@@ -737,25 +737,25 @@ public:
 /// <summary>
 /// 
 /// The class represents the Building part of the Boolean Operations
-/// algorithm.<br>
+/// algorithm.
 /// The arguments of the algorithms are divided in two groups - *Objects*
-/// and *Tools*.<br>
+/// and *Tools*.
 /// The algorithm builds the splits of the given arguments using the intersection
-/// results and combines the result of Boolean Operation of given type:<br>
-/// - *FUSE* - union of two groups of objects;<br>
-/// - *COMMON* - intersection of two groups of objects;<br>
-/// - *CUT* - subtraction of one group from the other.<br>
+/// results and combines the result of Boolean Operation of given type:
+/// - *FUSE* - union of two groups of objects;
+/// - *COMMON* - intersection of two groups of objects;
+/// - *CUT* - subtraction of one group from the other.
 /// 
-/// The rules for the arguments and type of the operation are the following:<br>
-/// - For Boolean operation *FUSE* all arguments should have equal dimensions;<br>
+/// The rules for the arguments and type of the operation are the following:
+/// - For Boolean operation *FUSE* all arguments should have equal dimensions;
 /// - For Boolean operation *CUT* the minimal dimension of *Tools* should not be
-/// less than the maximal dimension of *Objects*;<br>
-/// - For Boolean operation *COMMON* the arguments can have any dimension.<br>
+/// less than the maximal dimension of *Objects*;
+/// - For Boolean operation *COMMON* the arguments can have any dimension.
 /// 
 /// The class is a General Fuse based algorithm. Thus, all options
 /// of the General Fuse algorithm such as Fuzzy mode, safe processing mode,
 /// parallel processing mode, gluing mode and history support are also
-/// available in this algorithm.<br>
+/// available in this algorithm.
 /// 
 /// Additionally to the Warnings of the parent class the algorithm returns
 /// the following warnings:
@@ -822,27 +822,27 @@ public:
 //---------------------------------------------------------------------
 /// <summary>
 /// The **Splitter algorithm** is the algorithm for splitting a group of
-/// arbitrary shapes by the other group of arbitrary shapes.<br>
-/// The arguments of the operation are divided on two groups:<br>
-/// *Objects* - shapes that will be split;<br>
-/// *Tools*   - shapes by which the *Objects* will be split.<br>
+/// arbitrary shapes by the other group of arbitrary shapes.
+/// The arguments of the operation are divided on two groups:
+/// *Objects* - shapes that will be split;
+/// *Tools*   - shapes by which the *Objects* will be split.
 /// The result of the operation contains only the split parts
-/// of the shapes from the group of *Objects*.<br>
+/// of the shapes from the group of *Objects*.
 /// The split parts of the shapes from the group of *Tools* are excluded
-/// from the result.<br>
+/// from the result.
 /// The shapes can be split by the other shapes from the same group
 /// (in case these shapes are interfering).
 /// 
 /// The class is a General Fuse based algorithm. Thus, all options
 /// of the General Fuse algorithm such as Fuzzy mode, safe processing mode,
 /// parallel processing mode, gluing mode and history support are also
-/// available in this algorithm.<br>
+/// available in this algorithm.
 /// There is no requirement on the existence of the *Tools* shapes.
 /// And if there are no *Tools* shapes, the result of the splitting
 /// operation will be equivalent to the General Fuse result.
 /// 
 /// The implementation of the algorithm is minimal - only the methods
-/// CheckData() and Perform() have been overridden.<br>
+/// CheckData() and Perform() have been overridden.
 /// The method BOPAlgo_Builder::BuildResult(), which adds the split parts of the arguments
 /// into result, does not have to be overridden, because its native implementation
 /// performs the necessary actions for the Splitter algorithm - it adds
@@ -924,110 +924,110 @@ public:
 
 public:
     BOPAlgo_Tools();
-    /* Method skipped due to unknown mapping: void FillMap(BOPDS_PaveBlock thePB1, int theF, BOPDS_IndexedDataMapOfPaveBlockListOfInteger theMILI, NCollection_BaseAllocator theAllocator, ) */
-    /* Method skipped due to unknown mapping: void PerformCommonBlocks(BOPDS_IndexedDataMapOfPaveBlockListOfPaveBlock theMBlocks, NCollection_BaseAllocator theAllocator, BOPDS_DS theDS, IntTools_Context theContext, ) */
-    /* Method skipped due to unknown mapping: void PerformCommonBlocks(BOPDS_IndexedDataMapOfPaveBlockListOfPaveBlock theMBlocks, NCollection_BaseAllocator theAllocator, BOPDS_DS theDS, IntTools_Context theContext, ) */
-    /* Method skipped due to unknown mapping: void PerformCommonBlocks(BOPDS_IndexedDataMapOfPaveBlockListOfInteger theMBlocks, NCollection_BaseAllocator theAllocator, BOPDS_DS pDS, IntTools_Context theContext, ) */
-    /* Method skipped due to unknown mapping: void PerformCommonBlocks(BOPDS_IndexedDataMapOfPaveBlockListOfInteger theMBlocks, NCollection_BaseAllocator theAllocator, BOPDS_DS pDS, IntTools_Context theContext, ) */
+    /* Method skipped due to unknown mapping: void FillMap(BOPDS_PaveBlock thePB1, int theF, NCollection_IndexedDataMap<opencascade::handle<BOPDS_PaveBlock>, NCollection_List<int>> theMILI, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void PerformCommonBlocks(NCollection_IndexedDataMap<opencascade::handle<BOPDS_PaveBlock>, NCollection_List<opencascade::handle<BOPDS_PaveBlock>>> theMBlocks, NCollection_BaseAllocator theAllocator, BOPDS_DS theDS, IntTools_Context theContext, ) */
+    /* Method skipped due to unknown mapping: void PerformCommonBlocks(NCollection_IndexedDataMap<opencascade::handle<BOPDS_PaveBlock>, NCollection_List<opencascade::handle<BOPDS_PaveBlock>>> theMBlocks, NCollection_BaseAllocator theAllocator, BOPDS_DS theDS, IntTools_Context theContext, ) */
+    /* Method skipped due to unknown mapping: void PerformCommonBlocks(NCollection_IndexedDataMap<opencascade::handle<BOPDS_PaveBlock>, NCollection_List<int>> theMBlocks, NCollection_BaseAllocator theAllocator, BOPDS_DS pDS, IntTools_Context theContext, ) */
+    /* Method skipped due to unknown mapping: void PerformCommonBlocks(NCollection_IndexedDataMap<opencascade::handle<BOPDS_PaveBlock>, NCollection_List<int>> theMBlocks, NCollection_BaseAllocator theAllocator, BOPDS_DS pDS, IntTools_Context theContext, ) */
     /* Method skipped due to unknown mapping: double ComputeToleranceOfCB(BOPDS_CommonBlock theCB, BOPDS_DS theDS, IntTools_Context theContext, ) */
     /// <summary>
-    /// Creates planar wires from the given edges.<br>
+    /// Creates planar wires from the given edges.
     /// The input edges are expected to be planar. And for the performance
-    /// sake the method does not check if the edges are really planar.<br>
-    /// Thus, the result wires will also be not planar if the input edges are not planar.<br>
+    /// sake the method does not check if the edges are really planar.
+    /// Thus, the result wires will also be not planar if the input edges are not planar.
     /// The edges may be not shared, but the resulting wires will be sharing the
-    /// coinciding parts and intersecting parts.<br>
-    /// The output wires may be non-manifold and contain free and multi-connected vertices.<br>
+    /// coinciding parts and intersecting parts.
+    /// The output wires may be non-manifold and contain free and multi-connected vertices.
     /// Parameters:
-    /// <theEdges> - input edges;<br>
-    /// <theWires> - output wires;<br>
+    /// <theEdges> - input edges;
+    /// <theWires> - output wires;
     /// <theShared> - boolean flag which defines whether the input edges are already
-    /// shared or have to be intersected;<br>
+    /// shared or have to be intersected;
     /// <theAngTol> - the angular tolerance which will be used for distinguishing
     /// the planes in which the edges are located. Default value is
-    /// 1.e-8 which is used for intersection of planes in IntTools_FaceFace.<br>
-    /// Method returns the following error statuses:<br>
-    /// 0 - in case of success (at least one wire has been built);<br>
-    /// 1 - in case there are no edges in the given shape;<br>
-    /// 2 - sharing of the edges has failed.<br>
+    /// 1.e-8 which is used for intersection of planes in IntTools_FaceFace.
+    /// Method returns the following error statuses:
+    /// 0 - in case of success (at least one wire has been built);
+    /// 1 - in case there are no edges in the given shape;
+    /// 2 - sharing of the edges has failed.
     /// </summary>
     static int EdgesToWires(Macad::Occt::TopoDS_Shape^ theEdges, Macad::Occt::TopoDS_Shape^ theWires, bool theShared, double theAngTol);
     /// <summary>
-    /// Creates planar wires from the given edges.<br>
+    /// Creates planar wires from the given edges.
     /// The input edges are expected to be planar. And for the performance
-    /// sake the method does not check if the edges are really planar.<br>
-    /// Thus, the result wires will also be not planar if the input edges are not planar.<br>
+    /// sake the method does not check if the edges are really planar.
+    /// Thus, the result wires will also be not planar if the input edges are not planar.
     /// The edges may be not shared, but the resulting wires will be sharing the
-    /// coinciding parts and intersecting parts.<br>
-    /// The output wires may be non-manifold and contain free and multi-connected vertices.<br>
+    /// coinciding parts and intersecting parts.
+    /// The output wires may be non-manifold and contain free and multi-connected vertices.
     /// Parameters:
-    /// <theEdges> - input edges;<br>
-    /// <theWires> - output wires;<br>
+    /// <theEdges> - input edges;
+    /// <theWires> - output wires;
     /// <theShared> - boolean flag which defines whether the input edges are already
-    /// shared or have to be intersected;<br>
+    /// shared or have to be intersected;
     /// <theAngTol> - the angular tolerance which will be used for distinguishing
     /// the planes in which the edges are located. Default value is
-    /// 1.e-8 which is used for intersection of planes in IntTools_FaceFace.<br>
-    /// Method returns the following error statuses:<br>
-    /// 0 - in case of success (at least one wire has been built);<br>
-    /// 1 - in case there are no edges in the given shape;<br>
-    /// 2 - sharing of the edges has failed.<br>
+    /// 1.e-8 which is used for intersection of planes in IntTools_FaceFace.
+    /// Method returns the following error statuses:
+    /// 0 - in case of success (at least one wire has been built);
+    /// 1 - in case there are no edges in the given shape;
+    /// 2 - sharing of the edges has failed.
     /// </summary>
     static int EdgesToWires(Macad::Occt::TopoDS_Shape^ theEdges, Macad::Occt::TopoDS_Shape^ theWires, bool theShared);
     /// <summary>
-    /// Creates planar wires from the given edges.<br>
+    /// Creates planar wires from the given edges.
     /// The input edges are expected to be planar. And for the performance
-    /// sake the method does not check if the edges are really planar.<br>
-    /// Thus, the result wires will also be not planar if the input edges are not planar.<br>
+    /// sake the method does not check if the edges are really planar.
+    /// Thus, the result wires will also be not planar if the input edges are not planar.
     /// The edges may be not shared, but the resulting wires will be sharing the
-    /// coinciding parts and intersecting parts.<br>
-    /// The output wires may be non-manifold and contain free and multi-connected vertices.<br>
+    /// coinciding parts and intersecting parts.
+    /// The output wires may be non-manifold and contain free and multi-connected vertices.
     /// Parameters:
-    /// <theEdges> - input edges;<br>
-    /// <theWires> - output wires;<br>
+    /// <theEdges> - input edges;
+    /// <theWires> - output wires;
     /// <theShared> - boolean flag which defines whether the input edges are already
-    /// shared or have to be intersected;<br>
+    /// shared or have to be intersected;
     /// <theAngTol> - the angular tolerance which will be used for distinguishing
     /// the planes in which the edges are located. Default value is
-    /// 1.e-8 which is used for intersection of planes in IntTools_FaceFace.<br>
-    /// Method returns the following error statuses:<br>
-    /// 0 - in case of success (at least one wire has been built);<br>
-    /// 1 - in case there are no edges in the given shape;<br>
-    /// 2 - sharing of the edges has failed.<br>
+    /// 1.e-8 which is used for intersection of planes in IntTools_FaceFace.
+    /// Method returns the following error statuses:
+    /// 0 - in case of success (at least one wire has been built);
+    /// 1 - in case there are no edges in the given shape;
+    /// 2 - sharing of the edges has failed.
     /// </summary>
     static int EdgesToWires(Macad::Occt::TopoDS_Shape^ theEdges, Macad::Occt::TopoDS_Shape^ theWires);
     /// <summary>
-    /// Creates planar faces from given planar wires.<br>
-    /// The method does not check if the wires are really planar.<br>
-    /// The input wires may be non-manifold but should be shared.<br>
+    /// Creates planar faces from given planar wires.
+    /// The method does not check if the wires are really planar.
+    /// The input wires may be non-manifold but should be shared.
     /// The wires located in the same planes and included into other wires will create
-    /// holes in the faces built from outer wires.<br>
+    /// holes in the faces built from outer wires.
     /// The tolerance values of the input shapes may be modified during the operation
-    /// due to projection of the edges on the planes for creation of 2D curves.<br>
+    /// due to projection of the edges on the planes for creation of 2D curves.
     /// Parameters:
-    /// <theWires> - the given wires;<br>
-    /// <theFaces> - the output faces;<br>
+    /// <theWires> - the given wires;
+    /// <theFaces> - the output faces;
     /// <theAngTol> - the angular tolerance for distinguishing the planes in which
     /// the wires are located. Default value is 1.e-8 which is used
-    /// for intersection of planes in IntTools_FaceFace.<br>
-    /// Method returns TRUE in case of success, i.e. at least one face has been built.<br>
+    /// for intersection of planes in IntTools_FaceFace.
+    /// Method returns TRUE in case of success, i.e. at least one face has been built.
     /// </summary>
     static bool WiresToFaces(Macad::Occt::TopoDS_Shape^ theWires, Macad::Occt::TopoDS_Shape^ theFaces, double theAngTol);
     /// <summary>
-    /// Creates planar faces from given planar wires.<br>
-    /// The method does not check if the wires are really planar.<br>
-    /// The input wires may be non-manifold but should be shared.<br>
+    /// Creates planar faces from given planar wires.
+    /// The method does not check if the wires are really planar.
+    /// The input wires may be non-manifold but should be shared.
     /// The wires located in the same planes and included into other wires will create
-    /// holes in the faces built from outer wires.<br>
+    /// holes in the faces built from outer wires.
     /// The tolerance values of the input shapes may be modified during the operation
-    /// due to projection of the edges on the planes for creation of 2D curves.<br>
+    /// due to projection of the edges on the planes for creation of 2D curves.
     /// Parameters:
-    /// <theWires> - the given wires;<br>
-    /// <theFaces> - the output faces;<br>
+    /// <theWires> - the given wires;
+    /// <theFaces> - the output faces;
     /// <theAngTol> - the angular tolerance for distinguishing the planes in which
     /// the wires are located. Default value is 1.e-8 which is used
-    /// for intersection of planes in IntTools_FaceFace.<br>
-    /// Method returns TRUE in case of success, i.e. at least one face has been built.<br>
+    /// for intersection of planes in IntTools_FaceFace.
+    /// Method returns TRUE in case of success, i.e. at least one face has been built.
     /// </summary>
     static bool WiresToFaces(Macad::Occt::TopoDS_Shape^ theWires, Macad::Occt::TopoDS_Shape^ theFaces);
     /// <summary>

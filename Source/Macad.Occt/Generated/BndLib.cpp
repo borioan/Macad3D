@@ -201,11 +201,6 @@ void Macad::Occt::BndLib_Add3dCurve::AddOptimal(Macad::Occt::Adaptor3d_Curve^ C,
     ::BndLib_Add3dCurve::AddOptimal(*(::Adaptor3d_Curve*)C->NativeInstance, U1, U2, Tol, *(::Bnd_Box*)B->NativeInstance);
 }
 
-void Macad::Occt::BndLib_Add3dCurve::AddGenCurv(Macad::Occt::Adaptor3d_Curve^ C, double UMin, double UMax, double Tol, Macad::Occt::Bnd_Box^ B)
-{
-    ::BndLib_Add3dCurve::AddGenCurv(*(::Adaptor3d_Curve*)C->NativeInstance, UMin, UMax, Tol, *(::Bnd_Box*)B->NativeInstance);
-}
-
 
 
 //---------------------------------------------------------------------
@@ -236,11 +231,6 @@ void Macad::Occt::BndLib_AddSurface::AddOptimal(Macad::Occt::Adaptor3d_Surface^ 
 void Macad::Occt::BndLib_AddSurface::AddOptimal(Macad::Occt::Adaptor3d_Surface^ S, double UMin, double UMax, double VMin, double VMax, double Tol, Macad::Occt::Bnd_Box^ B)
 {
     ::BndLib_AddSurface::AddOptimal(*(::Adaptor3d_Surface*)S->NativeInstance, UMin, UMax, VMin, VMax, Tol, *(::Bnd_Box*)B->NativeInstance);
-}
-
-void Macad::Occt::BndLib_AddSurface::AddGenSurf(Macad::Occt::Adaptor3d_Surface^ S, double UMin, double UMax, double VMin, double VMax, double Tol, Macad::Occt::Bnd_Box^ B)
-{
-    ::BndLib_AddSurface::AddGenSurf(*(::Adaptor3d_Surface*)S->NativeInstance, UMin, UMax, VMin, VMax, Tol, *(::Bnd_Box*)B->NativeInstance);
 }
 
 

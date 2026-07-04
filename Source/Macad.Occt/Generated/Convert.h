@@ -35,7 +35,7 @@ namespace Occt
 /// t = tan ( Theta / 2 )
 /// The result of this definition is:
 /// cos ( Theta ) = ( 1. - t**2 ) / ( 1. + t**2 )
-/// sin ( Theta ) =      2. * t / ( 1. + t**2 )
+/// sin ( Theta ) = 2. * t / ( 1. + t**2 )
 /// which ensures the rational parameterization of the circle or the ellipse. However, this is not
 /// the most suitable parameterization method where the arc of the circle or ellipse has a large
 /// opening angle. In such cases, the curve will be represented by a BSpline with intermediate
@@ -82,103 +82,6 @@ public enum class Convert_ParameterisationType
     RationalC1 = 6,
     Polynomial = 7
 }; // enum  class Convert_ParameterisationType
-
-//---------------------------------------------------------------------
-//  Class  Convert_SequenceOfArray1OfPoles2d
-//---------------------------------------------------------------------
-public ref class Convert_SequenceOfArray1OfPoles2d sealed
-    : public Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d>
-    , public IIndexEnumerable<Macad::Occt::TColgp_HArray1OfPnt2d^>
-{
-
-#ifdef Include_Convert_SequenceOfArray1OfPoles2d_h
-public:
-    Include_Convert_SequenceOfArray1OfPoles2d_h
-#endif
-
-public:
-    Convert_SequenceOfArray1OfPoles2d(::Convert_SequenceOfArray1OfPoles2d* nativeInstance)
-        : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d>( nativeInstance, true )
-    {}
-
-    Convert_SequenceOfArray1OfPoles2d(::Convert_SequenceOfArray1OfPoles2d& nativeInstance)
-        : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d>( &nativeInstance, false )
-    {}
-
-    property ::Convert_SequenceOfArray1OfPoles2d* NativeInstance
-    {
-        ::Convert_SequenceOfArray1OfPoles2d* get()
-        {
-            return static_cast<::Convert_SequenceOfArray1OfPoles2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d::Iterator>
-    {
-
-#ifdef Include_Convert_SequenceOfArray1OfPoles2d_Iterator_h
-    public:
-        Include_Convert_SequenceOfArray1OfPoles2d_Iterator_h
-#endif
-
-    public:
-        Iterator(::Convert_SequenceOfArray1OfPoles2d::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::Convert_SequenceOfArray1OfPoles2d::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::Convert_SequenceOfArray1OfPoles2d::Iterator* NativeInstance
-        {
-            ::Convert_SequenceOfArray1OfPoles2d::Iterator* get()
-            {
-                return static_cast<::Convert_SequenceOfArray1OfPoles2d::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::TColgp_HArray1OfPnt2d^ Value();
-        Macad::Occt::TColgp_HArray1OfPnt2d^ ChangeValue();
-        bool IsEqual(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ theOther);
-        bool Equals(System::Object^ obj) override;
-    }; // class Iterator
-
-    Convert_SequenceOfArray1OfPoles2d();
-    Convert_SequenceOfArray1OfPoles2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
-    int Upper();
-    bool IsEmpty();
-    void Reverse();
-    void Exchange(int I, int J);
-    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ Assign(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theOther);
-    void Remove(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ thePosition);
-    void Append(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
-    void Prepend(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
-    void InsertBefore(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
-    void InsertAfter(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ thePosition, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
-    void Split(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq);
-    Macad::Occt::TColgp_HArray1OfPnt2d^ First();
-    Macad::Occt::TColgp_HArray1OfPnt2d^ ChangeFirst();
-    Macad::Occt::TColgp_HArray1OfPnt2d^ Last();
-    Macad::Occt::TColgp_HArray1OfPnt2d^ ChangeLast();
-    virtual Macad::Occt::TColgp_HArray1OfPnt2d^ Value(int theIndex);
-    Macad::Occt::TColgp_HArray1OfPnt2d^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class Convert_SequenceOfArray1OfPoles2d
 
 //---------------------------------------------------------------------
 //  Class  Convert_SequenceOfArray1OfPoles
@@ -239,6 +142,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq, bool isStart);
+        Iterator(Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq);
         bool More();
         void Next();
         Macad::Occt::TColgp_HArray1OfPnt^ Value();
@@ -247,35 +152,176 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     Convert_SequenceOfArray1OfPoles();
     Convert_SequenceOfArray1OfPoles(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::Convert_SequenceOfArray1OfPoles^ Assign(Macad::Occt::Convert_SequenceOfArray1OfPoles^ theOther);
     void Remove(Macad::Occt::Convert_SequenceOfArray1OfPoles::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::TColgp_HArray1OfPnt^ theItem);
+    void Append(Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq);
     void Prepend(Macad::Occt::TColgp_HArray1OfPnt^ theItem);
+    void Prepend(Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq);
     void InsertAfter(Macad::Occt::Convert_SequenceOfArray1OfPoles::Iterator^ thePosition, Macad::Occt::TColgp_HArray1OfPnt^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq);
     void Split(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq);
     Macad::Occt::TColgp_HArray1OfPnt^ First();
     Macad::Occt::TColgp_HArray1OfPnt^ ChangeFirst();
     Macad::Occt::TColgp_HArray1OfPnt^ Last();
     Macad::Occt::TColgp_HArray1OfPnt^ ChangeLast();
+    Macad::Occt::TColgp_HArray1OfPnt^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::TColgp_HArray1OfPnt^ Value(int theIndex);
+    Macad::Occt::TColgp_HArray1OfPnt^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::TColgp_HArray1OfPnt^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem);
     void SetValue(int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem);
+    Macad::Occt::TColgp_HArray1OfPnt^ At(long long unsigned int theIndex);
+    Macad::Occt::TColgp_HArray1OfPnt^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HArray1OfPnt^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class Convert_SequenceOfArray1OfPoles
+
+//---------------------------------------------------------------------
+//  Class  Convert_SequenceOfArray1OfPoles2d
+//---------------------------------------------------------------------
+public ref class Convert_SequenceOfArray1OfPoles2d sealed
+    : public Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d>
+    , public IIndexEnumerable<Macad::Occt::TColgp_HArray1OfPnt2d^>
+{
+
+#ifdef Include_Convert_SequenceOfArray1OfPoles2d_h
+public:
+    Include_Convert_SequenceOfArray1OfPoles2d_h
+#endif
+
+public:
+    Convert_SequenceOfArray1OfPoles2d(::Convert_SequenceOfArray1OfPoles2d* nativeInstance)
+        : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d>( nativeInstance, true )
+    {}
+
+    Convert_SequenceOfArray1OfPoles2d(::Convert_SequenceOfArray1OfPoles2d& nativeInstance)
+        : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d>( &nativeInstance, false )
+    {}
+
+    property ::Convert_SequenceOfArray1OfPoles2d* NativeInstance
+    {
+        ::Convert_SequenceOfArray1OfPoles2d* get()
+        {
+            return static_cast<::Convert_SequenceOfArray1OfPoles2d*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d::Iterator>
+    {
+
+#ifdef Include_Convert_SequenceOfArray1OfPoles2d_Iterator_h
+    public:
+        Include_Convert_SequenceOfArray1OfPoles2d_Iterator_h
+#endif
+
+    public:
+        Iterator(::Convert_SequenceOfArray1OfPoles2d::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::Convert_SequenceOfArray1OfPoles2d::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::Convert_SequenceOfArray1OfPoles2d::Iterator* NativeInstance
+        {
+            ::Convert_SequenceOfArray1OfPoles2d::Iterator* get()
+            {
+                return static_cast<::Convert_SequenceOfArray1OfPoles2d::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        Iterator();
+        Iterator(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq, bool isStart);
+        Iterator(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq);
+        bool More();
+        void Next();
+        Macad::Occt::TColgp_HArray1OfPnt2d^ Value();
+        Macad::Occt::TColgp_HArray1OfPnt2d^ ChangeValue();
+        bool IsEqual(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ theOther);
+        bool Equals(System::Object^ obj) override;
+    }; // class Iterator
+
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
+    Convert_SequenceOfArray1OfPoles2d();
+    Convert_SequenceOfArray1OfPoles2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    static int Lower();
+    int Upper();
+    bool IsEmpty();
+    void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
+    void Exchange(int I, int J);
+    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    void Clear();
+    Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ Assign(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theOther);
+    void Remove(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
+    void Append(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
+    void Append(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq);
+    void Prepend(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
+    void Prepend(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
+    void InsertBefore(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq);
+    void InsertAfter(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ thePosition, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq);
+    void Split(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq);
+    Macad::Occt::TColgp_HArray1OfPnt2d^ First();
+    Macad::Occt::TColgp_HArray1OfPnt2d^ ChangeFirst();
+    Macad::Occt::TColgp_HArray1OfPnt2d^ Last();
+    Macad::Occt::TColgp_HArray1OfPnt2d^ ChangeLast();
+    Macad::Occt::TColgp_HArray1OfPnt2d^ Value(long long unsigned int theIndex);
+    virtual Macad::Occt::TColgp_HArray1OfPnt2d^ Value(int theIndex);
+    Macad::Occt::TColgp_HArray1OfPnt2d^ ChangeValue(long long unsigned int theIndex);
+    Macad::Occt::TColgp_HArray1OfPnt2d^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
+    void SetValue(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem);
+    Macad::Occt::TColgp_HArray1OfPnt2d^ At(long long unsigned int theIndex);
+    Macad::Occt::TColgp_HArray1OfPnt2d^ ChangeAt(long long unsigned int theIndex);
+    virtual System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>^ GetEnumerator();
+    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
+}; // class Convert_SequenceOfArray1OfPoles2d
 
 //---------------------------------------------------------------------
 //  Class  Convert_ConicToBSplineCurve
@@ -293,17 +339,6 @@ public:
 /// -   a knots table with associated multiplicities.
 /// The abstract class ConicToBSplineCurve provides a
 /// framework for storing and consulting this computed data.
-/// The data may then be used to construct a
-/// Geom2d_BSplineCurve curvSuper class of the following classes :
-/// This abstract class implements the methods to get the geometric
-/// representation of the B-spline curve equivalent to the conic.
-/// The B-spline is computed at the creation time in the sub classes.
-/// The B-spline curve is defined with its degree, its control points
-/// (Poles), its weights, its knots and their multiplicity.
-/// All the geometric entities used in this package are defined in 2D
-/// space.
-/// KeyWords :
-/// Convert, Conic, BSplineCurve, 2D.
 /// </summary>
 public ref class Convert_ConicToBSplineCurve
     : public Macad::Occt::BaseClass<::Convert_ConicToBSplineCurve>
@@ -360,37 +395,75 @@ public:
     /// <summary>
     /// Returns the pole of index Index to the poles table of the
     /// BSpline curve whose data is computed in this framework.
-    /// Exceptions
-    /// Standard_OutOfRange if Index is outside the bounds of
-    /// the poles table of the BSpline curve whose data is computed in this framework.
     /// </summary>
-    Macad::Occt::Pnt2d Pole(int Index);
+    /// <param name="in]">
+    /// theIndex pole index (1-based)
+    /// </param>
+    /// <returns>
+    /// pole at the given index
+    /// </returns>
+    /// @throws Standard_OutOfRange if theIndex is out of bounds
+    Macad::Occt::Pnt2d Pole(int theIndex);
     /// <summary>
     /// Returns the weight of the pole of index Index to the poles
     /// table of the BSpline curve whose data is computed in this framework.
-    /// Exceptions
-    /// Standard_OutOfRange if Index is outside the bounds of
-    /// the poles table of the BSpline curve whose data is computed in this framework.
     /// </summary>
-    double Weight(int Index);
+    /// <param name="in]">
+    /// theIndex weight index (1-based)
+    /// </param>
+    /// <returns>
+    /// weight at the given index
+    /// </returns>
+    /// @throws Standard_OutOfRange if theIndex is out of bounds
+    double Weight(int theIndex);
     /// <summary>
     /// Returns the knot of index Index to the knots table of the
     /// BSpline curve whose data is computed in this framework.
-    /// Exceptions
-    /// Standard_OutOfRange if Index is outside the bounds of
-    /// the knots table of the BSpline curve whose data is computed in this framework.
     /// </summary>
-    double Knot(int Index);
+    /// <param name="in]">
+    /// theIndex knot index (1-based)
+    /// </param>
+    /// <returns>
+    /// knot at the given index
+    /// </returns>
+    /// @throws Standard_OutOfRange if theIndex is out of bounds
+    double Knot(int theIndex);
     /// <summary>
     /// Returns the multiplicity of the knot of index Index to the
     /// knots table of the BSpline curve whose data is computed in this framework.
-    /// Exceptions
-    /// Standard_OutOfRange if Index is outside the bounds of
-    /// the knots table of the BSpline curve whose data is computed in this framework.
     /// </summary>
-    int Multiplicity(int Index);
-    void BuildCosAndSin(Macad::Occt::Convert_ParameterisationType Parametrisation, Macad::Occt::TColStd_HArray1OfReal^ CosNumerator, Macad::Occt::TColStd_HArray1OfReal^ SinNumerator, Macad::Occt::TColStd_HArray1OfReal^ Denominator, int% Degree, Macad::Occt::TColStd_HArray1OfReal^ Knots, Macad::Occt::TColStd_HArray1OfInteger^ Mults);
-    void BuildCosAndSin(Macad::Occt::Convert_ParameterisationType Parametrisation, double UFirst, double ULast, Macad::Occt::TColStd_HArray1OfReal^ CosNumerator, Macad::Occt::TColStd_HArray1OfReal^ SinNumerator, Macad::Occt::TColStd_HArray1OfReal^ Denominator, int% Degree, Macad::Occt::TColStd_HArray1OfReal^ Knots, Macad::Occt::TColStd_HArray1OfInteger^ Mults);
+    /// <param name="in]">
+    /// theIndex multiplicity index (1-based)
+    /// </param>
+    /// <returns>
+    /// multiplicity at the given index
+    /// </returns>
+    /// @throws Standard_OutOfRange if theIndex is out of bounds
+    int Multiplicity(int theIndex);
+    /// <summary>
+    /// Returns the poles of the BSpline curve.
+    /// </summary>
+    Macad::Occt::TColgp_Array1OfPnt2d^ Poles();
+    /// <summary>
+    /// Returns the weights of the BSpline curve.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfReal^ Weights();
+    /// <summary>
+    /// Returns the knots of the BSpline curve.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfReal^ Knots();
+    /// <summary>
+    /// Returns the multiplicities of the BSpline curve.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfInteger^ Multiplicities();
+    /// <summary>
+    /// Legacy API returning handle arrays for compatibility.
+    /// </summary>
+    void BuildCosAndSin(Macad::Occt::Convert_ParameterisationType theParametrisation, Macad::Occt::TColStd_HArray1OfReal^ theCosNumerator, Macad::Occt::TColStd_HArray1OfReal^ theSinNumerator, Macad::Occt::TColStd_HArray1OfReal^ theDenominator, int% theDegree, Macad::Occt::TColStd_HArray1OfReal^ theKnots, Macad::Occt::TColStd_HArray1OfInteger^ theMults);
+    /// <summary>
+    /// Legacy API returning handle arrays for compatibility.
+    /// </summary>
+    void BuildCosAndSin(Macad::Occt::Convert_ParameterisationType theParametrisation, double theUFirst, double theULast, Macad::Occt::TColStd_HArray1OfReal^ theCosNumerator, Macad::Occt::TColStd_HArray1OfReal^ theSinNumerator, Macad::Occt::TColStd_HArray1OfReal^ theDenominator, int% theDegree, Macad::Occt::TColStd_HArray1OfReal^ theKnots, Macad::Occt::TColStd_HArray1OfInteger^ theMults);
 }; // class Convert_ConicToBSplineCurve
 
 //---------------------------------------------------------------------
@@ -399,7 +472,7 @@ public:
 /// <summary>
 /// This algorithm converts a circle into a rational B-spline curve.
 /// The circle is a Circ2d from package gp and its parametrization is :
-/// P (U) = Loc + R * (Cos(U) * Xdir + Sin(U) * YDir) where Loc is the
+/// P (U) = Loc + R * (std::cos(U) * Xdir + std::sin(U) * YDir) where Loc is the
 /// center of the circle Xdir and Ydir are the normalized directions
 /// of the local cartesian coordinate system of the circle.
 /// The parametrization range for the circle is U [0, 2Pi].
@@ -466,393 +539,6 @@ public:
     /// </summary>
     Convert_CircleToBSplineCurve(Macad::Occt::gp_Circ2d^ C, double U1, double U2);
 }; // class Convert_CircleToBSplineCurve
-
-//---------------------------------------------------------------------
-//  Class  Convert_CompBezierCurves2dToBSplineCurve2d
-//---------------------------------------------------------------------
-/// <summary>
-/// Converts a list  of connecting Bezier Curves 2d to  a
-/// BSplineCurve 2d.
-/// if possible, the continuity of the BSpline will be
-/// increased to more than C0.
-/// </summary>
-public ref class Convert_CompBezierCurves2dToBSplineCurve2d sealed
-    : public Macad::Occt::BaseClass<::Convert_CompBezierCurves2dToBSplineCurve2d>
-{
-
-#ifdef Include_Convert_CompBezierCurves2dToBSplineCurve2d_h
-public:
-    Include_Convert_CompBezierCurves2dToBSplineCurve2d_h
-#endif
-
-public:
-    Convert_CompBezierCurves2dToBSplineCurve2d(::Convert_CompBezierCurves2dToBSplineCurve2d* nativeInstance)
-        : Macad::Occt::BaseClass<::Convert_CompBezierCurves2dToBSplineCurve2d>( nativeInstance, true )
-    {}
-
-    Convert_CompBezierCurves2dToBSplineCurve2d(::Convert_CompBezierCurves2dToBSplineCurve2d& nativeInstance)
-        : Macad::Occt::BaseClass<::Convert_CompBezierCurves2dToBSplineCurve2d>( &nativeInstance, false )
-    {}
-
-    property ::Convert_CompBezierCurves2dToBSplineCurve2d* NativeInstance
-    {
-        ::Convert_CompBezierCurves2dToBSplineCurve2d* get()
-        {
-            return static_cast<::Convert_CompBezierCurves2dToBSplineCurve2d*>(_NativeInstance);
-        }
-    }
-
-public:
-    /// <summary>
-    /// Constructs a framework for converting a sequence of
-    /// adjacent non-rational Bezier curves into a BSpline curve.
-    /// Knots will be created on the computed BSpline curve at
-    /// each junction point of two consecutive Bezier curves. The
-    /// degree of continuity of the BSpline curve will be increased at
-    /// the junction point of two consecutive Bezier curves if their
-    /// tangent vectors at this point are parallel. AngularTolerance
-    /// (given in radians, and defaulted to 1.0 e-4) will be used
-    /// to check the parallelism of the two tangent vectors.
-    /// Use the following functions:
-    /// -   AddCurve to define in sequence the adjacent Bezier
-    /// curves to be converted,
-    /// -   Perform to compute the data needed to build the BSpline curve,
-    /// -   and the available consultation functions to access the
-    /// computed data. This data may be used to construct the BSpline curve.
-    /// </summary>
-    Convert_CompBezierCurves2dToBSplineCurve2d(double AngularTolerance);
-    /// <summary>
-    /// Constructs a framework for converting a sequence of
-    /// adjacent non-rational Bezier curves into a BSpline curve.
-    /// Knots will be created on the computed BSpline curve at
-    /// each junction point of two consecutive Bezier curves. The
-    /// degree of continuity of the BSpline curve will be increased at
-    /// the junction point of two consecutive Bezier curves if their
-    /// tangent vectors at this point are parallel. AngularTolerance
-    /// (given in radians, and defaulted to 1.0 e-4) will be used
-    /// to check the parallelism of the two tangent vectors.
-    /// Use the following functions:
-    /// -   AddCurve to define in sequence the adjacent Bezier
-    /// curves to be converted,
-    /// -   Perform to compute the data needed to build the BSpline curve,
-    /// -   and the available consultation functions to access the
-    /// computed data. This data may be used to construct the BSpline curve.
-    /// </summary>
-    Convert_CompBezierCurves2dToBSplineCurve2d();
-    /// <summary>
-    /// Adds the Bezier curve defined by the table of poles Poles, to
-    /// the sequence (still contained in this framework) of adjacent
-    /// Bezier curves to be converted into a BSpline curve.
-    /// Only polynomial (i.e. non-rational) Bezier curves are
-    /// converted using this framework.
-    /// If this is not the first call to the function (i.e. if this framework
-    /// still contains data in its sequence of Bezier curves), the
-    /// degree of continuity of the BSpline curve will be increased at
-    /// the time of computation at the first point of the added Bezier
-    /// curve (i.e. the first point of the Poles table). This will be the
-    /// case if the tangent vector of the curve at this point is
-    /// parallel to the tangent vector at the end point of the
-    /// preceding Bezier curve in the sequence of Bezier curves still
-    /// contained in this framework. An angular tolerance given at
-    /// the time of construction of this framework, will be used to
-    /// check the parallelism of the two tangent vectors. This
-    /// checking procedure, and all the relative computations will be
-    /// performed by the function Perform.
-    /// When the sequence of adjacent Bezier curves is complete,
-    /// use the following functions:
-    /// -   Perform to compute the data needed to build the BSpline curve,
-    /// -   and the available consultation functions to access the
-    /// computed data. This data may be used to construct the BSpline curve.
-    /// Warning
-    /// The sequence of Bezier curves treated by this framework is
-    /// automatically initialized with the first Bezier curve when the
-    /// function is first called. During subsequent use of this function,
-    /// ensure that the first point of the added Bezier curve (i.e. the
-    /// first point of the Poles table) is coincident with the last point
-    /// of the sequence (i.e. the last point of the preceding Bezier
-    /// curve in the sequence) of Bezier curves still contained in
-    /// this framework. An error may occur at the time of
-    /// computation if this condition is not satisfied. Particular care
-    /// must be taken with respect to the above, as this condition is
-    /// not checked either when defining the sequence of Bezier
-    /// curves or at the time of computation.
-    /// </summary>
-    void AddCurve(Macad::Occt::TColgp_Array1OfPnt2d^ Poles);
-    /// <summary>
-    /// Computes all the data needed to build a BSpline curve
-    /// equivalent to the sequence of adjacent Bezier curves still
-    /// contained in this framework.
-    /// A knot is inserted on the computed BSpline curve at the
-    /// junction point of two consecutive Bezier curves. The
-    /// degree of continuity of the BSpline curve will be increased
-    /// at the junction point of two consecutive Bezier curves if
-    /// their tangent vectors at this point are parallel. An angular
-    /// tolerance given at the time of construction of this
-    /// framework is used to check the parallelism of the two
-    /// tangent vectors.
-    /// Use the available consultation functions to access the
-    /// computed data. This data may then be used to construct
-    /// the BSpline curve.
-    /// Warning
-    /// Ensure that the curves in the sequence of Bezier curves
-    /// contained in this framework are adjacent. An error may
-    /// occur at the time of computation if this condition is not
-    /// satisfied. Particular care must be taken with respect to the
-    /// above as this condition is not checked, either when
-    /// defining the Bezier curve sequence or at the time of computation.
-    /// </summary>
-    void Perform();
-    /// <summary>
-    /// Returns the degree of the BSpline curve whose data is
-    /// computed in this framework.
-    /// Warning
-    /// Take particular care not to use this function before the
-    /// computation is performed (Perform function), as this
-    /// condition is not checked and an error may therefore occur.
-    /// </summary>
-    int Degree();
-    /// <summary>
-    /// Returns the number of poles of the BSpline curve whose
-    /// data is computed in this framework.
-    /// Warning
-    /// Take particular care not to use this function before the
-    /// computation is performed (Perform function), as this
-    /// condition is not checked and an error may therefore occur.
-    /// </summary>
-    int NbPoles();
-    /// <summary>
-    /// Loads the Poles table with the poles of the BSpline curve
-    /// whose data is computed in this framework.
-    /// Warning
-    /// -   Do not use this function before the computation is
-    /// performed (Perform function).
-    /// -   The length of the Poles array must be equal to the
-    /// number of poles of the BSpline curve whose data is
-    /// computed in this framework.
-    /// Particular care must be taken with respect to the above, as
-    /// these conditions are not checked, and an error may occur.
-    /// </summary>
-    void Poles(Macad::Occt::TColgp_Array1OfPnt2d^ Poles);
-    /// <summary>
-    /// Returns the number of knots of the BSpline curve whose
-    /// data is computed in this framework.
-    /// Warning
-    /// Take particular care not to use this function before the
-    /// computation is performed (Perform function), as this
-    /// condition is not checked and an error may therefore occur.
-    /// </summary>
-    int NbKnots();
-    /// <summary>
-    /// Loads the Knots table with the knots
-    /// and the Mults table with the corresponding multiplicities
-    /// of the BSpline curve whose data is computed in this framework.
-    /// Warning
-    /// -   Do not use this function before the computation is
-    /// performed (Perform function).
-    /// -   The length of the Knots and Mults arrays must be equal
-    /// to the number of knots in the BSpline curve whose data is
-    /// computed in this framework.
-    /// Particular care must be taken with respect to the above as
-    /// these conditions are not checked, and an error may occur.
-    /// </summary>
-    void KnotsAndMults(Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Mults);
-}; // class Convert_CompBezierCurves2dToBSplineCurve2d
-
-//---------------------------------------------------------------------
-//  Class  Convert_CompBezierCurvesToBSplineCurve
-//---------------------------------------------------------------------
-/// <summary>
-/// An algorithm to convert a sequence of adjacent
-/// non-rational Bezier curves into a BSpline curve.
-/// A CompBezierCurvesToBSplineCurve object provides a framework for:
-/// -   defining the sequence of adjacent non-rational Bezier
-/// curves to be converted into a BSpline curve,
-/// -   implementing the computation algorithm, and
-/// -   consulting the results.
-/// Warning
-/// Do not attempt to convert rational Bezier curves using this type of algorithm.
-/// </summary>
-public ref class Convert_CompBezierCurvesToBSplineCurve sealed
-    : public Macad::Occt::BaseClass<::Convert_CompBezierCurvesToBSplineCurve>
-{
-
-#ifdef Include_Convert_CompBezierCurvesToBSplineCurve_h
-public:
-    Include_Convert_CompBezierCurvesToBSplineCurve_h
-#endif
-
-public:
-    Convert_CompBezierCurvesToBSplineCurve(::Convert_CompBezierCurvesToBSplineCurve* nativeInstance)
-        : Macad::Occt::BaseClass<::Convert_CompBezierCurvesToBSplineCurve>( nativeInstance, true )
-    {}
-
-    Convert_CompBezierCurvesToBSplineCurve(::Convert_CompBezierCurvesToBSplineCurve& nativeInstance)
-        : Macad::Occt::BaseClass<::Convert_CompBezierCurvesToBSplineCurve>( &nativeInstance, false )
-    {}
-
-    property ::Convert_CompBezierCurvesToBSplineCurve* NativeInstance
-    {
-        ::Convert_CompBezierCurvesToBSplineCurve* get()
-        {
-            return static_cast<::Convert_CompBezierCurvesToBSplineCurve*>(_NativeInstance);
-        }
-    }
-
-public:
-    /// <summary>
-    /// Constructs a framework for converting a sequence of
-    /// adjacent non-rational Bezier curves into a BSpline curve.
-    /// Knots will be created on the computed BSpline curve at
-    /// each junction point of two consecutive Bezier curves. The
-    /// degree of continuity of the BSpline curve will be increased at
-    /// the junction point of two consecutive Bezier curves if their
-    /// tangent vectors at this point are parallel. AngularTolerance
-    /// (given in radians, and defaulted to 1.0 e-4) will be used
-    /// to check the parallelism of the two tangent vectors.
-    /// Use the following functions:
-    /// -   AddCurve to define in sequence the adjacent Bezier
-    /// curves to be converted,
-    /// -   Perform to compute the data needed to build the BSpline curve,
-    /// -   and the available consultation functions to access the
-    /// computed data. This data may be used to construct the BSpline curve.
-    /// </summary>
-    Convert_CompBezierCurvesToBSplineCurve(double AngularTolerance);
-    /// <summary>
-    /// Constructs a framework for converting a sequence of
-    /// adjacent non-rational Bezier curves into a BSpline curve.
-    /// Knots will be created on the computed BSpline curve at
-    /// each junction point of two consecutive Bezier curves. The
-    /// degree of continuity of the BSpline curve will be increased at
-    /// the junction point of two consecutive Bezier curves if their
-    /// tangent vectors at this point are parallel. AngularTolerance
-    /// (given in radians, and defaulted to 1.0 e-4) will be used
-    /// to check the parallelism of the two tangent vectors.
-    /// Use the following functions:
-    /// -   AddCurve to define in sequence the adjacent Bezier
-    /// curves to be converted,
-    /// -   Perform to compute the data needed to build the BSpline curve,
-    /// -   and the available consultation functions to access the
-    /// computed data. This data may be used to construct the BSpline curve.
-    /// </summary>
-    Convert_CompBezierCurvesToBSplineCurve();
-    /// <summary>
-    /// Adds the Bezier curve defined by the table of poles Poles, to
-    /// the sequence (still contained in this framework) of adjacent
-    /// Bezier curves to be converted into a BSpline curve.
-    /// Only polynomial (i.e. non-rational) Bezier curves are
-    /// converted using this framework.
-    /// If this is not the first call to the function (i.e. if this framework
-    /// still contains data in its Bezier curve sequence), the degree
-    /// of continuity of the BSpline curve will be increased at the
-    /// time of computation at the first point of the added Bezier
-    /// curve (i.e. the first point of the Poles table). This will be the
-    /// case if the tangent vector of the curve at this point is
-    /// parallel to the tangent vector at the end point of the
-    /// preceding Bezier curve in the Bezier curve sequence still
-    /// contained in this framework. An angular tolerance given at
-    /// the time of construction of this framework will be used to
-    /// check the parallelism of the two tangent vectors. This
-    /// checking procedure and all related computations will be
-    /// performed by the Perform function.
-    /// When the adjacent Bezier curve sequence is complete, use
-    /// the following functions:
-    /// -   Perform to compute the data needed to build the BSpline curve,
-    /// -   and the available consultation functions to access the
-    /// computed data. This data may be used to construct the BSpline curve.
-    /// Warning
-    /// The Bezier curve sequence treated by this framework is
-    /// automatically initialized with the first Bezier curve when the
-    /// function is first called. During subsequent use of this function,
-    /// ensure that the first point of the added Bezier curve (i.e. the
-    /// first point of the Poles table) is coincident with the last point
-    /// of the Bezier curve sequence (i.e. the last point of the
-    /// preceding Bezier curve in the sequence) still contained in
-    /// this framework. An error may occur at the time of
-    /// computation if this condition is not satisfied. Particular care
-    /// must be taken with respect to the above, as this condition is
-    /// not checked either when defining the Bezier curve
-    /// sequence or at the time of computation.
-    /// </summary>
-    void AddCurve(Macad::Occt::TColgp_Array1OfPnt^ Poles);
-    /// <summary>
-    /// Computes all the data needed to build a BSpline curve
-    /// equivalent to the adjacent Bezier curve sequence still
-    /// contained in this framework.
-    /// A knot is inserted on the computed BSpline curve at the
-    /// junction point of two consecutive Bezier curves. The
-    /// degree of continuity of the BSpline curve will be increased
-    /// at the junction point of two consecutive Bezier curves if
-    /// their tangent vectors at this point are parallel. An angular
-    /// tolerance given at the time of construction of this
-    /// framework is used to check the parallelism of the two
-    /// tangent vectors.
-    /// Use the available consultation functions to access the
-    /// computed data. This data may then be used to construct
-    /// the BSpline curve.
-    /// Warning
-    /// Make sure that the curves in the Bezier curve sequence
-    /// contained in this framework are adjacent. An error may
-    /// occur at the time of computation if this condition is not
-    /// satisfied. Particular care must be taken with respect to the
-    /// above as this condition is not checked, either when
-    /// defining the Bezier curve sequence or at the time of computation.
-    /// </summary>
-    void Perform();
-    /// <summary>
-    /// Returns the degree of the BSpline curve whose data is
-    /// computed in this framework.
-    /// Warning
-    /// Take particular care not to use this function before the
-    /// computation is performed (Perform function), as this
-    /// condition is not checked and an error may  therefore occur.
-    /// </summary>
-    int Degree();
-    /// <summary>
-    /// Returns the number of poles of the BSpline curve whose
-    /// data is computed in this framework.
-    /// Warning
-    /// Take particular care not to use this function before the
-    /// computation is performed (Perform function), as this
-    /// condition is not checked and an error may therefore occur.
-    /// </summary>
-    int NbPoles();
-    /// <summary>
-    /// Loads the Poles table with the poles of the BSpline curve
-    /// whose data is computed in this framework.
-    /// Warning
-    /// -   Do not use this function before the computation is
-    /// performed (Perform function).
-    /// -   The length of the Poles array must be equal to the
-    /// number of poles of the BSpline curve whose data is
-    /// computed in this framework.
-    /// Particular care must be taken with respect to the above, as
-    /// these conditions are not checked, and an error may occur.
-    /// </summary>
-    void Poles(Macad::Occt::TColgp_Array1OfPnt^ Poles);
-    /// <summary>
-    /// Returns the number of knots of the BSpline curve whose
-    /// data is computed in this framework.
-    /// Warning
-    /// Take particular care not to use this function before the
-    /// computation is performed (Perform function), as this
-    /// condition is not checked and an error may therefore occur.
-    /// </summary>
-    int NbKnots();
-    /// <summary>
-    /// -   loads the Knots table with the knots,
-    /// -   and loads the Mults table with the corresponding multiplicities
-    /// of the BSpline curve whose data is computed in this framework.
-    /// Warning
-    /// -   Do not use this function before the computation is
-    /// performed (Perform function).
-    /// -   The length of the Knots and Mults arrays must be equal
-    /// to the number of knots in the BSpline curve whose data is
-    /// computed in this framework.
-    /// Particular care must be taken with respect to the above as
-    /// these conditions are not checked, and an error may occur.
-    /// </summary>
-    void KnotsAndMults(Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Mults);
-}; // class Convert_CompBezierCurvesToBSplineCurve
 
 //---------------------------------------------------------------------
 //  Class  Convert_CompPolynomialToPoles
@@ -945,28 +631,46 @@ public:
     /// </summary>
     Convert_CompPolynomialToPoles(int Dimension, int MaxDegree, int Degree, Macad::Occt::TColStd_Array1OfReal^ Coefficients, Macad::Occt::TColStd_Array1OfReal^ PolynomialIntervals, Macad::Occt::TColStd_Array1OfReal^ TrueIntervals);
     /// <summary>
-    /// number of poles of the n-dimensional BSpline
+    /// Returns the number of poles of the n-dimensional BSpline.
     /// </summary>
     int NbPoles();
     /// <summary>
-    /// returns the poles of the n-dimensional BSpline
-    /// in the following format :
+    /// Returns the poles of the n-dimensional BSpline
+    /// in the following format:
     /// [1..NumPoles][1..Dimension]
     /// </summary>
-    void Poles(Macad::Occt::TColStd_HArray2OfReal^ Poles);
+    Macad::Occt::TColStd_Array2OfReal^ Poles();
+    /// <summary>
+    /// Returns the poles of the n-dimensional BSpline via output parameter.
+    /// </summary>
+    void Poles(Macad::Occt::TColStd_HArray2OfReal^ thePoles);
+    /// <summary>
+    /// Returns the degree of the n-dimensional BSpline.
+    /// </summary>
     int Degree();
     /// <summary>
-    /// Degree of the n-dimensional Bspline
+    /// Returns the number of knots of the n-dimensional BSpline.
     /// </summary>
     int NbKnots();
     /// <summary>
-    /// Knots of the n-dimensional Bspline
+    /// Returns the knots of the n-dimensional BSpline.
     /// </summary>
-    void Knots(Macad::Occt::TColStd_HArray1OfReal^ K);
+    Macad::Occt::TColStd_Array1OfReal^ Knots();
     /// <summary>
-    /// Multiplicities of the knots in the BSpline
+    /// Returns the knots of the n-dimensional BSpline via output parameter.
     /// </summary>
-    void Multiplicities(Macad::Occt::TColStd_HArray1OfInteger^ M);
+    void Knots(Macad::Occt::TColStd_HArray1OfReal^ theKnots);
+    /// <summary>
+    /// Returns the multiplicities of the knots in the BSpline.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfInteger^ Multiplicities();
+    /// <summary>
+    /// Returns the multiplicities of the knots via output parameter.
+    /// </summary>
+    void Multiplicities(Macad::Occt::TColStd_HArray1OfInteger^ theMults);
+    /// <summary>
+    /// Returns true if the conversion was successful.
+    /// </summary>
     bool IsDone();
 }; // class Convert_CompPolynomialToPoles
 
@@ -975,34 +679,11 @@ public:
 //---------------------------------------------------------------------
 /// <summary>
 /// Root class for algorithms which convert an elementary
-/// surface (cylinder, cone, sphere or torus) into a BSpline
-/// surface (CylinderToBSplineSurface, ConeToBSplineSurface,
-/// SphereToBSplineSurface, TorusToBSplineSurface).
+/// surface (cylinder, cone, sphere or torus) into a BSpline surface.
 /// These algorithms all work on elementary surfaces from
 /// the gp package and compute all the data needed to
 /// construct a BSpline surface equivalent to the cylinder,
-/// cone, sphere or torus. This data consists of the following:
-/// -   degrees in the u and v parametric directions,
-/// -   periodic characteristics in the u and v parametric directions,
-/// -   a poles table with associated weights,
-/// -   a knots table (for the u and v parametric directions)
-/// with associated multiplicities.
-/// The abstract class
-/// ElementarySurfaceToBSplineSurface provides a
-/// framework for storing and consulting this computed data.
-/// This data may then be used to construct a
-/// Geom_BSplineSurface surface, for example.
-/// All those classes define algorithms to convert an
-/// ElementarySurface into a B-spline surface.
-/// This abstract class implements the methods to get
-/// the geometric representation of the B-spline surface.
-/// The B-spline representation is computed at the creation
-/// time in the sub classes.
-/// The B-spline surface is defined with its degree in the
-/// parametric U and V directions, its control points (Poles),
-/// its weights, its knots and their multiplicity.
-/// KeyWords :
-/// Convert, ElementarySurface, BSplineSurface.
+/// cone, sphere or torus.
 /// </summary>
 public ref class Convert_ElementarySurfaceToBSplineSurface
     : public Macad::Occt::BaseClass<::Convert_ElementarySurfaceToBSplineSurface>
@@ -1036,74 +717,92 @@ public:
     }
 
 public:
+    /// <summary>
+    /// Returns the degree in the U parametric direction.
+    /// </summary>
     int UDegree();
     /// <summary>
-    /// Returns the degree for the u or v parametric direction of
-    /// the BSpline surface whose data is computed in this framework.
+    /// Returns the degree in the V parametric direction.
     /// </summary>
     int VDegree();
+    /// <summary>
+    /// Returns the number of poles in the U parametric direction.
+    /// </summary>
     int NbUPoles();
     /// <summary>
-    /// Returns the number of poles for the u or v parametric
-    /// direction of the BSpline surface whose data is computed in this framework.
+    /// Returns the number of poles in the V parametric direction.
     /// </summary>
     int NbVPoles();
+    /// <summary>
+    /// Returns the number of knots in the U parametric direction.
+    /// </summary>
     int NbUKnots();
     /// <summary>
-    /// Returns the number of knots for the u or v parametric
-    /// direction of the BSpline surface whose data is computed in this framework .
+    /// Returns the number of knots in the V parametric direction.
     /// </summary>
     int NbVKnots();
+    /// <summary>
+    /// Returns true if the surface is periodic in the U parametric direction.
+    /// </summary>
     bool IsUPeriodic();
     /// <summary>
-    /// Returns true if the BSpline surface whose data is computed
-    /// in this framework is periodic in the u or v parametric direction.
+    /// Returns true if the surface is periodic in the V parametric direction.
     /// </summary>
     bool IsVPeriodic();
     /// <summary>
-    /// Returns the pole of index (UIndex,VIndex) to the poles
-    /// table of the BSpline surface whose data is computed in this framework.
-    /// Exceptions
-    /// Standard_OutOfRange if, for the BSpline surface whose
-    /// data is computed in this framework:
-    /// -   UIndex is outside the bounds of the poles table in the u
-    /// parametric direction, or
-    /// -   VIndex is outside the bounds of the poles table in the v
-    /// parametric direction.
+    /// Returns the pole of index (UIndex, VIndex).
     /// </summary>
+    /// @throws Standard_OutOfRange if indices are out of bounds
     Macad::Occt::Pnt Pole(int UIndex, int VIndex);
     /// <summary>
-    /// Returns the weight of the pole of index (UIndex,VIndex) to
-    /// the poles table of the BSpline surface whose data is computed in this framework.
-    /// Exceptions
-    /// Standard_OutOfRange if, for the BSpline surface whose
-    /// data is computed in this framework:
-    /// -   UIndex is outside the bounds of the poles table in the u
-    /// parametric direction, or
-    /// -   VIndex is outside the bounds of the poles table in the v
-    /// parametric direction.
+    /// Returns the weight of the pole of index (UIndex, VIndex).
     /// </summary>
+    /// @throws Standard_OutOfRange if indices are out of bounds
     double Weight(int UIndex, int VIndex);
     /// <summary>
     /// Returns the U-knot of range UIndex.
-    /// Raised if UIndex < 1 or UIndex > NbUKnots.
     /// </summary>
+    /// @throws Standard_OutOfRange if UIndex is out of bounds
     double UKnot(int UIndex);
     /// <summary>
     /// Returns the V-knot of range VIndex.
-    /// Raised if VIndex < 1 or VIndex > NbVKnots.
     /// </summary>
-    double VKnot(int UIndex);
+    /// @throws Standard_OutOfRange if VIndex is out of bounds
+    double VKnot(int VIndex);
     /// <summary>
     /// Returns the multiplicity of the U-knot of range UIndex.
-    /// Raised if UIndex < 1 or UIndex > NbUKnots.
     /// </summary>
+    /// @throws Standard_OutOfRange if UIndex is out of bounds
     int UMultiplicity(int UIndex);
     /// <summary>
     /// Returns the multiplicity of the V-knot of range VIndex.
-    /// Raised if VIndex < 1 or VIndex > NbVKnots.
     /// </summary>
+    /// @throws Standard_OutOfRange if VIndex is out of bounds
     int VMultiplicity(int VIndex);
+    /// <summary>
+    /// Returns the poles of the BSpline surface.
+    /// </summary>
+    Macad::Occt::TColgp_Array2OfPnt^ Poles();
+    /// <summary>
+    /// Returns the weights of the BSpline surface.
+    /// </summary>
+    Macad::Occt::TColStd_Array2OfReal^ Weights();
+    /// <summary>
+    /// Returns the U-knots of the BSpline surface.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfReal^ UKnots();
+    /// <summary>
+    /// Returns the V-knots of the BSpline surface.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfReal^ VKnots();
+    /// <summary>
+    /// Returns the U-multiplicities of the BSpline surface.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfInteger^ UMultiplicities();
+    /// <summary>
+    /// Returns the V-multiplicities of the BSpline surface.
+    /// </summary>
+    Macad::Occt::TColStd_Array1OfInteger^ VMultiplicities();
 }; // class Convert_ElementarySurfaceToBSplineSurface
 
 //---------------------------------------------------------------------
@@ -1111,14 +810,14 @@ public:
 //---------------------------------------------------------------------
 /// <summary>
 /// This algorithm converts a bounded Cone into a rational
-/// B-spline  surface.
-/// The cone a Cone from package gp. Its parametrization is :
-/// P (U, V) =  Loc + V * Zdir +
-/// (R + V*Tan(Ang)) * (Cos(U)*Xdir + Sin(U)*Ydir)
+/// B-spline surface.
+/// The cone a Cone from package gp. Its parametrization is:
+/// P (U, V) = Loc + V * Zdir +
+/// (R + V*Tan(Ang)) * (std::cos(U)*Xdir + std::sin(U)*Ydir)
 /// where Loc is the location point of the cone, Xdir, Ydir and Zdir
 /// are the normalized directions of the local cartesian coordinate
-/// system of the cone (Zdir is the direction of the Cone's axis) ,
-/// Ang is the cone semi-angle.  The U parametrization range is
+/// system of the cone (Zdir is the direction of the Cone's axis),
+/// Ang is the cone semi-angle. The U parametrization range is
 /// [0, 2PI].
 /// KeyWords :
 /// Convert, Cone, BSplineSurface.
@@ -1173,8 +872,8 @@ public:
 /// <summary>
 /// This algorithm converts a bounded cylinder into a rational
 /// B-spline surface. The cylinder is a Cylinder from package gp.
-/// The parametrization of the cylinder is  :
-/// P (U, V) = Loc + V * Zdir + Radius * (Xdir*Cos(U) + Ydir*Sin(U))
+/// The parametrization of the cylinder is:
+/// P (U, V) = Loc + V * Zdir + Radius * (Xdir*std::cos(U) + Ydir*Sin(U))
 /// where Loc is the location point of the cylinder, Xdir, Ydir and
 /// Zdir are the normalized directions of the local cartesian
 /// coordinate system of the cylinder (Zdir is the direction of the
@@ -1234,7 +933,7 @@ public:
 /// The ellipse is represented an Elips2d from package gp with
 /// the parametrization :
 /// P (U) =
-/// Loc + (MajorRadius * Cos(U) * Xdir + MinorRadius * Sin(U) * Ydir)
+/// Loc + (MajorRadius * std::cos(U) * Xdir + MinorRadius * std::sin(U) * Ydir)
 /// where Loc is the center of the ellipse, Xdir and Ydir are the
 /// normalized directions of the local cartesian coordinate system of
 /// the ellipse. The parametrization range is U [0, 2PI].
@@ -1333,12 +1032,12 @@ public:
 
 public:
     /// <summary>
-    /// To    only  one   polynomial  Surface.
-    /// The  Length  of  <PolynomialUIntervals> and <PolynomialVIntervals>
+    /// To only one polynomial Surface.
+    /// The Length of <PolynomialUIntervals> and <PolynomialVIntervals>
     /// have to be 2.
     /// This values defined the parametric domain of the Polynomial Equation.
     /// 
-    /// Coefficients :
+    /// Coefficients:
     /// The <Coefficients> have to be formatted than an "C array"
     /// [MaxUDegree+1] [MaxVDegree+1] [3]
     /// </summary>
@@ -1352,41 +1051,61 @@ public:
     /// <TrueUIntervals>, <TrueVIntervals> :
     /// this is the true parameterisation for the composite surface
     /// 
-    /// Coefficients :
+    /// Coefficients:
     /// The Coefficients have to be formatted than an "C array"
     /// [NbVSurfaces] [NBUSurfaces] [MaxUDegree+1] [MaxVDegree+1] [3]
-    /// raises DomainError    if <NumCoeffPerSurface> is not a
+    /// raises DomainError if <NumCoeffPerSurface> is not a
     /// [1, NbVSurfaces*NbUSurfaces, 1,2] array.
     /// if <Coefficients> is not a
     /// </summary>
     Convert_GridPolynomialToPoles(int NbUSurfaces, int NBVSurfaces, int UContinuity, int VContinuity, int MaxUDegree, int MaxVDegree, Macad::Occt::TColStd_HArray2OfInteger^ NumCoeffPerSurface, Macad::Occt::TColStd_HArray1OfReal^ Coefficients, Macad::Occt::TColStd_HArray1OfReal^ PolynomialUIntervals, Macad::Occt::TColStd_HArray1OfReal^ PolynomialVIntervals, Macad::Occt::TColStd_HArray1OfReal^ TrueUIntervals, Macad::Occt::TColStd_HArray1OfReal^ TrueVIntervals);
-    void Perform(int UContinuity, int VContinuity, int MaxUDegree, int MaxVDegree, Macad::Occt::TColStd_HArray2OfInteger^ NumCoeffPerSurface, Macad::Occt::TColStd_HArray1OfReal^ Coefficients, Macad::Occt::TColStd_HArray1OfReal^ PolynomialUIntervals, Macad::Occt::TColStd_HArray1OfReal^ PolynomialVIntervals, Macad::Occt::TColStd_HArray1OfReal^ TrueUIntervals, Macad::Occt::TColStd_HArray1OfReal^ TrueVIntervals);
+    /// <summary>
+    /// Returns the number of poles in the U parametric direction.
+    /// </summary>
     int NbUPoles();
+    /// <summary>
+    /// Returns the number of poles in the V parametric direction.
+    /// </summary>
     int NbVPoles();
     /// <summary>
-    /// returns the poles of the BSpline Surface
+    /// Returns the poles of the BSpline Surface.
     /// </summary>
-    Macad::Occt::TColgp_HArray2OfPnt^ Poles();
+    Macad::Occt::TColgp_Array2OfPnt^ Poles();
+    /// <summary>
+    /// Returns the degree in the U parametric direction.
+    /// </summary>
     int UDegree();
+    /// <summary>
+    /// Returns the degree in the V parametric direction.
+    /// </summary>
     int VDegree();
+    /// <summary>
+    /// Returns the number of knots in the U parametric direction.
+    /// </summary>
     int NbUKnots();
+    /// <summary>
+    /// Returns the number of knots in the V parametric direction.
+    /// </summary>
     int NbVKnots();
     /// <summary>
-    /// Knots in the U direction
+    /// Returns the knots in the U direction.
     /// </summary>
-    Macad::Occt::TColStd_HArray1OfReal^ UKnots();
+    Macad::Occt::TColStd_Array1OfReal^ UKnots();
     /// <summary>
-    /// Knots in the V direction
+    /// Returns the knots in the V direction.
     /// </summary>
-    Macad::Occt::TColStd_HArray1OfReal^ VKnots();
+    Macad::Occt::TColStd_Array1OfReal^ VKnots();
     /// <summary>
-    /// Multiplicities of the knots in the U direction
+    /// Returns the multiplicities of the knots in the U direction.
     /// </summary>
-    Macad::Occt::TColStd_HArray1OfInteger^ UMultiplicities();
+    Macad::Occt::TColStd_Array1OfInteger^ UMultiplicities();
     /// <summary>
-    /// Multiplicities of the knots in the V direction
+    /// Returns the multiplicities of the knots in the V direction.
     /// </summary>
-    Macad::Occt::TColStd_HArray1OfInteger^ VMultiplicities();
+    Macad::Occt::TColStd_Array1OfInteger^ VMultiplicities();
+    /// <summary>
+    /// Returns true if the conversion was successful.
+    /// </summary>
     bool IsDone();
 }; // class Convert_GridPolynomialToPoles
 
@@ -1398,7 +1117,7 @@ public:
 /// The hyperbola is an Hypr2d from package gp with the
 /// parametrization :
 /// P (U) =
-/// Loc + (MajorRadius * Cosh(U) * Xdir + MinorRadius * Sinh(U) * Ydir)
+/// Loc + (MajorRadius * std::cosh(U) * Xdir + MinorRadius * std::sinh(U) * Ydir)
 /// where Loc is the location point of the hyperbola, Xdir and Ydir are
 /// the normalized directions of the local cartesian coordinate system
 /// of the hyperbola.
@@ -1495,9 +1214,9 @@ public:
 /// <summary>
 /// This algorithm converts a bounded Sphere into a rational
 /// B-spline surface. The sphere is a Sphere from package gp.
-/// The parametrization of the sphere is
-/// P (U, V) = Loc  + Radius * Sin(V) * Zdir +
-/// Radius * Cos(V) * (Cos(U)*Xdir + Sin(U)*Ydir)
+/// The parametrization of the sphere is:
+/// P (U, V) = Loc + Radius * std::sin(V) * Zdir +
+/// Radius * std::cos(V) * (std::cos(U)*Xdir + std::sin(U)*Ydir)
 /// where Loc is the center of the sphere Xdir, Ydir and Zdir are the
 /// normalized directions of the local cartesian coordinate system of
 /// the sphere. The parametrization range is U [0, 2PI] and
@@ -1573,8 +1292,8 @@ public:
 /// B-spline surface. The torus is a Torus from package gp.
 /// The parametrization of the torus is :
 /// P (U, V) =
-/// Loc  +  MinorRadius * Sin(V) * Zdir +
-/// (MajorRadius+MinorRadius*Cos(V)) *  (Cos(U)*Xdir + Sin(U)*Ydir)
+/// Loc + MinorRadius * std::sin(V) * Zdir +
+/// (MajorRadius+MinorRadius*std::cos(V)) * (std::cos(U)*Xdir + std::sin(U)*Ydir)
 /// where Loc is the center of the torus, Xdir, Ydir and Zdir are the
 /// normalized directions of the local cartesian coordinate system of
 /// the Torus. The parametrization range is U [0, 2PI], V [0, 2PI].

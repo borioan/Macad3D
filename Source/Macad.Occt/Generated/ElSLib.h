@@ -134,8 +134,8 @@ public:
     /// derivatives on elementary surfaces defined with their
     /// geometric characteristics.
     /// You don't need to create the surface to use these functions.
-    /// These functions are called by the previous  ones.
-    /// Example :
+    /// These functions are called by the previous ones.
+    /// Example:
     /// A cylinder is defined with its position and its radius.
     /// </summary>
     static void D3(double U, double V, Macad::Occt::gp_Torus^ T, Macad::Occt::Pnt% P, Macad::Occt::Vec% Vu, Macad::Occt::Vec% Vv, Macad::Occt::Vec% Vuu, Macad::Occt::Vec% Vvv, Macad::Occt::Vec% Vuv, Macad::Occt::Vec% Vuuu, Macad::Occt::Vec% Vvvv, Macad::Occt::Vec% Vuuv, Macad::Occt::Vec% Vuvv);
@@ -181,14 +181,14 @@ public:
     /// <summary>
     /// parametrization
     /// P (U, V) = Location + V * ZDirection +
-    /// Radius * (Cos(U) * XDirection + Sin (U) * YDirection)
+    /// Radius * (std::cos(U) * XDirection + Sin (U) * YDirection)
     /// </summary>
     static void Parameters(Macad::Occt::gp_Cylinder^ C, Macad::Occt::Pnt P, double% U, double% V);
     /// <summary>
     /// parametrization
-    /// P (U, V) =  Location + V * ZDirection +
+    /// P (U, V) = Location + V * ZDirection +
     /// (Radius + V * Tan (SemiAngle)) *
-    /// (Cos(U) * XDirection + Sin(U) * YDirection)
+    /// (std::cos(U) * XDirection + std::sin(U) * YDirection)
     /// </summary>
     static void Parameters(Macad::Occt::gp_Cone^ C, Macad::Occt::Pnt P, double% U, double% V);
     /// <summary>
@@ -201,9 +201,9 @@ public:
     /// <summary>
     /// parametrization
     /// P (U, V) = Location +
-    /// (MajorRadius + MinorRadius * Cos(U)) *
-    /// (Cos(V) * XDirection - Sin(V) * YDirection) +
-    /// MinorRadius * Sin(U) * ZDirection
+    /// (MajorRadius + MinorRadius * std::cos(U)) *
+    /// (std::cos(V) * XDirection - std::sin(V) * YDirection) +
+    /// MinorRadius * std::sin(U) * ZDirection
     /// </summary>
     static void Parameters(Macad::Occt::gp_Torus^ T, Macad::Occt::Pnt P, double% U, double% V);
     /// <summary>
@@ -215,14 +215,14 @@ public:
     /// <summary>
     /// parametrization
     /// P (U, V) = Location + V * ZDirection +
-    /// Radius * (Cos(U) * XDirection + Sin (U) * YDirection)
+    /// Radius * (std::cos(U) * XDirection + Sin (U) * YDirection)
     /// </summary>
     static void CylinderParameters(Macad::Occt::Ax3 Pos, double Radius, Macad::Occt::Pnt P, double% U, double% V);
     /// <summary>
     /// parametrization
-    /// P (U, V) =  Location + V * ZDirection +
+    /// P (U, V) = Location + V * ZDirection +
     /// (Radius + V * Tan (SemiAngle)) *
-    /// (Cos(U) * XDirection + Sin(U) * YDirection)
+    /// (std::cos(U) * XDirection + std::sin(U) * YDirection)
     /// </summary>
     static void ConeParameters(Macad::Occt::Ax3 Pos, double Radius, double SAngle, Macad::Occt::Pnt P, double% U, double% V);
     /// <summary>
@@ -235,9 +235,9 @@ public:
     /// <summary>
     /// parametrization
     /// P (U, V) = Location +
-    /// (MajorRadius + MinorRadius * Cos(U)) *
-    /// (Cos(V) * XDirection - Sin(V) * YDirection) +
-    /// MinorRadius * Sin(U) * ZDirection
+    /// (MajorRadius + MinorRadius * std::cos(U)) *
+    /// (std::cos(V) * XDirection - std::sin(V) * YDirection) +
+    /// MinorRadius * std::sin(U) * ZDirection
     /// </summary>
     static void TorusParameters(Macad::Occt::Ax3 Pos, double MajorRadius, double MinorRadius, Macad::Occt::Pnt P, double% U, double% V);
     /// <summary>

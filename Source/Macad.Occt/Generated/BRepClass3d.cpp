@@ -6,70 +6,70 @@
 using namespace System::Runtime::InteropServices; // for class Marshal
 
 #include "NCollection.h"
-#include "Bnd.h"
+#include "TopTools.h"
 #include "TopoDS.h"
 #include "gp.h"
 #include "TopAbs.h"
 #include "BRepAdaptor.h"
 #include "IntCurvesFace.h"
-#include "TopTools.h"
-
-
-//---------------------------------------------------------------------
-//  Class  BRepClass3d_BndBoxTree
-//---------------------------------------------------------------------
-
-Macad::Occt::BRepClass3d_BndBoxTree::BRepClass3d_BndBoxTree()
-    : Macad::Occt::BaseClass<::BRepClass3d_BndBoxTree>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRepClass3d_BndBoxTree();
-}
-
-Macad::Occt::BRepClass3d_BndBoxTree::BRepClass3d_BndBoxTree(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::BRepClass3d_BndBoxTree>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRepClass3d_BndBoxTree(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-bool Macad::Occt::BRepClass3d_BndBoxTree::Add(int theObj, Macad::Occt::Bnd_Box^ theBnd)
-{
-    pin_ptr<int> pp_theObj = &theObj;
-    bool _result = ((::BRepClass3d_BndBoxTree*)_NativeInstance)->Add(*(int*)pp_theObj, *(::Bnd_Box*)theBnd->NativeInstance);
-    return _result;
-}
-
-void Macad::Occt::BRepClass3d_BndBoxTree::Clear(Macad::Occt::NCollection_BaseAllocator^ aNewAlloc)
-{
-    ((::BRepClass3d_BndBoxTree*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(aNewAlloc->NativeInstance));
-}
-
-void Macad::Occt::BRepClass3d_BndBoxTree::Clear()
-{
-    ((::BRepClass3d_BndBoxTree*)_NativeInstance)->Clear(0L);
-}
-
-bool Macad::Occt::BRepClass3d_BndBoxTree::IsEmpty()
-{
-    bool _result = ((::BRepClass3d_BndBoxTree*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepClass3d_BndBoxTree::Allocator()
-{
-    Handle(::NCollection_BaseAllocator) _result = ((::BRepClass3d_BndBoxTree*)_NativeInstance)->Allocator();
-    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
-}
-
 
 
 //---------------------------------------------------------------------
 //  Class  BRepClass3d_MapOfInter
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::BRepClass3d_MapOfInter::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepClass3d_MapOfInter::Extent()
+{
+    int _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepClass3d_MapOfInter::Length()
+{
+    int _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepClass3d_MapOfInter::Size()
+{
+    long long unsigned int _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepClass3d_MapOfInter::IsEmpty()
+{
+    bool _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepClass3d_MapOfInter::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepClass3d_MapOfInter::BRepClass3d_MapOfInter()
     : Macad::Occt::BaseClass<::BRepClass3d_MapOfInter>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepClass3d_MapOfInter();
+}
+
+Macad::Occt::BRepClass3d_MapOfInter::BRepClass3d_MapOfInter(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepClass3d_MapOfInter>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepClass3d_MapOfInter(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepClass3d_MapOfInter::BRepClass3d_MapOfInter(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepClass3d_MapOfInter>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepClass3d_MapOfInter(theNbBuckets, nullptr);
 }
 
 Macad::Occt::BRepClass3d_MapOfInter::BRepClass3d_MapOfInter(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -81,7 +81,37 @@ Macad::Occt::BRepClass3d_MapOfInter::BRepClass3d_MapOfInter(int theNbBuckets, Ma
 Macad::Occt::BRepClass3d_MapOfInter::BRepClass3d_MapOfInter(int theNbBuckets)
     : Macad::Occt::BaseClass<::BRepClass3d_MapOfInter>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::BRepClass3d_MapOfInter(theNbBuckets, 0L);
+    _NativeInstance = new ::BRepClass3d_MapOfInter(theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepClass3d_MapOfInter::BRepClass3d_MapOfInter(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepClass3d_MapOfInter>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepClass3d_MapOfInter(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepClass3d_MapOfInter::BRepClass3d_MapOfInter(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepClass3d_MapOfInter>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepClass3d_MapOfInter(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepClass3d_MapOfInter::BRepClass3d_MapOfInter(Macad::Occt::TopTools_ShapeMapHasher^ theHasher)
+    : Macad::Occt::BaseClass<::BRepClass3d_MapOfInter>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepClass3d_MapOfInter(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, 1, nullptr);
+}
+
+Macad::Occt::BRepClass3d_MapOfInter::BRepClass3d_MapOfInter(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepClass3d_MapOfInter>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepClass3d_MapOfInter(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepClass3d_MapOfInter::BRepClass3d_MapOfInter(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepClass3d_MapOfInter>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepClass3d_MapOfInter(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
 }
 
 void Macad::Occt::BRepClass3d_MapOfInter::Exchange(Macad::Occt::BRepClass3d_MapOfInter^ theOther)
@@ -89,11 +119,23 @@ void Macad::Occt::BRepClass3d_MapOfInter::Exchange(Macad::Occt::BRepClass3d_MapO
     ((::BRepClass3d_MapOfInter*)_NativeInstance)->Exchange(*(::BRepClass3d_MapOfInter*)theOther->NativeInstance);
 }
 
+Macad::Occt::TopTools_ShapeMapHasher^ Macad::Occt::BRepClass3d_MapOfInter::GetHasher()
+{
+    ::TopTools_ShapeMapHasher* _result = new ::TopTools_ShapeMapHasher();
+    *_result = (::TopTools_ShapeMapHasher)((::BRepClass3d_MapOfInter*)_NativeInstance)->GetHasher();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ShapeMapHasher(_result);
+}
+
 Macad::Occt::BRepClass3d_MapOfInter^ Macad::Occt::BRepClass3d_MapOfInter::Assign(Macad::Occt::BRepClass3d_MapOfInter^ theOther)
 {
     ::BRepClass3d_MapOfInter* _result = new ::BRepClass3d_MapOfInter();
     *_result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->Assign(*(::BRepClass3d_MapOfInter*)theOther->NativeInstance);
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepClass3d_MapOfInter(_result);
+}
+
+void Macad::Occt::BRepClass3d_MapOfInter::ReSize(long long unsigned int N)
+{
+    ((::BRepClass3d_MapOfInter*)_NativeInstance)->ReSize(N);
 }
 
 void Macad::Occt::BRepClass3d_MapOfInter::ReSize(int N)
@@ -112,6 +154,20 @@ System::IntPtr Macad::Occt::BRepClass3d_MapOfInter::Bound(Macad::Occt::TopoDS_Sh
 {
     void* _theItem = theItem.ToPointer();
     void* _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->Bound(*(::TopoDS_Shape*)theKey->NativeInstance, _theItem);
+    return System::IntPtr(_result);
+}
+
+bool Macad::Occt::BRepClass3d_MapOfInter::TryBind(Macad::Occt::TopoDS_Shape^ theKey, System::IntPtr theItem)
+{
+    void* _theItem = theItem.ToPointer();
+    bool _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey->NativeInstance, _theItem);
+    return _result;
+}
+
+System::IntPtr Macad::Occt::BRepClass3d_MapOfInter::TryBound(Macad::Occt::TopoDS_Shape^ theKey, System::IntPtr theItem)
+{
+    void* _theItem = theItem.ToPointer();
+    void* _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey->NativeInstance, _theItem);
     return System::IntPtr(_result);
 }
 
@@ -139,6 +195,13 @@ System::IntPtr Macad::Occt::BRepClass3d_MapOfInter::Find(Macad::Occt::TopoDS_Sha
     return System::IntPtr((void*)_result);
 }
 
+bool Macad::Occt::BRepClass3d_MapOfInter::Find(Macad::Occt::TopoDS_Shape^ theKey, System::IntPtr theValue)
+{
+    void* _theValue = theValue.ToPointer();
+    bool _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance, _theValue);
+    return _result;
+}
+
 System::IntPtr Macad::Occt::BRepClass3d_MapOfInter::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
 {
     void* _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->ChangeSeek(*(::TopoDS_Shape*)theKey->NativeInstance);
@@ -161,10 +224,9 @@ void Macad::Occt::BRepClass3d_MapOfInter::Clear()
     ((::BRepClass3d_MapOfInter*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::BRepClass3d_MapOfInter::Size()
+void Macad::Occt::BRepClass3d_MapOfInter::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::BRepClass3d_MapOfInter*)_NativeInstance)->Size();
-    return _result;
+    ((::BRepClass3d_MapOfInter*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -177,6 +239,12 @@ Macad::Occt::BRepClass3d_MapOfInter::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRepClass3d_MapOfInter::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepClass3d_MapOfInter::Iterator();
+}
+
+Macad::Occt::BRepClass3d_MapOfInter::Iterator::Iterator(Macad::Occt::BRepClass3d_MapOfInter^ theMap)
+    : Macad::Occt::BaseClass<::BRepClass3d_MapOfInter::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepClass3d_MapOfInter::Iterator(*(::BRepClass3d_MapOfInter*)theMap->NativeInstance);
 }
 
 bool Macad::Occt::BRepClass3d_MapOfInter::Iterator::More()
@@ -499,13 +567,6 @@ void Macad::Occt::BRepClass3d_SolidExplorer::DumpSegment(Macad::Occt::Pnt P, Mac
     ((::BRepClass3d_SolidExplorer*)_NativeInstance)->DumpSegment(*(gp_Pnt*)pp_P, *(::gp_Lin*)L->NativeInstance, Par, (::TopAbs_State)S);
 }
 
-Macad::Occt::Bnd_Box^ Macad::Occt::BRepClass3d_SolidExplorer::Box()
-{
-    ::Bnd_Box* _result = new ::Bnd_Box();
-    *_result = (::Bnd_Box)((::BRepClass3d_SolidExplorer*)_NativeInstance)->Box();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Bnd_Box(_result);
-}
-
 Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepClass3d_SolidExplorer::GetShape()
 {
     ::TopoDS_Shape* _result = new ::TopoDS_Shape();
@@ -514,11 +575,6 @@ Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepClass3d_SolidExplorer::GetShape()
 }
 
 Macad::Occt::IntCurvesFace_Intersector^ Macad::Occt::BRepClass3d_SolidExplorer::Intersector(Macad::Occt::TopoDS_Face^ F)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-Macad::Occt::BRepClass3d_BndBoxTree^ Macad::Occt::BRepClass3d_SolidExplorer::GetTree()
 {
     throw gcnew System::NotImplementedException();
 }

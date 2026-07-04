@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "NCollection.h"
 #include "Graphic3d.h"
 #include "Standard.h"
 #include "Aspect.h"
@@ -131,7 +130,7 @@ public enum class V3d_TypeOfAxe
 //  Class  V3d_ListOfLight
 //---------------------------------------------------------------------
 public ref class V3d_ListOfLight sealed
-    : public Macad::Occt::NCollection_BaseList
+    : public Macad::Occt::BaseClass<::V3d_ListOfLight>
 {
 
 #ifdef Include_V3d_ListOfLight_h
@@ -141,11 +140,11 @@ public:
 
 public:
     V3d_ListOfLight(::V3d_ListOfLight* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::V3d_ListOfLight>( nativeInstance, true )
     {}
 
     V3d_ListOfLight(::V3d_ListOfLight& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
+        : Macad::Occt::BaseClass<::V3d_ListOfLight>( &nativeInstance, false )
     {}
 
     property ::V3d_ListOfLight* NativeInstance
@@ -185,109 +184,41 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::NCollection_BaseList^ theList);
         bool More();
         void Next();
         Macad::Occt::Graphic3d_CLight^ Value();
         Macad::Occt::Graphic3d_CLight^ ChangeValue();
     }; // class Iterator
 
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     V3d_ListOfLight();
     V3d_ListOfLight(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
+    /* Method skipped due to unknown mapping: void V3d_ListOfLight(initializer_list<opencascade::handle<Graphic3d_CLight>> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void V3d_ListOfLight(initializer_list<opencascade::handle<Graphic3d_CLight>> theInitList, NCollection_BaseAllocator theAllocator, ) */
     Macad::Occt::V3d_ListOfLight^ Assign(Macad::Occt::V3d_ListOfLight^ theOther);
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::Graphic3d_CLight^ First();
     Macad::Occt::Graphic3d_CLight^ Last();
     Macad::Occt::Graphic3d_CLight^ Append(Macad::Occt::Graphic3d_CLight^ theItem);
+    void Append(Macad::Occt::Graphic3d_CLight^ theItem, Macad::Occt::V3d_ListOfLight::Iterator^ theIter);
+    void Append(Macad::Occt::V3d_ListOfLight^ theOther);
     Macad::Occt::Graphic3d_CLight^ Prepend(Macad::Occt::Graphic3d_CLight^ theItem);
+    void Prepend(Macad::Occt::V3d_ListOfLight^ theOther);
     void RemoveFirst();
     void Remove(Macad::Occt::V3d_ListOfLight::Iterator^ theIter);
     Macad::Occt::Graphic3d_CLight^ InsertBefore(Macad::Occt::Graphic3d_CLight^ theItem, Macad::Occt::V3d_ListOfLight::Iterator^ theIter);
+    void InsertBefore(Macad::Occt::V3d_ListOfLight^ theOther, Macad::Occt::V3d_ListOfLight::Iterator^ theIter);
     Macad::Occt::Graphic3d_CLight^ InsertAfter(Macad::Occt::Graphic3d_CLight^ theItem, Macad::Occt::V3d_ListOfLight::Iterator^ theIter);
+    void InsertAfter(Macad::Occt::V3d_ListOfLight^ theOther, Macad::Occt::V3d_ListOfLight::Iterator^ theIter);
     void Reverse();
+    void Exchange(Macad::Occt::V3d_ListOfLight^ theOther);
 }; // class V3d_ListOfLight
-
-//---------------------------------------------------------------------
-//  Class  V3d_ListOfView
-//---------------------------------------------------------------------
-public ref class V3d_ListOfView sealed
-    : public Macad::Occt::NCollection_BaseList
-{
-
-#ifdef Include_V3d_ListOfView_h
-public:
-    Include_V3d_ListOfView_h
-#endif
-
-public:
-    V3d_ListOfView(::V3d_ListOfView* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
-    {}
-
-    V3d_ListOfView(::V3d_ListOfView& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
-    {}
-
-    property ::V3d_ListOfView* NativeInstance
-    {
-        ::V3d_ListOfView* get()
-        {
-            return static_cast<::V3d_ListOfView*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::V3d_ListOfView::Iterator>
-    {
-
-#ifdef Include_V3d_ListOfView_Iterator_h
-    public:
-        Include_V3d_ListOfView_Iterator_h
-#endif
-
-    public:
-        Iterator(::V3d_ListOfView::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::V3d_ListOfView::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::V3d_ListOfView::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::V3d_ListOfView::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::V3d_ListOfView::Iterator* NativeInstance
-        {
-            ::V3d_ListOfView::Iterator* get()
-            {
-                return static_cast<::V3d_ListOfView::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::V3d_View^ Value();
-        Macad::Occt::V3d_View^ ChangeValue();
-    }; // class Iterator
-
-    V3d_ListOfView();
-    V3d_ListOfView(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    Macad::Occt::V3d_ListOfView^ Assign(Macad::Occt::V3d_ListOfView^ theOther);
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::V3d_View^ First();
-    Macad::Occt::V3d_View^ Last();
-    Macad::Occt::V3d_View^ Append(Macad::Occt::V3d_View^ theItem);
-    Macad::Occt::V3d_View^ Prepend(Macad::Occt::V3d_View^ theItem);
-    void RemoveFirst();
-    void Remove(Macad::Occt::V3d_ListOfView::Iterator^ theIter);
-    Macad::Occt::V3d_View^ InsertBefore(Macad::Occt::V3d_View^ theItem, Macad::Occt::V3d_ListOfView::Iterator^ theIter);
-    Macad::Occt::V3d_View^ InsertAfter(Macad::Occt::V3d_View^ theItem, Macad::Occt::V3d_ListOfView::Iterator^ theIter);
-    void Reverse();
-}; // class V3d_ListOfView
 
 //---------------------------------------------------------------------
 //  Class  V3d_ImageDumpOptions
@@ -1057,7 +988,7 @@ public:
     /// reference of the screen
     /// for which the origin is the view point of the projection,
     /// with a relative angular value in RADIANS with respect to
-    /// the initial position expressed by Start = Standard_True
+    /// the initial position expressed by Start = true
     /// Warning! raises BadValue from V3d
     /// If the eye, the view point, or the high point are
     /// aligned or confused.
@@ -1068,7 +999,7 @@ public:
     /// reference of the screen
     /// for which the origin is the view point of the projection,
     /// with a relative angular value in RADIANS with respect to
-    /// the initial position expressed by Start = Standard_True
+    /// the initial position expressed by Start = true
     /// Warning! raises BadValue from V3d
     /// If the eye, the view point, or the high point are
     /// aligned or confused.
@@ -1079,7 +1010,7 @@ public:
     /// reference of the screen
     /// for which the origin is Gravity point {X,Y,Z},
     /// with a relative angular value in RADIANS with respect to
-    /// the initial position expressed by Start = Standard_True
+    /// the initial position expressed by Start = true
     /// If the eye, the view point, or the high point are
     /// aligned or confused.
     /// </summary>
@@ -1089,7 +1020,7 @@ public:
     /// reference of the screen
     /// for which the origin is Gravity point {X,Y,Z},
     /// with a relative angular value in RADIANS with respect to
-    /// the initial position expressed by Start = Standard_True
+    /// the initial position expressed by Start = true
     /// If the eye, the view point, or the high point are
     /// aligned or confused.
     /// </summary>
@@ -1099,7 +1030,7 @@ public:
     /// of the view for which the origin is the Gravity point{X,Y,Z}
     /// with an relative angular value in RADIANS with
     /// respect to the initial position expressed by
-    /// Start = Standard_True
+    /// Start = true
     /// </summary>
     void Rotate(Macad::Occt::V3d_TypeOfAxe Axe, double Angle, double X, double Y, double Z, bool Start);
     /// <summary>
@@ -1107,7 +1038,7 @@ public:
     /// of the view for which the origin is the Gravity point{X,Y,Z}
     /// with an relative angular value in RADIANS with
     /// respect to the initial position expressed by
-    /// Start = Standard_True
+    /// Start = true
     /// </summary>
     void Rotate(Macad::Occt::V3d_TypeOfAxe Axe, double Angle, double X, double Y, double Z);
     /// <summary>
@@ -1115,7 +1046,7 @@ public:
     /// of the view for which the origin is the view point of the
     /// projection with an relative angular value in RADIANS with
     /// respect to the initial position expressed by
-    /// Start = Standard_True
+    /// Start = true
     /// </summary>
     void Rotate(Macad::Occt::V3d_TypeOfAxe Axe, double Angle, bool Start);
     /// <summary>
@@ -1123,97 +1054,97 @@ public:
     /// of the view for which the origin is the view point of the
     /// projection with an relative angular value in RADIANS with
     /// respect to the initial position expressed by
-    /// Start = Standard_True
+    /// Start = true
     /// </summary>
     void Rotate(Macad::Occt::V3d_TypeOfAxe Axe, double Angle);
     /// <summary>
     /// Rotates the eye around the current axis a relative
     /// angular value in RADIANS with respect to the initial
-    /// position expressed by Start = Standard_True
+    /// position expressed by Start = true
     /// </summary>
     void Rotate(double Angle, bool Start);
     /// <summary>
     /// Rotates the eye around the current axis a relative
     /// angular value in RADIANS with respect to the initial
-    /// position expressed by Start = Standard_True
+    /// position expressed by Start = true
     /// </summary>
     void Rotate(double Angle);
     /// <summary>
     /// Movement of the eye parallel to the coordinate system
     /// of reference of the screen a distance relative to the
-    /// initial position expressed by Start = Standard_True.
+    /// initial position expressed by Start = true.
     /// </summary>
     void Move(double Dx, double Dy, double Dz, bool Start);
     /// <summary>
     /// Movement of the eye parallel to the coordinate system
     /// of reference of the screen a distance relative to the
-    /// initial position expressed by Start = Standard_True.
+    /// initial position expressed by Start = true.
     /// </summary>
     void Move(double Dx, double Dy, double Dz);
     /// <summary>
     /// Movement of the eye parallel to one of the axes of the
     /// coordinate system of reference of the view a distance
     /// relative to the initial position expressed by
-    /// Start = Standard_True.
+    /// Start = true.
     /// </summary>
     void Move(Macad::Occt::V3d_TypeOfAxe Axe, double Length, bool Start);
     /// <summary>
     /// Movement of the eye parallel to one of the axes of the
     /// coordinate system of reference of the view a distance
     /// relative to the initial position expressed by
-    /// Start = Standard_True.
+    /// Start = true.
     /// </summary>
     void Move(Macad::Occt::V3d_TypeOfAxe Axe, double Length);
     /// <summary>
     /// Movement of the eye parllel to the current axis
     /// a distance relative to the initial position
-    /// expressed by Start = Standard_True
+    /// expressed by Start = true
     /// </summary>
     void Move(double Length, bool Start);
     /// <summary>
     /// Movement of the eye parllel to the current axis
     /// a distance relative to the initial position
-    /// expressed by Start = Standard_True
+    /// expressed by Start = true
     /// </summary>
     void Move(double Length);
     /// <summary>
     /// Movement of the ye and the view point parallel to the
     /// frame of reference of the screen a distance relative
     /// to the initial position expressed by
-    /// Start = Standard_True
+    /// Start = true
     /// </summary>
     void Translate(double Dx, double Dy, double Dz, bool Start);
     /// <summary>
     /// Movement of the ye and the view point parallel to the
     /// frame of reference of the screen a distance relative
     /// to the initial position expressed by
-    /// Start = Standard_True
+    /// Start = true
     /// </summary>
     void Translate(double Dx, double Dy, double Dz);
     /// <summary>
     /// Movement of the eye and the view point parallel to one
     /// of the axes of the fame of reference of the view a
     /// distance relative to the initial position
-    /// expressed by Start = Standard_True
+    /// expressed by Start = true
     /// </summary>
     void Translate(Macad::Occt::V3d_TypeOfAxe Axe, double Length, bool Start);
     /// <summary>
     /// Movement of the eye and the view point parallel to one
     /// of the axes of the fame of reference of the view a
     /// distance relative to the initial position
-    /// expressed by Start = Standard_True
+    /// expressed by Start = true
     /// </summary>
     void Translate(Macad::Occt::V3d_TypeOfAxe Axe, double Length);
     /// <summary>
     /// Movement of the eye and view point parallel to
     /// the current axis a distance relative to the initial
-    /// position expressed by Start = Standard_True
+    /// position expressed by Start = true
     /// </summary>
     void Translate(double Length, bool Start);
     /// <summary>
     /// Movement of the eye and view point parallel to
     /// the current axis a distance relative to the initial
-    /// position expressed by Start = Standard_True
+    /// position expressed by Start = true
     /// </summary>
     void Translate(double Length);
     /// <summary>
@@ -1233,7 +1164,7 @@ public:
     /// of the screen for which the origin is the eye of the
     /// projection with a relative angular value in RADIANS
     /// with respect to the initial position expressed by
-    /// Start = Standard_True
+    /// Start = true
     /// </summary>
     void Turn(double Ax, double Ay, double Az, bool Start);
     /// <summary>
@@ -1241,7 +1172,7 @@ public:
     /// of the screen for which the origin is the eye of the
     /// projection with a relative angular value in RADIANS
     /// with respect to the initial position expressed by
-    /// Start = Standard_True
+    /// Start = true
     /// </summary>
     void Turn(double Ax, double Ay, double Az);
     /// <summary>
@@ -1249,7 +1180,7 @@ public:
     /// frame of reference of the view for which the origin is
     /// the eye of the projection with an angular value in
     /// RADIANS relative to the initial position expressed by
-    /// Start = Standard_True
+    /// Start = true
     /// </summary>
     void Turn(Macad::Occt::V3d_TypeOfAxe Axe, double Angle, bool Start);
     /// <summary>
@@ -1257,19 +1188,19 @@ public:
     /// frame of reference of the view for which the origin is
     /// the eye of the projection with an angular value in
     /// RADIANS relative to the initial position expressed by
-    /// Start = Standard_True
+    /// Start = true
     /// </summary>
     void Turn(Macad::Occt::V3d_TypeOfAxe Axe, double Angle);
     /// <summary>
     /// Rotation of the view point around the current axis an
     /// angular value in RADIANS relative to the initial
-    /// position expressed by Start = Standard_True
+    /// position expressed by Start = true
     /// </summary>
     void Turn(double Angle, bool Start);
     /// <summary>
     /// Rotation of the view point around the current axis an
     /// angular value in RADIANS relative to the initial
-    /// position expressed by Start = Standard_True
+    /// position expressed by Start = true
     /// </summary>
     void Turn(double Angle);
     /// <summary>
@@ -1427,7 +1358,7 @@ public:
     /// <summary>
     /// Defines the Depth size of the view
     /// Front Plane will be set to Size/2.
-    /// Back  Plane will be set to -Size/2.
+    /// Back Plane will be set to -Size/2.
     /// Any Object located Above the Front Plane or
     /// behind the Back Plane will be Clipped .
     /// NOTE than the XY Size of the View is NOT modified .
@@ -1435,13 +1366,13 @@ public:
     void SetZSize(double SetZSize);
     /// <summary>
     /// Zooms the view by a factor relative to the initial
-    /// value expressed by Start = Standard_True
+    /// value expressed by Start = true
     /// Updates the view.
     /// </summary>
     void SetZoom(double Coef, bool Start);
     /// <summary>
     /// Zooms the view by a factor relative to the initial
-    /// value expressed by Start = Standard_True
+    /// value expressed by Start = true
     /// Updates the view.
     /// </summary>
     void SetZoom(double Coef);
@@ -1452,9 +1383,9 @@ public:
     /// </summary>
     void SetScale(double Coef);
     /// <summary>
-    /// Sets  anisotropic (axial)  scale  factors  <Sx>, <Sy>, <Sz>  for  view <me>.
-    /// Anisotropic  scaling  operation  is  performed  through  multiplying
-    /// the current view  orientation  matrix  by  a  scaling  matrix:
+    /// Sets anisotropic (axial) scale factors <Sx>, <Sy>, <Sz> for view <me>.
+    /// Anisotropic scaling operation is performed through multiplying
+    /// the current view orientation matrix by a scaling matrix:
     /// || Sx  0   0   0 ||
     /// || 0   Sy  0   0 ||
     /// || 0   0   Sz  0 ||
@@ -1656,7 +1587,7 @@ public:
     /// Warning: When the grid is not active the result is identical to the above Convert() method.
     /// How to use:
     /// 1) Enable the grid echo display
-    /// myViewer->SetGridEcho(Standard_True);
+    /// myViewer->SetGridEcho(true);
     /// 2) When application receive a move event:
     /// 2.1) Check if any object is detected
     /// if( myInteractiveContext->MoveTo(x,y) == AIS_SOD_Nothing ) {
@@ -1897,10 +1828,10 @@ public:
     /// </summary>
     void ZoomAtPoint(int theMouseStartX, int theMouseStartY, int theMouseEndX, int theMouseEndY);
     /// <summary>
-    /// Performs  anisotropic scaling  of  <me>  view  along  the  given  <Axis>.
-    /// The  scale  factor  is  calculated on a basis of
+    /// Performs anisotropic scaling of <me> view along the given <Axis>.
+    /// The scale factor is calculated on a basis of
     /// the mouse pointer displacement <Dx,Dy>.
-    /// The  calculated  scale  factor  is  then  passed  to  SetAxialScale(Sx,  Sy,  Sz)  method.
+    /// The calculated scale factor is then passed to SetAxialScale(Sx, Sy, Sz) method.
     /// </summary>
     void AxialScale(int Dx, int Dy, Macad::Occt::V3d_TypeOfAxe Axis);
     /// <summary>
@@ -2038,15 +1969,45 @@ public:
     /// </returns>
     bool FitMinMax(Macad::Occt::Graphic3d_Camera^ theCamera, Macad::Occt::Bnd_Box^ theBox, double theMargin);
     /// <summary>
-    /// Defines or Updates the definition of the
-    /// grid in <me>
+    /// Defines or updates the grid plane and snap object on this view.
     /// </summary>
+    /// <param name="in]">
+    /// aPlane grid plane (origin + axes)
+    /// </param>
+    /// <param name="in]">
+    /// aGrid  snap object (Aspect_RectangularGrid or Aspect_CircularGrid)
+    /// </param>
     void SetGrid(Macad::Occt::Ax3 aPlane, Macad::Occt::Aspect_Grid^ aGrid);
     /// <summary>
-    /// Defines or Updates the activity of the
-    /// grid in <me>
+    /// Activates / deactivates snap on this view.
     /// </summary>
+    /// <param name="in]">
+    /// aFlag true to enable snap, false to disable
+    /// </param>
     void SetGridActivity(bool aFlag);
+    /// <summary>
+    /// Display a shader-rendered grid on the viewer's privileged plane.
+    /// </summary>
+    /// <param name="in]">
+    /// theParams appearance: color, scale, bounds, arc, draw-mode, background /
+    /// view-adaptive flags
+    /// </param>
+    void GridDisplay(Macad::Occt::Aspect_GridParams^ theParams);
+    /// <summary>
+    /// Display a shader-rendered grid on an explicit plane (overrides the viewer's
+    /// privileged plane for this view only).
+    /// </summary>
+    /// <param name="in]">
+    /// theParams appearance parameters; see the single-argument overload
+    /// </param>
+    /// <param name="in]">
+    /// thePlane  world-space grid plane (origin + axes)
+    /// </param>
+    void GridDisplay(Macad::Occt::Aspect_GridParams^ theParams, Macad::Occt::Ax3 thePlane);
+    /// <summary>
+    /// Erase the shader-rendered grid from this view.
+    /// </summary>
+    void GridErase();
     /// <summary>
     /// Dumps the full contents of the View into the image file. This is an alias for ToPixMap() with
     /// Image_AlienPixMap.
@@ -2583,16 +2544,10 @@ public:
     }
 
 public:
-    V3d_BadValue();
     V3d_BadValue(System::String^ theMessage);
+    V3d_BadValue();
     V3d_BadValue(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::V3d_BadValue^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::V3d_BadValue^ NewInstance();
-    static Macad::Occt::V3d_BadValue^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::V3d_BadValue^ CreateDowncasted(::V3d_BadValue* instance);
+    System::String^ ExceptionType();
 }; // class V3d_BadValue
 
 //---------------------------------------------------------------------
@@ -2856,7 +2811,7 @@ public:
     bool InsertLayerAfter(int% theNewLayerId, Macad::Occt::Graphic3d_ZLayerSettings^ theSettings, int theLayerBefore);
     /// <summary>
     /// Remove Z layer with ID <theLayerId>.
-    /// Method returns Standard_False if the layer can not be removed or doesn't exists.
+    /// Method returns false if the layer can not be removed or doesn't exists.
     /// By default, there are always default bottom-level layer that can't be removed.
     /// </summary>
     bool RemoveZLayer(int theLayerId);
@@ -2868,19 +2823,13 @@ public:
     /// Sets the settings for a single Z layer.
     /// </summary>
     void SetZLayerSettings(int theLayerId, Macad::Occt::Graphic3d_ZLayerSettings^ theSettings);
-    /// <summary>
-    /// Return a list of active views.
-    /// </summary>
-    Macad::Occt::V3d_ListOfView^ ActiveViews();
+    /* Method skipped due to unknown mapping: NCollection_List<opencascade::handle<V3d_View>> ActiveViews() */
     /* Method skipped due to unknown mapping: Iterator ActiveViewIterator() */
     /// <summary>
     /// returns true if there is only one active view.
     /// </summary>
     bool LastActiveView();
-    /// <summary>
-    /// Return a list of defined views.
-    /// </summary>
-    Macad::Occt::V3d_ListOfView^ DefinedViews();
+    /* Method skipped due to unknown mapping: NCollection_List<opencascade::handle<V3d_View>> DefinedViews() */
     /* Method skipped due to unknown mapping: Iterator DefinedViewIterator() */
     /// <summary>
     /// </summary>
@@ -2963,123 +2912,236 @@ public:
     void DisplayPrivilegedPlane(bool theOnOff, double theSize);
     void DisplayPrivilegedPlane(bool theOnOff);
     /// <summary>
+    /// Activates the grid in all views of <me>. Lazily creates the V3d_RectangularGrid
+    /// / V3d_CircularGrid on first use and displays it.
     /// </summary>
-    /// @name grid management
-    /// Activates the grid in all views of <me>.
+    /// <param name="in]">
+    /// aGridType     rectangular or circular
+    /// </param>
+    /// <param name="in]">
+    /// aGridDrawMode lines, points or none
+    /// </param>
     void ActivateGrid(Macad::Occt::Aspect_GridType aGridType, Macad::Occt::Aspect_GridDrawMode aGridDrawMode);
     /// <summary>
     /// Deactivates the grid in all views of <me>.
     /// </summary>
     void DeactivateGrid();
     /// <summary>
-    /// Show/Don't show grid echo to the hit point.
-    /// If TRUE,the grid echo will be shown at ConvertToGrid() time.
-    /// </summary>
-    void SetGridEcho(bool showGrid);
-    /// <summary>
-    /// Show/Don't show grid echo to the hit point.
-    /// If TRUE,the grid echo will be shown at ConvertToGrid() time.
-    /// </summary>
-    void SetGridEcho();
-    /// <summary>
-    /// Show grid echo <aMarker> to the hit point.
-    /// Warning: When the grid echo marker is not set,
-    /// a default marker is build with the attributes:
-    /// marker type : Aspect_TOM_STAR
-    /// marker color : Quantity_NOC_GRAY90
-    /// marker size : 3.0
-    /// </summary>
-    void SetGridEcho(Macad::Occt::Graphic3d_AspectMarker3d^ aMarker);
-    /// <summary>
-    /// Returns TRUE when grid echo must be displayed at hit point.
-    /// </summary>
-    bool GridEcho();
-    /// <summary>
-    /// Returns Standard_True if a grid is activated in <me>.
+    /// Returns true if a grid is currently active in <me>.
     /// </summary>
     bool IsGridActive();
     /// <summary>
-    /// Returns the defined grid in <me>.
+    /// Returns the currently selected grid (rectangular / circular per GridType()).
     /// </summary>
+    /// <param name="in]">
+    /// theToCreate when false, returns null instead of allocating
+    /// </param>
     Macad::Occt::Aspect_Grid^ Grid(bool theToCreate);
     /// <summary>
-    /// Returns the defined grid in <me>.
+    /// Returns the currently selected grid (rectangular / circular per GridType()).
     /// </summary>
+    /// <param name="in]">
+    /// theToCreate when false, returns null instead of allocating
+    /// </param>
     Macad::Occt::Aspect_Grid^ Grid();
     /// <summary>
-    /// Returns the defined grid in <me>.
+    /// Returns the grid of the requested type.
     /// </summary>
+    /// <param name="in]">
+    /// theGridType rectangular or circular
+    /// </param>
+    /// <param name="in]">
+    /// theToCreate when false, returns null instead of allocating
+    /// </param>
     Macad::Occt::Aspect_Grid^ Grid(Macad::Occt::Aspect_GridType theGridType, bool theToCreate);
     /// <summary>
-    /// Returns the defined grid in <me>.
+    /// Returns the grid of the requested type.
     /// </summary>
+    /// <param name="in]">
+    /// theGridType rectangular or circular
+    /// </param>
+    /// <param name="in]">
+    /// theToCreate when false, returns null instead of allocating
+    /// </param>
     Macad::Occt::Aspect_Grid^ Grid(Macad::Occt::Aspect_GridType theGridType);
     /// <summary>
-    /// Returns the current grid type defined in <me>.
+    /// Returns the currently selected grid type (rectangular / circular).
     /// </summary>
     Macad::Occt::Aspect_GridType GridType();
     /// <summary>
-    /// Returns the current grid draw mode defined in <me>.
+    /// Returns the draw mode (lines / points / none) of the active grid.
     /// </summary>
     Macad::Occt::Aspect_GridDrawMode GridDrawMode();
     /// <summary>
-    /// Returns the definition of the rectangular grid.
+    /// Returns the rectangular grid definition.
     /// </summary>
+    /// <param name="out]">
+    /// theXOrigin       grid origin X (snap reference)
+    /// </param>
+    /// <param name="out]">
+    /// theYOrigin       grid origin Y
+    /// </param>
+    /// <param name="out]">
+    /// theXStep         interval between two vertical lines
+    /// </param>
+    /// <param name="out]">
+    /// theYStep         interval between two horizontal lines
+    /// </param>
+    /// <param name="out]">
+    /// theRotationAngle in-plane rotation angle, radians
+    /// </param>
     void RectangularGridValues(double% theXOrigin, double% theYOrigin, double% theXStep, double% theYStep, double% theRotationAngle);
     /// <summary>
-    /// Sets the definition of the rectangular grid.
-    /// <XOrigin>, <YOrigin> defines the origin of the grid.
-    /// <XStep> defines the interval between 2 vertical lines.
-    /// <YStep> defines the interval between 2 horizontal lines.
-    /// <RotationAngle> defines the rotation angle of the grid.
+    /// Sets the rectangular grid definition.
     /// </summary>
+    /// <param name="in]">
+    /// XOrigin       grid origin X
+    /// </param>
+    /// <param name="in]">
+    /// YOrigin       grid origin Y
+    /// </param>
+    /// <param name="in]">
+    /// XStep         interval between two vertical lines
+    /// </param>
+    /// <param name="in]">
+    /// YStep         interval between two horizontal lines
+    /// </param>
+    /// <param name="in]">
+    /// RotationAngle in-plane rotation angle, radians
+    /// </param>
     void SetRectangularGridValues(double XOrigin, double YOrigin, double XStep, double YStep, double RotationAngle);
     /// <summary>
-    /// Returns the definition of the circular grid.
+    /// Returns the rectangular grid extent.
     /// </summary>
-    void CircularGridValues(double% theXOrigin, double% theYOrigin, double% theRadiusStep, int% theDivisionNumber, double% theRotationAngle);
-    /// <summary>
-    /// Sets the definition of the circular grid.
-    /// <XOrigin>, <YOrigin> defines the origin of the grid.
-    /// <RadiusStep> defines the interval between 2 circles.
-    /// <DivisionNumber> defines the section number of one half circle.
-    /// <RotationAngle> defines the rotation angle of the grid.
-    /// </summary>
-    void SetCircularGridValues(double XOrigin, double YOrigin, double RadiusStep, int DivisionNumber, double RotationAngle);
-    /// <summary>
-    /// Returns the location and the size of the grid.
-    /// </summary>
-    void CircularGridGraphicValues(double% theRadius, double% theOffSet);
-    /// <summary>
-    /// Sets the location and the size of the grid.
-    /// <XSize> defines the width of the grid.
-    /// <YSize> defines the height of the grid.
-    /// <OffSet> defines the displacement along the plane normal.
-    /// </summary>
-    void SetCircularGridGraphicValues(double Radius, double OffSet);
-    /// <summary>
-    /// Returns the location and the size of the grid.
-    /// </summary>
+    /// <param name="out]">
+    /// theXSize  width  along grid X
+    /// </param>
+    /// <param name="out]">
+    /// theYSize  height along grid Y
+    /// </param>
+    /// <param name="out]">
+    /// theOffSet plane-normal displacement of the rendered grid
+    /// </param>
     void RectangularGridGraphicValues(double% theXSize, double% theYSize, double% theOffSet);
     /// <summary>
-    /// Sets the location and the size of the grid.
-    /// <XSize> defines the width of the grid.
-    /// <YSize> defines the height of the grid.
-    /// <OffSet> defines the displacement along the plane normal.
+    /// Sets the rectangular grid extent.
     /// </summary>
+    /// <param name="in]">
+    /// XSize  width  along grid X
+    /// </param>
+    /// <param name="in]">
+    /// YSize  height along grid Y
+    /// </param>
+    /// <param name="in]">
+    /// OffSet plane-normal displacement
+    /// </param>
     void SetRectangularGridGraphicValues(double XSize, double YSize, double OffSet);
     /// <summary>
-    /// Display grid echo at requested point in the view.
+    /// Returns the circular grid definition.
     /// </summary>
+    /// <param name="out]">
+    /// theXOrigin        grid origin X (snap reference)
+    /// </param>
+    /// <param name="out]">
+    /// theYOrigin        grid origin Y
+    /// </param>
+    /// <param name="out]">
+    /// theRadiusStep     radial interval between two concentric circles
+    /// </param>
+    /// <param name="out]">
+    /// theDivisionNumber number of sectors per half-circle
+    /// </param>
+    /// <param name="out]">
+    /// theRotationAngle  in-plane rotation angle, radians
+    /// </param>
+    void CircularGridValues(double% theXOrigin, double% theYOrigin, double% theRadiusStep, int% theDivisionNumber, double% theRotationAngle);
+    /// <summary>
+    /// Sets the circular grid definition.
+    /// </summary>
+    /// <param name="in]">
+    /// XOrigin        grid origin X
+    /// </param>
+    /// <param name="in]">
+    /// YOrigin        grid origin Y
+    /// </param>
+    /// <param name="in]">
+    /// RadiusStep     radial interval between two concentric circles
+    /// </param>
+    /// <param name="in]">
+    /// DivisionNumber number of sectors per half-circle (>= 1)
+    /// </param>
+    /// <param name="in]">
+    /// RotationAngle  in-plane rotation angle, radians
+    /// </param>
+    void SetCircularGridValues(double XOrigin, double YOrigin, double RadiusStep, int DivisionNumber, double RotationAngle);
+    /// <summary>
+    /// Returns the circular grid extent.
+    /// </summary>
+    /// <param name="out]">
+    /// theRadius outermost ring radius
+    /// </param>
+    /// <param name="out]">
+    /// theOffSet plane-normal displacement of the rendered grid
+    /// </param>
+    void CircularGridGraphicValues(double% theRadius, double% theOffSet);
+    /// <summary>
+    /// Sets the circular grid extent.
+    /// </summary>
+    /// <param name="in]">
+    /// Radius outermost ring radius
+    /// </param>
+    /// <param name="in]">
+    /// OffSet plane-normal displacement
+    /// </param>
+    void SetCircularGridGraphicValues(double Radius, double OffSet);
+    /// <summary>
+    /// Toggle the snap-hit echo marker drawn by ConvertToGrid() at the snapped point.
+    /// </summary>
+    /// <param name="in]">
+    /// showGrid when TRUE, the marker is shown on every snap hit
+    /// </param>
+    void SetGridEcho(bool showGrid);
+    /// <summary>
+    /// Toggle the snap-hit echo marker drawn by ConvertToGrid() at the snapped point.
+    /// </summary>
+    /// <param name="in]">
+    /// showGrid when TRUE, the marker is shown on every snap hit
+    /// </param>
+    void SetGridEcho();
+    /// <summary>
+    /// Replaces the default echo marker.
+    /// Default attributes when this overload is not called:
+    /// Aspect_TOM_STAR, Quantity_NOC_GRAY90, size 3.0.
+    /// </summary>
+    /// <param name="in]">
+    /// aMarker custom marker aspect to use for echo display
+    /// </param>
+    void SetGridEcho(Macad::Occt::Graphic3d_AspectMarker3d^ aMarker);
+    /// <summary>
+    /// Returns TRUE when the snap-hit echo marker is enabled.
+    /// </summary>
+    bool GridEcho();
+    /// <summary>
+    /// Displays the echo marker in a single view.
+    /// </summary>
+    /// <param name="in]">
+    /// theView view in which to draw the echo
+    /// </param>
+    /// <param name="in]">
+    /// thePoint world-space snapped point
+    /// </param>
     void ShowGridEcho(Macad::Occt::V3d_View^ theView, Macad::Occt::Graphic3d_Vertex^ thePoint);
     /// <summary>
-    /// Temporarily hide grid echo.
+    /// Temporarily hides the echo marker in a single view (e.g. while not snapping).
     /// </summary>
+    /// <param name="in]">
+    /// theView view in which to hide the echo
+    /// </param>
     void HideGridEcho(Macad::Occt::V3d_View^ theView);
     /// <summary>
     /// </summary>
     /// @name deprecated methods
-    /// Returns Standard_True if a grid is activated in <me>.
+    /// Returns true if a grid is activated in <me>.
     bool IsActive();
     /// <summary>
     /// Initializes an internal iterator on the active views.
@@ -3147,6 +3209,14 @@ public:
 //---------------------------------------------------------------------
 //  Class  V3d_CircularGrid
 //---------------------------------------------------------------------
+/// <summary>
+/// </summary>
+/// @deprecated Kept for backward compatibility. CPU-generated circular grid bound to a
+/// V3d_Viewer. New code should drive grids through V3d_View::GridDisplay(Aspect_GridParams,
+/// gp_Ax3), which renders an AA, shader-based grid and supports unbounded extents, background mode,
+/// arc ranges and per-axis scales. This class consumes the same Aspect_CircularGrid
+/// parameters where the CPU path can render them; arc ranges (AngleStart/AngleEnd) are not
+/// supported by the CPU path and are reported via Message::SendWarning() and ignored.
 public ref class V3d_CircularGrid sealed
     : public Macad::Occt::Aspect_CircularGrid
 {
@@ -3174,20 +3244,82 @@ public:
     }
 
 public:
+    /// <summary>
+    /// Constructor. Builds a CPU-rendered circular grid bound to @p aViewer.
+    /// Default radius is 0.5 * Viewer->DefaultViewSize(); ZOffset defaults to step / 50.
+    /// </summary>
+    /// @deprecated Prefer V3d_View::GridDisplay with Aspect_GridParams for shader-based grids.
+    /// <param name="in]">
+    /// aViewer     viewer that owns the grid (and provides DefaultViewSize)
+    /// </param>
+    /// <param name="in]">
+    /// aColor      color of the regular rings / spokes
+    /// </param>
+    /// <param name="in]">
+    /// aTenthColor color of every 10-th ring (and the diameter spokes)
+    /// </param>
     V3d_CircularGrid(Macad::Occt::V3d_Viewer^ aViewer, Macad::Occt::Quantity_Color^ aColor, Macad::Occt::Quantity_Color^ aTenthColor);
+    /// <summary>
+    /// Updates the grid colors and triggers a re-display when they actually change.
+    /// </summary>
+    /// <param name="in]">
+    /// aColor      color of the regular rings / spokes
+    /// </param>
+    /// <param name="in]">
+    /// aTenthColor color of every 10-th ring
+    /// </param>
     void SetColors(Macad::Occt::Quantity_Color^ aColor, Macad::Occt::Quantity_Color^ aTenthColor);
+    /// <summary>
+    /// Display the CPU grid in the owning viewer's structure manager.
+    /// </summary>
     void Display();
+    /// <summary>
+    /// Erase the CPU grid (the underlying Graphic3d_Structure is hidden, not destroyed).
+    /// </summary>
     void Erase();
+    /// <summary>
+    /// Returns true if the grid structure is currently displayed.
+    /// </summary>
     bool IsDisplayed();
+    /// <summary>
+    /// Returns the grid extent and Z offset (alias for Radius/ZOffset).
+    /// </summary>
+    /// <param name="out]">
+    /// Radius outermost ring radius
+    /// </param>
+    /// <param name="out]">
+    /// OffSet plane-normal displacement of the rendered grid
+    /// </param>
     void GraphicValues(double% Radius, double% OffSet);
+    /// <summary>
+    /// Sets the grid extent and Z offset (alias for SetRadius/SetZOffset).
+    /// </summary>
+    /// <param name="in]">
+    /// Radius outermost ring radius
+    /// </param>
+    /// <param name="in]">
+    /// OffSet plane-normal displacement
+    /// </param>
     void SetGraphicValues(double Radius, double OffSet);
     /// <summary>
-    /// Dumps the content of me into the stream
+    /// Dumps the content of me into the stream.
     /// </summary>
+    /// <param name="in,out]">
+    /// theOStream destination stream
+    /// </param>
+    /// <param name="in]">
+    ///     theDepth   recursion depth (-1 for full)
+    /// </param>
     void DumpJson(System::IO::TextWriter^ theOStream, int theDepth);
     /// <summary>
-    /// Dumps the content of me into the stream
+    /// Dumps the content of me into the stream.
     /// </summary>
+    /// <param name="in,out]">
+    /// theOStream destination stream
+    /// </param>
+    /// <param name="in]">
+    ///     theDepth   recursion depth (-1 for full)
+    /// </param>
     void DumpJson(System::IO::TextWriter^ theOStream);
     static Macad::Occt::V3d_CircularGrid^ CreateDowncasted(::V3d_CircularGrid* instance);
 }; // class V3d_CircularGrid
@@ -3304,6 +3436,14 @@ public:
 //---------------------------------------------------------------------
 //  Class  V3d_RectangularGrid
 //---------------------------------------------------------------------
+/// <summary>
+/// </summary>
+/// @deprecated Kept for backward compatibility. CPU-generated grid bound to a V3d_Viewer.
+/// New code should drive grids through V3d_View::GridDisplay(Aspect_GridParams, gp_Ax3),
+/// which renders an AA, shader-based grid and supports unbounded extents, background mode, arc
+/// ranges and per-axis scales. This class consumes the same Aspect_RectangularGrid
+/// parameters where the CPU path can render them; unsupported parameters are reported
+/// via Message::SendWarning() and ignored.
 public ref class V3d_RectangularGrid sealed
     : public Macad::Occt::Aspect_RectangularGrid
 {
@@ -3331,20 +3471,89 @@ public:
     }
 
 public:
+    /// <summary>
+    /// Constructor. Builds a CPU-rendered rectangular grid bound to @p aViewer.
+    /// Default size is 0.5 * Viewer->DefaultViewSize() on each axis (bounded);
+    /// ZOffset defaults to step / 50.
+    /// </summary>
+    /// @deprecated Prefer V3d_View::GridDisplay with Aspect_GridParams for shader-based grids.
+    /// <param name="in]">
+    /// aViewer     viewer that owns the grid (and provides DefaultViewSize)
+    /// </param>
+    /// <param name="in]">
+    /// aColor      color of the regular grid lines / points
+    /// </param>
+    /// <param name="in]">
+    /// aTenthColor color of every 10-th line (axis emphasis)
+    /// </param>
     V3d_RectangularGrid(Macad::Occt::V3d_Viewer^ aViewer, Macad::Occt::Quantity_Color^ aColor, Macad::Occt::Quantity_Color^ aTenthColor);
+    /// <summary>
+    /// Updates the grid colors and triggers a re-display when they actually change.
+    /// </summary>
+    /// <param name="in]">
+    /// aColor      color of the regular lines / points
+    /// </param>
+    /// <param name="in]">
+    /// aTenthColor color of every 10-th line
+    /// </param>
     void SetColors(Macad::Occt::Quantity_Color^ aColor, Macad::Occt::Quantity_Color^ aTenthColor);
+    /// <summary>
+    /// Display the CPU grid in the owning viewer's structure manager.
+    /// </summary>
     void Display();
+    /// <summary>
+    /// Erase the CPU grid (the underlying Graphic3d_Structure is hidden, not destroyed).
+    /// </summary>
     void Erase();
+    /// <summary>
+    /// Returns true if the grid structure is currently displayed.
+    /// </summary>
     bool IsDisplayed();
+    /// <summary>
+    /// Returns the grid bounds and Z offset (alias for SizeX/SizeY/ZOffset).
+    /// </summary>
+    /// <param name="out]">
+    /// XSize  width  along grid X
+    /// </param>
+    /// <param name="out]">
+    /// YSize  height along grid Y
+    /// </param>
+    /// <param name="out]">
+    /// OffSet plane-normal displacement of the rendered grid
+    /// </param>
     void GraphicValues(double% XSize, double% YSize, double% OffSet);
+    /// <summary>
+    /// Sets the grid bounds and Z offset (alias for SetSizeX/SetSizeY/SetZOffset).
+    /// </summary>
+    /// <param name="in]">
+    /// XSize  width  along grid X
+    /// </param>
+    /// <param name="in]">
+    /// YSize  height along grid Y
+    /// </param>
+    /// <param name="in]">
+    /// OffSet plane-normal displacement
+    /// </param>
     void SetGraphicValues(double XSize, double YSize, double OffSet);
     /// <summary>
-    /// Dumps the content of me into the stream
+    /// Dumps the content of me into the stream.
     /// </summary>
+    /// <param name="in,out]">
+    /// theOStream destination stream
+    /// </param>
+    /// <param name="in]">
+    ///     theDepth   recursion depth (-1 for full)
+    /// </param>
     void DumpJson(System::IO::TextWriter^ theOStream, int theDepth);
     /// <summary>
-    /// Dumps the content of me into the stream
+    /// Dumps the content of me into the stream.
     /// </summary>
+    /// <param name="in,out]">
+    /// theOStream destination stream
+    /// </param>
+    /// <param name="in]">
+    ///     theDepth   recursion depth (-1 for full)
+    /// </param>
     void DumpJson(System::IO::TextWriter^ theOStream);
     static Macad::Occt::V3d_RectangularGrid^ CreateDowncasted(::V3d_RectangularGrid* instance);
 }; // class V3d_RectangularGrid
@@ -3515,8 +3724,8 @@ public:
 /// </summary>
 /// @code
 /// 
-/// Handle(V3d_Plane) aPlane (0, 1, 0, -20);
-/// Handle(V3d_View) aView;
+/// occ::handle<V3d_Plane> aPlane (0, 1, 0, -20);
+/// occ::handle<V3d_View> aView;
 /// aView->AddClipPlane (aPlane->ClipPlane());
 /// 
 /// aPlane->Display (aView);
@@ -3763,16 +3972,10 @@ public:
     }
 
 public:
-    V3d_UnMapped();
     V3d_UnMapped(System::String^ theMessage);
+    V3d_UnMapped();
     V3d_UnMapped(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::V3d_UnMapped^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::V3d_UnMapped^ NewInstance();
-    static Macad::Occt::V3d_UnMapped^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::V3d_UnMapped^ CreateDowncasted(::V3d_UnMapped* instance);
+    System::String^ ExceptionType();
 }; // class V3d_UnMapped
 
 }; // namespace Occt

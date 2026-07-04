@@ -10,103 +10,6 @@ namespace Macad
 namespace Occt
 {
 //---------------------------------------------------------------------
-//  Class  BRepOffsetAPI_SequenceOfSequenceOfShape
-//---------------------------------------------------------------------
-public ref class BRepOffsetAPI_SequenceOfSequenceOfShape sealed
-    : public Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape>
-    , public IIndexEnumerable<Macad::Occt::TopTools_SequenceOfShape^>
-{
-
-#ifdef Include_BRepOffsetAPI_SequenceOfSequenceOfShape_h
-public:
-    Include_BRepOffsetAPI_SequenceOfSequenceOfShape_h
-#endif
-
-public:
-    BRepOffsetAPI_SequenceOfSequenceOfShape(::BRepOffsetAPI_SequenceOfSequenceOfShape* nativeInstance)
-        : Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape>( nativeInstance, true )
-    {}
-
-    BRepOffsetAPI_SequenceOfSequenceOfShape(::BRepOffsetAPI_SequenceOfSequenceOfShape& nativeInstance)
-        : Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape>( &nativeInstance, false )
-    {}
-
-    property ::BRepOffsetAPI_SequenceOfSequenceOfShape* NativeInstance
-    {
-        ::BRepOffsetAPI_SequenceOfSequenceOfShape* get()
-        {
-            return static_cast<::BRepOffsetAPI_SequenceOfSequenceOfShape*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator>
-    {
-
-#ifdef Include_BRepOffsetAPI_SequenceOfSequenceOfShape_Iterator_h
-    public:
-        Include_BRepOffsetAPI_SequenceOfSequenceOfShape_Iterator_h
-#endif
-
-    public:
-        Iterator(::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator* NativeInstance
-        {
-            ::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator* get()
-            {
-                return static_cast<::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::TopTools_SequenceOfShape^ Value();
-        Macad::Occt::TopTools_SequenceOfShape^ ChangeValue();
-        bool IsEqual(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator^ theOther);
-        bool Equals(System::Object^ obj) override;
-    }; // class Iterator
-
-    BRepOffsetAPI_SequenceOfSequenceOfShape();
-    BRepOffsetAPI_SequenceOfSequenceOfShape(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
-    int Upper();
-    bool IsEmpty();
-    void Reverse();
-    void Exchange(int I, int J);
-    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ Assign(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theOther);
-    void Remove(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator^ thePosition);
-    void Append(Macad::Occt::TopTools_SequenceOfShape^ theItem);
-    void Prepend(Macad::Occt::TopTools_SequenceOfShape^ theItem);
-    void InsertBefore(int theIndex, Macad::Occt::TopTools_SequenceOfShape^ theItem);
-    void InsertAfter(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator^ thePosition, Macad::Occt::TopTools_SequenceOfShape^ theItem);
-    void Split(int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theSeq);
-    Macad::Occt::TopTools_SequenceOfShape^ First();
-    Macad::Occt::TopTools_SequenceOfShape^ ChangeFirst();
-    Macad::Occt::TopTools_SequenceOfShape^ Last();
-    Macad::Occt::TopTools_SequenceOfShape^ ChangeLast();
-    virtual Macad::Occt::TopTools_SequenceOfShape^ Value(int theIndex);
-    Macad::Occt::TopTools_SequenceOfShape^ ChangeValue(int theIndex);
-    void SetValue(int theIndex, Macad::Occt::TopTools_SequenceOfShape^ theItem);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::TopTools_SequenceOfShape^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class BRepOffsetAPI_SequenceOfSequenceOfShape
-
-//---------------------------------------------------------------------
 //  Class  BRepOffsetAPI_SequenceOfSequenceOfReal
 //---------------------------------------------------------------------
 public ref class BRepOffsetAPI_SequenceOfSequenceOfReal sealed
@@ -165,6 +68,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ theSeq, bool isStart);
+        Iterator(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ theSeq);
         bool More();
         void Next();
         Macad::Occt::TColStd_SequenceOfReal^ Value();
@@ -173,35 +78,176 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepOffsetAPI_SequenceOfSequenceOfReal();
     BRepOffsetAPI_SequenceOfSequenceOfReal(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ Assign(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ theOther);
     void Remove(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::TColStd_SequenceOfReal^ theItem);
+    void Append(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ theSeq);
     void Prepend(Macad::Occt::TColStd_SequenceOfReal^ theItem);
+    void Prepend(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::TColStd_SequenceOfReal^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::TColStd_SequenceOfReal^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ theSeq);
     void InsertAfter(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal::Iterator^ thePosition, Macad::Occt::TColStd_SequenceOfReal^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::TColStd_SequenceOfReal^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::TColStd_SequenceOfReal^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ theSeq);
     void Split(int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfReal^ theSeq);
     Macad::Occt::TColStd_SequenceOfReal^ First();
     Macad::Occt::TColStd_SequenceOfReal^ ChangeFirst();
     Macad::Occt::TColStd_SequenceOfReal^ Last();
     Macad::Occt::TColStd_SequenceOfReal^ ChangeLast();
+    Macad::Occt::TColStd_SequenceOfReal^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::TColStd_SequenceOfReal^ Value(int theIndex);
+    Macad::Occt::TColStd_SequenceOfReal^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::TColStd_SequenceOfReal^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::TColStd_SequenceOfReal^ theItem);
     void SetValue(int theIndex, Macad::Occt::TColStd_SequenceOfReal^ theItem);
+    Macad::Occt::TColStd_SequenceOfReal^ At(long long unsigned int theIndex);
+    Macad::Occt::TColStd_SequenceOfReal^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::TColStd_SequenceOfReal^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class BRepOffsetAPI_SequenceOfSequenceOfReal
+
+//---------------------------------------------------------------------
+//  Class  BRepOffsetAPI_SequenceOfSequenceOfShape
+//---------------------------------------------------------------------
+public ref class BRepOffsetAPI_SequenceOfSequenceOfShape sealed
+    : public Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape>
+    , public IIndexEnumerable<Macad::Occt::TopTools_SequenceOfShape^>
+{
+
+#ifdef Include_BRepOffsetAPI_SequenceOfSequenceOfShape_h
+public:
+    Include_BRepOffsetAPI_SequenceOfSequenceOfShape_h
+#endif
+
+public:
+    BRepOffsetAPI_SequenceOfSequenceOfShape(::BRepOffsetAPI_SequenceOfSequenceOfShape* nativeInstance)
+        : Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape>( nativeInstance, true )
+    {}
+
+    BRepOffsetAPI_SequenceOfSequenceOfShape(::BRepOffsetAPI_SequenceOfSequenceOfShape& nativeInstance)
+        : Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape>( &nativeInstance, false )
+    {}
+
+    property ::BRepOffsetAPI_SequenceOfSequenceOfShape* NativeInstance
+    {
+        ::BRepOffsetAPI_SequenceOfSequenceOfShape* get()
+        {
+            return static_cast<::BRepOffsetAPI_SequenceOfSequenceOfShape*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator>
+    {
+
+#ifdef Include_BRepOffsetAPI_SequenceOfSequenceOfShape_Iterator_h
+    public:
+        Include_BRepOffsetAPI_SequenceOfSequenceOfShape_Iterator_h
+#endif
+
+    public:
+        Iterator(::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator* NativeInstance
+        {
+            ::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator* get()
+            {
+                return static_cast<::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        Iterator();
+        Iterator(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theSeq, bool isStart);
+        Iterator(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theSeq);
+        bool More();
+        void Next();
+        Macad::Occt::TopTools_SequenceOfShape^ Value();
+        Macad::Occt::TopTools_SequenceOfShape^ ChangeValue();
+        bool IsEqual(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator^ theOther);
+        bool Equals(System::Object^ obj) override;
+    }; // class Iterator
+
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
+    BRepOffsetAPI_SequenceOfSequenceOfShape();
+    BRepOffsetAPI_SequenceOfSequenceOfShape(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    static int Lower();
+    int Upper();
+    bool IsEmpty();
+    void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
+    void Exchange(int I, int J);
+    /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    void Clear();
+    Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ Assign(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theOther);
+    void Remove(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
+    void Append(Macad::Occt::TopTools_SequenceOfShape^ theItem);
+    void Append(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theSeq);
+    void Prepend(Macad::Occt::TopTools_SequenceOfShape^ theItem);
+    void Prepend(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::TopTools_SequenceOfShape^ theItem);
+    void InsertBefore(int theIndex, Macad::Occt::TopTools_SequenceOfShape^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theSeq);
+    void InsertAfter(Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape::Iterator^ thePosition, Macad::Occt::TopTools_SequenceOfShape^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::TopTools_SequenceOfShape^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::TopTools_SequenceOfShape^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theSeq);
+    void Split(int theIndex, Macad::Occt::BRepOffsetAPI_SequenceOfSequenceOfShape^ theSeq);
+    Macad::Occt::TopTools_SequenceOfShape^ First();
+    Macad::Occt::TopTools_SequenceOfShape^ ChangeFirst();
+    Macad::Occt::TopTools_SequenceOfShape^ Last();
+    Macad::Occt::TopTools_SequenceOfShape^ ChangeLast();
+    Macad::Occt::TopTools_SequenceOfShape^ Value(long long unsigned int theIndex);
+    virtual Macad::Occt::TopTools_SequenceOfShape^ Value(int theIndex);
+    Macad::Occt::TopTools_SequenceOfShape^ ChangeValue(long long unsigned int theIndex);
+    Macad::Occt::TopTools_SequenceOfShape^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::TopTools_SequenceOfShape^ theItem);
+    void SetValue(int theIndex, Macad::Occt::TopTools_SequenceOfShape^ theItem);
+    Macad::Occt::TopTools_SequenceOfShape^ At(long long unsigned int theIndex);
+    Macad::Occt::TopTools_SequenceOfShape^ ChangeAt(long long unsigned int theIndex);
+    virtual System::Collections::Generic::IEnumerator<Macad::Occt::TopTools_SequenceOfShape^>^ GetEnumerator();
+    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
+}; // class BRepOffsetAPI_SequenceOfSequenceOfShape
 
 //---------------------------------------------------------------------
 //  Class  BRepOffsetAPI_DraftAngle
@@ -394,12 +440,12 @@ public:
     Macad::Occt::TopoDS_Shape^ ProblematicShape();
     /* Method skipped due to unknown mapping: Draft_ErrorStatus Status() */
     /// <summary>
-    /// Returns all  the  faces   which  have been   added
+    /// Returns all the faces which have been added
     /// together with the face <F>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ ConnectedFaces(Macad::Occt::TopoDS_Face^ F);
     /// <summary>
-    /// Returns all the faces  on which a modification has
+    /// Returns all the faces on which a modification has
     /// been given.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ ModifiedFaces();
@@ -413,12 +459,12 @@ public:
     void Build();
     void CorrectWires();
     /// <summary>
-    /// Returns the  list   of shapes generated   from the
+    /// Returns the list of shapes generated from the
     /// shape <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Generated(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Returns the list  of shapes modified from the shape
+    /// Returns the list of shapes modified from the shape
     /// <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ S);
@@ -607,7 +653,7 @@ public:
     bool IsModified(Macad::Occt::TopoDS_Shape^ shape);
     /// <summary>
     /// Gives a modifieded shape
-    /// Raises   NoSuchObject if shape has not been modified
+    /// Raises NoSuchObject if shape has not been modified
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Modified(Macad::Occt::TopoDS_Shape^ shape);
     /// <summary>
@@ -758,7 +804,7 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Shell^ Shell();
     /// <summary>
-    /// Returns the  list   of shapes generated   from the
+    /// Returns the list of shapes generated from the
     /// shape <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Generated(Macad::Occt::TopoDS_Shape^ S);
@@ -785,8 +831,8 @@ public:
 /// (which lies in infinite number of planes).
 /// 
 /// The profile is defined in a Referential R. The position of
-/// the profile at the current point of the  spine is given by
-/// confusing R  and the local  referential given by (  D0, D1
+/// the profile at the current point of the spine is given by
+/// confusing R and the local referential given by (D0, D1
 /// and the normal of the Spine).
 /// 
 /// The coordinate system is determined by theIsAxeProf argument:
@@ -908,8 +954,8 @@ public:
     /// </summary>
     void Build();
     /// <summary>
-    /// Returns   the  shapes  created  from   a  subshape
-    /// <SpineShape>  of     the  spine   and   a subshape
+    /// Returns the shapes created from a subshape
+    /// <SpineShape> of the spine and a subshape
     /// <ProfShape> on the profile.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ GeneratedShapes(Macad::Occt::TopoDS_Shape^ SpineShape, Macad::Occt::TopoDS_Shape^ ProfShape);
@@ -918,7 +964,7 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Top();
     /// <summary>
-    /// Return the face Bottom  if <Solid> is True in the constructor.
+    /// Return the face Bottom if <Solid> is True in the constructor.
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Bottom();
 }; // class BRepOffsetAPI_MakeEvolved
@@ -2219,7 +2265,7 @@ public:
     /// </summary>
     void Build();
     /// <summary>
-    /// Returns the  TopoDS  Shape of the bottom of the prism.
+    /// Returns the TopoDS Shape of the bottom of the prism.
     /// </summary>
     Macad::Occt::TopoDS_Shape^ FirstShape();
     /// <summary>
@@ -2289,47 +2335,47 @@ public:
     BRepOffsetAPI_MakePipeShell(Macad::Occt::TopoDS_Wire^ Spine);
     /// <summary>
     /// Sets a Frenet or a CorrectedFrenet trihedron
-    /// to  perform  the  sweeping
+    /// to perform the sweeping
     /// If IsFrenet is false, a corrected Frenet trihedron is used.
     /// </summary>
     void SetMode(bool IsFrenet);
     /// <summary>
     /// Sets a Frenet or a CorrectedFrenet trihedron
-    /// to  perform  the  sweeping
+    /// to perform the sweeping
     /// If IsFrenet is false, a corrected Frenet trihedron is used.
     /// </summary>
     void SetMode();
     /// <summary>
     /// Sets a Discrete trihedron
-    /// to  perform  the  sweeping
+    /// to perform the sweeping
     /// </summary>
     void SetDiscreteMode();
     /// <summary>
-    /// Sets  a  fixed  trihedron  to  perform  the  sweeping
+    /// Sets a fixed trihedron to perform the sweeping
     /// all sections will be parallel.
     /// </summary>
     void SetMode(Macad::Occt::Ax2 Axe);
     /// <summary>
-    /// Sets a fixed BiNormal  direction to perform the --
-    /// sweeping.   Angular   relations   between  the
+    /// Sets a fixed BiNormal direction to perform the
+    /// sweeping. Angular relations between the
     /// section(s) and <BiNormal> will be constant
     /// </summary>
     void SetMode(Macad::Occt::Dir BiNormal);
     /// <summary>
     /// Sets support to the spine to define the BiNormal of
-    /// the trihedron, like the normal  to the surfaces.
-    /// Warning:  To be effective, Each  edge of the <spine> must
+    /// the trihedron, like the normal to the surfaces.
+    /// Warning: To be effective, Each edge of the <spine> must
     /// have a representation on one face of<SpineSupport>
     /// </summary>
     bool SetMode(Macad::Occt::TopoDS_Shape^ SpineSupport);
     /// <summary>
-    /// Sets  an  auxiliary  spine  to  define  the Normal
-    /// For  each  Point  of  the  Spine  P,  an  Point  Q  is  evalued
-    /// on  <AuxiliarySpine>
+    /// Sets an auxiliary spine to define the Normal
+    /// For each Point of the Spine P, an Point Q is evaluated
+    /// on <AuxiliarySpine>
     /// If <CurvilinearEquivalence>
-    /// Q split <AuxiliarySpine> with  the  same  length ratio
-    /// than P split  <Spline>.
-    /// Else  the  plan  define  by  P  and  the  tangent  to  the  <Spine>
+    /// Q split <AuxiliarySpine> with the same length ratio
+    /// than P split <Spline>.
+    /// Else the plan define by P and the tangent to the <Spine>
     /// intersect <AuxiliarySpine> in Q.
     /// If <KeepContact> equals BRepFill_NoContact: The Normal is defined
     /// by the vector PQ.
@@ -2344,7 +2390,7 @@ public:
     /// becomes a boundary of the swept surface and the width of section varies
     /// along the path.
     /// Give section to sweep.
-    /// Possibilities are :
+    /// Possibilities are:
     /// - Give one or several section
     /// - Give one profile and an homotetic law.
     /// - Automatic compute of correspondence between spine, and section
@@ -2354,13 +2400,13 @@ public:
     /// </summary>
     void SetMode(Macad::Occt::TopoDS_Wire^ AuxiliarySpine, bool CurvilinearEquivalence, Macad::Occt::BRepFill_TypeOfContact KeepContact);
     /// <summary>
-    /// Sets  an  auxiliary  spine  to  define  the Normal
-    /// For  each  Point  of  the  Spine  P,  an  Point  Q  is  evalued
-    /// on  <AuxiliarySpine>
+    /// Sets an auxiliary spine to define the Normal
+    /// For each Point of the Spine P, an Point Q is evaluated
+    /// on <AuxiliarySpine>
     /// If <CurvilinearEquivalence>
-    /// Q split <AuxiliarySpine> with  the  same  length ratio
-    /// than P split  <Spline>.
-    /// Else  the  plan  define  by  P  and  the  tangent  to  the  <Spine>
+    /// Q split <AuxiliarySpine> with the same length ratio
+    /// than P split <Spline>.
+    /// Else the plan define by P and the tangent to the <Spine>
     /// intersect <AuxiliarySpine> in Q.
     /// If <KeepContact> equals BRepFill_NoContact: The Normal is defined
     /// by the vector PQ.
@@ -2375,7 +2421,7 @@ public:
     /// becomes a boundary of the swept surface and the width of section varies
     /// along the path.
     /// Give section to sweep.
-    /// Possibilities are :
+    /// Possibilities are:
     /// - Give one or several section
     /// - Give one profile and an homotetic law.
     /// - Automatic compute of correspondence between spine, and section
@@ -2460,7 +2506,7 @@ public:
     /// </summary>
     bool IsReady();
     /// <summary>
-    /// Get a status, when Simulate or Build failed.       It can be
+    /// Get a status, when Simulate or Build failed. It can be
     /// BRepBuilderAPI_PipeDone,
     /// BRepBuilderAPI_PipeNotDone,
     /// BRepBuilderAPI_PlaneNotIntersectGuide,
@@ -2599,7 +2645,7 @@ public:
     /// they are returned in the list Result.
     /// This gives a rapid preview of the resulting shape,
     /// which will be obtained using the settings you have provided.
-    /// Raises  NotDone if  <me> it is not Ready
+    /// Raises NotDone if <me> it is not Ready
     /// </summary>
     void Simulate(int NumberOfSection, Macad::Occt::TopTools_ListOfShape^ Result);
     /// <summary>
@@ -2616,7 +2662,7 @@ public:
     /// </summary>
     bool MakeSolid();
     /// <summary>
-    /// Returns the  TopoDS  Shape of the bottom of the sweep.
+    /// Returns the TopoDS Shape of the bottom of the sweep.
     /// </summary>
     Macad::Occt::TopoDS_Shape^ FirstShape();
     /// <summary>
@@ -2631,6 +2677,17 @@ public:
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Generated(Macad::Occt::TopoDS_Shape^ S);
     double ErrorOnSurface();
+    /// <summary>
+    /// Sets the build history flag.
+    /// If set to True, the pipe shell will store the history of the sections
+    /// and the spine, which can be used for further modifications or analysis.
+    /// </summary>
+    void SetIsBuildHistory(bool theIsBuildHistory);
+    /// <summary>
+    /// Returns the build history flag.
+    /// If True, the pipe shell stores the history of the sections and the spine.
+    /// </summary>
+    bool IsBuildHistory();
     /// <summary>
     /// Returns the list of original profiles
     /// </summary>
@@ -2651,10 +2708,10 @@ public:
 /// remaining faces of the solid become the walls of the
 /// hollowed solid, their thickness defined at the time of construction.
 /// the solid is built from an initial
-/// solid  <S> and a  set of  faces {Fi} from  <S>,
-/// builds a   solid  composed  by two shells closed  by
-/// the {Fi}. First shell <SS>   is composed by all
-/// the faces of <S> expected {Fi}.  Second shell is
+/// solid <S> and a set of faces {Fi} from <S>,
+/// builds a solid composed by two shells closed by
+/// the {Fi}. First shell <SS> is composed by all
+/// the faces of <S> expected {Fi}. Second shell is
 /// the offset shell of <SS>.
 /// A MakeThickSolid object provides a framework for:
 /// - defining the cross-section of a hollowed solid,
@@ -3004,7 +3061,7 @@ public:
     void Build(Macad::Occt::Message_ProgressRange^ theRange);
     void Build();
     /// <summary>
-    /// Returns the list  of shapes modified from the shape
+    /// Returns the list of shapes modified from the shape
     /// <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ S);
@@ -3116,11 +3173,11 @@ public:
     /// </summary>
     void Add(Macad::Occt::TopoDS_Shape^ ToProj);
     /// <summary>
-    /// Sets the parameters  used  for computation
-    /// Tol3 is the required  tolerance between the  3d projected
-    /// curve  and     its    2d    representation
-    /// InternalContinuity  is the order of constraints
-    /// used for  approximation
+    /// Sets the parameters used for computation
+    /// Tol3 is the required tolerance between the 3d projected
+    /// curve and its 2d representation
+    /// InternalContinuity is the order of constraints
+    /// used for approximation
     /// MaxDeg and MaxSeg are the maximum degree and the maximum
     /// number of segment for BSpline resulting of an approximation.
     /// </summary>
@@ -3133,11 +3190,11 @@ public:
     /// </summary>
     void SetMaxDistance(double MaxDist);
     /// <summary>
-    /// Manage  limitation  of  projected  edges.
+    /// Manage limitation of projected edges.
     /// </summary>
     void SetLimit(bool FaceBoundaries);
     /// <summary>
-    /// Manage  limitation  of  projected  edges.
+    /// Manage limitation of projected edges.
     /// </summary>
     void SetLimit();
     /// <summary>
@@ -3186,7 +3243,7 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Couple(Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
-    /// Returns the  list   of shapes generated   from the
+    /// Returns the list of shapes generated from the
     /// shape <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Generated(Macad::Occt::TopoDS_Shape^ S);
@@ -3398,8 +3455,8 @@ public:
     /// </summary>
     void SetContinuity(Macad::Occt::GeomAbs_Shape C);
     /// <summary>
-    /// define the Weights  associed to the criterium used in
-    /// the  optimization.
+    /// define the Weights associed to the criterium used in
+    /// the optimization.
     /// 
     /// if Wi <= 0
     /// </summary>
@@ -3422,8 +3479,8 @@ public:
     /// </summary>
     bool UseSmoothing();
     /// <summary>
-    /// returns the Weights associed  to the criterium used in
-    /// the  optimization.
+    /// returns the Weights associed to the criterium used in
+    /// the optimization.
     /// </summary>
     void CriteriumWeight(double% W1, double% W2, double% W3);
     void Build(Macad::Occt::Message_ProgressRange^ theRange);

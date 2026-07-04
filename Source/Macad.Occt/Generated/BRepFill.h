@@ -2,7 +2,6 @@
 
 #pragma once
 
-#include "NCollection.h"
 
 namespace Macad
 {
@@ -106,6 +105,7 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape^ theMap);
         bool More();
         void Next();
         Macad::Occt::TopTools_DataMapOfShapeShape^ Value();
@@ -113,23 +113,43 @@ public:
         /* Method skipped due to unknown mapping: MAT_Node Key() */
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepFill_DataMapOfNodeDataMapOfShapeShape();
+    BRepFill_DataMapOfNodeDataMapOfShapeShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfNodeDataMapOfShapeShape(long long unsigned int theNbBuckets);
     BRepFill_DataMapOfNodeDataMapOfShapeShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     BRepFill_DataMapOfNodeDataMapOfShapeShape(int theNbBuckets);
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfNodeDataMapOfShapeShape(NCollection_DefaultHasher<opencascade::handle<MAT_Node>> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfNodeDataMapOfShapeShape(NCollection_DefaultHasher<opencascade::handle<MAT_Node>> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfNodeDataMapOfShapeShape(NCollection_DefaultHasher<opencascade::handle<MAT_Node>> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfNodeDataMapOfShapeShape(NCollection_DefaultHasher<opencascade::handle<MAT_Node>> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfNodeDataMapOfShapeShape(NCollection_DefaultHasher<opencascade::handle<MAT_Node>> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: ItemsView Items() */
     void Exchange(Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape^ theOther);
+    /* Method skipped due to unknown mapping: NCollection_DefaultHasher<opencascade::handle<MAT_Node>> GetHasher() */
     Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape^ Assign(Macad::Occt::BRepFill_DataMapOfNodeDataMapOfShapeShape^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     /* Method skipped due to unknown mapping: bool Bind(MAT_Node theKey, TopTools_DataMapOfShapeShape theItem, ) */
     /* Method skipped due to unknown mapping: TopTools_DataMapOfShapeShape Bound(MAT_Node theKey, TopTools_DataMapOfShapeShape theItem, ) */
+    /* Method skipped due to unknown mapping: bool TryBind(MAT_Node theKey, TopTools_DataMapOfShapeShape theItem, ) */
+    /* Method skipped due to unknown mapping: TopTools_DataMapOfShapeShape TryBound(MAT_Node theKey, TopTools_DataMapOfShapeShape theItem, ) */
     /* Method skipped due to unknown mapping: bool IsBound(MAT_Node theKey, ) */
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const opencascade::handle<MAT_Node>>, std::reference_wrapper<const NCollection_DataMap<TopoDS_Shape, TopoDS_Shape, TopTools_ShapeMapHasher>>>> Contained(MAT_Node theKey, ) */
     /* Method skipped due to unknown mapping: bool UnBind(MAT_Node theKey, ) */
     /* Method skipped due to unknown mapping: TopTools_DataMapOfShapeShape Seek(MAT_Node theKey, ) */
     /* Method skipped due to unknown mapping: TopTools_DataMapOfShapeShape Find(MAT_Node theKey, ) */
+    /* Method skipped due to unknown mapping: bool Find(MAT_Node theKey, TopTools_DataMapOfShapeShape theValue, ) */
     /* Method skipped due to unknown mapping: TopTools_DataMapOfShapeShape ChangeSeek(MAT_Node theKey, ) */
     /* Method skipped due to unknown mapping: TopTools_DataMapOfShapeShape ChangeFind(MAT_Node theKey, ) */
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class BRepFill_DataMapOfNodeDataMapOfShapeShape
 
 //---------------------------------------------------------------------
@@ -190,6 +210,7 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepFill_DataMapOfNodeShape^ theMap);
         bool More();
         void Next();
         Macad::Occt::TopoDS_Shape^ Value();
@@ -197,23 +218,43 @@ public:
         /* Method skipped due to unknown mapping: MAT_Node Key() */
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepFill_DataMapOfNodeShape();
+    BRepFill_DataMapOfNodeShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfNodeShape(long long unsigned int theNbBuckets);
     BRepFill_DataMapOfNodeShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     BRepFill_DataMapOfNodeShape(int theNbBuckets);
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfNodeShape(NCollection_DefaultHasher<opencascade::handle<MAT_Node>> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfNodeShape(NCollection_DefaultHasher<opencascade::handle<MAT_Node>> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfNodeShape(NCollection_DefaultHasher<opencascade::handle<MAT_Node>> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfNodeShape(NCollection_DefaultHasher<opencascade::handle<MAT_Node>> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfNodeShape(NCollection_DefaultHasher<opencascade::handle<MAT_Node>> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: ItemsView Items() */
     void Exchange(Macad::Occt::BRepFill_DataMapOfNodeShape^ theOther);
+    /* Method skipped due to unknown mapping: NCollection_DefaultHasher<opencascade::handle<MAT_Node>> GetHasher() */
     Macad::Occt::BRepFill_DataMapOfNodeShape^ Assign(Macad::Occt::BRepFill_DataMapOfNodeShape^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     /* Method skipped due to unknown mapping: bool Bind(MAT_Node theKey, TopoDS_Shape theItem, ) */
     /* Method skipped due to unknown mapping: TopoDS_Shape Bound(MAT_Node theKey, TopoDS_Shape theItem, ) */
+    /* Method skipped due to unknown mapping: bool TryBind(MAT_Node theKey, TopoDS_Shape theItem, ) */
+    /* Method skipped due to unknown mapping: TopoDS_Shape TryBound(MAT_Node theKey, TopoDS_Shape theItem, ) */
     /* Method skipped due to unknown mapping: bool IsBound(MAT_Node theKey, ) */
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const opencascade::handle<MAT_Node>>, std::reference_wrapper<const TopoDS_Shape>>> Contained(MAT_Node theKey, ) */
     /* Method skipped due to unknown mapping: bool UnBind(MAT_Node theKey, ) */
     /* Method skipped due to unknown mapping: TopoDS_Shape Seek(MAT_Node theKey, ) */
     /* Method skipped due to unknown mapping: TopoDS_Shape Find(MAT_Node theKey, ) */
+    /* Method skipped due to unknown mapping: bool Find(MAT_Node theKey, TopoDS_Shape theValue, ) */
     /* Method skipped due to unknown mapping: TopoDS_Shape ChangeSeek(MAT_Node theKey, ) */
     /* Method skipped due to unknown mapping: TopoDS_Shape ChangeFind(MAT_Node theKey, ) */
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class BRepFill_DataMapOfNodeShape
 
 //---------------------------------------------------------------------
@@ -274,30 +315,51 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape^ theMap);
         bool More();
         void Next();
-        Macad::Occt::TopoDS_ListOfShape^ Value();
-        Macad::Occt::TopoDS_ListOfShape^ ChangeValue();
+        Macad::Occt::TopTools_ListOfShape^ Value();
+        Macad::Occt::TopTools_ListOfShape^ ChangeValue();
         Macad::Occt::TopoDS_Shape^ Key();
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepFill_DataMapOfOrientedShapeListOfShape();
+    BRepFill_DataMapOfOrientedShapeListOfShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfOrientedShapeListOfShape(long long unsigned int theNbBuckets);
     BRepFill_DataMapOfOrientedShapeListOfShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     BRepFill_DataMapOfOrientedShapeListOfShape(int theNbBuckets);
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfOrientedShapeListOfShape(NCollection_DefaultHasher<TopoDS_Shape> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfOrientedShapeListOfShape(NCollection_DefaultHasher<TopoDS_Shape> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfOrientedShapeListOfShape(NCollection_DefaultHasher<TopoDS_Shape> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfOrientedShapeListOfShape(NCollection_DefaultHasher<TopoDS_Shape> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_DataMapOfOrientedShapeListOfShape(NCollection_DefaultHasher<TopoDS_Shape> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: ItemsView Items() */
     void Exchange(Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape^ theOther);
+    /* Method skipped due to unknown mapping: NCollection_DefaultHasher<TopoDS_Shape> GetHasher() */
     Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape^ Assign(Macad::Occt::BRepFill_DataMapOfOrientedShapeListOfShape^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
-    bool Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopoDS_ListOfShape^ theItem);
-    Macad::Occt::TopoDS_ListOfShape^ Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopoDS_ListOfShape^ theItem);
+    bool Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_ListOfShape^ theItem);
+    Macad::Occt::TopTools_ListOfShape^ Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_ListOfShape^ theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_ListOfShape^ theItem);
+    Macad::Occt::TopTools_ListOfShape^ TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_ListOfShape^ theItem);
     bool IsBound(Macad::Occt::TopoDS_Shape^ theKey);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<const NCollection_List<TopoDS_Shape>>>> Contained(TopoDS_Shape theKey, ) */
     bool UnBind(Macad::Occt::TopoDS_Shape^ theKey);
-    Macad::Occt::TopoDS_ListOfShape^ Seek(Macad::Occt::TopoDS_Shape^ theKey);
-    Macad::Occt::TopoDS_ListOfShape^ Find(Macad::Occt::TopoDS_Shape^ theKey);
-    Macad::Occt::TopoDS_ListOfShape^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
-    Macad::Occt::TopoDS_ListOfShape^ ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
+    Macad::Occt::TopTools_ListOfShape^ Seek(Macad::Occt::TopoDS_Shape^ theKey);
+    Macad::Occt::TopTools_ListOfShape^ Find(Macad::Occt::TopoDS_Shape^ theKey);
+    bool Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_ListOfShape^ theValue);
+    Macad::Occt::TopTools_ListOfShape^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
+    Macad::Occt::TopTools_ListOfShape^ ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class BRepFill_DataMapOfOrientedShapeListOfShape
 
 //---------------------------------------------------------------------
@@ -358,6 +420,7 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape^ theMap);
         bool More();
         void Next();
         Macad::Occt::TopTools_DataMapOfShapeListOfShape^ Value();
@@ -365,23 +428,43 @@ public:
         Macad::Occt::TopoDS_Shape^ Key();
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepFill_DataMapOfShapeDataMapOfShapeListOfShape();
+    BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(long long unsigned int theNbBuckets);
     BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(int theNbBuckets);
+    BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets);
+    BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher);
+    BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeDataMapOfShapeListOfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets);
+    /* Method skipped due to unknown mapping: ItemsView Items() */
     void Exchange(Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape^ theOther);
+    Macad::Occt::TopTools_ShapeMapHasher^ GetHasher();
     Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape^ Assign(Macad::Occt::BRepFill_DataMapOfShapeDataMapOfShapeListOfShape^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     bool Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theItem);
     Macad::Occt::TopTools_DataMapOfShapeListOfShape^ Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theItem);
+    Macad::Occt::TopTools_DataMapOfShapeListOfShape^ TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theItem);
     bool IsBound(Macad::Occt::TopoDS_Shape^ theKey);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<const NCollection_DataMap<TopoDS_Shape, NCollection_List<TopoDS_Shape>, TopTools_ShapeMapHasher>>>> Contained(TopoDS_Shape theKey, ) */
     bool UnBind(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TopTools_DataMapOfShapeListOfShape^ Seek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TopTools_DataMapOfShapeListOfShape^ Find(Macad::Occt::TopoDS_Shape^ theKey);
+    bool Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_DataMapOfShapeListOfShape^ theValue);
     Macad::Occt::TopTools_DataMapOfShapeListOfShape^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TopTools_DataMapOfShapeListOfShape^ ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class BRepFill_DataMapOfShapeDataMapOfShapeListOfShape
 
 //---------------------------------------------------------------------
@@ -442,6 +525,7 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape^ theMap);
         bool More();
         void Next();
         Macad::Occt::TopTools_HArray2OfShape^ Value();
@@ -449,23 +533,43 @@ public:
         Macad::Occt::TopoDS_Shape^ Key();
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepFill_DataMapOfShapeHArray2OfShape();
+    BRepFill_DataMapOfShapeHArray2OfShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeHArray2OfShape(long long unsigned int theNbBuckets);
     BRepFill_DataMapOfShapeHArray2OfShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     BRepFill_DataMapOfShapeHArray2OfShape(int theNbBuckets);
+    BRepFill_DataMapOfShapeHArray2OfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeHArray2OfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets);
+    BRepFill_DataMapOfShapeHArray2OfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher);
+    BRepFill_DataMapOfShapeHArray2OfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeHArray2OfShape(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets);
+    /* Method skipped due to unknown mapping: ItemsView Items() */
     void Exchange(Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape^ theOther);
+    Macad::Occt::TopTools_ShapeMapHasher^ GetHasher();
     Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape^ Assign(Macad::Occt::BRepFill_DataMapOfShapeHArray2OfShape^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     bool Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_HArray2OfShape^ theItem);
     Macad::Occt::TopTools_HArray2OfShape^ Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_HArray2OfShape^ theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_HArray2OfShape^ theItem);
+    Macad::Occt::TopTools_HArray2OfShape^ TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_HArray2OfShape^ theItem);
     bool IsBound(Macad::Occt::TopoDS_Shape^ theKey);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<const opencascade::handle<NCollection_HArray2<TopoDS_Shape>>>>> Contained(TopoDS_Shape theKey, ) */
     bool UnBind(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TopTools_HArray2OfShape^ Seek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TopTools_HArray2OfShape^ Find(Macad::Occt::TopoDS_Shape^ theKey);
+    bool Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TopTools_HArray2OfShape^ theValue);
     Macad::Occt::TopTools_HArray2OfShape^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TopTools_HArray2OfShape^ ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class BRepFill_DataMapOfShapeHArray2OfShape
 
 //---------------------------------------------------------------------
@@ -526,6 +630,7 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt^ theMap);
         bool More();
         void Next();
         Macad::Occt::TColgp_SequenceOfPnt^ Value();
@@ -533,23 +638,43 @@ public:
         Macad::Occt::TopoDS_Shape^ Key();
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepFill_DataMapOfShapeSequenceOfPnt();
+    BRepFill_DataMapOfShapeSequenceOfPnt(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeSequenceOfPnt(long long unsigned int theNbBuckets);
     BRepFill_DataMapOfShapeSequenceOfPnt(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     BRepFill_DataMapOfShapeSequenceOfPnt(int theNbBuckets);
+    BRepFill_DataMapOfShapeSequenceOfPnt(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeSequenceOfPnt(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets);
+    BRepFill_DataMapOfShapeSequenceOfPnt(Macad::Occt::TopTools_ShapeMapHasher^ theHasher);
+    BRepFill_DataMapOfShapeSequenceOfPnt(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeSequenceOfPnt(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets);
+    /* Method skipped due to unknown mapping: ItemsView Items() */
     void Exchange(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt^ theOther);
+    Macad::Occt::TopTools_ShapeMapHasher^ GetHasher();
     Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt^ Assign(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfPnt^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     bool Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt^ theItem);
     Macad::Occt::TColgp_SequenceOfPnt^ Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt^ theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt^ theItem);
+    Macad::Occt::TColgp_SequenceOfPnt^ TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt^ theItem);
     bool IsBound(Macad::Occt::TopoDS_Shape^ theKey);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<const NCollection_Sequence<gp_Pnt>>>> Contained(TopoDS_Shape theKey, ) */
     bool UnBind(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColgp_SequenceOfPnt^ Seek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColgp_SequenceOfPnt^ Find(Macad::Occt::TopoDS_Shape^ theKey);
+    bool Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColgp_SequenceOfPnt^ theValue);
     Macad::Occt::TColgp_SequenceOfPnt^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColgp_SequenceOfPnt^ ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class BRepFill_DataMapOfShapeSequenceOfPnt
 
 //---------------------------------------------------------------------
@@ -610,6 +735,7 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal^ theMap);
         bool More();
         void Next();
         Macad::Occt::TColStd_SequenceOfReal^ Value();
@@ -617,24 +743,255 @@ public:
         Macad::Occt::TopoDS_Shape^ Key();
     }; // class Iterator
 
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepFill_DataMapOfShapeSequenceOfReal();
+    BRepFill_DataMapOfShapeSequenceOfReal(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeSequenceOfReal(long long unsigned int theNbBuckets);
     BRepFill_DataMapOfShapeSequenceOfReal(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     BRepFill_DataMapOfShapeSequenceOfReal(int theNbBuckets);
+    BRepFill_DataMapOfShapeSequenceOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeSequenceOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets);
+    BRepFill_DataMapOfShapeSequenceOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher);
+    BRepFill_DataMapOfShapeSequenceOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_DataMapOfShapeSequenceOfReal(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets);
+    /* Method skipped due to unknown mapping: ItemsView Items() */
     void Exchange(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal^ theOther);
+    Macad::Occt::TopTools_ShapeMapHasher^ GetHasher();
     Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal^ Assign(Macad::Occt::BRepFill_DataMapOfShapeSequenceOfReal^ theOther);
+    void ReSize(long long unsigned int N);
     void ReSize(int N);
     bool Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_SequenceOfReal^ theItem);
     Macad::Occt::TColStd_SequenceOfReal^ Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_SequenceOfReal^ theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_SequenceOfReal^ theItem);
+    Macad::Occt::TColStd_SequenceOfReal^ TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_SequenceOfReal^ theItem);
     bool IsBound(Macad::Occt::TopoDS_Shape^ theKey);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<const NCollection_Sequence<double>>>> Contained(TopoDS_Shape theKey, ) */
     bool UnBind(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColStd_SequenceOfReal^ Seek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColStd_SequenceOfReal^ Find(Macad::Occt::TopoDS_Shape^ theKey);
+    bool Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::TColStd_SequenceOfReal^ theValue);
     Macad::Occt::TColStd_SequenceOfReal^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey);
     Macad::Occt::TColStd_SequenceOfReal^ ChangeFind(Macad::Occt::TopoDS_Shape^ theKey);
     void Clear(bool doReleaseMemory);
     void Clear();
-    int Size();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
 }; // class BRepFill_DataMapOfShapeSequenceOfReal
+
+//---------------------------------------------------------------------
+//  Class  BRepFill_IndexedDataMapOfOrientedShapeListOfShape
+//---------------------------------------------------------------------
+public ref class BRepFill_IndexedDataMapOfOrientedShapeListOfShape sealed
+    : public Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>
+{
+
+#ifdef Include_BRepFill_IndexedDataMapOfOrientedShapeListOfShape_h
+public:
+    Include_BRepFill_IndexedDataMapOfOrientedShapeListOfShape_h
+#endif
+
+public:
+    BRepFill_IndexedDataMapOfOrientedShapeListOfShape(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape* nativeInstance)
+        : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>( nativeInstance, true )
+    {}
+
+    BRepFill_IndexedDataMapOfOrientedShapeListOfShape(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape& nativeInstance)
+        : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>( &nativeInstance, false )
+    {}
+
+    property ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape* NativeInstance
+    {
+        ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape* get()
+        {
+            return static_cast<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator>
+    {
+
+#ifdef Include_BRepFill_IndexedDataMapOfOrientedShapeListOfShape_Iterator_h
+    public:
+        Include_BRepFill_IndexedDataMapOfOrientedShapeListOfShape_Iterator_h
+#endif
+
+    public:
+        Iterator(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator* NativeInstance
+        {
+            ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator* get()
+            {
+                return static_cast<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+    }; // class Iterator
+
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
+    BRepFill_IndexedDataMapOfOrientedShapeListOfShape();
+    BRepFill_IndexedDataMapOfOrientedShapeListOfShape(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_IndexedDataMapOfOrientedShapeListOfShape(long long unsigned int theNbBuckets);
+    BRepFill_IndexedDataMapOfOrientedShapeListOfShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepFill_IndexedDataMapOfOrientedShapeListOfShape(int theNbBuckets);
+    /* Method skipped due to unknown mapping: void BRepFill_IndexedDataMapOfOrientedShapeListOfShape(NCollection_DefaultHasher<TopoDS_Shape> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_IndexedDataMapOfOrientedShapeListOfShape(NCollection_DefaultHasher<TopoDS_Shape> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_IndexedDataMapOfOrientedShapeListOfShape(NCollection_DefaultHasher<TopoDS_Shape> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_IndexedDataMapOfOrientedShapeListOfShape(NCollection_DefaultHasher<TopoDS_Shape> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_IndexedDataMapOfOrientedShapeListOfShape(NCollection_DefaultHasher<TopoDS_Shape> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: ItemsView Items() */
+    /* Method skipped due to unknown mapping: IndexedItemsView IndexedItems() */
+    void Exchange(Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ theOther);
+    /* Method skipped due to unknown mapping: NCollection_DefaultHasher<TopoDS_Shape> GetHasher() */
+    Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ Assign(Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ theOther);
+    void ReSize(long long unsigned int N);
+    void ReSize(int N);
+    int Add(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem);
+    Macad::Occt::TopTools_ListOfShape^ TryBound(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem);
+    bool TryBind(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem);
+    bool Bind(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem);
+    Macad::Occt::TopTools_ListOfShape^ Bound(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem);
+    bool Contains(Macad::Occt::TopoDS_Shape^ theKey1);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const TopoDS_Shape>, std::reference_wrapper<const NCollection_List<TopoDS_Shape>>>> Contained(TopoDS_Shape theKey1, ) */
+    void Substitute(long long unsigned int theIndex, Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem);
+    void Substitute(int theIndex, Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theItem);
+    void Swap(long long unsigned int theIndex1, long long unsigned int theIndex2);
+    void Swap(int theIndex1, int theIndex2);
+    void RemoveLast();
+    void RemoveFromIndex(long long unsigned int theIndex);
+    void RemoveFromIndex(int theIndex);
+    void RemoveKey(Macad::Occt::TopoDS_Shape^ theKey1);
+    Macad::Occt::TopoDS_Shape^ FindKey(long long unsigned int theIndex);
+    Macad::Occt::TopoDS_Shape^ FindKey(int theIndex);
+    Macad::Occt::TopTools_ListOfShape^ FindFromIndex(long long unsigned int theIndex);
+    Macad::Occt::TopTools_ListOfShape^ FindFromIndex(int theIndex);
+    Macad::Occt::TopTools_ListOfShape^ ChangeFromIndex(long long unsigned int theIndex);
+    Macad::Occt::TopTools_ListOfShape^ ChangeFromIndex(int theIndex);
+    int FindIndex(Macad::Occt::TopoDS_Shape^ theKey1);
+    Macad::Occt::TopTools_ListOfShape^ FindFromKey(Macad::Occt::TopoDS_Shape^ theKey1);
+    Macad::Occt::TopTools_ListOfShape^ ChangeFromKey(Macad::Occt::TopoDS_Shape^ theKey1);
+    Macad::Occt::TopTools_ListOfShape^ Seek(Macad::Occt::TopoDS_Shape^ theKey1);
+    Macad::Occt::TopTools_ListOfShape^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey1);
+    bool FindFromKey(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopTools_ListOfShape^ theValue);
+    void Clear(bool doReleaseMemory);
+    void Clear();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+}; // class BRepFill_IndexedDataMapOfOrientedShapeListOfShape
+
+//---------------------------------------------------------------------
+//  Class  BRepFill_ListOfOffsetWire
+//---------------------------------------------------------------------
+public ref class BRepFill_ListOfOffsetWire sealed
+    : public Macad::Occt::BaseClass<::BRepFill_ListOfOffsetWire>
+    , public IEnumerable<Macad::Occt::BRepFill_OffsetWire^>
+{
+
+#ifdef Include_BRepFill_ListOfOffsetWire_h
+public:
+    Include_BRepFill_ListOfOffsetWire_h
+#endif
+
+public:
+    BRepFill_ListOfOffsetWire(::BRepFill_ListOfOffsetWire* nativeInstance)
+        : Macad::Occt::BaseClass<::BRepFill_ListOfOffsetWire>( nativeInstance, true )
+    {}
+
+    BRepFill_ListOfOffsetWire(::BRepFill_ListOfOffsetWire& nativeInstance)
+        : Macad::Occt::BaseClass<::BRepFill_ListOfOffsetWire>( &nativeInstance, false )
+    {}
+
+    property ::BRepFill_ListOfOffsetWire* NativeInstance
+    {
+        ::BRepFill_ListOfOffsetWire* get()
+        {
+            return static_cast<::BRepFill_ListOfOffsetWire*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::IteratorEnumerator<Macad::Occt::BRepFill_OffsetWire^, ::BRepFill_ListOfOffsetWire::Iterator>
+    {
+
+#ifdef Include_BRepFill_ListOfOffsetWire_Iterator_h
+    public:
+        Include_BRepFill_ListOfOffsetWire_Iterator_h
+#endif
+
+    public:
+        Iterator(::BRepFill_ListOfOffsetWire::Iterator* nativeInstance)
+            : Macad::Occt::IteratorEnumerator<Macad::Occt::BRepFill_OffsetWire^, ::BRepFill_ListOfOffsetWire::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::BRepFill_ListOfOffsetWire::Iterator& nativeInstance)
+            : Macad::Occt::IteratorEnumerator<Macad::Occt::BRepFill_OffsetWire^, ::BRepFill_ListOfOffsetWire::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::BRepFill_ListOfOffsetWire::Iterator* NativeInstance
+        {
+            ::BRepFill_ListOfOffsetWire::Iterator* get()
+            {
+                return static_cast<::BRepFill_ListOfOffsetWire::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        Iterator();
+        Iterator(Macad::Occt::NCollection_BaseList^ theList);
+        bool More() override;
+        void Next() override;
+        Macad::Occt::BRepFill_OffsetWire^ Value() override;
+        Macad::Occt::BRepFill_OffsetWire^ ChangeValue();
+    }; // class Iterator
+
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
+    BRepFill_ListOfOffsetWire();
+    BRepFill_ListOfOffsetWire(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    /* Method skipped due to unknown mapping: void BRepFill_ListOfOffsetWire(initializer_list<BRepFill_OffsetWire> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_ListOfOffsetWire(initializer_list<BRepFill_OffsetWire> theInitList, NCollection_BaseAllocator theAllocator, ) */
+    Macad::Occt::BRepFill_ListOfOffsetWire^ Assign(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther);
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    void Clear();
+    Macad::Occt::BRepFill_OffsetWire^ First();
+    Macad::Occt::BRepFill_OffsetWire^ Last();
+    Macad::Occt::BRepFill_OffsetWire^ Append(Macad::Occt::BRepFill_OffsetWire^ theItem);
+    void Append(Macad::Occt::BRepFill_OffsetWire^ theItem, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter);
+    void Append(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther);
+    Macad::Occt::BRepFill_OffsetWire^ Prepend(Macad::Occt::BRepFill_OffsetWire^ theItem);
+    void Prepend(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther);
+    void RemoveFirst();
+    void Remove(Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter);
+    Macad::Occt::BRepFill_OffsetWire^ InsertBefore(Macad::Occt::BRepFill_OffsetWire^ theItem, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter);
+    void InsertBefore(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter);
+    Macad::Occt::BRepFill_OffsetWire^ InsertAfter(Macad::Occt::BRepFill_OffsetWire^ theItem, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter);
+    void InsertAfter(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter);
+    void Reverse();
+    void Exchange(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther);
+    virtual System::Collections::Generic::IEnumerator<Macad::Occt::BRepFill_OffsetWire^>^ GetEnumerator();
+    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
+}; // class BRepFill_ListOfOffsetWire
 
 //---------------------------------------------------------------------
 //  Class  BRepFill_SequenceOfEdgeFaceAndOrder
@@ -695,6 +1052,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq, bool isStart);
+        Iterator(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq);
         bool More();
         void Next();
         Macad::Occt::BRepFill_EdgeFaceAndOrder^ Value();
@@ -703,32 +1062,53 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepFill_SequenceOfEdgeFaceAndOrder();
     BRepFill_SequenceOfEdgeFaceAndOrder(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ Assign(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theOther);
     void Remove(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem);
+    void Append(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq);
     void Prepend(Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem);
+    void Prepend(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq);
     void InsertAfter(Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder::Iterator^ thePosition, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq);
     void Split(int theIndex, Macad::Occt::BRepFill_SequenceOfEdgeFaceAndOrder^ theSeq);
     Macad::Occt::BRepFill_EdgeFaceAndOrder^ First();
     Macad::Occt::BRepFill_EdgeFaceAndOrder^ ChangeFirst();
     Macad::Occt::BRepFill_EdgeFaceAndOrder^ Last();
     Macad::Occt::BRepFill_EdgeFaceAndOrder^ ChangeLast();
+    Macad::Occt::BRepFill_EdgeFaceAndOrder^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::BRepFill_EdgeFaceAndOrder^ Value(int theIndex);
+    Macad::Occt::BRepFill_EdgeFaceAndOrder^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::BRepFill_EdgeFaceAndOrder^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem);
     void SetValue(int theIndex, Macad::Occt::BRepFill_EdgeFaceAndOrder^ theItem);
+    Macad::Occt::BRepFill_EdgeFaceAndOrder^ At(long long unsigned int theIndex);
+    Macad::Occt::BRepFill_EdgeFaceAndOrder^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::BRepFill_EdgeFaceAndOrder^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class BRepFill_SequenceOfEdgeFaceAndOrder
@@ -792,6 +1172,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq, bool isStart);
+        Iterator(Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq);
         bool More();
         void Next();
         Macad::Occt::BRepFill_FaceAndOrder^ Value();
@@ -800,204 +1182,56 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepFill_SequenceOfFaceAndOrder();
     BRepFill_SequenceOfFaceAndOrder(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ Assign(Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theOther);
     void Remove(Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::BRepFill_FaceAndOrder^ theItem);
+    void Append(Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq);
     void Prepend(Macad::Occt::BRepFill_FaceAndOrder^ theItem);
+    void Prepend(Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq);
     void InsertAfter(Macad::Occt::BRepFill_SequenceOfFaceAndOrder::Iterator^ thePosition, Macad::Occt::BRepFill_FaceAndOrder^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq);
     void Split(int theIndex, Macad::Occt::BRepFill_SequenceOfFaceAndOrder^ theSeq);
     Macad::Occt::BRepFill_FaceAndOrder^ First();
     Macad::Occt::BRepFill_FaceAndOrder^ ChangeFirst();
     Macad::Occt::BRepFill_FaceAndOrder^ Last();
     Macad::Occt::BRepFill_FaceAndOrder^ ChangeLast();
+    Macad::Occt::BRepFill_FaceAndOrder^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::BRepFill_FaceAndOrder^ Value(int theIndex);
+    Macad::Occt::BRepFill_FaceAndOrder^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::BRepFill_FaceAndOrder^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem);
     void SetValue(int theIndex, Macad::Occt::BRepFill_FaceAndOrder^ theItem);
+    Macad::Occt::BRepFill_FaceAndOrder^ At(long long unsigned int theIndex);
+    Macad::Occt::BRepFill_FaceAndOrder^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::BRepFill_FaceAndOrder^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class BRepFill_SequenceOfFaceAndOrder
-
-//---------------------------------------------------------------------
-//  Class  BRepFill_IndexedDataMapOfOrientedShapeListOfShape
-//---------------------------------------------------------------------
-public ref class BRepFill_IndexedDataMapOfOrientedShapeListOfShape sealed
-    : public Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>
-{
-
-#ifdef Include_BRepFill_IndexedDataMapOfOrientedShapeListOfShape_h
-public:
-    Include_BRepFill_IndexedDataMapOfOrientedShapeListOfShape_h
-#endif
-
-public:
-    BRepFill_IndexedDataMapOfOrientedShapeListOfShape(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape* nativeInstance)
-        : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>( nativeInstance, true )
-    {}
-
-    BRepFill_IndexedDataMapOfOrientedShapeListOfShape(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape& nativeInstance)
-        : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape>( &nativeInstance, false )
-    {}
-
-    property ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape* NativeInstance
-    {
-        ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape* get()
-        {
-            return static_cast<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator>
-    {
-
-#ifdef Include_BRepFill_IndexedDataMapOfOrientedShapeListOfShape_Iterator_h
-    public:
-        Include_BRepFill_IndexedDataMapOfOrientedShapeListOfShape_Iterator_h
-#endif
-
-    public:
-        Iterator(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator* NativeInstance
-        {
-            ::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator* get()
-            {
-                return static_cast<::BRepFill_IndexedDataMapOfOrientedShapeListOfShape::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    BRepFill_IndexedDataMapOfOrientedShapeListOfShape();
-    BRepFill_IndexedDataMapOfOrientedShapeListOfShape(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    BRepFill_IndexedDataMapOfOrientedShapeListOfShape(int theNbBuckets);
-    void Exchange(Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ theOther);
-    Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ Assign(Macad::Occt::BRepFill_IndexedDataMapOfOrientedShapeListOfShape^ theOther);
-    void ReSize(int N);
-    int Add(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopoDS_ListOfShape^ theItem);
-    bool Contains(Macad::Occt::TopoDS_Shape^ theKey1);
-    void Substitute(int theIndex, Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::TopoDS_ListOfShape^ theItem);
-    void Swap(int theIndex1, int theIndex2);
-    void RemoveLast();
-    void RemoveFromIndex(int theIndex);
-    void RemoveKey(Macad::Occt::TopoDS_Shape^ theKey1);
-    Macad::Occt::TopoDS_Shape^ FindKey(int theIndex);
-    Macad::Occt::TopoDS_ListOfShape^ FindFromIndex(int theIndex);
-    Macad::Occt::TopoDS_ListOfShape^ ChangeFromIndex(int theIndex);
-    int FindIndex(Macad::Occt::TopoDS_Shape^ theKey1);
-    Macad::Occt::TopoDS_ListOfShape^ FindFromKey(Macad::Occt::TopoDS_Shape^ theKey1);
-    Macad::Occt::TopoDS_ListOfShape^ ChangeFromKey(Macad::Occt::TopoDS_Shape^ theKey1);
-    Macad::Occt::TopoDS_ListOfShape^ Seek(Macad::Occt::TopoDS_Shape^ theKey1);
-    Macad::Occt::TopoDS_ListOfShape^ ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey1);
-    void Clear(bool doReleaseMemory);
-    void Clear();
-    int Size();
-}; // class BRepFill_IndexedDataMapOfOrientedShapeListOfShape
-
-//---------------------------------------------------------------------
-//  Class  BRepFill_ListOfOffsetWire
-//---------------------------------------------------------------------
-public ref class BRepFill_ListOfOffsetWire sealed
-    : public Macad::Occt::NCollection_BaseList
-    , public IEnumerable<Macad::Occt::BRepFill_OffsetWire^>
-{
-
-#ifdef Include_BRepFill_ListOfOffsetWire_h
-public:
-    Include_BRepFill_ListOfOffsetWire_h
-#endif
-
-public:
-    BRepFill_ListOfOffsetWire(::BRepFill_ListOfOffsetWire* nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
-    {}
-
-    BRepFill_ListOfOffsetWire(::BRepFill_ListOfOffsetWire& nativeInstance)
-        : Macad::Occt::NCollection_BaseList( nativeInstance )
-    {}
-
-    property ::BRepFill_ListOfOffsetWire* NativeInstance
-    {
-        ::BRepFill_ListOfOffsetWire* get()
-        {
-            return static_cast<::BRepFill_ListOfOffsetWire*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::IteratorEnumerator<Macad::Occt::BRepFill_OffsetWire^, ::BRepFill_ListOfOffsetWire::Iterator>
-    {
-
-#ifdef Include_BRepFill_ListOfOffsetWire_Iterator_h
-    public:
-        Include_BRepFill_ListOfOffsetWire_Iterator_h
-#endif
-
-    public:
-        Iterator(::BRepFill_ListOfOffsetWire::Iterator* nativeInstance)
-            : Macad::Occt::IteratorEnumerator<Macad::Occt::BRepFill_OffsetWire^, ::BRepFill_ListOfOffsetWire::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::BRepFill_ListOfOffsetWire::Iterator& nativeInstance)
-            : Macad::Occt::IteratorEnumerator<Macad::Occt::BRepFill_OffsetWire^, ::BRepFill_ListOfOffsetWire::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::BRepFill_ListOfOffsetWire::Iterator* NativeInstance
-        {
-            ::BRepFill_ListOfOffsetWire::Iterator* get()
-            {
-                return static_cast<::BRepFill_ListOfOffsetWire::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More() override;
-        void Next() override;
-        Macad::Occt::BRepFill_OffsetWire^ Value() override;
-        Macad::Occt::BRepFill_OffsetWire^ ChangeValue();
-    }; // class Iterator
-
-    BRepFill_ListOfOffsetWire();
-    BRepFill_ListOfOffsetWire(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    Macad::Occt::BRepFill_ListOfOffsetWire^ Assign(Macad::Occt::BRepFill_ListOfOffsetWire^ theOther);
-    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    void Clear();
-    Macad::Occt::BRepFill_OffsetWire^ First();
-    Macad::Occt::BRepFill_OffsetWire^ Last();
-    Macad::Occt::BRepFill_OffsetWire^ Append(Macad::Occt::BRepFill_OffsetWire^ theItem);
-    Macad::Occt::BRepFill_OffsetWire^ Prepend(Macad::Occt::BRepFill_OffsetWire^ theItem);
-    void RemoveFirst();
-    void Remove(Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter);
-    Macad::Occt::BRepFill_OffsetWire^ InsertBefore(Macad::Occt::BRepFill_OffsetWire^ theItem, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter);
-    Macad::Occt::BRepFill_OffsetWire^ InsertAfter(Macad::Occt::BRepFill_OffsetWire^ theItem, Macad::Occt::BRepFill_ListOfOffsetWire::Iterator^ theIter);
-    void Reverse();
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::BRepFill_OffsetWire^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class BRepFill_ListOfOffsetWire
 
 //---------------------------------------------------------------------
 //  Class  BRepFill_SequenceOfSection
@@ -1058,6 +1292,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepFill_SequenceOfSection^ theSeq, bool isStart);
+        Iterator(Macad::Occt::BRepFill_SequenceOfSection^ theSeq);
         bool More();
         void Next();
         Macad::Occt::BRepFill_Section^ Value();
@@ -1066,32 +1302,53 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepFill_SequenceOfSection();
     BRepFill_SequenceOfSection(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::BRepFill_SequenceOfSection^ Assign(Macad::Occt::BRepFill_SequenceOfSection^ theOther);
     void Remove(Macad::Occt::BRepFill_SequenceOfSection::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::BRepFill_Section^ theItem);
+    void Append(Macad::Occt::BRepFill_SequenceOfSection^ theSeq);
     void Prepend(Macad::Occt::BRepFill_Section^ theItem);
+    void Prepend(Macad::Occt::BRepFill_SequenceOfSection^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_Section^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::BRepFill_Section^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq);
     void InsertAfter(Macad::Occt::BRepFill_SequenceOfSection::Iterator^ thePosition, Macad::Occt::BRepFill_Section^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepFill_Section^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::BRepFill_Section^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq);
     void Split(int theIndex, Macad::Occt::BRepFill_SequenceOfSection^ theSeq);
     Macad::Occt::BRepFill_Section^ First();
     Macad::Occt::BRepFill_Section^ ChangeFirst();
     Macad::Occt::BRepFill_Section^ Last();
     Macad::Occt::BRepFill_Section^ ChangeLast();
+    Macad::Occt::BRepFill_Section^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::BRepFill_Section^ Value(int theIndex);
+    Macad::Occt::BRepFill_Section^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::BRepFill_Section^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::BRepFill_Section^ theItem);
     void SetValue(int theIndex, Macad::Occt::BRepFill_Section^ theItem);
+    Macad::Occt::BRepFill_Section^ At(long long unsigned int theIndex);
+    Macad::Occt::BRepFill_Section^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::BRepFill_Section^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class BRepFill_SequenceOfSection
@@ -1137,8 +1394,8 @@ public:
     /// </summary>
     static Macad::Occt::TopoDS_Shell^ Shell(Macad::Occt::TopoDS_Wire^ Wire1, Macad::Occt::TopoDS_Wire^ Wire2);
     /// <summary>
-    /// Computes  <AxeProf>  as Follow. <Location> is
-    /// the Position of the nearest vertex V  of <Profile>
+    /// Computes <AxeProf> as Follow. <Location> is
+    /// the Position of the nearest vertex V of <Profile>
     /// to <Spine>.<XDirection> is confused with the tangent
     /// to <Spine> at the projected point of V on the Spine.
     /// <Direction> is normal to <Spine>.
@@ -1146,11 +1403,11 @@ public:
     /// </summary>
     static void Axe(Macad::Occt::TopoDS_Shape^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3% AxeProf, bool% ProfOnSpine, double Tol);
     /// <summary>
-    /// Compute ACR on a  wire
+    /// Compute ACR on a wire
     /// </summary>
     static void ComputeACR(Macad::Occt::TopoDS_Wire^ wire, Macad::Occt::TColStd_Array1OfReal^ ACR);
     /// <summary>
-    /// Insert ACR on a  wire
+    /// Insert ACR on a wire
     /// </summary>
     static Macad::Occt::TopoDS_Wire^ InsertACR(Macad::Occt::TopoDS_Wire^ wire, Macad::Occt::TColStd_Array1OfReal^ ACRcuts, double prec);
 }; // class BRepFill
@@ -1159,7 +1416,7 @@ public:
 //  Class  BRepFill_LocationLaw
 //---------------------------------------------------------------------
 /// <summary>
-/// Location Law on a  Wire.
+/// Location Law on a Wire.
 /// </summary>
 public ref class BRepFill_LocationLaw
     : public Macad::Occt::Standard_Transient
@@ -1196,13 +1453,13 @@ public:
     BRepFill_LocationLaw();
     /* Method skipped due to unknown mapping: GeomFill_PipeError GetStatus() */
     /// <summary>
-    /// Apply a linear   transformation  on each law, to  have
+    /// Apply a linear transformation on each law, to have
     /// continuity of the global law between the edges.
     /// </summary>
     void TransformInG0Law();
     /// <summary>
     /// Apply a linear transformation on each law, to reduce
-    /// the   dicontinuities  of law at one  rotation.
+    /// the dicontinuities of law at one rotation.
     /// </summary>
     void TransformInCompatibleLaw(double AngularTolerance);
     void DeleteTransform();
@@ -1230,10 +1487,10 @@ public:
     Macad::Occt::TopoDS_Vertex^ Vertex(int Index);
     /// <summary>
     /// Compute <OutputVertex> like a transformation of
-    /// <InputVertex>  the  transformation   is given by
-    /// evaluation of the location law   in the vertex of
-    /// rank   <Index>.
-    /// <Location> is used to manage discontinuities :
+    /// <InputVertex> the transformation is given by
+    /// evaluation of the location law in the vertex of
+    /// rank <Index>.
+    /// <Location> is used to manage discontinuities:
     /// - -1 : The law before the vertex is used.
     /// -  1 : The law after the vertex is used.
     /// -  0 : Average of the both laws is used.
@@ -1241,10 +1498,10 @@ public:
     void PerformVertex(int Index, Macad::Occt::TopoDS_Vertex^ InputVertex, double TolMin, Macad::Occt::TopoDS_Vertex^ OutputVertex, int Location);
     /// <summary>
     /// Compute <OutputVertex> like a transformation of
-    /// <InputVertex>  the  transformation   is given by
-    /// evaluation of the location law   in the vertex of
-    /// rank   <Index>.
-    /// <Location> is used to manage discontinuities :
+    /// <InputVertex> the transformation is given by
+    /// evaluation of the location law in the vertex of
+    /// rank <Index>.
+    /// <Location> is used to manage discontinuities:
     /// - -1 : The law before the vertex is used.
     /// -  1 : The law after the vertex is used.
     /// -  0 : Average of the both laws is used.
@@ -1288,9 +1545,9 @@ public:
     /// </summary>
     void Parameter(double Abscissa, int% Index, double% Param);
     /// <summary>
-    /// Return the curvilinear abscissa  corresponding to a point
-    /// of  the path, defined by  <Index>  of  Edge and a
-    /// parameter on the edge.
+    /// Return the curvilinear abscissa corresponding to a point
+    /// of the path, defined by <Index> of Edge and a parameter
+    /// on the edge.
     /// </summary>
     double Abscissa(int Index, double Param);
     static Macad::Occt::BRepFill_LocationLaw^ CreateDowncasted(::BRepFill_LocationLaw* instance);
@@ -1300,7 +1557,7 @@ public:
 //  Class  BRepFill_ACRLaw
 //---------------------------------------------------------------------
 /// <summary>
-/// Build Location Law,  with a Wire.   In the case
+/// Build Location Law, with a Wire. In the case
 /// of guided contour and trihedron by reduced
 /// curvilinear abscissa
 /// </summary>
@@ -1340,7 +1597,7 @@ public:
 //---------------------------------------------------------------------
 /// <summary>
 /// Constructs an evolved volume from a spine (wire or face)
-/// and  a profile ( wire).
+/// and a profile (wire).
 /// </summary>
 public ref class BRepFill_AdvancedEvolved sealed
     : public Macad::Occt::BaseClass<::BRepFill_AdvancedEvolved>
@@ -1435,12 +1692,12 @@ public:
     /// </summary>
     Macad::Occt::Geom_Curve^ Curve();
     /// <summary>
-    /// returns the  approximation  of the  PCurve  on the
+    /// returns the approximation of the PCurve on the
     /// first face of the MultiLine
     /// </summary>
     Macad::Occt::Geom2d_Curve^ CurveOnF1();
     /// <summary>
-    /// returns the  approximation  of the  PCurve  on the
+    /// returns the approximation of the PCurve on the
     /// first face of the MultiLine
     /// </summary>
     Macad::Occt::Geom2d_Curve^ CurveOnF2();
@@ -1487,13 +1744,13 @@ public:
     void SetPercent(double percent);
     void SetPercent();
     /// <summary>
-    /// Performs  CompatibleWires According  to  the orientation
-    /// and the origin of  each other
+    /// Performs CompatibleWires According to the orientation
+    /// and the origin of each other
     /// </summary>
     void Perform(bool WithRotation);
     /// <summary>
-    /// Performs  CompatibleWires According  to  the orientation
-    /// and the origin of  each other
+    /// Performs CompatibleWires According to the orientation
+    /// and the origin of each other
     /// </summary>
     void Perform();
     bool IsDone();
@@ -1503,7 +1760,7 @@ public:
     /// </summary>
     Macad::Occt::TopTools_SequenceOfShape^ Shape();
     /// <summary>
-    /// Returns   the  shapes  created  from   a  subshape
+    /// Returns the shapes created from a subshape
     /// <SubSection> of a section.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ GeneratedShapes(Macad::Occt::TopoDS_Edge^ SubSection);
@@ -1632,7 +1889,7 @@ public:
 //  Class  BRepFill_Edge3DLaw
 //---------------------------------------------------------------------
 /// <summary>
-/// Build Location Law, with a  Wire.
+/// Build Location Law, with a Wire.
 /// </summary>
 public ref class BRepFill_Edge3DLaw
     : public Macad::Occt::BRepFill_LocationLaw
@@ -1717,7 +1974,7 @@ public:
     bool IsVClosed();
     bool IsDone();
     /// <summary>
-    /// Say if the input shape is a  vertex.
+    /// Say if the input shape is a vertex.
     /// </summary>
     bool IsVertex();
     /* Method skipped due to unknown mapping: GeomFill_SectionLaw ConcatenedLaw() */
@@ -1780,7 +2037,7 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Shell^ Shell();
     /// <summary>
-    /// Returns the  list   of shapes generated   from the
+    /// Returns the list of shapes generated from the
     /// shape <S>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Generated(Macad::Occt::TopoDS_Shape^ S);
@@ -1791,7 +2048,7 @@ public:
 //  Class  BRepFill_DraftLaw
 //---------------------------------------------------------------------
 /// <summary>
-/// Build Location Law, with a  Wire.
+/// Build Location Law, with a Wire.
 /// </summary>
 public ref class BRepFill_DraftLaw sealed
     : public Macad::Occt::BRepFill_Edge3DLaw
@@ -1866,7 +2123,7 @@ public:
 //  Class  BRepFill_EdgeOnSurfLaw
 //---------------------------------------------------------------------
 /// <summary>
-/// Build Location Law, with a Wire and a  Surface.
+/// Build Location Law, with a Wire and a Surface.
 /// </summary>
 public ref class BRepFill_EdgeOnSurfLaw sealed
     : public Macad::Occt::BRepFill_LocationLaw
@@ -1897,8 +2154,8 @@ public:
 public:
     BRepFill_EdgeOnSurfLaw(Macad::Occt::TopoDS_Wire^ Path, Macad::Occt::TopoDS_Shape^ Surf);
     /// <summary>
-    /// returns <False> if one  Edge of <Path> do not have
-    /// representation on  <Surf>.   In this  case  it is
+    /// returns <False> if one Edge of <Path> do not have
+    /// representation on <Surf>. In this case it is
     /// impossible to use this object.
     /// </summary>
     bool HasResult();
@@ -1910,7 +2167,7 @@ public:
 //---------------------------------------------------------------------
 /// <summary>
 /// Constructs an evolved volume from a spine (wire or face)
-/// and  a profile ( wire).
+/// and a profile ( wire).
 /// </summary>
 public ref class BRepFill_Evolved sealed
     : public Macad::Occt::BaseClass<::BRepFill_Evolved>
@@ -1942,8 +2199,8 @@ public:
     BRepFill_Evolved();
     /// <summary>
     /// Creates an evolved shape by sweeping the <Profile>
-    /// along the  <Spine>.  <AxeProf> is  used to set the
-    /// position of <Profile> along  <Spine> as  follows:
+    /// along the <Spine>. <AxeProf> is used to set the
+    /// position of <Profile> along <Spine> as follows:
     /// <AxeProf> slides on the profile with direction
     /// colinear to the normal to <Spine>, and its
     /// <XDirection> mixed with the tangent to <Spine>.
@@ -1951,8 +2208,8 @@ public:
     BRepFill_Evolved(Macad::Occt::TopoDS_Wire^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf, Macad::Occt::GeomAbs_JoinType Join, bool Solid);
     /// <summary>
     /// Creates an evolved shape by sweeping the <Profile>
-    /// along the  <Spine>.  <AxeProf> is  used to set the
-    /// position of <Profile> along  <Spine> as  follows:
+    /// along the <Spine>. <AxeProf> is used to set the
+    /// position of <Profile> along <Spine> as follows:
     /// <AxeProf> slides on the profile with direction
     /// colinear to the normal to <Spine>, and its
     /// <XDirection> mixed with the tangent to <Spine>.
@@ -1960,55 +2217,55 @@ public:
     BRepFill_Evolved(Macad::Occt::TopoDS_Wire^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf, Macad::Occt::GeomAbs_JoinType Join);
     /// <summary>
     /// Creates an evolved shape by sweeping the <Profile>
-    /// along the  <Spine>.  <AxeProf> is  used to set the
-    /// position of <Profile> along  <Spine> as  follows:
+    /// along the <Spine>. <AxeProf> is used to set the
+    /// position of <Profile> along <Spine> as follows:
     /// <AxeProf> slides on the profile with direction
     /// colinear to the normal to <Spine>, and its
     /// <XDirection> mixed with the tangent to <Spine>.
     /// </summary>
     BRepFill_Evolved(Macad::Occt::TopoDS_Wire^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf);
     /// <summary>
-    /// Creates an  evolved shape  by sweeping the <Profile>
+    /// Creates an evolved shape by sweeping the <Profile>
     /// along the <Spine>
     /// </summary>
     BRepFill_Evolved(Macad::Occt::TopoDS_Face^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf, Macad::Occt::GeomAbs_JoinType Join, bool Solid);
     /// <summary>
-    /// Creates an  evolved shape  by sweeping the <Profile>
+    /// Creates an evolved shape by sweeping the <Profile>
     /// along the <Spine>
     /// </summary>
     BRepFill_Evolved(Macad::Occt::TopoDS_Face^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf, Macad::Occt::GeomAbs_JoinType Join);
     /// <summary>
-    /// Creates an  evolved shape  by sweeping the <Profile>
+    /// Creates an evolved shape by sweeping the <Profile>
     /// along the <Spine>
     /// </summary>
     BRepFill_Evolved(Macad::Occt::TopoDS_Face^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf);
     /// <summary>
-    /// Performs an  evolved shape  by sweeping the <Profile>
+    /// Performs an evolved shape by sweeping the <Profile>
     /// along the <Spine>
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Wire^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf, Macad::Occt::GeomAbs_JoinType Join, bool Solid);
     /// <summary>
-    /// Performs an  evolved shape  by sweeping the <Profile>
+    /// Performs an evolved shape by sweeping the <Profile>
     /// along the <Spine>
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Wire^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf, Macad::Occt::GeomAbs_JoinType Join);
     /// <summary>
-    /// Performs an  evolved shape  by sweeping the <Profile>
+    /// Performs an evolved shape by sweeping the <Profile>
     /// along the <Spine>
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Wire^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf);
     /// <summary>
-    /// Performs an  evolved shape  by sweeping the <Profile>
+    /// Performs an evolved shape by sweeping the <Profile>
     /// along the <Spine>
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Face^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf, Macad::Occt::GeomAbs_JoinType Join, bool Solid);
     /// <summary>
-    /// Performs an  evolved shape  by sweeping the <Profile>
+    /// Performs an evolved shape by sweeping the <Profile>
     /// along the <Spine>
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Face^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf, Macad::Occt::GeomAbs_JoinType Join);
     /// <summary>
-    /// Performs an  evolved shape  by sweeping the <Profile>
+    /// Performs an evolved shape by sweeping the <Profile>
     /// along the <Spine>
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Face^ Spine, Macad::Occt::TopoDS_Wire^ Profile, Macad::Occt::Ax3 AxeProf);
@@ -2018,8 +2275,8 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Shape();
     /// <summary>
-    /// Returns   the  shapes  created  from   a  subshape
-    /// <SpineShape>  of     the  spine   and   a subshape
+    /// Returns the shapes created from a subshape
+    /// <SpineShape> of the spine and a subshape
     /// <ProfShape> on the profile.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ GeneratedShapes(Macad::Occt::TopoDS_Shape^ SpineShape, Macad::Occt::TopoDS_Shape^ ProfShape);
@@ -2029,7 +2286,7 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Top();
     /// <summary>
-    /// Return the face Bottom  if <Solid> is True in the constructor.
+    /// Return the face Bottom if <Solid> is True in the constructor.
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Bottom();
 }; // class BRepFill_Evolved
@@ -2431,7 +2688,7 @@ public:
 //  Class  BRepFill_Generator
 //---------------------------------------------------------------------
 /// <summary>
-/// Compute a topological surface ( a  shell) using
+/// Compute a topological surface (a shell) using
 /// generating wires. The face of the shell will be
 /// ruled surfaces passing by the wires.
 /// The wires must have the same number of edges.
@@ -2466,17 +2723,17 @@ public:
     BRepFill_Generator();
     void AddWire(Macad::Occt::TopoDS_Wire^ Wire);
     /// <summary>
-    /// Compute the  shell.
+    /// Compute the shell.
     /// </summary>
     void Perform();
     Macad::Occt::TopoDS_Shell^ Shell();
     /// <summary>
-    /// Returns  all   the shapes created
+    /// Returns all the shapes created
     /// </summary>
     Macad::Occt::TopTools_DataMapOfShapeListOfShape^ Generated();
     /// <summary>
-    /// Returns   the  shapes  created  from   a  subshape
-    /// <SSection>  of a  section.
+    /// Returns the shapes created from a subshape
+    /// <SSection> of a section.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ GeneratedShapes(Macad::Occt::TopoDS_Shape^ SSection);
     /// <summary>
@@ -2601,14 +2858,14 @@ public:
     /// </summary>
     void Init(Macad::Occt::TopoDS_Face^ Spine);
     /// <summary>
-    /// Performs  an OffsetWire at  an altitude <Alt> from
-    /// the  face ( According  to  the orientation of  the
+    /// Performs an OffsetWire at an altitude <Alt> from
+    /// the face (According to the orientation of the
     /// face)
     /// </summary>
     void Perform(double Offset, double Alt);
     /// <summary>
-    /// Performs  an OffsetWire at  an altitude <Alt> from
-    /// the  face ( According  to  the orientation of  the
+    /// Performs an OffsetWire at an altitude <Alt> from
+    /// the face (According to the orientation of the
     /// face)
     /// </summary>
     void Perform(double Offset);
@@ -2622,7 +2879,7 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Shape();
     /// <summary>
-    /// Returns   the  shapes  created  from   a  subshape
+    /// Returns the shapes created from a subshape
     /// <SpineShape> of the spine.
     /// Returns the last computed Offset.
     /// </summary>
@@ -2671,14 +2928,14 @@ public:
     /// Construct
     /// </summary>
     BRepFill_NSections(Macad::Occt::TopTools_SequenceOfShape^ S);
-    /* Method skipped due to unknown mapping: void BRepFill_NSections(TopTools_SequenceOfShape S, GeomFill_SequenceOfTrsf Trsfs, TColStd_SequenceOfReal P, double VF, double VL, bool Build, ) */
-    /* Method skipped due to unknown mapping: void BRepFill_NSections(TopTools_SequenceOfShape S, GeomFill_SequenceOfTrsf Trsfs, TColStd_SequenceOfReal P, double VF, double VL, bool Build, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_NSections(TopTools_SequenceOfShape S, NCollection_Sequence<gp_Trsf> Trsfs, TColStd_SequenceOfReal P, double VF, double VL, bool Build, ) */
+    /* Method skipped due to unknown mapping: void BRepFill_NSections(TopTools_SequenceOfShape S, NCollection_Sequence<gp_Trsf> Trsfs, TColStd_SequenceOfReal P, double VF, double VL, bool Build, ) */
     /// <summary>
-    /// Say if the input shape is a  vertex.
+    /// Say if the input shape is a vertex.
     /// </summary>
     bool IsVertex();
     /// <summary>
-    /// Say if the Law is  Constant.
+    /// Say if the Law is Constant.
     /// </summary>
     bool IsConstant();
     /* Method skipped due to unknown mapping: GeomFill_SectionLaw ConcatenedLaw() */
@@ -2741,7 +2998,7 @@ public:
 //---------------------------------------------------------------------
 /// <summary>
 /// Topological Sweep Algorithm
-/// Computes an  Sweep  shell using a  generating
+/// Computes an Sweep shell using a generating
 /// wire, an SectionLaw and an LocationLaw.
 /// </summary>
 public ref class BRepFill_Sweep sealed
@@ -2907,18 +3164,18 @@ public:
     /// </summary>
     bool IsDone();
     /// <summary>
-    /// returns the Sweeping Shape
+    /// Returns the Sweeping Shape
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Shape();
     /// <summary>
-    /// Get the Approximation  error.
+    /// Get the Approximation error.
     /// </summary>
     double ErrorOnSurface();
     Macad::Occt::TopTools_HArray2OfShape^ SubShape();
     Macad::Occt::TopTools_HArray2OfShape^ InterFaces();
     Macad::Occt::TopTools_HArray2OfShape^ Sections();
     /// <summary>
-    /// returns the Tape corresponding to Index-th edge of section
+    /// Returns the Tape corresponding to Index-th edge of section
     /// </summary>
     Macad::Occt::TopoDS_Shape^ Tape(int Index);
 }; // class BRepFill_Sweep
@@ -2927,10 +3184,10 @@ public:
 //  Class  BRepFill_Pipe
 //---------------------------------------------------------------------
 /// <summary>
-/// Create a  shape by sweeping a shape  (the profile)
+/// Create a shape by sweeping a shape (the profile)
 /// along a wire (the spine).
 /// 
-/// For each edge  or vertex from the spine  the  user
+/// For each edge or vertex from the spine the user
 /// may ask for the shape generated from each subshape
 /// of the profile.
 /// </summary>
@@ -2975,7 +3232,7 @@ public:
     Macad::Occt::TopoDS_Shape^ FirstShape();
     Macad::Occt::TopoDS_Shape^ LastShape();
     /// <summary>
-    /// Returns the  list   of shapes generated   from the
+    /// Returns the list of shapes generated from the
     /// shape <S>.
     /// </summary>
     void Generated(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopTools_ListOfShape^ L);
@@ -2988,12 +3245,12 @@ public:
     /// <summary>
     /// Returns the edge created from an edge of the spine
     /// and a vertex of the profile.
-    /// if the edge or the vertex are not in  the spine or
+    /// if the edge or the vertex are not in the spine or
     /// the profile.
     /// </summary>
     Macad::Occt::TopoDS_Edge^ Edge(Macad::Occt::TopoDS_Edge^ ESpine, Macad::Occt::TopoDS_Vertex^ VProfile);
     /// <summary>
-    /// Returns  the shape created from the profile at the
+    /// Returns the shape created from the profile at the
     /// position of the vertex VSpine.
     /// if the vertex is not in the Spine
     /// </summary>
@@ -3093,44 +3350,43 @@ public:
     BRepFill_PipeShell(Macad::Occt::TopoDS_Wire^ Spine);
     /// <summary>
     /// Set an Frenet or an CorrectedFrenet trihedron
-    /// to  perform  the  sweeping
+    /// to perform the sweeping
     /// </summary>
     void Set(bool Frenet);
     /// <summary>
     /// Set an Frenet or an CorrectedFrenet trihedron
-    /// to  perform  the  sweeping
+    /// to perform the sweeping
     /// </summary>
     void Set();
     /// <summary>
-    /// Set a Discrete trihedron
-    /// to  perform  the  sweeping
+    /// Set a Discrete trihedron to perform the sweeping
     /// </summary>
     void SetDiscrete();
     /// <summary>
-    /// Set  an  fixed  trihedron  to  perform  the  sweeping
+    /// Set an fixed trihedron to perform the sweeping
     /// all sections will be parallel.
     /// </summary>
     void Set(Macad::Occt::Ax2 Axe);
     /// <summary>
-    /// Set an fixed  BiNormal  direction to  perform
+    /// Set an fixed BiNormal direction to perform
     /// the sweeping
     /// </summary>
     void Set(Macad::Occt::Dir BiNormal);
     /// <summary>
     /// Set support to the spine to define the BiNormal
-    /// at   the spine, like    the  normal the surfaces.
-    /// Warning: To  be  effective,  Each  edge  of  the  <spine>  must
-    /// have an  representation  on   one   face  of<SpineSupport>
+    /// at the spine, like the normal the surfaces.
+    /// Warning: To be effective, Each edge of the <spine> must
+    /// have an representation on one face of<SpineSupport>
     /// </summary>
     bool Set(Macad::Occt::TopoDS_Shape^ SpineSupport);
     /// <summary>
-    /// Set  an  auxiliary  spine  to  define  the Normal
-    /// For  each  Point  of  the  Spine  P,  an  Point  Q  is  evalued
-    /// on  <AuxiliarySpine>
+    /// Set an auxiliary spine to define the Normal
+    /// For each Point of the Spine P, an Point Q is evaluated
+    /// on <AuxiliarySpine>
     /// If <CurvilinearEquivalence>
-    /// Q split <AuxiliarySpine> with  the  same  length ratio
-    /// than P split  <Spline>.
-    /// Else  the  plan  define  by  P  and  the  tangent  to  the  <Spine>
+    /// Q split <AuxiliarySpine> with the same length ratio
+    /// than P split <Spline>.
+    /// Else the plan define by P and the tangent to the <Spine>
     /// intersect <AuxiliarySpine> in Q.
     /// If <KeepContact> equals BRepFill_NoContact: The Normal is defined
     /// by the vector PQ.
@@ -3147,13 +3403,13 @@ public:
     /// </summary>
     void Set(Macad::Occt::TopoDS_Wire^ AuxiliarySpine, bool CurvilinearEquivalence, Macad::Occt::BRepFill_TypeOfContact KeepContact);
     /// <summary>
-    /// Set  an  auxiliary  spine  to  define  the Normal
-    /// For  each  Point  of  the  Spine  P,  an  Point  Q  is  evalued
-    /// on  <AuxiliarySpine>
+    /// Set an auxiliary spine to define the Normal
+    /// For each Point of the Spine P, an Point Q is evaluated
+    /// on <AuxiliarySpine>
     /// If <CurvilinearEquivalence>
-    /// Q split <AuxiliarySpine> with  the  same  length ratio
-    /// than P split  <Spline>.
-    /// Else  the  plan  define  by  P  and  the  tangent  to  the  <Spine>
+    /// Q split <AuxiliarySpine> with the same length ratio
+    /// than P split <Spline>.
+    /// Else the plan define by P and the tangent to the <Spine>
     /// intersect <AuxiliarySpine> in Q.
     /// If <KeepContact> equals BRepFill_NoContact: The Normal is defined
     /// by the vector PQ.
@@ -3170,13 +3426,13 @@ public:
     /// </summary>
     void Set(Macad::Occt::TopoDS_Wire^ AuxiliarySpine, bool CurvilinearEquivalence);
     /// <summary>
-    /// Set  an  auxiliary  spine  to  define  the Normal
-    /// For  each  Point  of  the  Spine  P,  an  Point  Q  is  evalued
-    /// on  <AuxiliarySpine>
+    /// Set an auxiliary spine to define the Normal
+    /// For each Point of the Spine P, an Point Q is evaluated
+    /// on <AuxiliarySpine>
     /// If <CurvilinearEquivalence>
-    /// Q split <AuxiliarySpine> with  the  same  length ratio
-    /// than P split  <Spline>.
-    /// Else  the  plan  define  by  P  and  the  tangent  to  the  <Spine>
+    /// Q split <AuxiliarySpine> with the same length ratio
+    /// than P split <Spline>.
+    /// Else the plan define by P and the tangent to the <Spine>
     /// intersect <AuxiliarySpine> in Q.
     /// If <KeepContact> equals BRepFill_NoContact: The Normal is defined
     /// by the vector PQ.
@@ -3206,7 +3462,7 @@ public:
     /// a C1-continuous surface if a swept surface proved
     /// to be C0.
     /// Give section to sweep.
-    /// Possibilities are :
+    /// Possibilities are:
     /// - Give one or several profile
     /// - Give one profile and an homotetic law.
     /// - Automatic compute of correspondence between profile, and section on the sweeped shape
@@ -3214,6 +3470,17 @@ public:
     /// spine
     /// </summary>
     void SetForceApproxC1(bool ForceApproxC1);
+    /// <summary>
+    /// Sets the build history flag.
+    /// If set to True, the pipe shell will store the history of the sections
+    /// and the spine, which can be used for further modifications or analysis.
+    /// </summary>
+    void SetIsBuildHistory(bool theIsBuildHistory);
+    /// <summary>
+    /// Returns the build history flag.
+    /// If True, the pipe shell stores the history of the sections and the spine.
+    /// </summary>
+    bool IsBuildHistory();
     /// <summary>
     /// Set an section. The correspondence with the spine, will be automatically performed.
     /// </summary>
@@ -3259,27 +3526,27 @@ public:
     void SetTolerance(double Tol3d);
     void SetTolerance();
     /// <summary>
-    /// Set the  Transition Mode to manage discontinuities
+    /// Set the Transition Mode to manage discontinuities
     /// on the sweep.
     /// </summary>
     void SetTransition(Macad::Occt::BRepFill_TransitionStyle Mode, double Angmin, double Angmax);
     /// <summary>
-    /// Set the  Transition Mode to manage discontinuities
+    /// Set the Transition Mode to manage discontinuities
     /// on the sweep.
     /// </summary>
     void SetTransition(Macad::Occt::BRepFill_TransitionStyle Mode, double Angmin);
     /// <summary>
-    /// Set the  Transition Mode to manage discontinuities
+    /// Set the Transition Mode to manage discontinuities
     /// on the sweep.
     /// </summary>
     void SetTransition(Macad::Occt::BRepFill_TransitionStyle Mode);
     /// <summary>
-    /// Set the  Transition Mode to manage discontinuities
+    /// Set the Transition Mode to manage discontinuities
     /// on the sweep.
     /// </summary>
     void SetTransition();
     /// <summary>
-    /// Perform simulation of the sweep :
+    /// Perform simulation of the sweep:
     /// Some Section are returned.
     /// </summary>
     void Simulate(int NumberOfSection, Macad::Occt::TopTools_ListOfShape^ Sections);
@@ -3298,7 +3565,7 @@ public:
     Macad::Occt::TopoDS_Shape^ Shape();
     double ErrorOnSurface();
     /// <summary>
-    /// Returns the  TopoDS  Shape of the bottom of the sweep.
+    /// Returns the TopoDS Shape of the bottom of the sweep.
     /// </summary>
     Macad::Occt::TopoDS_Shape^ FirstShape();
     /// <summary>
@@ -3314,7 +3581,7 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Wire^ Spine();
     /// <summary>
-    /// Returns the  list   of shapes generated   from the
+    /// Returns the list of shapes generated from the
     /// shape <S>.
     /// </summary>
     void Generated(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::TopTools_ListOfShape^ L);
@@ -3434,11 +3701,11 @@ public:
     /* Method skipped due to unknown mapping: void BRepFill_ShapeLaw(TopoDS_Wire W, Law_Function L, bool Build, ) */
     /* Method skipped due to unknown mapping: void BRepFill_ShapeLaw(TopoDS_Wire W, Law_Function L, bool Build, ) */
     /// <summary>
-    /// Say if the input shape is a  vertex.
+    /// Say if the input shape is a vertex.
     /// </summary>
     bool IsVertex();
     /// <summary>
-    /// Say if the Law is  Constant.
+    /// Say if the Law is Constant.
     /// </summary>
     bool IsConstant();
     /* Method skipped due to unknown mapping: GeomFill_SectionLaw ConcatenedLaw() */
@@ -3505,7 +3772,7 @@ public:
 //  Class  BRepFill_TrimSurfaceTool
 //---------------------------------------------------------------------
 /// <summary>
-/// Compute the Pcurves and  the 3d curves resulting
+/// Compute the Pcurves and the 3d curves resulting
 /// of the trimming of a face by an extruded surface.
 /// </summary>
 public ref class BRepFill_TrimSurfaceTool sealed
@@ -3537,7 +3804,7 @@ public:
 public:
     BRepFill_TrimSurfaceTool(Macad::Occt::Geom2d_Curve^ Bis, Macad::Occt::TopoDS_Face^ Face1, Macad::Occt::TopoDS_Face^ Face2, Macad::Occt::TopoDS_Edge^ Edge1, Macad::Occt::TopoDS_Edge^ Edge2, bool Inv1, bool Inv2);
     /// <summary>
-    /// Intersect <Bis>  with the  projection of the edges
+    /// Intersect <Bis> with the projection of the edges
     /// <EdgeOnFi> and returns the intersecting parameters
     /// on Bis and on the edges
     /// P.X() : Parameter on Bis
@@ -3551,7 +3818,7 @@ public:
     /// </summary>
     bool IsOnFace(Macad::Occt::Pnt2d Point);
     /// <summary>
-    /// returns the parameter of the  point <Point> on the
+    /// returns the parameter of the point <Point> on the
     /// Edge <Edge>, assuming that the point is on the edge.
     /// </summary>
     double ProjOn(Macad::Occt::Pnt2d Point, Macad::Occt::TopoDS_Edge^ Edge);

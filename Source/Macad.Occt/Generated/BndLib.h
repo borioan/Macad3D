@@ -221,21 +221,21 @@ public:
     /// B is then enlarged by the tolerance value Tol.
     /// Note: depending on the type of curve, one of the following
     /// representations of the curve C is used to include it in the bounding box B:
-    /// -   an exact representation if C is built from a line, a circle   or a conic curve,
-    /// -   the poles of the curve if C is built from a Bezier curve or   a BSpline curve,
+    /// -   an exact representation if C is built from a line, a circle or a conic curve,
+    /// -   the poles of the curve if C is built from a Bezier curve or a BSpline curve,
     /// -   if not, the points of an approximation of the curve C.
     /// Warning
     /// C is an adapted curve, that is, an object which is an interface between:
     /// -   the services provided by a 2D curve from the package Geom2d
     /// -   and those required of the curve by the computation algorithm.
     /// The adapted curve is created in the following way:
-    /// Handle(Geom2d_Curve) mycurve = ...
+    /// occ::handle<Geom2d_Curve> mycurve = ...
     /// ;
     /// Geom2dAdaptor_Curve C(mycurve);
     /// The bounding box B is then enlarged by adding it:
     /// Bnd_Box2d B;
     /// // ...
-    /// Standard_Real Tol = ... ;
+    /// double Tol = ... ;
     /// Add2dCurve::Add ( C, Tol, B );
     /// Exceptions
     /// Standard_Failure if the curve is built from:
@@ -252,21 +252,21 @@ public:
     /// B is then enlarged by the tolerance value Tol.
     /// Note: depending on the type of curve, one of the following
     /// representations of the curve C is used to include it in the bounding box B:
-    /// -   an exact representation if C is built from a line, a circle   or a conic curve,
-    /// -   the poles of the curve if C is built from a Bezier curve or   a BSpline curve,
+    /// -   an exact representation if C is built from a line, a circle or a conic curve,
+    /// -   the poles of the curve if C is built from a Bezier curve or a BSpline curve,
     /// -   if not, the points of an approximation of the curve C.
     /// Warning
     /// C is an adapted curve, that is, an object which is an interface between:
     /// -   the services provided by a 2D curve from the package Geom2d
     /// -   and those required of the curve by the computation algorithm.
     /// The adapted curve is created in the following way:
-    /// Handle(Geom2d_Curve) mycurve = ...
+    /// occ::handle<Geom2d_Curve> mycurve = ...
     /// ;
     /// Geom2dAdaptor_Curve C(mycurve);
     /// The bounding box B is then enlarged by adding it:
     /// Bnd_Box2d B;
     /// // ...
-    /// Standard_Real Tol = ... ;
+    /// double Tol = ... ;
     /// Add2dCurve::Add ( C, Tol, B );
     /// Exceptions
     /// Standard_Failure if the curve is built from:
@@ -303,9 +303,9 @@ public:
     /// B is then enlarged by the tolerance value Tol.
     /// U1, U2 - the parametric range to compute the bounding box;
     /// Note: depending on the type of curve, one of the following
-    /// algorithms  is used to include it in the bounding box B:
+    /// algorithms is used to include it in the bounding box B:
     /// -   an exact analytical if C is built from a line, a circle or a conic curve,
-    /// -   numerical calculation of bounding box sizes, based on minimization algorithm,  for other
+    /// -   numerical calculation of bounding box sizes, based on minimization algorithm, for other
     /// types of curve If Tol = < Precision::PConfusion(), Precision::PConfusion is used as tolerance
     /// for calculation
     /// </summary>
@@ -353,20 +353,20 @@ public:
     /// B is then enlarged by the tolerance value Tol.
     /// Note: depending on the type of curve, one of the following
     /// representations of the curve C is used to include it in the bounding box B:
-    /// -   an exact representation if C is built from a line, a circle   or a conic curve,
-    /// -   the poles of the curve if C is built from a Bezier curve or   a BSpline curve,
+    /// -   an exact representation if C is built from a line, a circle or a conic curve,
+    /// -   the poles of the curve if C is built from a Bezier curve or a BSpline curve,
     /// if not, the points of an approximation of the curve C.
     /// Warning
     /// C is an adapted curve, that is, an object which is an interface between:
-    /// -   the services provided by a 3D curve from the package   Geom
+    /// -   the services provided by a 3D curve from the package Geom
     /// -   and those required of the curve by the computation algorithm.
     /// The adapted curve is created in the following way:
-    /// Handle(Geom_Curve) mycurve = ... ;
+    /// occ::handle<Geom_Curve> mycurve = ... ;
     /// GeomAdaptor_Curve C(mycurve);
     /// The bounding box B is then enlarged by adding it:
     /// Bnd_Box B;
     /// // ...
-    /// Standard_Real Tol = ... ;
+    /// double Tol = ... ;
     /// Add3dCurve::Add ( C, Tol, B );
     /// Exceptions
     /// Standard_Failure if the curve is built from:
@@ -382,20 +382,20 @@ public:
     /// the arc of the curve C limited by the two parameter values P1 and P2.
     /// Note: depending on the type of curve, one of the following
     /// representations of the curve C is used to include it in the bounding box B:
-    /// -   an exact representation if C is built from a line, a circle   or a conic curve,
-    /// -   the poles of the curve if C is built from a Bezier curve or   a BSpline curve,
+    /// -   an exact representation if C is built from a line, a circle or a conic curve,
+    /// -   the poles of the curve if C is built from a Bezier curve or a BSpline curve,
     /// if not, the points of an approximation of the curve C.
     /// Warning
     /// C is an adapted curve, that is, an object which is an interface between:
-    /// -   the services provided by a 3D curve from the package   Geom
+    /// -   the services provided by a 3D curve from the package Geom
     /// -   and those required of the curve by the computation algorithm.
     /// The adapted curve is created in the following way:
-    /// Handle(Geom_Curve) mycurve = ... ;
+    /// occ::handle<Geom_Curve> mycurve = ... ;
     /// GeomAdaptor_Curve C(mycurve);
     /// The bounding box B is then enlarged by adding it:
     /// Bnd_Box B;
     /// // ...
-    /// Standard_Real Tol = ... ;
+    /// double Tol = ... ;
     /// Add3dCurve::Add ( C, Tol, B );
     /// Exceptions
     /// Standard_Failure if the curve is built from:
@@ -413,13 +413,6 @@ public:
     /// </summary>
     static void AddOptimal(Macad::Occt::Adaptor3d_Curve^ C, double Tol, Macad::Occt::Bnd_Box^ B);
     static void AddOptimal(Macad::Occt::Adaptor3d_Curve^ C, double U1, double U2, double Tol, Macad::Occt::Bnd_Box^ B);
-    /// <summary>
-    /// Adds to the bounding box B the curve C
-    /// using numerical minimization algorithms
-    /// This method is used in AddOptimal for not analytical curves.
-    /// if Tol < Precision::Confusion(), Precision:;Confusion is used as computation tolerance
-    /// </summary>
-    static void AddGenCurv(Macad::Occt::Adaptor3d_Curve^ C, double UMin, double UMax, double Tol, Macad::Occt::Bnd_Box^ B);
 }; // class BndLib_Add3dCurve
 
 //---------------------------------------------------------------------
@@ -480,12 +473,12 @@ public:
     /// -   the services provided by a surface from the package Geom
     /// -   and those required of the surface by the computation algorithm.
     /// The adapted surface is created in the following way:
-    /// Handle(Geom_Surface) mysurface = ... ;
+    /// occ::handle<Geom_Surface> mysurface = ... ;
     /// GeomAdaptor_Surface S(mysurface);
     /// The bounding box B is then enlarged by adding this surface:
     /// Bnd_Box B;
     /// // ...
-    /// Standard_Real Tol = ... ;
+    /// double Tol = ... ;
     /// AddSurface::Add ( S, Tol, B );
     /// </summary>
     static void Add(Macad::Occt::Adaptor3d_Surface^ S, double Tol, Macad::Occt::Bnd_Box^ B);
@@ -514,12 +507,12 @@ public:
     /// -   the services provided by a surface from the package Geom
     /// -   and those required of the surface by the computation algorithm.
     /// The adapted surface is created in the following way:
-    /// Handle(Geom_Surface) mysurface = ... ;
+    /// occ::handle<Geom_Surface> mysurface = ... ;
     /// GeomAdaptor_Surface S(mysurface);
     /// The bounding box B is then enlarged by adding this surface:
     /// Bnd_Box B;
     /// // ...
-    /// Standard_Real Tol = ... ;
+    /// double Tol = ... ;
     /// AddSurface::Add ( S, Tol, B );
     /// </summary>
     static void Add(Macad::Occt::Adaptor3d_Surface^ S, double UMin, double UMax, double VMin, double VMax, double Tol, Macad::Occt::Bnd_Box^ B);
@@ -529,13 +522,6 @@ public:
     /// </summary>
     static void AddOptimal(Macad::Occt::Adaptor3d_Surface^ S, double Tol, Macad::Occt::Bnd_Box^ B);
     static void AddOptimal(Macad::Occt::Adaptor3d_Surface^ S, double UMin, double UMax, double VMin, double VMax, double Tol, Macad::Occt::Bnd_Box^ B);
-    /// <summary>
-    /// Adds to the bounding box B the surface S
-    /// using numerical minimization algorithms
-    /// This method is used in AddOptimal for not analytical surfaces and torus.
-    /// if Tol < Precision::Confusion(), Precision::Confusion is used as computation tolerance
-    /// </summary>
-    static void AddGenSurf(Macad::Occt::Adaptor3d_Surface^ S, double UMin, double UMax, double VMin, double VMax, double Tol, Macad::Occt::Bnd_Box^ B);
 }; // class BndLib_AddSurface
 
 }; // namespace Occt

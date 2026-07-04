@@ -6,31 +6,55 @@
 using namespace System::Runtime::InteropServices; // for class Marshal
 
 #include "NCollection.h"
+#include "TopTools.h"
 #include "TopoDS.h"
 #include "Adaptor3d.h"
-#include "TopTools.h"
 
 
 //---------------------------------------------------------------------
 //  Class  BRepCheck_ListOfStatus
 //---------------------------------------------------------------------
 
+int Macad::Occt::BRepCheck_ListOfStatus::Extent()
+{
+    int _result = ((::BRepCheck_ListOfStatus*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepCheck_ListOfStatus::Length()
+{
+    int _result = ((::BRepCheck_ListOfStatus*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepCheck_ListOfStatus::Size()
+{
+    long long unsigned int _result = ((::BRepCheck_ListOfStatus*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepCheck_ListOfStatus::IsEmpty()
+{
+    bool _result = ((::BRepCheck_ListOfStatus*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepCheck_ListOfStatus::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepCheck_ListOfStatus*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepCheck_ListOfStatus::BRepCheck_ListOfStatus()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::BRepCheck_ListOfStatus>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepCheck_ListOfStatus();
 }
 
 Macad::Occt::BRepCheck_ListOfStatus::BRepCheck_ListOfStatus(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::BRepCheck_ListOfStatus>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepCheck_ListOfStatus(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::BRepCheck_ListOfStatus::Size()
-{
-    int _result = ((::BRepCheck_ListOfStatus*)_NativeInstance)->Size();
-    return _result;
 }
 
 Macad::Occt::BRepCheck_ListOfStatus^ Macad::Occt::BRepCheck_ListOfStatus::Assign(Macad::Occt::BRepCheck_ListOfStatus^ theOther)
@@ -47,7 +71,7 @@ void Macad::Occt::BRepCheck_ListOfStatus::Clear(Macad::Occt::NCollection_BaseAll
 
 void Macad::Occt::BRepCheck_ListOfStatus::Clear()
 {
-    ((::BRepCheck_ListOfStatus*)_NativeInstance)->Clear(0L);
+    ((::BRepCheck_ListOfStatus*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_ListOfStatus::First()
@@ -69,11 +93,27 @@ Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_ListOfStatus::Append(Macad:
     return (Macad::Occt::BRepCheck_Status)_result;
 }
 
+void Macad::Occt::BRepCheck_ListOfStatus::Append(Macad::Occt::BRepCheck_Status theItem, Macad::Occt::BRepCheck_ListOfStatus::Iterator^ theIter)
+{
+    pin_ptr<Macad::Occt::BRepCheck_Status> pp_theItem = &theItem;
+    ((::BRepCheck_ListOfStatus*)_NativeInstance)->Append(*(::BRepCheck_Status*)pp_theItem, *(::BRepCheck_ListOfStatus::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::BRepCheck_ListOfStatus::Append(Macad::Occt::BRepCheck_ListOfStatus^ theOther)
+{
+    ((::BRepCheck_ListOfStatus*)_NativeInstance)->Append(*(::BRepCheck_ListOfStatus*)theOther->NativeInstance);
+}
+
 Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_ListOfStatus::Prepend(Macad::Occt::BRepCheck_Status theItem)
 {
     pin_ptr<Macad::Occt::BRepCheck_Status> pp_theItem = &theItem;
     ::BRepCheck_Status _result = ((::BRepCheck_ListOfStatus*)_NativeInstance)->Prepend(*(::BRepCheck_Status*)pp_theItem);
     return (Macad::Occt::BRepCheck_Status)_result;
+}
+
+void Macad::Occt::BRepCheck_ListOfStatus::Prepend(Macad::Occt::BRepCheck_ListOfStatus^ theOther)
+{
+    ((::BRepCheck_ListOfStatus*)_NativeInstance)->Prepend(*(::BRepCheck_ListOfStatus*)theOther->NativeInstance);
 }
 
 void Macad::Occt::BRepCheck_ListOfStatus::RemoveFirst()
@@ -93,6 +133,11 @@ Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_ListOfStatus::InsertBefore(
     return (Macad::Occt::BRepCheck_Status)_result;
 }
 
+void Macad::Occt::BRepCheck_ListOfStatus::InsertBefore(Macad::Occt::BRepCheck_ListOfStatus^ theOther, Macad::Occt::BRepCheck_ListOfStatus::Iterator^ theIter)
+{
+    ((::BRepCheck_ListOfStatus*)_NativeInstance)->InsertBefore(*(::BRepCheck_ListOfStatus*)theOther->NativeInstance, *(::BRepCheck_ListOfStatus::Iterator*)theIter->NativeInstance);
+}
+
 Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_ListOfStatus::InsertAfter(Macad::Occt::BRepCheck_Status theItem, Macad::Occt::BRepCheck_ListOfStatus::Iterator^ theIter)
 {
     pin_ptr<Macad::Occt::BRepCheck_Status> pp_theItem = &theItem;
@@ -100,9 +145,19 @@ Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_ListOfStatus::InsertAfter(M
     return (Macad::Occt::BRepCheck_Status)_result;
 }
 
+void Macad::Occt::BRepCheck_ListOfStatus::InsertAfter(Macad::Occt::BRepCheck_ListOfStatus^ theOther, Macad::Occt::BRepCheck_ListOfStatus::Iterator^ theIter)
+{
+    ((::BRepCheck_ListOfStatus*)_NativeInstance)->InsertAfter(*(::BRepCheck_ListOfStatus*)theOther->NativeInstance, *(::BRepCheck_ListOfStatus::Iterator*)theIter->NativeInstance);
+}
+
 void Macad::Occt::BRepCheck_ListOfStatus::Reverse()
 {
     ((::BRepCheck_ListOfStatus*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::BRepCheck_ListOfStatus::Exchange(Macad::Occt::BRepCheck_ListOfStatus^ theOther)
+{
+    ((::BRepCheck_ListOfStatus*)_NativeInstance)->Exchange(*(::BRepCheck_ListOfStatus*)theOther->NativeInstance);
 }
 
 System::Collections::Generic::IEnumerator<Macad::Occt::BRepCheck_Status>^ Macad::Occt::BRepCheck_ListOfStatus::GetEnumerator()
@@ -125,6 +180,12 @@ Macad::Occt::BRepCheck_ListOfStatus::Iterator::Iterator()
     : Macad::Occt::IteratorEnumerator<Macad::Occt::BRepCheck_Status, ::BRepCheck_ListOfStatus::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepCheck_ListOfStatus::Iterator();
+}
+
+Macad::Occt::BRepCheck_ListOfStatus::Iterator::Iterator(Macad::Occt::NCollection_BaseList^ theList)
+    : Macad::Occt::IteratorEnumerator<Macad::Occt::BRepCheck_Status, ::BRepCheck_ListOfStatus::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_ListOfStatus::Iterator(*(::NCollection_BaseList*)theList->NativeInstance);
 }
 
 bool Macad::Occt::BRepCheck_ListOfStatus::Iterator::More()
@@ -156,10 +217,34 @@ Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_ListOfStatus::Iterator::Cha
 //  Class  BRepCheck_HListOfStatus
 //---------------------------------------------------------------------
 
-int Macad::Occt::BRepCheck_HListOfStatus::Size()
+int Macad::Occt::BRepCheck_HListOfStatus::Extent()
 {
-    int _result = ((::BRepCheck_HListOfStatus*)_NativeInstance)->Size();
+    int _result = ((::BRepCheck_HListOfStatus*)_NativeInstance)->Extent();
     return _result;
+}
+
+int Macad::Occt::BRepCheck_HListOfStatus::Length()
+{
+    int _result = ((::BRepCheck_HListOfStatus*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepCheck_HListOfStatus::Size()
+{
+    long long unsigned int _result = ((::BRepCheck_HListOfStatus*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepCheck_HListOfStatus::IsEmpty()
+{
+    bool _result = ((::BRepCheck_HListOfStatus*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepCheck_HListOfStatus::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepCheck_HListOfStatus*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
 }
 
 Macad::Occt::BRepCheck_ListOfStatus^ Macad::Occt::BRepCheck_HListOfStatus::Assign(Macad::Occt::BRepCheck_ListOfStatus^ theOther)
@@ -176,7 +261,7 @@ void Macad::Occt::BRepCheck_HListOfStatus::Clear(Macad::Occt::NCollection_BaseAl
 
 void Macad::Occt::BRepCheck_HListOfStatus::Clear()
 {
-    ((::BRepCheck_HListOfStatus*)_NativeInstance)->Clear(0L);
+    ((::BRepCheck_HListOfStatus*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_HListOfStatus::First()
@@ -198,11 +283,27 @@ Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_HListOfStatus::Append(Macad
     return (Macad::Occt::BRepCheck_Status)_result;
 }
 
+void Macad::Occt::BRepCheck_HListOfStatus::Append(Macad::Occt::BRepCheck_Status theItem, Macad::Occt::BRepCheck_HListOfStatus::Iterator^ theIter)
+{
+    pin_ptr<Macad::Occt::BRepCheck_Status> pp_theItem = &theItem;
+    ((::BRepCheck_HListOfStatus*)_NativeInstance)->Append(*(::BRepCheck_Status*)pp_theItem, *(::BRepCheck_HListOfStatus::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::BRepCheck_HListOfStatus::Append(Macad::Occt::BRepCheck_ListOfStatus^ theOther)
+{
+    ((::BRepCheck_HListOfStatus*)_NativeInstance)->Append(*(::BRepCheck_ListOfStatus*)theOther->NativeInstance);
+}
+
 Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_HListOfStatus::Prepend(Macad::Occt::BRepCheck_Status theItem)
 {
     pin_ptr<Macad::Occt::BRepCheck_Status> pp_theItem = &theItem;
     ::BRepCheck_Status _result = ((::BRepCheck_HListOfStatus*)_NativeInstance)->Prepend(*(::BRepCheck_Status*)pp_theItem);
     return (Macad::Occt::BRepCheck_Status)_result;
+}
+
+void Macad::Occt::BRepCheck_HListOfStatus::Prepend(Macad::Occt::BRepCheck_ListOfStatus^ theOther)
+{
+    ((::BRepCheck_HListOfStatus*)_NativeInstance)->Prepend(*(::BRepCheck_ListOfStatus*)theOther->NativeInstance);
 }
 
 void Macad::Occt::BRepCheck_HListOfStatus::RemoveFirst()
@@ -222,6 +323,11 @@ Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_HListOfStatus::InsertBefore
     return (Macad::Occt::BRepCheck_Status)_result;
 }
 
+void Macad::Occt::BRepCheck_HListOfStatus::InsertBefore(Macad::Occt::BRepCheck_ListOfStatus^ theOther, Macad::Occt::BRepCheck_HListOfStatus::Iterator^ theIter)
+{
+    ((::BRepCheck_HListOfStatus*)_NativeInstance)->InsertBefore(*(::BRepCheck_ListOfStatus*)theOther->NativeInstance, *(::BRepCheck_HListOfStatus::Iterator*)theIter->NativeInstance);
+}
+
 Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_HListOfStatus::InsertAfter(Macad::Occt::BRepCheck_Status theItem, Macad::Occt::BRepCheck_HListOfStatus::Iterator^ theIter)
 {
     pin_ptr<Macad::Occt::BRepCheck_Status> pp_theItem = &theItem;
@@ -229,9 +335,19 @@ Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_HListOfStatus::InsertAfter(
     return (Macad::Occt::BRepCheck_Status)_result;
 }
 
+void Macad::Occt::BRepCheck_HListOfStatus::InsertAfter(Macad::Occt::BRepCheck_ListOfStatus^ theOther, Macad::Occt::BRepCheck_HListOfStatus::Iterator^ theIter)
+{
+    ((::BRepCheck_HListOfStatus*)_NativeInstance)->InsertAfter(*(::BRepCheck_ListOfStatus*)theOther->NativeInstance, *(::BRepCheck_HListOfStatus::Iterator*)theIter->NativeInstance);
+}
+
 void Macad::Occt::BRepCheck_HListOfStatus::Reverse()
 {
     ((::BRepCheck_HListOfStatus*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::BRepCheck_HListOfStatus::Exchange(Macad::Occt::BRepCheck_ListOfStatus^ theOther)
+{
+    ((::BRepCheck_HListOfStatus*)_NativeInstance)->Exchange(*(::BRepCheck_ListOfStatus*)theOther->NativeInstance);
 }
 
 Macad::Occt::BRepCheck_HListOfStatus::BRepCheck_HListOfStatus()
@@ -255,6 +371,12 @@ Macad::Occt::BRepCheck_HListOfStatus::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRepCheck_HListOfStatus::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepCheck_HListOfStatus::Iterator();
+}
+
+Macad::Occt::BRepCheck_HListOfStatus::Iterator::Iterator(Macad::Occt::NCollection_BaseList^ theList)
+    : Macad::Occt::BaseClass<::BRepCheck_HListOfStatus::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_HListOfStatus::Iterator(*(::NCollection_BaseList*)theList->NativeInstance);
 }
 
 bool Macad::Occt::BRepCheck_HListOfStatus::Iterator::More()
@@ -286,10 +408,58 @@ Macad::Occt::BRepCheck_Status Macad::Occt::BRepCheck_HListOfStatus::Iterator::Ch
 //  Class  BRepCheck_DataMapOfShapeListOfStatus
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Extent()
+{
+    int _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Length()
+{
+    int _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Size()
+{
+    long long unsigned int _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::IsEmpty()
+{
+    bool _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::BRepCheck_DataMapOfShapeListOfStatus()
     : Macad::Occt::BaseClass<::BRepCheck_DataMapOfShapeListOfStatus>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus();
+}
+
+Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::BRepCheck_DataMapOfShapeListOfStatus(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepCheck_DataMapOfShapeListOfStatus>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::BRepCheck_DataMapOfShapeListOfStatus(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepCheck_DataMapOfShapeListOfStatus>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus(theNbBuckets, nullptr);
 }
 
 Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::BRepCheck_DataMapOfShapeListOfStatus(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -301,12 +471,49 @@ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::BRepCheck_DataMapOfShapeListO
 Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::BRepCheck_DataMapOfShapeListOfStatus(int theNbBuckets)
     : Macad::Occt::BaseClass<::BRepCheck_DataMapOfShapeListOfStatus>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus(theNbBuckets, 0L);
+    _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus(theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::BRepCheck_DataMapOfShapeListOfStatus(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepCheck_DataMapOfShapeListOfStatus>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::BRepCheck_DataMapOfShapeListOfStatus(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepCheck_DataMapOfShapeListOfStatus>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
+}
+
+Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::BRepCheck_DataMapOfShapeListOfStatus(Macad::Occt::TopTools_ShapeMapHasher^ theHasher)
+    : Macad::Occt::BaseClass<::BRepCheck_DataMapOfShapeListOfStatus>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, 1, nullptr);
+}
+
+Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::BRepCheck_DataMapOfShapeListOfStatus(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepCheck_DataMapOfShapeListOfStatus>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::BRepCheck_DataMapOfShapeListOfStatus(Macad::Occt::TopTools_ShapeMapHasher^ theHasher, int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepCheck_DataMapOfShapeListOfStatus>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus(*(::TopTools_ShapeMapHasher*)theHasher->NativeInstance, theNbBuckets, nullptr);
 }
 
 void Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Exchange(Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus^ theOther)
 {
     ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Exchange(*(::BRepCheck_DataMapOfShapeListOfStatus*)theOther->NativeInstance);
+}
+
+Macad::Occt::TopTools_ShapeMapHasher^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::GetHasher()
+{
+    ::TopTools_ShapeMapHasher* _result = new ::TopTools_ShapeMapHasher();
+    *_result = (::TopTools_ShapeMapHasher)((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->GetHasher();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopTools_ShapeMapHasher(_result);
 }
 
 Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Assign(Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus^ theOther)
@@ -316,9 +523,37 @@ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus^ Macad::Occt::BRepCheck_DataMa
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus(_result);
 }
 
+void Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::ReSize(long long unsigned int N)
+{
+    ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->ReSize(N);
+}
+
 void Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::ReSize(int N)
 {
     ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->ReSize(N);
+}
+
+bool Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Bind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::BRepCheck_HListOfStatus^ theItem)
+{
+    bool _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Bind(*(::TopoDS_Shape*)theKey->NativeInstance, Handle(::BRepCheck_HListOfStatus)(theItem->NativeInstance));
+    return _result;
+}
+
+Macad::Occt::BRepCheck_HListOfStatus^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Bound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::BRepCheck_HListOfStatus^ theItem)
+{
+    throw gcnew System::NotImplementedException();
+}
+
+bool Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::TryBind(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::BRepCheck_HListOfStatus^ theItem)
+{
+    bool _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey->NativeInstance, Handle(::BRepCheck_HListOfStatus)(theItem->NativeInstance));
+    return _result;
+}
+
+Macad::Occt::BRepCheck_HListOfStatus^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::TryBound(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::BRepCheck_HListOfStatus^ theItem)
+{
+    Handle(::BRepCheck_HListOfStatus) _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey->NativeInstance, Handle(::BRepCheck_HListOfStatus)(theItem->NativeInstance));
+    return _result.IsNull() ? nullptr : Macad::Occt::BRepCheck_HListOfStatus::CreateDowncasted(_result.get());
 }
 
 bool Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::IsBound(Macad::Occt::TopoDS_Shape^ theKey)
@@ -333,6 +568,36 @@ bool Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::UnBind(Macad::Occt::Topo
     return _result;
 }
 
+Macad::Occt::BRepCheck_HListOfStatus^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Seek(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    throw gcnew System::NotImplementedException();
+}
+
+Macad::Occt::BRepCheck_HListOfStatus^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Find(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    Handle(::BRepCheck_HListOfStatus) _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result.IsNull() ? nullptr : Macad::Occt::BRepCheck_HListOfStatus::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Find(Macad::Occt::TopoDS_Shape^ theKey, Macad::Occt::BRepCheck_HListOfStatus^ theValue)
+{
+    Handle(::BRepCheck_HListOfStatus) h_theValue = theValue->NativeInstance;
+    bool _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Find(*(::TopoDS_Shape*)theKey->NativeInstance, h_theValue);
+    theValue->NativeInstance = h_theValue.get();
+    return _result;
+}
+
+Macad::Occt::BRepCheck_HListOfStatus^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::ChangeSeek(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    throw gcnew System::NotImplementedException();
+}
+
+Macad::Occt::BRepCheck_HListOfStatus^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::ChangeFind(Macad::Occt::TopoDS_Shape^ theKey)
+{
+    Handle(::BRepCheck_HListOfStatus) _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->ChangeFind(*(::TopoDS_Shape*)theKey->NativeInstance);
+    return _result.IsNull() ? nullptr : Macad::Occt::BRepCheck_HListOfStatus::CreateDowncasted(_result.get());
+}
+
 void Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Clear(bool doReleaseMemory)
 {
     ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Clear(doReleaseMemory);
@@ -343,10 +608,9 @@ void Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Clear()
     ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Size()
+void Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Size();
-    return _result;
+    ((::BRepCheck_DataMapOfShapeListOfStatus*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -361,6 +625,12 @@ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Iterator::Iterator()
     _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus::Iterator();
 }
 
+Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Iterator::Iterator(Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus^ theMap)
+    : Macad::Occt::BaseClass<::BRepCheck_DataMapOfShapeListOfStatus::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_DataMapOfShapeListOfStatus::Iterator(*(::BRepCheck_DataMapOfShapeListOfStatus*)theMap->NativeInstance);
+}
+
 bool Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Iterator::More()
 {
     bool _result = ((::BRepCheck_DataMapOfShapeListOfStatus::Iterator*)_NativeInstance)->More();
@@ -370,6 +640,18 @@ bool Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Iterator::More()
 void Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Iterator::Next()
 {
     ((::BRepCheck_DataMapOfShapeListOfStatus::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::BRepCheck_HListOfStatus^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Iterator::Value()
+{
+    Handle(::BRepCheck_HListOfStatus) _result = ((::BRepCheck_DataMapOfShapeListOfStatus::Iterator*)_NativeInstance)->Value();
+    return _result.IsNull() ? nullptr : Macad::Occt::BRepCheck_HListOfStatus::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::BRepCheck_HListOfStatus^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Iterator::ChangeValue()
+{
+    Handle(::BRepCheck_HListOfStatus) _result = ((::BRepCheck_DataMapOfShapeListOfStatus::Iterator*)_NativeInstance)->ChangeValue();
+    return _result.IsNull() ? nullptr : Macad::Occt::BRepCheck_HListOfStatus::CreateDowncasted(_result.get());
 }
 
 Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::Iterator::Key()
@@ -385,10 +667,58 @@ Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepCheck_DataMapOfShapeListOfStatus::It
 //  Class  BRepCheck_IndexedDataMapOfShapeResult
 //---------------------------------------------------------------------
 
+long long unsigned int Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::NbBuckets()
+{
+    long long unsigned int _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->NbBuckets();
+    return _result;
+}
+
+int Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Extent()
+{
+    int _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Length()
+{
+    int _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Size()
+{
+    long long unsigned int _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::IsEmpty()
+{
+    bool _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::BRepCheck_IndexedDataMapOfShapeResult()
     : Macad::Occt::BaseClass<::BRepCheck_IndexedDataMapOfShapeResult>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRepCheck_IndexedDataMapOfShapeResult();
+}
+
+Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::BRepCheck_IndexedDataMapOfShapeResult(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRepCheck_IndexedDataMapOfShapeResult>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_IndexedDataMapOfShapeResult(theNbBuckets, Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::BRepCheck_IndexedDataMapOfShapeResult(long long unsigned int theNbBuckets)
+    : Macad::Occt::BaseClass<::BRepCheck_IndexedDataMapOfShapeResult>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRepCheck_IndexedDataMapOfShapeResult(theNbBuckets, nullptr);
 }
 
 Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::BRepCheck_IndexedDataMapOfShapeResult(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator)
@@ -400,7 +730,7 @@ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::BRepCheck_IndexedDataMapOfSh
 Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::BRepCheck_IndexedDataMapOfShapeResult(int theNbBuckets)
     : Macad::Occt::BaseClass<::BRepCheck_IndexedDataMapOfShapeResult>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::BRepCheck_IndexedDataMapOfShapeResult(theNbBuckets, 0L);
+    _NativeInstance = new ::BRepCheck_IndexedDataMapOfShapeResult(theNbBuckets, nullptr);
 }
 
 void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Exchange(Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult^ theOther)
@@ -415,6 +745,11 @@ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult^ Macad::Occt::BRepCheck_Index
     return _result==nullptr ? nullptr : gcnew Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult(_result);
 }
 
+void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::ReSize(long long unsigned int N)
+{
+    ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->ReSize(N);
+}
+
 void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::ReSize(int N)
 {
     ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->ReSize(N);
@@ -426,15 +761,48 @@ int Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Add(Macad::Occt::TopoDS_
     return _result;
 }
 
+Macad::Occt::BRepCheck_Result^ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::TryBound(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem)
+{
+    Handle(::BRepCheck_Result) _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->TryBound(*(::TopoDS_Shape*)theKey1->NativeInstance, Handle(::BRepCheck_Result)(theItem->NativeInstance));
+    return _result.IsNull() ? nullptr : Macad::Occt::BRepCheck_Result::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::TryBind(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem)
+{
+    bool _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->TryBind(*(::TopoDS_Shape*)theKey1->NativeInstance, Handle(::BRepCheck_Result)(theItem->NativeInstance));
+    return _result;
+}
+
+bool Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Bind(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem)
+{
+    bool _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Bind(*(::TopoDS_Shape*)theKey1->NativeInstance, Handle(::BRepCheck_Result)(theItem->NativeInstance));
+    return _result;
+}
+
+Macad::Occt::BRepCheck_Result^ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Bound(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem)
+{
+    throw gcnew System::NotImplementedException();
+}
+
 bool Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Contains(Macad::Occt::TopoDS_Shape^ theKey1)
 {
     bool _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Contains(*(::TopoDS_Shape*)theKey1->NativeInstance);
     return _result;
 }
 
+void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Substitute(long long unsigned int theIndex, Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem)
+{
+    ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Substitute(theIndex, *(::TopoDS_Shape*)theKey1->NativeInstance, Handle(::BRepCheck_Result)(theItem->NativeInstance));
+}
+
 void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Substitute(int theIndex, Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theItem)
 {
     ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Substitute(theIndex, *(::TopoDS_Shape*)theKey1->NativeInstance, Handle(::BRepCheck_Result)(theItem->NativeInstance));
+}
+
+void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Swap(long long unsigned int theIndex1, long long unsigned int theIndex2)
+{
+    ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Swap(theIndex1, theIndex2);
 }
 
 void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Swap(int theIndex1, int theIndex2)
@@ -447,6 +815,11 @@ void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::RemoveLast()
     ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->RemoveLast();
 }
 
+void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::RemoveFromIndex(long long unsigned int theIndex)
+{
+    ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->RemoveFromIndex(theIndex);
+}
+
 void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::RemoveFromIndex(int theIndex)
 {
     ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->RemoveFromIndex(theIndex);
@@ -457,6 +830,13 @@ void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::RemoveKey(Macad::Occt::
     ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->RemoveKey(*(::TopoDS_Shape*)theKey1->NativeInstance);
 }
 
+Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::FindKey(long long unsigned int theIndex)
+{
+    ::TopoDS_Shape* _result = new ::TopoDS_Shape();
+    *_result = (::TopoDS_Shape)((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->FindKey(theIndex);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
+}
+
 Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::FindKey(int theIndex)
 {
     ::TopoDS_Shape* _result = new ::TopoDS_Shape();
@@ -464,9 +844,21 @@ Macad::Occt::TopoDS_Shape^ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::F
     return _result==nullptr ? nullptr : gcnew Macad::Occt::TopoDS_Shape(_result);
 }
 
+Macad::Occt::BRepCheck_Result^ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::FindFromIndex(long long unsigned int theIndex)
+{
+    Handle(::BRepCheck_Result) _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->FindFromIndex(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::BRepCheck_Result::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRepCheck_Result^ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::FindFromIndex(int theIndex)
 {
     Handle(::BRepCheck_Result) _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->FindFromIndex(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::BRepCheck_Result::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::BRepCheck_Result^ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::ChangeFromIndex(long long unsigned int theIndex)
+{
+    Handle(::BRepCheck_Result) _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->ChangeFromIndex(theIndex);
     return _result.IsNull() ? nullptr : Macad::Occt::BRepCheck_Result::CreateDowncasted(_result.get());
 }
 
@@ -504,6 +896,14 @@ Macad::Occt::BRepCheck_Result^ Macad::Occt::BRepCheck_IndexedDataMapOfShapeResul
     throw gcnew System::NotImplementedException();
 }
 
+bool Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::FindFromKey(Macad::Occt::TopoDS_Shape^ theKey1, Macad::Occt::BRepCheck_Result^ theValue)
+{
+    Handle(::BRepCheck_Result) h_theValue = theValue->NativeInstance;
+    bool _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->FindFromKey(*(::TopoDS_Shape*)theKey1->NativeInstance, h_theValue);
+    theValue->NativeInstance = h_theValue.get();
+    return _result;
+}
+
 void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Clear(bool doReleaseMemory)
 {
     ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Clear(doReleaseMemory);
@@ -514,10 +914,9 @@ void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Clear()
     ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Clear(false);
 }
 
-int Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Size()
+void Macad::Occt::BRepCheck_IndexedDataMapOfShapeResult::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
 {
-    int _result = ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Size();
-    return _result;
+    ((::BRepCheck_IndexedDataMapOfShapeResult*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
 
@@ -651,6 +1050,12 @@ void Macad::Occt::BRepCheck_Result::NextShapeInContext()
 void Macad::Occt::BRepCheck_Result::SetParallel(bool theIsParallel)
 {
     ((::BRepCheck_Result*)_NativeInstance)->SetParallel(theIsParallel);
+}
+
+bool Macad::Occt::BRepCheck_Result::IsParallel()
+{
+    bool _result = ((::BRepCheck_Result*)_NativeInstance)->IsParallel();
+    return _result;
 }
 
 bool Macad::Occt::BRepCheck_Result::IsStatusOnShape(Macad::Occt::TopoDS_Shape^ theShape)

@@ -58,10 +58,10 @@ public:
 //  Class  BRepAlgoAPI_BuilderAlgo
 //---------------------------------------------------------------------
 /// <summary>
-/// The class contains API level of the General Fuse algorithm.<br>
+/// The class contains API level of the General Fuse algorithm.
 /// 
 /// Additionally to the options defined in the base class, the algorithm has
-/// the following options:<br>
+/// the following options:
 /// - *Safe processing mode* - allows to avoid modification of the input
 /// shapes during the operation (by default it is off);
 /// - *Gluing options* - allows to speed up the calculation of the intersections
@@ -73,12 +73,12 @@ public:
 /// - *Disabling history collection* - allows disabling the collection of the history
 /// of shapes modifications during the operation.
 /// 
-/// It returns the following Error statuses:<br>
-/// - 0 - in case of success;<br>
+/// It returns the following Error statuses:
+/// - 0 - in case of success;
 /// - *BOPAlgo_AlertTooFewArguments* - in case there are no enough arguments to perform the
-/// operation;<br>
-/// - *BOPAlgo_AlertIntersectionFailed* - in case the intersection of the arguments has failed;<br>
-/// - *BOPAlgo_AlertBuilderFailed* - in case building of the result shape has failed.<br>
+/// operation;
+/// - *BOPAlgo_AlertIntersectionFailed* - in case the intersection of the arguments has failed;
+/// - *BOPAlgo_AlertBuilderFailed* - in case building of the result shape has failed.
 /// 
 /// Warnings statuses from underlying DS Filler and Builder algorithms
 /// are collected in the report.
@@ -317,7 +317,7 @@ public:
     /// given shape, contained in the result.
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ theS);
     /// <summary>
-    /// Returns the list  of shapes generated from the shape <theS>.
+    /// Returns the list of shapes generated from the shape <theS>.
     /// In frames of Boolean Operations algorithms only Edges and Faces
     /// could have Generated elements, as only they produce new elements
     /// during intersection:
@@ -395,8 +395,8 @@ public:
 /// - For Boolean operation *SECTION* the arguments can be of any type.
 /// 
 /// Additionally to the errors of the base class the algorithm returns
-/// the following Errors:<br>
-/// - *BOPAlgo_AlertBOPNotSet* - in case the type of Boolean Operation is not set.<br>
+/// the following Errors:
+/// - *BOPAlgo_AlertBOPNotSet* - in case the type of Boolean Operation is not set.
 /// </summary>
 public ref class BRepAlgoAPI_BooleanOperation
     : public Macad::Occt::BRepAlgoAPI_BuilderAlgo
@@ -491,12 +491,12 @@ public:
 /// The class provides two ways of checking shape(-s)
 /// 1. Constructors
 /// BRepAlgoAPI_Check aCh(theS);
-/// Standard_Boolean isValid = aCh.IsValid();
+/// bool isValid = aCh.IsValid();
 /// 2. Methods SetData and Perform
 /// BRepAlgoAPI_Check aCh;
-/// aCh.SetData(theS1, theS2, BOPAlgo_FUSE, Standard_False);
+/// aCh.SetData(theS1, theS2, BOPAlgo_FUSE, false);
 /// aCh.Perform();
-/// Standard_Boolean isValid = aCh.IsValid();
+/// bool isValid = aCh.IsValid();
 /// 
 /// </summary>
 public ref class BRepAlgoAPI_Check sealed
@@ -1094,9 +1094,9 @@ public:
 /// Here is the example of usage of the algorithm:
 /// ~~~~
 /// TopoDS_Shape aSolid = ...;               // Input shape to remove the features from
-/// TopTools_ListOfShape aFeatures = ...;    // Features to remove from the shape
-/// Standard_Boolean bRunParallel = ...;     // Parallel processing mode
-/// Standard_Boolean isHistoryNeeded = ...;  // History support
+/// NCollection_List<TopoDS_Shape> aFeatures = ...;    // Features to remove from the shape
+/// bool bRunParallel = ...;     // Parallel processing mode
+/// bool isHistoryNeeded = ...;  // History support
 /// 
 /// BRepAlgoAPI_Defeaturing aDF;             // De-Featuring algorithm
 /// aDF.SetShape(aSolid);                    // Set the shape
@@ -1244,7 +1244,7 @@ public:
 //---------------------------------------------------------------------
 /// <summary>
 /// The class provides Boolean fusion operation
-/// between arguments and tools  (Boolean Union).
+/// between arguments and tools (Boolean Union).
 /// </summary>
 public ref class BRepAlgoAPI_Fuse sealed
     : public Macad::Occt::BRepAlgoAPI_BooleanOperation
@@ -1546,30 +1546,30 @@ public:
 /// <summary>
 /// The class contains API level of the **Splitter** algorithm,
 /// which allows splitting a group of arbitrary shapes by the
-/// other group of arbitrary shapes.<br>
-/// The arguments of the operation are divided on two groups:<br>
-/// *Objects* - shapes that will be split;<br>
-/// *Tools*   - shapes by which the *Objects* will be split.<br>
+/// other group of arbitrary shapes.
+/// The arguments of the operation are divided on two groups:
+/// *Objects* - shapes that will be split;
+/// *Tools*   - shapes by which the *Objects* will be split.
 /// The result of the operation contains only the split parts
-/// of the shapes from the group of *Objects*.<br>
+/// of the shapes from the group of *Objects*.
 /// The split parts of the shapes from the group of *Tools* are excluded
-/// from the result.<br>
+/// from the result.
 /// The shapes can be split by the other shapes from the same group
 /// (in case these shapes are interfering).
 /// 
 /// The class is a General Fuse based algorithm. Thus, all options
 /// of the General Fuse algorithm such as Fuzzy mode, safe processing mode,
 /// parallel processing mode, gluing mode and history support are also
-/// available in this algorithm.<br>
+/// available in this algorithm.
 /// There is no requirement on the existence of the *Tools* shapes.
 /// And if there are no *Tools* shapes, the result of the splitting
 /// operation will be equivalent to the General Fuse result.
 /// 
-/// The algorithm returns the following Error statuses:<br>
-/// - 0 - in case of success;<br>
+/// The algorithm returns the following Error statuses:
+/// - 0 - in case of success;
 /// - *BOPAlgo_AlertTooFewArguments*    - in case there is no enough arguments for the
-/// operation;<br>
-/// - *BOPAlgo_AlertIntersectionFailed* - in case the Intersection of the arguments has failed;<br>
+/// operation;
+/// - *BOPAlgo_AlertIntersectionFailed* - in case the Intersection of the arguments has failed;
 /// - *BOPAlgo_AlertBuilderFailed*      - in case the Building of the result has failed.
 /// </summary>
 public ref class BRepAlgoAPI_Splitter sealed

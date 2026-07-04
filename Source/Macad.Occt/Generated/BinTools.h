@@ -371,7 +371,7 @@ public:
     /// </summary>
     void Clear();
     /// <summary>
-    /// Incorporate a new Curve in the  set and returns
+    /// Incorporate a new Curve in the set and returns
     /// its index.
     /// </summary>
     int Add(Macad::Occt::Geom2d_Curve^ C);
@@ -384,12 +384,12 @@ public:
     /// </summary>
     int Index(Macad::Occt::Geom2d_Curve^ C);
     /// <summary>
-    /// Writes the content of  me  on the stream <OS> in a
+    /// Writes the content of me on the stream <OS> in a
     /// format that can be read back by Read.
     /// </summary>
     void Write(System::IO::TextWriter^ OS, Macad::Occt::Message_ProgressRange^ theRange);
     /// <summary>
-    /// Writes the content of  me  on the stream <OS> in a
+    /// Writes the content of me on the stream <OS> in a
     /// format that can be read back by Read.
     /// </summary>
     void Write(System::IO::TextWriter^ OS);
@@ -444,7 +444,7 @@ public:
     /// </summary>
     void Clear();
     /// <summary>
-    /// Incorporate a new Curve in the  set and returns
+    /// Incorporate a new Curve in the set and returns
     /// its index.
     /// </summary>
     int Add(Macad::Occt::Geom_Curve^ C);
@@ -457,12 +457,12 @@ public:
     /// </summary>
     int Index(Macad::Occt::Geom_Curve^ C);
     /// <summary>
-    /// Writes the content of  me  on the stream <OS> in a
+    /// Writes the content of me on the stream <OS> in a
     /// format that can be read back by Read.
     /// </summary>
     void Write(System::IO::TextWriter^ OS, Macad::Occt::Message_ProgressRange^ theRange);
     /// <summary>
-    /// Writes the content of  me  on the stream <OS> in a
+    /// Writes the content of me on the stream <OS> in a
     /// format that can be read back by Read.
     /// </summary>
     void Write(System::IO::TextWriter^ OS);
@@ -629,7 +629,7 @@ public:
     /// </summary>
     void Clear();
     /// <summary>
-    /// Incorporate a new Location in the  set and returns
+    /// Incorporate a new Location in the set and returns
     /// its index.
     /// </summary>
     int Add(Macad::Occt::TopLoc_Location^ L);
@@ -646,7 +646,7 @@ public:
     /// </summary>
     int NbLocations();
     /// <summary>
-    /// Writes the content of  me  on the stream <OS> in a
+    /// Writes the content of me on the stream <OS> in a
     /// format that can be read back by Read.
     /// </summary>
     void Write(System::IO::TextWriter^ OS);
@@ -726,7 +726,7 @@ public:
     /// </summary>
     void Clear();
     /// <summary>
-    /// Writes the content of  me  on the stream <OS> in binary
+    /// Writes the content of me on the stream <OS> in binary
     /// format that can be read back by Read.
     /// 
     /// Writes the locations.
@@ -734,14 +734,14 @@ public:
     /// Writes the geometry calling WriteGeometry.
     /// 
     /// Dumps the shapes from last to first.
-    /// For each shape  :
+    /// For each shape:
     /// Write the type.
     /// calls WriteGeometry(S).
     /// Write the flags, the subshapes.
     /// </summary>
     void Write(System::IO::TextWriter^ parameter1, Macad::Occt::Message_ProgressRange^ parameter2);
     /// <summary>
-    /// Writes the content of  me  on the stream <OS> in binary
+    /// Writes the content of me on the stream <OS> in binary
     /// format that can be read back by Read.
     /// 
     /// Writes the locations.
@@ -749,7 +749,7 @@ public:
     /// Writes the geometry calling WriteGeometry.
     /// 
     /// Dumps the shapes from last to first.
-    /// For each shape  :
+    /// For each shape:
     /// Write the type.
     /// calls WriteGeometry(S).
     /// Write the flags, the subshapes.
@@ -758,7 +758,7 @@ public:
     /* Method skipped due to unknown mapping: void Read(istream parameter1, Message_ProgressRange parameter2, ) */
     /* Method skipped due to unknown mapping: void Read(istream parameter1, Message_ProgressRange parameter2, ) */
     /// <summary>
-    /// Writes   on  <OS>   the shape   <S>.    Writes the
+    /// Writes on <OS> the shape <S>. Writes the
     /// orientation, the index of the TShape and the index
     /// of the Location.
     /// </summary>
@@ -857,7 +857,7 @@ public:
     /// </summary>
     void Clear();
     /// <summary>
-    /// Incorporate a new Surface in the  set and returns
+    /// Incorporate a new Surface in the set and returns
     /// its index.
     /// </summary>
     int Add(Macad::Occt::Geom_Surface^ S);
@@ -870,12 +870,12 @@ public:
     /// </summary>
     int Index(Macad::Occt::Geom_Surface^ S);
     /// <summary>
-    /// Writes the content of  me  on the stream <OS> in
+    /// Writes the content of me on the stream <OS> in
     /// binary format that can be read back by Read.
     /// </summary>
     void Write(System::IO::TextWriter^ OS, Macad::Occt::Message_ProgressRange^ theRange);
     /// <summary>
-    /// Writes the content of  me  on the stream <OS> in
+    /// Writes the content of me on the stream <OS> in
     /// binary format that can be read back by Read.
     /// </summary>
     void Write(System::IO::TextWriter^ OS);
@@ -953,7 +953,7 @@ public:
     /// </summary>
     int NbShapes();
     /// <summary>
-    /// Writes the content of  me  on the stream <OS> in binary
+    /// Writes the content of me on the stream <OS> in binary
     /// format that can be read back by Read.
     /// 
     /// Writes the locations.
@@ -961,14 +961,14 @@ public:
     /// Writes the geometry calling WriteGeometry.
     /// 
     /// Dumps the shapes from last to first.
-    /// For each shape  :
+    /// For each shape:
     /// Write the type.
     /// calls WriteGeometry(S).
     /// Write the flags, the subshapes.
     /// </summary>
     void Write(System::IO::TextWriter^ OS, Macad::Occt::Message_ProgressRange^ theRange);
     /// <summary>
-    /// Writes the content of  me  on the stream <OS> in binary
+    /// Writes the content of me on the stream <OS> in binary
     /// format that can be read back by Read.
     /// 
     /// Writes the locations.
@@ -976,7 +976,7 @@ public:
     /// Writes the geometry calling WriteGeometry.
     /// 
     /// Dumps the shapes from last to first.
-    /// For each shape  :
+    /// For each shape:
     /// Write the type.
     /// calls WriteGeometry(S).
     /// Write the flags, the subshapes.
@@ -985,18 +985,18 @@ public:
     /* Method skipped due to unknown mapping: void Read(istream IS, Message_ProgressRange theRange, ) */
     /* Method skipped due to unknown mapping: void Read(istream IS, Message_ProgressRange theRange, ) */
     /// <summary>
-    /// Writes   on  <OS>   the shape   <S>.    Writes the
+    /// Writes on <OS> the shape <S>. Writes the
     /// orientation, the index of the TShape and the index
     /// of the Location.
     /// </summary>
     void Write(Macad::Occt::TopoDS_Shape^ S, System::IO::TextWriter^ OS);
     /// <summary>
-    /// Writes the geometry of  me  on the stream <OS> in a
+    /// Writes the geometry of me on the stream <OS> in a
     /// binary format that can be read back by Read.
     /// </summary>
     void WriteGeometry(System::IO::TextWriter^ OS, Macad::Occt::Message_ProgressRange^ theRange);
     /// <summary>
-    /// Writes the geometry of  me  on the stream <OS> in a
+    /// Writes the geometry of me on the stream <OS> in a
     /// binary format that can be read back by Read.
     /// </summary>
     void WriteGeometry(System::IO::TextWriter^ OS);
@@ -1016,7 +1016,7 @@ public:
     /// </summary>
     void AddShape(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Inserts  the shape <S2> in the shape <S1>.
+    /// Inserts the shape <S2> in the shape <S1>.
     /// </summary>
     void AddShapes(Macad::Occt::TopoDS_Shape^ S1, Macad::Occt::TopoDS_Shape^ S2);
     /* Method skipped due to unknown mapping: void ReadPolygon3D(istream IS, Message_ProgressRange theRange, ) */

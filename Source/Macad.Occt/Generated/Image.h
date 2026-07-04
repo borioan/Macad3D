@@ -2152,7 +2152,7 @@ public:
     /// <param name="in]">
     /// theParams    video parameters
     /// </param>
-    bool Open(char theFileName, Macad::Occt::Image_VideoParams^ theParams);
+    bool Open(System::String^ theFileName, Macad::Occt::Image_VideoParams^ theParams);
     /// <summary>
     /// Return current frame index.
     /// </summary>

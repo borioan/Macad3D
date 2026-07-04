@@ -230,10 +230,16 @@ void Macad::Occt::GProp_CelGProps::Perform(Macad::Occt::gp_Lin^ C, double U1, do
 //  Class  GProp_PEquation
 //---------------------------------------------------------------------
 
-Macad::Occt::GProp_PEquation::GProp_PEquation(Macad::Occt::TColgp_Array1OfPnt^ Pnts, double Tol)
+Macad::Occt::GProp_PEquation::GProp_PEquation(Macad::Occt::TColgp_Array1OfPnt^ thePnts, double theTol)
     : Macad::Occt::BaseClass<::GProp_PEquation>(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::GProp_PEquation(*(::TColgp_Array1OfPnt*)Pnts->NativeInstance, Tol);
+    _NativeInstance = new ::GProp_PEquation(*(::TColgp_Array1OfPnt*)thePnts->NativeInstance, theTol);
+}
+
+Macad::Occt::GProp_PEquation::Type Macad::Occt::GProp_PEquation::GetType()
+{
+    ::GProp_PEquation::Type _result = ((::GProp_PEquation*)_NativeInstance)->GetType();
+    return (Macad::Occt::GProp_PEquation::Type)_result;
 }
 
 bool Macad::Occt::GProp_PEquation::IsPlanar()
@@ -279,13 +285,31 @@ Macad::Occt::Pnt Macad::Occt::GProp_PEquation::Point()
     return Macad::Occt::Pnt(_nativeResult);
 }
 
-void Macad::Occt::GProp_PEquation::Box(Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3)
+void Macad::Occt::GProp_PEquation::Box(Macad::Occt::Pnt% theP, Macad::Occt::Vec% theV1, Macad::Occt::Vec% theV2, Macad::Occt::Vec% theV3)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec> pp_V3 = &V3;
-    ((::GProp_PEquation*)_NativeInstance)->Box(*(gp_Pnt*)pp_P, *(gp_Vec*)pp_V1, *(gp_Vec*)pp_V2, *(gp_Vec*)pp_V3);
+    pin_ptr<Macad::Occt::Pnt> pp_theP = &theP;
+    pin_ptr<Macad::Occt::Vec> pp_theV1 = &theV1;
+    pin_ptr<Macad::Occt::Vec> pp_theV2 = &theV2;
+    pin_ptr<Macad::Occt::Vec> pp_theV3 = &theV3;
+    ((::GProp_PEquation*)_NativeInstance)->Box(*(gp_Pnt*)pp_theP, *(gp_Vec*)pp_theV1, *(gp_Vec*)pp_theV2, *(gp_Vec*)pp_theV3);
+}
+
+Macad::Occt::Pnt Macad::Occt::GProp_PEquation::Barycentre()
+{
+    ::gp_Pnt _nativeResult = ((::GProp_PEquation*)_NativeInstance)->Barycentre();
+    return Macad::Occt::Pnt(_nativeResult);
+}
+
+Macad::Occt::Vec Macad::Occt::GProp_PEquation::PrincipalAxis(int theIndex)
+{
+    ::gp_Vec _nativeResult = ((::GProp_PEquation*)_NativeInstance)->PrincipalAxis(theIndex);
+    return Macad::Occt::Vec(_nativeResult);
+}
+
+double Macad::Occt::GProp_PEquation::Extent(int theIndex)
+{
+    double _result = ((::GProp_PEquation*)_NativeInstance)->Extent(theIndex);
+    return _result;
 }
 
 
@@ -300,66 +324,66 @@ Macad::Occt::GProp_PGProps::GProp_PGProps()
     _NativeInstance = new ::GProp_PGProps();
 }
 
-Macad::Occt::GProp_PGProps::GProp_PGProps(Macad::Occt::TColgp_Array1OfPnt^ Pnts)
+Macad::Occt::GProp_PGProps::GProp_PGProps(Macad::Occt::TColgp_Array1OfPnt^ thePnts)
     : Macad::Occt::GProp_GProps(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::GProp_PGProps(*(::TColgp_Array1OfPnt*)Pnts->NativeInstance);
+    _NativeInstance = new ::GProp_PGProps(*(::TColgp_Array1OfPnt*)thePnts->NativeInstance);
 }
 
-Macad::Occt::GProp_PGProps::GProp_PGProps(Macad::Occt::TColgp_Array2OfPnt^ Pnts)
+Macad::Occt::GProp_PGProps::GProp_PGProps(Macad::Occt::TColgp_Array2OfPnt^ thePnts)
     : Macad::Occt::GProp_GProps(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::GProp_PGProps(*(::TColgp_Array2OfPnt*)Pnts->NativeInstance);
+    _NativeInstance = new ::GProp_PGProps(*(::TColgp_Array2OfPnt*)thePnts->NativeInstance);
 }
 
-Macad::Occt::GProp_PGProps::GProp_PGProps(Macad::Occt::TColgp_Array1OfPnt^ Pnts, Macad::Occt::TColStd_Array1OfReal^ Density)
+Macad::Occt::GProp_PGProps::GProp_PGProps(Macad::Occt::TColgp_Array1OfPnt^ thePnts, Macad::Occt::TColStd_Array1OfReal^ theDensity)
     : Macad::Occt::GProp_GProps(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::GProp_PGProps(*(::TColgp_Array1OfPnt*)Pnts->NativeInstance, *(::TColStd_Array1OfReal*)Density->NativeInstance);
+    _NativeInstance = new ::GProp_PGProps(*(::TColgp_Array1OfPnt*)thePnts->NativeInstance, *(::TColStd_Array1OfReal*)theDensity->NativeInstance);
 }
 
-Macad::Occt::GProp_PGProps::GProp_PGProps(Macad::Occt::TColgp_Array2OfPnt^ Pnts, Macad::Occt::TColStd_Array2OfReal^ Density)
+Macad::Occt::GProp_PGProps::GProp_PGProps(Macad::Occt::TColgp_Array2OfPnt^ thePnts, Macad::Occt::TColStd_Array2OfReal^ theDensity)
     : Macad::Occt::GProp_GProps(BaseClass::InitMode::Uninitialized)
 {
-    _NativeInstance = new ::GProp_PGProps(*(::TColgp_Array2OfPnt*)Pnts->NativeInstance, *(::TColStd_Array2OfReal*)Density->NativeInstance);
+    _NativeInstance = new ::GProp_PGProps(*(::TColgp_Array2OfPnt*)thePnts->NativeInstance, *(::TColStd_Array2OfReal*)theDensity->NativeInstance);
 }
 
-void Macad::Occt::GProp_PGProps::AddPoint(Macad::Occt::Pnt P)
+void Macad::Occt::GProp_PGProps::AddPoint(Macad::Occt::Pnt thePnt)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    ((::GProp_PGProps*)_NativeInstance)->AddPoint(*(gp_Pnt*)pp_P);
+    pin_ptr<Macad::Occt::Pnt> pp_thePnt = &thePnt;
+    ((::GProp_PGProps*)_NativeInstance)->AddPoint(*(gp_Pnt*)pp_thePnt);
 }
 
-void Macad::Occt::GProp_PGProps::AddPoint(Macad::Occt::Pnt P, double Density)
+void Macad::Occt::GProp_PGProps::AddPoint(Macad::Occt::Pnt thePnt, double theDensity)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    ((::GProp_PGProps*)_NativeInstance)->AddPoint(*(gp_Pnt*)pp_P, Density);
+    pin_ptr<Macad::Occt::Pnt> pp_thePnt = &thePnt;
+    ((::GProp_PGProps*)_NativeInstance)->AddPoint(*(gp_Pnt*)pp_thePnt, theDensity);
 }
 
-Macad::Occt::Pnt Macad::Occt::GProp_PGProps::Barycentre(Macad::Occt::TColgp_Array1OfPnt^ Pnts)
+Macad::Occt::Pnt Macad::Occt::GProp_PGProps::Barycentre(Macad::Occt::TColgp_Array1OfPnt^ thePnts)
 {
-    ::gp_Pnt _nativeResult = ::GProp_PGProps::Barycentre(*(::TColgp_Array1OfPnt*)Pnts->NativeInstance);
+    ::gp_Pnt _nativeResult = ::GProp_PGProps::Barycentre(*(::TColgp_Array1OfPnt*)thePnts->NativeInstance);
     return Macad::Occt::Pnt(_nativeResult);
 }
 
-Macad::Occt::Pnt Macad::Occt::GProp_PGProps::Barycentre(Macad::Occt::TColgp_Array2OfPnt^ Pnts)
+Macad::Occt::Pnt Macad::Occt::GProp_PGProps::Barycentre(Macad::Occt::TColgp_Array2OfPnt^ thePnts)
 {
-    ::gp_Pnt _nativeResult = ::GProp_PGProps::Barycentre(*(::TColgp_Array2OfPnt*)Pnts->NativeInstance);
+    ::gp_Pnt _nativeResult = ::GProp_PGProps::Barycentre(*(::TColgp_Array2OfPnt*)thePnts->NativeInstance);
     return Macad::Occt::Pnt(_nativeResult);
 }
 
-void Macad::Occt::GProp_PGProps::Barycentre(Macad::Occt::TColgp_Array1OfPnt^ Pnts, Macad::Occt::TColStd_Array1OfReal^ Density, double% Mass, Macad::Occt::Pnt% G)
+void Macad::Occt::GProp_PGProps::Barycentre(Macad::Occt::TColgp_Array1OfPnt^ thePnts, Macad::Occt::TColStd_Array1OfReal^ theDensity, double% theMass, Macad::Occt::Pnt% theG)
 {
-    pin_ptr<double> pp_Mass = &Mass;
-    pin_ptr<Macad::Occt::Pnt> pp_G = &G;
-    ::GProp_PGProps::Barycentre(*(::TColgp_Array1OfPnt*)Pnts->NativeInstance, *(::TColStd_Array1OfReal*)Density->NativeInstance, *(double*)pp_Mass, *(gp_Pnt*)pp_G);
+    pin_ptr<double> pp_theMass = &theMass;
+    pin_ptr<Macad::Occt::Pnt> pp_theG = &theG;
+    ::GProp_PGProps::Barycentre(*(::TColgp_Array1OfPnt*)thePnts->NativeInstance, *(::TColStd_Array1OfReal*)theDensity->NativeInstance, *(double*)pp_theMass, *(gp_Pnt*)pp_theG);
 }
 
-void Macad::Occt::GProp_PGProps::Barycentre(Macad::Occt::TColgp_Array2OfPnt^ Pnts, Macad::Occt::TColStd_Array2OfReal^ Density, double% Mass, Macad::Occt::Pnt% G)
+void Macad::Occt::GProp_PGProps::Barycentre(Macad::Occt::TColgp_Array2OfPnt^ thePnts, Macad::Occt::TColStd_Array2OfReal^ theDensity, double% theMass, Macad::Occt::Pnt% theG)
 {
-    pin_ptr<double> pp_Mass = &Mass;
-    pin_ptr<Macad::Occt::Pnt> pp_G = &G;
-    ::GProp_PGProps::Barycentre(*(::TColgp_Array2OfPnt*)Pnts->NativeInstance, *(::TColStd_Array2OfReal*)Density->NativeInstance, *(double*)pp_Mass, *(gp_Pnt*)pp_G);
+    pin_ptr<double> pp_theMass = &theMass;
+    pin_ptr<Macad::Occt::Pnt> pp_theG = &theG;
+    ::GProp_PGProps::Barycentre(*(::TColgp_Array2OfPnt*)thePnts->NativeInstance, *(::TColStd_Array2OfReal*)theDensity->NativeInstance, *(double*)pp_theMass, *(gp_Pnt*)pp_theG);
 }
 
 
@@ -434,18 +458,18 @@ void Macad::Occt::GProp_SelGProps::Perform(Macad::Occt::gp_Torus^ S, double Teta
 //  Class  GProp_UndefinedAxis
 //---------------------------------------------------------------------
 
-Macad::Occt::GProp_UndefinedAxis::GProp_UndefinedAxis()
-    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::GProp_UndefinedAxis();
-}
-
 Macad::Occt::GProp_UndefinedAxis::GProp_UndefinedAxis(System::String^ theMessage)
     : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    NativeInstance = new ::GProp_UndefinedAxis(sz_theMessage);
+    _NativeInstance = new ::GProp_UndefinedAxis(sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+}
+
+Macad::Occt::GProp_UndefinedAxis::GProp_UndefinedAxis()
+    : Macad::Occt::Standard_DomainError(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::GProp_UndefinedAxis("");
 }
 
 Macad::Occt::GProp_UndefinedAxis::GProp_UndefinedAxis(System::String^ theMessage, System::String^ theStackTrace)
@@ -453,50 +477,15 @@ Macad::Occt::GProp_UndefinedAxis::GProp_UndefinedAxis(System::String^ theMessage
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
     const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    NativeInstance = new ::GProp_UndefinedAxis(sz_theMessage, sz_theStackTrace);
+    _NativeInstance = new ::GProp_UndefinedAxis(sz_theMessage, sz_theStackTrace);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
 }
 
-void Macad::Occt::GProp_UndefinedAxis::Raise(System::String^ theMessage)
+System::String^ Macad::Occt::GProp_UndefinedAxis::ExceptionType()
 {
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    ::GProp_UndefinedAxis::Raise(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-void Macad::Occt::GProp_UndefinedAxis::Raise()
-{
-    ::GProp_UndefinedAxis::Raise("");
-}
-
-Macad::Occt::GProp_UndefinedAxis^ Macad::Occt::GProp_UndefinedAxis::NewInstance(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    Handle(::GProp_UndefinedAxis) _result = ::GProp_UndefinedAxis::NewInstance(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    return _result.IsNull() ? nullptr : Macad::Occt::GProp_UndefinedAxis::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::GProp_UndefinedAxis^ Macad::Occt::GProp_UndefinedAxis::NewInstance()
-{
-    Handle(::GProp_UndefinedAxis) _result = ::GProp_UndefinedAxis::NewInstance("");
-    return _result.IsNull() ? nullptr : Macad::Occt::GProp_UndefinedAxis::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::GProp_UndefinedAxis^ Macad::Occt::GProp_UndefinedAxis::NewInstance(System::String^ theMessage, System::String^ theStackTrace)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    Handle(::GProp_UndefinedAxis) _result = ::GProp_UndefinedAxis::NewInstance(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-    return _result.IsNull() ? nullptr : Macad::Occt::GProp_UndefinedAxis::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::GProp_UndefinedAxis^ Macad::Occt::GProp_UndefinedAxis::CreateDowncasted(::GProp_UndefinedAxis* instance)
-{
-    return gcnew Macad::Occt::GProp_UndefinedAxis( instance );
+    Standard_CString _result = ((::GProp_UndefinedAxis*)_NativeInstance)->ExceptionType();
+    return gcnew System::String(_result);
 }
 
 

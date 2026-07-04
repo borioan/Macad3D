@@ -303,11 +303,11 @@ void Macad::Occt::BRepLib::UpdateDeflection(Macad::Occt::TopoDS_Shape^ S)
     ::BRepLib::UpdateDeflection(*(::TopoDS_Shape*)S->NativeInstance);
 }
 
-void Macad::Occt::BRepLib::BoundingVertex(Macad::Occt::TopoDS_ListOfShape^ theLV, Macad::Occt::Pnt% theNewCenter, double% theNewTol)
+void Macad::Occt::BRepLib::BoundingVertex(Macad::Occt::TopTools_ListOfShape^ theLV, Macad::Occt::Pnt% theNewCenter, double% theNewTol)
 {
     pin_ptr<Macad::Occt::Pnt> pp_theNewCenter = &theNewCenter;
     pin_ptr<double> pp_theNewTol = &theNewTol;
-    ::BRepLib::BoundingVertex(*(::TopoDS_ListOfShape*)theLV->NativeInstance, *(gp_Pnt*)pp_theNewCenter, *(double*)pp_theNewTol);
+    ::BRepLib::BoundingVertex(*(::TopTools_ListOfShape*)theLV->NativeInstance, *(gp_Pnt*)pp_theNewCenter, *(double*)pp_theNewTol);
 }
 
 bool Macad::Occt::BRepLib::FindValidRange(Macad::Occt::Adaptor3d_Curve^ theCurve, double theTolE, double theParV1, Macad::Occt::Pnt thePntV1, double theTolV1, double theParV2, Macad::Occt::Pnt thePntV2, double theTolV2, double% theFirst, double% theLast)

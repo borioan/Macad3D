@@ -22,22 +22,46 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 //  Class  Prs3d_NListOfSequenceOfPnt
 //---------------------------------------------------------------------
 
+int Macad::Occt::Prs3d_NListOfSequenceOfPnt::Extent()
+{
+    int _result = ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::Prs3d_NListOfSequenceOfPnt::Length()
+{
+    int _result = ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::Prs3d_NListOfSequenceOfPnt::Size()
+{
+    long long unsigned int _result = ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::Prs3d_NListOfSequenceOfPnt::IsEmpty()
+{
+    bool _result = ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::Prs3d_NListOfSequenceOfPnt::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::Prs3d_NListOfSequenceOfPnt::Prs3d_NListOfSequenceOfPnt()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::Prs3d_NListOfSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::Prs3d_NListOfSequenceOfPnt();
 }
 
 Macad::Occt::Prs3d_NListOfSequenceOfPnt::Prs3d_NListOfSequenceOfPnt(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::Prs3d_NListOfSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::Prs3d_NListOfSequenceOfPnt(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::Prs3d_NListOfSequenceOfPnt::Size()
-{
-    int _result = ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Size();
-    return _result;
 }
 
 Macad::Occt::Prs3d_NListOfSequenceOfPnt^ Macad::Occt::Prs3d_NListOfSequenceOfPnt::Assign(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther)
@@ -54,7 +78,7 @@ void Macad::Occt::Prs3d_NListOfSequenceOfPnt::Clear(Macad::Occt::NCollection_Bas
 
 void Macad::Occt::Prs3d_NListOfSequenceOfPnt::Clear()
 {
-    ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Clear(0L);
+    ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::Prs3d_NListOfSequenceOfPnt::First()
@@ -75,10 +99,25 @@ Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::Prs3d_NListOfSequenceOfPnt::App
     return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::Prs3d_NListOfSequenceOfPnt::Append(Macad::Occt::TColgp_HSequenceOfPnt^ theItem, Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator^ theIter)
+{
+    ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Append(Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance), *(::Prs3d_NListOfSequenceOfPnt::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::Prs3d_NListOfSequenceOfPnt::Append(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther)
+{
+    ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Append(*(::Prs3d_NListOfSequenceOfPnt*)theOther->NativeInstance);
+}
+
 Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::Prs3d_NListOfSequenceOfPnt::Prepend(Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
 {
     Handle(::TColgp_HSequenceOfPnt) _result = ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Prepend(Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
     return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::Prs3d_NListOfSequenceOfPnt::Prepend(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther)
+{
+    ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Prepend(*(::Prs3d_NListOfSequenceOfPnt*)theOther->NativeInstance);
 }
 
 void Macad::Occt::Prs3d_NListOfSequenceOfPnt::RemoveFirst()
@@ -97,15 +136,30 @@ Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::Prs3d_NListOfSequenceOfPnt::Ins
     return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::Prs3d_NListOfSequenceOfPnt::InsertBefore(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther, Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator^ theIter)
+{
+    ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->InsertBefore(*(::Prs3d_NListOfSequenceOfPnt*)theOther->NativeInstance, *(::Prs3d_NListOfSequenceOfPnt::Iterator*)theIter->NativeInstance);
+}
+
 Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::Prs3d_NListOfSequenceOfPnt::InsertAfter(Macad::Occt::TColgp_HSequenceOfPnt^ theItem, Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator^ theIter)
 {
     Handle(::TColgp_HSequenceOfPnt) _result = ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->InsertAfter(Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance), *(::Prs3d_NListOfSequenceOfPnt::Iterator*)theIter->NativeInstance);
     return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::Prs3d_NListOfSequenceOfPnt::InsertAfter(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther, Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator^ theIter)
+{
+    ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->InsertAfter(*(::Prs3d_NListOfSequenceOfPnt*)theOther->NativeInstance, *(::Prs3d_NListOfSequenceOfPnt::Iterator*)theIter->NativeInstance);
+}
+
 void Macad::Occt::Prs3d_NListOfSequenceOfPnt::Reverse()
 {
     ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::Prs3d_NListOfSequenceOfPnt::Exchange(Macad::Occt::Prs3d_NListOfSequenceOfPnt^ theOther)
+{
+    ((::Prs3d_NListOfSequenceOfPnt*)_NativeInstance)->Exchange(*(::Prs3d_NListOfSequenceOfPnt*)theOther->NativeInstance);
 }
 
 
@@ -118,6 +172,12 @@ Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator::Iterator()
     : Macad::Occt::BaseClass<::Prs3d_NListOfSequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::Prs3d_NListOfSequenceOfPnt::Iterator();
+}
+
+Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator::Iterator(Macad::Occt::NCollection_BaseList^ theList)
+    : Macad::Occt::BaseClass<::Prs3d_NListOfSequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Prs3d_NListOfSequenceOfPnt::Iterator(*(::NCollection_BaseList*)theList->NativeInstance);
 }
 
 bool Macad::Occt::Prs3d_NListOfSequenceOfPnt::Iterator::More()
@@ -1551,7 +1611,7 @@ bool Macad::Occt::Prs3d_Drawer::SetupOwnPointAspect(Macad::Occt::Prs3d_Drawer^ t
 
 bool Macad::Occt::Prs3d_Drawer::SetupOwnPointAspect()
 {
-    bool _result = ((::Prs3d_Drawer*)_NativeInstance)->SetupOwnPointAspect(::opencascade::handle<::Prs3d_Drawer>());
+    bool _result = ((::Prs3d_Drawer*)_NativeInstance)->SetupOwnPointAspect(::occ::handle<::Prs3d_Drawer>());
     return _result;
 }
 
@@ -1580,7 +1640,7 @@ bool Macad::Occt::Prs3d_Drawer::SetOwnLineAspects(Macad::Occt::Prs3d_Drawer^ the
 
 bool Macad::Occt::Prs3d_Drawer::SetOwnLineAspects()
 {
-    bool _result = ((::Prs3d_Drawer*)_NativeInstance)->SetOwnLineAspects(::opencascade::handle<::Prs3d_Drawer>());
+    bool _result = ((::Prs3d_Drawer*)_NativeInstance)->SetOwnLineAspects(::occ::handle<::Prs3d_Drawer>());
     return _result;
 }
 
@@ -1592,7 +1652,7 @@ bool Macad::Occt::Prs3d_Drawer::SetOwnDatumAspects(Macad::Occt::Prs3d_Drawer^ th
 
 bool Macad::Occt::Prs3d_Drawer::SetOwnDatumAspects()
 {
-    bool _result = ((::Prs3d_Drawer*)_NativeInstance)->SetOwnDatumAspects(::opencascade::handle<::Prs3d_Drawer>());
+    bool _result = ((::Prs3d_Drawer*)_NativeInstance)->SetOwnDatumAspects(::occ::handle<::Prs3d_Drawer>());
     return _result;
 }
 
@@ -1638,7 +1698,7 @@ bool Macad::Occt::Prs3d_Drawer::SetupOwnShadingAspect(Macad::Occt::Prs3d_Drawer^
 
 bool Macad::Occt::Prs3d_Drawer::SetupOwnShadingAspect()
 {
-    bool _result = ((::Prs3d_Drawer*)_NativeInstance)->SetupOwnShadingAspect(::opencascade::handle<::Prs3d_Drawer>());
+    bool _result = ((::Prs3d_Drawer*)_NativeInstance)->SetupOwnShadingAspect(::occ::handle<::Prs3d_Drawer>());
     return _result;
 }
 
@@ -1930,7 +1990,7 @@ bool Macad::Occt::Prs3d_Drawer::SetupOwnFaceBoundaryAspect(Macad::Occt::Prs3d_Dr
 
 bool Macad::Occt::Prs3d_Drawer::SetupOwnFaceBoundaryAspect()
 {
-    bool _result = ((::Prs3d_Drawer*)_NativeInstance)->SetupOwnFaceBoundaryAspect(::opencascade::handle<::Prs3d_Drawer>());
+    bool _result = ((::Prs3d_Drawer*)_NativeInstance)->SetupOwnFaceBoundaryAspect(::occ::handle<::Prs3d_Drawer>());
     return _result;
 }
 
@@ -2212,12 +2272,6 @@ bool Macad::Occt::Prs3d::MatchSegment(double X, double Y, double Z, double aDist
     return _result;
 }
 
-double Macad::Occt::Prs3d::GetDeflection(Macad::Occt::Graphic3d_Vec3d^ theBndMin, Macad::Occt::Graphic3d_Vec3d^ theBndMax, double theDeviationCoefficient)
-{
-    double _result = ::Prs3d::GetDeflection(*(::Graphic3d_Vec3d*)theBndMin->NativeInstance, *(::Graphic3d_Vec3d*)theBndMax->NativeInstance, theDeviationCoefficient);
-    return _result;
-}
-
 double Macad::Occt::Prs3d::GetDeflection(Macad::Occt::Bnd_Box^ theBndBox, double theDeviationCoefficient, double theMaximalChordialDeviation)
 {
     double _result = ::Prs3d::GetDeflection(*(::Bnd_Box*)theBndBox->NativeInstance, theDeviationCoefficient, theMaximalChordialDeviation);
@@ -2377,18 +2431,18 @@ void Macad::Occt::Prs3d_BndBox::fillSegments(Macad::Occt::Graphic3d_ArrayOfSegme
 //  Class  Prs3d_InvalidAngle
 //---------------------------------------------------------------------
 
-Macad::Occt::Prs3d_InvalidAngle::Prs3d_InvalidAngle()
-    : Macad::Occt::Standard_RangeError(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::Prs3d_InvalidAngle();
-}
-
 Macad::Occt::Prs3d_InvalidAngle::Prs3d_InvalidAngle(System::String^ theMessage)
     : Macad::Occt::Standard_RangeError(BaseClass::InitMode::Uninitialized)
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    NativeInstance = new ::Prs3d_InvalidAngle(sz_theMessage);
+    _NativeInstance = new ::Prs3d_InvalidAngle(sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
+}
+
+Macad::Occt::Prs3d_InvalidAngle::Prs3d_InvalidAngle()
+    : Macad::Occt::Standard_RangeError(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Prs3d_InvalidAngle("");
 }
 
 Macad::Occt::Prs3d_InvalidAngle::Prs3d_InvalidAngle(System::String^ theMessage, System::String^ theStackTrace)
@@ -2396,50 +2450,15 @@ Macad::Occt::Prs3d_InvalidAngle::Prs3d_InvalidAngle(System::String^ theMessage, 
 {
     const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
     const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    NativeInstance = new ::Prs3d_InvalidAngle(sz_theMessage, sz_theStackTrace);
+    _NativeInstance = new ::Prs3d_InvalidAngle(sz_theMessage, sz_theStackTrace);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
     Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
 }
 
-void Macad::Occt::Prs3d_InvalidAngle::Raise(System::String^ theMessage)
+System::String^ Macad::Occt::Prs3d_InvalidAngle::ExceptionType()
 {
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    ::Prs3d_InvalidAngle::Raise(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-}
-
-void Macad::Occt::Prs3d_InvalidAngle::Raise()
-{
-    ::Prs3d_InvalidAngle::Raise("");
-}
-
-Macad::Occt::Prs3d_InvalidAngle^ Macad::Occt::Prs3d_InvalidAngle::NewInstance(System::String^ theMessage)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    Handle(::Prs3d_InvalidAngle) _result = ::Prs3d_InvalidAngle::NewInstance(sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    return _result.IsNull() ? nullptr : Macad::Occt::Prs3d_InvalidAngle::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Prs3d_InvalidAngle^ Macad::Occt::Prs3d_InvalidAngle::NewInstance()
-{
-    Handle(::Prs3d_InvalidAngle) _result = ::Prs3d_InvalidAngle::NewInstance("");
-    return _result.IsNull() ? nullptr : Macad::Occt::Prs3d_InvalidAngle::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Prs3d_InvalidAngle^ Macad::Occt::Prs3d_InvalidAngle::NewInstance(System::String^ theMessage, System::String^ theStackTrace)
-{
-    const char* sz_theMessage = (char*)(void*)Marshal::StringToHGlobalAnsi(theMessage);
-    const char* sz_theStackTrace = (char*)(void*)Marshal::StringToHGlobalAnsi(theStackTrace);
-    Handle(::Prs3d_InvalidAngle) _result = ::Prs3d_InvalidAngle::NewInstance(sz_theMessage, sz_theStackTrace);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theMessage);
-    Marshal::FreeHGlobal((System::IntPtr)(void*)sz_theStackTrace);
-    return _result.IsNull() ? nullptr : Macad::Occt::Prs3d_InvalidAngle::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::Prs3d_InvalidAngle^ Macad::Occt::Prs3d_InvalidAngle::CreateDowncasted(::Prs3d_InvalidAngle* instance)
-{
-    return gcnew Macad::Occt::Prs3d_InvalidAngle( instance );
+    Standard_CString _result = ((::Prs3d_InvalidAngle*)_NativeInstance)->ExceptionType();
+    return gcnew System::String(_result);
 }
 
 

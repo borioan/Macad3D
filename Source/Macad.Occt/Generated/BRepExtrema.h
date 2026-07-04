@@ -19,6 +19,111 @@ public enum class BRepExtrema_SupportType
 }; // enum  class BRepExtrema_SupportType
 
 //---------------------------------------------------------------------
+//  Class  BRepExtrema_MapOfIntegerPackedMapOfInteger
+//---------------------------------------------------------------------
+public ref class BRepExtrema_MapOfIntegerPackedMapOfInteger sealed
+    : public Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger>
+{
+
+#ifdef Include_BRepExtrema_MapOfIntegerPackedMapOfInteger_h
+public:
+    Include_BRepExtrema_MapOfIntegerPackedMapOfInteger_h
+#endif
+
+public:
+    BRepExtrema_MapOfIntegerPackedMapOfInteger(::BRepExtrema_MapOfIntegerPackedMapOfInteger* nativeInstance)
+        : Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger>( nativeInstance, true )
+    {}
+
+    BRepExtrema_MapOfIntegerPackedMapOfInteger(::BRepExtrema_MapOfIntegerPackedMapOfInteger& nativeInstance)
+        : Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger>( &nativeInstance, false )
+    {}
+
+    property ::BRepExtrema_MapOfIntegerPackedMapOfInteger* NativeInstance
+    {
+        ::BRepExtrema_MapOfIntegerPackedMapOfInteger* get()
+        {
+            return static_cast<::BRepExtrema_MapOfIntegerPackedMapOfInteger*>(_NativeInstance);
+        }
+    }
+
+public:
+    ref class Iterator sealed
+        : public Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator>
+    {
+
+#ifdef Include_BRepExtrema_MapOfIntegerPackedMapOfInteger_Iterator_h
+    public:
+        Include_BRepExtrema_MapOfIntegerPackedMapOfInteger_Iterator_h
+#endif
+
+    public:
+        Iterator(::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator* nativeInstance)
+            : Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator>( nativeInstance, true )
+        {}
+
+        Iterator(::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator& nativeInstance)
+            : Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator>( &nativeInstance, false )
+        {}
+
+        property ::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator* NativeInstance
+        {
+            ::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator* get()
+            {
+                return static_cast<::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator*>(_NativeInstance);
+            }
+        }
+
+    public:
+        Iterator();
+        Iterator(Macad::Occt::BRepExtrema_MapOfIntegerPackedMapOfInteger^ theMap);
+        bool More();
+        void Next();
+        /* Method skipped due to unknown mapping: TColStd_PackedMapOfInteger Value() */
+        /* Method skipped due to unknown mapping: TColStd_PackedMapOfInteger ChangeValue() */
+        int Key();
+    }; // class Iterator
+
+    long long unsigned int NbBuckets();
+    int Extent();
+    int Length();
+    long long unsigned int Size();
+    bool IsEmpty();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
+    BRepExtrema_MapOfIntegerPackedMapOfInteger();
+    BRepExtrema_MapOfIntegerPackedMapOfInteger(long long unsigned int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepExtrema_MapOfIntegerPackedMapOfInteger(long long unsigned int theNbBuckets);
+    BRepExtrema_MapOfIntegerPackedMapOfInteger(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+    BRepExtrema_MapOfIntegerPackedMapOfInteger(int theNbBuckets);
+    /* Method skipped due to unknown mapping: void BRepExtrema_MapOfIntegerPackedMapOfInteger(NCollection_DefaultHasher<int> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepExtrema_MapOfIntegerPackedMapOfInteger(NCollection_DefaultHasher<int> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepExtrema_MapOfIntegerPackedMapOfInteger(NCollection_DefaultHasher<int> theHasher, long long unsigned int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepExtrema_MapOfIntegerPackedMapOfInteger(NCollection_DefaultHasher<int> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: void BRepExtrema_MapOfIntegerPackedMapOfInteger(NCollection_DefaultHasher<int> theHasher, int theNbBuckets, NCollection_BaseAllocator theAllocator, ) */
+    /* Method skipped due to unknown mapping: ItemsView Items() */
+    void Exchange(Macad::Occt::BRepExtrema_MapOfIntegerPackedMapOfInteger^ theOther);
+    /* Method skipped due to unknown mapping: NCollection_DefaultHasher<int> GetHasher() */
+    Macad::Occt::BRepExtrema_MapOfIntegerPackedMapOfInteger^ Assign(Macad::Occt::BRepExtrema_MapOfIntegerPackedMapOfInteger^ theOther);
+    void ReSize(long long unsigned int N);
+    void ReSize(int N);
+    /* Method skipped due to unknown mapping: bool Bind(int theKey, TColStd_PackedMapOfInteger theItem, ) */
+    /* Method skipped due to unknown mapping: TColStd_PackedMapOfInteger Bound(int theKey, TColStd_PackedMapOfInteger theItem, ) */
+    /* Method skipped due to unknown mapping: bool TryBind(int theKey, TColStd_PackedMapOfInteger theItem, ) */
+    /* Method skipped due to unknown mapping: TColStd_PackedMapOfInteger TryBound(int theKey, TColStd_PackedMapOfInteger theItem, ) */
+    bool IsBound(int theKey);
+    /* Method skipped due to unknown mapping: optional<std::pair<std::reference_wrapper<const int>, std::reference_wrapper<const NCollection_PackedMap<int>>>> Contained(int theKey, ) */
+    bool UnBind(int theKey);
+    /* Method skipped due to unknown mapping: TColStd_PackedMapOfInteger Seek(int theKey, ) */
+    /* Method skipped due to unknown mapping: TColStd_PackedMapOfInteger Find(int theKey, ) */
+    /* Method skipped due to unknown mapping: bool Find(int theKey, TColStd_PackedMapOfInteger theValue, ) */
+    /* Method skipped due to unknown mapping: TColStd_PackedMapOfInteger ChangeSeek(int theKey, ) */
+    /* Method skipped due to unknown mapping: TColStd_PackedMapOfInteger ChangeFind(int theKey, ) */
+    void Clear(bool doReleaseMemory);
+    void Clear();
+    void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
+}; // class BRepExtrema_MapOfIntegerPackedMapOfInteger
+
+//---------------------------------------------------------------------
 //  Class  BRepExtrema_SeqOfSolution
 //---------------------------------------------------------------------
 public ref class BRepExtrema_SeqOfSolution sealed
@@ -77,6 +182,8 @@ public:
 
     public:
         Iterator();
+        Iterator(Macad::Occt::BRepExtrema_SeqOfSolution^ theSeq, bool isStart);
+        Iterator(Macad::Occt::BRepExtrema_SeqOfSolution^ theSeq);
         bool More();
         void Next();
         Macad::Occt::BRepExtrema_SolutionElem^ Value();
@@ -85,213 +192,56 @@ public:
         bool Equals(System::Object^ obj) override;
     }; // class Iterator
 
+    int Length();
+    long long unsigned int Size();
+    Macad::Occt::NCollection_BaseAllocator^ Allocator();
     BRepExtrema_SeqOfSolution();
     BRepExtrema_SeqOfSolution(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    int Size();
-    int Length();
-    int Lower();
+    static int Lower();
     int Upper();
     bool IsEmpty();
     void Reverse();
+    void Exchange(long long unsigned int I, long long unsigned int J);
     void Exchange(int I, int J);
     /* Method skipped due to unknown mapping: void delNode(NCollection_SeqNode theNode, NCollection_BaseAllocator theAl, ) */
     void Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator);
     void Clear();
     Macad::Occt::BRepExtrema_SeqOfSolution^ Assign(Macad::Occt::BRepExtrema_SeqOfSolution^ theOther);
     void Remove(Macad::Occt::BRepExtrema_SeqOfSolution::Iterator^ thePosition);
+    void Remove(long long unsigned int theIndex);
+    void Remove(int theIndex);
+    void Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex);
+    void Remove(int theFromIndex, int theToIndex);
     void Append(Macad::Occt::BRepExtrema_SolutionElem^ theItem);
+    void Append(Macad::Occt::BRepExtrema_SeqOfSolution^ theSeq);
     void Prepend(Macad::Occt::BRepExtrema_SolutionElem^ theItem);
+    void Prepend(Macad::Occt::BRepExtrema_SeqOfSolution^ theSeq);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepExtrema_SolutionElem^ theItem);
     void InsertBefore(int theIndex, Macad::Occt::BRepExtrema_SolutionElem^ theItem);
+    void InsertBefore(long long unsigned int theIndex, Macad::Occt::BRepExtrema_SeqOfSolution^ theSeq);
+    void InsertBefore(int theIndex, Macad::Occt::BRepExtrema_SeqOfSolution^ theSeq);
     void InsertAfter(Macad::Occt::BRepExtrema_SeqOfSolution::Iterator^ thePosition, Macad::Occt::BRepExtrema_SolutionElem^ theItem);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepExtrema_SeqOfSolution^ theSeq);
+    void InsertAfter(int theIndex, Macad::Occt::BRepExtrema_SeqOfSolution^ theSeq);
+    void InsertAfter(long long unsigned int theIndex, Macad::Occt::BRepExtrema_SolutionElem^ theItem);
+    void InsertAfter(int theIndex, Macad::Occt::BRepExtrema_SolutionElem^ theItem);
+    void Split(long long unsigned int theIndex, Macad::Occt::BRepExtrema_SeqOfSolution^ theSeq);
     void Split(int theIndex, Macad::Occt::BRepExtrema_SeqOfSolution^ theSeq);
     Macad::Occt::BRepExtrema_SolutionElem^ First();
     Macad::Occt::BRepExtrema_SolutionElem^ ChangeFirst();
     Macad::Occt::BRepExtrema_SolutionElem^ Last();
     Macad::Occt::BRepExtrema_SolutionElem^ ChangeLast();
+    Macad::Occt::BRepExtrema_SolutionElem^ Value(long long unsigned int theIndex);
     virtual Macad::Occt::BRepExtrema_SolutionElem^ Value(int theIndex);
+    Macad::Occt::BRepExtrema_SolutionElem^ ChangeValue(long long unsigned int theIndex);
     Macad::Occt::BRepExtrema_SolutionElem^ ChangeValue(int theIndex);
+    void SetValue(long long unsigned int theIndex, Macad::Occt::BRepExtrema_SolutionElem^ theItem);
     void SetValue(int theIndex, Macad::Occt::BRepExtrema_SolutionElem^ theItem);
+    Macad::Occt::BRepExtrema_SolutionElem^ At(long long unsigned int theIndex);
+    Macad::Occt::BRepExtrema_SolutionElem^ ChangeAt(long long unsigned int theIndex);
     virtual System::Collections::Generic::IEnumerator<Macad::Occt::BRepExtrema_SolutionElem^>^ GetEnumerator();
     virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
 }; // class BRepExtrema_SeqOfSolution
-
-//---------------------------------------------------------------------
-//  Class  BRepExtrema_MapOfIntegerPackedMapOfInteger
-//---------------------------------------------------------------------
-/// <summary>
-/// Set of overlapped sub-shapes.
-/// </summary>
-public ref class BRepExtrema_MapOfIntegerPackedMapOfInteger sealed
-    : public Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger>
-{
-
-#ifdef Include_BRepExtrema_MapOfIntegerPackedMapOfInteger_h
-public:
-    Include_BRepExtrema_MapOfIntegerPackedMapOfInteger_h
-#endif
-
-public:
-    BRepExtrema_MapOfIntegerPackedMapOfInteger(::BRepExtrema_MapOfIntegerPackedMapOfInteger* nativeInstance)
-        : Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger>( nativeInstance, true )
-    {}
-
-    BRepExtrema_MapOfIntegerPackedMapOfInteger(::BRepExtrema_MapOfIntegerPackedMapOfInteger& nativeInstance)
-        : Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger>( &nativeInstance, false )
-    {}
-
-    property ::BRepExtrema_MapOfIntegerPackedMapOfInteger* NativeInstance
-    {
-        ::BRepExtrema_MapOfIntegerPackedMapOfInteger* get()
-        {
-            return static_cast<::BRepExtrema_MapOfIntegerPackedMapOfInteger*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator>
-    {
-
-#ifdef Include_BRepExtrema_MapOfIntegerPackedMapOfInteger_Iterator_h
-    public:
-        Include_BRepExtrema_MapOfIntegerPackedMapOfInteger_Iterator_h
-#endif
-
-    public:
-        Iterator(::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator* NativeInstance
-        {
-            ::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator* get()
-            {
-                return static_cast<::BRepExtrema_MapOfIntegerPackedMapOfInteger::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-        Iterator();
-        bool More();
-        void Next();
-        Macad::Occt::TColStd_PackedMapOfInteger^ Value();
-        Macad::Occt::TColStd_PackedMapOfInteger^ ChangeValue();
-        int Key();
-    }; // class Iterator
-
-    BRepExtrema_MapOfIntegerPackedMapOfInteger();
-    BRepExtrema_MapOfIntegerPackedMapOfInteger(int theNbBuckets, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    BRepExtrema_MapOfIntegerPackedMapOfInteger(int theNbBuckets);
-    void Exchange(Macad::Occt::BRepExtrema_MapOfIntegerPackedMapOfInteger^ theOther);
-    Macad::Occt::BRepExtrema_MapOfIntegerPackedMapOfInteger^ Assign(Macad::Occt::BRepExtrema_MapOfIntegerPackedMapOfInteger^ theOther);
-    void ReSize(int N);
-    bool Bind(int theKey, Macad::Occt::TColStd_PackedMapOfInteger^ theItem);
-    Macad::Occt::TColStd_PackedMapOfInteger^ Bound(int theKey, Macad::Occt::TColStd_PackedMapOfInteger^ theItem);
-    bool IsBound(int theKey);
-    bool UnBind(int theKey);
-    Macad::Occt::TColStd_PackedMapOfInteger^ Seek(int theKey);
-    Macad::Occt::TColStd_PackedMapOfInteger^ Find(int theKey);
-    Macad::Occt::TColStd_PackedMapOfInteger^ ChangeSeek(int theKey);
-    Macad::Occt::TColStd_PackedMapOfInteger^ ChangeFind(int theKey);
-    void Clear(bool doReleaseMemory);
-    void Clear();
-    int Size();
-}; // class BRepExtrema_MapOfIntegerPackedMapOfInteger
-
-//---------------------------------------------------------------------
-//  Class  BRepExtrema_ShapeList
-//---------------------------------------------------------------------
-/// <summary>
-/// List of shapes and their IDs for collision detection.
-/// </summary>
-public ref class BRepExtrema_ShapeList sealed
-    : public Macad::Occt::BaseClass<::BRepExtrema_ShapeList>
-    , public IIndexEnumerable<Macad::Occt::TopoDS_Shape^>
-{
-
-#ifdef Include_BRepExtrema_ShapeList_h
-public:
-    Include_BRepExtrema_ShapeList_h
-#endif
-
-public:
-    BRepExtrema_ShapeList(::BRepExtrema_ShapeList* nativeInstance)
-        : Macad::Occt::BaseClass<::BRepExtrema_ShapeList>( nativeInstance, true )
-    {}
-
-    BRepExtrema_ShapeList(::BRepExtrema_ShapeList& nativeInstance)
-        : Macad::Occt::BaseClass<::BRepExtrema_ShapeList>( &nativeInstance, false )
-    {}
-
-    property ::BRepExtrema_ShapeList* NativeInstance
-    {
-        ::BRepExtrema_ShapeList* get()
-        {
-            return static_cast<::BRepExtrema_ShapeList*>(_NativeInstance);
-        }
-    }
-
-public:
-    ref class Iterator sealed
-        : public Macad::Occt::BaseClass<::BRepExtrema_ShapeList::Iterator>
-    {
-
-#ifdef Include_BRepExtrema_ShapeList_Iterator_h
-    public:
-        Include_BRepExtrema_ShapeList_Iterator_h
-#endif
-
-    public:
-        Iterator(::BRepExtrema_ShapeList::Iterator* nativeInstance)
-            : Macad::Occt::BaseClass<::BRepExtrema_ShapeList::Iterator>( nativeInstance, true )
-        {}
-
-        Iterator(::BRepExtrema_ShapeList::Iterator& nativeInstance)
-            : Macad::Occt::BaseClass<::BRepExtrema_ShapeList::Iterator>( &nativeInstance, false )
-        {}
-
-        property ::BRepExtrema_ShapeList::Iterator* NativeInstance
-        {
-            ::BRepExtrema_ShapeList::Iterator* get()
-            {
-                return static_cast<::BRepExtrema_ShapeList::Iterator*>(_NativeInstance);
-            }
-        }
-
-    public:
-    }; // class Iterator
-
-    BRepExtrema_ShapeList(int theIncrement);
-    BRepExtrema_ShapeList();
-    BRepExtrema_ShapeList(int theIncrement, Macad::Occt::NCollection_BaseAllocator^ theAllocator);
-    /* Method skipped due to unknown mapping: void BRepExtrema_ShapeList(int theIncrement, allocator_type theAllocator, ) */
-    int Length();
-    int Size();
-    int Lower();
-    int Upper();
-    bool IsEmpty();
-    Macad::Occt::BRepExtrema_ShapeList^ Assign(Macad::Occt::BRepExtrema_ShapeList^ theOther, bool theOwnAllocator);
-    Macad::Occt::BRepExtrema_ShapeList^ Assign(Macad::Occt::BRepExtrema_ShapeList^ theOther);
-    Macad::Occt::TopoDS_Shape^ Append(Macad::Occt::TopoDS_Shape^ theValue);
-    void EraseLast();
-    Macad::Occt::TopoDS_Shape^ Appended();
-    virtual Macad::Occt::TopoDS_Shape^ Value(int theIndex);
-    Macad::Occt::TopoDS_Shape^ First();
-    Macad::Occt::TopoDS_Shape^ ChangeFirst();
-    Macad::Occt::TopoDS_Shape^ Last();
-    Macad::Occt::TopoDS_Shape^ ChangeLast();
-    Macad::Occt::TopoDS_Shape^ ChangeValue(int theIndex);
-    Macad::Occt::TopoDS_Shape^ SetValue(int theIndex, Macad::Occt::TopoDS_Shape^ theValue);
-    void Clear(bool theReleaseMemory);
-    void Clear();
-    void SetIncrement(int theIncrement);
-    virtual System::Collections::Generic::IEnumerator<Macad::Occt::TopoDS_Shape^>^ GetEnumerator();
-    virtual System::Collections::IEnumerator^ GetEnumerator2() = System::Collections::IEnumerable::GetEnumerator;
-}; // class BRepExtrema_ShapeList
 
 //---------------------------------------------------------------------
 //  Class  BRepExtrema_ElementFilter
@@ -403,7 +353,7 @@ public:
     /// </param>
     BRepExtrema_SolutionElem(double theDist, Macad::Occt::Pnt thePoint, Macad::Occt::BRepExtrema_SupportType theSolType, Macad::Occt::TopoDS_Vertex^ theVertex);
     /// <summary>
-    /// This constructor is used when the  solution of distance is on an Edge.
+    /// This constructor is used when the solution of distance is on an Edge.
     /// The different initialized fields are:
     /// </summary>
     /// <param name="theDist">
@@ -423,7 +373,7 @@ public:
     /// </param>
     BRepExtrema_SolutionElem(double theDist, Macad::Occt::Pnt thePoint, Macad::Occt::BRepExtrema_SupportType theSolType, Macad::Occt::TopoDS_Edge^ theEdge, double theParam);
     /// <summary>
-    /// This constructor is used when the  solution of distance is in a Face.
+    /// This constructor is used when the solution of distance is in a Face.
     /// The different initialized fields are:
     /// </summary>
     /// <param name="theDist">
@@ -667,7 +617,7 @@ public:
 //  Class  BRepExtrema_DistShapeShape
 //---------------------------------------------------------------------
 /// <summary>
-/// This class  provides tools to compute minimum distance
+/// This class provides tools to compute minimum distance
 /// between two Shapes (Compound,CompSolid, Solid, Shell, Face, Wire, Edge, Vertex).
 /// </summary>
 public ref class BRepExtrema_DistShapeShape sealed
@@ -703,8 +653,8 @@ public:
     BRepExtrema_DistShapeShape();
     /// <summary>
     /// create tool and computation of the minimum distance (value and pair of points)
-    /// using default deflection in single thread mode. <br>
-    /// Default deflection value is Precision::Confusion(). <br>
+    /// using default deflection in single thread mode.
+    /// Default deflection value is Precision::Confusion().
     /// </summary>
     /// <param name="Shape1">
     /// - the first shape for distance computation
@@ -721,8 +671,8 @@ public:
     BRepExtrema_DistShapeShape(Macad::Occt::TopoDS_Shape^ Shape1, Macad::Occt::TopoDS_Shape^ Shape2, Macad::Occt::Extrema_ExtFlag F, Macad::Occt::Extrema_ExtAlgo A, Macad::Occt::Message_ProgressRange^ theRange);
     /// <summary>
     /// create tool and computation of the minimum distance (value and pair of points)
-    /// using default deflection in single thread mode. <br>
-    /// Default deflection value is Precision::Confusion(). <br>
+    /// using default deflection in single thread mode.
+    /// Default deflection value is Precision::Confusion().
     /// </summary>
     /// <param name="Shape1">
     /// - the first shape for distance computation
@@ -739,8 +689,8 @@ public:
     BRepExtrema_DistShapeShape(Macad::Occt::TopoDS_Shape^ Shape1, Macad::Occt::TopoDS_Shape^ Shape2, Macad::Occt::Extrema_ExtFlag F, Macad::Occt::Extrema_ExtAlgo A);
     /// <summary>
     /// create tool and computation of the minimum distance (value and pair of points)
-    /// using default deflection in single thread mode. <br>
-    /// Default deflection value is Precision::Confusion(). <br>
+    /// using default deflection in single thread mode.
+    /// Default deflection value is Precision::Confusion().
     /// </summary>
     /// <param name="Shape1">
     /// - the first shape for distance computation
@@ -757,8 +707,8 @@ public:
     BRepExtrema_DistShapeShape(Macad::Occt::TopoDS_Shape^ Shape1, Macad::Occt::TopoDS_Shape^ Shape2, Macad::Occt::Extrema_ExtFlag F);
     /// <summary>
     /// create tool and computation of the minimum distance (value and pair of points)
-    /// using default deflection in single thread mode. <br>
-    /// Default deflection value is Precision::Confusion(). <br>
+    /// using default deflection in single thread mode.
+    /// Default deflection value is Precision::Confusion().
     /// </summary>
     /// <param name="Shape1">
     /// - the first shape for distance computation
@@ -775,8 +725,8 @@ public:
     BRepExtrema_DistShapeShape(Macad::Occt::TopoDS_Shape^ Shape1, Macad::Occt::TopoDS_Shape^ Shape2);
     /// <summary>
     /// create tool and computation of the minimum distance
-    /// (value and pair of points) in single thread mode. <br>
-    /// Default deflection value is Precision::Confusion(). <br>
+    /// (value and pair of points) in single thread mode.
+    /// Default deflection value is Precision::Confusion().
     /// </summary>
     /// <param name="Shape1">
     /// - the first shape for distance computation
@@ -796,8 +746,8 @@ public:
     BRepExtrema_DistShapeShape(Macad::Occt::TopoDS_Shape^ Shape1, Macad::Occt::TopoDS_Shape^ Shape2, double theDeflection, Macad::Occt::Extrema_ExtFlag F, Macad::Occt::Extrema_ExtAlgo A, Macad::Occt::Message_ProgressRange^ theRange);
     /// <summary>
     /// create tool and computation of the minimum distance
-    /// (value and pair of points) in single thread mode. <br>
-    /// Default deflection value is Precision::Confusion(). <br>
+    /// (value and pair of points) in single thread mode.
+    /// Default deflection value is Precision::Confusion().
     /// </summary>
     /// <param name="Shape1">
     /// - the first shape for distance computation
@@ -817,8 +767,8 @@ public:
     BRepExtrema_DistShapeShape(Macad::Occt::TopoDS_Shape^ Shape1, Macad::Occt::TopoDS_Shape^ Shape2, double theDeflection, Macad::Occt::Extrema_ExtFlag F, Macad::Occt::Extrema_ExtAlgo A);
     /// <summary>
     /// create tool and computation of the minimum distance
-    /// (value and pair of points) in single thread mode. <br>
-    /// Default deflection value is Precision::Confusion(). <br>
+    /// (value and pair of points) in single thread mode.
+    /// Default deflection value is Precision::Confusion().
     /// </summary>
     /// <param name="Shape1">
     /// - the first shape for distance computation
@@ -838,8 +788,8 @@ public:
     BRepExtrema_DistShapeShape(Macad::Occt::TopoDS_Shape^ Shape1, Macad::Occt::TopoDS_Shape^ Shape2, double theDeflection, Macad::Occt::Extrema_ExtFlag F);
     /// <summary>
     /// create tool and computation of the minimum distance
-    /// (value and pair of points) in single thread mode. <br>
-    /// Default deflection value is Precision::Confusion(). <br>
+    /// (value and pair of points) in single thread mode.
+    /// Default deflection value is Precision::Confusion().
     /// </summary>
     /// <param name="Shape1">
     /// - the first shape for distance computation
@@ -858,108 +808,108 @@ public:
     /// </param>
     BRepExtrema_DistShapeShape(Macad::Occt::TopoDS_Shape^ Shape1, Macad::Occt::TopoDS_Shape^ Shape2, double theDeflection);
     /// <summary>
-    /// Sets deflection to computation of the minimum distance <br>
+    /// Sets deflection to computation of the minimum distance
     /// </summary>
     void SetDeflection(double theDeflection);
     /// <summary>
-    /// load first shape into extrema <br>
+    /// load first shape into extrema
     /// </summary>
     void LoadS1(Macad::Occt::TopoDS_Shape^ Shape1);
     /// <summary>
-    /// load second shape into extrema <br>
+    /// load second shape into extrema
     /// </summary>
     void LoadS2(Macad::Occt::TopoDS_Shape^ Shape1);
     /// <summary>
-    /// computation of  the minimum  distance  (value  and <br>
-    /// couple  of points). Parameter theDeflection is used <br>
-    /// to specify a maximum deviation of extreme distances <br>
-    /// from the minimum one. <br>
-    /// Returns IsDone status. <br>
+    /// computation of the minimum distance (value and
+    /// couple of points). Parameter theDeflection is used
+    /// to specify a maximum deviation of extreme distances
+    /// from the minimum one.
+    /// Returns IsDone status.
     /// theRange - the progress indicator of algorithm
     /// </summary>
     bool Perform(Macad::Occt::Message_ProgressRange^ theRange);
     /// <summary>
-    /// computation of  the minimum  distance  (value  and <br>
-    /// couple  of points). Parameter theDeflection is used <br>
-    /// to specify a maximum deviation of extreme distances <br>
-    /// from the minimum one. <br>
-    /// Returns IsDone status. <br>
+    /// computation of the minimum distance (value and
+    /// couple of points). Parameter theDeflection is used
+    /// to specify a maximum deviation of extreme distances
+    /// from the minimum one.
+    /// Returns IsDone status.
     /// theRange - the progress indicator of algorithm
     /// </summary>
     bool Perform();
     /// <summary>
-    /// True if the minimum distance is found. <br>
+    /// True if the minimum distance is found.
     /// </summary>
     bool IsDone();
     /// <summary>
-    /// Returns the number of solutions satisfying the minimum distance. <br>
+    /// Returns the number of solutions satisfying the minimum distance.
     /// </summary>
     int NbSolution();
     /// <summary>
-    /// Returns the value of the minimum distance. <br>
+    /// Returns the value of the minimum distance.
     /// </summary>
     double Value();
     /// <summary>
-    /// True if one of the shapes is a solid and the other shape <br>
-    /// is completely or partially inside the solid. <br>
+    /// True if one of the shapes is a solid and the other shape
+    /// is completely or partially inside the solid.
     /// </summary>
     bool InnerSolution();
     /// <summary>
-    /// Returns the Point corresponding to the <N>th solution on the first Shape <br>
+    /// Returns the Point corresponding to the <N>th solution on the first Shape
     /// </summary>
     Macad::Occt::Pnt PointOnShape1(int N);
     /// <summary>
-    /// Returns the Point corresponding to the <N>th solution on the second Shape <br>
+    /// Returns the Point corresponding to the <N>th solution on the second Shape
     /// </summary>
     Macad::Occt::Pnt PointOnShape2(int N);
     /// <summary>
-    /// gives the type of the support where the Nth solution on the first shape is situated: <br>
-    /// IsVertex => the Nth solution on the first shape is a Vertex <br>
-    /// IsOnEdge => the Nth soluion on the first shape is on a Edge <br>
-    /// IsInFace => the Nth solution on the first shape is inside a face <br>
-    /// the corresponding support is obtained by the method SupportOnShape1 <br>
+    /// gives the type of the support where the Nth solution on the first shape is situated:
+    /// IsVertex => the Nth solution on the first shape is a Vertex
+    /// IsOnEdge => the Nth soluion on the first shape is on a Edge
+    /// IsInFace => the Nth solution on the first shape is inside a face
+    /// the corresponding support is obtained by the method SupportOnShape1
     /// </summary>
     Macad::Occt::BRepExtrema_SupportType SupportTypeShape1(int N);
     /// <summary>
-    /// gives the type of the support where the Nth solution on the second shape is situated: <br>
-    /// IsVertex => the Nth solution on the second shape is a Vertex <br>
-    /// IsOnEdge => the Nth soluion on the secondt shape is on a Edge <br>
-    /// IsInFace => the Nth solution on the second shape is inside a face <br>
-    /// the corresponding support is obtained by the method SupportOnShape2 <br>
+    /// gives the type of the support where the Nth solution on the second shape is situated:
+    /// IsVertex => the Nth solution on the second shape is a Vertex
+    /// IsOnEdge => the Nth soluion on the secondt shape is on a Edge
+    /// IsInFace => the Nth solution on the second shape is inside a face
+    /// the corresponding support is obtained by the method SupportOnShape2
     /// </summary>
     Macad::Occt::BRepExtrema_SupportType SupportTypeShape2(int N);
     /// <summary>
-    /// gives the support where the Nth solution on the first shape is situated. <br>
-    /// This support can be a Vertex, an Edge or a Face. <br>
+    /// gives the support where the Nth solution on the first shape is situated.
+    /// This support can be a Vertex, an Edge or a Face.
     /// </summary>
     Macad::Occt::TopoDS_Shape^ SupportOnShape1(int N);
     /// <summary>
-    /// gives the support where the Nth solution on the second shape is situated. <br>
-    /// This support can be a Vertex, an Edge or a Face. <br>
+    /// gives the support where the Nth solution on the second shape is situated.
+    /// This support can be a Vertex, an Edge or a Face.
     /// </summary>
     Macad::Occt::TopoDS_Shape^ SupportOnShape2(int N);
     /// <summary>
-    /// gives the corresponding parameter t if the Nth solution <br>
-    /// is situated on an Edge of the first shape <br>
+    /// gives the corresponding parameter t if the Nth solution
+    /// is situated on an Edge of the first shape
     /// </summary>
     void ParOnEdgeS1(int N, double% t);
     /// <summary>
-    /// gives the corresponding parameter t if the Nth solution <br>
-    /// is situated on an Edge of the first shape <br>
+    /// gives the corresponding parameter t if the Nth solution
+    /// is situated on an Edge of the first shape
     /// </summary>
     void ParOnEdgeS2(int N, double% t);
     /// <summary>
-    /// gives the corresponding parameters (U,V) if the Nth solution <br>
-    /// is situated on an face of the first shape <br>
+    /// gives the corresponding parameters (U,V) if the Nth solution
+    /// is situated on an face of the first shape
     /// </summary>
     void ParOnFaceS1(int N, double% u, double% v);
     /// <summary>
-    /// gives the corresponding parameters (U,V) if the Nth solution <br>
-    /// is situated on an Face of the second shape <br>
+    /// gives the corresponding parameters (U,V) if the Nth solution
+    /// is situated on an Face of the second shape
     /// </summary>
     void ParOnFaceS2(int N, double% u, double% v);
     /// <summary>
-    /// Prints on the stream o information on the current state of the object. <br>
+    /// Prints on the stream o information on the current state of the object.
     /// </summary>
     void Dump(System::IO::TextWriter^ o);
     /// <summary>
@@ -973,12 +923,12 @@ public:
     /// </summary>
     void SetAlgo(Macad::Occt::Extrema_ExtAlgo A);
     /// <summary>
-    /// If isMultiThread == Standard_True then computation will be performed in parallel.
+    /// If isMultiThread == true then computation will be performed in parallel.
     /// </summary>
     void SetMultiThread(bool theIsMultiThread);
     /// <summary>
-    /// Returns Standard_True then computation will be performed in parallel
-    /// Default value is Standard_False
+    /// Returns true then computation will be performed in parallel
+    /// Default value is false
     /// </summary>
     bool IsMultiThread();
 }; // class BRepExtrema_DistShapeShape
@@ -1015,51 +965,51 @@ public:
 public:
     BRepExtrema_ExtCC();
     /// <summary>
-    /// It calculates all the distances. <br>
+    /// It calculates all the distances.
     /// </summary>
     BRepExtrema_ExtCC(Macad::Occt::TopoDS_Edge^ E1, Macad::Occt::TopoDS_Edge^ E2);
     void Initialize(Macad::Occt::TopoDS_Edge^ E2);
     /// <summary>
-    /// An exception is raised if the fields have not been initialized. <br>
+    /// An exception is raised if the fields have not been initialized.
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Edge^ E1);
     /// <summary>
-    /// True if the distances are found. <br>
+    /// True if the distances are found.
     /// </summary>
     bool IsDone();
     /// <summary>
-    /// Returns the number of extremum distances. <br>
+    /// Returns the number of extremum distances.
     /// </summary>
     int NbExt();
     /// <summary>
-    /// Returns True if E1 and E2 are parallel. <br>
+    /// Returns True if E1 and E2 are parallel.
     /// </summary>
     bool IsParallel();
     /// <summary>
-    /// Returns the value of the <N>th extremum square distance. <br>
+    /// Returns the value of the <N>th extremum square distance.
     /// </summary>
     double SquareDistance(int N);
     /// <summary>
-    /// Returns the parameter on the first edge of the <N>th extremum distance. <br>
+    /// Returns the parameter on the first edge of the <N>th extremum distance.
     /// </summary>
     double ParameterOnE1(int N);
     /// <summary>
-    /// Returns the Point of the <N>th extremum distance on the edge E1. <br>
+    /// Returns the Point of the <N>th extremum distance on the edge E1.
     /// </summary>
     Macad::Occt::Pnt PointOnE1(int N);
     /// <summary>
-    /// Returns the parameter on the second edge of the <N>th extremum distance. <br>
+    /// Returns the parameter on the second edge of the <N>th extremum distance.
     /// </summary>
     double ParameterOnE2(int N);
     /// <summary>
-    /// Returns the Point of the <N>th extremum distance on the edge E2. <br>
+    /// Returns the Point of the <N>th extremum distance on the edge E2.
     /// </summary>
     Macad::Occt::Pnt PointOnE2(int N);
     /// <summary>
-    /// if the edges is a trimmed curve, <br>
-    /// dist11 is a square distance between the point on E1 <br>
-    /// of parameter FirstParameter and the point of <br>
-    /// parameter FirstParameter on E2. <br>
+    /// if the edges is a trimmed curve,
+    /// dist11 is a square distance between the point on E1
+    /// of parameter FirstParameter and the point of
+    /// parameter FirstParameter on E2.
     /// </summary>
     void TrimmedSquareDistances(double% dist11, double% distP12, double% distP21, double% distP22, Macad::Occt::Pnt% P11, Macad::Occt::Pnt% P12, Macad::Occt::Pnt% P21, Macad::Occt::Pnt% P22);
 }; // class BRepExtrema_ExtCC
@@ -1096,45 +1046,45 @@ public:
 public:
     BRepExtrema_ExtCF();
     /// <summary>
-    /// It calculates all the distances. <br>
+    /// It calculates all the distances.
     /// </summary>
     BRepExtrema_ExtCF(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F);
     void Initialize(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F);
     /// <summary>
-    /// An exception is raised if the fields have not been initialized. <br>
-    /// Be careful: this method uses the Face only for classify not for the fields. <br>
+    /// An exception is raised if the fields have not been initialized.
+    /// Be careful: this method uses the Face only for classify not for the fields.
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ F);
     /// <summary>
-    /// True if the distances are found. <br>
+    /// True if the distances are found.
     /// </summary>
     bool IsDone();
     /// <summary>
-    /// Returns the number of extremum distances. <br>
+    /// Returns the number of extremum distances.
     /// </summary>
     int NbExt();
     /// <summary>
-    /// Returns the value of the <N>th extremum square distance. <br>
+    /// Returns the value of the <N>th extremum square distance.
     /// </summary>
     double SquareDistance(int N);
     /// <summary>
-    /// Returns True if the curve is on a parallel surface. <br>
+    /// Returns True if the curve is on a parallel surface.
     /// </summary>
     bool IsParallel();
     /// <summary>
-    /// Returns the parameters on the Edge of the <N>th extremum distance. <br>
+    /// Returns the parameters on the Edge of the <N>th extremum distance.
     /// </summary>
     double ParameterOnEdge(int N);
     /// <summary>
-    /// Returns the parameters on the Face of the <N>th extremum distance. <br>
+    /// Returns the parameters on the Face of the <N>th extremum distance.
     /// </summary>
     void ParameterOnFace(int N, double% U, double% V);
     /// <summary>
-    /// Returns the Point of the <N>th extremum distance. <br>
+    /// Returns the Point of the <N>th extremum distance.
     /// </summary>
     Macad::Occt::Pnt PointOnEdge(int N);
     /// <summary>
-    /// Returns the Point of the <N>th extremum distance. <br>
+    /// Returns the Point of the <N>th extremum distance.
     /// </summary>
     Macad::Occt::Pnt PointOnFace(int N);
 }; // class BRepExtrema_ExtCF
@@ -1171,45 +1121,45 @@ public:
 public:
     BRepExtrema_ExtFF();
     /// <summary>
-    /// It calculates all the distances. <br>
+    /// It calculates all the distances.
     /// </summary>
     BRepExtrema_ExtFF(Macad::Occt::TopoDS_Face^ F1, Macad::Occt::TopoDS_Face^ F2);
     void Initialize(Macad::Occt::TopoDS_Face^ F2);
     /// <summary>
-    /// An exception is raised if the fields have not been initialized. <br>
-    /// Be careful: this method uses the Face F2 only for classify, not for the fields. <br>
+    /// An exception is raised if the fields have not been initialized.
+    /// Be careful: this method uses the Face F2 only for classify, not for the fields.
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Face^ F1, Macad::Occt::TopoDS_Face^ F2);
     /// <summary>
-    /// True if the distances are found. <br>
+    /// True if the distances are found.
     /// </summary>
     bool IsDone();
     /// <summary>
-    /// Returns True if the surfaces are parallel. <br>
+    /// Returns True if the surfaces are parallel.
     /// </summary>
     bool IsParallel();
     /// <summary>
-    /// Returns the number of extremum distances. <br>
+    /// Returns the number of extremum distances.
     /// </summary>
     int NbExt();
     /// <summary>
-    /// Returns the value of the <N>th extremum square distance. <br>
+    /// Returns the value of the <N>th extremum square distance.
     /// </summary>
     double SquareDistance(int N);
     /// <summary>
-    /// Returns the parameters on the Face F1 of the <N>th extremum distance. <br>
+    /// Returns the parameters on the Face F1 of the <N>th extremum distance.
     /// </summary>
     void ParameterOnFace1(int N, double% U, double% V);
     /// <summary>
-    /// Returns the parameters on the Face F2 of the <N>th extremum distance. <br>
+    /// Returns the parameters on the Face F2 of the <N>th extremum distance.
     /// </summary>
     void ParameterOnFace2(int N, double% U, double% V);
     /// <summary>
-    /// Returns the Point of the <N>th extremum distance. <br>
+    /// Returns the Point of the <N>th extremum distance.
     /// </summary>
     Macad::Occt::Pnt PointOnFace1(int N);
     /// <summary>
-    /// Returns the Point of the <N>th extremum distance. <br>
+    /// Returns the Point of the <N>th extremum distance.
     /// </summary>
     Macad::Occt::Pnt PointOnFace2(int N);
 }; // class BRepExtrema_ExtFF
@@ -1246,44 +1196,44 @@ public:
 public:
     BRepExtrema_ExtPC();
     /// <summary>
-    /// It calculates all the distances. <br>
+    /// It calculates all the distances.
     /// </summary>
     BRepExtrema_ExtPC(Macad::Occt::TopoDS_Vertex^ V, Macad::Occt::TopoDS_Edge^ E);
     void Initialize(Macad::Occt::TopoDS_Edge^ E);
     /// <summary>
-    /// An exception is raised if the fields have not been initialized. <br>
+    /// An exception is raised if the fields have not been initialized.
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Vertex^ V);
     /// <summary>
-    /// True if the distances are found. <br>
+    /// True if the distances are found.
     /// </summary>
     bool IsDone();
     /// <summary>
-    /// Returns the number of extremum distances. <br>
+    /// Returns the number of extremum distances.
     /// </summary>
     int NbExt();
     /// <summary>
-    /// Returns True if the <N>th extremum distance is a minimum. <br>
+    /// Returns True if the <N>th extremum distance is a minimum.
     /// </summary>
     bool IsMin(int N);
     /// <summary>
-    /// Returns the value of the <N>th extremum square distance. <br>
+    /// Returns the value of the <N>th extremum square distance.
     /// </summary>
     double SquareDistance(int N);
     /// <summary>
-    /// Returns the parameter on the edge of the <N>th extremum distance. <br>
+    /// Returns the parameter on the edge of the <N>th extremum distance.
     /// </summary>
     double Parameter(int N);
     /// <summary>
-    /// Returns the Point of the <N>th extremum distance. <br>
+    /// Returns the Point of the <N>th extremum distance.
     /// </summary>
     Macad::Occt::Pnt Point(int N);
     /// <summary>
-    /// if the curve is a trimmed curve, <br>
-    /// dist1 is a square distance between <P> and the point <br>
-    /// of parameter FirstParameter <pnt1> and <br>
-    /// dist2 is a square distance between <P> and the point <br>
-    /// of parameter LastParameter <pnt2>. <br>
+    /// if the curve is a trimmed curve,
+    /// dist1 is a square distance between <P> and the point
+    /// of parameter FirstParameter <pnt1> and
+    /// dist2 is a square distance between <P> and the point
+    /// of parameter LastParameter <pnt2>.
     /// </summary>
     void TrimmedSquareDistances(double% dist1, double% dist2, Macad::Occt::Pnt% pnt1, Macad::Occt::Pnt% pnt2);
 }; // class BRepExtrema_ExtPC
@@ -1320,43 +1270,43 @@ public:
 public:
     BRepExtrema_ExtPF();
     /// <summary>
-    /// It calculates all the distances. <br>
+    /// It calculates all the distances.
     /// </summary>
     BRepExtrema_ExtPF(Macad::Occt::TopoDS_Vertex^ TheVertex, Macad::Occt::TopoDS_Face^ TheFace, Macad::Occt::Extrema_ExtFlag TheFlag, Macad::Occt::Extrema_ExtAlgo TheAlgo);
     /// <summary>
-    /// It calculates all the distances. <br>
+    /// It calculates all the distances.
     /// </summary>
     BRepExtrema_ExtPF(Macad::Occt::TopoDS_Vertex^ TheVertex, Macad::Occt::TopoDS_Face^ TheFace, Macad::Occt::Extrema_ExtFlag TheFlag);
     /// <summary>
-    /// It calculates all the distances. <br>
+    /// It calculates all the distances.
     /// </summary>
     BRepExtrema_ExtPF(Macad::Occt::TopoDS_Vertex^ TheVertex, Macad::Occt::TopoDS_Face^ TheFace);
     void Initialize(Macad::Occt::TopoDS_Face^ TheFace, Macad::Occt::Extrema_ExtFlag TheFlag, Macad::Occt::Extrema_ExtAlgo TheAlgo);
     void Initialize(Macad::Occt::TopoDS_Face^ TheFace, Macad::Occt::Extrema_ExtFlag TheFlag);
     void Initialize(Macad::Occt::TopoDS_Face^ TheFace);
     /// <summary>
-    /// An exception is raised if the fields have not been initialized. <br>
-    /// Be careful: this method uses the Face only for classify not for the fields. <br>
+    /// An exception is raised if the fields have not been initialized.
+    /// Be careful: this method uses the Face only for classify not for the fields.
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Vertex^ TheVertex, Macad::Occt::TopoDS_Face^ TheFace);
     /// <summary>
-    /// True if the distances are found. <br>
+    /// True if the distances are found.
     /// </summary>
     bool IsDone();
     /// <summary>
-    /// Returns the number of extremum distances. <br>
+    /// Returns the number of extremum distances.
     /// </summary>
     int NbExt();
     /// <summary>
-    /// Returns the value of the <N>th extremum square distance. <br>
+    /// Returns the value of the <N>th extremum square distance.
     /// </summary>
     double SquareDistance(int N);
     /// <summary>
-    /// Returns the parameters on the Face of the <N>th extremum distance. <br>
+    /// Returns the parameters on the Face of the <N>th extremum distance.
     /// </summary>
     void Parameter(int N, double% U, double% V);
     /// <summary>
-    /// Returns the Point of the <N>th extremum distance. <br>
+    /// Returns the Point of the <N>th extremum distance.
     /// </summary>
     Macad::Occt::Pnt Point(int N);
     void SetFlag(Macad::Occt::Extrema_ExtFlag F);
@@ -1395,7 +1345,7 @@ public:
 public:
     BRepExtrema_Poly();
     /// <summary>
-    /// returns Standard_True if OK.
+    /// returns true if OK.
     /// </summary>
     static bool Distance(Macad::Occt::TopoDS_Shape^ S1, Macad::Occt::TopoDS_Shape^ S2, Macad::Occt::Pnt% P1, Macad::Occt::Pnt% P2, double% dist);
 }; // class BRepExtrema_Poly
@@ -1404,10 +1354,7 @@ public:
 //  Class  BRepExtrema_VertexInspector
 //---------------------------------------------------------------------
 /// <summary>
-/// Class BRepExtrema_VertexInspector
-/// derived from NCollection_CellFilter_InspectorXYZ
-/// This class define the Inspector interface for CellFilter algorithm,
-/// working with gp_XYZ points in 3d space.
+/// Inspector for CellFilter algorithm working with gp_XYZ points in 3d space.
 /// Used in search of coincidence points with a certain tolerance.
 /// </summary>
 public ref class BRepExtrema_VertexInspector sealed
@@ -1441,6 +1388,8 @@ public:
     /// Constructor; remembers the tolerance
     /// </summary>
     BRepExtrema_VertexInspector();
+    static double Coord(int i, Macad::Occt::XYZ thePnt);
+    static Macad::Occt::XYZ Shift(Macad::Occt::XYZ thePnt, double theTol);
     /// <summary>
     /// Keep the points used for comparison
     /// </summary>
@@ -1505,12 +1454,9 @@ public:
     /// Creates new uninitialized proximity tool.
     /// </summary>
     BRepExtrema_ProximityValueTool();
-    /* Method skipped due to unknown mapping: void BRepExtrema_ProximityValueTool(BRepExtrema_TriangleSet theSet1, BRepExtrema_TriangleSet theSet2, BRepExtrema_ShapeList theShapeList1, BRepExtrema_ShapeList theShapeList2, ) */
+    /* Method skipped due to unknown mapping: void BRepExtrema_ProximityValueTool(BRepExtrema_TriangleSet theSet1, BRepExtrema_TriangleSet theSet2, NCollection_DynamicArray<TopoDS_Shape> theShapeList1, NCollection_DynamicArray<TopoDS_Shape> theShapeList2, ) */
     /* Method skipped due to unknown mapping: void LoadTriangleSets(BRepExtrema_TriangleSet theSet1, BRepExtrema_TriangleSet theSet2, ) */
-    /// <summary>
-    /// Loads the given list of subshapes into the proximity tool.
-    /// </summary>
-    void LoadShapeLists(Macad::Occt::BRepExtrema_ShapeList^ theShapeList1, Macad::Occt::BRepExtrema_ShapeList^ theShapeList2);
+    /* Method skipped due to unknown mapping: void LoadShapeLists(NCollection_DynamicArray<TopoDS_Shape> theShapeList1, NCollection_DynamicArray<TopoDS_Shape> theShapeList2, ) */
     /// <summary>
     /// Sets number of sample points used for proximity calculation for each shape.
     /// If number is less or equal zero, all triangulation nodes are used.
@@ -1808,16 +1754,10 @@ public:
     }
 
 public:
-    BRepExtrema_UnCompatibleShape();
     BRepExtrema_UnCompatibleShape(System::String^ theMessage);
+    BRepExtrema_UnCompatibleShape();
     BRepExtrema_UnCompatibleShape(System::String^ theMessage, System::String^ theStackTrace);
-    static void Raise(System::String^ theMessage);
-    static void Raise();
-    /* Method skipped due to unknown mapping: void Raise(stringstream theMessage, ) */
-    static Macad::Occt::BRepExtrema_UnCompatibleShape^ NewInstance(System::String^ theMessage);
-    static Macad::Occt::BRepExtrema_UnCompatibleShape^ NewInstance();
-    static Macad::Occt::BRepExtrema_UnCompatibleShape^ NewInstance(System::String^ theMessage, System::String^ theStackTrace);
-    static Macad::Occt::BRepExtrema_UnCompatibleShape^ CreateDowncasted(::BRepExtrema_UnCompatibleShape* instance);
+    System::String^ ExceptionType();
 }; // class BRepExtrema_UnCompatibleShape
 
 }; // namespace Occt

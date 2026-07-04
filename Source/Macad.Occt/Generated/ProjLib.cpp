@@ -21,6 +21,24 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 //  Class  ProjLib_SequenceOfHSequenceOfPnt
 //---------------------------------------------------------------------
 
+int Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Length()
+{
+    int _result = ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Size()
+{
+    long long unsigned int _result = ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::ProjLib_SequenceOfHSequenceOfPnt()
     : Macad::Occt::BaseClass<::ProjLib_SequenceOfHSequenceOfPnt>(BaseClass::InitMode::Uninitialized)
 {
@@ -33,21 +51,9 @@ Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::ProjLib_SequenceOfHSequenceOfPnt(
     _NativeInstance = new ::ProjLib_SequenceOfHSequenceOfPnt(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
-int Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Size()
-{
-    int _result = ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Length()
-{
-    int _result = ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Length();
-    return _result;
-}
-
 int Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Lower()
 {
-    int _result = ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Lower();
+    int _result = ::ProjLib_SequenceOfHSequenceOfPnt::Lower();
     return _result;
 }
 
@@ -68,6 +74,11 @@ void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Reverse()
     ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Exchange(int I, int J)
 {
     ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Exchange(I, J);
@@ -80,7 +91,7 @@ void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Clear(Macad::Occt::NCollecti
 
 void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Clear()
 {
-    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Clear(0L);
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Assign(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theOther)
@@ -95,9 +106,34 @@ void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Remove(Macad::Occt::ProjLib_
     ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Remove(*(::ProjLib_SequenceOfHSequenceOfPnt::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Remove(long long unsigned int theIndex)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Remove(int theIndex)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Remove(int theFromIndex, int theToIndex)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Append(Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
 {
     ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Append(Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Append(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Append(*(::ProjLib_SequenceOfHSequenceOfPnt*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Prepend(Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
@@ -105,14 +141,59 @@ void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Prepend(Macad::Occt::TColgp_
     ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Prepend(Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
 }
 
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Prepend(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Prepend(*(::ProjLib_SequenceOfHSequenceOfPnt*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
 void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::InsertBefore(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
 {
     ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
 }
 
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::InsertBefore(long long unsigned int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, *(::ProjLib_SequenceOfHSequenceOfPnt*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::InsertBefore(int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, *(::ProjLib_SequenceOfHSequenceOfPnt*)theSeq->NativeInstance);
+}
+
 void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::InsertAfter(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Iterator^ thePosition, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
 {
     ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->InsertAfter(*(::ProjLib_SequenceOfHSequenceOfPnt::Iterator*)thePosition->NativeInstance, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::InsertAfter(long long unsigned int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, *(::ProjLib_SequenceOfHSequenceOfPnt*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::InsertAfter(int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, *(::ProjLib_SequenceOfHSequenceOfPnt*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::InsertAfter(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Split(long long unsigned int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Split(theIndex, *(::ProjLib_SequenceOfHSequenceOfPnt*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Split(int theIndex, Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq)
@@ -144,9 +225,21 @@ Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_SequenceOfHSequenceOfPn
     return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
 }
 
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Value(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Value(int theIndex)
 {
     Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::ChangeValue(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->ChangeValue(theIndex);
     return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
 }
 
@@ -156,9 +249,26 @@ Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_SequenceOfHSequenceOfPn
     return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::SetValue(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
 void Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::SetValue(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
 {
     ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::At(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->At(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::ChangeAt(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_SequenceOfHSequenceOfPnt*)_NativeInstance)->ChangeAt(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
 }
 
 System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HSequenceOfPnt^>^ Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::GetEnumerator()
@@ -181,6 +291,18 @@ Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Iterator::Iterator()
     : Macad::Occt::BaseClass<::ProjLib_SequenceOfHSequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::ProjLib_SequenceOfHSequenceOfPnt::Iterator();
+}
+
+Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Iterator::Iterator(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::ProjLib_SequenceOfHSequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ProjLib_SequenceOfHSequenceOfPnt::Iterator(*(::ProjLib_SequenceOfHSequenceOfPnt*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Iterator::Iterator(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSeq)
+    : Macad::Occt::BaseClass<::ProjLib_SequenceOfHSequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ProjLib_SequenceOfHSequenceOfPnt::Iterator(*(::ProjLib_SequenceOfHSequenceOfPnt*)theSeq->NativeInstance, true);
 }
 
 bool Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Iterator::More()
@@ -223,6 +345,284 @@ bool Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Iterator::Equals(System::Obj
         return false;
     }
     System::Type^ myType = Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  ProjLib_HSequenceOfHSequenceOfPnt
+//---------------------------------------------------------------------
+
+int Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Length()
+{
+    int _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Size()
+{
+    long long unsigned int _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+int Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Lower()
+{
+    int _result = ::ProjLib_HSequenceOfHSequenceOfPnt::Lower();
+    return _result;
+}
+
+int Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Upper()
+{
+    int _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::IsEmpty()
+{
+    bool _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Reverse()
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Exchange(int I, int J)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Clear()
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Clear(nullptr);
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Remove(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ thePosition)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Remove(*(::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Remove(long long unsigned int theIndex)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Remove(int theIndex)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Remove(int theFromIndex, int theToIndex)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Prepend(Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Prepend(Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::InsertBefore(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::InsertAfter(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ thePosition, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->InsertAfter(*(::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)thePosition->NativeInstance, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::InsertAfter(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->InsertAfter(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::First()
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->First();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ChangeFirst()
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->ChangeFirst();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Last()
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Last();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ChangeLast()
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->ChangeLast();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Value(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Value(int theIndex)
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ChangeValue(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->ChangeValue(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ChangeValue(int theIndex)
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->ChangeValue(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::SetValue(long long unsigned int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::SetValue(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::At(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->At(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ChangeAt(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->ChangeAt(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ProjLib_HSequenceOfHSequenceOfPnt()
+    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
+{
+    NativeInstance = new ::ProjLib_HSequenceOfHSequenceOfPnt();
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Append(Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Append(Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
+}
+
+Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::CreateDowncasted(::ProjLib_HSequenceOfHSequenceOfPnt* instance)
+{
+    return gcnew Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt( instance );
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HSequenceOfPnt^>^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::TColgp_HSequenceOfPnt^>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::TColgp_HSequenceOfPnt^>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  ProjLib_HSequenceOfHSequenceOfPnt::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::ProjLib_HSequenceOfHSequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::ProjLib_HSequenceOfHSequenceOfPnt::Iterator();
+}
+
+bool Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::More()
+{
+    bool _result = ((::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::Next()
+{
+    ((::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::Value()
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)_NativeInstance)->Value();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::ChangeValue()
+{
+    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)_NativeInstance)->ChangeValue();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::IsEqual(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ theOther)
+{
+    bool _result = ((::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)_NativeInstance)->IsEqual(*(::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::GetType();
     System::Type^ objType = obj->GetType();
     if (myType->Equals(objType) || objType->IsSubclassOf(myType))
     {
@@ -639,244 +1039,6 @@ bool Macad::Occt::ProjLib::IsAnaSurf(Macad::Occt::Adaptor3d_Surface^ theAS)
 {
     bool _result = ::ProjLib::IsAnaSurf(Handle(::Adaptor3d_Surface)(theAS->NativeInstance));
     return _result;
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  ProjLib_HSequenceOfHSequenceOfPnt
-//---------------------------------------------------------------------
-
-Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ProjLib_HSequenceOfHSequenceOfPnt()
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::ProjLib_HSequenceOfHSequenceOfPnt();
-}
-
-Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ProjLib_HSequenceOfHSequenceOfPnt(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theOther)
-    : Macad::Occt::Standard_Transient(BaseClass::InitMode::Uninitialized)
-{
-    NativeInstance = new ::ProjLib_HSequenceOfHSequenceOfPnt(*(::ProjLib_SequenceOfHSequenceOfPnt*)theOther->NativeInstance);
-}
-
-Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Sequence()
-{
-    ::ProjLib_SequenceOfHSequenceOfPnt* _result = new ::ProjLib_SequenceOfHSequenceOfPnt();
-    *_result = (::ProjLib_SequenceOfHSequenceOfPnt)((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Sequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt(_result);
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Append(Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Append(Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Append(Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ theSequence)
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Append(*(::ProjLib_SequenceOfHSequenceOfPnt*)theSequence->NativeInstance);
-}
-
-Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ChangeSequence()
-{
-    ::ProjLib_SequenceOfHSequenceOfPnt* _result = new ::ProjLib_SequenceOfHSequenceOfPnt();
-    *_result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->ChangeSequence();
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::ProjLib_SequenceOfHSequenceOfPnt(_result);
-}
-
-int Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Size()
-{
-    int _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Length()
-{
-    int _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Lower()
-{
-    int _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Upper()
-{
-    int _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::IsEmpty()
-{
-    bool _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Reverse()
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Exchange(int I, int J)
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Clear()
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Assign(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt^ theOther)
-{
-    throw gcnew System::NotImplementedException();
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Remove(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ thePosition)
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Remove(*(::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Prepend(Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Prepend(Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::InsertBefore(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::InsertAfter(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ thePosition, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->InsertAfter(*(::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)thePosition->NativeInstance, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Split(int theIndex, Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt^ theSeq)
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Split(theIndex, *(::ProjLib_HSequenceOfHSequenceOfPnt*)theSeq->NativeInstance);
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::First()
-{
-    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ChangeFirst()
-{
-    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->ChangeFirst();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Last()
-{
-    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ChangeLast()
-{
-    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->ChangeLast();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Value(int theIndex)
-{
-    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->Value(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::ChangeValue(int theIndex)
-{
-    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->ChangeValue(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::SetValue(int theIndex, Macad::Occt::TColgp_HSequenceOfPnt^ theItem)
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HSequenceOfPnt)(theItem->NativeInstance));
-}
-
-Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::CreateDowncasted(::ProjLib_HSequenceOfHSequenceOfPnt* instance)
-{
-    return gcnew Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt( instance );
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HSequenceOfPnt^>^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::TColgp_HSequenceOfPnt^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::TColgp_HSequenceOfPnt^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  ProjLib_HSequenceOfHSequenceOfPnt::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::ProjLib_HSequenceOfHSequenceOfPnt::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::ProjLib_HSequenceOfHSequenceOfPnt::Iterator();
-}
-
-bool Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::More()
-{
-    bool _result = ((::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::Next()
-{
-    ((::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::Value()
-{
-    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HSequenceOfPnt^ Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::ChangeValue()
-{
-    Handle(::TColgp_HSequenceOfPnt) _result = ((::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HSequenceOfPnt::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::IsEqual(Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator^ theOther)
-{
-    bool _result = ((::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)_NativeInstance)->IsEqual(*(::ProjLib_HSequenceOfHSequenceOfPnt::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::ProjLib_HSequenceOfHSequenceOfPnt::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
 }
 
 
@@ -1850,45 +2012,15 @@ double Macad::Occt::ProjLib_ProjectOnPlane::Period()
     return _result;
 }
 
-Macad::Occt::Pnt Macad::Occt::ProjLib_ProjectOnPlane::Value(double U)
+Macad::Occt::Pnt Macad::Occt::ProjLib_ProjectOnPlane::EvalD0(double theU)
 {
-    ::gp_Pnt _nativeResult = ((::ProjLib_ProjectOnPlane*)_NativeInstance)->Value(U);
+    ::gp_Pnt _nativeResult = ((::ProjLib_ProjectOnPlane*)_NativeInstance)->EvalD0(theU);
     return Macad::Occt::Pnt(_nativeResult);
 }
 
-void Macad::Occt::ProjLib_ProjectOnPlane::D0(double U, Macad::Occt::Pnt% P)
+Macad::Occt::Vec Macad::Occt::ProjLib_ProjectOnPlane::EvalDN(double theU, int theN)
 {
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    ((::ProjLib_ProjectOnPlane*)_NativeInstance)->D0(U, *(gp_Pnt*)pp_P);
-}
-
-void Macad::Occt::ProjLib_ProjectOnPlane::D1(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V = &V;
-    ((::ProjLib_ProjectOnPlane*)_NativeInstance)->D1(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V);
-}
-
-void Macad::Occt::ProjLib_ProjectOnPlane::D2(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec> pp_V2 = &V2;
-    ((::ProjLib_ProjectOnPlane*)_NativeInstance)->D2(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V1, *(gp_Vec*)pp_V2);
-}
-
-void Macad::Occt::ProjLib_ProjectOnPlane::D3(double U, Macad::Occt::Pnt% P, Macad::Occt::Vec% V1, Macad::Occt::Vec% V2, Macad::Occt::Vec% V3)
-{
-    pin_ptr<Macad::Occt::Pnt> pp_P = &P;
-    pin_ptr<Macad::Occt::Vec> pp_V1 = &V1;
-    pin_ptr<Macad::Occt::Vec> pp_V2 = &V2;
-    pin_ptr<Macad::Occt::Vec> pp_V3 = &V3;
-    ((::ProjLib_ProjectOnPlane*)_NativeInstance)->D3(U, *(gp_Pnt*)pp_P, *(gp_Vec*)pp_V1, *(gp_Vec*)pp_V2, *(gp_Vec*)pp_V3);
-}
-
-Macad::Occt::Vec Macad::Occt::ProjLib_ProjectOnPlane::DN(double U, int N)
-{
-    ::gp_Vec _nativeResult = ((::ProjLib_ProjectOnPlane*)_NativeInstance)->DN(U, N);
+    ::gp_Vec _nativeResult = ((::ProjLib_ProjectOnPlane*)_NativeInstance)->EvalDN(theU, theN);
     return Macad::Occt::Vec(_nativeResult);
 }
 

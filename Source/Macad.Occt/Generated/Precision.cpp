@@ -35,6 +35,18 @@ double Macad::Occt::Precision::SquareConfusion()
     return _result;
 }
 
+double Macad::Occt::Precision::Computational()
+{
+    double _result = ::Precision::Computational();
+    return _result;
+}
+
+double Macad::Occt::Precision::SquareComputational()
+{
+    double _result = ::Precision::SquareComputational();
+    return _result;
+}
+
 double Macad::Occt::Precision::Intersection()
 {
     double _result = ::Precision::Intersection();

@@ -26,7 +26,7 @@ namespace Occt
 /// for( i =1; i <= nbCurves;i++)
 /// {
 /// Inter.Init(curve);
-/// for(  ;Inter.More(); Inter.Next())
+/// for( ;Inter.More(); Inter.Next())
 /// {
 /// .......
 /// }

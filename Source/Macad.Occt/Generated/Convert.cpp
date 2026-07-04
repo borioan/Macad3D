@@ -12,224 +12,26 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 
 
 //---------------------------------------------------------------------
-//  Class  Convert_SequenceOfArray1OfPoles2d
-//---------------------------------------------------------------------
-
-Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Convert_SequenceOfArray1OfPoles2d()
-    : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Convert_SequenceOfArray1OfPoles2d();
-}
-
-Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Convert_SequenceOfArray1OfPoles2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Convert_SequenceOfArray1OfPoles2d(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Size()
-{
-    int _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Length()
-{
-    int _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Length();
-    return _result;
-}
-
-int Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Lower()
-{
-    int _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Lower();
-    return _result;
-}
-
-int Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Upper()
-{
-    int _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Upper();
-    return _result;
-}
-
-bool Macad::Occt::Convert_SequenceOfArray1OfPoles2d::IsEmpty()
-{
-    bool _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->IsEmpty();
-    return _result;
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Reverse()
-{
-    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Reverse();
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Exchange(int I, int J)
-{
-    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Exchange(I, J);
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Clear()
-{
-    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Assign(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theOther)
-{
-    ::Convert_SequenceOfArray1OfPoles2d* _result = new ::Convert_SequenceOfArray1OfPoles2d();
-    *_result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Assign(*(::Convert_SequenceOfArray1OfPoles2d*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::Convert_SequenceOfArray1OfPoles2d(_result);
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Remove(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ thePosition)
-{
-    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Remove(*(::Convert_SequenceOfArray1OfPoles2d::Iterator*)thePosition->NativeInstance);
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Append(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
-{
-    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Append(Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Prepend(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
-{
-    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Prepend(Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::InsertBefore(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
-{
-    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::InsertAfter(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ thePosition, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
-{
-    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->InsertAfter(*(::Convert_SequenceOfArray1OfPoles2d::Iterator*)thePosition->NativeInstance, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Split(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq)
-{
-    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Split(theIndex, *(::Convert_SequenceOfArray1OfPoles2d*)theSeq->NativeInstance);
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::First()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::ChangeFirst()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->ChangeFirst();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Last()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::ChangeLast()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->ChangeLast();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Value(int theIndex)
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Value(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::ChangeValue(int theIndex)
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->ChangeValue(theIndex);
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::SetValue(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
-{
-    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
-}
-
-System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::GetEnumerator()
-{
-    return gcnew IndexEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>(this, Lower(), Upper());
-}
-
-System::Collections::IEnumerator^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::GetEnumerator2()
-{
-    return gcnew IndexEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>(this, Lower(), Upper());
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Convert_SequenceOfArray1OfPoles2d::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Convert_SequenceOfArray1OfPoles2d::Iterator();
-}
-
-bool Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::More()
-{
-    bool _result = ((::Convert_SequenceOfArray1OfPoles2d::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::Next()
-{
-    ((::Convert_SequenceOfArray1OfPoles2d::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::Value()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::ChangeValue()
-{
-    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
-}
-
-bool Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::IsEqual(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ theOther)
-{
-    bool _result = ((::Convert_SequenceOfArray1OfPoles2d::Iterator*)_NativeInstance)->IsEqual(*(::Convert_SequenceOfArray1OfPoles2d::Iterator*)theOther->NativeInstance);
-    return _result;
-}
-
-bool Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::Equals(System::Object^ obj)
-{
-    if(ReferenceEquals(this, obj))
-    {
-        return true;
-    }
-    if(ReferenceEquals(nullptr, obj))
-    {
-        return false;
-    }
-    System::Type^ myType = Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::GetType();
-    System::Type^ objType = obj->GetType();
-    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
-    {
-        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
-    }
-    return false;
-}
-
-
-
-//---------------------------------------------------------------------
 //  Class  Convert_SequenceOfArray1OfPoles
 //---------------------------------------------------------------------
+
+int Macad::Occt::Convert_SequenceOfArray1OfPoles::Length()
+{
+    int _result = ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::Convert_SequenceOfArray1OfPoles::Size()
+{
+    long long unsigned int _result = ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::Convert_SequenceOfArray1OfPoles::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
 
 Macad::Occt::Convert_SequenceOfArray1OfPoles::Convert_SequenceOfArray1OfPoles()
     : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles>(BaseClass::InitMode::Uninitialized)
@@ -243,21 +45,9 @@ Macad::Occt::Convert_SequenceOfArray1OfPoles::Convert_SequenceOfArray1OfPoles(Ma
     _NativeInstance = new ::Convert_SequenceOfArray1OfPoles(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
 }
 
-int Macad::Occt::Convert_SequenceOfArray1OfPoles::Size()
-{
-    int _result = ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Size();
-    return _result;
-}
-
-int Macad::Occt::Convert_SequenceOfArray1OfPoles::Length()
-{
-    int _result = ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Length();
-    return _result;
-}
-
 int Macad::Occt::Convert_SequenceOfArray1OfPoles::Lower()
 {
-    int _result = ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Lower();
+    int _result = ::Convert_SequenceOfArray1OfPoles::Lower();
     return _result;
 }
 
@@ -278,6 +68,11 @@ void Macad::Occt::Convert_SequenceOfArray1OfPoles::Reverse()
     ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Reverse();
 }
 
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Exchange(I, J);
+}
+
 void Macad::Occt::Convert_SequenceOfArray1OfPoles::Exchange(int I, int J)
 {
     ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Exchange(I, J);
@@ -290,7 +85,7 @@ void Macad::Occt::Convert_SequenceOfArray1OfPoles::Clear(Macad::Occt::NCollectio
 
 void Macad::Occt::Convert_SequenceOfArray1OfPoles::Clear()
 {
-    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Clear(0L);
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::Convert_SequenceOfArray1OfPoles^ Macad::Occt::Convert_SequenceOfArray1OfPoles::Assign(Macad::Occt::Convert_SequenceOfArray1OfPoles^ theOther)
@@ -305,9 +100,34 @@ void Macad::Occt::Convert_SequenceOfArray1OfPoles::Remove(Macad::Occt::Convert_S
     ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Remove(*(::Convert_SequenceOfArray1OfPoles::Iterator*)thePosition->NativeInstance);
 }
 
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::Remove(long long unsigned int theIndex)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::Remove(int theIndex)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::Remove(int theFromIndex, int theToIndex)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
 void Macad::Occt::Convert_SequenceOfArray1OfPoles::Append(Macad::Occt::TColgp_HArray1OfPnt^ theItem)
 {
     ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Append(Handle(::TColgp_HArray1OfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::Append(Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Append(*(::Convert_SequenceOfArray1OfPoles*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::Convert_SequenceOfArray1OfPoles::Prepend(Macad::Occt::TColgp_HArray1OfPnt^ theItem)
@@ -315,14 +135,59 @@ void Macad::Occt::Convert_SequenceOfArray1OfPoles::Prepend(Macad::Occt::TColgp_H
     ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Prepend(Handle(::TColgp_HArray1OfPnt)(theItem->NativeInstance));
 }
 
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::Prepend(Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Prepend(*(::Convert_SequenceOfArray1OfPoles*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HArray1OfPnt)(theItem->NativeInstance));
+}
+
 void Macad::Occt::Convert_SequenceOfArray1OfPoles::InsertBefore(int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem)
 {
     ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HArray1OfPnt)(theItem->NativeInstance));
 }
 
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::InsertBefore(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->InsertBefore(theIndex, *(::Convert_SequenceOfArray1OfPoles*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::InsertBefore(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->InsertBefore(theIndex, *(::Convert_SequenceOfArray1OfPoles*)theSeq->NativeInstance);
+}
+
 void Macad::Occt::Convert_SequenceOfArray1OfPoles::InsertAfter(Macad::Occt::Convert_SequenceOfArray1OfPoles::Iterator^ thePosition, Macad::Occt::TColgp_HArray1OfPnt^ theItem)
 {
     ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->InsertAfter(*(::Convert_SequenceOfArray1OfPoles::Iterator*)thePosition->NativeInstance, Handle(::TColgp_HArray1OfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::InsertAfter(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->InsertAfter(theIndex, *(::Convert_SequenceOfArray1OfPoles*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::InsertAfter(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->InsertAfter(theIndex, *(::Convert_SequenceOfArray1OfPoles*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->InsertAfter(theIndex, Handle(::TColgp_HArray1OfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::InsertAfter(int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->InsertAfter(theIndex, Handle(::TColgp_HArray1OfPnt)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::Split(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Split(theIndex, *(::Convert_SequenceOfArray1OfPoles*)theSeq->NativeInstance);
 }
 
 void Macad::Occt::Convert_SequenceOfArray1OfPoles::Split(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq)
@@ -354,9 +219,21 @@ Macad::Occt::TColgp_HArray1OfPnt^ Macad::Occt::Convert_SequenceOfArray1OfPoles::
     return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt::CreateDowncasted(_result.get());
 }
 
+Macad::Occt::TColgp_HArray1OfPnt^ Macad::Occt::Convert_SequenceOfArray1OfPoles::Value(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt) _result = ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::TColgp_HArray1OfPnt^ Macad::Occt::Convert_SequenceOfArray1OfPoles::Value(int theIndex)
 {
     Handle(::TColgp_HArray1OfPnt) _result = ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt^ Macad::Occt::Convert_SequenceOfArray1OfPoles::ChangeValue(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt) _result = ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->ChangeValue(theIndex);
     return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt::CreateDowncasted(_result.get());
 }
 
@@ -366,9 +243,26 @@ Macad::Occt::TColgp_HArray1OfPnt^ Macad::Occt::Convert_SequenceOfArray1OfPoles::
     return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::Convert_SequenceOfArray1OfPoles::SetValue(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HArray1OfPnt)(theItem->NativeInstance));
+}
+
 void Macad::Occt::Convert_SequenceOfArray1OfPoles::SetValue(int theIndex, Macad::Occt::TColgp_HArray1OfPnt^ theItem)
 {
     ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HArray1OfPnt)(theItem->NativeInstance));
+}
+
+Macad::Occt::TColgp_HArray1OfPnt^ Macad::Occt::Convert_SequenceOfArray1OfPoles::At(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt) _result = ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->At(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt^ Macad::Occt::Convert_SequenceOfArray1OfPoles::ChangeAt(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt) _result = ((::Convert_SequenceOfArray1OfPoles*)_NativeInstance)->ChangeAt(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt::CreateDowncasted(_result.get());
 }
 
 System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HArray1OfPnt^>^ Macad::Occt::Convert_SequenceOfArray1OfPoles::GetEnumerator()
@@ -391,6 +285,18 @@ Macad::Occt::Convert_SequenceOfArray1OfPoles::Iterator::Iterator()
     : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::Convert_SequenceOfArray1OfPoles::Iterator();
+}
+
+Macad::Occt::Convert_SequenceOfArray1OfPoles::Iterator::Iterator(Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Convert_SequenceOfArray1OfPoles::Iterator(*(::Convert_SequenceOfArray1OfPoles*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::Convert_SequenceOfArray1OfPoles::Iterator::Iterator(Macad::Occt::Convert_SequenceOfArray1OfPoles^ theSeq)
+    : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Convert_SequenceOfArray1OfPoles::Iterator(*(::Convert_SequenceOfArray1OfPoles*)theSeq->NativeInstance, true);
 }
 
 bool Macad::Occt::Convert_SequenceOfArray1OfPoles::Iterator::More()
@@ -444,6 +350,344 @@ bool Macad::Occt::Convert_SequenceOfArray1OfPoles::Iterator::Equals(System::Obje
 
 
 //---------------------------------------------------------------------
+//  Class  Convert_SequenceOfArray1OfPoles2d
+//---------------------------------------------------------------------
+
+int Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Length()
+{
+    int _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Size()
+{
+    long long unsigned int _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Size();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Convert_SequenceOfArray1OfPoles2d()
+    : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Convert_SequenceOfArray1OfPoles2d();
+}
+
+Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Convert_SequenceOfArray1OfPoles2d(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Convert_SequenceOfArray1OfPoles2d(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+int Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Lower()
+{
+    int _result = ::Convert_SequenceOfArray1OfPoles2d::Lower();
+    return _result;
+}
+
+int Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Upper()
+{
+    int _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Upper();
+    return _result;
+}
+
+bool Macad::Occt::Convert_SequenceOfArray1OfPoles2d::IsEmpty()
+{
+    bool _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Reverse()
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Exchange(long long unsigned int I, long long unsigned int J)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Exchange(int I, int J)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Exchange(I, J);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Clear()
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Assign(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theOther)
+{
+    ::Convert_SequenceOfArray1OfPoles2d* _result = new ::Convert_SequenceOfArray1OfPoles2d();
+    *_result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Assign(*(::Convert_SequenceOfArray1OfPoles2d*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::Convert_SequenceOfArray1OfPoles2d(_result);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Remove(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ thePosition)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Remove(*(::Convert_SequenceOfArray1OfPoles2d::Iterator*)thePosition->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Remove(long long unsigned int theIndex)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Remove(int theIndex)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Remove(theIndex);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Remove(long long unsigned int theFromIndex, long long unsigned int theToIndex)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Remove(int theFromIndex, int theToIndex)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Remove(theFromIndex, theToIndex);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Append(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Append(Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Append(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Append(*(::Convert_SequenceOfArray1OfPoles2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Prepend(Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Prepend(Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Prepend(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Prepend(*(::Convert_SequenceOfArray1OfPoles2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::InsertBefore(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->InsertBefore(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::InsertBefore(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->InsertBefore(theIndex, *(::Convert_SequenceOfArray1OfPoles2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::InsertBefore(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->InsertBefore(theIndex, *(::Convert_SequenceOfArray1OfPoles2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::InsertAfter(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ thePosition, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->InsertAfter(*(::Convert_SequenceOfArray1OfPoles2d::Iterator*)thePosition->NativeInstance, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->InsertAfter(theIndex, *(::Convert_SequenceOfArray1OfPoles2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::InsertAfter(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->InsertAfter(theIndex, *(::Convert_SequenceOfArray1OfPoles2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::InsertAfter(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->InsertAfter(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::InsertAfter(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->InsertAfter(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Split(long long unsigned int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Split(theIndex, *(::Convert_SequenceOfArray1OfPoles2d*)theSeq->NativeInstance);
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Split(int theIndex, Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Split(theIndex, *(::Convert_SequenceOfArray1OfPoles2d*)theSeq->NativeInstance);
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::First()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->First();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::ChangeFirst()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->ChangeFirst();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Last()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Last();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::ChangeLast()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->ChangeLast();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Value(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Value(int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->Value(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::ChangeValue(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->ChangeValue(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::ChangeValue(int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->ChangeValue(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::SetValue(long long unsigned int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::SetValue(int theIndex, Macad::Occt::TColgp_HArray1OfPnt2d^ theItem)
+{
+    ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->SetValue(theIndex, Handle(::TColgp_HArray1OfPnt2d)(theItem->NativeInstance));
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::At(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->At(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::ChangeAt(long long unsigned int theIndex)
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d*)_NativeInstance)->ChangeAt(theIndex);
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+System::Collections::Generic::IEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::GetEnumerator()
+{
+    return gcnew IndexEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>(this, Lower(), Upper());
+}
+
+System::Collections::IEnumerator^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::GetEnumerator2()
+{
+    return gcnew IndexEnumerator<Macad::Occt::TColgp_HArray1OfPnt2d^>(this, Lower(), Upper());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  Convert_SequenceOfArray1OfPoles2d::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Convert_SequenceOfArray1OfPoles2d::Iterator();
+}
+
+Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::Iterator(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq, bool isStart)
+    : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Convert_SequenceOfArray1OfPoles2d::Iterator(*(::Convert_SequenceOfArray1OfPoles2d*)theSeq->NativeInstance, isStart);
+}
+
+Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::Iterator(Macad::Occt::Convert_SequenceOfArray1OfPoles2d^ theSeq)
+    : Macad::Occt::BaseClass<::Convert_SequenceOfArray1OfPoles2d::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::Convert_SequenceOfArray1OfPoles2d::Iterator(*(::Convert_SequenceOfArray1OfPoles2d*)theSeq->NativeInstance, true);
+}
+
+bool Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::More()
+{
+    bool _result = ((::Convert_SequenceOfArray1OfPoles2d::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::Next()
+{
+    ((::Convert_SequenceOfArray1OfPoles2d::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::Value()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d::Iterator*)_NativeInstance)->Value();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::TColgp_HArray1OfPnt2d^ Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::ChangeValue()
+{
+    Handle(::TColgp_HArray1OfPnt2d) _result = ((::Convert_SequenceOfArray1OfPoles2d::Iterator*)_NativeInstance)->ChangeValue();
+    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray1OfPnt2d::CreateDowncasted(_result.get());
+}
+
+bool Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::IsEqual(Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator^ theOther)
+{
+    bool _result = ((::Convert_SequenceOfArray1OfPoles2d::Iterator*)_NativeInstance)->IsEqual(*(::Convert_SequenceOfArray1OfPoles2d::Iterator*)theOther->NativeInstance);
+    return _result;
+}
+
+bool Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::Equals(System::Object^ obj)
+{
+    if(ReferenceEquals(this, obj))
+    {
+        return true;
+    }
+    if(ReferenceEquals(nullptr, obj))
+    {
+        return false;
+    }
+    System::Type^ myType = Macad::Occt::Convert_SequenceOfArray1OfPoles2d::Iterator::GetType();
+    System::Type^ objType = obj->GetType();
+    if (myType->Equals(objType) || objType->IsSubclassOf(myType))
+    {
+        return NativeInstance->IsEqual(*((Iterator^)obj)->NativeInstance);
+    }
+    return false;
+}
+
+
+
+//---------------------------------------------------------------------
 //  Class  Convert_ConicToBSplineCurve
 //---------------------------------------------------------------------
 
@@ -471,60 +715,88 @@ bool Macad::Occt::Convert_ConicToBSplineCurve::IsPeriodic()
     return _result;
 }
 
-Macad::Occt::Pnt2d Macad::Occt::Convert_ConicToBSplineCurve::Pole(int Index)
+Macad::Occt::Pnt2d Macad::Occt::Convert_ConicToBSplineCurve::Pole(int theIndex)
 {
-    ::gp_Pnt2d _nativeResult = ((::Convert_ConicToBSplineCurve*)_NativeInstance)->Pole(Index);
+    ::gp_Pnt2d _nativeResult = ((::Convert_ConicToBSplineCurve*)_NativeInstance)->Pole(theIndex);
     return Macad::Occt::Pnt2d(_nativeResult);
 }
 
-double Macad::Occt::Convert_ConicToBSplineCurve::Weight(int Index)
+double Macad::Occt::Convert_ConicToBSplineCurve::Weight(int theIndex)
 {
-    double _result = ((::Convert_ConicToBSplineCurve*)_NativeInstance)->Weight(Index);
+    double _result = ((::Convert_ConicToBSplineCurve*)_NativeInstance)->Weight(theIndex);
     return _result;
 }
 
-double Macad::Occt::Convert_ConicToBSplineCurve::Knot(int Index)
+double Macad::Occt::Convert_ConicToBSplineCurve::Knot(int theIndex)
 {
-    double _result = ((::Convert_ConicToBSplineCurve*)_NativeInstance)->Knot(Index);
+    double _result = ((::Convert_ConicToBSplineCurve*)_NativeInstance)->Knot(theIndex);
     return _result;
 }
 
-int Macad::Occt::Convert_ConicToBSplineCurve::Multiplicity(int Index)
+int Macad::Occt::Convert_ConicToBSplineCurve::Multiplicity(int theIndex)
 {
-    int _result = ((::Convert_ConicToBSplineCurve*)_NativeInstance)->Multiplicity(Index);
+    int _result = ((::Convert_ConicToBSplineCurve*)_NativeInstance)->Multiplicity(theIndex);
     return _result;
 }
 
-void Macad::Occt::Convert_ConicToBSplineCurve::BuildCosAndSin(Macad::Occt::Convert_ParameterisationType Parametrisation, Macad::Occt::TColStd_HArray1OfReal^ CosNumerator, Macad::Occt::TColStd_HArray1OfReal^ SinNumerator, Macad::Occt::TColStd_HArray1OfReal^ Denominator, int% Degree, Macad::Occt::TColStd_HArray1OfReal^ Knots, Macad::Occt::TColStd_HArray1OfInteger^ Mults)
+Macad::Occt::TColgp_Array1OfPnt2d^ Macad::Occt::Convert_ConicToBSplineCurve::Poles()
 {
-    Handle(::TColStd_HArray1OfReal) h_CosNumerator = CosNumerator->NativeInstance;
-    Handle(::TColStd_HArray1OfReal) h_SinNumerator = SinNumerator->NativeInstance;
-    Handle(::TColStd_HArray1OfReal) h_Denominator = Denominator->NativeInstance;
-    pin_ptr<int> pp_Degree = &Degree;
-    Handle(::TColStd_HArray1OfReal) h_Knots = Knots->NativeInstance;
-    Handle(::TColStd_HArray1OfInteger) h_Mults = Mults->NativeInstance;
-    ((::Convert_ConicToBSplineCurve*)_NativeInstance)->BuildCosAndSin((::Convert_ParameterisationType)Parametrisation, h_CosNumerator, h_SinNumerator, h_Denominator, *(int*)pp_Degree, h_Knots, h_Mults);
-    CosNumerator->NativeInstance = h_CosNumerator.get();
-    SinNumerator->NativeInstance = h_SinNumerator.get();
-    Denominator->NativeInstance = h_Denominator.get();
-    Knots->NativeInstance = h_Knots.get();
-    Mults->NativeInstance = h_Mults.get();
+    ::TColgp_Array1OfPnt2d* _result = new ::TColgp_Array1OfPnt2d();
+    *_result = (::TColgp_Array1OfPnt2d)((::Convert_ConicToBSplineCurve*)_NativeInstance)->Poles();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array1OfPnt2d(_result);
 }
 
-void Macad::Occt::Convert_ConicToBSplineCurve::BuildCosAndSin(Macad::Occt::Convert_ParameterisationType Parametrisation, double UFirst, double ULast, Macad::Occt::TColStd_HArray1OfReal^ CosNumerator, Macad::Occt::TColStd_HArray1OfReal^ SinNumerator, Macad::Occt::TColStd_HArray1OfReal^ Denominator, int% Degree, Macad::Occt::TColStd_HArray1OfReal^ Knots, Macad::Occt::TColStd_HArray1OfInteger^ Mults)
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Convert_ConicToBSplineCurve::Weights()
 {
-    Handle(::TColStd_HArray1OfReal) h_CosNumerator = CosNumerator->NativeInstance;
-    Handle(::TColStd_HArray1OfReal) h_SinNumerator = SinNumerator->NativeInstance;
-    Handle(::TColStd_HArray1OfReal) h_Denominator = Denominator->NativeInstance;
-    pin_ptr<int> pp_Degree = &Degree;
-    Handle(::TColStd_HArray1OfReal) h_Knots = Knots->NativeInstance;
-    Handle(::TColStd_HArray1OfInteger) h_Mults = Mults->NativeInstance;
-    ((::Convert_ConicToBSplineCurve*)_NativeInstance)->BuildCosAndSin((::Convert_ParameterisationType)Parametrisation, UFirst, ULast, h_CosNumerator, h_SinNumerator, h_Denominator, *(int*)pp_Degree, h_Knots, h_Mults);
-    CosNumerator->NativeInstance = h_CosNumerator.get();
-    SinNumerator->NativeInstance = h_SinNumerator.get();
-    Denominator->NativeInstance = h_Denominator.get();
-    Knots->NativeInstance = h_Knots.get();
-    Mults->NativeInstance = h_Mults.get();
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = (::TColStd_Array1OfReal)((::Convert_ConicToBSplineCurve*)_NativeInstance)->Weights();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
+}
+
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Convert_ConicToBSplineCurve::Knots()
+{
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = (::TColStd_Array1OfReal)((::Convert_ConicToBSplineCurve*)_NativeInstance)->Knots();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
+}
+
+Macad::Occt::TColStd_Array1OfInteger^ Macad::Occt::Convert_ConicToBSplineCurve::Multiplicities()
+{
+    ::TColStd_Array1OfInteger* _result = new ::TColStd_Array1OfInteger();
+    *_result = (::TColStd_Array1OfInteger)((::Convert_ConicToBSplineCurve*)_NativeInstance)->Multiplicities();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfInteger(_result);
+}
+
+void Macad::Occt::Convert_ConicToBSplineCurve::BuildCosAndSin(Macad::Occt::Convert_ParameterisationType theParametrisation, Macad::Occt::TColStd_HArray1OfReal^ theCosNumerator, Macad::Occt::TColStd_HArray1OfReal^ theSinNumerator, Macad::Occt::TColStd_HArray1OfReal^ theDenominator, int% theDegree, Macad::Occt::TColStd_HArray1OfReal^ theKnots, Macad::Occt::TColStd_HArray1OfInteger^ theMults)
+{
+    Handle(::TColStd_HArray1OfReal) h_theCosNumerator = theCosNumerator->NativeInstance;
+    Handle(::TColStd_HArray1OfReal) h_theSinNumerator = theSinNumerator->NativeInstance;
+    Handle(::TColStd_HArray1OfReal) h_theDenominator = theDenominator->NativeInstance;
+    pin_ptr<int> pp_theDegree = &theDegree;
+    Handle(::TColStd_HArray1OfReal) h_theKnots = theKnots->NativeInstance;
+    Handle(::TColStd_HArray1OfInteger) h_theMults = theMults->NativeInstance;
+    ((::Convert_ConicToBSplineCurve*)_NativeInstance)->BuildCosAndSin((::Convert_ParameterisationType)theParametrisation, h_theCosNumerator, h_theSinNumerator, h_theDenominator, *(int*)pp_theDegree, h_theKnots, h_theMults);
+    theCosNumerator->NativeInstance = h_theCosNumerator.get();
+    theSinNumerator->NativeInstance = h_theSinNumerator.get();
+    theDenominator->NativeInstance = h_theDenominator.get();
+    theKnots->NativeInstance = h_theKnots.get();
+    theMults->NativeInstance = h_theMults.get();
+}
+
+void Macad::Occt::Convert_ConicToBSplineCurve::BuildCosAndSin(Macad::Occt::Convert_ParameterisationType theParametrisation, double theUFirst, double theULast, Macad::Occt::TColStd_HArray1OfReal^ theCosNumerator, Macad::Occt::TColStd_HArray1OfReal^ theSinNumerator, Macad::Occt::TColStd_HArray1OfReal^ theDenominator, int% theDegree, Macad::Occt::TColStd_HArray1OfReal^ theKnots, Macad::Occt::TColStd_HArray1OfInteger^ theMults)
+{
+    Handle(::TColStd_HArray1OfReal) h_theCosNumerator = theCosNumerator->NativeInstance;
+    Handle(::TColStd_HArray1OfReal) h_theSinNumerator = theSinNumerator->NativeInstance;
+    Handle(::TColStd_HArray1OfReal) h_theDenominator = theDenominator->NativeInstance;
+    pin_ptr<int> pp_theDegree = &theDegree;
+    Handle(::TColStd_HArray1OfReal) h_theKnots = theKnots->NativeInstance;
+    Handle(::TColStd_HArray1OfInteger) h_theMults = theMults->NativeInstance;
+    ((::Convert_ConicToBSplineCurve*)_NativeInstance)->BuildCosAndSin((::Convert_ParameterisationType)theParametrisation, theUFirst, theULast, h_theCosNumerator, h_theSinNumerator, h_theDenominator, *(int*)pp_theDegree, h_theKnots, h_theMults);
+    theCosNumerator->NativeInstance = h_theCosNumerator.get();
+    theSinNumerator->NativeInstance = h_theSinNumerator.get();
+    theDenominator->NativeInstance = h_theDenominator.get();
+    theKnots->NativeInstance = h_theKnots.get();
+    theMults->NativeInstance = h_theMults.get();
 }
 
 
@@ -560,118 +832,6 @@ Macad::Occt::Convert_CircleToBSplineCurve::Convert_CircleToBSplineCurve(Macad::O
 
 
 //---------------------------------------------------------------------
-//  Class  Convert_CompBezierCurves2dToBSplineCurve2d
-//---------------------------------------------------------------------
-
-Macad::Occt::Convert_CompBezierCurves2dToBSplineCurve2d::Convert_CompBezierCurves2dToBSplineCurve2d(double AngularTolerance)
-    : Macad::Occt::BaseClass<::Convert_CompBezierCurves2dToBSplineCurve2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Convert_CompBezierCurves2dToBSplineCurve2d(AngularTolerance);
-}
-
-Macad::Occt::Convert_CompBezierCurves2dToBSplineCurve2d::Convert_CompBezierCurves2dToBSplineCurve2d()
-    : Macad::Occt::BaseClass<::Convert_CompBezierCurves2dToBSplineCurve2d>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Convert_CompBezierCurves2dToBSplineCurve2d(1.0E-4);
-}
-
-void Macad::Occt::Convert_CompBezierCurves2dToBSplineCurve2d::AddCurve(Macad::Occt::TColgp_Array1OfPnt2d^ Poles)
-{
-    ((::Convert_CompBezierCurves2dToBSplineCurve2d*)_NativeInstance)->AddCurve(*(::TColgp_Array1OfPnt2d*)Poles->NativeInstance);
-}
-
-void Macad::Occt::Convert_CompBezierCurves2dToBSplineCurve2d::Perform()
-{
-    ((::Convert_CompBezierCurves2dToBSplineCurve2d*)_NativeInstance)->Perform();
-}
-
-int Macad::Occt::Convert_CompBezierCurves2dToBSplineCurve2d::Degree()
-{
-    int _result = ((::Convert_CompBezierCurves2dToBSplineCurve2d*)_NativeInstance)->Degree();
-    return _result;
-}
-
-int Macad::Occt::Convert_CompBezierCurves2dToBSplineCurve2d::NbPoles()
-{
-    int _result = ((::Convert_CompBezierCurves2dToBSplineCurve2d*)_NativeInstance)->NbPoles();
-    return _result;
-}
-
-void Macad::Occt::Convert_CompBezierCurves2dToBSplineCurve2d::Poles(Macad::Occt::TColgp_Array1OfPnt2d^ Poles)
-{
-    ((::Convert_CompBezierCurves2dToBSplineCurve2d*)_NativeInstance)->Poles(*(::TColgp_Array1OfPnt2d*)Poles->NativeInstance);
-}
-
-int Macad::Occt::Convert_CompBezierCurves2dToBSplineCurve2d::NbKnots()
-{
-    int _result = ((::Convert_CompBezierCurves2dToBSplineCurve2d*)_NativeInstance)->NbKnots();
-    return _result;
-}
-
-void Macad::Occt::Convert_CompBezierCurves2dToBSplineCurve2d::KnotsAndMults(Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Mults)
-{
-    ((::Convert_CompBezierCurves2dToBSplineCurve2d*)_NativeInstance)->KnotsAndMults(*(::TColStd_Array1OfReal*)Knots->NativeInstance, *(::TColStd_Array1OfInteger*)Mults->NativeInstance);
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  Convert_CompBezierCurvesToBSplineCurve
-//---------------------------------------------------------------------
-
-Macad::Occt::Convert_CompBezierCurvesToBSplineCurve::Convert_CompBezierCurvesToBSplineCurve(double AngularTolerance)
-    : Macad::Occt::BaseClass<::Convert_CompBezierCurvesToBSplineCurve>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Convert_CompBezierCurvesToBSplineCurve(AngularTolerance);
-}
-
-Macad::Occt::Convert_CompBezierCurvesToBSplineCurve::Convert_CompBezierCurvesToBSplineCurve()
-    : Macad::Occt::BaseClass<::Convert_CompBezierCurvesToBSplineCurve>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::Convert_CompBezierCurvesToBSplineCurve(1.0E-4);
-}
-
-void Macad::Occt::Convert_CompBezierCurvesToBSplineCurve::AddCurve(Macad::Occt::TColgp_Array1OfPnt^ Poles)
-{
-    ((::Convert_CompBezierCurvesToBSplineCurve*)_NativeInstance)->AddCurve(*(::TColgp_Array1OfPnt*)Poles->NativeInstance);
-}
-
-void Macad::Occt::Convert_CompBezierCurvesToBSplineCurve::Perform()
-{
-    ((::Convert_CompBezierCurvesToBSplineCurve*)_NativeInstance)->Perform();
-}
-
-int Macad::Occt::Convert_CompBezierCurvesToBSplineCurve::Degree()
-{
-    int _result = ((::Convert_CompBezierCurvesToBSplineCurve*)_NativeInstance)->Degree();
-    return _result;
-}
-
-int Macad::Occt::Convert_CompBezierCurvesToBSplineCurve::NbPoles()
-{
-    int _result = ((::Convert_CompBezierCurvesToBSplineCurve*)_NativeInstance)->NbPoles();
-    return _result;
-}
-
-void Macad::Occt::Convert_CompBezierCurvesToBSplineCurve::Poles(Macad::Occt::TColgp_Array1OfPnt^ Poles)
-{
-    ((::Convert_CompBezierCurvesToBSplineCurve*)_NativeInstance)->Poles(*(::TColgp_Array1OfPnt*)Poles->NativeInstance);
-}
-
-int Macad::Occt::Convert_CompBezierCurvesToBSplineCurve::NbKnots()
-{
-    int _result = ((::Convert_CompBezierCurvesToBSplineCurve*)_NativeInstance)->NbKnots();
-    return _result;
-}
-
-void Macad::Occt::Convert_CompBezierCurvesToBSplineCurve::KnotsAndMults(Macad::Occt::TColStd_Array1OfReal^ Knots, Macad::Occt::TColStd_Array1OfInteger^ Mults)
-{
-    ((::Convert_CompBezierCurvesToBSplineCurve*)_NativeInstance)->KnotsAndMults(*(::TColStd_Array1OfReal*)Knots->NativeInstance, *(::TColStd_Array1OfInteger*)Mults->NativeInstance);
-}
-
-
-
-//---------------------------------------------------------------------
 //  Class  Convert_CompPolynomialToPoles
 //---------------------------------------------------------------------
 
@@ -699,11 +859,18 @@ int Macad::Occt::Convert_CompPolynomialToPoles::NbPoles()
     return _result;
 }
 
-void Macad::Occt::Convert_CompPolynomialToPoles::Poles(Macad::Occt::TColStd_HArray2OfReal^ Poles)
+Macad::Occt::TColStd_Array2OfReal^ Macad::Occt::Convert_CompPolynomialToPoles::Poles()
 {
-    Handle(::TColStd_HArray2OfReal) h_Poles = Poles->NativeInstance;
-    ((::Convert_CompPolynomialToPoles*)_NativeInstance)->Poles(h_Poles);
-    Poles->NativeInstance = h_Poles.get();
+    ::TColStd_Array2OfReal* _result = new ::TColStd_Array2OfReal();
+    *_result = (::TColStd_Array2OfReal)((::Convert_CompPolynomialToPoles*)_NativeInstance)->Poles();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array2OfReal(_result);
+}
+
+void Macad::Occt::Convert_CompPolynomialToPoles::Poles(Macad::Occt::TColStd_HArray2OfReal^ thePoles)
+{
+    Handle(::TColStd_HArray2OfReal) h_thePoles = thePoles->NativeInstance;
+    ((::Convert_CompPolynomialToPoles*)_NativeInstance)->Poles(h_thePoles);
+    thePoles->NativeInstance = h_thePoles.get();
 }
 
 int Macad::Occt::Convert_CompPolynomialToPoles::Degree()
@@ -718,18 +885,32 @@ int Macad::Occt::Convert_CompPolynomialToPoles::NbKnots()
     return _result;
 }
 
-void Macad::Occt::Convert_CompPolynomialToPoles::Knots(Macad::Occt::TColStd_HArray1OfReal^ K)
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Convert_CompPolynomialToPoles::Knots()
 {
-    Handle(::TColStd_HArray1OfReal) h_K = K->NativeInstance;
-    ((::Convert_CompPolynomialToPoles*)_NativeInstance)->Knots(h_K);
-    K->NativeInstance = h_K.get();
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = (::TColStd_Array1OfReal)((::Convert_CompPolynomialToPoles*)_NativeInstance)->Knots();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
 }
 
-void Macad::Occt::Convert_CompPolynomialToPoles::Multiplicities(Macad::Occt::TColStd_HArray1OfInteger^ M)
+void Macad::Occt::Convert_CompPolynomialToPoles::Knots(Macad::Occt::TColStd_HArray1OfReal^ theKnots)
 {
-    Handle(::TColStd_HArray1OfInteger) h_M = M->NativeInstance;
-    ((::Convert_CompPolynomialToPoles*)_NativeInstance)->Multiplicities(h_M);
-    M->NativeInstance = h_M.get();
+    Handle(::TColStd_HArray1OfReal) h_theKnots = theKnots->NativeInstance;
+    ((::Convert_CompPolynomialToPoles*)_NativeInstance)->Knots(h_theKnots);
+    theKnots->NativeInstance = h_theKnots.get();
+}
+
+Macad::Occt::TColStd_Array1OfInteger^ Macad::Occt::Convert_CompPolynomialToPoles::Multiplicities()
+{
+    ::TColStd_Array1OfInteger* _result = new ::TColStd_Array1OfInteger();
+    *_result = (::TColStd_Array1OfInteger)((::Convert_CompPolynomialToPoles*)_NativeInstance)->Multiplicities();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfInteger(_result);
+}
+
+void Macad::Occt::Convert_CompPolynomialToPoles::Multiplicities(Macad::Occt::TColStd_HArray1OfInteger^ theMults)
+{
+    Handle(::TColStd_HArray1OfInteger) h_theMults = theMults->NativeInstance;
+    ((::Convert_CompPolynomialToPoles*)_NativeInstance)->Multiplicities(h_theMults);
+    theMults->NativeInstance = h_theMults.get();
 }
 
 bool Macad::Occt::Convert_CompPolynomialToPoles::IsDone()
@@ -810,9 +991,9 @@ double Macad::Occt::Convert_ElementarySurfaceToBSplineSurface::UKnot(int UIndex)
     return _result;
 }
 
-double Macad::Occt::Convert_ElementarySurfaceToBSplineSurface::VKnot(int UIndex)
+double Macad::Occt::Convert_ElementarySurfaceToBSplineSurface::VKnot(int VIndex)
 {
-    double _result = ((::Convert_ElementarySurfaceToBSplineSurface*)_NativeInstance)->VKnot(UIndex);
+    double _result = ((::Convert_ElementarySurfaceToBSplineSurface*)_NativeInstance)->VKnot(VIndex);
     return _result;
 }
 
@@ -826,6 +1007,48 @@ int Macad::Occt::Convert_ElementarySurfaceToBSplineSurface::VMultiplicity(int VI
 {
     int _result = ((::Convert_ElementarySurfaceToBSplineSurface*)_NativeInstance)->VMultiplicity(VIndex);
     return _result;
+}
+
+Macad::Occt::TColgp_Array2OfPnt^ Macad::Occt::Convert_ElementarySurfaceToBSplineSurface::Poles()
+{
+    ::TColgp_Array2OfPnt* _result = new ::TColgp_Array2OfPnt();
+    *_result = (::TColgp_Array2OfPnt)((::Convert_ElementarySurfaceToBSplineSurface*)_NativeInstance)->Poles();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt(_result);
+}
+
+Macad::Occt::TColStd_Array2OfReal^ Macad::Occt::Convert_ElementarySurfaceToBSplineSurface::Weights()
+{
+    ::TColStd_Array2OfReal* _result = new ::TColStd_Array2OfReal();
+    *_result = (::TColStd_Array2OfReal)((::Convert_ElementarySurfaceToBSplineSurface*)_NativeInstance)->Weights();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array2OfReal(_result);
+}
+
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Convert_ElementarySurfaceToBSplineSurface::UKnots()
+{
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = (::TColStd_Array1OfReal)((::Convert_ElementarySurfaceToBSplineSurface*)_NativeInstance)->UKnots();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
+}
+
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Convert_ElementarySurfaceToBSplineSurface::VKnots()
+{
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = (::TColStd_Array1OfReal)((::Convert_ElementarySurfaceToBSplineSurface*)_NativeInstance)->VKnots();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
+}
+
+Macad::Occt::TColStd_Array1OfInteger^ Macad::Occt::Convert_ElementarySurfaceToBSplineSurface::UMultiplicities()
+{
+    ::TColStd_Array1OfInteger* _result = new ::TColStd_Array1OfInteger();
+    *_result = (::TColStd_Array1OfInteger)((::Convert_ElementarySurfaceToBSplineSurface*)_NativeInstance)->UMultiplicities();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfInteger(_result);
+}
+
+Macad::Occt::TColStd_Array1OfInteger^ Macad::Occt::Convert_ElementarySurfaceToBSplineSurface::VMultiplicities()
+{
+    ::TColStd_Array1OfInteger* _result = new ::TColStd_Array1OfInteger();
+    *_result = (::TColStd_Array1OfInteger)((::Convert_ElementarySurfaceToBSplineSurface*)_NativeInstance)->VMultiplicities();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfInteger(_result);
 }
 
 
@@ -912,11 +1135,6 @@ Macad::Occt::Convert_GridPolynomialToPoles::Convert_GridPolynomialToPoles(int Nb
     _NativeInstance = new ::Convert_GridPolynomialToPoles(NbUSurfaces, NBVSurfaces, UContinuity, VContinuity, MaxUDegree, MaxVDegree, Handle(::TColStd_HArray2OfInteger)(NumCoeffPerSurface->NativeInstance), Handle(::TColStd_HArray1OfReal)(Coefficients->NativeInstance), Handle(::TColStd_HArray1OfReal)(PolynomialUIntervals->NativeInstance), Handle(::TColStd_HArray1OfReal)(PolynomialVIntervals->NativeInstance), Handle(::TColStd_HArray1OfReal)(TrueUIntervals->NativeInstance), Handle(::TColStd_HArray1OfReal)(TrueVIntervals->NativeInstance));
 }
 
-void Macad::Occt::Convert_GridPolynomialToPoles::Perform(int UContinuity, int VContinuity, int MaxUDegree, int MaxVDegree, Macad::Occt::TColStd_HArray2OfInteger^ NumCoeffPerSurface, Macad::Occt::TColStd_HArray1OfReal^ Coefficients, Macad::Occt::TColStd_HArray1OfReal^ PolynomialUIntervals, Macad::Occt::TColStd_HArray1OfReal^ PolynomialVIntervals, Macad::Occt::TColStd_HArray1OfReal^ TrueUIntervals, Macad::Occt::TColStd_HArray1OfReal^ TrueVIntervals)
-{
-    ((::Convert_GridPolynomialToPoles*)_NativeInstance)->Perform(UContinuity, VContinuity, MaxUDegree, MaxVDegree, Handle(::TColStd_HArray2OfInteger)(NumCoeffPerSurface->NativeInstance), Handle(::TColStd_HArray1OfReal)(Coefficients->NativeInstance), Handle(::TColStd_HArray1OfReal)(PolynomialUIntervals->NativeInstance), Handle(::TColStd_HArray1OfReal)(PolynomialVIntervals->NativeInstance), Handle(::TColStd_HArray1OfReal)(TrueUIntervals->NativeInstance), Handle(::TColStd_HArray1OfReal)(TrueVIntervals->NativeInstance));
-}
-
 int Macad::Occt::Convert_GridPolynomialToPoles::NbUPoles()
 {
     int _result = ((::Convert_GridPolynomialToPoles*)_NativeInstance)->NbUPoles();
@@ -929,10 +1147,11 @@ int Macad::Occt::Convert_GridPolynomialToPoles::NbVPoles()
     return _result;
 }
 
-Macad::Occt::TColgp_HArray2OfPnt^ Macad::Occt::Convert_GridPolynomialToPoles::Poles()
+Macad::Occt::TColgp_Array2OfPnt^ Macad::Occt::Convert_GridPolynomialToPoles::Poles()
 {
-    Handle(::TColgp_HArray2OfPnt) _result = ((::Convert_GridPolynomialToPoles*)_NativeInstance)->Poles();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColgp_HArray2OfPnt::CreateDowncasted(_result.get());
+    ::TColgp_Array2OfPnt* _result = new ::TColgp_Array2OfPnt();
+    *_result = (::TColgp_Array2OfPnt)((::Convert_GridPolynomialToPoles*)_NativeInstance)->Poles();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColgp_Array2OfPnt(_result);
 }
 
 int Macad::Occt::Convert_GridPolynomialToPoles::UDegree()
@@ -959,28 +1178,32 @@ int Macad::Occt::Convert_GridPolynomialToPoles::NbVKnots()
     return _result;
 }
 
-Macad::Occt::TColStd_HArray1OfReal^ Macad::Occt::Convert_GridPolynomialToPoles::UKnots()
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Convert_GridPolynomialToPoles::UKnots()
 {
-    Handle(::TColStd_HArray1OfReal) _result = ((::Convert_GridPolynomialToPoles*)_NativeInstance)->UKnots();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColStd_HArray1OfReal::CreateDowncasted(_result.get());
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = (::TColStd_Array1OfReal)((::Convert_GridPolynomialToPoles*)_NativeInstance)->UKnots();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
 }
 
-Macad::Occt::TColStd_HArray1OfReal^ Macad::Occt::Convert_GridPolynomialToPoles::VKnots()
+Macad::Occt::TColStd_Array1OfReal^ Macad::Occt::Convert_GridPolynomialToPoles::VKnots()
 {
-    Handle(::TColStd_HArray1OfReal) _result = ((::Convert_GridPolynomialToPoles*)_NativeInstance)->VKnots();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColStd_HArray1OfReal::CreateDowncasted(_result.get());
+    ::TColStd_Array1OfReal* _result = new ::TColStd_Array1OfReal();
+    *_result = (::TColStd_Array1OfReal)((::Convert_GridPolynomialToPoles*)_NativeInstance)->VKnots();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfReal(_result);
 }
 
-Macad::Occt::TColStd_HArray1OfInteger^ Macad::Occt::Convert_GridPolynomialToPoles::UMultiplicities()
+Macad::Occt::TColStd_Array1OfInteger^ Macad::Occt::Convert_GridPolynomialToPoles::UMultiplicities()
 {
-    Handle(::TColStd_HArray1OfInteger) _result = ((::Convert_GridPolynomialToPoles*)_NativeInstance)->UMultiplicities();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColStd_HArray1OfInteger::CreateDowncasted(_result.get());
+    ::TColStd_Array1OfInteger* _result = new ::TColStd_Array1OfInteger();
+    *_result = (::TColStd_Array1OfInteger)((::Convert_GridPolynomialToPoles*)_NativeInstance)->UMultiplicities();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfInteger(_result);
 }
 
-Macad::Occt::TColStd_HArray1OfInteger^ Macad::Occt::Convert_GridPolynomialToPoles::VMultiplicities()
+Macad::Occt::TColStd_Array1OfInteger^ Macad::Occt::Convert_GridPolynomialToPoles::VMultiplicities()
 {
-    Handle(::TColStd_HArray1OfInteger) _result = ((::Convert_GridPolynomialToPoles*)_NativeInstance)->VMultiplicities();
-    return _result.IsNull() ? nullptr : Macad::Occt::TColStd_HArray1OfInteger::CreateDowncasted(_result.get());
+    ::TColStd_Array1OfInteger* _result = new ::TColStd_Array1OfInteger();
+    *_result = (::TColStd_Array1OfInteger)((::Convert_GridPolynomialToPoles*)_NativeInstance)->VMultiplicities();
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::TColStd_Array1OfInteger(_result);
 }
 
 bool Macad::Occt::Convert_GridPolynomialToPoles::IsDone()

@@ -88,8 +88,9 @@ public static class Occt
             CmakeValues.Add(m.Groups[1].Value, m.Groups[2].Value);
         }
 
-        // Check for source
-        if(!File.Exists(Path.Combine(GetCmakeValue("TKStd_SOURCE_DIR"), @"PACKAGES")))
+        // Check for source (OCCT < 8: "PACKAGES"; OCCT >= 8: "PACKAGES.cmake")
+        if(!File.Exists(Path.Combine(GetCmakeValue("TKStd_SOURCE_DIR"), @"PACKAGES"))
+           && !File.Exists(Path.Combine(GetCmakeValue("TKStd_SOURCE_DIR"), @"PACKAGES.cmake")))
         {
             Printer.Error($"PACKAGES not found in directory {GetCmakeValue("TKStd_SOURCE_DIR")}.");
             return false;
@@ -171,8 +172,25 @@ public static class Occt
 
         foreach (var tk in _OcctToolkits)
         {
-            var packages = File.ReadAllLines(Path.Combine(GetCmakeValue($"{tk}_SOURCE_DIR"), "PACKAGES"));
-            list.AddRange(packages);
+            var tkDir = GetCmakeValue($"{tk}_SOURCE_DIR");
+            var legacyFile = Path.Combine(tkDir, "PACKAGES");
+            if(File.Exists(legacyFile))
+            {
+                // OCCT < 8: plain list, one package per line.
+                list.AddRange(File.ReadAllLines(legacyFile).Select(l => l.Trim()).Where(l => l.Length > 0));
+            }
+            else
+            {
+                // OCCT >= 8: cmake "set(OCCT_<tk>_LIST_OF_PACKAGES <pkg> ...)".
+                var content = File.ReadAllText(Path.Combine(tkDir, "PACKAGES.cmake"));
+                var match = Regex.Match(content, @"set\s*\([^\s]+\s+(.*?)\)", RegexOptions.Singleline);
+                if(match.Success)
+                {
+                    list.AddRange(match.Groups[1].Value
+                        .Split(new[] {'\r', '\n', ' ', '\t'}, StringSplitOptions.RemoveEmptyEntries)
+                        .Where(l => !l.StartsWith("#")));
+                }
+            }
         }
         list.AddRange(_OcctPartialPackages);
         return list.Distinct();

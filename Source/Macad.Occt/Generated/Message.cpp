@@ -14,22 +14,46 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 //  Class  Message_ListOfAlert
 //---------------------------------------------------------------------
 
+int Macad::Occt::Message_ListOfAlert::Extent()
+{
+    int _result = ((::Message_ListOfAlert*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::Message_ListOfAlert::Length()
+{
+    int _result = ((::Message_ListOfAlert*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::Message_ListOfAlert::Size()
+{
+    long long unsigned int _result = ((::Message_ListOfAlert*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::Message_ListOfAlert::IsEmpty()
+{
+    bool _result = ((::Message_ListOfAlert*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::Message_ListOfAlert::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::Message_ListOfAlert*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::Message_ListOfAlert::Message_ListOfAlert()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::Message_ListOfAlert>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::Message_ListOfAlert();
 }
 
 Macad::Occt::Message_ListOfAlert::Message_ListOfAlert(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::Message_ListOfAlert>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::Message_ListOfAlert(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::Message_ListOfAlert::Size()
-{
-    int _result = ((::Message_ListOfAlert*)_NativeInstance)->Size();
-    return _result;
 }
 
 Macad::Occt::Message_ListOfAlert^ Macad::Occt::Message_ListOfAlert::Assign(Macad::Occt::Message_ListOfAlert^ theOther)
@@ -46,7 +70,17 @@ void Macad::Occt::Message_ListOfAlert::Clear(Macad::Occt::NCollection_BaseAlloca
 
 void Macad::Occt::Message_ListOfAlert::Clear()
 {
-    ((::Message_ListOfAlert*)_NativeInstance)->Clear(0L);
+    ((::Message_ListOfAlert*)_NativeInstance)->Clear(nullptr);
+}
+
+void Macad::Occt::Message_ListOfAlert::Append(Macad::Occt::Message_ListOfAlert^ theOther)
+{
+    ((::Message_ListOfAlert*)_NativeInstance)->Append(*(::Message_ListOfAlert*)theOther->NativeInstance);
+}
+
+void Macad::Occt::Message_ListOfAlert::Prepend(Macad::Occt::Message_ListOfAlert^ theOther)
+{
+    ((::Message_ListOfAlert*)_NativeInstance)->Prepend(*(::Message_ListOfAlert*)theOther->NativeInstance);
 }
 
 void Macad::Occt::Message_ListOfAlert::RemoveFirst()
@@ -57,6 +91,11 @@ void Macad::Occt::Message_ListOfAlert::RemoveFirst()
 void Macad::Occt::Message_ListOfAlert::Reverse()
 {
     ((::Message_ListOfAlert*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::Message_ListOfAlert::Exchange(Macad::Occt::Message_ListOfAlert^ theOther)
+{
+    ((::Message_ListOfAlert*)_NativeInstance)->Exchange(*(::Message_ListOfAlert*)theOther->NativeInstance);
 }
 
 

@@ -254,7 +254,7 @@ public:
     /// If theFlag = TRUE it means that no selection of parts
     /// of the tool is needed, t.e. no second part. In that case
     /// if theFuse = 0 than operation is COMMON, otherwise CUT21.
-    /// If theFlag = FALSE SetOperation(theFuse) function  is called.
+    /// If theFlag = FALSE SetOperation(theFuse) function is called.
     /// </summary>
     void SetOperation(int theFuse, bool theFlag);
     /// <summary>
@@ -320,7 +320,7 @@ public:
 /// The semantics of form feature creation is based on the construction of shapes:
 /// -      along a length
 /// -      up to a limiting face
-/// -      from a limiting face to a  height
+/// -      from a limiting face to a height
 /// -      above and/or below a plane
 /// The shape defining construction of the feature can be either the
 /// supporting edge or the concerned area of a face.
@@ -378,13 +378,13 @@ public:
     Macad::Occt::TopTools_ListOfShape^ Generated(Macad::Occt::TopoDS_Shape^ S);
     bool IsDeleted(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Returns the list  of shapes created  at the bottom  of
-    /// the created form.  It may be an empty list.
+    /// Returns the list of shapes created at the bottom of
+    /// the created form. It may be an empty list.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ FirstShape();
     /// <summary>
-    /// Returns  the list of shapes  created at the top of the
-    /// created form.  It may be an empty list.
+    /// Returns the list of shapes created at the top of the
+    /// created form. It may be an empty list.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ LastShape();
     /// <summary>
@@ -438,7 +438,7 @@ public:
     /// Initializes the topological construction if the selected face is present.
     /// </summary>
     void PerfSelectionValid();
-    /* Method skipped due to unknown mapping: void Curves(TColGeom_SequenceOfCurve S, ) */
+    /* Method skipped due to unknown mapping: void Curves(NCollection_Sequence<opencascade::handle<Geom_Curve>> S, ) */
     Macad::Occt::Geom_Curve^ BarycCurve();
     Macad::Occt::BRepFeat_StatusError CurrentStatusError();
 }; // class BRepFeat_Form
@@ -532,22 +532,22 @@ public:
     /// </summary>
     Macad::Occt::TopoDS_Shape^ GluedShape();
     /// <summary>
-    /// This is  called by  Shape().  It does  nothing but
+    /// This is called by Shape(). It does nothing but
     /// may be redefined.
     /// </summary>
     void Build(Macad::Occt::Message_ProgressRange^ theRange);
     /// <summary>
-    /// This is  called by  Shape().  It does  nothing but
+    /// This is called by Shape(). It does nothing but
     /// may be redefined.
     /// </summary>
     void Build();
     /// <summary>
-    /// returns the status of the Face after
+    /// Returns the status of the Face after
     /// the shape creation.
     /// </summary>
     bool IsDeleted(Macad::Occt::TopoDS_Shape^ F);
     /// <summary>
-    /// returns the list of generated Faces.
+    /// Returns the list of generated Faces.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ F);
 }; // class BRepFeat_Gluer
@@ -594,80 +594,80 @@ public:
     /// </summary>
     void Init(Macad::Occt::Ax1 Axis);
     /// <summary>
-    /// Sets the shape and  axis on which hole(s)  will be
+    /// Sets the shape and axis on which hole(s) will be
     /// performed.
     /// </summary>
     void Init(Macad::Occt::TopoDS_Shape^ S, Macad::Occt::Ax1 Axis);
     /// <summary>
-    /// Performs every  hole of    radius  <Radius>.  This
-    /// command  has the  same effect as   a cut operation
-    /// with an  infinite cylinder   defined by the  given
+    /// Performs every hole of radius <Radius>. This
+    /// command has the same effect as a cut operation
+    /// with an infinite cylinder defined by the given
     /// axis and <Radius>.
     /// </summary>
     void Perform(double Radius);
     /// <summary>
-    /// Performs every  hole  of  radius  <Radius> located
-    /// between PFrom  and  PTo  on the  given  axis.   If
-    /// <WithControl> is set  to Standard_False no control
-    /// are  done  on   the  resulting  shape   after  the
+    /// Performs every hole of radius <Radius> located
+    /// between PFrom and PTo on the given axis. If
+    /// <WithControl> is set to false no control
+    /// are done on the resulting shape after the
     /// operation is performed.
     /// </summary>
     void Perform(double Radius, double PFrom, double PTo, bool WithControl);
     /// <summary>
-    /// Performs every  hole  of  radius  <Radius> located
-    /// between PFrom  and  PTo  on the  given  axis.   If
-    /// <WithControl> is set  to Standard_False no control
-    /// are  done  on   the  resulting  shape   after  the
+    /// Performs every hole of radius <Radius> located
+    /// between PFrom and PTo on the given axis. If
+    /// <WithControl> is set to false no control
+    /// are done on the resulting shape after the
     /// operation is performed.
     /// </summary>
     void Perform(double Radius, double PFrom, double PTo);
     /// <summary>
     /// Performs the first hole of radius <Radius>, in the
-    /// direction of  the defined axis. First hole signify
+    /// direction of the defined axis. First hole signify
     /// first encountered after the origin of the axis. If
-    /// <WithControl> is set  to Standard_False no control
-    /// are  done  on   the  resulting  shape   after  the
+    /// <WithControl> is set to false no control
+    /// are done on the resulting shape after the
     /// operation is performed.
     /// </summary>
     void PerformThruNext(double Radius, bool WithControl);
     /// <summary>
     /// Performs the first hole of radius <Radius>, in the
-    /// direction of  the defined axis. First hole signify
+    /// direction of the defined axis. First hole signify
     /// first encountered after the origin of the axis. If
-    /// <WithControl> is set  to Standard_False no control
-    /// are  done  on   the  resulting  shape   after  the
+    /// <WithControl> is set to false no control
+    /// are done on the resulting shape after the
     /// operation is performed.
     /// </summary>
     void PerformThruNext(double Radius);
     /// <summary>
-    /// Performs every  hole of   radius  <Radius> located
-    /// after  the   origin  of   the given    axis.    If
-    /// <WithControl> is  set to Standard_False no control
-    /// are done   on   the  resulting  shape   after  the
+    /// Performs every hole of radius <Radius> located
+    /// after the origin of the given axis. If
+    /// <WithControl> is set to false no control
+    /// are done on the resulting shape after the
     /// operation is performed.
     /// </summary>
     void PerformUntilEnd(double Radius, bool WithControl);
     /// <summary>
-    /// Performs every  hole of   radius  <Radius> located
-    /// after  the   origin  of   the given    axis.    If
-    /// <WithControl> is  set to Standard_False no control
-    /// are done   on   the  resulting  shape   after  the
+    /// Performs every hole of radius <Radius> located
+    /// after the origin of the given axis. If
+    /// <WithControl> is set to false no control
+    /// are done on the resulting shape after the
     /// operation is performed.
     /// </summary>
     void PerformUntilEnd(double Radius);
     /// <summary>
-    /// Performs a  blind   hole of radius    <Radius> and
-    /// length <Length>.  The length is  measured from the
-    /// origin of the given  axis. If <WithControl> is set
-    /// to  Standard_False no  control  are done after the
+    /// Performs a blind hole of radius <Radius> and
+    /// length <Length>. The length is measured from the
+    /// origin of the given axis. If <WithControl> is set
+    /// to false no control are done after the
     /// operation is performed.
     /// </summary>
     void PerformBlind(double Radius, double Length, bool WithControl);
     /// <summary>
-    /// Performs a  blind   hole of radius    <Radius> and
-    /// length <Length>.  The length is  measured from the
-    /// origin of the given  axis. If <WithControl> is set
-    /// to  Standard_False no  control  are done after the
+    /// Performs a blind hole of radius <Radius> and
+    /// length <Length>. The length is measured from the
+    /// origin of the given axis. If <WithControl> is set
+    /// to false no control are done after the
     /// operation is performed.
     /// </summary>
     void PerformBlind(double Radius, double Length);
@@ -676,9 +676,9 @@ public:
     /// </summary>
     Macad::Occt::BRepFeat_Status Status();
     /// <summary>
-    /// Builds the    resulting shape  (redefined     from
-    /// MakeShape). Invalidates the  given parts  of tools
-    /// if  any,   and performs the  result   of the local
+    /// Builds the resulting shape (redefined from
+    /// MakeShape). Invalidates the given parts of tools
+    /// if any, and performs the result of the local
     /// operation.
     /// </summary>
     void Build();
@@ -751,7 +751,7 @@ public:
     /// serve as the basis from the draft prism. The draft will be
     /// defined by the angle Angle and Fuse offers a choice between:
     /// -   removing matter with a Boolean cut using the setting 0
-    /// -   adding matter with Boolean fusion using the setting  1.
+    /// -   adding matter with Boolean fusion using the setting 1.
     /// The sketch face Skface serves to determine the type of
     /// operation. If it is inside the basis shape, a local
     /// operation such as glueing can be performed.
@@ -760,7 +760,7 @@ public:
     /// <summary>
     /// Indicates that the edge <E> will slide on the face
     /// <OnFace>.
-    /// Raises ConstructionError if the  face does not belong to the
+    /// Raises ConstructionError if the face does not belong to the
     /// basis shape, or the edge to the prismed shape.
     /// </summary>
     void Add(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ OnFace);
@@ -792,7 +792,7 @@ public:
     /// generation of the prism feature.
     /// </summary>
     void PerformUntilHeight(Macad::Occt::TopoDS_Shape^ Until, double Height);
-    /* Method skipped due to unknown mapping: void Curves(TColGeom_SequenceOfCurve S, ) */
+    /* Method skipped due to unknown mapping: void Curves(NCollection_Sequence<opencascade::handle<Geom_Curve>> S, ) */
     Macad::Occt::Geom_Curve^ BarycCurve();
     /// <summary>
     /// Determination of TopEdges and LatEdges.
@@ -867,17 +867,17 @@ public:
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Modified(Macad::Occt::TopoDS_Shape^ F);
     /// <summary>
-    /// Returns a list TopTools_ListOfShape of the faces S created in the shape.
+    /// Returns a list NCollection_List<TopoDS_Shape> of the faces S created in the shape.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Generated(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
-    /// Returns the list  of shapes created  at the bottom  of
-    /// the created form.  It may be an empty list.
+    /// Returns the list of shapes created at the bottom of
+    /// the created form. It may be an empty list.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ FirstShape();
     /// <summary>
-    /// Returns  the list of shapes  created at the top of the
-    /// created form.  It may be an empty list.
+    /// Returns the list of shapes created at the top of the
+    /// created form. It may be an empty list.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ LastShape();
     /// <summary>
@@ -991,7 +991,7 @@ public:
     /// <summary>
     /// Indicates that the edge <E> will slide on the face
     /// <OnFace>.
-    /// Raises ConstructionError if the  face does not belong to the
+    /// Raises ConstructionError if the face does not belong to the
     /// basis shape, or the edge to the prismed shape.
     /// </summary>
     void Add(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ OnFace);
@@ -1082,7 +1082,7 @@ public:
     void Init(Macad::Occt::TopoDS_Shape^ Sbase, Macad::Occt::TopoDS_Shape^ Pbase, Macad::Occt::TopoDS_Face^ Skface, Macad::Occt::TopoDS_Wire^ Spine, int Fuse, bool Modify);
     /// <summary>
     /// Indicates that the edge <E> will slide on the face
-    /// <OnFace>. Raises ConstructionError  if the  face does not belong to the
+    /// <OnFace>. Raises ConstructionError if the face does not belong to the
     /// basis shape, or the edge to the prismed shape.
     /// </summary>
     void Add(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ OnFace);
@@ -1095,7 +1095,7 @@ public:
     /// Reconstructs the feature topologically according to the semantic option chosen.
     /// </summary>
     void Perform(Macad::Occt::TopoDS_Shape^ From, Macad::Occt::TopoDS_Shape^ Until);
-    /* Method skipped due to unknown mapping: void Curves(TColGeom_SequenceOfCurve S, ) */
+    /* Method skipped due to unknown mapping: void Curves(NCollection_Sequence<opencascade::handle<Geom_Curve>> S, ) */
     Macad::Occt::Geom_Curve^ BarycCurve();
 }; // class BRepFeat_MakePipe
 
@@ -1186,7 +1186,7 @@ public:
     void Init(Macad::Occt::TopoDS_Shape^ Sbase, Macad::Occt::TopoDS_Shape^ Pbase, Macad::Occt::TopoDS_Face^ Skface, Macad::Occt::Dir Direction, int Fuse, bool Modify);
     /// <summary>
     /// Indicates that the edge <E> will slide on the face
-    /// <OnFace>. Raises ConstructionError if the  face does not belong to the
+    /// <OnFace>. Raises ConstructionError if the face does not belong to the
     /// basis shape, or the edge to the prismed shape.
     /// </summary>
     void Add(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ OnFace);
@@ -1218,7 +1218,7 @@ public:
     /// TopoDS_Shape, and a height, Length at which to stop generation of the prism feature.
     /// </summary>
     void PerformUntilHeight(Macad::Occt::TopoDS_Shape^ Until, double Length);
-    /* Method skipped due to unknown mapping: void Curves(TColGeom_SequenceOfCurve S, ) */
+    /* Method skipped due to unknown mapping: void Curves(NCollection_Sequence<opencascade::handle<Geom_Curve>> S, ) */
     /// <summary>
     /// Generates a curve along the center of mass of the primitive.
     /// </summary>
@@ -1277,7 +1277,7 @@ public:
     void Init(Macad::Occt::TopoDS_Shape^ Sbase, Macad::Occt::TopoDS_Shape^ Pbase, Macad::Occt::TopoDS_Face^ Skface, Macad::Occt::Ax1 Axis, int Fuse, bool Modify);
     /// <summary>
     /// Indicates that the edge <E> will slide on the face
-    /// <OnFace>. Raises ConstructionError if the  face does not belong to the
+    /// <OnFace>. Raises ConstructionError if the face does not belong to the
     /// basis shape, or the edge to the prismed shape.
     /// </summary>
     void Add(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ OnFace);
@@ -1298,7 +1298,7 @@ public:
     /// which to stop generation of the revolved shell feature.
     /// </summary>
     void PerformUntilAngle(Macad::Occt::TopoDS_Shape^ Until, double Angle);
-    /* Method skipped due to unknown mapping: void Curves(TColGeom_SequenceOfCurve S, ) */
+    /* Method skipped due to unknown mapping: void Curves(NCollection_Sequence<opencascade::handle<Geom_Curve>> S, ) */
     Macad::Occt::Geom_Curve^ BarycCurve();
 }; // class BRepFeat_MakeRevol
 
@@ -1375,7 +1375,7 @@ public:
     void Init(Macad::Occt::TopoDS_Shape^ Sbase, Macad::Occt::TopoDS_Wire^ W, Macad::Occt::Geom_Plane^ Plane, Macad::Occt::Ax1 Axis, double Height1, double Height2, int Fuse, bool% Sliding);
     /// <summary>
     /// Indicates that the edge <E> will slide on the face
-    /// <OnFace>. Raises ConstructionError  if the  face does not belong to the
+    /// <OnFace>. Raises ConstructionError if the face does not belong to the
     /// basis shape, or the edge to the prismed shape.
     /// </summary>
     void Add(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Face^ OnFace);
@@ -1437,7 +1437,7 @@ public:
     /// </summary>
     BRepFeat_SplitShape();
     /// <summary>
-    /// Creates the process  with the shape <S>.
+    /// Creates the process with the shape <S>.
     /// </summary>
     BRepFeat_SplitShape(Macad::Occt::TopoDS_Shape^ S);
     /// <summary>
@@ -1457,7 +1457,7 @@ public:
     void SetCheckInterior(bool ToCheckInterior);
     /// <summary>
     /// Adds the wire <W> on the face <F>.
-    /// Raises NoSuchObject  if <F> does not belong to the original shape.
+    /// Raises NoSuchObject if <F> does not belong to the original shape.
     /// </summary>
     void Add(Macad::Occt::TopoDS_Wire^ W, Macad::Occt::TopoDS_Face^ F);
     /// <summary>
@@ -1471,7 +1471,7 @@ public:
     /// they must be connected topologically, i.e. they
     /// must share common vertices.
     /// 
-    /// Raises NoSuchObject  if <F> does not belong to the original shape.
+    /// Raises NoSuchObject if <F> does not belong to the original shape.
     /// </summary>
     void Add(Macad::Occt::TopoDS_Compound^ Comp, Macad::Occt::TopoDS_Face^ F);
     /// <summary>
@@ -1479,15 +1479,15 @@ public:
     /// </summary>
     void Add(Macad::Occt::TopoDS_Edge^ E, Macad::Occt::TopoDS_Edge^ EOn);
     /// <summary>
-    /// Returns  the faces   which  are the  left of   the
+    /// Returns the faces which are the left of the
     /// projected wires.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ DirectLeft();
     /// <summary>
     /// Returns the faces of the "left" part on the shape.
-    /// (It  is build   from  DirectLeft,  with  the faces
+    /// (It is build from DirectLeft, with the faces
     /// connected to this set, and so on...).
-    /// Raises NotDone if IsDone returns <Standard_False>.
+    /// Raises NotDone if IsDone returns <false>.
     /// </summary>
     Macad::Occt::TopTools_ListOfShape^ Left();
     /// <summary>

@@ -47,8 +47,8 @@ public:
 
 public:
     ShapeUpgrade();
-    /* Method skipped due to unknown mapping: bool C0BSplineToSequenceOfC1BSplineCurve(Geom_BSplineCurve BS, TColGeom_HSequenceOfBoundedCurve seqBS, ) */
-    /* Method skipped due to unknown mapping: bool C0BSplineToSequenceOfC1BSplineCurve(Geom2d_BSplineCurve BS, TColGeom2d_HSequenceOfBoundedCurve seqBS, ) */
+    /* Method skipped due to unknown mapping: bool C0BSplineToSequenceOfC1BSplineCurve(Geom_BSplineCurve BS, NCollection_HSequence<opencascade::handle<Geom_BoundedCurve>> seqBS, ) */
+    /* Method skipped due to unknown mapping: bool C0BSplineToSequenceOfC1BSplineCurve(Geom2d_BSplineCurve BS, NCollection_HSequence<opencascade::handle<Geom2d_BoundedCurve>> seqBS, ) */
 }; // class ShapeUpgrade
 
 //---------------------------------------------------------------------
@@ -143,7 +143,7 @@ public:
 //  Class  ShapeUpgrade_SplitCurve
 //---------------------------------------------------------------------
 /// <summary>
-/// Splits a  curve with a  criterion.
+/// Splits a curve with a criterion.
 /// </summary>
 public ref class ShapeUpgrade_SplitCurve
     : public Macad::Occt::Standard_Transient
@@ -191,7 +191,7 @@ public:
     void SetSplitValues(Macad::Occt::TColStd_HSequenceOfReal^ SplitValues);
     /// <summary>
     /// If Segment is True, the result is composed with
-    /// segments of the curve bounded by the SplitValues.  If
+    /// segments of the curve bounded by the SplitValues. If
     /// Segment is False, the result is composed with trimmed
     /// Curves all based on the same complete curve.
     /// </summary>
@@ -272,12 +272,12 @@ public:
     void Init(Macad::Occt::Geom2d_Curve^ C, double First, double Last);
     /// <summary>
     /// If Segment is True, the result is composed with
-    /// segments of the curve bounded by the SplitValues.  If
+    /// segments of the curve bounded by the SplitValues. If
     /// Segment is False, the result is composed with trimmed
     /// Curves all based on the same complete curve.
     /// </summary>
     void Build(bool Segment);
-    /* Method skipped due to unknown mapping: TColGeom2d_HArray1OfCurve GetCurves() */
+    /* Method skipped due to unknown mapping: NCollection_HArray1<opencascade::handle<Geom2d_Curve>> GetCurves() */
     static Macad::Occt::ShapeUpgrade_SplitCurve2d^ CreateDowncasted(::ShapeUpgrade_SplitCurve2d* instance);
 }; // class ShapeUpgrade_SplitCurve2d
 
@@ -614,7 +614,7 @@ public:
     /// Sets mode for splitting 3d curves from edges.
     /// 0 - only curve 3d from free edges.
     /// 1 - only curve 3d from shared edges.
-    /// 2 -  all curve 3d.
+    /// 2 - all curve 3d.
     /// </summary>
     void SetEdgeMode(int EdgeMode);
     /// <summary>
@@ -680,7 +680,7 @@ public:
 
 public:
     /// <summary>
-    /// Creates empty  constructor.
+    /// Creates empty constructor.
     /// </summary>
     ShapeUpgrade_FaceDivide();
     /// <summary>
@@ -799,7 +799,7 @@ public:
 
 public:
     /// <summary>
-    /// Creates empty  constructor.
+    /// Creates empty constructor.
     /// </summary>
     ShapeUpgrade_ClosedFaceDivide();
     /// <summary>
@@ -880,12 +880,12 @@ public:
     void Init(Macad::Occt::Geom_Curve^ C, double First, double Last);
     /// <summary>
     /// If Segment is True, the result is composed with
-    /// segments of the curve bounded by the SplitValues.  If
+    /// segments of the curve bounded by the SplitValues. If
     /// Segment is False, the result is composed with trimmed
     /// Curves all based on the same complete curve.
     /// </summary>
     void Build(bool Segment);
-    /* Method skipped due to unknown mapping: TColGeom_HArray1OfCurve GetCurves() */
+    /* Method skipped due to unknown mapping: NCollection_HArray1<opencascade::handle<Geom_Curve>> GetCurves() */
     static Macad::Occt::ShapeUpgrade_SplitCurve3d^ CreateDowncasted(::ShapeUpgrade_SplitCurve3d* instance);
 }; // class ShapeUpgrade_SplitCurve3d
 
@@ -1166,7 +1166,7 @@ public:
     }
 
     /// <summary>
-    /// Creates empty  constructor.
+    /// Creates empty constructor.
     /// </summary>
     ShapeUpgrade_FaceDivideArea();
     ShapeUpgrade_FaceDivideArea(Macad::Occt::TopoDS_Face^ F);
@@ -1340,7 +1340,7 @@ public:
     }
 
     /// <summary>
-    /// Creates empty  constructor.
+    /// Creates empty constructor.
     /// </summary>
     ShapeUpgrade_RemoveInternalWires();
     ShapeUpgrade_RemoveInternalWires(Macad::Occt::TopoDS_Shape^ theShape);
@@ -1532,7 +1532,7 @@ public:
     Macad::Occt::ShapeBuild_ReShape^ GetContext();
     /// <summary>
     /// Sets context with recorded modifications to be applied
-    /// during next call(s) to Perform(shape,Standard_False)
+    /// during next call(s) to Perform(shape,false)
     /// </summary>
     void SetContext(Macad::Occt::ShapeBuild_ReShape^ context);
     /* Method skipped due to unknown mapping: void SetMsgRegistrator(ShapeExtend_BasicMsgRegistrator msgreg, ) */
@@ -1751,7 +1751,7 @@ public:
 //  Class  ShapeUpgrade_ShapeDivideArea
 //---------------------------------------------------------------------
 /// <summary>
-/// Divides faces from sprcified shape  by max area criterium.
+/// Divides faces from specified shape by max area criterium.
 /// </summary>
 public ref class ShapeUpgrade_ShapeDivideArea sealed
     : public Macad::Occt::ShapeUpgrade_ShapeDivide
@@ -1961,8 +1961,8 @@ public:
     /// Wires)
     /// 
     /// The possible values are C0, G1, C1, G2, C2, C3, CN The
-    /// default is C1 to respect the Cas.Cade Shape Validity.  G1
-    /// and G2 are not authorized.
+    /// default is C1 to respect the Cas.Cade Shape Validity.
+    /// G1 and G2 are not authorized.
     /// </summary>
     void SetBoundaryCriterion(Macad::Occt::GeomAbs_Shape Criterion);
     /// <summary>
@@ -1970,8 +1970,8 @@ public:
     /// Wires)
     /// 
     /// The possible values are C0, G1, C1, G2, C2, C3, CN The
-    /// default is C1 to respect the Cas.Cade Shape Validity.  G1
-    /// and G2 are not authorized.
+    /// default is C1 to respect the Cas.Cade Shape Validity.
+    /// G1 and G2 are not authorized.
     /// </summary>
     void SetBoundaryCriterion();
     /// <summary>
@@ -1979,8 +1979,8 @@ public:
     /// pcurves of Wires)
     /// 
     /// The possible values are C0, G1, C1, G2, C2, C3, CN The
-    /// default is C1 to respect the Cas.Cade Shape Validity.  G1
-    /// and G2 are not authorized.
+    /// default is C1 to respect the Cas.Cade Shape Validity.
+    /// G1 and G2 are not authorized.
     /// </summary>
     void SetPCurveCriterion(Macad::Occt::GeomAbs_Shape Criterion);
     /// <summary>
@@ -1988,8 +1988,8 @@ public:
     /// pcurves of Wires)
     /// 
     /// The possible values are C0, G1, C1, G2, C2, C3, CN The
-    /// default is C1 to respect the Cas.Cade Shape Validity.  G1
-    /// and G2 are not authorized.
+    /// default is C1 to respect the Cas.Cade Shape Validity.
+    /// G1 and G2 are not authorized.
     /// </summary>
     void SetPCurveCriterion();
     /// <summary>
@@ -1997,8 +1997,8 @@ public:
     /// Wires)
     /// 
     /// The possible values are C0, G1, C1, G2, C2, C3, CN The
-    /// default is C1 to respect the Cas.Cade Shape Validity.  G1
-    /// and G2 are not authorized.
+    /// default is C1 to respect the Cas.Cade Shape Validity.
+    /// G1 and G2 are not authorized.
     /// </summary>
     void SetSurfaceCriterion(Macad::Occt::GeomAbs_Shape Criterion);
     /// <summary>
@@ -2006,8 +2006,8 @@ public:
     /// Wires)
     /// 
     /// The possible values are C0, G1, C1, G2, C2, C3, CN The
-    /// default is C1 to respect the Cas.Cade Shape Validity.  G1
-    /// and G2 are not authorized.
+    /// default is C1 to respect the Cas.Cade Shape Validity.
+    /// G1 and G2 are not authorized.
     /// </summary>
     void SetSurfaceCriterion();
 }; // class ShapeUpgrade_ShapeDivideContinuity
@@ -2386,10 +2386,10 @@ public:
 /// The output result of the tool is the unified shape.
 /// 
 /// All the modifications of initial shape are recorded during unifying.
-/// Methods History are intended to: <br>
+/// Methods History are intended to:
 /// - set a place holder for the history of modifications of sub-shapes of
-/// the initial shape; <br>
-/// - get the collected history. <br>
+/// the initial shape;
+/// - get the collected history.
 /// The algorithm provides a place holder for the history and collects the
 /// history by default.
 /// To avoid collecting of the history the place holder should be set to null handle.

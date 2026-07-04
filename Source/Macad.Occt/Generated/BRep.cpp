@@ -16,152 +16,49 @@ using namespace System::Runtime::InteropServices; // for class Marshal
 
 
 //---------------------------------------------------------------------
-//  Class  BRep_ListOfPointRepresentation
-//---------------------------------------------------------------------
-
-Macad::Occt::BRep_ListOfPointRepresentation::BRep_ListOfPointRepresentation()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRep_ListOfPointRepresentation();
-}
-
-Macad::Occt::BRep_ListOfPointRepresentation::BRep_ListOfPointRepresentation(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRep_ListOfPointRepresentation(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::BRep_ListOfPointRepresentation::Size()
-{
-    int _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Size();
-    return _result;
-}
-
-Macad::Occt::BRep_ListOfPointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Assign(Macad::Occt::BRep_ListOfPointRepresentation^ theOther)
-{
-    ::BRep_ListOfPointRepresentation* _result = new ::BRep_ListOfPointRepresentation();
-    *_result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Assign(*(::BRep_ListOfPointRepresentation*)theOther->NativeInstance);
-    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRep_ListOfPointRepresentation(_result);
-}
-
-void Macad::Occt::BRep_ListOfPointRepresentation::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-{
-    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-void Macad::Occt::BRep_ListOfPointRepresentation::Clear()
-{
-    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Clear(0L);
-}
-
-Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::First()
-{
-    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->First();
-    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Last()
-{
-    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Last();
-    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Append(Macad::Occt::BRep_PointRepresentation^ theItem)
-{
-    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Append(Handle(::BRep_PointRepresentation)(theItem->NativeInstance));
-    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Prepend(Macad::Occt::BRep_PointRepresentation^ theItem)
-{
-    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Prepend(Handle(::BRep_PointRepresentation)(theItem->NativeInstance));
-    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::BRep_ListOfPointRepresentation::RemoveFirst()
-{
-    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->RemoveFirst();
-}
-
-void Macad::Occt::BRep_ListOfPointRepresentation::Remove(Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter)
-{
-    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Remove(*(::BRep_ListOfPointRepresentation::Iterator*)theIter->NativeInstance);
-}
-
-Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::InsertBefore(Macad::Occt::BRep_PointRepresentation^ theItem, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter)
-{
-    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->InsertBefore(Handle(::BRep_PointRepresentation)(theItem->NativeInstance), *(::BRep_ListOfPointRepresentation::Iterator*)theIter->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::InsertAfter(Macad::Occt::BRep_PointRepresentation^ theItem, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter)
-{
-    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->InsertAfter(Handle(::BRep_PointRepresentation)(theItem->NativeInstance), *(::BRep_ListOfPointRepresentation::Iterator*)theIter->NativeInstance);
-    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
-}
-
-void Macad::Occt::BRep_ListOfPointRepresentation::Reverse()
-{
-    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Reverse();
-}
-
-
-
-//---------------------------------------------------------------------
-//  Class  BRep_ListOfPointRepresentation::Iterator
-//---------------------------------------------------------------------
-
-Macad::Occt::BRep_ListOfPointRepresentation::Iterator::Iterator()
-    : Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation::Iterator>(BaseClass::InitMode::Uninitialized)
-{
-    _NativeInstance = new ::BRep_ListOfPointRepresentation::Iterator();
-}
-
-bool Macad::Occt::BRep_ListOfPointRepresentation::Iterator::More()
-{
-    bool _result = ((::BRep_ListOfPointRepresentation::Iterator*)_NativeInstance)->More();
-    return _result;
-}
-
-void Macad::Occt::BRep_ListOfPointRepresentation::Iterator::Next()
-{
-    ((::BRep_ListOfPointRepresentation::Iterator*)_NativeInstance)->Next();
-}
-
-Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Iterator::Value()
-{
-    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation::Iterator*)_NativeInstance)->Value();
-    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
-}
-
-Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Iterator::ChangeValue()
-{
-    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation::Iterator*)_NativeInstance)->ChangeValue();
-    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
-}
-
-
-
-//---------------------------------------------------------------------
 //  Class  BRep_ListOfCurveRepresentation
 //---------------------------------------------------------------------
 
+int Macad::Occt::BRep_ListOfCurveRepresentation::Extent()
+{
+    int _result = ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRep_ListOfCurveRepresentation::Length()
+{
+    int _result = ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRep_ListOfCurveRepresentation::Size()
+{
+    long long unsigned int _result = ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRep_ListOfCurveRepresentation::IsEmpty()
+{
+    bool _result = ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRep_ListOfCurveRepresentation::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
 Macad::Occt::BRep_ListOfCurveRepresentation::BRep_ListOfCurveRepresentation()
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::BRep_ListOfCurveRepresentation>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRep_ListOfCurveRepresentation();
 }
 
 Macad::Occt::BRep_ListOfCurveRepresentation::BRep_ListOfCurveRepresentation(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
-    : Macad::Occt::NCollection_BaseList(BaseClass::InitMode::Uninitialized)
+    : Macad::Occt::BaseClass<::BRep_ListOfCurveRepresentation>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRep_ListOfCurveRepresentation(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
-}
-
-int Macad::Occt::BRep_ListOfCurveRepresentation::Size()
-{
-    int _result = ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Size();
-    return _result;
 }
 
 Macad::Occt::BRep_ListOfCurveRepresentation^ Macad::Occt::BRep_ListOfCurveRepresentation::Assign(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther)
@@ -178,7 +75,7 @@ void Macad::Occt::BRep_ListOfCurveRepresentation::Clear(Macad::Occt::NCollection
 
 void Macad::Occt::BRep_ListOfCurveRepresentation::Clear()
 {
-    ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Clear(0L);
+    ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Clear(nullptr);
 }
 
 Macad::Occt::BRep_CurveRepresentation^ Macad::Occt::BRep_ListOfCurveRepresentation::First()
@@ -199,10 +96,25 @@ Macad::Occt::BRep_CurveRepresentation^ Macad::Occt::BRep_ListOfCurveRepresentati
     return _result.IsNull() ? nullptr : Macad::Occt::BRep_CurveRepresentation::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::BRep_ListOfCurveRepresentation::Append(Macad::Occt::BRep_CurveRepresentation^ theItem, Macad::Occt::BRep_ListOfCurveRepresentation::Iterator^ theIter)
+{
+    ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Append(Handle(::BRep_CurveRepresentation)(theItem->NativeInstance), *(::BRep_ListOfCurveRepresentation::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::BRep_ListOfCurveRepresentation::Append(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther)
+{
+    ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Append(*(::BRep_ListOfCurveRepresentation*)theOther->NativeInstance);
+}
+
 Macad::Occt::BRep_CurveRepresentation^ Macad::Occt::BRep_ListOfCurveRepresentation::Prepend(Macad::Occt::BRep_CurveRepresentation^ theItem)
 {
     Handle(::BRep_CurveRepresentation) _result = ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Prepend(Handle(::BRep_CurveRepresentation)(theItem->NativeInstance));
     return _result.IsNull() ? nullptr : Macad::Occt::BRep_CurveRepresentation::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::BRep_ListOfCurveRepresentation::Prepend(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther)
+{
+    ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Prepend(*(::BRep_ListOfCurveRepresentation*)theOther->NativeInstance);
 }
 
 void Macad::Occt::BRep_ListOfCurveRepresentation::RemoveFirst()
@@ -221,15 +133,30 @@ Macad::Occt::BRep_CurveRepresentation^ Macad::Occt::BRep_ListOfCurveRepresentati
     return _result.IsNull() ? nullptr : Macad::Occt::BRep_CurveRepresentation::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::BRep_ListOfCurveRepresentation::InsertBefore(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther, Macad::Occt::BRep_ListOfCurveRepresentation::Iterator^ theIter)
+{
+    ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->InsertBefore(*(::BRep_ListOfCurveRepresentation*)theOther->NativeInstance, *(::BRep_ListOfCurveRepresentation::Iterator*)theIter->NativeInstance);
+}
+
 Macad::Occt::BRep_CurveRepresentation^ Macad::Occt::BRep_ListOfCurveRepresentation::InsertAfter(Macad::Occt::BRep_CurveRepresentation^ theItem, Macad::Occt::BRep_ListOfCurveRepresentation::Iterator^ theIter)
 {
     Handle(::BRep_CurveRepresentation) _result = ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->InsertAfter(Handle(::BRep_CurveRepresentation)(theItem->NativeInstance), *(::BRep_ListOfCurveRepresentation::Iterator*)theIter->NativeInstance);
     return _result.IsNull() ? nullptr : Macad::Occt::BRep_CurveRepresentation::CreateDowncasted(_result.get());
 }
 
+void Macad::Occt::BRep_ListOfCurveRepresentation::InsertAfter(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther, Macad::Occt::BRep_ListOfCurveRepresentation::Iterator^ theIter)
+{
+    ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->InsertAfter(*(::BRep_ListOfCurveRepresentation*)theOther->NativeInstance, *(::BRep_ListOfCurveRepresentation::Iterator*)theIter->NativeInstance);
+}
+
 void Macad::Occt::BRep_ListOfCurveRepresentation::Reverse()
 {
     ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::BRep_ListOfCurveRepresentation::Exchange(Macad::Occt::BRep_ListOfCurveRepresentation^ theOther)
+{
+    ((::BRep_ListOfCurveRepresentation*)_NativeInstance)->Exchange(*(::BRep_ListOfCurveRepresentation*)theOther->NativeInstance);
 }
 
 
@@ -242,6 +169,12 @@ Macad::Occt::BRep_ListOfCurveRepresentation::Iterator::Iterator()
     : Macad::Occt::BaseClass<::BRep_ListOfCurveRepresentation::Iterator>(BaseClass::InitMode::Uninitialized)
 {
     _NativeInstance = new ::BRep_ListOfCurveRepresentation::Iterator();
+}
+
+Macad::Occt::BRep_ListOfCurveRepresentation::Iterator::Iterator(Macad::Occt::NCollection_BaseList^ theList)
+    : Macad::Occt::BaseClass<::BRep_ListOfCurveRepresentation::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRep_ListOfCurveRepresentation::Iterator(*(::NCollection_BaseList*)theList->NativeInstance);
 }
 
 bool Macad::Occt::BRep_ListOfCurveRepresentation::Iterator::More()
@@ -265,6 +198,193 @@ Macad::Occt::BRep_CurveRepresentation^ Macad::Occt::BRep_ListOfCurveRepresentati
 {
     Handle(::BRep_CurveRepresentation) _result = ((::BRep_ListOfCurveRepresentation::Iterator*)_NativeInstance)->ChangeValue();
     return _result.IsNull() ? nullptr : Macad::Occt::BRep_CurveRepresentation::CreateDowncasted(_result.get());
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  BRep_ListOfPointRepresentation
+//---------------------------------------------------------------------
+
+int Macad::Occt::BRep_ListOfPointRepresentation::Extent()
+{
+    int _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Extent();
+    return _result;
+}
+
+int Macad::Occt::BRep_ListOfPointRepresentation::Length()
+{
+    int _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Length();
+    return _result;
+}
+
+long long unsigned int Macad::Occt::BRep_ListOfPointRepresentation::Size()
+{
+    long long unsigned int _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Size();
+    return _result;
+}
+
+bool Macad::Occt::BRep_ListOfPointRepresentation::IsEmpty()
+{
+    bool _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->IsEmpty();
+    return _result;
+}
+
+Macad::Occt::NCollection_BaseAllocator^ Macad::Occt::BRep_ListOfPointRepresentation::Allocator()
+{
+    Handle(::NCollection_BaseAllocator) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Allocator();
+    return _result.IsNull() ? nullptr : Macad::Occt::NCollection_BaseAllocator::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::BRep_ListOfPointRepresentation::BRep_ListOfPointRepresentation()
+    : Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRep_ListOfPointRepresentation();
+}
+
+Macad::Occt::BRep_ListOfPointRepresentation::BRep_ListOfPointRepresentation(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+    : Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRep_ListOfPointRepresentation(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+Macad::Occt::BRep_ListOfPointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Assign(Macad::Occt::BRep_ListOfPointRepresentation^ theOther)
+{
+    ::BRep_ListOfPointRepresentation* _result = new ::BRep_ListOfPointRepresentation();
+    *_result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Assign(*(::BRep_ListOfPointRepresentation*)theOther->NativeInstance);
+    return _result==nullptr ? nullptr : gcnew Macad::Occt::BRep_ListOfPointRepresentation(_result);
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::Clear(Macad::Occt::NCollection_BaseAllocator^ theAllocator)
+{
+    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Clear(Handle(::NCollection_BaseAllocator)(theAllocator->NativeInstance));
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::Clear()
+{
+    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Clear(nullptr);
+}
+
+Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::First()
+{
+    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->First();
+    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Last()
+{
+    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Last();
+    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Append(Macad::Occt::BRep_PointRepresentation^ theItem)
+{
+    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Append(Handle(::BRep_PointRepresentation)(theItem->NativeInstance));
+    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::Append(Macad::Occt::BRep_PointRepresentation^ theItem, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter)
+{
+    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Append(Handle(::BRep_PointRepresentation)(theItem->NativeInstance), *(::BRep_ListOfPointRepresentation::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::Append(Macad::Occt::BRep_ListOfPointRepresentation^ theOther)
+{
+    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Append(*(::BRep_ListOfPointRepresentation*)theOther->NativeInstance);
+}
+
+Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Prepend(Macad::Occt::BRep_PointRepresentation^ theItem)
+{
+    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Prepend(Handle(::BRep_PointRepresentation)(theItem->NativeInstance));
+    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::Prepend(Macad::Occt::BRep_ListOfPointRepresentation^ theOther)
+{
+    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Prepend(*(::BRep_ListOfPointRepresentation*)theOther->NativeInstance);
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::RemoveFirst()
+{
+    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->RemoveFirst();
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::Remove(Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter)
+{
+    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Remove(*(::BRep_ListOfPointRepresentation::Iterator*)theIter->NativeInstance);
+}
+
+Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::InsertBefore(Macad::Occt::BRep_PointRepresentation^ theItem, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter)
+{
+    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->InsertBefore(Handle(::BRep_PointRepresentation)(theItem->NativeInstance), *(::BRep_ListOfPointRepresentation::Iterator*)theIter->NativeInstance);
+    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::InsertBefore(Macad::Occt::BRep_ListOfPointRepresentation^ theOther, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter)
+{
+    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->InsertBefore(*(::BRep_ListOfPointRepresentation*)theOther->NativeInstance, *(::BRep_ListOfPointRepresentation::Iterator*)theIter->NativeInstance);
+}
+
+Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::InsertAfter(Macad::Occt::BRep_PointRepresentation^ theItem, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter)
+{
+    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation*)_NativeInstance)->InsertAfter(Handle(::BRep_PointRepresentation)(theItem->NativeInstance), *(::BRep_ListOfPointRepresentation::Iterator*)theIter->NativeInstance);
+    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::InsertAfter(Macad::Occt::BRep_ListOfPointRepresentation^ theOther, Macad::Occt::BRep_ListOfPointRepresentation::Iterator^ theIter)
+{
+    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->InsertAfter(*(::BRep_ListOfPointRepresentation*)theOther->NativeInstance, *(::BRep_ListOfPointRepresentation::Iterator*)theIter->NativeInstance);
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::Reverse()
+{
+    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Reverse();
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::Exchange(Macad::Occt::BRep_ListOfPointRepresentation^ theOther)
+{
+    ((::BRep_ListOfPointRepresentation*)_NativeInstance)->Exchange(*(::BRep_ListOfPointRepresentation*)theOther->NativeInstance);
+}
+
+
+
+//---------------------------------------------------------------------
+//  Class  BRep_ListOfPointRepresentation::Iterator
+//---------------------------------------------------------------------
+
+Macad::Occt::BRep_ListOfPointRepresentation::Iterator::Iterator()
+    : Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRep_ListOfPointRepresentation::Iterator();
+}
+
+Macad::Occt::BRep_ListOfPointRepresentation::Iterator::Iterator(Macad::Occt::NCollection_BaseList^ theList)
+    : Macad::Occt::BaseClass<::BRep_ListOfPointRepresentation::Iterator>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::BRep_ListOfPointRepresentation::Iterator(*(::NCollection_BaseList*)theList->NativeInstance);
+}
+
+bool Macad::Occt::BRep_ListOfPointRepresentation::Iterator::More()
+{
+    bool _result = ((::BRep_ListOfPointRepresentation::Iterator*)_NativeInstance)->More();
+    return _result;
+}
+
+void Macad::Occt::BRep_ListOfPointRepresentation::Iterator::Next()
+{
+    ((::BRep_ListOfPointRepresentation::Iterator*)_NativeInstance)->Next();
+}
+
+Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Iterator::Value()
+{
+    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation::Iterator*)_NativeInstance)->Value();
+    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
+}
+
+Macad::Occt::BRep_PointRepresentation^ Macad::Occt::BRep_ListOfPointRepresentation::Iterator::ChangeValue()
+{
+    Handle(::BRep_PointRepresentation) _result = ((::BRep_ListOfPointRepresentation::Iterator*)_NativeInstance)->ChangeValue();
+    return _result.IsNull() ? nullptr : Macad::Occt::BRep_PointRepresentation::CreateDowncasted(_result.get());
 }
 
 

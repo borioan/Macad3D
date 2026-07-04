@@ -20,88 +20,40 @@ public enum class NCollection_CellFilter_Action
 }; // enum  class NCollection_CellFilter_Action
 
 //---------------------------------------------------------------------
-//  Class  NCollection_CellFilter_InspectorXYZ
+//  Class  NCollection_ForwardRangeSentinel
 //---------------------------------------------------------------------
-public ref class NCollection_CellFilter_InspectorXYZ sealed
-    : public Macad::Occt::BaseClass<::NCollection_CellFilter_InspectorXYZ>
+/// <summary>
+/// Empty sentinel type used as the end marker for range-for loops.
+/// </summary>
+public ref class NCollection_ForwardRangeSentinel sealed
+    : public Macad::Occt::BaseClass<::NCollection_ForwardRangeSentinel>
 {
 
-#ifdef Include_NCollection_CellFilter_InspectorXYZ_h
+#ifdef Include_NCollection_ForwardRangeSentinel_h
 public:
-    Include_NCollection_CellFilter_InspectorXYZ_h
+    Include_NCollection_ForwardRangeSentinel_h
 #endif
 
 public:
-    NCollection_CellFilter_InspectorXYZ(::NCollection_CellFilter_InspectorXYZ* nativeInstance)
-        : Macad::Occt::BaseClass<::NCollection_CellFilter_InspectorXYZ>( nativeInstance, true )
+    NCollection_ForwardRangeSentinel(::NCollection_ForwardRangeSentinel* nativeInstance)
+        : Macad::Occt::BaseClass<::NCollection_ForwardRangeSentinel>( nativeInstance, true )
     {}
 
-    NCollection_CellFilter_InspectorXYZ(::NCollection_CellFilter_InspectorXYZ& nativeInstance)
-        : Macad::Occt::BaseClass<::NCollection_CellFilter_InspectorXYZ>( &nativeInstance, false )
+    NCollection_ForwardRangeSentinel(::NCollection_ForwardRangeSentinel& nativeInstance)
+        : Macad::Occt::BaseClass<::NCollection_ForwardRangeSentinel>( &nativeInstance, false )
     {}
 
-    property ::NCollection_CellFilter_InspectorXYZ* NativeInstance
+    property ::NCollection_ForwardRangeSentinel* NativeInstance
     {
-        ::NCollection_CellFilter_InspectorXYZ* get()
+        ::NCollection_ForwardRangeSentinel* get()
         {
-            return static_cast<::NCollection_CellFilter_InspectorXYZ*>(_NativeInstance);
+            return static_cast<::NCollection_ForwardRangeSentinel*>(_NativeInstance);
         }
     }
 
 public:
-    NCollection_CellFilter_InspectorXYZ();
-    /// <summary>
-    /// Access to coordinate
-    /// </summary>
-    static double Coord(int i, Macad::Occt::XYZ thePnt);
-    /// <summary>
-    /// Auxiliary method to shift point by each coordinate on given value;
-    /// useful for preparing a points range for Inspect with tolerance
-    /// </summary>
-    Macad::Occt::XYZ Shift(Macad::Occt::XYZ thePnt, double theTol);
-}; // class NCollection_CellFilter_InspectorXYZ
-
-//---------------------------------------------------------------------
-//  Class  NCollection_CellFilter_InspectorXY
-//---------------------------------------------------------------------
-public ref class NCollection_CellFilter_InspectorXY sealed
-    : public Macad::Occt::BaseClass<::NCollection_CellFilter_InspectorXY>
-{
-
-#ifdef Include_NCollection_CellFilter_InspectorXY_h
-public:
-    Include_NCollection_CellFilter_InspectorXY_h
-#endif
-
-public:
-    NCollection_CellFilter_InspectorXY(::NCollection_CellFilter_InspectorXY* nativeInstance)
-        : Macad::Occt::BaseClass<::NCollection_CellFilter_InspectorXY>( nativeInstance, true )
-    {}
-
-    NCollection_CellFilter_InspectorXY(::NCollection_CellFilter_InspectorXY& nativeInstance)
-        : Macad::Occt::BaseClass<::NCollection_CellFilter_InspectorXY>( &nativeInstance, false )
-    {}
-
-    property ::NCollection_CellFilter_InspectorXY* NativeInstance
-    {
-        ::NCollection_CellFilter_InspectorXY* get()
-        {
-            return static_cast<::NCollection_CellFilter_InspectorXY*>(_NativeInstance);
-        }
-    }
-
-public:
-    NCollection_CellFilter_InspectorXY();
-    /// <summary>
-    /// Access to coordinate
-    /// </summary>
-    static double Coord(int i, Macad::Occt::XY thePnt);
-    /// <summary>
-    /// Auxiliary method to shift point by each coordinate on given value;
-    /// useful for preparing a points range for Inspect with tolerance
-    /// </summary>
-    Macad::Occt::XY Shift(Macad::Occt::XY thePnt, double theTol);
-}; // class NCollection_CellFilter_InspectorXY
+    NCollection_ForwardRangeSentinel();
+}; // class NCollection_ForwardRangeSentinel
 
 //---------------------------------------------------------------------
 //  Class  NCollection_BaseAllocator
@@ -168,7 +120,7 @@ public:
 //---------------------------------------------------------------------
 //  Class  NCollection_BaseList
 //---------------------------------------------------------------------
-public ref class NCollection_BaseList
+public ref class NCollection_BaseList sealed
     : public Macad::Occt::BaseClass<::NCollection_BaseList>
 {
 
@@ -176,11 +128,6 @@ public ref class NCollection_BaseList
 public:
     Include_NCollection_BaseList_h
 #endif
-
-protected:
-    NCollection_BaseList(InitMode init)
-        : Macad::Occt::BaseClass<::NCollection_BaseList>( init )
-    {}
 
 public:
     NCollection_BaseList(::NCollection_BaseList* nativeInstance)
@@ -243,6 +190,14 @@ public:
     }; // class Iterator
 
     int Extent();
+    /// <summary>
+    /// Length - number of nodes (legacy int-returning API, synonym of Extent()).
+    /// </summary>
+    int Length();
+    /// <summary>
+    /// Size - number of nodes.
+    /// </summary>
+    long long unsigned int Size();
     bool IsEmpty();
     /// <summary>
     /// Returns attached allocator
@@ -251,114 +206,26 @@ public:
 }; // class NCollection_BaseList
 
 //---------------------------------------------------------------------
-//  Class  NCollection_BasePointerVector
-//---------------------------------------------------------------------
-/// <summary>
-/// Simplified class for vector of pointers of void.
-/// Offers basic functionality to scalable inserts,
-/// resizes and erasing last.
-/// 
-/// Control of processing values of pointers out-of-scope
-/// and should be controlled externally.
-/// Especially, copy operation should post-process elements of pointers to make deep copy.
-/// </summary>
-public ref class NCollection_BasePointerVector sealed
-    : public Macad::Occt::BaseClass<::NCollection_BasePointerVector>
-{
-
-#ifdef Include_NCollection_BasePointerVector_h
-public:
-    Include_NCollection_BasePointerVector_h
-#endif
-
-public:
-    NCollection_BasePointerVector(::NCollection_BasePointerVector* nativeInstance)
-        : Macad::Occt::BaseClass<::NCollection_BasePointerVector>( nativeInstance, true )
-    {}
-
-    NCollection_BasePointerVector(::NCollection_BasePointerVector& nativeInstance)
-        : Macad::Occt::BaseClass<::NCollection_BasePointerVector>( &nativeInstance, false )
-    {}
-
-    property ::NCollection_BasePointerVector* NativeInstance
-    {
-        ::NCollection_BasePointerVector* get()
-        {
-            return static_cast<::NCollection_BasePointerVector*>(_NativeInstance);
-        }
-    }
-
-public:
-    /// <summary>
-    /// Default constructor
-    /// </summary>
-    NCollection_BasePointerVector();
-    /// <summary>
-    /// Checks for an empty status
-    /// </summary>
-    bool IsEmpty();
-    /// <summary>
-    /// Gets used size
-    /// </summary>
-    long long unsigned int Size();
-    /// <summary>
-    /// Gets available capacity
-    /// </summary>
-    long long unsigned int Capacity();
-    /// <summary>
-    /// Erases last element, decrements size.
-    /// </summary>
-    void RemoveLast();
-    /// <summary>
-    /// Resets the size
-    /// </summary>
-    void Clear(bool theReleaseMemory);
-    /// <summary>
-    /// Resets the size
-    /// </summary>
-    void Clear();
-    /// <summary>
-    /// Gets array, can be null
-    /// </summary>
-    System::IntPtr GetArray();
-    /// <summary>
-    /// Gets value by index, no access validation
-    /// </summary>
-    System::IntPtr Value(long long unsigned int theInd);
-    /// <summary>
-    /// Inserts new element at the end, increase size,
-    /// if capacity is not enough, call resize.
-    /// </summary>
-    void Append(System::IntPtr thePnt);
-    /// <summary>
-    /// Updates value of existed element,
-    /// If index more then size, increase size of container,
-    /// in this case capacity can be updated.
-    /// </summary>
-    void SetValue(long long unsigned int theInd, System::IntPtr thePnt);
-}; // class NCollection_BasePointerVector
-
-//---------------------------------------------------------------------
 //  Class  NCollection_AccAllocator
 //---------------------------------------------------------------------
 /// <summary>
 /// 
-/// Class  NCollection_AccAllocator  -  accumulating  memory  allocator.  This
-/// class  allocates  memory on request returning the pointer to the allocated
-/// space.  The  allocation  units  are  grouped  in blocks requested from the
-/// system  as  required.  This  memory  is  returned  to  the system when all
+/// Class NCollection_AccAllocator - accumulating memory allocator. This
+/// class allocates memory on request returning the pointer to the allocated
+/// space. The allocation units are grouped in blocks requested from the
+/// system as required. This memory is returned to the system when all
 /// allocations in a block are freed.
 /// 
-/// By comparison with  the standard new() and malloc()  calls, this method is
+/// By comparison with the standard new() and malloc() calls, this method is
 /// faster and consumes very small additional memory to maintain the heap.
 /// 
-/// By comparison with NCollection_IncAllocator,  this class requires some more
-/// additional memory  and a little more time for allocation and deallocation.
+/// By comparison with NCollection_IncAllocator, this class requires some more
+/// additional memory and a little more time for allocation and deallocation.
 /// Memory overhead for NCollection_IncAllocator is 12 bytes per block;
 /// average memory overhead for NCollection_AccAllocator is 28 bytes per block.
 /// 
-/// All pointers  returned by Allocate() are aligned to 4 byte boundaries.
-/// To  define  the size  of  memory  blocks  requested  from the OS,  use the
+/// All pointers returned by Allocate() are aligned to 4 byte boundaries.
+/// To define the sizeof memory blocks requested from the OS, use the
 /// parameter of the constructor (measured in bytes).
 /// </summary>
 public ref class NCollection_AccAllocator sealed
@@ -698,10 +565,16 @@ public:
     /// <summary>
     /// Setup mutex for thread-safe allocations.
     /// </summary>
+    /// @warning Must not be called concurrently with Allocate/AllocateOptimal/Reset/clean
+    /// on the same allocator instance; toggling the mutex while another thread
+    /// holds a shared_lock on the fast path is undefined behaviour.
     void SetThreadSafe(bool theIsThreadSafe);
     /// <summary>
     /// Setup mutex for thread-safe allocations.
     /// </summary>
+    /// @warning Must not be called concurrently with Allocate/AllocateOptimal/Reset/clean
+    /// on the same allocator instance; toggling the mutex while another thread
+    /// holds a shared_lock on the fast path is undefined behaviour.
     void SetThreadSafe();
     /// <summary>
     /// Allocate memory with given size. Returns NULL on failure

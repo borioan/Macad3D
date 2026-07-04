@@ -19,73 +19,73 @@ Macad::Occt::CSLib::CSLib()
     _NativeInstance = new ::CSLib();
 }
 
-void Macad::Occt::CSLib::Normal(Macad::Occt::Vec D1U, Macad::Occt::Vec D1V, double SinTol, Macad::Occt::CSLib_DerivativeStatus% theStatus, Macad::Occt::Dir% Normal)
+void Macad::Occt::CSLib::Normal(Macad::Occt::Vec theD1U, Macad::Occt::Vec theD1V, double theSinTol, Macad::Occt::CSLib_DerivativeStatus% theStatus, Macad::Occt::Dir% theNormal)
 {
-    pin_ptr<Macad::Occt::Vec> pp_D1U = &D1U;
-    pin_ptr<Macad::Occt::Vec> pp_D1V = &D1V;
+    pin_ptr<Macad::Occt::Vec> pp_theD1U = &theD1U;
+    pin_ptr<Macad::Occt::Vec> pp_theD1V = &theD1V;
     pin_ptr<Macad::Occt::CSLib_DerivativeStatus> pp_theStatus = &theStatus;
-    pin_ptr<Macad::Occt::Dir> pp_Normal = &Normal;
-    ::CSLib::Normal(*(gp_Vec*)pp_D1U, *(gp_Vec*)pp_D1V, SinTol, *(::CSLib_DerivativeStatus*)pp_theStatus, *(gp_Dir*)pp_Normal);
+    pin_ptr<Macad::Occt::Dir> pp_theNormal = &theNormal;
+    ::CSLib::Normal(*(gp_Vec*)pp_theD1U, *(gp_Vec*)pp_theD1V, theSinTol, *(::CSLib_DerivativeStatus*)pp_theStatus, *(gp_Dir*)pp_theNormal);
 }
 
-void Macad::Occt::CSLib::Normal(Macad::Occt::Vec D1U, Macad::Occt::Vec D1V, Macad::Occt::Vec D2U, Macad::Occt::Vec D2V, Macad::Occt::Vec D2UV, double SinTol, bool% Done, Macad::Occt::CSLib_NormalStatus% theStatus, Macad::Occt::Dir% Normal)
+void Macad::Occt::CSLib::Normal(Macad::Occt::Vec theD1U, Macad::Occt::Vec theD1V, Macad::Occt::Vec theD2U, Macad::Occt::Vec theD2V, Macad::Occt::Vec theD2UV, double theSinTol, bool% theDone, Macad::Occt::CSLib_NormalStatus% theStatus, Macad::Occt::Dir% theNormal)
 {
-    pin_ptr<Macad::Occt::Vec> pp_D1U = &D1U;
-    pin_ptr<Macad::Occt::Vec> pp_D1V = &D1V;
-    pin_ptr<Macad::Occt::Vec> pp_D2U = &D2U;
-    pin_ptr<Macad::Occt::Vec> pp_D2V = &D2V;
-    pin_ptr<Macad::Occt::Vec> pp_D2UV = &D2UV;
-    pin_ptr<bool> pp_Done = &Done;
+    pin_ptr<Macad::Occt::Vec> pp_theD1U = &theD1U;
+    pin_ptr<Macad::Occt::Vec> pp_theD1V = &theD1V;
+    pin_ptr<Macad::Occt::Vec> pp_theD2U = &theD2U;
+    pin_ptr<Macad::Occt::Vec> pp_theD2V = &theD2V;
+    pin_ptr<Macad::Occt::Vec> pp_theD2UV = &theD2UV;
+    pin_ptr<bool> pp_theDone = &theDone;
     pin_ptr<Macad::Occt::CSLib_NormalStatus> pp_theStatus = &theStatus;
-    pin_ptr<Macad::Occt::Dir> pp_Normal = &Normal;
-    ::CSLib::Normal(*(gp_Vec*)pp_D1U, *(gp_Vec*)pp_D1V, *(gp_Vec*)pp_D2U, *(gp_Vec*)pp_D2V, *(gp_Vec*)pp_D2UV, SinTol, *(bool*)pp_Done, *(::CSLib_NormalStatus*)pp_theStatus, *(gp_Dir*)pp_Normal);
+    pin_ptr<Macad::Occt::Dir> pp_theNormal = &theNormal;
+    ::CSLib::Normal(*(gp_Vec*)pp_theD1U, *(gp_Vec*)pp_theD1V, *(gp_Vec*)pp_theD2U, *(gp_Vec*)pp_theD2V, *(gp_Vec*)pp_theD2UV, theSinTol, *(bool*)pp_theDone, *(::CSLib_NormalStatus*)pp_theStatus, *(gp_Dir*)pp_theNormal);
 }
 
-void Macad::Occt::CSLib::Normal(Macad::Occt::Vec D1U, Macad::Occt::Vec D1V, double MagTol, Macad::Occt::CSLib_NormalStatus% theStatus, Macad::Occt::Dir% Normal)
+void Macad::Occt::CSLib::Normal(Macad::Occt::Vec theD1U, Macad::Occt::Vec theD1V, double theMagTol, Macad::Occt::CSLib_NormalStatus% theStatus, Macad::Occt::Dir% theNormal)
 {
-    pin_ptr<Macad::Occt::Vec> pp_D1U = &D1U;
-    pin_ptr<Macad::Occt::Vec> pp_D1V = &D1V;
+    pin_ptr<Macad::Occt::Vec> pp_theD1U = &theD1U;
+    pin_ptr<Macad::Occt::Vec> pp_theD1V = &theD1V;
     pin_ptr<Macad::Occt::CSLib_NormalStatus> pp_theStatus = &theStatus;
-    pin_ptr<Macad::Occt::Dir> pp_Normal = &Normal;
-    ::CSLib::Normal(*(gp_Vec*)pp_D1U, *(gp_Vec*)pp_D1V, MagTol, *(::CSLib_NormalStatus*)pp_theStatus, *(gp_Dir*)pp_Normal);
+    pin_ptr<Macad::Occt::Dir> pp_theNormal = &theNormal;
+    ::CSLib::Normal(*(gp_Vec*)pp_theD1U, *(gp_Vec*)pp_theD1V, theMagTol, *(::CSLib_NormalStatus*)pp_theStatus, *(gp_Dir*)pp_theNormal);
 }
 
-void Macad::Occt::CSLib::Normal(int MaxOrder, Macad::Occt::TColgp_Array2OfVec^ DerNUV, double MagTol, double U, double V, double Umin, double Umax, double Vmin, double Vmax, Macad::Occt::CSLib_NormalStatus% theStatus, Macad::Occt::Dir% Normal, int% OrderU, int% OrderV)
+void Macad::Occt::CSLib::Normal(int theMaxOrder, Macad::Occt::TColgp_Array2OfVec^ theDerNUV, double theMagTol, double theU, double theV, double theUmin, double theUmax, double theVmin, double theVmax, Macad::Occt::CSLib_NormalStatus% theStatus, Macad::Occt::Dir% theNormal, int% theOrderU, int% theOrderV)
 {
     pin_ptr<Macad::Occt::CSLib_NormalStatus> pp_theStatus = &theStatus;
-    pin_ptr<Macad::Occt::Dir> pp_Normal = &Normal;
-    pin_ptr<int> pp_OrderU = &OrderU;
-    pin_ptr<int> pp_OrderV = &OrderV;
-    ::CSLib::Normal(MaxOrder, *(::TColgp_Array2OfVec*)DerNUV->NativeInstance, MagTol, U, V, Umin, Umax, Vmin, Vmax, *(::CSLib_NormalStatus*)pp_theStatus, *(gp_Dir*)pp_Normal, *(int*)pp_OrderU, *(int*)pp_OrderV);
+    pin_ptr<Macad::Occt::Dir> pp_theNormal = &theNormal;
+    pin_ptr<int> pp_theOrderU = &theOrderU;
+    pin_ptr<int> pp_theOrderV = &theOrderV;
+    ::CSLib::Normal(theMaxOrder, *(::TColgp_Array2OfVec*)theDerNUV->NativeInstance, theMagTol, theU, theV, theUmin, theUmax, theVmin, theVmax, *(::CSLib_NormalStatus*)pp_theStatus, *(gp_Dir*)pp_theNormal, *(int*)pp_theOrderU, *(int*)pp_theOrderV);
 }
 
-Macad::Occt::Vec Macad::Occt::CSLib::DNNUV(int Nu, int Nv, Macad::Occt::TColgp_Array2OfVec^ DerSurf)
+Macad::Occt::Vec Macad::Occt::CSLib::DNNUV(int theNu, int theNv, Macad::Occt::TColgp_Array2OfVec^ theDerSurf)
 {
-    ::gp_Vec _nativeResult = ::CSLib::DNNUV(Nu, Nv, *(::TColgp_Array2OfVec*)DerSurf->NativeInstance);
+    ::gp_Vec _nativeResult = ::CSLib::DNNUV(theNu, theNv, *(::TColgp_Array2OfVec*)theDerSurf->NativeInstance);
     return Macad::Occt::Vec(_nativeResult);
 }
 
-Macad::Occt::Vec Macad::Occt::CSLib::DNNUV(int Nu, int Nv, Macad::Occt::TColgp_Array2OfVec^ DerSurf1, Macad::Occt::TColgp_Array2OfVec^ DerSurf2)
+Macad::Occt::Vec Macad::Occt::CSLib::DNNUV(int theNu, int theNv, Macad::Occt::TColgp_Array2OfVec^ theDerSurf1, Macad::Occt::TColgp_Array2OfVec^ theDerSurf2)
 {
-    ::gp_Vec _nativeResult = ::CSLib::DNNUV(Nu, Nv, *(::TColgp_Array2OfVec*)DerSurf1->NativeInstance, *(::TColgp_Array2OfVec*)DerSurf2->NativeInstance);
+    ::gp_Vec _nativeResult = ::CSLib::DNNUV(theNu, theNv, *(::TColgp_Array2OfVec*)theDerSurf1->NativeInstance, *(::TColgp_Array2OfVec*)theDerSurf2->NativeInstance);
     return Macad::Occt::Vec(_nativeResult);
 }
 
-Macad::Occt::Vec Macad::Occt::CSLib::DNNormal(int Nu, int Nv, Macad::Occt::TColgp_Array2OfVec^ DerNUV, int Iduref, int Idvref)
+Macad::Occt::Vec Macad::Occt::CSLib::DNNormal(int theNu, int theNv, Macad::Occt::TColgp_Array2OfVec^ theDerNUV, int theIduref, int theIdvref)
 {
-    ::gp_Vec _nativeResult = ::CSLib::DNNormal(Nu, Nv, *(::TColgp_Array2OfVec*)DerNUV->NativeInstance, Iduref, Idvref);
+    ::gp_Vec _nativeResult = ::CSLib::DNNormal(theNu, theNv, *(::TColgp_Array2OfVec*)theDerNUV->NativeInstance, theIduref, theIdvref);
     return Macad::Occt::Vec(_nativeResult);
 }
 
-Macad::Occt::Vec Macad::Occt::CSLib::DNNormal(int Nu, int Nv, Macad::Occt::TColgp_Array2OfVec^ DerNUV, int Iduref)
+Macad::Occt::Vec Macad::Occt::CSLib::DNNormal(int theNu, int theNv, Macad::Occt::TColgp_Array2OfVec^ theDerNUV, int theIduref)
 {
-    ::gp_Vec _nativeResult = ::CSLib::DNNormal(Nu, Nv, *(::TColgp_Array2OfVec*)DerNUV->NativeInstance, Iduref, 0);
+    ::gp_Vec _nativeResult = ::CSLib::DNNormal(theNu, theNv, *(::TColgp_Array2OfVec*)theDerNUV->NativeInstance, theIduref, 0);
     return Macad::Occt::Vec(_nativeResult);
 }
 
-Macad::Occt::Vec Macad::Occt::CSLib::DNNormal(int Nu, int Nv, Macad::Occt::TColgp_Array2OfVec^ DerNUV)
+Macad::Occt::Vec Macad::Occt::CSLib::DNNormal(int theNu, int theNv, Macad::Occt::TColgp_Array2OfVec^ theDerNUV)
 {
-    ::gp_Vec _nativeResult = ::CSLib::DNNormal(Nu, Nv, *(::TColgp_Array2OfVec*)DerNUV->NativeInstance, 0, 0);
+    ::gp_Vec _nativeResult = ::CSLib::DNNormal(theNu, theNv, *(::TColgp_Array2OfVec*)theDerNUV->NativeInstance, 0, 0);
     return Macad::Occt::Vec(_nativeResult);
 }
 
@@ -94,6 +94,12 @@ Macad::Occt::Vec Macad::Occt::CSLib::DNNormal(int Nu, int Nv, Macad::Occt::TColg
 //---------------------------------------------------------------------
 //  Class  CSLib_Class2d
 //---------------------------------------------------------------------
+
+Macad::Occt::CSLib_Class2d::CSLib_Class2d()
+    : Macad::Occt::BaseClass<::CSLib_Class2d>(BaseClass::InitMode::Uninitialized)
+{
+    _NativeInstance = new ::CSLib_Class2d();
+}
 
 Macad::Occt::CSLib_Class2d::CSLib_Class2d(Macad::Occt::TColgp_Array1OfPnt2d^ thePnts2d, double theTolU, double theTolV, double theUMin, double theVMin, double theUMax, double theVMax)
     : Macad::Occt::BaseClass<::CSLib_Class2d>(BaseClass::InitMode::Uninitialized)
@@ -107,30 +113,18 @@ Macad::Occt::CSLib_Class2d::CSLib_Class2d(Macad::Occt::TColgp_SequenceOfPnt2d^ t
     _NativeInstance = new ::CSLib_Class2d(*(::TColgp_SequenceOfPnt2d*)thePnts2d->NativeInstance, theTolU, theTolV, theUMin, theVMin, theUMax, theVMax);
 }
 
-int Macad::Occt::CSLib_Class2d::SiDans(Macad::Occt::Pnt2d P)
+Macad::Occt::CSLib_Class2d::Result Macad::Occt::CSLib_Class2d::SiDans(Macad::Occt::Pnt2d thePoint)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    int _result = ((::CSLib_Class2d*)_NativeInstance)->SiDans(*(gp_Pnt2d*)pp_P);
-    return _result;
+    pin_ptr<Macad::Occt::Pnt2d> pp_thePoint = &thePoint;
+    ::CSLib_Class2d::Result _result = ((::CSLib_Class2d*)_NativeInstance)->SiDans(*(gp_Pnt2d*)pp_thePoint);
+    return (Macad::Occt::CSLib_Class2d::Result)_result;
 }
 
-int Macad::Occt::CSLib_Class2d::SiDans_OnMode(Macad::Occt::Pnt2d P, double Tol)
+Macad::Occt::CSLib_Class2d::Result Macad::Occt::CSLib_Class2d::SiDans_OnMode(Macad::Occt::Pnt2d thePoint, double theTol)
 {
-    pin_ptr<Macad::Occt::Pnt2d> pp_P = &P;
-    int _result = ((::CSLib_Class2d*)_NativeInstance)->SiDans_OnMode(*(gp_Pnt2d*)pp_P, Tol);
-    return _result;
-}
-
-int Macad::Occt::CSLib_Class2d::InternalSiDans(double X, double Y)
-{
-    int _result = ((::CSLib_Class2d*)_NativeInstance)->InternalSiDans(X, Y);
-    return _result;
-}
-
-int Macad::Occt::CSLib_Class2d::InternalSiDansOuOn(double X, double Y)
-{
-    int _result = ((::CSLib_Class2d*)_NativeInstance)->InternalSiDansOuOn(X, Y);
-    return _result;
+    pin_ptr<Macad::Occt::Pnt2d> pp_thePoint = &thePoint;
+    ::CSLib_Class2d::Result _result = ((::CSLib_Class2d*)_NativeInstance)->SiDans_OnMode(*(gp_Pnt2d*)pp_thePoint, theTol);
+    return (Macad::Occt::CSLib_Class2d::Result)_result;
 }
 
 
