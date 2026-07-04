@@ -332,6 +332,7 @@ public sealed class CircularArray : ModifierBase
                 return false;
             }
             builder.Add(resultShape, makeTransform.Shape());
+            AddCopyModifications((int)index, sourceBRep, makeTransform);
         }
 
         // Finalize
