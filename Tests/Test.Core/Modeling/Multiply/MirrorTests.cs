@@ -284,4 +284,36 @@ public class MirrorTests
 
         SubshapeReferenceCompare.AssertStableAcrossRebuild(mirror);
     }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    [Description("A downstream modifier's reference into the kept side of a Mirror(MergeFaces) result " +
+                  "must survive an invalidate+rebuild of the whole chain (Wall_Stbd4 pattern: " +
+                  "Mirror(KeepOriginal, MergeFaces) -> Taper)")]
+    public void SolidCopySubshapeReferenceSurvivesDownstreamRebuild()
+    {
+        var extrude = TestGeomGenerator.CreateExtrude(TestSketchGenerator.SketchType.SimpleAsymmetric);
+        Assert.IsTrue(extrude.Make(Shape.MakeFlags.None));
+
+        // Mirror about one of the extrude's own side faces, so the copy touches
+        // the original and MergeFaces actually has coincident faces to merge.
+        var mirrorPlane = extrude.GetSubshapeReference(SubshapeType.Face, 2);
+        var mirror = Mirror.Create(extrude.Body, mirrorPlane);
+        mirror.KeepOriginal = true;
+        mirror.MergeFaces = true;
+        Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
+
+        // Reference a face/edge on the kept (original) side, anchored at the extrude,
+        // and build a downstream Taper on top of the mirror - matching the real-world
+        // Wall_Stbd4 sample pattern (Mirror(MergeFaces) feeding a chain of Tapers).
+        var face = extrude.GetSubshapeReference(SubshapeType.Face, 0);
+        var edge = extrude.GetSubshapeReference(SubshapeType.Edge, 0);
+        var taper = Taper.Create(mirror.Body, face, edge, 10);
+        Assert.IsTrue(taper.Make(Shape.MakeFlags.None), "Initial Taper build failed");
+
+        taper.Invalidate();
+        Assert.IsTrue(taper.Make(Shape.MakeFlags.None),
+                      "Taper failed to rebuild - downstream reference into Mirror(MergeFaces) result did not survive");
+    }
 }
