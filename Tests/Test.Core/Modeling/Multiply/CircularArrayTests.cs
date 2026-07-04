@@ -301,6 +301,38 @@ public class CircularArrayTests
 
     //--------------------------------------------------------------------------------------------------
 
+    [Test]
+    [Description("Every subshape of every array copy must get an order-independent composite reference")]
+    public void SolidCopySubshapeReferences()
+    {
+        var solid = TestGeomGenerator.CreateImprint();
+
+        var array = CircularArray.Create(solid.Body);
+        array.Quantity = 5;
+        array.Radius = 50;
+        Assert.IsTrue(array.Make(Shape.MakeFlags.None));
+
+        SubshapeReferenceCompare.AssertResolvable(array, minCompositeRefs: 1);
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    [Description("Array composite copy references must survive a rebuild and resolve to the same geometry")]
+    public void SolidCopySubshapeReferencesRebuild()
+    {
+        var solid = TestGeomGenerator.CreateImprint();
+
+        var array = CircularArray.Create(solid.Body);
+        array.Quantity = 5;
+        array.Radius = 50;
+        Assert.IsTrue(array.Make(Shape.MakeFlags.None));
+
+        SubshapeReferenceCompare.AssertStableAcrossRebuild(array);
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
     #endregion
 
 }

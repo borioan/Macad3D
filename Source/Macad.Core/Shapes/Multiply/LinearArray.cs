@@ -405,7 +405,7 @@ public sealed class LinearArray : ModifierBase
                 {
                     continue; // Skip inner parts
                 }
-        
+
                 var transform = new Trsf2d();
                 transform.SetTranslation(interval1 * index1 + interval2 * index2 + offset);
                 transforms.Add(transform);
@@ -497,6 +497,9 @@ public sealed class LinearArray : ModifierBase
                     return false;
                 }
                 builder.Add(resultShape, makeTransform.Shape());
+
+                // Positional copy id (stable regardless of the Border option)
+                AddCopyModifications((int)(index1 * Quantity2 + index2), sourceBRep, makeTransform);
             }
         }
 

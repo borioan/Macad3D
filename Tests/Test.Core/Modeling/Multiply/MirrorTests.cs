@@ -242,7 +242,46 @@ public class MirrorTests
         var mirror = Mirror.Create(cylinder.Body, cylinder.GetSubshapeReference(SubshapeType.Face, 1));
         Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
     }
-        
+
     //--------------------------------------------------------------------------------------------------
 
+    [Test]
+    [Description("Subshapes of the mirrored copy must get order-independent composite references instead of raw indices")]
+    public void SolidCopySubshapeReferences()
+    {
+        var imprint = TestGeomGenerator.CreateImprint();
+        var mirror = Mirror.Create(imprint.Body, new Ax2(new Pnt(50, 50, 40), Dir.DX));
+        Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
+
+        SubshapeReferenceCompare.AssertResolvable(mirror, minCompositeRefs: 1);
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    [Description("Composite copy references must also cover the touching/merged case (MergeFaces)")]
+    public void SolidCopySubshapeReferencesMerged()
+    {
+        var imprint = TestGeomGenerator.CreateImprint();
+        var subshape = imprint.GetSubshapeReference(SubshapeType.Face, 5);
+        Assert.That(subshape != null);
+
+        var mirror = Mirror.Create(imprint.Body, subshape);
+        Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
+
+        SubshapeReferenceCompare.AssertResolvable(mirror, minCompositeRefs: 1);
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    [Description("Composite copy references must survive a rebuild and resolve to the same geometry")]
+    public void SolidCopySubshapeReferencesRebuild()
+    {
+        var imprint = TestGeomGenerator.CreateImprint();
+        var mirror = Mirror.Create(imprint.Body, new Ax2(new Pnt(50, 50, 40), Dir.DX));
+        Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
+
+        SubshapeReferenceCompare.AssertStableAcrossRebuild(mirror);
+    }
 }

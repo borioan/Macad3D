@@ -463,6 +463,46 @@ public class LinearArrayTests
 
     //--------------------------------------------------------------------------------------------------
 
+    [Test]
+    [Description("Every subshape of every array copy must get an order-independent composite reference")]
+    public void SolidCopySubshapeReferences()
+    {
+        var solid = TestGeomGenerator.CreateImprint();
+
+        var array = LinearArray.Create(solid.Body);
+        array.Quantity1 = 3;
+        array.Distance1 = 25;
+        array.DistanceMode1 = LinearArray.DistanceMode.Interval;
+        array.Quantity2 = 2;
+        array.Distance2 = 30;
+        array.DistanceMode2 = LinearArray.DistanceMode.Interval;
+        Assert.IsTrue(array.Make(Shape.MakeFlags.None));
+
+        SubshapeReferenceCompare.AssertResolvable(array, minCompositeRefs: 1);
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    [Description("Array composite copy references must survive a rebuild and resolve to the same geometry")]
+    public void SolidCopySubshapeReferencesRebuild()
+    {
+        var solid = TestGeomGenerator.CreateImprint();
+
+        var array = LinearArray.Create(solid.Body);
+        array.Quantity1 = 3;
+        array.Distance1 = 25;
+        array.DistanceMode1 = LinearArray.DistanceMode.Interval;
+        array.Quantity2 = 2;
+        array.Distance2 = 30;
+        array.DistanceMode2 = LinearArray.DistanceMode.Interval;
+        Assert.IsTrue(array.Make(Shape.MakeFlags.None));
+
+        SubshapeReferenceCompare.AssertStableAcrossRebuild(array);
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
     #endregion
 
 }

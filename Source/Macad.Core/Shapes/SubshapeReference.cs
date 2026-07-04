@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Text;
 using Macad.Common;
 using Macad.Common.Serialization;
@@ -16,6 +17,11 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
     public string Name { get; private set; }
     public int Index { get; private set; }
 
+    // For subshapes whose identity is derived from other subshapes (e.g. the
+    // mirrored copy of an operand face), these reference the source subshapes.
+    // The owning shape interprets Name/Index/Sources on resolution.
+    public SubshapeReference[] Sources { get; private set; }
+
     //--------------------------------------------------------------------------------------------------
 
     SubshapeReference()
@@ -25,7 +31,7 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
 
     //--------------------------------------------------------------------------------------------------
 
-    public SubshapeReference(SubshapeType type, Guid shapeId, int index) 
+    public SubshapeReference(SubshapeType type, Guid shapeId, int index)
     {
         Type = type;
         ShapeId = shapeId;
@@ -48,9 +54,24 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
 
     //--------------------------------------------------------------------------------------------------
 
+    public SubshapeReference(SubshapeType type, Guid shapeId, string name, int index, SubshapeReference[] sources)
+        : this(type, shapeId, name, index)
+    {
+        Debug.Assert(sources == null || sources.All(src => src != null));
+        Sources = sources;
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
     public bool Equals(SubshapeReference other)
     {
-        return (other != null) && (other.Type == Type) && other.ShapeId.Equals(ShapeId) && (other.Name == Name) && (other.Index == Index);
+        if ((other == null) || (other.Type != Type) || !other.ShapeId.Equals(ShapeId) || (other.Name != Name) || (other.Index != Index))
+            return false;
+
+        if (Sources == null || Sources.Length == 0)
+            return other.Sources == null || other.Sources.Length == 0;
+
+        return other.Sources != null && Sources.SequenceEqual(other.Sources);
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -69,7 +90,15 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
     [SuppressMessage("ReSharper", "NonReadonlyMemberInGetHashCode")]
     public override int GetHashCode()
     {
-        return ShapeId.GetHashCode() ^ (int)Type ^ Index ^ (Name ?? string.Empty).GetHashCode();
+        var hash = ShapeId.GetHashCode() ^ (int)Type ^ Index ^ (Name ?? string.Empty).GetHashCode();
+        if (Sources != null)
+        {
+            foreach (var source in Sources)
+            {
+                hash ^= source.GetHashCode();
+            }
+        }
+        return hash;
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -103,6 +132,20 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
             sb.Append('-');
         }
         sb.Append(Index.ToString());
+
+        if (Sources != null && Sources.Length > 0)
+        {
+            sb.Append('(');
+            for (var i = 0; i < Sources.Length; i++)
+            {
+                if (i > 0)
+                {
+                    sb.Append('|');
+                }
+                sb.Append(Sources[i]);
+            }
+            sb.Append(')');
+        }
         return sb.ToString();
     }
 
@@ -123,7 +166,39 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
 
     public bool Read(Reader reader, SerializationContext context)
     {
-        var parts = reader.ReadValueString().Split('-');
+        return _ParseFromString(reader.ReadValueString(), context);
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    bool _ParseFromString(string s, SerializationContext context)
+    {
+        if (s.IsNullOrEmpty())
+            return false;
+
+        // Split off the source list: Type-Guid[-Name]-Index(Source|Source)
+        var sourcesStart = s.IndexOf('(');
+        if (sourcesStart >= 0)
+        {
+            if (s[s.Length - 1] != ')')
+                return false;
+
+            var sourceList = new List<SubshapeReference>();
+            foreach (var sourceString in _SplitSourceList(s.Substring(sourcesStart + 1, s.Length - sourcesStart - 2)))
+            {
+                var source = new SubshapeReference();
+                if (!source._ParseFromString(sourceString, context))
+                    return false;
+                sourceList.Add(source);
+            }
+            if (sourceList.Count == 0)
+                return false;
+
+            Sources = sourceList.ToArray();
+            s = s.Substring(0, sourcesStart);
+        }
+
+        var parts = s.Split('-');
         if (parts.Length < 3 || parts.Length > 4)
             return false;
 
@@ -140,7 +215,7 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
         }
 
         ShapeId =new Guid(parts[1]);
-			
+
         if (parts.Length == 4)
         {
             Name = parts[2];
@@ -154,6 +229,32 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
         context?.GetInstanceList<SubshapeReference>().Add(this);
 
         return true;
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    static IEnumerable<string> _SplitSourceList(string s)
+    {
+        // Split on '|', but only at nesting depth 0
+        int depth = 0;
+        int start = 0;
+        for (var i = 0; i < s.Length; i++)
+        {
+            switch (s[i])
+            {
+                case '(':
+                    depth++;
+                    break;
+                case ')':
+                    depth--;
+                    break;
+                case '|' when depth == 0:
+                    yield return s.Substring(start, i - start);
+                    start = i + 1;
+                    break;
+            }
+        }
+        yield return s.Substring(start);
     }
 
     //--------------------------------------------------------------------------------------------------
