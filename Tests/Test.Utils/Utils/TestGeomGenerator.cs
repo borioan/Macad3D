@@ -73,20 +73,37 @@ public class TestGeomGenerator
 
     //--------------------------------------------------------------------------------------------------
 
-    public static Imprint CreateImprint(TestSketchGenerator.SketchType sketchType = TestSketchGenerator.SketchType.Circle)
+    public static Imprint CreateImprint(TestSketchGenerator.SketchType sketchType = TestSketchGenerator.SketchType.Circle, int startGuid = 0)
     {
         var baseShape = new Box
         {
             DimensionX = 20,
             DimensionY = 20,
-            DimensionZ = 5,
+            DimensionZ = 5
         };
+        if (startGuid > 0)
+        {
+            baseShape.Guid = TestData.CreateGuid(startGuid);
+        }
+
         var body = CreateBody(baseShape, new Pnt(-10, -10, 0));
+        if (startGuid > 0)
+        {
+            body.Guid = TestData.CreateGuid(startGuid++);
+        }
 
         var imprint = Imprint.Create(body, baseShape.GetSubshapeReference(SubshapeType.Face, 5));
+        if (startGuid > 0)
+        {
+            imprint.Guid = TestData.CreateGuid(startGuid++);
+        }
 
         var sketch = imprint.Operands[1] as Sketch;
         Assert.IsNotNull(sketch);
+        if (startGuid > 0)
+        {
+            sketch.Guid = TestData.CreateGuid(startGuid++);
+        }
 
         TestSketchGenerator.FillSketch(sketch, sketchType);
 

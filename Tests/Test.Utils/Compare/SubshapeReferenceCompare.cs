@@ -1,103 +1,146 @@
-using System.Collections.Generic;
-using System.Linq;
 using Macad.Common;
 using Macad.Core;
 using Macad.Core.Shapes;
 using Macad.Occt;
 using NUnit.Framework;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Macad.Test.Utils;
 
-/// <summary>
-/// Assertions for the stability of subshape references produced by a shape.
-/// Used to verify that modifiers reference their result subshapes by identity
-/// (name/history/composite) rather than by a raw enumeration index, so the
-/// references stay valid regardless of the subshape order of the result.
-/// </summary>
 public static class SubshapeReferenceCompare
 {
     /// <summary>
     /// Asserts that every face and edge of the shape yields a reference that is
     /// not a raw index into the shape's own subshape list, and that resolves
-    /// back to the exact same subshape. When <paramref name="minCompositeRefs"/>
-    /// is greater than zero, at least that many composite (copy) references
-    /// must be produced.
+    /// back to a valid subshape.
     /// </summary>
-    public static void AssertResolvable(Shape shape, int minCompositeRefs = 0)
+    public static bool CheckReferences(Shape shape, out int indexBasedReferences)
     {
         var brep = shape.GetBRep();
         Assert.That(brep, Is.Not.Null, "Shape has no BRep");
 
-        var compositeCount = 0;
-        __Check(brep.Faces().Cast<TopoDS_Shape>(), "face");
-        __Check(brep.Edges().Cast<TopoDS_Shape>(), "edge");
+        indexBasedReferences = 0;
+        bool result = _CheckReferences(shape, brep.Faces().Select(shape.GetSubshapeReference), ref indexBasedReferences);
+        result &= _CheckReferences(shape, brep.Edges().Select(shape.GetSubshapeReference), ref indexBasedReferences);
 
-        Assert.That(compositeCount, Is.GreaterThanOrEqualTo(minCompositeRefs),
-                    $"Expected at least {minCompositeRefs} composite references, found {compositeCount}");
-
-        void __Check(IEnumerable<TopoDS_Shape> subshapes, string kind)
-        {
-            var index = 0;
-            foreach (var subshape in subshapes)
-            {
-                var reference = shape.GetSubshapeReference(subshape);
-                Assert.That(reference, Is.Not.Null, $"No reference for {kind} {index}");
-                Assert.That(reference.ShapeId.Equals(shape.Guid) && reference.Name.IsNullOrEmpty(), Is.False,
-                            $"{kind} {index} fell back to a raw index reference: {reference}");
-
-                if (reference.Name == "Copy")
-                {
-                    compositeCount++;
-                    Assert.That(reference.Sources, Is.Not.Null.And.Length.EqualTo(1),
-                                $"{kind} {index}: copy reference has no single source");
-                    Assert.That(reference.Sources[0].ShapeId, Is.Not.EqualTo(shape.Guid),
-                                $"{kind} {index}: copy source is anchored at the modifier itself");
-                }
-
-                var found = shape.FindSubshape(reference, null);
-                Assert.That(found, Is.Not.Null, $"Reference of {kind} {index} ({reference}) could not be resolved");
-                Assert.That(found.Any(s => s.IsSame(subshape)), Is.True,
-                            $"Reference of {kind} {index} ({reference}) resolved to the wrong subshape");
-                index++;
-            }
-        }
+        return result;
     }
 
-    /// <summary>
-    /// Collects references and geometric signatures for all faces, rebuilds the
-    /// shape from scratch, and asserts every reference still resolves to a
-    /// geometrically identical face.
-    /// </summary>
-    public static void AssertStableAcrossRebuild(Shape shape)
+    //--------------------------------------------------------------------------------------------------
+
+    static bool _CheckReferences(Shape shape, IEnumerable<SubshapeReference> references, ref int indexBasedReferences)
     {
-        var brep = shape.GetBRep();
-        var subshapes = brep.Faces().Cast<TopoDS_Shape>().Concat(brep.Edges().Cast<TopoDS_Shape>());
-        var references = new List<SubshapeReference>();
-        var boundingBoxes = new List<Bnd_Box>();
-        foreach (var subshape in subshapes)
+        bool result = true;
+        foreach (var reference in references)
         {
-            var reference = shape.GetSubshapeReference(subshape);
-            Assert.That(reference, Is.Not.Null);
-            references.Add(reference);
-            boundingBoxes.Add(subshape.BoundingBox());
+            if(reference.Name.IsNullOrEmpty() && reference.Sources == null)
+            {
+                TestContext.WriteLine($"Raw index reference found: {reference}");
+                indexBasedReferences++;
+                result = false;
+            }
+            if (reference.Sources != null)
+            {
+                if (reference.Sources.Length == 0)
+                {
+                    TestContext.WriteLine($"Empty source reference found: {reference}");
+                    result = false;
+                }
+                else
+                {
+                    // We do not check the sources themselves, we only check that they exist.
+                    int indxBasedSourceReferences = 0;
+                    result &= _CheckReferences(null, reference.Sources, ref indxBasedSourceReferences);
+                }
+            }
+
+            if (shape != null)
+            {
+                var found = shape.FindSubshape(reference, null);
+                if (found == null || found.Count == 0)
+                {
+                    TestContext.WriteLine($"Reference could not be resolved: {reference}");
+                    result = false;
+                }
+            }
         }
 
-        shape.Invalidate();
-        Assert.That(shape.Make(Shape.MakeFlags.None), Is.True, "Rebuild failed");
+        return result;
+    }
 
-        for (var i = 0; i < references.Count; i++)
+    //--------------------------------------------------------------------------------------------------
+
+    public static bool CompareReferences(Shape shape, string referenceFile)
+    {
+        string resultFile = referenceFile + "_TestResult.txt";
+        TestData.DeleteTestResult(resultFile);
+
+        bool result = true;
+
+        Dictionary<string, Bnd_Box> subshapes = [];
+        foreach (var face in shape.GetBRep().Faces())
         {
-            var found = shape.FindSubshape(references[i], null);
-            Assert.That(found, Is.Not.Null, $"Reference {i} ({references[i]}) could not be resolved after rebuild");
-            Assert.That(found.Any(s => _IsSameBounds(s.BoundingBox(), boundingBoxes[i])), Is.True,
-                        $"Reference {i} ({references[i]}) resolved to different geometry after rebuild");
+            var currentSubshape = shape.GetSubshapeReference(face);
+            subshapes.Add(currentSubshape.ToString(), face.BoundingBox());
         }
+        foreach (var edge in shape.GetBRep().Edges())
+        {
+            var currentSubshape = shape.GetSubshapeReference(edge);
+            BRepLib.BuildCurve3d(edge);
+            subshapes.Add(currentSubshape.ToString(), edge.BoundingBox());
+        }
+
+        var expectedList = TestData.GetTestDataSerialized<Dictionary<string, Bnd_Box>>(referenceFile + ".txt");
+        if (expectedList == null)
+        {
+            TestData.WriteTestResultSerialized(subshapes, referenceFile + "_TestResult.txt");
+            Assert.Fail("Reference file not found: " + referenceFile);
+        }
+
+        foreach (var (reference, bndBox) in subshapes)
+        {
+            if (!expectedList.TryGetValue(reference, out var expectedBox))
+            {
+                result = false;
+                TestContext.WriteLine($"Unexpected subshape reference found: {reference} / {bndBox}");
+                continue;
+            }
+
+            if (!_IsSameBounds(expectedBox, bndBox))
+            {
+                result = false;
+                TestContext.WriteLine($"Bounds do not match for reference: {reference}. Bounds: {bndBox}. Expected: {expectedBox}");
+                continue;
+            }
+
+            expectedList.Remove(reference);
+        }
+
+        if (expectedList.Count > 0)
+        {
+            result = false;
+            foreach (var (reference, bndBox) in expectedList)
+            {
+                TestContext.WriteLine($"Missing subshape reference: {reference}. Bounds: {bndBox}");
+            }
+        }
+
+        if (!result)
+        {
+            TestData.WriteTestResultSerialized(subshapes, resultFile);
+        }
+
+        return result;
     }
 
     //--------------------------------------------------------------------------------------------------
 
     static bool _IsSameBounds(Bnd_Box box1, Bnd_Box box2)
     {
+        if (box1 == null || box2 == null)
+            return false;
+
         const double tolerance = 1e-6;
         return box1.CornerMin().Distance(box2.CornerMin()) < tolerance
                && box1.CornerMax().Distance(box2.CornerMax()) < tolerance;

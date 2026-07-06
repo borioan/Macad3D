@@ -81,6 +81,7 @@ public class CylinderTests
     {
         var shape = Cylinder.Create(10, 10);
         shape.Guid = TestData.CreateGuid(1);
+        AssertHelper.HasValidSubshapeReferences(shape);
         AssertHelper.IsSameSubshapeReferences(shape, Path.Combine(_BasePath, "SubshapeReferences"));
     }
 
@@ -92,6 +93,7 @@ public class CylinderTests
         var shape = Cylinder.Create(10, 10);
         shape.SegmentAngle = 120;
         shape.Guid = TestData.CreateGuid(1);
+        AssertHelper.HasValidSubshapeReferences(shape);
         AssertHelper.IsSameSubshapeReferences(shape, Path.Combine(_BasePath, "SubshapeReferences_Segment"));
     }
 

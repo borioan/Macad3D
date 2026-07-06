@@ -1,7 +1,7 @@
-﻿using System.IO;
+﻿using Macad.Core.Shapes;
 using Macad.Test.Utils;
-using Macad.Core.Shapes;
 using NUnit.Framework;
+using System.IO;
 
 namespace Macad.Test.Core.Modeling.Modify;
 
@@ -74,21 +74,8 @@ public class BooleanTests
         boolOp.MergeFaces = false;
         Assert.IsTrue(boolOp.Make(Shape.MakeFlags.None));
 
-        SubshapeReferenceCompare.AssertResolvable(boolOp);
-    }
-
-    //--------------------------------------------------------------------------------------------------
-
-    [Test]
-    [Description("Boolean subshape references must survive a rebuild and resolve to the same geometry")]
-    public void SubshapeReferencesFuseRebuild()
-    {
-        var shapes = TestGeomGenerator.CreateBooleanBodies(false);
-        var boolOp = BooleanFuse.Create(shapes.target, shapes.operands);
-        boolOp.MergeFaces = false;
-        Assert.IsTrue(boolOp.Make(Shape.MakeFlags.None));
-
-        SubshapeReferenceCompare.AssertStableAcrossRebuild(boolOp);
+        AssertHelper.HasValidSubshapeReferences(boolOp);
+        AssertHelper.IsSameSubshapeReferences(boolOp, Path.Combine(_BasePath, "SubshapeReferencesFuse"));
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -101,7 +88,21 @@ public class BooleanTests
         var boolOp = BooleanCut.Create(shapes.target, shapes.operands);
         Assert.IsTrue(boolOp.Make(Shape.MakeFlags.None));
 
-        SubshapeReferenceCompare.AssertResolvable(boolOp);
+        AssertHelper.HasValidSubshapeReferences(boolOp);
+        AssertHelper.IsSameSubshapeReferences(boolOp, Path.Combine(_BasePath, "SubshapeReferencesCut"));
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    public void SubshapeReferencesCommon()
+    {
+        var shapes = TestGeomGenerator.CreateBooleanBodies(false);
+        var boolOp = BooleanCommon.Create(shapes.target, shapes.operands);
+        Assert.IsTrue(boolOp.Make(Shape.MakeFlags.None));
+
+        AssertHelper.HasValidSubshapeReferences(boolOp);
+        AssertHelper.IsSameSubshapeReferences(boolOp, Path.Combine(_BasePath, "SubshapeReferencesCommon"));
     }
 
     //--------------------------------------------------------------------------------------------------

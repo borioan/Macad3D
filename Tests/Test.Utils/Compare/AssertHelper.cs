@@ -461,66 +461,18 @@ public static class AssertHelper
 
     //--------------------------------------------------------------------------------------------------
 
+    public static void HasValidSubshapeReferences(Shape shape)
+    {
+        bool isValid = SubshapeReferenceCompare.CheckReferences(shape, out int indexBasedReferences);
+        Assert.That(isValid, Is.True, "Subshape contains invalid references.");
+        Assert.That(indexBasedReferences, Is.EqualTo(0), "Subshape contains potential unstable references.");
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
     public static void IsSameSubshapeReferences(Shape shape, string referenceFile)
     {
-        string resultFile = referenceFile + "_TestResult.txt";
-        TestData.DeleteTestResult(resultFile);
-
-        bool failed = false;
-
-        Dictionary<string,Pnt> subshapes = [];
-        foreach (var face in shape.GetBRep().Faces())
-        {
-            var currentSubshape = shape.GetSubshapeReference(face);
-            subshapes.Add(currentSubshape.ToString(), face.CenterOfMass());
-        }
-        foreach (var edge in shape.GetBRep().Edges())
-        {
-            var currentSubshape = shape.GetSubshapeReference(edge);
-            BRepLib.BuildCurve3d(edge);
-            subshapes.Add(currentSubshape.ToString(), edge.CenterOfMass());
-        }
-
-        var expectedList = TestData.GetTestDataSerialized<Dictionary<string, Pnt>>(referenceFile + ".txt");
-        if(expectedList == null)
-        {
-            TestData.WriteTestResultSerialized(subshapes, referenceFile + "_TestResult.txt");
-            Assert.Fail("Reference file not found: " + referenceFile);
-        }
-
-        foreach (var (reference, com) in subshapes)
-        {
-            if (!expectedList.TryGetValue(reference, out var expectedCom))
-            {
-                failed = true;
-                TestContext.WriteLine($"Unexpected subshape reference found: {reference} / {com}");
-                continue;
-            }
-
-            if (!expectedCom.IsEqual(com, 1e-6))
-            {
-                failed = true;
-                TestContext.WriteLine($"Center of mass does not match for reference: {reference}. CoM: {com}. Expected: {expectedCom}");
-                continue;
-            }
-
-            expectedList.Remove(reference);
-        }
-
-        if (expectedList.Count > 0)
-        {
-            failed = true;
-            foreach (var (reference, com) in expectedList)
-            {
-                TestContext.WriteLine($"Missing subshape reference: {reference}. CoM: {com}");
-            }
-        }
-
-        if (failed)
-        {
-            TestData.WriteTestResultSerialized(subshapes, resultFile);
-            Assert.Fail("Subshape references do not match.");
-        }
+        Assert.That(SubshapeReferenceCompare.CompareReferences(shape, referenceFile), "Subshape references do not match.");
     }
 
     //--------------------------------------------------------------------------------------------------

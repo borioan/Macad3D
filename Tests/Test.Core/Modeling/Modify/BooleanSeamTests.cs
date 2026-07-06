@@ -1,7 +1,8 @@
-using Macad.Test.Utils;
+using System.IO;
 using Macad.Core.Shapes;
 using Macad.Core.Topology;
 using Macad.Occt;
+using Macad.Test.Utils;
 using NUnit.Framework;
 
 namespace Macad.Test.Core.Modeling.Modify;
@@ -14,6 +15,10 @@ namespace Macad.Test.Core.Modeling.Modify;
 [TestFixture]
 public class BooleanSeamTests
 {
+    const string _BasePath = @"Modeling\Modify\Boolean";
+
+    //--------------------------------------------------------------------------------------------------
+
     [Test]
     public void SphereCutThroughPoleSeam()
     {
@@ -24,8 +29,8 @@ public class BooleanSeamTests
         var op = BooleanCut.Create(target, new BodyShapeOperand(tool));
         Assert.IsTrue(op.Make(Shape.MakeFlags.None));
 
-        SubshapeReferenceCompare.AssertResolvable(op);
-        SubshapeReferenceCompare.AssertStableAcrossRebuild(op);
+        AssertHelper.HasValidSubshapeReferences(op);
+        AssertHelper.IsSameSubshapeReferences(op, Path.Combine(_BasePath, "SphereCutThroughPoleSeam"));
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -40,8 +45,8 @@ public class BooleanSeamTests
         var op = BooleanCut.Create(target, new BodyShapeOperand(tool));
         Assert.IsTrue(op.Make(Shape.MakeFlags.None));
 
-        SubshapeReferenceCompare.AssertResolvable(op);
-        SubshapeReferenceCompare.AssertStableAcrossRebuild(op);
+        AssertHelper.HasValidSubshapeReferences(op);
+        AssertHelper.IsSameSubshapeReferences(op, Path.Combine(_BasePath, "SphereHalfCutOnSeamPlane"));
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -57,8 +62,8 @@ public class BooleanSeamTests
         op.MergeFaces = false;
         Assert.IsTrue(op.Make(Shape.MakeFlags.None));
 
-        SubshapeReferenceCompare.AssertResolvable(op);
-        SubshapeReferenceCompare.AssertStableAcrossRebuild(op);
+        AssertHelper.HasValidSubshapeReferences(op);
+        AssertHelper.IsSameSubshapeReferences(op, Path.Combine(_BasePath, "SpheresFuseAlongSeam"));
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -73,7 +78,7 @@ public class BooleanSeamTests
         var op = BooleanCut.Create(target, new BodyShapeOperand(tool));
         Assert.IsTrue(op.Make(Shape.MakeFlags.None));
 
-        SubshapeReferenceCompare.AssertResolvable(op);
-        SubshapeReferenceCompare.AssertStableAcrossRebuild(op);
+        AssertHelper.HasValidSubshapeReferences(op);
+        AssertHelper.IsSameSubshapeReferences(op, Path.Combine(_BasePath, "CylinderCutBoxOnSeam"));
     }
 }

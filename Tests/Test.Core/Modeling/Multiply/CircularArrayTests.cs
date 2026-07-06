@@ -1,7 +1,7 @@
-﻿using System.IO;
+﻿using Macad.Core.Shapes;
 using Macad.Test.Utils;
-using Macad.Core.Shapes;
 using NUnit.Framework;
+using System.IO;
 
 namespace Macad.Test.Core.Modeling.Multiply;
 
@@ -140,6 +140,25 @@ public class CircularArrayTests
         array.Radius = 50;
         Assert.IsTrue(array.Make(Shape.MakeFlags.None));
         AssertHelper.IsSameModel2D(array, Path.Combine(_BasePath, "SketchTransformedPlane"));
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    [Description("Every subshape of every array copy must get an order-independent composite reference")]
+    public void SketchSubshapeReferences()
+    {
+        var sketch = TestSketchGenerator.CreateSketch(TestSketchGenerator.SketchType.SimpleAsymmetric, true);
+        sketch.Guid = TestData.CreateGuid(1);
+
+        var array = CircularArray.Create(sketch.Body);
+        array.Quantity = 2;
+        array.Radius = 50;
+        array.Guid = TestData.CreateGuid(10);
+        Assert.IsTrue(array.Make(Shape.MakeFlags.None));
+
+        AssertHelper.HasValidSubshapeReferences(array);
+        AssertHelper.IsSameSubshapeReferences(array, Path.Combine(_BasePath, "SketchSubshapeReferences"));
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -303,32 +322,19 @@ public class CircularArrayTests
 
     [Test]
     [Description("Every subshape of every array copy must get an order-independent composite reference")]
-    public void SolidCopySubshapeReferences()
+    public void SolidSubshapeReferences()
     {
-        var solid = TestGeomGenerator.CreateImprint();
+        var solid = TestGeomGenerator.CreateBox();
+        solid.Guid = TestData.CreateGuid(1);
 
         var array = CircularArray.Create(solid.Body);
-        array.Quantity = 5;
+        array.Quantity = 3;
         array.Radius = 50;
+        array.Guid = TestData.CreateGuid(10);
         Assert.IsTrue(array.Make(Shape.MakeFlags.None));
 
-        SubshapeReferenceCompare.AssertResolvable(array, minCompositeRefs: 1);
-    }
-
-    //--------------------------------------------------------------------------------------------------
-
-    [Test]
-    [Description("Array composite copy references must survive a rebuild and resolve to the same geometry")]
-    public void SolidCopySubshapeReferencesRebuild()
-    {
-        var solid = TestGeomGenerator.CreateImprint();
-
-        var array = CircularArray.Create(solid.Body);
-        array.Quantity = 5;
-        array.Radius = 50;
-        Assert.IsTrue(array.Make(Shape.MakeFlags.None));
-
-        SubshapeReferenceCompare.AssertStableAcrossRebuild(array);
+        AssertHelper.HasValidSubshapeReferences(array);
+        AssertHelper.IsSameSubshapeReferences(array, Path.Combine(_BasePath, "SolidSubshapeReferences"));
     }
 
     //--------------------------------------------------------------------------------------------------

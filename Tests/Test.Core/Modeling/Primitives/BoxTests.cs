@@ -33,6 +33,7 @@ public class BoxTests
     {
         var shape = Box.Create(10, 10, 10);
         shape.Guid = TestData.CreateGuid(1);
+        AssertHelper.HasValidSubshapeReferences(shape);
         AssertHelper.IsSameSubshapeReferences(shape, Path.Combine(_BasePath, "SubshapeReferences"));
     }
 

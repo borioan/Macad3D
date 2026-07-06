@@ -17,9 +17,11 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
     public string Name { get; private set; }
     public int Index { get; private set; }
 
-    // For subshapes whose identity is derived from other subshapes (e.g. the
-    // mirrored copy of an operand face), these reference the source subshapes.
-    // The owning shape interprets Name/Index/Sources on resolution.
+    /// <summary>
+    /// For subshapes whose identity is derived from other subshapes (e.g. the
+    /// mirrored copy of an operand face), these reference the source subshapes.
+    /// The owning shape interprets Name/Index/Sources on resolution.
+    /// </summary>
     public SubshapeReference[] Sources { get; private set; }
 
     //--------------------------------------------------------------------------------------------------
@@ -65,11 +67,15 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
 
     public bool Equals(SubshapeReference other)
     {
-        if ((other == null) || (other.Type != Type) || !other.ShapeId.Equals(ShapeId) || (other.Name != Name) || (other.Index != Index))
+        if (other == null || other.Type != Type || !other.ShapeId.Equals(ShapeId) || other.Name != Name || other.Index != Index)
+        {
             return false;
+        }
 
         if (Sources == null || Sources.Length == 0)
+        {
             return other.Sources == null || other.Sources.Length == 0;
+        }
 
         return other.Sources != null && Sources.SequenceEqual(other.Sources);
     }
@@ -133,7 +139,7 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
         }
         sb.Append(Index.ToString());
 
-        if (Sources != null && Sources.Length > 0)
+        if (Sources is { Length: > 0 })
         {
             sb.Append('(');
             for (var i = 0; i < Sources.Length; i++)
@@ -176,53 +182,70 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
         if (s.IsNullOrEmpty())
             return false;
 
+        ReadOnlySpan<char> span = s.AsSpan();
+
         // Split off the source list: Type-Guid[-Name]-Index(Source|Source)
-        var sourcesStart = s.IndexOf('(');
+        int sourcesStart = span.IndexOf('(');
         if (sourcesStart >= 0)
         {
-            if (s[s.Length - 1] != ')')
+            if (span[^1] != ')')
                 return false;
 
-            var sourceList = new List<SubshapeReference>();
-            foreach (var sourceString in _SplitSourceList(s.Substring(sourcesStart + 1, s.Length - sourcesStart - 2)))
+            var sourcesSpan = span.Slice(sourcesStart + 1, span.Length - sourcesStart - 2);
+            Sources = _GetSourceListItems(sourcesSpan).Select(sourceString =>
             {
                 var source = new SubshapeReference();
                 if (!source._ParseFromString(sourceString, context))
-                    return false;
-                sourceList.Add(source);
-            }
-            if (sourceList.Count == 0)
+                    return null;
+                return source;
+            }).ToArray();
+            if (Sources.Length == 0 || Sources.Contains(null))
                 return false;
 
-            Sources = sourceList.ToArray();
-            s = s.Substring(0, sourcesStart);
+            span = span.Slice(0, sourcesStart);
         }
 
-        var parts = s.Split('-');
-        if (parts.Length < 3 || parts.Length > 4)
+        // Parse: Type-Guid[-Name]-Index
+        var parts = new List<string>();
+        int lastIndex = 0;
+
+        for (int i = 0; i <= span.Length; i++)
+        {
+            if (i == span.Length || span[i] == '-')
+            {
+                parts.Add(span.Slice(lastIndex, i - lastIndex).ToString());
+                lastIndex = i + 1;
+            }
+        }
+
+        if (parts.Count < 3 || parts.Count > 4)
             return false;
 
         switch (parts[0])
         {
-            case "V": Type = SubshapeType.Vertex;
+            case "V":
+                Type = SubshapeType.Vertex;
                 break;
-            case "E": Type = SubshapeType.Edge;
+            case "E":
+                Type = SubshapeType.Edge;
                 break;
-            case "F": Type = SubshapeType.Face;
+            case "F":
+                Type = SubshapeType.Face;
                 break;
             default:
                 return false;
         }
 
-        ShapeId =new Guid(parts[1]);
+        ShapeId = new Guid(parts[1]);
 
-        if (parts.Length == 4)
+        if (parts.Count == 4)
         {
             Name = parts[2];
-            Index = Int32.Parse(parts[3]);
+            Index = int.Parse(parts[3]);
         }
-        else {
-            Index = Int32.Parse(parts[2]);
+        else
+        {
+            Index = int.Parse(parts[2]);
         }
 
         // Safe for later GUID redirection
@@ -233,12 +256,12 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
 
     //--------------------------------------------------------------------------------------------------
 
-    static IEnumerable<string> _SplitSourceList(string s)
+    static List<string> _GetSourceListItems(ReadOnlySpan<char> s)
     {
-        // Split on '|', but only at nesting depth 0
+        var result = new List<string>();
         int depth = 0;
         int start = 0;
-        for (var i = 0; i < s.Length; i++)
+        for (int i = 0; i < s.Length; i++)
         {
             switch (s[i])
             {
@@ -249,12 +272,13 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
                     depth--;
                     break;
                 case '|' when depth == 0:
-                    yield return s.Substring(start, i - start);
+                    result.Add(s.Slice(start, i - start).ToString());
                     start = i + 1;
                     break;
             }
         }
-        yield return s.Substring(start);
+        result.Add(s.Slice(start).ToString());
+        return result;
     }
 
     //--------------------------------------------------------------------------------------------------
