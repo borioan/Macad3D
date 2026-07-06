@@ -488,14 +488,24 @@ public sealed class LinearArray : ModifierBase
                     continue; // Skip inner parts
                 }
 
+                Vec translation = interval1 * index1 + interval2 * index2 + offset;
+                if (translation.Magnitude() < 1e-6)
+                {
+                    // No translation, take original shape
+                    builder.Add(resultShape, sourceBRep);
+                    continue;
+
+                }
+
                 var transform = new Trsf();
-                transform.SetTranslation(interval1 * index1 + interval2 * index2 + offset);
+                transform.SetTranslation(translation);
                 var makeTransform = new BRepBuilderAPI_Transform(sourceBRep, transform);
                 if (!makeTransform.IsDone())
                 {
                     Messages.Error("Failed transforming shape.");
                     return false;
                 }
+
                 builder.Add(resultShape, makeTransform.Shape());
 
                 // Positional copy id (stable regardless of the Border option)

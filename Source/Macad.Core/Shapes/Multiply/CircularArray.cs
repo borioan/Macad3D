@@ -313,6 +313,13 @@ public sealed class CircularArray : ModifierBase
         for (var index = 0; index < Quantity; index++)
         {
             var angle = (interval * index + offset).ToRad();
+            if (angle.IsEqual(0, 1e-9))
+            {
+                // No rotation, take original shape
+                builder.Add(resultShape, sourceBRep);
+                continue;
+            }
+
             var transform = Trsf.Identity;
             if (_KeepOrientation)
             {
