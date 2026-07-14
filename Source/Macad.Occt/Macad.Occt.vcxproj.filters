@@ -447,6 +447,9 @@
     <ClInclude Include="Generated\BRepPrim.h">
       <Filter>Generated\ModelingAlgorithms\TKPrim</Filter>
     </ClInclude>
+    <ClInclude Include="Extensions\BRepBuilderAPI_Ex.h">
+      <Filter>Extensions</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AssemblyInfo.cpp">
@@ -777,6 +780,10 @@
     <ClCompile Include="Generated\BRepPrim.cpp">
       <Filter>Generated\ModelingAlgorithms\TKPrim</Filter>
     </ClCompile>
+    <ClCompile Include="$(VersionInfoCppFile)" />
+    <ClCompile Include="Extensions\BRepBuilderAPI_Ex.cpp">
+      <Filter>Extensions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Natvis Include="occt.natvis">
@@ -784,6 +791,7 @@
     </Natvis>
   </ItemGroup>
   <ItemGroup>
+    <ResourceCompile Include="$(VersionInfoRcFile)" />
     <ResourceCompile Include="$(VersionInfoRcFile)" />
   </ItemGroup>
 </Project>

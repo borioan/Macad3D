@@ -149,8 +149,7 @@ public class SubshapeReferenceTests
         // Find reference, modified face
         var ref3 = cut.Shape.GetSubshapeReference(cut.Faces[2]);
         Assert.IsNotNull(ref3);
-        Assert.AreNotEqual(cut.Shape.Guid, ref3.ShapeId);
-        Assert.AreEqual(box.Shape.Guid, ref3.ShapeId);
+        Assert.AreEqual(cut.Shape.Guid, ref3.ShapeId);
 
         //// Recalc
         InvalidateShape(ref box);
@@ -409,6 +408,7 @@ public class SubshapeReferenceTests
                 DimensionX = 10,
                 DimensionY = 10,
                 DimensionZ = 10,
+                Guid = TestData.CreateGuid(1)
             }
         };
         desc.Body = TestGeomGenerator.CreateBody(desc.Shape);
@@ -433,6 +433,7 @@ public class SubshapeReferenceTests
             {
                 Height = 10,
                 Radius = 2,
+                Guid = TestData.CreateGuid(2)
             }
         };
         desc.Body = TestGeomGenerator.CreateBody(desc.Shape, new Pnt(5, 5, 0)); 
@@ -455,6 +456,7 @@ public class SubshapeReferenceTests
         {
             Shape = BooleanCut.Create(op1.Body, new BodyShapeOperand(op2.Body))
         };
+        desc.Shape.Guid = TestData.CreateGuid(10);
         desc.OcShape = desc.Shape.GetBRep();
         desc.Vertices = desc.OcShape.Vertices();
         Assert.AreEqual(10, desc.Vertices.Count);

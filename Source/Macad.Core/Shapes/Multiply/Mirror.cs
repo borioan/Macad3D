@@ -1,12 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Runtime.InteropServices;
-using Macad.Common;
+﻿using Macad.Common;
+using Macad.Common.Serialization;
 using Macad.Core.Geom;
 using Macad.Core.Topology;
-using Macad.Common.Serialization;
 using Macad.Occt;
+using System.Diagnostics;
+using System.Linq;
 
 namespace Macad.Core.Shapes;
 
@@ -159,9 +157,6 @@ public sealed class Mirror : ModifierBase
     bool _MergeFaces;
     Ax2? _MirrorAxis;
 
-    // The single mirrored copy has copy number 0.
-    const int _CopyIndex = 0;
-
     //--------------------------------------------------------------------------------------------------
 
     #endregion
@@ -294,10 +289,13 @@ public sealed class Mirror : ModifierBase
             return false;
         }
 
+        var transformedShape = makeTransform.Shape();
+        BRepTools_History transformHistory = new(sourceBRep, makeTransform);
+
         if (!_KeepOriginal)
         {
-            BRep = makeTransform.Shape();
-            UpdateModifiedSubshapes(sourceBRep, makeTransform);
+            UpdateModifiedSubshapes(sourceBRep, transformHistory);
+            BRep = transformedShape;
             return true;
         }
 
@@ -305,66 +303,27 @@ public sealed class Mirror : ModifierBase
         var shapeListArgs = new TopTools_ListOfShape();
         shapeListArgs.Append(sourceBRep);
         var shapeListTools = new TopTools_ListOfShape();
-        shapeListTools.Append(makeTransform.Shape());
+        shapeListTools.Append(transformedShape);
 
-        var algo = new BRepAlgoAPI_Fuse();
-        algo.SetArguments(shapeListArgs);
-        algo.SetTools(shapeListTools);
-        algo.Build();
-        if (!algo.IsDone())
+        var fuse = new BRepAlgoAPI_Fuse();
+        fuse.SetArguments(shapeListArgs);
+        fuse.SetTools(shapeListTools);
+        fuse.Build();
+        if (!fuse.IsDone())
         {
             Messages.Error("Failed fusing operation failed.");
             return false;
         }
         if (_KeepOriginal && _MergeFaces)
         {
-            algo.SimplifyResult(true, true);
+            fuse.SimplifyResult(true, true);
         }
+        UpdateModifiedSubshapes(sourceBRep, fuse.History());
 
-        UpdateModifiedSubshapes(sourceBRep, algo);
-        _CollectCopyModifications(sourceBRep, makeTransform, algo);
-        BRep = algo.Shape();
+        SubshapeReferenceUtils.CreateSubshapeNames("Mirror", [sourceBRep], [new(0, transformHistory), new(1, fuse)], AddNamedSubshape);
+
+        BRep = fuse.Shape();
         return true;
-    }
-
-    //--------------------------------------------------------------------------------------------------
-
-    // Registers the mirrored copy's subshapes (source -> copy -> fused result)
-    // so they get order-independent composite references instead of raw indices.
-    void _CollectCopyModifications(TopoDS_Shape sourceBRep, BRepBuilderAPI_Transform makeTransform, BRepAlgoAPI_BooleanOperation fuseOp)
-    {
-        __Process(sourceBRep.Faces());
-        __Process(sourceBRep.Edges());
-        __Process(sourceBRep.Vertices());
-
-        //----
-
-        void __Process(IEnumerable<TopoDS_Shape> shapes)
-        {
-            foreach (var source in shapes)
-            {
-                foreach (var copy in makeTransform.Modified(source).ToList())
-                {
-                    var images = fuseOp.Modified(copy).ToList();
-                    if (images.Count == 0)
-                    {
-                        // Delete check can result in exception
-                        try
-                        {
-                            if (fuseOp.IsDeleted(copy))
-                                continue;
-                        }
-                        catch (SEHException)
-                        {
-                            // The shape is not in the list, so it is NOT deleted and NOT modified
-                        }
-                        images.Add(copy);
-                    }
-
-                    AddCopyModification(_CopyIndex, source, images);
-                }
-            }
-        }
     }
 
     //--------------------------------------------------------------------------------------------------

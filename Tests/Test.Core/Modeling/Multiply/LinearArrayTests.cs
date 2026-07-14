@@ -489,6 +489,7 @@ public class LinearArrayTests
     public void SolidSubshapeReferences()
     {
         var solid = TestGeomGenerator.CreateBox();
+        solid.Guid = TestData.CreateGuid(1);
 
         var array = LinearArray.Create(solid.Body);
         array.Quantity1 = 3;
@@ -497,6 +498,7 @@ public class LinearArrayTests
         array.Quantity2 = 2;
         array.Distance2 = 30;
         array.DistanceMode2 = LinearArray.DistanceMode.Interval;
+        array.Guid = TestData.CreateGuid(2);
         Assert.IsTrue(array.Make(Shape.MakeFlags.None));
 
         AssertHelper.HasValidSubshapeReferences(array);

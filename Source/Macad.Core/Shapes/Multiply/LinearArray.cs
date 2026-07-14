@@ -508,8 +508,9 @@ public sealed class LinearArray : ModifierBase
 
                 builder.Add(resultShape, makeTransform.Shape());
 
-                // Positional copy id (stable regardless of the Border option)
-                AddCopyModifications((int)(index1 * Quantity2 + index2), sourceBRep, makeTransform);
+                BRepTools_History history = new(resultShape, makeTransform);
+                SubshapeReferenceUtils.CreateSubshapeNames($"Copy{index1}_{index2}", [sourceBRep], [new(0, history)], AddNamedSubshape);
+                UpdateModifiedSubshapes(sourceBRep, history);
             }
         }
 

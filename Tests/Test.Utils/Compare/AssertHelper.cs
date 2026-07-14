@@ -461,11 +461,11 @@ public static class AssertHelper
 
     //--------------------------------------------------------------------------------------------------
 
-    public static void HasValidSubshapeReferences(Shape shape)
+    public static void HasValidSubshapeReferences(Shape shape, bool allowSelfReferencing=false, int allowedIndexBased=0)
     {
-        bool isValid = SubshapeReferenceCompare.CheckReferences(shape, out int indexBasedReferences);
+        bool isValid = SubshapeReferenceCompare.CheckReferences(shape, allowSelfReferencing, out int indexBasedReferences);
         Assert.That(isValid, Is.True, "Subshape contains invalid references.");
-        Assert.That(indexBasedReferences, Is.EqualTo(0), "Subshape contains potential unstable references.");
+        Assert.That(indexBasedReferences, Is.LessThanOrEqualTo(allowedIndexBased), "Subshape contains potential unstable references.");
     }
 
     //--------------------------------------------------------------------------------------------------

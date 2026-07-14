@@ -338,8 +338,13 @@ public sealed class CircularArray : ModifierBase
                 Messages.Error("Failed transforming shape.");
                 return false;
             }
-            builder.Add(resultShape, makeTransform.Shape());
-            AddCopyModifications((int)index, sourceBRep, makeTransform);
+
+            var transformedShape = makeTransform.Shape();
+            builder.Add(resultShape, transformedShape);
+
+            BRepTools_History history = new(resultShape, makeTransform);
+            SubshapeReferenceUtils.CreateSubshapeNames($"Copy{index}", [sourceBRep], [new(0, history)], AddNamedSubshape);
+            UpdateModifiedSubshapes(sourceBRep, history);
         }
 
         // Finalize

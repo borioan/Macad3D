@@ -263,13 +263,14 @@ public class MirrorTests
     //--------------------------------------------------------------------------------------------------
 
     [Test]
-    [Description("Subshapes of the mirrored copy must get order-independent composite references instead of raw indices")]
+    [Description("Subshape references when resulting objects are not touching.")]
     public void SolidSubshapeReferences()
     {
-        var imprint = TestGeomGenerator.CreateImprint();
-        var mirror = Mirror.Create(imprint.Body, new Ax2(new Pnt(50, 50, 40), Dir.DX));
+        var box = TestGeomGenerator.CreateBox();
+        box.Guid = TestData.CreateGuid(1);
+        var mirror = Mirror.Create(box.Body, new Ax2(new Pnt(50, 50, 40), Dir.DX));
+        mirror.Guid = TestData.CreateGuid(10);
         Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
-
 
         AssertHelper.HasValidSubshapeReferences(mirror);
         AssertHelper.IsSameSubshapeReferences(mirror, Path.Combine(_BasePath, "SolidSubshapeReferences"));
@@ -278,18 +279,78 @@ public class MirrorTests
     //--------------------------------------------------------------------------------------------------
 
     [Test]
-    [Description("Composite copy references must also cover the touching/merged case (MergeFaces)")]
-    public void SolidSubshapeReferencesMerged()
+    public void SolidSubshapeReferencesNoOriginal()
     {
-        var imprint = TestGeomGenerator.CreateBox();
-        var subshape = imprint.GetSubshapeReference(SubshapeType.Face, 5);
-        Assert.That(subshape != null);
-
-        var mirror = Mirror.Create(imprint.Body, subshape);
+        var box = TestGeomGenerator.CreateBox();
+        box.Guid = TestData.CreateGuid(1);
+        var subshape = new SubshapeReference(SubshapeType.Face, box.Guid, "ZMax", 0);
+        var mirror = Mirror.Create(box.Body, subshape);
+        mirror.Guid = TestData.CreateGuid(10);
+        mirror.KeepOriginal = false;
         Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
 
         AssertHelper.HasValidSubshapeReferences(mirror);
+        AssertHelper.IsSameSubshapeReferences(mirror, Path.Combine(_BasePath, "SolidSubshapeReferencesNoOriginal"));
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    [Description("Subshape references when resulting objects are touching, but no merged.")]
+    public void SolidSubshapeReferencesTouching()
+    {
+        var box = TestGeomGenerator.CreateBox();
+        box.Guid = TestData.CreateGuid(1);
+        var subshape = new SubshapeReference(SubshapeType.Face, box.Guid, "ZMax", 0);
+        Assert.That(subshape != null);
+
+        var mirror = Mirror.Create(box.Body, subshape);
+        mirror.Guid = TestData.CreateGuid(10);
+        mirror.MergeFaces = false;
+        Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
+
+        AssertHelper.HasValidSubshapeReferences(mirror, allowSelfReferencing: true);
+        AssertHelper.IsSameSubshapeReferences(mirror, Path.Combine(_BasePath, "SolidSubshapeReferencesTouching"));
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    [Description("Composite copy references must also cover the touching/merged case (MergeFaces)")]
+    public void SolidSubshapeReferencesMerged()
+    {
+        var box = TestGeomGenerator.CreateBox();
+        box.Guid = TestData.CreateGuid(1);
+        var subshape = new SubshapeReference(SubshapeType.Face, box.Guid, "ZMax", 0);
+        Assert.That(subshape != null);
+
+        var mirror = Mirror.Create(box.Body, subshape);
+        mirror.Guid = TestData.CreateGuid(10);
+        Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
+        
+        AssertHelper.HasValidSubshapeReferences(mirror, allowSelfReferencing: true);
         AssertHelper.IsSameSubshapeReferences(mirror, Path.Combine(_BasePath, "SolidSubshapeReferencesMerged"));
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    [Description("Subshape references when resulting objects are intersecting, but no merged.")]
+    public void SolidSubshapeReferencesIntersecting()
+    {
+        var box = TestGeomGenerator.CreateBox();
+        box.Guid = TestData.CreateGuid(1);
+        var subshape = new SubshapeReference(SubshapeType.Face, box.Guid, "ZMax", 0);
+        Assert.That(subshape != null);
+
+        var mirror = Mirror.Create(box.Body, subshape);
+        mirror.Guid = TestData.CreateGuid(10);
+        mirror.MergeFaces = false;
+        mirror.Offset = -1;
+        Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
+
+        AssertHelper.HasValidSubshapeReferences(mirror, allowSelfReferencing: true);
+        AssertHelper.IsSameSubshapeReferences(mirror, Path.Combine(_BasePath, "SolidSubshapeReferencesIntersecting"));
     }
 
     //--------------------------------------------------------------------------------------------------

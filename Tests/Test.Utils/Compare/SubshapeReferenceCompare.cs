@@ -11,34 +11,43 @@ namespace Macad.Test.Utils;
 public static class SubshapeReferenceCompare
 {
     /// <summary>
-    /// Asserts that every face and edge of the shape yields a reference that is
+    /// Checks that every face and edge of the shape yields a reference that is
     /// not a raw index into the shape's own subshape list, and that resolves
     /// back to a valid subshape.
     /// </summary>
-    public static bool CheckReferences(Shape shape, out int indexBasedReferences)
+    public static bool CheckReferences(Shape shape, bool allowSelfReferencing, out int indexBasedReferences)
     {
         var brep = shape.GetBRep();
         Assert.That(brep, Is.Not.Null, "Shape has no BRep");
 
         indexBasedReferences = 0;
-        bool result = _CheckReferences(shape, brep.Faces().Select(shape.GetSubshapeReference), ref indexBasedReferences);
-        result &= _CheckReferences(shape, brep.Edges().Select(shape.GetSubshapeReference), ref indexBasedReferences);
+        bool result = _CheckReferences(shape, brep.Faces().Select(shape.GetSubshapeReference), allowSelfReferencing, ref indexBasedReferences);
+        result &= _CheckReferences(shape, brep.Edges().Select(shape.GetSubshapeReference), allowSelfReferencing, ref indexBasedReferences);
 
         return result;
     }
 
     //--------------------------------------------------------------------------------------------------
 
-    static bool _CheckReferences(Shape shape, IEnumerable<SubshapeReference> references, ref int indexBasedReferences)
+    static bool _CheckReferences(Shape shape, IEnumerable<SubshapeReference> references, bool allowSelfReferencing, ref int indexBasedReferences)
     {
         bool result = true;
-        foreach (var reference in references)
+        var referenceList = references.ToList();
+
+        // Check for duplicates
+        var duplicates = referenceList.GroupBy(r => r.ToString()).Where(g => g.Count() > 1).ToList();
+        foreach (var duplicateGroup in duplicates)
         {
-            if(reference.Name.IsNullOrEmpty() && reference.Sources == null)
+            TestContext.WriteLine($"Duplicate reference found: {duplicateGroup.Key} (count: {duplicateGroup.Count()})");
+            result = false;
+        }
+
+        foreach (var reference in referenceList)
+        {
+            if (reference.Name.IsNullOrEmpty() && reference.Sources == null)
             {
                 TestContext.WriteLine($"Raw index reference found: {reference}");
                 indexBasedReferences++;
-                result = false;
             }
             if (reference.Sources != null)
             {
@@ -49,14 +58,38 @@ public static class SubshapeReferenceCompare
                 }
                 else
                 {
+                    // Check for duplicates
+                    foreach (var duplicateSource in reference.Sources.GroupBy(r => r.ToString()).Where(g => g.Count() > 1))
+                    {
+                        TestContext.WriteLine($"Duplicate sources found: {reference})");
+                        result = false;
+                    }
+
                     // We do not check the sources themselves, we only check that they exist.
-                    int indxBasedSourceReferences = 0;
-                    result &= _CheckReferences(null, reference.Sources, ref indxBasedSourceReferences);
+                    int indexBasedSourceReferences = 0;
+                    result &= _CheckReferences(null, reference.Sources, allowSelfReferencing, ref indexBasedSourceReferences);
                 }
             }
 
             if (shape != null)
             {
+                if (!allowSelfReferencing)
+                {
+                    // Check that no source references the shape itself, which would be a circular reference.
+                    if (reference.Sources != null)
+                    {
+                        foreach (var source in reference.Sources)
+                        {
+                            if (shape.Guid.Equals(source.ShapeId))
+                            {
+                                TestContext.WriteLine($"Self reference found: {reference}");
+                                result = false;
+                            }
+                        }
+                    }
+                }
+
+                // Check that all references can be resolved back to a valid subshape.
                 var found = shape.FindSubshape(reference, null);
                 if (found == null || found.Count == 0)
                 {
@@ -82,13 +115,17 @@ public static class SubshapeReferenceCompare
         foreach (var face in shape.GetBRep().Faces())
         {
             var currentSubshape = shape.GetSubshapeReference(face);
-            subshapes.Add(currentSubshape.ToString(), face.BoundingBox());
+            var bb = face.BoundingBox();
+            bb.SetGap(0);
+            subshapes.Add(currentSubshape.ToString(), bb);
         }
         foreach (var edge in shape.GetBRep().Edges())
         {
             var currentSubshape = shape.GetSubshapeReference(edge);
             BRepLib.BuildCurve3d(edge);
-            subshapes.Add(currentSubshape.ToString(), edge.BoundingBox());
+            var bb = edge.BoundingBox();
+            bb.SetGap(0);
+            subshapes.Add(currentSubshape.ToString(), bb);
         }
 
         var expectedList = TestData.GetTestDataSerialized<Dictionary<string, Bnd_Box>>(referenceFile + ".txt");
@@ -103,14 +140,14 @@ public static class SubshapeReferenceCompare
             if (!expectedList.TryGetValue(reference, out var expectedBox))
             {
                 result = false;
-                TestContext.WriteLine($"Unexpected subshape reference found: {reference} / {bndBox}");
+                TestContext.WriteLine($"Unexpected subshape reference found: {reference} / {bndBox.ToRoundedString()}");
                 continue;
             }
 
             if (!_IsSameBounds(expectedBox, bndBox))
             {
                 result = false;
-                TestContext.WriteLine($"Bounds do not match for reference: {reference}. Bounds: {bndBox}. Expected: {expectedBox}");
+                TestContext.WriteLine($"Bounds do not match for reference: {reference}. Bounds: {bndBox.ToRoundedString()}. Expected: {expectedBox?.ToRoundedString()}");
                 continue;
             }
 
@@ -122,7 +159,7 @@ public static class SubshapeReferenceCompare
             result = false;
             foreach (var (reference, bndBox) in expectedList)
             {
-                TestContext.WriteLine($"Missing subshape reference: {reference}. Bounds: {bndBox}");
+                TestContext.WriteLine($"Missing subshape reference: {reference}. Bounds: {bndBox.ToRoundedString()}");
             }
         }
 
