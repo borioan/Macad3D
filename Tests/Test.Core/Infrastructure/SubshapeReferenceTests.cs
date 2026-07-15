@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Macad.Common.Serialization;
 using Macad.Test.Utils;
 using Macad.Core;
 using Macad.Core.Shapes;
@@ -15,6 +16,45 @@ namespace Macad.Test.Core.Modeling.Subshapes;
 public class SubshapeReferenceTests
 {
     const string _BasePath = @"Infrastructure\SubshapeReference";
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    [Description("References taken from a real model must survive the serialization roundtrip (including the interned form) and resolve back to the same subshape")]
+    public void ReferenceRoundtripResolvesToSameSubshape()
+    {
+        // Mirror with MergeFaces produces references whose sources share subtrees,
+        // which are serialized using the interned form (id table).
+        var box = TestGeomGenerator.CreateBox();
+        box.Guid = TestData.CreateGuid(1);
+        var mirrorPlane = new SubshapeReference(SubshapeType.Face, box.Guid, "ZMax", 0);
+        var mirror = Mirror.Create(box.Body, mirrorPlane);
+        mirror.Guid = TestData.CreateGuid(10);
+        Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
+
+        var serializer = Serializer.GetSerializer(typeof(SubshapeReference));
+        Assert.NotNull(serializer);
+
+        var subshapes = mirror.GetBRep().Faces().Cast<TopoDS_Shape>()
+                              .Concat(mirror.GetBRep().Edges());
+        foreach (var subshape in subshapes)
+        {
+            var reference = mirror.GetSubshapeReference(subshape);
+            Assert.NotNull(reference);
+
+            var w = new Writer();
+            Assert.IsTrue(serializer.Write(w, reference, null));
+            var r = new Reader(w.ToString());
+            var restored = serializer.Read(r, null, null) as SubshapeReference;
+            Assert.False(r.AnyLeft);
+            Assert.AreEqual(reference, restored, w.ToString());
+
+            var found = mirror.FindSubshape(restored, null);
+            Assert.NotNull(found, reference.ToString());
+            Assert.AreEqual(1, found.Count, reference.ToString());
+            Assert.IsTrue(found[0].IsSame(subshape), reference.ToString());
+        }
+    }
 
     //--------------------------------------------------------------------------------------------------
 
