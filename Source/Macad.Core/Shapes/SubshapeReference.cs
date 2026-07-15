@@ -173,7 +173,8 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
 
     public bool Write(Writer writer, SerializationContext context)
     {
-        var s = _ToSerialString();
+        var registry = _GetRegistry(context);
+        var s = registry != null ? _ToSerialString(registry) : _ToSerialString();
         if (s.IsNullOrEmpty() || s == "Invalid")
             return false;
 
@@ -184,7 +185,103 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
 
     //--------------------------------------------------------------------------------------------------
 
+    /// <summary>
+    /// Holds the interned subshape references of one serialization run (one document, undo step
+    /// or clipboard blob). All references written with the same context share one id space, so
+    /// each distinct source subtree is stored only once per file. Created on demand.
+    /// </summary>
+    sealed class SubshapeReferenceRegistry
+    {
+        internal readonly Dictionary<SubshapeReference, int> WrittenIds = new();
+        internal readonly Dictionary<string, SubshapeReference> ReadEntries = new();
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    static SubshapeReferenceRegistry _GetRegistry(SerializationContext context)
+    {
+        if (context == null)
+            return null;
+
+        var registry = context.GetInstance<SubshapeReferenceRegistry>();
+        if (registry == null)
+        {
+            registry = new SubshapeReferenceRegistry();
+            context.SetInstance(registry);
+        }
+        return registry;
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
     #region Interned serialization
+
+    /// <summary>
+    /// Serializes the reference using the context-wide id space: every source subtree is interned
+    /// into the registry, and its entry is written into the trailing table of the first reference
+    /// that uses it. Later references just point to the id:
+    ///   First:  Main(#1|#2);1=Entry;2=Entry(#1)
+    ///   Later:  Main(#1|#2)
+    /// So each distinct source subtree is stored only once per file.
+    /// </summary>
+    string _ToSerialString(SubshapeReferenceRegistry registry)
+    {
+        if (Sources == null || Sources.Length == 0)
+            return ToString();
+
+        var sb = new StringBuilder();
+        List<(int Id, string Entry)> newEntries = new();
+        if (!_AppendGlobalInterned(sb, this, registry, newEntries))
+            return ToString();
+
+        foreach (var (id, entry) in newEntries)
+        {
+            sb.Append(';');
+            sb.Append(id);
+            sb.Append('=');
+            sb.Append(entry);
+        }
+        return sb.ToString();
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    static bool _AppendGlobalInterned(StringBuilder sb, SubshapeReference reference, SubshapeReferenceRegistry registry,
+                                      List<(int Id, string Entry)> newEntries)
+    {
+        if (!reference._AppendHeader(sb))
+            return false;
+
+        if (reference.Sources is { Length: > 0 })
+        {
+            sb.Append('(');
+            for (var i = 0; i < reference.Sources.Length; i++)
+            {
+                if (i > 0)
+                {
+                    sb.Append('|');
+                }
+
+                var source = reference.Sources[i];
+                if (!registry.WrittenIds.TryGetValue(source, out var id))
+                {
+                    // First use in this file: write the entry, sources of the entry first
+                    var entrySb = new StringBuilder();
+                    if (!_AppendGlobalInterned(entrySb, source, registry, newEntries))
+                        return false;
+                    id = registry.WrittenIds.Count + 1;
+                    registry.WrittenIds.Add(source, id);
+                    newEntries.Add((id, entrySb.ToString()));
+                }
+                sb.Append('#');
+                sb.Append(id);
+            }
+            sb.Append(')');
+        }
+        return true;
+    }
+
+    //--------------------------------------------------------------------------------------------------
 
     /// <summary>
     /// Serializes the reference like ToString(), except that source subtrees occurring more than
@@ -192,7 +289,7 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
     ///   Main(#1|...);1=Entry;2=Entry(#1)
     /// This keeps the stored string linear in the number of distinct sources, no matter how
     /// often subtrees are shared along a long shape stack. A reference without shared subtrees
-    /// serializes exactly as ToString().
+    /// serializes exactly as ToString(). Used when no serialization context is available.
     /// </summary>
     string _ToSerialString()
     {
@@ -324,13 +421,20 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
     /// <summary>
     /// Holds the id table of an interned serialized reference while parsing.
     /// Entries are expanded lazily and shared, so a subtree referenced multiple
-    /// times is materialized as a single instance.
+    /// times is materialized as a single instance. When a serialization context
+    /// is present, the resolved entries are shared across all references of the
+    /// same run, so ids defined by an earlier reference stay available.
     /// </summary>
     sealed class ParseTable
     {
         internal readonly Dictionary<string, string> Entries = new();
-        internal readonly Dictionary<string, SubshapeReference> Resolved = new();
+        internal readonly Dictionary<string, SubshapeReference> Resolved;
         internal readonly HashSet<string> InProgress = new();
+
+        internal ParseTable(Dictionary<string, SubshapeReference> sharedResolved)
+        {
+            Resolved = sharedResolved ?? new Dictionary<string, SubshapeReference>();
+        }
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -340,12 +444,14 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
         if (s.IsNullOrEmpty())
             return false;
 
+        var registry = _GetRegistry(context);
+
         // Split off the id table: Main;1=Entry;2=Entry
         ParseTable table = null;
         int tableStart = s.IndexOf(';');
         if (tableStart >= 0)
         {
-            table = new ParseTable();
+            table = new ParseTable(registry?.ReadEntries);
             int pos = tableStart + 1;
             while (pos < s.Length)
             {
@@ -363,19 +469,39 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
 
             s = s.Substring(0, tableStart);
         }
+        else if (registry != null)
+        {
+            // No own table, but #ids may point to entries defined by earlier references
+            table = new ParseTable(registry.ReadEntries);
+        }
 
-        return _ParseFromString(s, context, table);
+        if (!_ParseFromString(s, context, table))
+            return false;
+
+        // Make all entries defined here available to later references of the same run
+        if (registry != null && table != null)
+        {
+            foreach (var id in table.Entries.Keys)
+            {
+                if (_ResolveTableEntry(id, context, table) == null)
+                    return false;
+            }
+        }
+        return true;
     }
 
     //--------------------------------------------------------------------------------------------------
 
     static SubshapeReference _ResolveTableEntry(string id, SerializationContext context, ParseTable table)
     {
-        if (table == null || !table.Entries.TryGetValue(id, out var entryString))
+        if (table == null)
             return null;
 
         if (table.Resolved.TryGetValue(id, out var resolved))
             return resolved;
+
+        if (!table.Entries.TryGetValue(id, out var entryString))
+            return null;
 
         if (!table.InProgress.Add(id))
             return null; // Circular reference

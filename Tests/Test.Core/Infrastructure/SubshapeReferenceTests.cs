@@ -20,11 +20,12 @@ public class SubshapeReferenceTests
     //--------------------------------------------------------------------------------------------------
 
     [Test]
-    [Description("References taken from a real model must survive the serialization roundtrip (including the interned form) and resolve back to the same subshape")]
-    public void ReferenceRoundtripResolvesToSameSubshape()
+    [Description("References taken from a real model must survive the serialization roundtrip (including the interned forms) and resolve back to the same subshape")]
+    public void ReferenceRoundtripResolvesToSameSubshape([Values(false, true)] bool documentScope)
     {
         // Mirror with MergeFaces produces references whose sources share subtrees,
-        // which are serialized using the interned form (id table).
+        // which are serialized using the interned form (id table). With documentScope,
+        // all references share one id space like in a saved document.
         var box = TestGeomGenerator.CreateBox();
         box.Guid = TestData.CreateGuid(1);
         var mirrorPlane = new SubshapeReference(SubshapeType.Face, box.Guid, "ZMax", 0);
@@ -34,6 +35,8 @@ public class SubshapeReferenceTests
 
         var serializer = Serializer.GetSerializer(typeof(SubshapeReference));
         Assert.NotNull(serializer);
+        var writeContext = documentScope ? new SerializationContext() : null;
+        var readContext = documentScope ? new SerializationContext() : null;
 
         var subshapes = mirror.GetBRep().Faces().Cast<TopoDS_Shape>()
                               .Concat(mirror.GetBRep().Edges());
@@ -43,9 +46,9 @@ public class SubshapeReferenceTests
             Assert.NotNull(reference);
 
             var w = new Writer();
-            Assert.IsTrue(serializer.Write(w, reference, null));
+            Assert.IsTrue(serializer.Write(w, reference, writeContext));
             var r = new Reader(w.ToString());
-            var restored = serializer.Read(r, null, null) as SubshapeReference;
+            var restored = serializer.Read(r, null, readContext) as SubshapeReference;
             Assert.False(r.AnyLeft);
             Assert.AreEqual(reference, restored, w.ToString());
 

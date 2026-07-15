@@ -162,6 +162,52 @@ public class CustomValueTests
     //--------------------------------------------------------------------------------------------------
 
     [Test]
+    public void DocumentInternedSubshapeReferenceSerialize()
+    {
+        // References written with the same context share one id space:
+        // the first reference defines the entries, later ones only point to them.
+        var sourceA = new SubshapeReference(SubshapeType.Face, TestData.CreateGuid(1), "XMin", 0);
+        var middle = new SubshapeReference(SubshapeType.Face, TestData.CreateGuid(3), "Mirror", 1, [sourceA]);
+        var ref1 = new SubshapeReference(SubshapeType.Face, TestData.CreateGuid(3), "Mirror", 2, [sourceA, middle]);
+        var ref2 = new SubshapeReference(SubshapeType.Edge, TestData.CreateGuid(3), "Mirror", 2, [sourceA, middle]);
+
+        var serializer = Serializer.GetSerializer(typeof(SubshapeReference));
+        Assert.NotNull(serializer);
+
+        var writeContext = new SerializationContext();
+        var w1 = new Writer();
+        Assert.IsTrue(serializer.Write(w1, ref1, writeContext));
+        var w2 = new Writer();
+        Assert.IsTrue(serializer.Write(w2, ref2, writeContext));
+        Assert.AreEqual("F-00000000000000000000000000000003-Mirror-2(#1|#2);1=F-00000000000000000000000000000001-XMin-0;2=F-00000000000000000000000000000003-Mirror-1(#1)", w1.ToString());
+        Assert.AreEqual("E-00000000000000000000000000000003-Mirror-2(#1|#2)", w2.ToString());
+
+        var readContext = new SerializationContext();
+        var r1 = new Reader(w1.ToString());
+        var t1 = serializer.Read(r1, null, readContext) as SubshapeReference;
+        Assert.False(r1.AnyLeft);
+        var r2 = new Reader(w2.ToString());
+        var t2 = serializer.Read(r2, null, readContext) as SubshapeReference;
+        Assert.False(r2.AnyLeft);
+
+        Assert.AreEqual(ref1, t1);
+        Assert.AreEqual(ref2, t2);
+
+        // Shared entries are materialized as single instances across references
+        Assert.AreSame(t1.Sources[0], t2.Sources[0]);
+        Assert.AreSame(t1.Sources[1], t2.Sources[1]);
+        Assert.AreSame(t1.Sources[0], t1.Sources[1].Sources[0]);
+
+        // A reference cannot be read without the reference that defines its entries
+        var lone = new Reader(w2.ToString());
+        var t3 = serializer.Read(lone, null, new SerializationContext()) as SubshapeReference;
+        Assert.NotNull(t3);
+        Assert.AreEqual(Guid.Empty, t3.ShapeId);
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
     public void InternedSubshapeReferenceReadMalformed()
     {
         // Broken interned strings must fail gracefully instead of crashing or looping
