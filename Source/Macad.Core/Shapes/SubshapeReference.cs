@@ -26,6 +26,11 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
 
     //--------------------------------------------------------------------------------------------------
 
+    // These characters structure the serialized form and are therefore not allowed in names.
+    static readonly char[] _ReservedNameChars = ['-', '(', ')', '|', ';', '#', '='];
+
+    //--------------------------------------------------------------------------------------------------
+
     SubshapeReference()
     {
         // Used only in deserialization
@@ -50,7 +55,7 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
         Index = index;
         if (!Name.IsNullOrEmpty())
         {
-            Debug.Assert(!Name.Contains("-"));
+            Debug.Assert(Name.IndexOfAny(_ReservedNameChars) < 0, "Subshape names must not contain characters reserved for serialization.");
         }
     }
 
@@ -112,32 +117,8 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
     public override string ToString()
     {
         var sb = new StringBuilder();
-        switch (Type)
-        {
-            case SubshapeType.Vertex:
-                sb.Append('V');
-                break;
-
-            case SubshapeType.Edge:
-                sb.Append('E');
-                break;
-
-            case SubshapeType.Face:
-                sb.Append('F');
-                break;
-
-            default:
-                return "Invalid";
-        }
-        sb.Append('-');
-        sb.Append(ShapeId.ToString("N"));
-        sb.Append('-');
-        if (!Name.IsNullOrEmpty())
-        {
-            sb.Append(Name);
-            sb.Append('-');
-        }
-        sb.Append(Index.ToString());
+        if (!_AppendHeader(sb))
+            return "Invalid";
 
         if (Sources is { Length: > 0 })
         {
@@ -157,9 +138,42 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
 
     //--------------------------------------------------------------------------------------------------
 
+    bool _AppendHeader(StringBuilder sb)
+    {
+        switch (Type)
+        {
+            case SubshapeType.Vertex:
+                sb.Append('V');
+                break;
+
+            case SubshapeType.Edge:
+                sb.Append('E');
+                break;
+
+            case SubshapeType.Face:
+                sb.Append('F');
+                break;
+
+            default:
+                return false;
+        }
+        sb.Append('-');
+        sb.Append(ShapeId.ToString("N"));
+        sb.Append('-');
+        if (!Name.IsNullOrEmpty())
+        {
+            sb.Append(Name);
+            sb.Append('-');
+        }
+        sb.Append(Index);
+        return true;
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
     public bool Write(Writer writer, SerializationContext context)
     {
-        var s = ToString();
+        var s = _ToSerialString();
         if (s.IsNullOrEmpty() || s == "Invalid")
             return false;
 
@@ -170,14 +184,215 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
 
     //--------------------------------------------------------------------------------------------------
 
-    public bool Read(Reader reader, SerializationContext context)
+    #region Interned serialization
+
+    /// <summary>
+    /// Serializes the reference like ToString(), except that source subtrees occurring more than
+    /// once in the graph are stored only once in a trailing id table and referenced as #id:
+    ///   Main(#1|...);1=Entry;2=Entry(#1)
+    /// This keeps the stored string linear in the number of distinct sources, no matter how
+    /// often subtrees are shared along a long shape stack. A reference without shared subtrees
+    /// serializes exactly as ToString().
+    /// </summary>
+    string _ToSerialString()
     {
-        return _ParseFromString(reader.ReadValueString(), context);
+        if (Sources == null || Sources.Length == 0)
+            return ToString();
+
+        // Collect the distinct source subtrees (by structural equality) and count how often
+        // each one is used as a source.
+        Dictionary<SubshapeReference, SubshapeReference> canonical = new();
+        _CollectDistinctSources(this, canonical);
+
+        Dictionary<SubshapeReference, int> useCount = new();
+        _CountSourceUses(this, canonical, useCount);
+        foreach (var node in canonical.Keys)
+        {
+            _CountSourceUses(node, canonical, useCount);
+        }
+
+        if (!useCount.Values.Any(count => count > 1))
+            return ToString();
+
+        Dictionary<SubshapeReference, int> ids = new();
+        List<string> entries = new();
+        var sb = new StringBuilder();
+        if (!_AppendInterned(sb, this, canonical, useCount, ids, entries))
+            return ToString();
+
+        for (var i = 0; i < entries.Count; i++)
+        {
+            sb.Append(';');
+            sb.Append(i + 1);
+            sb.Append('=');
+            sb.Append(entries[i]);
+        }
+        return sb.ToString();
     }
 
     //--------------------------------------------------------------------------------------------------
 
-    bool _ParseFromString(string s, SerializationContext context)
+    static void _CollectDistinctSources(SubshapeReference reference, Dictionary<SubshapeReference, SubshapeReference> canonical)
+    {
+        if (reference.Sources == null)
+            return;
+
+        foreach (var source in reference.Sources)
+        {
+            if (canonical.ContainsKey(source))
+                continue;
+
+            canonical.Add(source, source);
+            _CollectDistinctSources(source, canonical);
+        }
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    static void _CountSourceUses(SubshapeReference reference, Dictionary<SubshapeReference, SubshapeReference> canonical,
+                                 Dictionary<SubshapeReference, int> useCount)
+    {
+        if (reference.Sources == null)
+            return;
+
+        foreach (var source in reference.Sources)
+        {
+            var node = canonical[source];
+            useCount[node] = useCount.TryGetValue(node, out var count) ? count + 1 : 1;
+        }
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    static bool _AppendInterned(StringBuilder sb, SubshapeReference reference,
+                                Dictionary<SubshapeReference, SubshapeReference> canonical,
+                                Dictionary<SubshapeReference, int> useCount,
+                                Dictionary<SubshapeReference, int> ids, List<string> entries)
+    {
+        if (!reference._AppendHeader(sb))
+            return false;
+
+        if (reference.Sources is { Length: > 0 })
+        {
+            sb.Append('(');
+            for (var i = 0; i < reference.Sources.Length; i++)
+            {
+                if (i > 0)
+                {
+                    sb.Append('|');
+                }
+
+                var node = canonical[reference.Sources[i]];
+                if (useCount[node] > 1)
+                {
+                    if (!ids.TryGetValue(node, out var id))
+                    {
+                        var entrySb = new StringBuilder();
+                        if (!_AppendInterned(entrySb, node, canonical, useCount, ids, entries))
+                            return false;
+                        entries.Add(entrySb.ToString());
+                        id = entries.Count;
+                        ids.Add(node, id);
+                    }
+                    sb.Append('#');
+                    sb.Append(id);
+                }
+                else
+                {
+                    if (!_AppendInterned(sb, reference.Sources[i], canonical, useCount, ids, entries))
+                        return false;
+                }
+            }
+            sb.Append(')');
+        }
+        return true;
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    #endregion
+
+    //--------------------------------------------------------------------------------------------------
+
+    public bool Read(Reader reader, SerializationContext context)
+    {
+        return _ParseSerialString(reader.ReadValueString(), context);
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    /// <summary>
+    /// Holds the id table of an interned serialized reference while parsing.
+    /// Entries are expanded lazily and shared, so a subtree referenced multiple
+    /// times is materialized as a single instance.
+    /// </summary>
+    sealed class ParseTable
+    {
+        internal readonly Dictionary<string, string> Entries = new();
+        internal readonly Dictionary<string, SubshapeReference> Resolved = new();
+        internal readonly HashSet<string> InProgress = new();
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    bool _ParseSerialString(string s, SerializationContext context)
+    {
+        if (s.IsNullOrEmpty())
+            return false;
+
+        // Split off the id table: Main;1=Entry;2=Entry
+        ParseTable table = null;
+        int tableStart = s.IndexOf(';');
+        if (tableStart >= 0)
+        {
+            table = new ParseTable();
+            int pos = tableStart + 1;
+            while (pos < s.Length)
+            {
+                int end = s.IndexOf(';', pos);
+                if (end < 0)
+                    end = s.Length;
+                int eq = s.IndexOf('=', pos);
+                if (eq <= pos || eq >= end)
+                    return false;
+                table.Entries[s.Substring(pos, eq - pos)] = s.Substring(eq + 1, end - eq - 1);
+                pos = end + 1;
+            }
+            if (table.Entries.Count == 0)
+                return false;
+
+            s = s.Substring(0, tableStart);
+        }
+
+        return _ParseFromString(s, context, table);
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    static SubshapeReference _ResolveTableEntry(string id, SerializationContext context, ParseTable table)
+    {
+        if (table == null || !table.Entries.TryGetValue(id, out var entryString))
+            return null;
+
+        if (table.Resolved.TryGetValue(id, out var resolved))
+            return resolved;
+
+        if (!table.InProgress.Add(id))
+            return null; // Circular reference
+
+        var entry = new SubshapeReference();
+        bool isValid = entry._ParseFromString(entryString, context, table);
+        table.InProgress.Remove(id);
+        if (!isValid)
+            return null;
+
+        table.Resolved.Add(id, entry);
+        return entry;
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    bool _ParseFromString(string s, SerializationContext context, ParseTable table = null)
     {
         if (s.IsNullOrEmpty())
             return false;
@@ -194,8 +409,11 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
             var sourcesSpan = span.Slice(sourcesStart + 1, span.Length - sourcesStart - 2);
             Sources = _GetSourceListItems(sourcesSpan).Select(sourceString =>
             {
+                if (sourceString.Length > 1 && sourceString[0] == '#')
+                    return _ResolveTableEntry(sourceString.Substring(1), context, table);
+
                 var source = new SubshapeReference();
-                if (!source._ParseFromString(sourceString, context))
+                if (!source._ParseFromString(sourceString, context, table))
                     return null;
                 return source;
             }).ToArray();
