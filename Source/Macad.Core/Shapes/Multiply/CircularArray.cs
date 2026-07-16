@@ -265,28 +265,43 @@ public sealed class CircularArray : ModifierBase
         var (interval, offset) = _CalculateParameters();
 
         // Build Transforms
+        var includeOriginal = false;
         List<Trsf2d> transforms = new List<Trsf2d>((int)_Quantity);
         for (var index = 0; index < _Quantity; index++)
         {
-            var angle = (interval * index + offset).ToRad();
             var transform = Trsf2d.Identity;
-            if (_KeepOrientation)
+            var angle = (interval * index + offset).ToRad();
+            if (!angle.IsEqual(0, 1e-9))
             {
-                // Translation transform
-                transform.SetTranslation(Pnt2d.Origin.Rotated(center, angle).ToVec());
+                if (_KeepOrientation)
+                {
+                    // Translation transform
+                    transform.SetTranslation(Pnt2d.Origin.Rotated(center, angle).ToVec());
+                }
+                else
+                {
+                    // Rotation transform
+                    transform.SetRotation(center, angle);
+                }
             }
-            else
-            {
-                // Rotation transform
-                transform.SetRotation(center, angle);
-            }
+
             transforms.Add(transform);
         }
 
         // Do it!
-        var resultShape = Topo2dUtils.TransformSketchShape(sourceBRep, transforms, false);
+        List<BRepTools_History> histories = new(transforms.Count);
+        var resultShape = Topo2dUtils.TransformSketchShape(sourceBRep, transforms, includeOriginal, histories: histories);
         if (resultShape == null)
             return false;
+
+        // Bookkeeping
+        var nameIndex = includeOriginal ? 1 : 0;
+        for (var index = 0; index < histories.Count; index++, nameIndex++)
+        {
+            var history = histories[index];
+            SubshapeReferenceUtils.CreateSubshapeNames($"Copy{nameIndex}", [sourceBRep], [new(0, history)], AddNamedSubshape);
+            UpdateModifiedSubshapes(sourceBRep, history);
+        }
 
         // Finalize
         BRep = resultShape;

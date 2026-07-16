@@ -219,8 +219,10 @@ public class LinearArrayTests
     public void SketchSubshapeReferences()
     {
         var sketch = TestSketchGenerator.CreateSketch(TestSketchGenerator.SketchType.SimpleAsymmetric, true);
+        sketch.Guid = TestData.CreateGuid(1);
 
         var array = LinearArray.Create(sketch.Body);
+        array.Guid = TestData.CreateGuid(10);
         array.Quantity1 = 3;
         array.Distance1 = 25;
         array.DistanceMode1 = LinearArray.DistanceMode.Interval;

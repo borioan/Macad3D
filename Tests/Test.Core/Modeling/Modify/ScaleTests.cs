@@ -46,6 +46,21 @@ public class ScaleTests
     //--------------------------------------------------------------------------------------------------
 
     [Test]
+    public void SolidSubshapeReferences()
+    {
+        var box = TestGeomGenerator.CreateBox();
+        box.Guid = TestData.CreateGuid(1);
+        var scale = Scale.Create(box.Body, 5.0);
+        scale.Guid = TestData.CreateGuid(10);
+        Assert.IsTrue(scale.Make(Shape.MakeFlags.None));
+
+        AssertHelper.HasValidSubshapeReferences(scale);
+        AssertHelper.IsSameSubshapeReferences(scale, Path.Combine(_BasePath, "SolidSubshapeReferences"));
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
     [TestCase(TestSketchGenerator.SketchType.Circle)]
     [TestCase(TestSketchGenerator.SketchType.Rectangle)]
     public void SketchUniform(TestSketchGenerator.SketchType type)
@@ -83,7 +98,23 @@ public class ScaleTests
     }
 
     //--------------------------------------------------------------------------------------------------
-    
+
+    [Test]
+    public void SketchSubshapeReferences()
+    {
+        Context.InitWithDefault();
+        var body = TestSketchGenerator.CreateSketch(TestSketchGenerator.SketchType.SimpleAsymmetric, true).Body;
+        body.Shape.Guid = TestData.CreateGuid(1);
+        var scale = Scale.Create(body, 5.0);
+        scale.Guid = TestData.CreateGuid(10);
+        Assert.IsTrue(scale.Make(Shape.MakeFlags.None));
+        
+        AssertHelper.HasValidSubshapeReferences(scale);
+        AssertHelper.IsSameSubshapeReferences(scale, Path.Combine(_BasePath, "SketchSubshapeReferences"));
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
     [Test]
     public void MeshUniform()
     {

@@ -395,27 +395,44 @@ public sealed class LinearArray : ModifierBase
         }
 
         // Build Transforms
+        var includeOriginal = false;
         List<Trsf2d> transforms = new List<Trsf2d>((int)(Quantity1 * Quantity2));
+        List<(int, int)> indices = new();
         for (var index1 = 0; index1 < Quantity1; index1++)
         {
             for (var index2 = 0; index2 < Quantity2; index2++)
             {
                 if (_Border && index1 != 0 && index1 != Quantity1 - 1
-                    && index2 != 0 && index2 != Quantity2 - 1)
+                            && index2 != 0 && index2 != Quantity2 - 1)
                 {
                     continue; // Skip inner parts
                 }
 
                 var transform = new Trsf2d();
-                transform.SetTranslation(interval1 * index1 + interval2 * index2 + offset);
+                Vec2d translation = interval1 * index1 + interval2 * index2 + offset;
+                if (!translation.Magnitude().IsEqual(0, 1e-6))
+                {
+                    transform.SetTranslation(translation);
+                }
                 transforms.Add(transform);
+                indices.Add((index1, index2));
             }
         }
 
         // Do it!
-        var resultShape = Topo2dUtils.TransformSketchShape(sourceBRep, transforms, false);
+        List<BRepTools_History> histories = new(transforms.Count);
+        var resultShape = Topo2dUtils.TransformSketchShape(sourceBRep, transforms, includeOriginal, histories: histories);
         if (resultShape == null)
             return false;
+
+        // Bookkeeping
+        for (var index = 0; index < histories.Count; index++)
+        {
+            var history = histories[index];
+            var (index1, index2) = indices[index];
+            SubshapeReferenceUtils.CreateSubshapeNames($"Copy{index1}_{index2}", [sourceBRep], [new(0, history)], AddNamedSubshape);
+            UpdateModifiedSubshapes(sourceBRep, history);
+        }
 
         // Finalize
         BRep = resultShape;

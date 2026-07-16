@@ -3,6 +3,7 @@ using Macad.Common.Serialization;
 using Macad.Core.Geom;
 using Macad.Core.Topology;
 using Macad.Occt;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 
@@ -402,9 +403,20 @@ public sealed class Mirror : ModifierBase
         }
 
         // Do it!
-        var resultShape = Topo2dUtils.TransformSketchShape(sourceBRep, new[] {transform}, _KeepOriginal);
+        List<BRepTools_History> histories = new(_KeepOriginal ? 2 : 1);
+        var resultShape = Topo2dUtils.TransformSketchShape(sourceBRep, _KeepOriginal ? [new(), transform] : [transform], mergeWires: true, histories: histories);
         if (resultShape == null)
             return false;
+
+        // Bookkeeping
+        if (_KeepOriginal)
+        {
+            // Only if we keep the original, we need to create names for the copy. Otherwise, it is just the original
+            // with transformed shapes.
+            SubshapeReferenceUtils.CreateSubshapeNames("Mirror", [sourceBRep], [new(0, histories.Last())], AddNamedSubshape);
+        }
+
+        UpdateModifiedSubshapes(sourceBRep, histories.Last());
 
         // Finalize
         BRep = resultShape;

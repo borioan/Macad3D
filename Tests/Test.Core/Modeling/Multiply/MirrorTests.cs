@@ -24,6 +24,7 @@ public class MirrorTests
         var mirror = Mirror.Create(sketch.Body, subshape);
         Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
         Assert.AreEqual(ShapeType.Sketch, mirror.ShapeType);
+        Assert.That(mirror.GetBRep().Wires(), Has.Count.EqualTo(1));
         AssertHelper.IsSameModel2D(mirror, Path.Combine(_BasePath, "SketchOnEdge"));
 
         // Ensure that original shape is still unmodified
@@ -113,18 +114,38 @@ public class MirrorTests
     //--------------------------------------------------------------------------------------------------
 
     [Test]
-    [Description("Subshapes of the mirrored copy must get order-independent composite references instead of raw indices")]
     public void SketchSubshapeReferences()
     {
         var sketch = TestSketchGenerator.CreateSketch(TestSketchGenerator.SketchType.SimpleAsymmetric, true);
+        sketch.Guid = TestData.CreateGuid(1);
         var subshape = sketch.GetSubshapeReference(SubshapeType.Edge, 0);
         Assert.That(subshape != null);
 
         var mirror = Mirror.Create(sketch.Body, subshape);
+        mirror.Guid = TestData.CreateGuid(10);
         Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
 
         AssertHelper.HasValidSubshapeReferences(mirror);
         AssertHelper.IsSameSubshapeReferences(mirror, Path.Combine(_BasePath, "SketchSubshapeReferences"));
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    [Test]
+    public void SketchSubshapeReferencesNoOriginal()
+    {
+        var sketch = TestSketchGenerator.CreateSketch(TestSketchGenerator.SketchType.SimpleAsymmetric, true);
+        sketch.Guid = TestData.CreateGuid(1);
+        var subshape = sketch.GetSubshapeReference(SubshapeType.Edge, 0);
+        Assert.That(subshape != null);
+
+        var mirror = Mirror.Create(sketch.Body, subshape);
+        mirror.Guid = TestData.CreateGuid(10);
+        mirror.KeepOriginal = false;
+        Assert.IsTrue(mirror.Make(Shape.MakeFlags.None));
+
+        AssertHelper.HasValidSubshapeReferences(mirror);
+        AssertHelper.IsSameSubshapeReferences(mirror, Path.Combine(_BasePath, "SketchSubshapeReferencesNoOriginal"));
     }
 
     //--------------------------------------------------------------------------------------------------
