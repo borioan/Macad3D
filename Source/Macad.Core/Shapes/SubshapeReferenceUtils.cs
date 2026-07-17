@@ -417,8 +417,11 @@ public static class SubshapeReferenceUtils
             {
                 var face = shape.ToFace();
                 var sectionEdgesOfFace = shape.Edges().Where(modification.AuxEdges.ContainsSame);
-                var adjacantFaces = sectionEdgesOfFace.Select(se => FaceAlgo.FindConnectedFace(modification.ResultShape, face, se));
-                var adjacantSources = adjacantFaces.SelectMany(f => shapeDict.FirstSameOrDefault(f).Sources).WhereNotNull();
+                // A section edge may have no other adjacent face, and an adjacent face which was not
+                // modified has no entry in the dictionary, thus no sources.
+                var adjacantFaces = sectionEdgesOfFace.Select(se => FaceAlgo.FindConnectedFace(modification.ResultShape, face, se))
+                                                      .WhereNotNull();
+                var adjacantSources = adjacantFaces.SelectMany(f => shapeDict.FirstSameOrDefault(f).Sources ?? []).WhereNotNull();
                 shapeDesc.Sources.AddRange(adjacantSources.Where(ads => !shapeDesc.Sources.ContainsSame(ads)));
                 modified = true;
             }
