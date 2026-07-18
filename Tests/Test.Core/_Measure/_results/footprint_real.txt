@@ -1,0 +1,14 @@
+=== HELD NAMING FOOTPRINT — real models ===
+model | fileKB | shapes | namedSubs | nameChars | srcEntries | namingBytes | brepBytes | naming/brep% | refs | depthMed | depthMax
+AmerigoVespucci - Bridge.model | 808 | 369 | 4138 | 22698 | 3196 | 360380 | 9370851 | 3.85 | 11898 | 0 | 4
+    depth histogram: d0=9536  d1=1609  d2=465  d3=208  d4=80
+WoodpeckerCase.model | 209 | 71 | 661 | 3881 | 2 | 47470 | 993842 | 4.78 | 1576 | 0 | 1
+    depth histogram: d0=1568  d1=8
+Robt. E. Lee - Boiler.model | 181 | 99 | 1835 | 12588 | 1190 | 162748 | 956848 | 17.01 | 2396 | 0 | 2
+    depth histogram: d0=1287  d1=1054  d2=55
+Controller Carrier (3D Print).model | 160 | 69 | 702 | 4018 | 434 | 59820 | 982979 | 6.09 | 1943 | 0 | 3
+    depth histogram: d0=1591  d1=291  d2=60  d3=1
+AmerigoVespucci - Rudder.model | 117 | 54 | 232 | 1004 | 96 | 17752 | 369730 | 4.80 | 714 | 0 | 2
+    depth histogram: d0=665  d1=46  d2=3
+AmerigoVespucci - EntranceDoor.model | 68 | 14 | 338 | 1980 | 196 | 28944 | 206147 | 14.04 | 460 | 0 | 1
+    depth histogram: d0=264  d1=196

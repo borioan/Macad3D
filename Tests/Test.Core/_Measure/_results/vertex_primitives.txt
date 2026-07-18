@@ -1,0 +1,4 @@
+=== VERTEX identifiability — curved primitives (seam/pole cases) ===
+primitive | vertices | uniqueSet | colliding | degenerate | minEdges | maxEdges
+Cylinder | 2 | 2 | 0 | 0 | 2 | 2
+Sphere | 2 | 2 | 0 | 0 | 2 | 2

@@ -1,0 +1,10 @@
+=== ADVERSARIAL — stacked Mirror(KeepOriginal, MergeFaces), adjacent along +X ===
+N | shapes | namedSubs | namingBytes | refs | depthMax | deltaBytesVsPrev
+0 | 1 | 30 | 2232 | 18 | 0 | 2232
+1 | 2 | 56 | 4792 | 18 | 2 | 2560
+2 | 3 | 82 | 7352 | 18 | 4 | 2560
+3 | 4 | 108 | 9912 | 18 | 6 | 2560
+4 | 5 | 134 | 12472 | 18 | 8 | 2560
+5 | 6 | 160 | 15032 | 18 | 10 | 2560
+6 | 7 | 186 | 17592 | 18 | 12 | 2560
+7 | 8 | 212 | 20152 | 18 | 14 | 2560
