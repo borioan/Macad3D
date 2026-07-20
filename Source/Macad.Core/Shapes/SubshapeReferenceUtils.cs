@@ -203,7 +203,7 @@ public static class SubshapeReferenceUtils
     /// </summary>
     /// <param name="name">The name for the subshapes.</param>
     /// <param name="sourceShapes">The source shapes.</param>
-    /// <param name="modifications">The list of modifications with associated bit number. The bit number must be between 0 and 31.</param>
+    /// <param name="modifications">Modification histories with an integer index; if multiple modifications are provided, each index must be a distinct single-bit value.</param>
     /// <param name="addNamedSubshape">The callback to add named subshapes.</param>
     public static void CreateSubshapeNames(string name, IEnumerable<TopoDS_Shape> sourceShapes, IList<ModificationInfo> modifications, NamedSubshapeCallback addNamedSubshape)
     {
@@ -509,7 +509,7 @@ public static class SubshapeReferenceUtils
                                                                  .Select(group => group.Key)
                                                                  .ToList();
 
-        foreach (var (modifiedShape, (index, sources)) in context.ShapeDictionary)
+        foreach (var (modifiedShape, (index, sources)) in context.ShapeDictionary.ToList())
         {
             if (index == modIndex 
                 && sources.Count == 1 

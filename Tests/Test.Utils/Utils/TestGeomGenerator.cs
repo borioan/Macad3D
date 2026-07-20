@@ -133,8 +133,11 @@ public class TestGeomGenerator
             DimensionZ = 10,
         });
         target.Position = new Pnt(-10, -10, 0);
-        target.Guid = TestData.CreateGuid(startGuid++);
-        target.Shape.Guid = TestData.CreateGuid(startGuid++);
+        if (startGuid > 0)
+        {
+            target.Guid = TestData.CreateGuid(startGuid);
+            target.Shape.Guid = TestData.CreateGuid(startGuid++);
+        }
 
         var operands = new IShapeOperand[2];
         var body = Body.Create(new Cylinder()
@@ -144,8 +147,11 @@ public class TestGeomGenerator
         });
         body.Position = new Pnt(10, 10, 0);
         operands[0] = new BodyShapeOperand(body);
-        body.Guid = TestData.CreateGuid(startGuid++);
-        body.Shape.Guid = TestData.CreateGuid(startGuid++);
+        if (startGuid > 0)
+        {
+            body.Guid = TestData.CreateGuid(startGuid++);
+            body.Shape.Guid = TestData.CreateGuid(startGuid++);
+        }
 
         body = Body.Create(new Sphere()
         {
@@ -153,8 +159,11 @@ public class TestGeomGenerator
         });
         body.Position = new Pnt(-10, -10, 0);
         operands[1] = new BodyShapeOperand(body);
-        body.Guid = TestData.CreateGuid(startGuid++);
-        body.Shape.Guid = TestData.CreateGuid(startGuid++);
+        if (startGuid > 0)
+        {
+            body.Guid = TestData.CreateGuid(startGuid++);
+            body.Shape.Guid = TestData.CreateGuid(startGuid++);
+        }
 
         return (target, operands);
     }

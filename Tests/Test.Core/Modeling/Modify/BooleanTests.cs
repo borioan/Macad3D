@@ -71,7 +71,7 @@ public class BooleanTests
     [Description("Section and split subshapes of a fuse must get order-independent references, not raw indices")]
     public void SubshapeReferencesFuse()
     {
-        var shapes = TestGeomGenerator.CreateBooleanBodies(false);
+        var shapes = TestGeomGenerator.CreateBooleanBodies(false, 1);
         var boolOp = BooleanFuse.Create(shapes.target, shapes.operands);
         boolOp.Guid = TestData.CreateGuid(10);
         Assert.IsTrue(boolOp.Make(Shape.MakeFlags.None));
@@ -86,7 +86,7 @@ public class BooleanTests
     [Description("Section and split subshapes of a fuse must get order-independent references, not raw indices")]
     public void SubshapeReferencesFuseNoMergeFaces()
     {
-        var shapes = TestGeomGenerator.CreateBooleanBodies(false);
+        var shapes = TestGeomGenerator.CreateBooleanBodies(false, 1);
         var boolOp = BooleanFuse.Create(shapes.target, shapes.operands);
         boolOp.MergeFaces = false;
         boolOp.Guid = TestData.CreateGuid(10);
@@ -102,7 +102,7 @@ public class BooleanTests
     [Description("Section and split subshapes of a cut must get order-independent references, not raw indices")]
     public void SubshapeReferencesCut()
     {
-        var shapes = TestGeomGenerator.CreateBooleanBodies(false);
+        var shapes = TestGeomGenerator.CreateBooleanBodies(false, 1);
         var boolOp = BooleanCut.Create(shapes.target, shapes.operands);
         boolOp.Guid = TestData.CreateGuid(10);
         Assert.IsTrue(boolOp.Make(Shape.MakeFlags.None));
@@ -116,7 +116,7 @@ public class BooleanTests
     [Test]
     public void SubshapeReferencesCommonOfTwo()
     {
-        var shapes = TestGeomGenerator.CreateBooleanBodies(false);
+        var shapes = TestGeomGenerator.CreateBooleanBodies(false, 1);
         var boolOp = BooleanCommon.Create(shapes.target, shapes.operands);
         boolOp.Guid = TestData.CreateGuid(10);
         Assert.IsTrue(boolOp.Make(Shape.MakeFlags.None));

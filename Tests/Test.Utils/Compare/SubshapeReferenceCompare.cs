@@ -38,7 +38,7 @@ public static class SubshapeReferenceCompare
         {
             if(referenceList.Count(r => r.Equals(reference)) > 1)
             {
-                TestContext.WriteLine($"Duplicate reference found: {reference})");
+                TestContext.WriteLine($"Duplicate reference found: {reference}");
                 result = false;
             }
 
@@ -69,13 +69,10 @@ public static class SubshapeReferenceCompare
                 else
                 {
                     // Check for duplicates
-                    foreach (var source in reference.Sources)
+                    if (reference.Sources.Distinct().Count() != reference.Sources.Length)
                     {
-                        if (reference.Sources.Count(r => r.Equals(reference)) > 1)
-                        {
-                            TestContext.WriteLine($"Duplicate sources found: {reference} - Source: {source})");
-                            result = false;
-                        }
+                        TestContext.WriteLine($"Duplicate sources found: {reference})");
+                        result = false;
                     }
 
                     // We do not check the sources themselves, we only check that they exist.

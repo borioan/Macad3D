@@ -792,6 +792,5 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="$(VersionInfoRcFile)" />
-    <ResourceCompile Include="$(VersionInfoRcFile)" />
   </ItemGroup>
 </Project>

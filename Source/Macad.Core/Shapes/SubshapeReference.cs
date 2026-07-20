@@ -245,7 +245,7 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
                 return false;
         }
 
-        if (!Guid.TryParse(span[parts[1]], null, out var guid))
+        if (!Guid.TryParse(span[parts[1]], out var guid))
         {
             return false;
         }
