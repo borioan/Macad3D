@@ -522,6 +522,8 @@ public abstract class ModifierBase : Shape
             AddModifiedSubshape(face, [face]);
         foreach (var edge in sourceShape.Edges())
             AddModifiedSubshape(edge, [edge]);
+        foreach (var vertex in sourceShape.Vertices())
+            AddModifiedSubshape(vertex, [vertex]);
     }
 
     //--------------------------------------------------------------------------------------------------
