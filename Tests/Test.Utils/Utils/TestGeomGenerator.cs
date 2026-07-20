@@ -135,7 +135,7 @@ public class TestGeomGenerator
         target.Position = new Pnt(-10, -10, 0);
         if (startGuid > 0)
         {
-            target.Guid = TestData.CreateGuid(startGuid);
+            target.Guid = TestData.CreateGuid(startGuid++);
             target.Shape.Guid = TestData.CreateGuid(startGuid++);
         }
 
