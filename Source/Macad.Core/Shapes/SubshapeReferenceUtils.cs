@@ -47,13 +47,21 @@ public static class SubshapeReferenceUtils
 
     //--------------------------------------------------------------------------------------------------
 
+    static string[] _WedgeFaceNames;
+    static string[] _WedgeEdgeNames;
+
     static void _CreateSubshapeNames(BRepPrim_Wedge wedge, NamedSubshapeCallback addNamedSubshape)
     {
+        // Init static fields
+        _WedgeFaceNames ??= Enum.GetValues<BRepPrim_Direction>().Select(d1 => string.Intern($"{d1}")).ToArray();
+        _WedgeEdgeNames ??= Enum.GetValues<BRepPrim_Direction>().SelectMany(d1 => Enum.GetValues<BRepPrim_Direction>().Select(d2 =>string.Intern($"{d1}{d2}"))).ToArray();
+
+        // Enumerate faces and edges
         foreach (var d1 in Enum.GetValues<BRepPrim_Direction>())
         {
             if (wedge.HasFace(d1))
             {
-                addNamedSubshape($"{d1}", wedge.Face(d1), 0, null);
+                addNamedSubshape(_WedgeFaceNames[(int)d1], wedge.Face(d1), 0, null);
             }
 
             foreach (var d2 in Enum.GetValues<BRepPrim_Direction>())
@@ -65,7 +73,7 @@ public static class SubshapeReferenceUtils
 
                 if (wedge.HasEdge(d1, d2))
                 {
-                    addNamedSubshape($"{d1}{d2}", wedge.Edge(d1, d2), 0, null);
+                    addNamedSubshape(_WedgeEdgeNames[(int)d1*6+(int)d2], wedge.Edge(d1, d2), 0, null);
                 }
             }
         }
@@ -132,7 +140,17 @@ public static class SubshapeReferenceUtils
 
     #region Create names for Modifiers
 
-    public delegate bool UniquifyModificationHistory(ModificationInfo modification, TopoDS_Shape shape, ShapeNameDictionary shapeDict);
+    public struct CreateModifierSubshapeContext
+    {
+        public ModificationInfo CurrentModification;
+        public ShapeNameDictionary ShapeDictionary;
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
+    public delegate void SubshapeModificationFilter(CreateModifierSubshapeContext context);
+
+    //--------------------------------------------------------------------------------------------------
 
     /// <summary>
     /// Holds information about a modification. At minimum, it contains a bit value and a history.
@@ -141,40 +159,33 @@ public static class SubshapeReferenceUtils
     /// </summary>
     public class ModificationInfo
     {
-        public int Bit
-        {
-            get;
-            set
-            {
-                Debug.Assert(field is >= 0 and < 32, "Bit values must be >= 0 and < 32.");
-                field = value;
-            }
-        }
-
+        public int Index { get; set; }
         public BRepTools_History History { get; set; }
         public TopoDS_Shape ResultShape { get; set; }
         public List<TopoDS_Edge> AuxEdges { get; set; }
-        public UniquifyModificationHistory[] Uniquification { get; set; }
+        public SubshapeModificationFilter[] Filters { get; set; }
+        public bool RemoveBijective { get; set; }
 
         //--------------------------------------------------------------------------------------------------
 
-        public ModificationInfo(int bit, BRepTools_History history)
+        public ModificationInfo(int index, BRepTools_History history)
         {
-            Bit = bit;
+            Index = index;
             History = history;
         }
 
         //--------------------------------------------------------------------------------------------------
 
-        public ModificationInfo(int bit, BRepAlgoAPI_BuilderAlgo builderAlgo)
+        public ModificationInfo(int index, BRepAlgoAPI_BuilderAlgo builderAlgo)
         {
-            Bit = bit;
+            Index = index;
             History = builderAlgo.History();
             ResultShape = builderAlgo.Shape();
             AuxEdges = builderAlgo.SectionEdges().Select(e => e.ToEdge())
                                                    .Where(e => e != null && EdgeAlgo.IsEdgeInShape(e, ResultShape))
                                                    .ToList();
-            Uniquification = [_UniquifyByAdjacentFaces, _UniquifyByAdjacentSplitEdgeFaces];
+            Filters = [_UniquifyByAdjacentFaces, _UniquifyByAdjacentSplitEdgeFaces, _RemoveBijective];
+            RemoveBijective = true;
         }
 
         //--------------------------------------------------------------------------------------------------
@@ -196,10 +207,12 @@ public static class SubshapeReferenceUtils
     /// <param name="addNamedSubshape">The callback to add named subshapes.</param>
     public static void CreateSubshapeNames(string name, IEnumerable<TopoDS_Shape> sourceShapes, IList<ModificationInfo> modifications, NamedSubshapeCallback addNamedSubshape)
     {
-        // Validate Bit values: no duplicates, all >= 0 and < 32
-        var bitValues = modifications.Select(h => h.Bit).ToList();
-        var uniqueBits = new HashSet<int>(bitValues);
-        Debug.Assert(bitValues.Count == uniqueBits.Count, "Duplicate Bit values found in histories list.");
+        if (modifications.Count > 1)
+        {
+            // Validate Bit values: no duplicates, all single bit
+            Debug.Assert(modifications.All(mod => int.PopCount(mod.Index) == 1), "Multiple modifications must have single bit values.");
+            Debug.Assert(!modifications.GroupBy(mod => mod.Index).Any(g => g.Count() > 1), "Duplicate Bit values found in histories list.");
+        }
 
         // Process shapes
         Dictionary<TopoDS_Shape, (int Index, List<TopoDS_Shape> Sources)> modifiedShapeDict = new();
@@ -217,7 +230,6 @@ public static class SubshapeReferenceUtils
 
         foreach (var modification in modifications)
         {
-            int histIndex = 1 << modification.Bit;
             int currentShapeCount = currentShapeList.Count;
             for (var i = 0; i < currentShapeCount; i++)
             {
@@ -239,13 +251,13 @@ public static class SubshapeReferenceUtils
                         {
                             // If the shape comes from a prior algo, reference it. If not, replace it.
                             var currentShapeValue = modifiedShapeDict[currentShapeKey];
-                            if (currentShapeValue.Index < histIndex)
+                            if (currentShapeValue.Index < modification.Index)
                             {
                                 if (modifiedShapeKey != null)
                                 {
                                     // Already exists, so we merge the sources
                                     var modifiedShapeValue = modifiedShapeDict[modifiedShapeKey];
-                                    modifiedShapeValue.Index |= histIndex;
+                                    modifiedShapeValue.Index |= modification.Index;
                                     if (!modifiedShapeValue.Sources.ContainsSame(currentShapeKey))
                                     {
                                         modifiedShapeValue.Sources.Add(currentShapeKey);
@@ -254,12 +266,12 @@ public static class SubshapeReferenceUtils
                                 }
                                 else
                                 {
-                                    modifiedShapeDict[modifiedShape] = (currentShapeValue.Index | histIndex, [currentShapeKey]);
+                                    modifiedShapeDict[modifiedShape] = (currentShapeValue.Index | modification.Index, [currentShapeKey]);
                                 }
                             }
                             else
                             {
-                                currentShapeValue.Index |= histIndex;
+                                currentShapeValue.Index |= modification.Index;
                                 modifiedShapeDict[modifiedShape] = currentShapeValue;
                                 modifiedShapeDict.Remove(currentShapeKey);
                             }
@@ -273,7 +285,7 @@ public static class SubshapeReferenceUtils
                     {
                         // If the shape already exists in the modifiedShapeMap, we update its index and sources
                         var existingValue = modifiedShapeDict[modifiedShapeKey];
-                        existingValue.Index |= histIndex;
+                        existingValue.Index |= modification.Index;
                         if (!existingValue.Sources.ContainsSame(currentShape) && !currentShape.IsSame(modifiedShapeKey))
                         {
                             existingValue.Sources.Add(currentShape);
@@ -282,12 +294,20 @@ public static class SubshapeReferenceUtils
                         continue;
                     }
 
-                    modifiedShapeDict[modifiedShape] = (histIndex, [currentShape]);
+                    modifiedShapeDict[modifiedShape] = (modification.Index, [currentShape]);
                     currentShapeList.Add(modifiedShape);
                 }
             }
 
-            _EnsureUniqueNames(modification, modifiedShapeDict);
+            if (modification.Filters != null)
+            {
+                CreateModifierSubshapeContext context = new()
+                {
+                    CurrentModification = modification,
+                    ShapeDictionary = modifiedShapeDict
+                };
+                modification.Filters.ForEach(filter => filter(context));
+            }
         }
 
         // Create named shapes for all modified shapes
@@ -331,7 +351,9 @@ public static class SubshapeReferenceUtils
         foreach (var (key, value) in shapeDict)
         {
             // Check if this value list is equivalent to any already processed value
-            var equivalentEntry = processedValues.FirstOrDefault(entry => value.Index == entry.Value.Index
+            var shapeType = key.ShapeType();
+            var equivalentEntry = processedValues.FirstOrDefault(entry => entry.Key.ShapeType() == shapeType
+                                                                          && value.Index == entry.Value.Index
                                                                           && value.Sources.Count == entry.Value.Sources.Count
                                                                           && value.Sources.ContainsAllSame(entry.Value.Sources));
 
@@ -352,100 +374,64 @@ public static class SubshapeReferenceUtils
 
     //--------------------------------------------------------------------------------------------------
 
-    static void _EnsureUniqueNames(ModificationInfo modification, ShapeNameDictionary modifiedShapeDict)
-    {
-        if (modification.Uniquification == null || modification.Uniquification.Length == 0)
-        {
-            return;
-        }
-
-        var resultShape = modification.ResultShape;
-        if (resultShape == null)
-        {
-            // No resolving strategy without result shape
-            return;
-        }
-
-        var nonDistinctEntries = _FindNonDistinctEntries(modifiedShapeDict);
-        if (nonDistinctEntries.Count == 0)
-        {
-            return;
-        }
-
-        ShapeNameDictionary currentShapeDict = modifiedShapeDict;
-        bool modified = false;
-
-        foreach (var uniquifyFunc in modification.Uniquification)
-        {
-            if (modified)
-            {
-                // Build new list
-                currentShapeDict = new();
-                foreach (var shape in nonDistinctEntries)
-                {
-                    currentShapeDict[shape] = modifiedShapeDict[shape];
-                }
-                nonDistinctEntries = _FindNonDistinctEntries(currentShapeDict);
-                modified = false;
-            }
-
-            foreach (var shape in nonDistinctEntries.Distinct())
-            {
-                modified |= uniquifyFunc(modification, shape, modifiedShapeDict);
-            }
-        }
-    }
-
-    //--------------------------------------------------------------------------------------------------
-
     /// <summary>
     /// Enhances non-distinct entries by searching for adjacent faces of the given shape and referencing them as sources.
     /// To find the adjacent face of a given face, split edges are used.
     /// </summary>
-    static bool _UniquifyByAdjacentFaces(ModificationInfo modification, TopoDS_Shape shape, ShapeNameDictionary shapeDict)
+    static void _UniquifyByAdjacentFaces(CreateModifierSubshapeContext context)
     {
-        if (!shapeDict.TryGetValue(shape, out var shapeDesc))
-            return false;
-        
-        bool modified = false;
-        TopAbs_ShapeEnum shapeType = shape.ShapeType();
-        if (shapeType == TopAbs_ShapeEnum.FACE)
-        {
-            // Strategy:
-            // Enhance non-distinct entries with adjacent face references, using faces with split edges between them.
-            if (modification.AuxEdges != null)
-            {
-                var face = shape.ToFace();
-                var sectionEdgesOfFace = shape.Edges().Where(modification.AuxEdges.ContainsSame);
-                // A section edge may have no other adjacent face, and an adjacent face which was not
-                // modified has no entry in the dictionary, thus no sources.
-                var adjacantFaces = sectionEdgesOfFace.Select(se => FaceAlgo.FindConnectedFace(modification.ResultShape, face, se))
-                                                      .WhereNotNull();
-                var adjacantSources = adjacantFaces.SelectMany(f => shapeDict.FirstSameOrDefault(f).Sources ?? []).WhereNotNull();
-                shapeDesc.Sources.AddRange(adjacantSources.Where(ads => !shapeDesc.Sources.ContainsSame(ads)));
-                modified = true;
-            }
-        }
-        else if (shapeType == TopAbs_ShapeEnum.EDGE)
-        {
-            // Strategy:
-            // Enhance non-distinct entries with adjacent face references of the given edge.
-            var edge = shape.ToEdge();
-            (TopoDS_Face face1, TopoDS_Face face2) = EdgeAlgo.FindAdjacentFaces(modification.ResultShape, edge);
-            var face1Sources = shapeDict.FirstSameOrDefault(face1);
-            if (face1Sources.Sources != null)
-            {
-                shapeDesc.Sources.AddRange(face1Sources.Sources.Where(item => !shapeDesc.Sources.ContainsSame(item)));
-            }
-            var face2Sources = shapeDict.FirstSameOrDefault(face2);
-            if (face2Sources.Sources != null)
-            {
-                shapeDesc.Sources.AddRange(face2Sources.Sources.Where(item => !shapeDesc.Sources.ContainsSame(item)));
-            }
-            modified = true;
-        }
+        var shapeDict = context.ShapeDictionary;
+        var modification = context.CurrentModification;
 
-        return modified;
+        var resultShape = modification.ResultShape;
+        if (resultShape == null)
+            return;
+
+        var nonDistinctEntries = _FindNonDistinctEntries(shapeDict);
+        if (nonDistinctEntries.Count == 0)
+            return;
+
+        foreach (var shape in nonDistinctEntries.Distinct())
+        {
+            if (!shapeDict.TryGetValue(shape, out var shapeDesc))
+                continue;
+
+            TopAbs_ShapeEnum shapeType = shape.ShapeType();
+            if (shapeType == TopAbs_ShapeEnum.FACE)
+            {
+                // Strategy:
+                // Enhance non-distinct entries with adjacent face references, using faces with split edges between them.
+                if (modification.AuxEdges != null)
+                {
+                    var face = shape.ToFace();
+                    var sectionEdgesOfFace = shape.Edges().Where(modification.AuxEdges.ContainsSame);
+                    // A section edge may have no other adjacent face, and an adjacent face which was not
+                    // modified has no entry in the dictionary, thus no sources.
+                    var adjacantFaces = sectionEdgesOfFace.Select(se => FaceAlgo.FindConnectedFace(modification.ResultShape, face, se))
+                                                          .WhereNotNull();
+                    var adjacantSources = adjacantFaces.SelectMany(f => shapeDict.FirstSameOrDefault(f).Sources ?? []).WhereNotNull();
+                    shapeDesc.Sources.AddRange(adjacantSources.Where(ads => !shapeDesc.Sources.ContainsSame(ads)));
+                }
+            }
+            else if (shapeType == TopAbs_ShapeEnum.EDGE)
+            {
+                // Strategy:
+                // Enhance non-distinct entries with adjacent face references of the given edge.
+                var edge = shape.ToEdge();
+                (TopoDS_Face face1, TopoDS_Face face2) = EdgeAlgo.FindAdjacentFaces(modification.ResultShape, edge);
+                var face1Sources = shapeDict.FirstSameOrDefault(face1);
+                if (face1Sources.Sources != null)
+                {
+                    shapeDesc.Sources.AddRange(face1Sources.Sources.Where(item => !shapeDesc.Sources.ContainsSame(item)));
+                }
+
+                var face2Sources = shapeDict.FirstSameOrDefault(face2);
+                if (face2Sources.Sources != null)
+                {
+                    shapeDesc.Sources.AddRange(face2Sources.Sources.Where(item => !shapeDesc.Sources.ContainsSame(item)));
+                }
+            }
+        }
     }
 
     //--------------------------------------------------------------------------------------------------
@@ -453,49 +439,89 @@ public static class SubshapeReferenceUtils
     /// <summary>
     /// Enhances edge entries by searching for an adjacent split edge and referencing the adjacent faces of that edge. 
     /// </summary>
-    static bool _UniquifyByAdjacentSplitEdgeFaces(ModificationInfo modification, TopoDS_Shape shape, ShapeNameDictionary shapeDict)
+    static void _UniquifyByAdjacentSplitEdgeFaces(CreateModifierSubshapeContext context)
     {
+        var shapeDict = context.ShapeDictionary;
+        var modification = context.CurrentModification;
+
+        var resultShape = modification.ResultShape;
+        if (resultShape == null)
+            return;
         if (modification.AuxEdges == null)
-            return false;
+            return;
 
-        if (!shapeDict.TryGetValue(shape, out var shapeDesc))
-            return false;
+        var nonDistinctEntries = _FindNonDistinctEntries(shapeDict);
+        if (nonDistinctEntries.Count == 0)
+            return;
 
-        bool modified = false;
-        TopAbs_ShapeEnum shapeType = shape.ShapeType();
-        if (shapeType == TopAbs_ShapeEnum.EDGE)
+        foreach (var shape in nonDistinctEntries.Distinct())
         {
-            // Find section edge and get the adjacent face which leads to splitting
-            var edge = shape.ToEdge();
-            foreach (var sectionEdge in modification.AuxEdges.Where(se => EdgeAlgo.FindSharedVertex(edge, se) != null))
-            {
-                var (face1, face2) = EdgeAlgo.FindAdjacentFaces(modification.ResultShape, sectionEdge);
-                if (face1 != null)
-                {
-                    var face1Sources = shapeDict.FirstSameOrDefault(face1);
-                    if (face1Sources.Sources != null)
-                    {
-                        shapeDesc.Sources.AddRange(face1Sources.Sources.Where(item => !shapeDesc.Sources.ContainsSame(item)));
-                        modified = true;
-                    }
-                }
+            if (!shapeDict.TryGetValue(shape, out var shapeDesc))
+                continue;
 
-                if (face2 != null)
+            TopAbs_ShapeEnum shapeType = shape.ShapeType();
+            if (shapeType == TopAbs_ShapeEnum.EDGE)
+            {
+                // Find section edge and get the adjacent face which leads to splitting
+                var edge = shape.ToEdge();
+                foreach (var sectionEdge in modification.AuxEdges.Where(se => EdgeAlgo.FindSharedVertex(edge, se) != null))
                 {
-                    var face2Sources = shapeDict.FirstSameOrDefault(face2);
-                    if (face2Sources.Sources != null)
+                    var (face1, face2) = EdgeAlgo.FindAdjacentFaces(modification.ResultShape, sectionEdge);
+                    if (face1 != null)
                     {
-                        shapeDesc.Sources.AddRange(face2Sources.Sources.Where(item => !shapeDesc.Sources.ContainsSame(item)));
-                        modified = true;
+                        var face1Sources = shapeDict.FirstSameOrDefault(face1);
+                        if (face1Sources.Sources != null)
+                        {
+                            shapeDesc.Sources.AddRange(face1Sources.Sources.Where(item => !shapeDesc.Sources.ContainsSame(item)));
+                        }
+                    }
+
+                    if (face2 != null)
+                    {
+                        var face2Sources = shapeDict.FirstSameOrDefault(face2);
+                        if (face2Sources.Sources != null)
+                        {
+                            shapeDesc.Sources.AddRange(face2Sources.Sources.Where(item => !shapeDesc.Sources.ContainsSame(item)));
+                        }
                     }
                 }
             }
         }
-        return modified;
     }
 
     //--------------------------------------------------------------------------------------------------
-    
+
+    #endregion
+
+    #region Additional filters
+
+    /// <summary>
+    /// Find 1:1 relationships of source shape to modified shape. For these shapes the original name is still unique, no new name required.
+    /// </summary>
+    static void _RemoveBijective(CreateModifierSubshapeContext context)
+    {
+        
+        int modIndex = context.CurrentModification.Index;
+        List<TopoDS_Shape> uniqueInputs = context.ShapeDictionary.Where(kvp => kvp.Value.Index == modIndex)
+                                                                 .SelectMany(kvp => kvp.Value.Sources.Where(source => kvp.Key.ShapeType() == source.ShapeType()))
+                                                                 .GroupBy(source => source)
+                                                                 .Where(group => group.Count() == 1)
+                                                                 .Select(group => group.Key)
+                                                                 .ToList();
+
+        foreach (var (modifiedShape, (index, sources)) in context.ShapeDictionary)
+        {
+            if (index == modIndex 
+                && sources.Count == 1 
+                && uniqueInputs.Contains(sources[0]))
+            {
+                context.ShapeDictionary.Remove(modifiedShape);
+            }
+        }
+    }
+
+    //--------------------------------------------------------------------------------------------------
+
     #endregion
 
 }

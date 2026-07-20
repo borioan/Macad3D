@@ -189,14 +189,18 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
         if (sourcesStart >= 0)
         {
             if (span[^1] != ')')
+            {
                 return false;
+            }
 
             var sourcesSpan = span.Slice(sourcesStart + 1, span.Length - sourcesStart - 2);
             Sources = _GetSourceListItems(sourcesSpan).Select(sourceString =>
             {
                 var source = new SubshapeReference();
                 if (!source._ParseFromString(sourceString, context))
+                {
                     return null;
+                }
                 return source;
             }).ToArray();
             if (Sources.Length == 0 || Sources.Contains(null))
@@ -206,46 +210,55 @@ public class SubshapeReference : ISerializeValue, IEquatable<SubshapeReference>
         }
 
         // Parse: Type-Guid[-Name]-Index
-        var parts = new List<string>();
+        var parts = new List<Range>();
         int lastIndex = 0;
 
         for (int i = 0; i <= span.Length; i++)
         {
             if (i == span.Length || span[i] == '-')
             {
-                parts.Add(span.Slice(lastIndex, i - lastIndex).ToString());
+                parts.Add(lastIndex..i);
                 lastIndex = i + 1;
             }
         }
 
-        if (parts.Count < 3 || parts.Count > 4)
+        if (parts.Count is < 3 or > 4)
             return false;
 
-        switch (parts[0])
+        // Parse Type - check first character only
+        ReadOnlySpan<char> typePart = span[parts[0]];
+        if (typePart.Length != 1)
+            return false;
+
+        switch (typePart[0])
         {
-            case "V":
+            case 'V':
                 Type = SubshapeType.Vertex;
                 break;
-            case "E":
+            case 'E':
                 Type = SubshapeType.Edge;
                 break;
-            case "F":
+            case 'F':
                 Type = SubshapeType.Face;
                 break;
             default:
                 return false;
         }
 
-        ShapeId = new Guid(parts[1]);
+        if (!Guid.TryParse(span[parts[1]], null, out var guid))
+        {
+            return false;
+        }
+        ShapeId = guid;
 
         if (parts.Count == 4)
         {
-            Name = parts[2];
-            Index = int.Parse(parts[3]);
+            Name = string.Intern(new string(span[parts[2]]));
+            Index = int.Parse(span[parts[3]]);
         }
         else
         {
-            Index = int.Parse(parts[2]);
+            Index = int.Parse(span[parts[2]]);
         }
 
         // Safe for later GUID redirection

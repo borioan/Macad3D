@@ -321,7 +321,7 @@ public sealed class Mirror : ModifierBase
         }
         UpdateModifiedSubshapes(sourceBRep, fuse.History());
 
-        SubshapeReferenceUtils.CreateSubshapeNames("Mirror", [sourceBRep], [new(0, transformHistory), new(1, fuse)], AddNamedSubshape);
+        SubshapeReferenceUtils.CreateSubshapeNames("Mirror", [sourceBRep], [new(1, transformHistory), new(2, fuse)], AddNamedSubshape);
 
         BRep = fuse.Shape();
         return true;
@@ -413,7 +413,7 @@ public sealed class Mirror : ModifierBase
         {
             // Only if we keep the original, we need to create names for the copy. Otherwise, it is just the original
             // with transformed shapes.
-            SubshapeReferenceUtils.CreateSubshapeNames("Mirror", [sourceBRep], [new(0, histories.Last())], AddNamedSubshape);
+            SubshapeReferenceUtils.CreateSubshapeNames("Mirror", [sourceBRep], [new(1, histories.Last())], AddNamedSubshape);
         }
 
         UpdateModifiedSubshapes(sourceBRep, histories.Last());

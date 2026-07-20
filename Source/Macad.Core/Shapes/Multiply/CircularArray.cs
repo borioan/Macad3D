@@ -299,7 +299,7 @@ public sealed class CircularArray : ModifierBase
         for (var index = 0; index < histories.Count; index++, nameIndex++)
         {
             var history = histories[index];
-            SubshapeReferenceUtils.CreateSubshapeNames($"Copy{nameIndex}", [sourceBRep], [new(0, history)], AddNamedSubshape);
+            SubshapeReferenceUtils.CreateSubshapeNames("Copy", [sourceBRep], [new(nameIndex, history)], AddNamedSubshape);
             UpdateModifiedSubshapes(sourceBRep, history);
         }
 
@@ -358,7 +358,7 @@ public sealed class CircularArray : ModifierBase
             builder.Add(resultShape, transformedShape);
 
             BRepTools_History history = new(resultShape, makeTransform);
-            SubshapeReferenceUtils.CreateSubshapeNames($"Copy{index}", [sourceBRep], [new(0, history)], AddNamedSubshape);
+            SubshapeReferenceUtils.CreateSubshapeNames("Copy", [sourceBRep], [new(index, history)], AddNamedSubshape);
             UpdateModifiedSubshapes(sourceBRep, history);
         }
 

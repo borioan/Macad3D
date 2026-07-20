@@ -152,7 +152,7 @@ public class CircularArrayTests
         sketch.Guid = TestData.CreateGuid(1);
 
         var array = CircularArray.Create(sketch.Body);
-        array.Quantity = 2;
+        array.Quantity = 3;
         array.Radius = 50;
         array.Guid = TestData.CreateGuid(10);
         Assert.IsTrue(array.Make(Shape.MakeFlags.None));

@@ -137,7 +137,7 @@ public class BooleanTests
         boolOp.Guid = TestData.CreateGuid(10);
         Assert.IsTrue(boolOp.Make(Shape.MakeFlags.None));
 
-        AssertHelper.HasValidSubshapeReferences(boolOp, allowedIndexBased: 13);
+        AssertHelper.HasValidSubshapeReferences(boolOp, allowedIndexBased: 14);
     }
 
     //--------------------------------------------------------------------------------------------------

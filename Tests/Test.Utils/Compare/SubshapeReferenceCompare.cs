@@ -15,40 +15,50 @@ public static class SubshapeReferenceCompare
     /// not a raw index into the shape's own subshape list, and that resolves
     /// back to a valid subshape.
     /// </summary>
-    public static bool CheckReferences(Shape shape, bool allowSelfReferencing, out int indexBasedReferences)
+    public static bool CheckReferences(Shape shape, bool allowSelfReferencing, bool allowNonInterned, out int indexBasedReferences)
     {
         var brep = shape.GetBRep();
         Assert.That(brep, Is.Not.Null, "Shape has no BRep");
 
         indexBasedReferences = 0;
-        bool result = _CheckReferences(shape, brep.Faces().Select(shape.GetSubshapeReference), allowSelfReferencing, ref indexBasedReferences);
-        result &= _CheckReferences(shape, brep.Edges().Select(shape.GetSubshapeReference), allowSelfReferencing, ref indexBasedReferences);
+        bool result = _CheckReferences(shape, brep.Faces().Select(shape.GetSubshapeReference), allowSelfReferencing, allowNonInterned, ref indexBasedReferences);
+        result &= _CheckReferences(shape, brep.Edges().Select(shape.GetSubshapeReference), allowSelfReferencing, allowNonInterned, ref indexBasedReferences);
 
         return result;
     }
 
     //--------------------------------------------------------------------------------------------------
 
-    static bool _CheckReferences(Shape shape, IEnumerable<SubshapeReference> references, bool allowSelfReferencing, ref int indexBasedReferences)
+    static bool _CheckReferences(Shape shape, IEnumerable<SubshapeReference> references, bool allowSelfReferencing, bool allowNonInterned,ref int indexBasedReferences)
     {
         bool result = true;
         var referenceList = references.ToList();
 
-        // Check for duplicates
-        var duplicates = referenceList.GroupBy(r => r.ToString()).Where(g => g.Count() > 1).ToList();
-        foreach (var duplicateGroup in duplicates)
-        {
-            TestContext.WriteLine($"Duplicate reference found: {duplicateGroup.Key} (count: {duplicateGroup.Count()})");
-            result = false;
-        }
-
         foreach (var reference in referenceList)
         {
+            if(referenceList.Count(r => r.Equals(reference)) > 1)
+            {
+                TestContext.WriteLine($"Duplicate reference found: {reference})");
+                result = false;
+            }
+
             if (reference.Name.IsNullOrEmpty() && reference.Sources == null)
             {
                 TestContext.WriteLine($"Raw index reference found: {reference}");
                 indexBasedReferences++;
             }
+            else
+            {
+                if (!allowNonInterned && shape != null && shape.Guid.Equals(reference.ShapeId))
+                {
+                    if (!ReferenceEquals(reference.Name, string.IsInterned(reference.Name)))
+                    {
+                        TestContext.WriteLine($"Name not interned: {reference}");
+                        result = false;
+                    }
+                }
+            }
+
             if (reference.Sources != null)
             {
                 if (reference.Sources.Length == 0)
@@ -59,15 +69,18 @@ public static class SubshapeReferenceCompare
                 else
                 {
                     // Check for duplicates
-                    foreach (var duplicateSource in reference.Sources.GroupBy(r => r.ToString()).Where(g => g.Count() > 1))
+                    foreach (var source in reference.Sources)
                     {
-                        TestContext.WriteLine($"Duplicate sources found: {reference})");
-                        result = false;
+                        if (reference.Sources.Count(r => r.Equals(reference)) > 1)
+                        {
+                            TestContext.WriteLine($"Duplicate sources found: {reference} - Source: {source})");
+                            result = false;
+                        }
                     }
 
                     // We do not check the sources themselves, we only check that they exist.
                     int indexBasedSourceReferences = 0;
-                    result &= _CheckReferences(null, reference.Sources, allowSelfReferencing, ref indexBasedSourceReferences);
+                    result &= _CheckReferences(null, reference.Sources, allowSelfReferencing, allowNonInterned, ref indexBasedSourceReferences);
                 }
             }
 

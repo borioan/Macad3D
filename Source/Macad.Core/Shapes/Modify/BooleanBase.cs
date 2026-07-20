@@ -72,7 +72,7 @@ public abstract class BooleanBase : ModifierBase
         shapeListCombined.AddRange(shapeListTools.ToList());
         shapeListCombined.ForEach(shape => UpdateModifiedSubshapes(shape, history));
 
-        SubshapeReferenceUtils.CreateSubshapeNames("Boolean", shapeListCombined, [new(0, algo)], AddNamedSubshape);
+        SubshapeReferenceUtils.CreateSubshapeNames("Boolean", shapeListCombined, [new(1, algo)], AddNamedSubshape);
         BRep = resultShape;
         
         return base.MakeInternal(flags);

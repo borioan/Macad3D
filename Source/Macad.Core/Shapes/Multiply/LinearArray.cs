@@ -109,7 +109,7 @@ public sealed class LinearArray : ModifierBase
             if (_Quantity1 != value && value > 0)
             {
                 SaveUndo();
-                _Quantity1 = value;
+                _Quantity1 = Math.Min(value, 0xfff);
                 Invalidate();
                 RaisePropertyChanged();
             }
@@ -181,7 +181,7 @@ public sealed class LinearArray : ModifierBase
             if (_Quantity2 != value && value > 0)
             {
                 SaveUndo();
-                _Quantity2 = value;
+                _Quantity2 = Math.Min(value, 0xfff);
                 Invalidate();
                 RaisePropertyChanged();
             }
@@ -430,7 +430,7 @@ public sealed class LinearArray : ModifierBase
         {
             var history = histories[index];
             var (index1, index2) = indices[index];
-            SubshapeReferenceUtils.CreateSubshapeNames($"Copy{index1}_{index2}", [sourceBRep], [new(0, history)], AddNamedSubshape);
+            SubshapeReferenceUtils.CreateSubshapeNames("Copy", [sourceBRep], [new(index2 << 12 | index1, history)], AddNamedSubshape);
             UpdateModifiedSubshapes(sourceBRep, history);
         }
 
@@ -526,7 +526,7 @@ public sealed class LinearArray : ModifierBase
                 builder.Add(resultShape, makeTransform.Shape());
 
                 BRepTools_History history = new(resultShape, makeTransform);
-                SubshapeReferenceUtils.CreateSubshapeNames($"Copy{index1}_{index2}", [sourceBRep], [new(0, history)], AddNamedSubshape);
+                SubshapeReferenceUtils.CreateSubshapeNames("Copy", [sourceBRep], [new(index2 << 12 | index1, history)], AddNamedSubshape);
                 UpdateModifiedSubshapes(sourceBRep, history);
             }
         }

@@ -563,7 +563,7 @@ public abstract class ModifierBase : Shape
                 SubshapeReference[] sources = namedSubshape.Sources.Select(shape => !shape.IsSame(ocSubshape) ? GetSubshapeReference(shape) : null)
                                                                    .WhereNotNull()
                                                                    .ToArray();
-                if (sources.Length > 0)
+                if (sources.Length == namedSubshape.Sources.Length)
                 {
                     return new(type, Guid, namedSubshape.Name, namedSubshape.Index, sources);
                 }
@@ -577,8 +577,9 @@ public abstract class ModifierBase : Shape
 
         // Do we have modified this shape?
         // Only redirect if the shape wasn't splitted and there is no ambiguity.
+        var ocShapeType = ocSubshape.ShapeType();
         var modList = _ModifiedShapes.Where(kvp => kvp.Value.Any(s => s.IsSame(ocSubshape))).ToArray();
-        if (modList.Length == 1 && modList[0].Value.Count == 1)
+        if (modList.Length == 1 && modList[0].Value.Count(shape => shape.ShapeType() == ocShapeType) == 1)
         {
             ocSubshape = modList[0].Key;
         }
