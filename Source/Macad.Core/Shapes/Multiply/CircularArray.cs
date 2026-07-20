@@ -325,6 +325,7 @@ public sealed class CircularArray : ModifierBase
         var builder = new TopoDS_Builder();
         builder.MakeCompound(resultShape);
 
+        bool hasUntransformed = false;
         for (var index = 0; index < Quantity; index++)
         {
             var angle = (interval * index + offset).ToRad();
@@ -332,6 +333,7 @@ public sealed class CircularArray : ModifierBase
             {
                 // No rotation, take original shape
                 builder.Add(resultShape, sourceBRep);
+                hasUntransformed = true;
                 continue;
             }
 
@@ -361,6 +363,12 @@ public sealed class CircularArray : ModifierBase
             SubshapeReferenceUtils.CreateSubshapeNames("Copy", [sourceBRep], [new(index, history)], AddNamedSubshape);
             UpdateModifiedSubshapes(sourceBRep, history);
         }
+
+        // The untransformed instance is the source added as-is; map its subshapes to themselves so
+        // forward resolution includes it, not only the transformed copies. After the loop, so the
+        // transformed mappings exist first (see AddUnmodifiedSubshapes).
+        if (hasUntransformed)
+            AddUnmodifiedSubshapes(sourceBRep);
 
         // Finalize
         BRep = resultShape;

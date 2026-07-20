@@ -495,6 +495,7 @@ public sealed class LinearArray : ModifierBase
         var builder = new TopoDS_Builder();
         builder.MakeCompound(resultShape);
 
+        bool hasUntransformed = false;
         for (var index1 = 0; index1 < Quantity1; index1++)
         {
             for (var index2 = 0; index2 < Quantity2; index2++)
@@ -510,6 +511,7 @@ public sealed class LinearArray : ModifierBase
                 {
                     // No translation, take original shape
                     builder.Add(resultShape, sourceBRep);
+                    hasUntransformed = true;
                     continue;
 
                 }
@@ -530,6 +532,12 @@ public sealed class LinearArray : ModifierBase
                 UpdateModifiedSubshapes(sourceBRep, history);
             }
         }
+
+        // The untransformed instance is the source added as-is; map its subshapes to themselves so
+        // forward resolution includes it, not only the transformed copies. After the loop, so the
+        // transformed mappings exist first (see AddUnmodifiedSubshapes).
+        if (hasUntransformed)
+            AddUnmodifiedSubshapes(sourceBRep);
 
         // Finalize
         BRep = resultShape;
